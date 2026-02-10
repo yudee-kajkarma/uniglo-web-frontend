@@ -2,11 +2,10 @@ import { ApiErrorResponse } from "@/services/authServices";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { toast } from "sonner";
 
-const BASE_URL = process.env.NEXT_API_BASE_URL || "http://localhost:5000/api";
+const BASE_URL =
+    process.env.NEXT_PUBLIC_API_BASE_URL || "http://localhost:5000/api";
 
 const apiClient = axios.create({
-    // The base URL of your backend
-    // baseURL: "https://uniglow-service-dev.onrender.com/api",
     baseURL: BASE_URL,
     // timeout: 40000, // 10 seconds timeout
     withCredentials: true,
