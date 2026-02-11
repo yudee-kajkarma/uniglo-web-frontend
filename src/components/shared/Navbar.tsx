@@ -206,7 +206,7 @@ export default function Navbar() {
                                 </Link>
                             </div>
                             {/* Right Actions */}
-                            <div className="hidden md:flex gap-3 w-1/3 justify-end">
+                            <div className="hidden md:flex gap-3 lg:w-1/3 max-w-1/3 justify-end">
                                 {loading ? (
                                     <>
                                         <div className="h-10 w-32 bg-gray-200/50 animate-pulse " />

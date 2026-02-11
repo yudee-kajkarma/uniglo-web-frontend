@@ -1,7 +1,7 @@
 "use client";
 
 import BannerSection from "@/components/shared/BannerSection";
-import BannerImage from "@/../public/uniglow-family/uniglo2.jpeg";
+import BannerImage from "@/../public/uniglow-family/uniglo2.jpg";
 // import BannerImage from "@/assets/services/the-best-price-for-your-diamonds/bannerNew.jpeg";
 import React from "react";
 import ArticleLayout from "@/components/shared/ArticleLayout";
