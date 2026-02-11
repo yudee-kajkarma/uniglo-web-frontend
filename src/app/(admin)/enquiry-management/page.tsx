@@ -17,6 +17,8 @@ import {
     Send,
     Loader2,
     ClockIcon,
+    Search,
+    X,
 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -577,6 +579,8 @@ export default function EnquiryManagementPage() {
     const [queries, setQueries] = useState<AdminQueriesData[]>([]);
     const [loading, setLoading] = useState(true);
     const [queriesLoading, setQueriesLoading] = useState(true);
+    const [searchInput, setSearchInput] = useState("");
+    const [activeSearch, setActiveSearch] = useState("");
     const [pagination, setPagination] = useState({
         currentPage: 1,
         totalPages: 1,
@@ -599,13 +603,28 @@ export default function EnquiryManagementPage() {
         }
     };
 
-    const fetchData = async (page: number) => {
+    const fetchData = async (page: number, stockRef?: string) => {
         try {
             setLoading(true);
-            const response = await getAllCarts({ page, limit: 10 });
+            const response = await getAllCarts({
+                page,
+                limit: 10,
+                stockRef: stockRef || undefined,
+            });
             if (response.success) {
                 setCarts(response.data);
                 setPagination(response.pagination);
+
+                // Show info message if search is active
+                if (stockRef && response.data.length === 0) {
+                    toast.info(
+                        `No results found for stock reference: ${stockRef}`,
+                    );
+                } else if (stockRef && response.data.length > 0) {
+                    toast.success(
+                        `Found ${response.data.length} customer(s) with stock reference: ${stockRef}`,
+                    );
+                }
             }
         } catch (error) {
             console.error("Failed to fetch carts:", error);
@@ -616,13 +635,37 @@ export default function EnquiryManagementPage() {
     };
 
     useEffect(() => {
-        fetchData(pagination.currentPage);
-        fetchQueries();
-    }, [pagination.currentPage]);
+        fetchData(pagination.currentPage, activeSearch);
+        if (!activeSearch) {
+            fetchQueries();
+        }
+    }, [pagination.currentPage, activeSearch]);
 
     const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= pagination.totalPages) {
             setPagination((prev) => ({ ...prev, currentPage: newPage }));
+        }
+    };
+
+    const handleSearch = () => {
+        const trimmedSearch = searchInput.trim();
+        if (!trimmedSearch) {
+            toast.error("Please enter a stock reference to search");
+            return;
+        }
+        setActiveSearch(trimmedSearch);
+        setPagination((prev) => ({ ...prev, currentPage: 1 }));
+    };
+
+    const handleClearSearch = () => {
+        setSearchInput("");
+        setActiveSearch("");
+        setPagination((prev) => ({ ...prev, currentPage: 1 }));
+    };
+
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            handleSearch();
         }
     };
 
@@ -631,7 +674,7 @@ export default function EnquiryManagementPage() {
     };
 
     const handleExtendHoldSuccess = () => {
-        fetchData(pagination.currentPage);
+        fetchData(pagination.currentPage, activeSearch);
     };
 
     // Calculate stats
@@ -676,7 +719,11 @@ export default function EnquiryManagementPage() {
                             ? `0${totalEnquiries}`
                             : totalEnquiries
                     }
-                    desc="All customer queries received"
+                    desc={
+                        activeSearch
+                            ? "Matching search results"
+                            : "All customer queries received"
+                    }
                     icon={HelpCircle}
                 />
                 <StatCard
@@ -703,6 +750,77 @@ export default function EnquiryManagementPage() {
                     desc="Awaiting your response"
                     icon={XCircle}
                 />
+            </div>
+
+            {/* Search Box */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <div className="flex-1 relative">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
+                        <input
+                            type="text"
+                            placeholder="Search by Stock Reference (e.g., CS20627)"
+                            value={searchInput}
+                            onChange={(e) =>
+                                setSearchInput(e.target.value.toUpperCase())
+                            }
+                            onKeyPress={handleKeyPress}
+                            className="w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-purple focus:border-transparent text-sm transition-all"
+                            disabled={loading}
+                        />
+                        {searchInput && (
+                            <button
+                                onClick={() => setSearchInput("")}
+                                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                                disabled={loading}
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        )}
+                    </div>
+                    <div className="flex gap-2">
+                        <Button
+                            onClick={handleSearch}
+                            disabled={!searchInput.trim() || loading}
+                            className="bg-primary-purple hover:bg-primary-purple/90 text-white px-6 transition-all"
+                        >
+                            <Search className="w-4 h-4 mr-2" />
+                            Search
+                        </Button>
+                        {activeSearch && (
+                            <Button
+                                onClick={handleClearSearch}
+                                variant="outline"
+                                disabled={loading}
+                                className="border-gray-300 hover:bg-gray-50 transition-all"
+                            >
+                                <X className="w-4 h-4 mr-2" />
+                                Clear
+                            </Button>
+                        )}
+                    </div>
+                </div>
+
+                {/* Active Search Indicator */}
+                {activeSearch && (
+                    <div className="mt-3 flex items-center justify-between p-3 bg-primary-purple/5 rounded-lg border border-primary-purple/20">
+                        <div className="flex items-center gap-2">
+                            <Search className="w-4 h-4 text-primary-purple" />
+                            <span className="text-sm text-gray-700">
+                                Showing results for:
+                            </span>
+                            <span className="px-3 py-1 bg-primary-purple text-white rounded-full text-sm font-medium">
+                                {activeSearch}
+                            </span>
+                        </div>
+                        <button
+                            onClick={handleClearSearch}
+                            className="text-sm text-primary-purple hover:text-primary-purple/80 font-medium underline transition-colors"
+                        >
+                            View all customers
+                        </button>
+                    </div>
+                )}
             </div>
 
             {/* Main Table Container */}
@@ -783,9 +901,38 @@ export default function EnquiryManagementPage() {
                                 <tr>
                                     <td
                                         colSpan={10}
-                                        className="px-6 py-12 text-center text-gray-500"
+                                        className="px-6 py-12 text-center"
                                     >
-                                        No enquiries found.
+                                        {activeSearch ? (
+                                            <div className="flex flex-col items-center gap-3">
+                                                <Search className="w-12 h-12 text-gray-400" />
+                                                <div>
+                                                    <p className="text-gray-900 font-medium mb-1">
+                                                        No results found
+                                                    </p>
+                                                    <p className="text-gray-500 text-sm">
+                                                        No customer has diamond
+                                                        with stock reference "
+                                                        {activeSearch}" in their
+                                                        cart or hold
+                                                    </p>
+                                                </div>
+                                                <Button
+                                                    onClick={handleClearSearch}
+                                                    variant="outline"
+                                                    className="mt-2"
+                                                >
+                                                    View all customers
+                                                </Button>
+                                            </div>
+                                        ) : (
+                                            <div className="flex flex-col items-center gap-2">
+                                                <FileStack className="w-12 h-12 text-gray-400" />
+                                                <p className="text-gray-500">
+                                                    No enquiries found.
+                                                </p>
+                                            </div>
+                                        )}
                                     </td>
                                 </tr>
                             ) : (
@@ -814,48 +961,52 @@ export default function EnquiryManagementPage() {
                 </div>
 
                 {/* Pagination */}
-                <div className="flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
-                    <button
-                        onClick={() =>
-                            handlePageChange(pagination.currentPage - 1)
-                        }
-                        disabled={pagination.currentPage === 1}
-                        className="p-2 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-gray-600"
-                    >
-                        <ChevronLeft size={16} />
-                    </button>
+                {pagination.totalPages > 0 && (
+                    <div className="flex items-center justify-between px-6 py-4 bg-gray-50 border-t border-gray-200">
+                        <button
+                            onClick={() =>
+                                handlePageChange(pagination.currentPage - 1)
+                            }
+                            disabled={pagination.currentPage === 1 || loading}
+                            className="p-2 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-gray-600 transition-colors"
+                        >
+                            <ChevronLeft size={16} />
+                        </button>
 
-                    <div className="flex items-center gap-1">
-                        {Array.from(
-                            { length: Math.min(5, pagination.totalPages) },
-                            (_, i) => i + 1,
-                        ).map((page) => (
-                            <button
-                                key={page}
-                                onClick={() => handlePageChange(page)}
-                                className={`w-8 h-8 flex items-center justify-center rounded text-sm transition-colors ${
-                                    pagination.currentPage === page
-                                        ? "bg-gray-600 text-white"
-                                        : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-100"
-                                }`}
-                            >
-                                {page}
-                            </button>
-                        ))}
+                        <div className="flex items-center gap-1">
+                            {Array.from(
+                                { length: Math.min(5, pagination.totalPages) },
+                                (_, i) => i + 1,
+                            ).map((page) => (
+                                <button
+                                    key={page}
+                                    onClick={() => handlePageChange(page)}
+                                    disabled={loading}
+                                    className={`w-8 h-8 flex items-center justify-center rounded text-sm transition-colors ${
+                                        pagination.currentPage === page
+                                            ? "bg-gray-600 text-white"
+                                            : "bg-white text-gray-600 border border-gray-200 hover:bg-gray-100 disabled:opacity-50"
+                                    }`}
+                                >
+                                    {page}
+                                </button>
+                            ))}
+                        </div>
+
+                        <button
+                            onClick={() =>
+                                handlePageChange(pagination.currentPage + 1)
+                            }
+                            disabled={
+                                pagination.currentPage ===
+                                    pagination.totalPages || loading
+                            }
+                            className="p-2 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-gray-600 transition-colors"
+                        >
+                            <ChevronRight size={16} />
+                        </button>
                     </div>
-
-                    <button
-                        onClick={() =>
-                            handlePageChange(pagination.currentPage + 1)
-                        }
-                        disabled={
-                            pagination.currentPage === pagination.totalPages
-                        }
-                        className="p-2 rounded hover:bg-gray-200 disabled:opacity-50 disabled:cursor-not-allowed text-gray-600"
-                    >
-                        <ChevronRight size={16} />
-                    </button>
-                </div>
+                )}
             </div>
         </div>
     );

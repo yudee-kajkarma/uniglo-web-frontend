@@ -106,6 +106,7 @@ export interface GetAllCartsResponse {
 export interface GetAllCartsParams {
     page?: number;
     limit?: number;
+    stockRef?: string; // Add this line
 }
 
 export interface GetAllUsersParams {
@@ -161,6 +162,10 @@ export const getAllCarts = async (
     }
     if (params?.limit) {
         queryParams.append("limit", params.limit.toString());
+    }
+    // Add stockRef parameter
+    if (params?.stockRef) {
+        queryParams.append("stockRef", params.stockRef);
     }
 
     const queryString = queryParams.toString();
