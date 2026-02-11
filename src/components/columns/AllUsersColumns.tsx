@@ -139,9 +139,7 @@ export const UserDetailsRow = ({ user }: { user: PendingUser }) => {
                         <DetailItem
                             label="Full Name"
                             value={
-                                user.customerData
-                                    ? `${user.customerData.firstName} ${user.customerData.lastName}`
-                                    : "N/A"
+                                user.contactName ? `${user.contactName}` : "N/A"
                             }
                         />
                         <DetailItem label="Username" value={user.username} />
@@ -150,7 +148,7 @@ export const UserDetailsRow = ({ user }: { user: PendingUser }) => {
                             label="Phone"
                             value={
                                 user.customerData
-                                    ? `${user.customerData.countryCode} ${user.customerData.phoneNumber}`
+                                    ? `${user.customerData?.countryCode ? `${user.customerData.countryCode} ` : ""}${user.customerData.phoneNumber}`
                                     : "N/A"
                             }
                         />
