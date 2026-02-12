@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -24,7 +24,7 @@ import {
     COUNTRIES,
     COUNTRY_CODES,
 } from "@/constants/formOptions";
-import { count } from "console";
+import { State, City } from "country-state-city";
 
 const Page = () => {
     const router = useRouter();
@@ -48,15 +48,63 @@ const Page = () => {
         confirmPassword: "",
     });
 
+    // Get selected country's ISO code
+    const selectedCountryIsoCode = useMemo(() => {
+        const country = COUNTRIES.find((c) => c.value === formData.country);
+        return country?.isoCode || "";
+    }, [formData.country]);
+
+    // Get states for selected country
+    const availableStates = useMemo(() => {
+        if (!selectedCountryIsoCode) return [];
+        return State.getStatesOfCountry(selectedCountryIsoCode).map(
+            (state) => ({
+                value: state.name,
+                label: state.name,
+                isoCode: state.isoCode,
+            }),
+        );
+    }, [selectedCountryIsoCode]);
+
+    // Get cities for selected state
+    const availableCities = useMemo(() => {
+        if (!selectedCountryIsoCode || !formData.state) return [];
+        const state = availableStates.find((s) => s.value === formData.state);
+        if (!state) return [];
+        return City.getCitiesOfState(selectedCountryIsoCode, state.isoCode).map(
+            (city) => ({
+                value: city.name,
+                label: city.name,
+            }),
+        );
+    }, [selectedCountryIsoCode, formData.state, availableStates]);
+
     const handleInputChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
     ) => {
         const { name, value } = e.target;
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
+        setFormData((prev) => {
+            const updated = {
+                ...prev,
+                [name]: value,
+            };
+
+            // Reset state and city when country changes
+            if (name === "country") {
+                updated.state = "";
+                updated.city = "";
+            }
+
+            // Reset city when state changes
+            if (name === "state") {
+                updated.city = "";
+            }
+
+            return updated;
+        });
     };
+
+    // ...existing code... (validateForm and handleSubmit remain the same)
 
     const validateForm = () => {
         if (
@@ -79,14 +127,12 @@ const Page = () => {
             return false;
         }
 
-        // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(formData.email)) {
             toast.error("Please enter a valid email address");
             return false;
         }
 
-        // Phone validation
         const phoneRegex = /^[0-9]{10,15}$/;
         if (!phoneRegex.test(formData.phone.replace(/[\s-]/g, ""))) {
             toast.error("Please enter a valid phone number");
@@ -116,15 +162,13 @@ const Page = () => {
         setIsLoading(true);
 
         try {
-            // Create username from email
-
             const registrationData = {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password,
                 companyName: formData.companyName,
                 contactName: `${formData.firstName} ${formData.lastName}`,
-                currency: "US$", // Default currency
+                currency: "US$",
                 companyGroup: "",
                 firmRegNo: "",
                 defaultTerms: "",
@@ -213,7 +257,7 @@ const Page = () => {
 
     return (
         <div className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-black">
-            {/* Background Image */}
+            {/* ...existing code... */}
             <Image
                 src={backgroundImage}
                 alt="Background"
@@ -222,9 +266,8 @@ const Page = () => {
                 priority
             />
 
-            {/* Main Content */}
             <div className="relative z-10 container mx-auto px-4 flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-32 w-full h-full py-10">
-                {/* Left Side: Diamond & Quote */}
+                {/* ...existing code... (left side remains the same) */}
                 <div className="flex flex-col items-center text-center max-w-lg">
                     <div className="relative w-48 h-48 md:w-72 md:h-72 mb-2">
                         <Image
@@ -242,9 +285,7 @@ const Page = () => {
                     </p>
                 </div>
 
-                {/* Right Side: Register Form */}
                 <div className="w-full max-w-[600px] bg-black/60 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-10 shadow-2xl">
-                    {/* Home Link */}
                     <Link
                         href="/"
                         className="inline-flex items-center text-primary-yellow-1 hover:text-primary-yellow-2 transition-colors mb-6 text-sm font-bold tracking-wide group"
@@ -258,7 +299,7 @@ const Page = () => {
                     </h2>
 
                     <form className="space-y-4" onSubmit={handleSubmit}>
-                        {/* Personal Information */}
+                        {/* ...existing code... (personal information fields remain the same until state field) */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="relative group">
                                 <Input
@@ -356,18 +397,6 @@ const Page = () => {
                                 <Phone className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                             </div>
 
-                            {/* <div className="relative group">
-                                <Input
-                                    type="text"
-                                    name="referCode"
-                                    placeholder="Refer Code (Optional)"
-                                    value={formData.referCode}
-                                    onChange={handleInputChange}
-                                    disabled={isLoading}
-                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 rounded-lg"
-                                />
-                            </div> */}
-
                             <div className="relative group">
                                 <Input
                                     type="text"
@@ -422,7 +451,7 @@ const Page = () => {
                             </div>
                         </div>
 
-                        {/* Business Type */}
+                        {/* Address Fields - Updated with dynamic state/city */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             <div className="relative group">
                                 <Input
@@ -437,31 +466,61 @@ const Page = () => {
                                 />
                                 <MapPin className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                             </div>
-                            <div className="relative group">
-                                <Input
-                                    type="text"
+
+                            <div className="relative">
+                                <select
                                     name="state"
-                                    placeholder="State"
                                     value={formData.state}
                                     onChange={handleInputChange}
                                     required
-                                    disabled={isLoading}
-                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
-                                />
-                                <MapPin className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                                    disabled={
+                                        isLoading || !selectedCountryIsoCode
+                                    }
+                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
+                                >
+                                    <option
+                                        value=""
+                                        className="bg-neutral-800 text-white"
+                                    >
+                                        Select State
+                                    </option>
+                                    {availableStates.map((state) => (
+                                        <option
+                                            key={state.isoCode}
+                                            value={state.value}
+                                            className="bg-neutral-800 text-white"
+                                        >
+                                            {state.label}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
 
-                            <div className="relative group">
-                                <Input
-                                    type="text"
+                            <div className="relative">
+                                <select
                                     name="city"
-                                    placeholder="City"
                                     value={formData.city}
                                     onChange={handleInputChange}
                                     required
-                                    disabled={isLoading}
-                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 rounded-lg"
-                                />
+                                    disabled={isLoading || !formData.state}
+                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
+                                >
+                                    <option
+                                        value=""
+                                        className="bg-neutral-800 text-white"
+                                    >
+                                        Select City
+                                    </option>
+                                    {availableCities.map((city) => (
+                                        <option
+                                            key={city.value}
+                                            value={city.value}
+                                            className="bg-neutral-800 text-white"
+                                        >
+                                            {city.label}
+                                        </option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
 
@@ -496,7 +555,7 @@ const Page = () => {
                                     </option>
                                     {COUNTRIES.map((country) => (
                                         <option
-                                            key={country.value}
+                                            key={country.isoCode}
                                             value={country.value}
                                             className="bg-neutral-800 text-white"
                                         >
@@ -520,7 +579,7 @@ const Page = () => {
                             </div>
                         </div>
 
-                        {/* Password Fields */}
+                        {/* ...existing code... (password fields and submit button remain the same) */}
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div className="relative group">
                                 <Input
@@ -551,7 +610,6 @@ const Page = () => {
                             </div>
                         </div>
 
-                        {/* Submit Button */}
                         <Button
                             type="submit"
                             disabled={isLoading}

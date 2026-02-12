@@ -16,8 +16,8 @@ const page = () => {
             <BannerSection
                 image={BannerImage}
                 text="The best price for your diamond"
-                textClassName="left-10 top-110 text-5xl"
-                imageClassName="h-120 object-cover"
+                textClassName="left-10 top-80 text-5xl"
+                imageClassName="h-90 object-cover"
             />
             {/* Article Section */}
             <section className=" max-w-7xl mx-auto px-10 mt-20">

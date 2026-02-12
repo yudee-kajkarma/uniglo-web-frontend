@@ -60,8 +60,8 @@ const page = () => {
             <BannerSection
                 image={BannerImage}
                 text="Fancy Colored Diamonds"
-                textClassName="left-10 top-110 text-5xl text-white"
-                imageClassName="h-130 object-cover"
+                textClassName="left-10 top-80 text-5xl text-white"
+                imageClassName="h-90 object-cover"
             />
 
             {/* Colored Diamonds Sections */}
