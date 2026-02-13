@@ -453,91 +453,6 @@ const Page = () => {
 
                         {/* Address Fields - Updated with dynamic state/city */}
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="relative group">
-                                <Input
-                                    type="text"
-                                    name="street"
-                                    placeholder="Street"
-                                    value={formData.street}
-                                    onChange={handleInputChange}
-                                    required
-                                    disabled={isLoading}
-                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
-                                />
-                                <MapPin className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
-                            </div>
-
-                            <div className="relative">
-                                <select
-                                    name="state"
-                                    value={formData.state}
-                                    onChange={handleInputChange}
-                                    required
-                                    disabled={
-                                        isLoading || !selectedCountryIsoCode
-                                    }
-                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
-                                >
-                                    <option
-                                        value=""
-                                        className="bg-neutral-800 text-white"
-                                    >
-                                        Select State
-                                    </option>
-                                    {availableStates.map((state) => (
-                                        <option
-                                            key={state.isoCode}
-                                            value={state.value}
-                                            className="bg-neutral-800 text-white"
-                                        >
-                                            {state.label}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="relative">
-                                <select
-                                    name="city"
-                                    value={formData.city}
-                                    onChange={handleInputChange}
-                                    required
-                                    disabled={isLoading || !formData.state}
-                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
-                                >
-                                    <option
-                                        value=""
-                                        className="bg-neutral-800 text-white"
-                                    >
-                                        Select City
-                                    </option>
-                                    {availableCities.map((city) => (
-                                        <option
-                                            key={city.value}
-                                            value={city.value}
-                                            className="bg-neutral-800 text-white"
-                                        >
-                                            {city.label}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div className="relative group">
-                                <Input
-                                    type="text"
-                                    name="zipCode"
-                                    placeholder="Zip Code"
-                                    value={formData.zipCode}
-                                    onChange={handleInputChange}
-                                    required
-                                    disabled={isLoading}
-                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 rounded-lg"
-                                />
-                            </div>
-
                             <div className="relative">
                                 <select
                                     name="country"
@@ -545,7 +460,7 @@ const Page = () => {
                                     onChange={handleInputChange}
                                     required
                                     disabled={isLoading}
-                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg appearance-none cursor-pointer"
+                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer"
                                 >
                                     <option
                                         value=""
@@ -576,6 +491,119 @@ const Page = () => {
                                         <path d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </div>
+                            </div>
+
+                            <div className="relative">
+                                <select
+                                    name="state"
+                                    value={formData.state}
+                                    onChange={handleInputChange}
+                                    required
+                                    disabled={
+                                        isLoading || !selectedCountryIsoCode
+                                    }
+                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
+                                >
+                                    <option
+                                        value=""
+                                        className="bg-neutral-800 text-white"
+                                    >
+                                        Select State
+                                    </option>
+                                    {availableStates.map((state) => (
+                                        <option
+                                            key={state.isoCode}
+                                            value={state.value}
+                                            className="bg-neutral-800 text-white"
+                                        >
+                                            {state.label}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <svg
+                                        className="h-4 w-4 text-gray-400"
+                                        fill="none"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div className="relative">
+                                <select
+                                    name="city"
+                                    value={formData.city}
+                                    onChange={handleInputChange}
+                                    required
+                                    disabled={isLoading || !formData.state}
+                                    className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
+                                >
+                                    <option
+                                        value=""
+                                        className="bg-neutral-800 text-white"
+                                    >
+                                        Select City
+                                    </option>
+                                    {availableCities.map((city) => (
+                                        <option
+                                            key={city.value}
+                                            value={city.value}
+                                            className="bg-neutral-800 text-white"
+                                        >
+                                            {city.label}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <svg
+                                        className="h-4 w-4 text-gray-400"
+                                        fill="none"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth="2"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                    >
+                                        <path d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="relative group">
+                                <Input
+                                    type="text"
+                                    name="street"
+                                    placeholder="Street"
+                                    value={formData.street}
+                                    onChange={handleInputChange}
+                                    required
+                                    disabled={isLoading}
+                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
+                                />
+                                <MapPin className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                            </div>
+
+                            <div className="relative group">
+                                <Input
+                                    type="text"
+                                    name="zipCode"
+                                    placeholder="Zip Code"
+                                    value={formData.zipCode}
+                                    onChange={handleInputChange}
+                                    required
+                                    disabled={isLoading}
+                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 rounded-lg"
+                                />
                             </div>
                         </div>
 

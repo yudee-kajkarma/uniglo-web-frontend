@@ -4,6 +4,26 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 
+// Helper function for safe value rendering with fallback
+function getSafeValue(value: any, fallback: string = "N/A"): string {
+    if (value === undefined || value === null || value === "") {
+        return fallback;
+    }
+    return String(value);
+}
+
+// Helper function for safe concatenation of multiple values
+function getSafeConcatenatedValue(
+    values: (string | undefined | null)[],
+    separator: string = " ",
+    fallback: string = "N/A",
+): string {
+    const filtered = values.filter(
+        (v) => v !== undefined && v !== null && v !== "",
+    );
+    return filtered.length > 0 ? filtered.join(separator) : fallback;
+}
+
 export default function ProfilePage() {
     const { user, loading, isAuthenticated } = useAuth();
     const router = useRouter();
@@ -42,8 +62,11 @@ export default function ProfilePage() {
                         Profile Information
                     </h1>
                     <p className="text-primary-yellow-2 font-lato">
-                        Welcome back, {user.customerData?.firstName}{" "}
-                        {user.customerData?.lastName}
+                        Welcome back,{" "}
+                        {getSafeConcatenatedValue([
+                            user.customerData?.firstName,
+                            user.customerData?.lastName,
+                        ])}
                     </p>
                 </div>
 
@@ -55,15 +78,31 @@ export default function ProfilePage() {
                             Account Information
                         </h2>
                         <div className="space-y-3 font-lato">
-                            <InfoRow label="Username" value={user.username} />
-                            <InfoRow label="Email" value={user.email} />
-                            <InfoRow label="Status" value={user.status} />
-                            <InfoRow label="Role" value={user.role} />
+                            <InfoRow
+                                label="Username"
+                                value={getSafeValue(user.username)}
+                            />
+                            <InfoRow
+                                label="Email"
+                                value={getSafeValue(user.email)}
+                            />
+                            <InfoRow
+                                label="Status"
+                                value={getSafeValue(user.status)}
+                            />
+                            <InfoRow
+                                label="Role"
+                                value={getSafeValue(user.role)}
+                            />
                             <InfoRow
                                 label="Member Since"
-                                value={new Date(
-                                    user.createdAt,
-                                ).toLocaleDateString()}
+                                value={
+                                    user.createdAt
+                                        ? new Date(
+                                              user.createdAt,
+                                          ).toLocaleDateString()
+                                        : "N/A"
+                                }
                             />
                         </div>
                     </div>
@@ -76,36 +115,48 @@ export default function ProfilePage() {
                         <div className="space-y-3 font-lato">
                             <InfoRow
                                 label="Company Name"
-                                value={user.companyName}
+                                value={getSafeValue(user.companyName)}
                             />
                             <InfoRow
                                 label="Contact Name"
-                                value={user.contactName}
+                                value={getSafeValue(user.contactName)}
                             />
-                            <InfoRow label="Currency" value={user.currency} />
+                            <InfoRow
+                                label="Currency"
+                                value={getSafeValue(user.currency)}
+                            />
                             <InfoRow
                                 label="Company Group"
-                                value={user.companyGroup}
+                                value={getSafeValue(user.companyGroup)}
                             />
                             <InfoRow
                                 label="Firm Reg No"
-                                value={user.firmRegNo}
+                                value={getSafeValue(user.firmRegNo)}
                             />
                             <InfoRow
                                 label="Default Terms"
-                                value={user.defaultTerms}
+                                value={getSafeValue(user.defaultTerms)}
                             />
                             <InfoRow
                                 label="Credit Limit"
-                                value={`${user.currency} ${user.creditLimit}`}
+                                value={
+                                    user.currency && user.creditLimit
+                                        ? `${user.currency} ${user.creditLimit}`
+                                        : "N/A"
+                                }
                             />
                             <InfoRow
                                 label="Annual Target"
-                                value={`${user.currency} ${user.annualTarget}`}
+                                value={
+                                    user.currency && user.annualTarget
+                                        ? `${user.currency} ${user.annualTarget}`
+                                        : "N/A"
+                                }
                             />
-                            {user.remarks && (
-                                <InfoRow label="Remarks" value={user.remarks} />
-                            )}
+                            <InfoRow
+                                label="Remarks"
+                                value={getSafeValue(user.remarks)}
+                            />
                         </div>
                     </div>
 
@@ -117,19 +168,36 @@ export default function ProfilePage() {
                         <div className="space-y-3 font-lato">
                             <InfoRow
                                 label="Name"
-                                value={`${user.customerData?.firstName} ${user.customerData?.lastName}`}
+                                value={getSafeConcatenatedValue([
+                                    user.customerData?.firstName,
+                                    user.customerData?.lastName,
+                                ])}
                             />
                             <InfoRow
                                 label="Phone"
-                                value={`${user.customerData?.countryCode} ${user.customerData?.phoneNumber}`}
+                                value={getSafeConcatenatedValue([
+                                    user.customerData?.countryCode,
+                                    user.customerData?.phoneNumber,
+                                ])}
                             />
                             <InfoRow
                                 label="Landline"
-                                value={user.customerData?.landlineNumber}
+                                value={getSafeValue(
+                                    user.customerData?.landlineNumber,
+                                )}
                             />
                             <InfoRow
                                 label="Address"
-                                value={`${user.customerData?.address?.street}, ${user.customerData?.address?.city}, ${user.customerData?.address?.state} ${user.customerData?.address?.postalCode}, ${user.customerData?.address?.country}`}
+                                value={getSafeConcatenatedValue(
+                                    [
+                                        user.customerData?.address?.street,
+                                        user.customerData?.address?.city,
+                                        user.customerData?.address?.state,
+                                        user.customerData?.address?.postalCode,
+                                        user.customerData?.address?.country,
+                                    ],
+                                    ", ",
+                                )}
                             />
                         </div>
                     </div>
@@ -142,22 +210,22 @@ export default function ProfilePage() {
                         <div className="space-y-3 font-lato">
                             <InfoRow
                                 label="Business Type"
-                                value={
+                                value={getSafeValue(
                                     user.customerData?.businessInfo
-                                        ?.businessType
-                                }
+                                        ?.businessType,
+                                )}
                             />
                             <InfoRow
                                 label="VAT Number"
-                                value={
-                                    user.customerData?.businessInfo?.vatNumber
-                                }
+                                value={getSafeValue(
+                                    user.customerData?.businessInfo?.vatNumber,
+                                )}
                             />
                             <InfoRow
                                 label="Website"
-                                value={
-                                    user.customerData?.businessInfo?.websiteUrl
-                                }
+                                value={getSafeValue(
+                                    user.customerData?.businessInfo?.websiteUrl,
+                                )}
                                 isLink
                             />
                         </div>
@@ -171,35 +239,49 @@ export default function ProfilePage() {
                         <div className="space-y-3 font-lato">
                             <InfoRow
                                 label="Contact Name"
-                                value={user.contactDetail?.contactName}
+                                value={getSafeValue(
+                                    user.contactDetail?.contactName,
+                                )}
                             />
                             <InfoRow
                                 label="Designation"
-                                value={user.contactDetail?.designation}
+                                value={getSafeValue(
+                                    user.contactDetail?.designation,
+                                )}
                             />
                             <InfoRow
                                 label="Business Tel 1"
-                                value={user.contactDetail?.businessTel1}
+                                value={getSafeValue(
+                                    user.contactDetail?.businessTel1,
+                                )}
                             />
                             <InfoRow
                                 label="Business Tel 2"
-                                value={user.contactDetail?.businessTel2}
+                                value={getSafeValue(
+                                    user.contactDetail?.businessTel2,
+                                )}
                             />
                             <InfoRow
                                 label="Business Fax"
-                                value={user.contactDetail?.businessFax}
+                                value={getSafeValue(
+                                    user.contactDetail?.businessFax,
+                                )}
                             />
                             <InfoRow
                                 label="Mobile"
-                                value={user.contactDetail?.mobileNo}
+                                value={getSafeValue(
+                                    user.contactDetail?.mobileNo,
+                                )}
                             />
                             <InfoRow
                                 label="Personal"
-                                value={user.contactDetail?.personalNo}
+                                value={getSafeValue(
+                                    user.contactDetail?.personalNo,
+                                )}
                             />
                             <InfoRow
                                 label="Email"
-                                value={user.contactDetail?.email}
+                                value={getSafeValue(user.contactDetail?.email)}
                             />
                         </div>
                     </div>
@@ -213,19 +295,34 @@ export default function ProfilePage() {
                             <div className="space-y-3 font-lato">
                                 <InfoRow
                                     label="Print Name"
-                                    value={defaultBillingAddress.printName}
+                                    value={getSafeValue(
+                                        defaultBillingAddress.printName,
+                                    )}
                                 />
                                 <InfoRow
                                     label="Address"
-                                    value={`${defaultBillingAddress.street}, ${defaultBillingAddress.city}, ${defaultBillingAddress.state} ${defaultBillingAddress.zipCode}, ${defaultBillingAddress.country}`}
+                                    value={getSafeConcatenatedValue(
+                                        [
+                                            defaultBillingAddress.street,
+                                            defaultBillingAddress.city,
+                                            defaultBillingAddress.state,
+                                            defaultBillingAddress.zipCode,
+                                            defaultBillingAddress.country,
+                                        ],
+                                        ", ",
+                                    )}
                                 />
                                 <InfoRow
                                     label="VAT No"
-                                    value={defaultBillingAddress.vat_No}
+                                    value={getSafeValue(
+                                        defaultBillingAddress.vat_No,
+                                    )}
                                 />
                                 <InfoRow
                                     label="GSTN No"
-                                    value={defaultBillingAddress.gstn_No}
+                                    value={getSafeValue(
+                                        defaultBillingAddress.gstn_No,
+                                    )}
                                 />
                             </div>
                         </div>
@@ -240,19 +337,34 @@ export default function ProfilePage() {
                             <div className="space-y-3 font-lato">
                                 <InfoRow
                                     label="Print Name"
-                                    value={defaultShippingAddress.printName}
+                                    value={getSafeValue(
+                                        defaultShippingAddress.printName,
+                                    )}
                                 />
                                 <InfoRow
                                     label="Address"
-                                    value={`${defaultShippingAddress.street}, ${defaultShippingAddress.city}, ${defaultShippingAddress.state} ${defaultShippingAddress.zipCode}, ${defaultShippingAddress.country}`}
+                                    value={getSafeConcatenatedValue(
+                                        [
+                                            defaultShippingAddress.street,
+                                            defaultShippingAddress.city,
+                                            defaultShippingAddress.state,
+                                            defaultShippingAddress.zipCode,
+                                            defaultShippingAddress.country,
+                                        ],
+                                        ", ",
+                                    )}
                                 />
                                 <InfoRow
                                     label="VAT No"
-                                    value={defaultShippingAddress.vat_No}
+                                    value={getSafeValue(
+                                        defaultShippingAddress.vat_No,
+                                    )}
                                 />
                                 <InfoRow
                                     label="GSTN No"
-                                    value={defaultShippingAddress.gstn_No}
+                                    value={getSafeValue(
+                                        defaultShippingAddress.gstn_No,
+                                    )}
                                 />
                             </div>
                         </div>
@@ -263,22 +375,20 @@ export default function ProfilePage() {
     );
 }
 
-// Helper Component
+// Helper Component - Updated to always render with fallback
 function InfoRow({
     label,
     value,
     isLink = false,
 }: {
     label: string;
-    value?: string;
+    value: string;
     isLink?: boolean;
 }) {
-    if (!value) return null;
-
     return (
         <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
             <span className="text-primary-yellow-2 font-medium">{label}:</span>
-            {isLink ? (
+            {isLink && value !== "N/A" ? (
                 <a
                     href={value}
                     target="_blank"
