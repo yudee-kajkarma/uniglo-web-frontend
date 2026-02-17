@@ -4,7 +4,7 @@ import BannerSection from "@/components/shared/BannerSection";
 import React from "react";
 import bannerImage from "@/assets/sell-your-diamonds/banner.png";
 import sellyourdiamondsImage from "@/assets/sell-your-diamonds/img1_compressed.jpeg";
-import adviceImage from "@/assets/sell-your-diamonds/img2.jpg";
+import adviceImage from "@/assets/sell-your-diamonds/new1.jpeg";
 import benefitImage from "@/assets/sell-your-diamonds/img3.jpg";
 import ReasonImage from "@/assets/sell-your-diamonds/ing4.jpg";
 import { Button } from "@/components/ui/button";
