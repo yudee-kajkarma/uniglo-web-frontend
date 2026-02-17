@@ -71,7 +71,7 @@ const NAV_LINKS = [
             { name: "Old Cut Diamonds", href: "/old-cut-diamonds" },
         ],
     },
-    { name: "Blog", href: "/blogs" },
+    // { name: "Blog", href: "/blogs" },
 ];
 
 const ADMIN_NAV_LINKS = [
