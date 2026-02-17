@@ -112,6 +112,7 @@ export interface GetAllCartsParams {
 export interface GetAllUsersParams {
     page?: number;
     limit?: number;
+    search?: string; // Optional search parameter for filtering users by name, email, or company
 }
 
 export interface GetAllUsersResponse {
@@ -186,7 +187,9 @@ export const getAllUsers = async (
     if (params?.limit) {
         queryParams.append("limit", params.limit.toString());
     }
-
+    if (params?.search) {
+        queryParams.append("search", params.search);
+    }
     const queryString = queryParams.toString();
     const url = `/users${queryString ? `?${queryString}` : ""}`;
 
