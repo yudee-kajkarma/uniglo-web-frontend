@@ -117,7 +117,7 @@ const Page = () => {
             !formData.businessType ||
             !formData.street ||
             !formData.state ||
-            !formData.city ||
+            // !formData.city ||
             !formData.zipCode ||
             !formData.country ||
             !formData.password ||
@@ -133,7 +133,7 @@ const Page = () => {
             return false;
         }
 
-        const phoneRegex = /^[0-9]{10,15}$/;
+        const phoneRegex = /^[0-9]+$/;
         if (!phoneRegex.test(formData.phone.replace(/[\s-]/g, ""))) {
             toast.error("Please enter a valid phone number");
             return false;
@@ -541,7 +541,6 @@ const Page = () => {
                                     name="city"
                                     value={formData.city}
                                     onChange={handleInputChange}
-                                    required
                                     disabled={isLoading || !formData.state}
                                     className="w-full bg-white/10 border border-white/10 text-white focus:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-2.5 pl-4 pr-10 rounded-lg appearance-none cursor-pointer disabled:opacity-50"
                                 >
