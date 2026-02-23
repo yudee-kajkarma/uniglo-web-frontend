@@ -7,6 +7,7 @@ import { Diamond } from "@/interface/diamondInterface";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, X, Gem } from "lucide-react";
 import Image from "next/image";
+import { DiamondImage } from "@/components/shared/DiamondMedia";
 
 // Define the row configuration to ensure alignment
 type RowConfig = {
@@ -15,39 +16,39 @@ type RowConfig = {
     getValue?: (d: Diamond) => string | number | React.ReactNode;
 };
 
-export const DiamondImage = ({
-    src,
-    showdefault,
-}: {
-    src?: string;
-    showdefault?: boolean;
-}) => {
-    const [error, setError] = useState(false);
+// export const DiamondImage = ({
+//     src,
+//     showdefault,
+// }: {
+//     src?: string;
+//     showdefault?: boolean;
+// }) => {
+//     const [error, setError] = useState(false);
 
-    if (!src || error) {
-        if (showdefault) {
-            return (
-                <div className="w-full h-full flex items-center justify-center text-gray-300">
-                    <Gem className="text-gray-500 w-6 " strokeWidth={1.5} />
-                </div>
-            );
-        }
-        return (
-            <div className="w-full h-full flex items-center justify-center text-gray-400">
-                <span className="text-sm font-medium">No Image</span>
-            </div>
-        );
-    }
+//     if (!src || error) {
+//         if (showdefault) {
+//             return (
+//                 <div className="w-full h-full flex items-center justify-center text-gray-300">
+//                     <Gem className="text-gray-500 w-6 " strokeWidth={1.5} />
+//                 </div>
+//             );
+//         }
+//         return (
+//             <div className="w-full h-full flex items-center justify-center text-gray-400">
+//                 <span className="text-sm font-medium">No Image</span>
+//             </div>
+//         );
+//     }
 
-    return (
-        <img
-            src={src}
-            alt="diamond"
-            className="max-h-full max-w-full object-contain mix-blend-multiply p-4"
-            onError={() => setError(true)}
-        />
-    );
-};
+//     return (
+//         <img
+//             src={src}
+//             alt="diamond"
+//             className="max-h-full max-w-full object-contain mix-blend-multiply p-4"
+//             onError={() => setError(true)}
+//         />
+//     );
+// };
 
 function CompareContent() {
     const searchParams = useSearchParams();
@@ -281,7 +282,7 @@ function CompareContent() {
                                 <X className="w-4 h-4 text-gray-500" />
                             </button>
                             <DiamondImage
-                                src={diamond.webLink}
+                                diamond={diamond}
                                 showdefault={false}
                             />
                         </div>

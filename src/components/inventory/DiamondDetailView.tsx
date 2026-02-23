@@ -48,10 +48,10 @@ import {
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
 import Link from "next/link";
-import { DiamondImage } from "@/app/compare/page";
 import SimilarDiamonds from "./SimilarDiamonds";
 import { AdminHoldDialog } from "@/components/admin-hold-dialog";
 import { useAuth } from "@/context/AuthContext";
+import { DiamondImage } from "../shared/DiamondMedia";
 
 interface DiamondDetailViewProps {
     diamondId: string;
@@ -328,18 +328,17 @@ export default function DiamondDetailView({
                     <div className="lg:col-span-5">
                         <div className="aspect-square rounded-lg relative flex items-center justify-center border border-gray-100 group">
                             {activeTab === "IMAGE" &&
-                                (diamond.webLink ? (
-                                    <DiamondImage src={diamond.webLink} />
+                                (diamond ? (
+                                    <DiamondImage
+                                        diamond={diamond}
+                                        showCarousel
+                                    />
                                 ) : (
                                     <DiamondIcon className="w-48 h-48 text-gray-200" />
                                 ))}
                             {activeTab === "VIDEO" &&
-                                (diamond.videoLink ? (
-                                    <iframe
-                                        src={diamond.videoLink}
-                                        className="w-full h-full"
-                                        title="Diamond Video"
-                                    />
+                                (diamond ? (
+                                    <DiamondImage diamond={diamond} showVideo />
                                 ) : (
                                     <div className="text-gray-400">
                                         No Video Available

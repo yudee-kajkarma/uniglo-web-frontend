@@ -146,6 +146,8 @@ export interface Diamond {
     // --- Media ---
     webLink: string; // Image URL
     videoLink: string; // Video URL
+    imageUrls?: string[]; // Array of image URLs
+    videoUrls?: string[]; // Array of video URLs
 
     // --- Pairing ---
     pairStockRef: string;
@@ -326,4 +328,6 @@ export interface PublicDiamond {
     // --- Media ---
     webLink: string;
     videoLink: string;
+    imageUrls?: string[];
+    videoUrls?: string[];
 }

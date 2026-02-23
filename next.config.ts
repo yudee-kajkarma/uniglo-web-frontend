@@ -2,17 +2,21 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     /* config options here */
-    // images: { unoptimized: true },
-    // output: "export",
     images: {
-        // remotePatterns: [
-        //     {
-        //         protocol: "https",
-        //         hostname:
-        //             "uniglow-inventory-management-dev.s3.eu-north-1.amazonaws.com",
-        //         pathname: "/**",
-        //     },
-        // ],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "storageassets.ams3.digitaloceanspaces.com",
+            },
+            {
+                protocol: "https",
+                hostname: "**.diamondservices.co.uk",
+            },
+            {
+                protocol: "https",
+                hostname: "**", // Allow all hosts — replace with specific domains for production
+            },
+        ],
     },
 };
 
