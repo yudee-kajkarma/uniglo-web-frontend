@@ -1,5 +1,5 @@
 import { Diamond, PublicDiamond } from "@/interface/diamondInterface";
-import { Gem, ChevronLeft, ChevronRight, Loader2 } from "lucide-react"; // Added Loader2
+import { Gem, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -16,13 +16,15 @@ export const DiamondImage = ({
 }) => {
     const [error, setError] = useState(false);
     const [videoError, setVideoError] = useState(false);
+    const [videoLinkError, setVideoLinkError] = useState(false);
     const [carouselIndex, setCarouselIndex] = useState(0);
-    const [isLoading, setIsLoading] = useState(true); // Track loading state
+    const [isLoading, setIsLoading] = useState(true);
 
     const imageUrls = diamond?.imageUrls;
     const hasImages = imageUrls && imageUrls.length > 0;
     const hasMultipleImages = imageUrls && imageUrls.length > 1;
     const videoUrl = diamond?.videoUrls?.[0];
+    const videoLink = diamond?.videoLink;
     const webLink = diamond?.webLink;
 
     // Reset loading state when carousel image changes
@@ -38,23 +40,44 @@ export const DiamondImage = ({
             </div>
         ) : null;
 
-    // 1. Show video in iframe if showVideo is true and videoUrl exists
-    if (showVideo && videoUrl && !videoError) {
+    // 1. Show video in iframe if showVideo is true
+    if (showVideo) {
+        // Try videoUrl first, then fallback to videoLink
+        const activeVideoSrc =
+            videoUrl && !videoError
+                ? videoUrl
+                : videoLink && !videoLinkError
+                  ? videoLink
+                  : null;
+
+        if (activeVideoSrc) {
+            return (
+                <div className="relative w-full h-full">
+                    <LoadingOverlay />
+                    <iframe
+                        src={activeVideoSrc}
+                        title="Diamond Video"
+                        className={`w-full h-full border-0 transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
+                        allowFullScreen
+                        loading="lazy"
+                        onLoad={() => setIsLoading(false)}
+                        onError={() => {
+                            if (activeVideoSrc === videoUrl) {
+                                setVideoError(true);
+                            } else {
+                                setVideoLinkError(true);
+                            }
+                            setIsLoading(true);
+                        }}
+                    />
+                </div>
+            );
+        }
+
+        // Both videoUrl and videoLink failed or not present
         return (
-            <div className="relative w-full h-full">
-                <LoadingOverlay />
-                <iframe
-                    src={videoUrl}
-                    title="Diamond Video"
-                    className={`w-full h-full border-0 transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
-                    allowFullScreen
-                    loading="lazy" // Improves initial page load performance
-                    onLoad={() => setIsLoading(false)} // Fires when iframe is ready
-                    onError={() => {
-                        setVideoError(true);
-                        setIsLoading(false);
-                    }}
-                />
+            <div className="w-full h-full flex items-center justify-center text-gray-400">
+                <span className="text-sm font-medium">No Video</span>
             </div>
         );
     }
@@ -68,9 +91,9 @@ export const DiamondImage = ({
                     src={imageUrls[carouselIndex]}
                     alt={`diamond ${carouselIndex + 1}`}
                     fill
-                    sizes="(max-width: 768px) 100vw, 50vw" // Helps Next.js optimize image size
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className={`max-h-full max-w-full object-contain mix-blend-multiply p-4 transition-opacity duration-300 ${isLoading ? "opacity-0" : "opacity-100"}`}
-                    onLoad={() => setIsLoading(false)} // Fires when image is ready
+                    onLoad={() => setIsLoading(false)}
                     onError={() => {
                         setError(true);
                         setIsLoading(false);

@@ -2,50 +2,17 @@
 
 import React, { useEffect, useState } from "react";
 import {
-    getCart,
+    getHoldItems,
     removeFromCart,
     clearCart,
-    holdDiamond,
 } from "@/services/cartService";
 import { CartItem } from "@/interface/diamondInterface";
-import {
-    Trash2,
-    Download,
-    GitCompare,
-    Mail,
-    Loader2,
-    ChevronLeft,
-    ChevronRight,
-    AlertTriangle,
-    Clock,
-} from "lucide-react";
+import { Trash2, GitCompare, Loader2, AlertTriangle } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import {
-    AlertDialog,
-    AlertDialogAction,
-    AlertDialogCancel,
-    AlertDialogContent,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogHeader,
-    AlertDialogMedia,
-    AlertDialogTitle,
-    AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 
-// Helper to calculate total price
-// const calculateTotal = (weight: number, pricePerCts: number) => {
-//     if (!weight || !pricePerCts) return "-";
-//     return (weight * pricePerCts).toLocaleString("en-US", {
-//         style: "currency",
-//         currency: "USD",
-//     });
-// };
-
-// Helper for currency formatting
 const formatCurrency = (value: number) => {
     if (!value) return "-";
     return value.toLocaleString("en-US", {
@@ -54,38 +21,34 @@ const formatCurrency = (value: number) => {
     });
 };
 
-export default function CartPage() {
+export default function HoldDiamondsPage() {
     const router = useRouter();
-    const [cartItems, setCartItems] = useState<CartItem[]>([]);
+    const [holdItems, setHoldItems] = useState<CartItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
     const [error, setError] = useState<string | null>(null);
-    const [removing, setRemoving] = useState(false);
-    const [showClearDialog, setShowClearDialog] = useState(false);
-    const [holdLoading, setHoldLoading] = useState(false);
-    const [showHoldDialog, setShowHoldDialog] = useState(false);
 
-    const fetchCart = async () => {
+    const fetchHoldItems = async () => {
         try {
             setLoading(true);
-            const response = await getCart();
+            const response = await getHoldItems();
             if (response.success) {
-                setCartItems(response.data.cart?.items || []);
+                setHoldItems(response.data.holdItems || []);
             }
         } catch (err: any) {
-            setError(err.message || "Failed to load cart");
+            setError(err.message || err || "Failed to load hold items");
         } finally {
             setLoading(false);
         }
     };
 
     useEffect(() => {
-        fetchCart();
+        fetchHoldItems();
     }, []);
 
     const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.checked) {
-            setSelectedIds(cartItems.map((item) => item.diamond._id));
+            setSelectedIds(holdItems.map((item) => item.diamond._id));
         } else {
             setSelectedIds([]);
         }
@@ -99,48 +62,13 @@ export default function CartPage() {
         }
     };
 
-    const handleRemoveSelected = async () => {
-        if (selectedIds.length === 0) return;
-
-        try {
-            setRemoving(true);
-
-            // Remove all selected items
-            await Promise.all(selectedIds.map((id) => removeFromCart(id)));
-
-            toast.success(`${selectedIds.length} item(s) removed from cart`);
-            setSelectedIds([]);
-            await fetchCart();
-        } catch (err: any) {
-            toast.error(err || "Failed to remove items from cart");
-        } finally {
-            setRemoving(false);
-        }
-    };
-
-    const handleClearCartConfirm = async () => {
-        try {
-            setRemoving(true);
-            await clearCart();
-            toast.success("Cart cleared successfully");
-            setSelectedIds([]);
-            await fetchCart();
-            setShowClearDialog(false);
-        } catch (err: any) {
-            toast.error(err || "Failed to clear cart");
-        } finally {
-            setRemoving(false);
-        }
-    };
-
     const handleCompare = () => {
         if (selectedIds.length < 2) {
             toast.warning("Please select at least 2 diamonds to compare");
             return;
         }
 
-        // Get selected diamonds and create query string
-        const selectedDiamonds = cartItems.filter((item) =>
+        const selectedDiamonds = holdItems.filter((item) =>
             selectedIds.includes(item.diamond._id),
         );
         const queryString = selectedDiamonds
@@ -150,32 +78,8 @@ export default function CartPage() {
         router.push(`/compare?ids=${queryString}`);
     };
 
-    const handleHoldSelected = async () => {
-        if (selectedIds.length === 0) return;
-
-        const selectedStockRefs = cartItems
-            .filter((item) => selectedIds.includes(item.diamond._id))
-            .map((item) => item.diamond.stockRef);
-
-        try {
-            setHoldLoading(true);
-            const response = await holdDiamond(selectedStockRefs);
-            toast.success(
-                response.message ||
-                    `${selectedStockRefs.length} diamond(s) held successfully`,
-            );
-            setShowHoldDialog(false);
-            setSelectedIds([]);
-            await fetchCart();
-        } catch (error: any) {
-            toast.error(error || "Failed to hold diamonds");
-        } finally {
-            setHoldLoading(false);
-        }
-    };
-
     const isAllSelected =
-        cartItems.length > 0 && selectedIds.length === cartItems.length;
+        holdItems.length > 0 && selectedIds.length === holdItems.length;
 
     if (loading) {
         return (
@@ -198,24 +102,12 @@ export default function CartPage() {
         <div className="min-h-screen bg-white p-4 md:p-8 font-lato">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-4xl font-cormorantGaramond font-bold text-[#26062b]">
-                    My Cart
+                    Hold Diamonds
                 </h1>
             </div>
 
             {/* Toolbar */}
             <div className="flex flex-wrap gap-6 mb-6 text-sm text-gray-500 font-medium">
-                <button
-                    className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={selectedIds.length === 0 || removing}
-                    onClick={handleRemoveSelected}
-                >
-                    {removing ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                        <Trash2 className="w-4 h-4" />
-                    )}
-                    <span>Remove from cart</span>
-                </button>
                 <button
                     className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={selectedIds.length < 2}
@@ -227,113 +119,6 @@ export default function CartPage() {
                         {selectedIds.length > 0 && `(${selectedIds.length})`}
                     </span>
                 </button>
-
-                <AlertDialog
-                    open={showHoldDialog}
-                    onOpenChange={setShowHoldDialog}
-                >
-                    <AlertDialogTrigger asChild>
-                        <button
-                            className="flex items-center gap-1 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled={selectedIds.length === 0 || holdLoading}
-                        >
-                            {holdLoading ? (
-                                <Loader2 className="w-4 h-4 animate-spin mr-1" />
-                            ) : (
-                                <Clock className="w-4 h-4 mr-1" />
-                            )}
-                            Hold Diamond
-                            {selectedIds.length > 0
-                                ? ` (${selectedIds.length})`
-                                : ""}
-                        </button>
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogMedia>
-                                <Clock className="text-primary-purple" />
-                            </AlertDialogMedia>
-                            <AlertDialogTitle>
-                                Hold selected diamonds?
-                            </AlertDialogTitle>
-                            <AlertDialogDescription>
-                                This will reserve {selectedIds.length}{" "}
-                                diamond(s) for you temporarily. You can view all
-                                your held diamonds in the hold section.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel disabled={holdLoading}>
-                                Cancel
-                            </AlertDialogCancel>
-                            <AlertDialogAction
-                                onClick={handleHoldSelected}
-                                disabled={holdLoading}
-                                className="rounded-sm"
-                            >
-                                {holdLoading ? (
-                                    <>
-                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                        Holding...
-                                    </>
-                                ) : (
-                                    "Hold Diamond"
-                                )}
-                            </AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
-
-                <AlertDialog
-                    open={showClearDialog}
-                    onOpenChange={setShowClearDialog}
-                >
-                    <AlertDialogTrigger asChild>
-                        <button
-                            className="flex items-center gap-1 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled={cartItems.length === 0 || removing}
-                        >
-                            {removing ? (
-                                <Loader2 className="w-4 h-4 animate-spin mr-1" />
-                            ) : (
-                                <Trash2 className="w-4 h-4 mr-1" />
-                            )}
-                            Clear Cart
-                        </button>
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogMedia>
-                                <AlertTriangle className="text-amber-600" />
-                            </AlertDialogMedia>
-                            <AlertDialogTitle>
-                                Clear entire cart?
-                            </AlertDialogTitle>
-                            <AlertDialogDescription>
-                                This action will remove all items from your
-                                cart. This cannot be undone.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel>Cancel</AlertDialogCancel>
-                            <AlertDialogAction
-                                variant="destructive"
-                                onClick={handleClearCartConfirm}
-                                disabled={removing}
-                                className="rounded-sm "
-                            >
-                                {removing ? (
-                                    <>
-                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                        Clearing...
-                                    </>
-                                ) : (
-                                    "Clear Cart"
-                                )}
-                            </AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
             </div>
 
             {/* Table Container */}
@@ -349,7 +134,7 @@ export default function CartPage() {
                                         className="w-4 h-4 accent-[#bb923a] cursor-pointer"
                                         checked={isAllSelected}
                                         onChange={handleSelectAll}
-                                        disabled={cartItems.length === 0}
+                                        disabled={holdItems.length === 0}
                                     />
                                 </th>
                                 <th className="p-4 text-left">Image</th>
@@ -367,20 +152,20 @@ export default function CartPage() {
                                 <th className="p-4 text-left">Length</th>
                                 <th className="p-4 text-left">Width</th>
                                 <th className="p-4 text-left">Depth</th>
-                                <th className="p-4 text-right">$ Price</th>
+                                <th className="p-4 text-right">$/Total</th>
                             </tr>
                         </thead>
 
                         {/* Table Body */}
                         <tbody className="text-sm text-gray-700">
-                            {cartItems.length === 0 ? (
+                            {holdItems.length === 0 ? (
                                 <tr>
                                     <td
                                         colSpan={17}
                                         className="p-12 text-center text-gray-500"
                                     >
                                         <div className="flex flex-col items-center gap-2">
-                                            <p>Your cart is empty.</p>
+                                            <p>No diamonds on hold.</p>
                                             <Link
                                                 href="/inventory"
                                                 className="text-[#bb923a] underline hover:text-[#26062b]"
@@ -391,7 +176,7 @@ export default function CartPage() {
                                     </td>
                                 </tr>
                             ) : (
-                                cartItems.map((item, index) => {
+                                holdItems.map((item, index) => {
                                     const d = item.diamond;
                                     const isEven = index % 2 === 0;
                                     return (

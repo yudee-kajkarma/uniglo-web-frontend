@@ -23,6 +23,7 @@ import {
     FileStack,
     Shield,
     FormInputIcon,
+    Gem,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -107,6 +108,7 @@ const SUPER_ADMIN_NAV_LINKS = [
 
 const USER_NAV_LINKS = [
     { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
     { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
 ];

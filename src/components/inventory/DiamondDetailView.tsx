@@ -122,7 +122,7 @@ export default function DiamondDetailView({
 
         try {
             setHoldLoading(true);
-            const response = await holdDiamond(diamond.stockRef);
+            const response = await holdDiamond([diamond.stockRef]);
             toast.success(response.message || "Diamond held successfully");
             setShowHoldDialog(false);
         } catch (error: any) {
