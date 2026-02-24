@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/carousel";
 import banner1 from "@/assets/banner1.jpeg";
 import banner2 from "@/assets/banner2.jpeg";
+import banner0 from "@/assets/banner.jpeg";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 import {
@@ -128,6 +129,19 @@ const blogPosts = [
 ];
 
 export default function Home() {
+    // Reusable carousel CTA button
+    function CarouselCTA() {
+        return (
+            <Button
+                className="purple-reveal-btn px-2 py-1 md:px-6 md:py-4 lg:px-10 lg:py-8 font-cormorantGaramond text-xs md:text-base lg:text-xl uppercase"
+                size="lg"
+                asChild
+            >
+                <Link href="/inventory">Browse Inventory</Link>
+            </Button>
+        );
+    }
+
     // 3. ServiceCard component
     function ServiceCard({ icon: Icon, title, description }: any) {
         return (
@@ -188,71 +202,45 @@ export default function Home() {
     return (
         <div className="">
             {/* Hero Section : Carousel */}
-            <section className="w-full mt-[3px] min-h-screen flex items-center justify-center">
+            <section className="w-full mt-[3px] flex items-center justify-center">
                 <Carousel
-                    className="w-full min-h-screen p-0 m-0  border border-white "
+                    className="w-full p-2 md:p-0 m-0 border border-white"
                     plugins={[
                         Autoplay({
                             delay: 3000,
                         }),
                     ]}
                 >
-                    <CarouselContent className="  w-full min-h-screen p-0 m-0">
-                        <CarouselItem className="p-0 m-0  min-h-screen  w-full relative">
+                    <CarouselContent className="w-full p-0 m-0">
+                        <CarouselItem className="p-0 m-0 w-full relative">
+                            <Image
+                                src={banner0}
+                                alt="Description"
+                                className="w-full h-auto md:min-h-screen object-cover rounded-xl"
+                            />
+
+                            <div className="absolute bottom-6 right-4 md:bottom-10 md:right-20 z-20">
+                                <CarouselCTA />
+                            </div>
+                        </CarouselItem>
+                        <CarouselItem className="p-0 m-0 w-full relative">
                             <Image
                                 src={banner1}
                                 alt="Description"
-                                className="w-full  min-h-screen   object-cover "
+                                className="w-full h-auto md:min-h-screen object-cover rounded-xl"
                             />
-                            {/* Phone Number Div - Left */}
-                            {/* <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 z-20">
-                                <div className="border-2 border-white/80 px-4 md:px-6 py-4 md:py-12 flex flex-col items-center justify-center">
-                                    <p className="text-white text-lg font-lora font-semibold leading-tight [writing-mode:vertical-rl] rotate-180 tracking-widest">
-                                        +32 03 500 91 07
-                                    </p>
-                                    <span className="text-[#bb923a] [writing-mode:vertical-rl]  -rotate-50 mt-4">
-                                        <Phone size={24} />
-                                    </span>
-                                </div>
-                            </div> */}
-                            <div className="absolute  bottom-12 md:bottom-10 right-20  z-20">
-                                <Button
-                                    className="purple-reveal-btn px-10 py-8 font-cormorantGaramond text-xl uppercase"
-                                    size="lg"
-                                    asChild
-                                >
-                                    <Link href="/inventory">
-                                        Browse Inventory
-                                    </Link>
-                                </Button>
+                            <div className="absolute bottom-6 right-4 md:bottom-10 md:right-20 z-20">
+                                <CarouselCTA />
                             </div>
                         </CarouselItem>
-                        <CarouselItem className="p-0 m-0  min-h-screen  w-full relative">
+                        <CarouselItem className="p-0 m-0 w-full relative">
                             <Image
                                 src={banner2}
                                 alt="Description"
-                                className="w-full  min-h-screen  object-cover "
+                                className="w-full h-auto md:min-h-screen object-cover rounded-xl"
                             />
-                            {/* <div className="absolute left-6 md:left-10 top-1/2 -translate-y-1/2 z-20">
-                                <div className="border-2 border-white/80 px-4 md:px-6 py-4 md:py-12 flex flex-col items-center justify-center">
-                                    <p className="text-white text-lg font-lora font-semibold leading-tight [writing-mode:vertical-rl] rotate-180 tracking-widest">
-                                        +32 03 500 91 07
-                                    </p>
-                                    <span className="text-[#bb923a] [writing-mode:vertical-rl]  -rotate-50 mt-4">
-                                        <Phone size={24} />
-                                    </span>
-                                </div>
-                            </div> */}
-                            <div className="absolute  bottom-12 md:bottom-20 right-50  z-20">
-                                <Button
-                                    className="purple-reveal-btn px-10 py-7 font-cormorantGaramond text-xl uppercase"
-                                    size="lg"
-                                    asChild
-                                >
-                                    <Link href="/inventory">
-                                        Browse Inventory
-                                    </Link>
-                                </Button>
+                            <div className="absolute bottom-6 right-4 md:bottom-20 md:right-50 z-20">
+                                <CarouselCTA />
                             </div>
                         </CarouselItem>
                     </CarouselContent>
