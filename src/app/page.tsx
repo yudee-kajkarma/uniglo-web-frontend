@@ -24,7 +24,7 @@ import {
 
 import sellDiamond from "@/assets/home/sell_diamonds.jpg";
 import education from "@/assets/home/Education.jpg";
-import diamondGuide from "@/assets/home/diamonds_guide.jpg";
+import diamondGuide from "@/assets/home/blog2.jpeg";
 import blogImage1 from "@/assets/home/blog_1.jpg";
 import blogImage2 from "@/assets/home/blog_2.1.jpg";
 import blogImage3 from "@/assets/home/blog_3.jpg";
@@ -612,7 +612,7 @@ export default function Home() {
                 </div>
             </section>
             {/* Latest News Section */}
-            <section className="bg-[#f3f3f3] py-24 font-cormorantGaramond">
+            {/* <section className="bg-[#f3f3f3] py-24 font-cormorantGaramond">
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="text-center mb-10">
                         <span className="text-primary-yellow-1 text-lg uppercase font-lora tracking-widest">
@@ -623,7 +623,6 @@ export default function Home() {
                         </h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2  gap-8 max-w-7xl mx-auto">
-                        {/* Left Large Card */}
                         <div className="bg-white rounded-md shadow-sm col-span-1 md:col-span-2 lg:col-span-1 flex flex-col">
                             <Image
                                 src={blogPosts[0].image}
@@ -653,9 +652,7 @@ export default function Home() {
                                 </Button>
                             </div>
                         </div>
-                        {/* Right Two Cards */}
                         <div className="flex flex-col gap-8">
-                            {/* Top Card */}
                             <div className="bg-white rounded-md shadow-sm flex flex-row h-1/2">
                                 <Image
                                     src={blogPosts[1].image}
@@ -686,7 +683,6 @@ export default function Home() {
                                     </Button>
                                 </div>
                             </div>
-                            {/* Bottom Card */}
                             <div className="bg-white shadow-sm flex flex-row">
                                 <Image
                                     src={blogPosts[2].image}
@@ -720,7 +716,7 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
         </div>
     );
 }
