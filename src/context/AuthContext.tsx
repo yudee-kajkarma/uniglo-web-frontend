@@ -51,7 +51,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         } catch (error) {
             console.error("Logout failed", error);
         } finally {
-            // Always clear local state even if server request fails
+            // Always clear local state and token even if server request fails
+            localStorage.removeItem("authToken");
             setUser(null);
             // Optional: Redirect to login page
             window.location.href = "/login";
