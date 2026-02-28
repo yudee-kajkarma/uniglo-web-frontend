@@ -21,6 +21,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useAuth } from "@/context/AuthContext";
+import { Badge } from "../ui/badge";
 
 // --- Types & Interfaces ---
 
@@ -59,15 +60,21 @@ interface DiamondFiltersProps {
 
 const SHAPES: { value: DiamondShape; label: string; icon: string }[] = [
     { value: "RD", label: "Round", icon: "/shapes/round-diamond.png" },
-    { value: "PR", label: "Princess", icon: "/shapes/princess-diamond.png" },
+    { value: "PC", label: "Princess", icon: "/shapes/princess-diamond.png" },
     { value: "PS", label: "Pear", icon: "/shapes/pear-diamond.png" },
     { value: "OV", label: "Oval", icon: "/shapes/Oval-Diamond.png" },
     { value: "EM", label: "Emerald", icon: "/shapes/emerald-diamond.png" },
     { value: "MQ", label: "Marquise", icon: "/shapes/marquise-diamond.png" },
     { value: "HT", label: "Heart", icon: "/shapes/heart.png" },
-    { value: "RA", label: "Radiant", icon: "/shapes/radiant-diamond.png" },
-    { value: "AS", label: "Asscher", icon: "/shapes/asscher-diamond.png" },
+    { value: "Asscher", label: "Asscher", icon: "/shapes/asscher-diamond.png" },
     { value: "CU", label: "Cushion", icon: "/shapes/cushion-diamond.png" },
+    {
+        value: "OEB",
+        label: "European",
+        icon: "/shapes/old-european-diamond.png",
+    },
+    { value: "OMB", label: "Old Mine", icon: "/shapes/old-mine-diamond.png" },
+    { value: "Other", label: "Other", icon: "/shapes/radiant-diamond.png" },
 ];
 
 const CARAT_RANGES = [
@@ -356,33 +363,40 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
         ({ variant }: { variant: boolean }) => {
             return (
                 <div
-                    className={`grid ${variant ? "grid-cols-2  sm:grid-cols-4 " : "grid-cols-5"} gap-2`}
+                    className={`grid ${variant ? "grid-cols-2  sm:grid-cols-4 " : "grid-cols-6"} gap-2`}
                 >
                     {SHAPES.map((shape) => (
-                        <button
-                            key={shape.value}
-                            onClick={() =>
-                                toggleFilter(
-                                    filters.shape,
-                                    shape.value,
-                                    "shape",
-                                )
-                            }
-                            className={cn(
-                                "flex cursor-pointer flex-col items-center justify-center p-2 rounded border transition-colors aspect-square",
-                                filters.shape.includes(shape.value)
-                                    ? "bg-[#d4b98c] text-black border-[#d4b98c] font-medium"
-                                    : " border-primary-yellow-2 border",
-                            )}
-                        >
-                            <Image
-                                src={shape.icon}
-                                width={54}
-                                height={54}
-                                alt={shape.label}
-                                className=" aspect-square object-contain "
-                            />
-                        </button>
+                        <TooltipProvider key={shape.value}>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <button
+                                        key={shape.value}
+                                        onClick={() =>
+                                            toggleFilter(
+                                                filters.shape,
+                                                shape.value,
+                                                "shape",
+                                            )
+                                        }
+                                        className={cn(
+                                            "flex cursor-pointer flex-col items-center justify-center p-2 rounded border transition-colors aspect-square group relative",
+                                            filters.shape.includes(shape.value)
+                                                ? "bg-[#d4b98c] text-black border-[#d4b98c] font-medium"
+                                                : " border-primary-yellow-2 border",
+                                        )}
+                                    >
+                                        <Image
+                                            src={shape.icon}
+                                            width={54}
+                                            height={54}
+                                            alt={shape.label}
+                                            className=" aspect-square object-contain "
+                                        />
+                                    </button>
+                                </TooltipTrigger>
+                                <TooltipContent>{shape.label}</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     ))}
                 </div>
             );

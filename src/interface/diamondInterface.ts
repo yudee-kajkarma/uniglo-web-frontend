@@ -2,7 +2,7 @@
 
 export type DiamondShape =
     | "RD" // Round
-    | "PR" // Princess
+    | "PC" // Princess
     | "PS" // Pear
     | "OV" // Oval
     | "EM" // Emerald
@@ -10,7 +10,10 @@ export type DiamondShape =
     | "MQ" // Marquise
     | "RA" // Radiant
     | "HT" // Heart
-    | "AS"; // Asscher
+    | "Asscher" // Asscher
+    | "OEB" // European
+    | "OMB" // Old Mine
+    | "Other"; // Other
 
 export type DiamondColor =
     | "D"
@@ -205,7 +208,7 @@ export interface DiamondParams {
 export const getShapeFullName = (shapeCode: DiamondShape | string): string => {
     const shapeMap: Record<DiamondShape, string> = {
         RD: "Round",
-        PR: "Princess",
+        PC: "Princess",
         PS: "Pear",
         OV: "Oval",
         EM: "Emerald",
@@ -213,7 +216,10 @@ export const getShapeFullName = (shapeCode: DiamondShape | string): string => {
         MQ: "Marquise",
         RA: "Radiant",
         HT: "Heart",
-        AS: "Asscher",
+        Asscher: "Asscher",
+        OEB: "European",
+        OMB: "Old Mine",
+        Other: "Other",
     };
     if (typeof shapeCode === "string" && shapeCode in shapeMap) {
         return shapeMap[shapeCode as DiamondShape];
