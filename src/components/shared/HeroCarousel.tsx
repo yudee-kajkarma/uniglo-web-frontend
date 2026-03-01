@@ -11,7 +11,7 @@ import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 
 import banner0 from "@/assets/banner.jpeg";
-import banner1 from "@/assets/banner1.jpeg";
+import banner1 from "@/assets/banner1.jpg";
 import banner2 from "@/assets/banner2.jpeg";
 
 function CarouselCTA() {

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 // Replace with your actual image paths
 import BannerImage from "@/assets/fancy-colored-diamonds/banner.png";
-import EngagementRingBlog1 from "@/assets/home/blog_1.jpg";
+import EngagementRingBlog1 from "@/assets/home/blog_11.jpg";
 import BuyDiamondsOnlineBlog1 from "@/assets/home/blog_3.jpg";
 import EngagementRingBlog2 from "@/assets/home/blog_2.1.jpg";
 import BuyDiamondsOnlineBlog2 from "@/assets/home/blog_4.jpg";

@@ -5,7 +5,7 @@ import UniglowFamilySection from "@/components/shared/UniglowFamilySection";
 import CertificatesMarqueeSection from "@/components/shared/CertificatesMarqueeSection";
 import Antwerpimage1 from "@/assets/about/antwerp_2.jpg";
 import Antwerpimage2 from "@/assets/about/antwerp_1.jpg";
-import blog1 from "@/assets/home/blog_1.jpg";
+import blog1 from "@/assets/home/blog_11.jpg";
 import blog2 from "@/assets/home/blog_2.1.jpg";
 import blog3 from "@/assets/home/blog_3.jpg";
 import BannerSection from "@/components/shared/BannerSection";

@@ -13,7 +13,7 @@ import {
 
 import sellDiamond from "@/assets/home/sell_diamonds.jpg";
 import education from "@/assets/home/Education.jpg";
-import diamondGuide from "@/assets/home/blog2.jpeg";
+import diamondGuide from "@/assets/home/blog2.jpg";
 import mobileAppMockup from "@/assets/mobile-app.png";
 
 // Client components — only the interactive parts
