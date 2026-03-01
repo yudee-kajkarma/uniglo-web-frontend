@@ -1,16 +1,6 @@
-"use client";
 import Image from "next/image";
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel";
-import banner1 from "@/assets/banner1.jpeg";
-import banner2 from "@/assets/banner2.jpeg";
-import banner0 from "@/assets/banner.jpeg";
-import Autoplay from "embla-carousel-autoplay";
+import Link from "next/link";
+import dynamic from "next/dynamic";
 import { Button } from "@/components/ui/button";
 import {
     Gem,
@@ -19,16 +9,24 @@ import {
     Eye,
     Hammer,
     Package,
-    User,
-    Phone,
 } from "lucide-react";
 
 import sellDiamond from "@/assets/home/sell_diamonds.jpg";
 import education from "@/assets/home/Education.jpg";
 import diamondGuide from "@/assets/home/blog2.jpeg";
-import blogImage1 from "@/assets/home/blog_1.jpg";
-import blogImage2 from "@/assets/home/blog_2.1.jpg";
-import blogImage3 from "@/assets/home/blog_3.jpg";
+import mobileAppMockup from "@/assets/mobile-app.png";
+
+// Client components — only the interactive parts
+import HeroCarousel from "@/components/shared/HeroCarousel";
+
+// Dynamic imports for below-fold heavy components (code-split)
+const CertificatesMarqueeSection = dynamic(
+    () => import("@/components/shared/CertificatesMarqueeSection"),
+    { ssr: true },
+);
+const LazyVideoSection = dynamic(
+    () => import("@/components/shared/LazyVideoSection"),
+);
 
 // 1. Service data array
 const services = [
@@ -60,7 +58,7 @@ const services = [
         icon: ListChecks,
         title: "Sealing",
         description:
-            "Uniglo Diamonds provides secure, professional diamond sealing services to protect, preserve, and enhance your gem’s authenticity and quality.",
+            "Uniglo Diamonds provides secure, professional diamond sealing services to protect, preserve, and enhance your gem's authenticity and quality.",
     },
     {
         icon: Eye,
@@ -82,14 +80,9 @@ const diamondShapes = [
     { name: "Radiant", src: "/shapes/radiant-diamond.png" },
     { name: "Heart", src: "/shapes/heart.png" },
 ];
-import mobileAppMockup from "@/assets/mobile-app.png";
-import UniglowFamilySection from "@/components/shared/UniglowFamilySection";
-import CertificatesMarqueeSection from "@/components/shared/CertificatesMarqueeSection";
-import Link from "next/link";
 
 const pyramidPattern = [4, 3, 2, 1];
 
-// 2. Helper to chunk the data into that pattern
 let currentIndex = 0;
 const rows = pyramidPattern.map((count) => {
     const chunk = diamondShapes.slice(currentIndex, currentIndex + count);
@@ -97,155 +90,81 @@ const rows = pyramidPattern.map((count) => {
     return chunk;
 });
 
-const blogPosts = [
+const infoSections = [
     {
-        image: blogImage1,
-        title: "How to Choose a Diamond Engagement Ring",
+        image: sellDiamond,
+        tag: "SELL YOUR DIAMONDS",
+        title: "Why sell your diamonds to us?",
         description:
-            "Choosing a diamond engagement ring is an exciting and personal experience, but with so many options, it can be overwhelming.",
-        author: "Admin",
-        date: "August 29, 2023",
+            "By quoting you a firm and precise value based on the 4C diamond criteria and market demand, we promise you the very best price for your valuable diamonds. With our ever-growing global customer base, we will always have a strong demand for your diamonds, 365 days a year.",
         button: "LEARN MORE",
-        link: "/choose-diamond-engagement-ring",
+        number: "01",
+        reverse: false,
+        link: "/sell-your-diamonds",
     },
     {
-        image: blogImage2,
-        title: "Best Places to Buy Diamonds Online",
-        description: "Buying diamonds online has become increasingly...",
-        author: "Admin",
-        date: "August 29, 2023",
-        button: "LEARN MORE",
-        link: "/about-us",
-    },
-    {
-        image: blogImage3,
+        image: diamondGuide,
+        tag: "GUIDE",
         title: "Diamond Investment Guide: What You Need to Know Before Investing",
-        description: "Diamonds have long been valued for their beauty...",
-        author: "Admin",
-        date: "August 29, 2023",
+        description:
+            "Diamonds have long been valued for their beauty and rarity, but they are increasingly being considered as an investment option. While diamonds don't provide dividends or interest, like stocks or bonds, they offer value through their inherent scarcity and long-term durability.",
         button: "LEARN MORE",
+        number: "02",
+        reverse: true,
         link: "/investment-diamonds",
+    },
+    {
+        image: education,
+        tag: "EDUCATION",
+        title: "Every Stone Has A Different Story To Tell",
+        description:
+            "Every diamond is a unique miracle of nature, created billions of years ago deep below the Earth's surface by forces beyond our imagination. They are the ultimate symbols of love, emotion, commitment and purity. Like snowflakes, no two are exactly alike.",
+        button: "LEARN MORE",
+        number: "03",
+        reverse: false,
+        link: "/old-cut-diamonds",
     },
 ];
 
-export default function Home() {
-    // Reusable carousel CTA button
-    function CarouselCTA() {
-        return (
-            <Button
-                className="purple-reveal-btn px-2 py-1 md:px-6 md:py-4 lg:px-10 lg:py-8 font-cormorantGaramond text-xs md:text-base lg:text-xl uppercase"
-                size="lg"
-                asChild
-            >
-                <Link href="/inventory">Browse Inventory</Link>
-            </Button>
-        );
-    }
-
-    // 3. ServiceCard component
-    function ServiceCard({ icon: Icon, title, description }: any) {
-        return (
-            <div className="purple-reveal-btn px-8 py-15 flex flex-col items-center justify-center text-center group ">
-                <div className="flex flex-col items-center mb-4">
-                    <Icon
-                        size={40}
-                        strokeWidth={2}
-                        className="text-primary mb-2 group-hover:text-primary-purple"
-                    />
-                </div>
-                <h3 className="text-3xl font-cormorantGaramond text-primary mb-2 group-hover:text-primary-purple">
-                    {title}
-                </h3>
-                <p className="text-slate-200 font-lora text-base max-w-sm group-hover:text-primary-purple">
-                    {description}
-                </p>
+// ServiceCard as a server component (no interactivity needed)
+function ServiceCard({
+    icon: Icon,
+    title,
+    description,
+}: {
+    icon: React.ComponentType<{
+        size?: number;
+        strokeWidth?: number;
+        className?: string;
+    }>;
+    title: string;
+    description: string;
+}) {
+    return (
+        <div className="purple-reveal-btn px-8 py-15 flex flex-col items-center justify-center text-center group ">
+            <div className="flex flex-col items-center mb-4">
+                <Icon
+                    size={40}
+                    strokeWidth={2}
+                    className="text-primary mb-2 group-hover:text-primary-purple"
+                />
             </div>
-        );
-    }
+            <h3 className="text-3xl font-cormorantGaramond text-primary mb-2 group-hover:text-primary-purple">
+                {title}
+            </h3>
+            <p className="text-slate-200 font-lora text-base max-w-sm group-hover:text-primary-purple">
+                {description}
+            </p>
+        </div>
+    );
+}
 
-    const infoSections = [
-        {
-            image: sellDiamond,
-            tag: "SELL YOUR DIAMONDS",
-            title: "Why sell your diamonds to us?",
-            description:
-                "By quoting you a firm and precise value based on the 4C diamond criteria and market demand, we promise you the very best price for your valuable diamonds. With our ever-growing global customer base, we will always have a strong demand for your diamonds, 365 days a year.",
-            button: "LEARN MORE",
-            number: "01",
-            reverse: false,
-            link: "/sell-your-diamonds",
-        },
-        {
-            image: diamondGuide,
-            tag: "GUIDE",
-            title: "Diamond Investment Guide: What You Need to Know Before Investing",
-            description:
-                "Diamonds have long been valued for their beauty and rarity, but they are increasingly being considered as an investment option. While diamonds don’t provide dividends or interest, like stocks or bonds, they offer value through their inherent scarcity and long-term durability.",
-            button: "LEARN MORE",
-            number: "02",
-            reverse: true,
-            link: "/investment-diamonds",
-        },
-        {
-            image: education,
-            tag: "EDUCATION",
-            title: "Every Stone Has A Different Story To Tell",
-            description:
-                "Every diamond is a unique miracle of nature, created billions of years ago deep below the Earth’s surface by forces beyond our imagination. They are the ultimate symbols of love, emotion, commitment and purity. Like snowflakes, no two are exactly alike.",
-            button: "LEARN MORE",
-            number: "03",
-            reverse: false,
-            link: "/old-cut-diamonds",
-        },
-    ];
-
+export default function Home() {
     return (
         <div className="">
-            {/* Hero Section : Carousel */}
-            <section className="w-full mt-[3px] flex items-center justify-center">
-                <Carousel
-                    className="w-full p-2 md:p-0 m-0 border border-white"
-                    plugins={[
-                        Autoplay({
-                            delay: 3000,
-                        }),
-                    ]}
-                >
-                    <CarouselContent className="w-full p-0 m-0">
-                        <CarouselItem className="p-0 m-0 w-full relative">
-                            <Image
-                                src={banner0}
-                                alt="Description"
-                                className="w-full h-auto md:min-h-screen object-cover rounded-xl"
-                            />
+            {/* Hero Section : Carousel (client component island) */}
+            <HeroCarousel />
 
-                            <div className="absolute bottom-6 right-4 md:bottom-10 md:right-20 z-20">
-                                <CarouselCTA />
-                            </div>
-                        </CarouselItem>
-                        <CarouselItem className="p-0 m-0 w-full relative">
-                            <Image
-                                src={banner1}
-                                alt="Description"
-                                className="w-full h-auto md:min-h-screen object-cover rounded-xl"
-                            />
-                            <div className="absolute bottom-6 right-4 md:bottom-10 md:right-20 z-20">
-                                <CarouselCTA />
-                            </div>
-                        </CarouselItem>
-                        <CarouselItem className="p-0 m-0 w-full relative">
-                            <Image
-                                src={banner2}
-                                alt="Description"
-                                className="w-full h-auto md:min-h-screen object-cover rounded-xl"
-                            />
-                            <div className="absolute bottom-6 right-4 md:bottom-20 md:right-50 z-20">
-                                <CarouselCTA />
-                            </div>
-                        </CarouselItem>
-                    </CarouselContent>
-                </Carousel>
-            </section>
             {/* Diamond Showcase Section */}
             <section className="py-20 bg-[#FBFBFB] text-center font-cormorantGaramond">
                 <div className="mb-12 space-y-2">
@@ -266,7 +185,7 @@ export default function Home() {
                     {rows.map((row, rowIndex) => (
                         <div
                             key={rowIndex}
-                            className="flex justify-center gap-x-1 sm:gap-x-12 md:gap-x-30" // Increase gap for spacing
+                            className="flex justify-center gap-x-1 sm:gap-x-12 md:gap-x-30"
                         >
                             {row.map((shape) => (
                                 <div
@@ -306,8 +225,7 @@ export default function Home() {
                     </Button>
                 </div>
             </section>
-            {/* Uniglow Family section */}
-            {/* <UniglowFamilySection /> */}
+
             {/* Uniglow Diamonds App Section */}
             <section className="bg-brand-gradient font-cormorantGaramond ">
                 <div className="container mx-auto flex flex-col justify-center items-center">
@@ -326,7 +244,6 @@ export default function Home() {
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-1 items-center w-full max-w-6xl">
                         {/* 1. Left Column (Features) */}
                         <div className="flex flex-col gap-16 order-2 lg:order-1">
-                            {/* Feature: Diamond Search */}
                             <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-3">
                                 <div className="text-primary">
                                     <Gem strokeWidth={1.5} size={30} />
@@ -335,12 +252,10 @@ export default function Home() {
                                     Diamond Search
                                 </h3>
                                 <p className="text-slate-400 font-lora text-sm max-w-[250px]">
-                                    Browse 1000's of natural & <br /> lab grown
-                                    diamonds.
+                                    Browse 1000&apos;s of natural & <br /> lab
+                                    grown diamonds.
                                 </p>
                             </div>
-
-                            {/* Feature: Easy Filtering */}
                             <div className="flex flex-col items-center lg:items-end text-center lg:text-right space-y-3">
                                 <div className="text-primary">
                                     <SlidersHorizontal
@@ -359,25 +274,22 @@ export default function Home() {
                         </div>
 
                         {/* 2. Center Column (Phone Image) */}
-                        {/* Note: order-1 on mobile puts image on top, order-2 on desktop puts it in center */}
                         <div className="order-1 lg:order-2 flex justify-center relative py-8">
-                            {/* Glow Effect behind phone */}
                             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/10 blur-[80px] rounded-full pointer-events-none" />
-
                             <div className="relative w-[180px] md:w-[220px] h-[480px] md:h-[500px]">
-                                {/* Replace this src with your actual phone screenshot transparent PNG */}
                                 <Image
                                     src={mobileAppMockup}
                                     alt="Uniglo App Interface"
                                     fill
+                                    sizes="(max-width: 768px) 180px, 220px"
                                     className="object-contain drop-shadow-2xl z-10"
+                                    placeholder="blur"
                                 />
                             </div>
                         </div>
 
                         {/* 3. Right Column (Features) */}
                         <div className="flex flex-col gap-16 order-3">
-                            {/* Feature: Enquire */}
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-3">
                                 <div className="text-primary">
                                     <ListChecks strokeWidth={1.5} size={30} />
@@ -390,8 +302,6 @@ export default function Home() {
                                     inquiry.
                                 </p>
                             </div>
-
-                            {/* Feature: 360 View */}
                             <div className="flex flex-col items-center lg:items-start text-center lg:text-left space-y-3">
                                 <div className="text-primary">
                                     <Eye strokeWidth={1.5} size={30} />
@@ -408,6 +318,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
             {/* Journey Section */}
             <section className="bg-white py-24 font-cormorantGaramond">
                 <div className="container mx-auto px-4 md:px-8">
@@ -424,7 +335,6 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-0 text-center">
-                        {/* Design Inspiration */}
                         <div className="flex flex-col items-center px-6">
                             <Gem
                                 size={64}
@@ -439,7 +349,6 @@ export default function Home() {
                                 tradition with modern elegance.
                             </p>
                         </div>
-                        {/* Artisan Crafting */}
                         <div className="flex flex-col items-center px-6">
                             <Hammer
                                 size={64}
@@ -454,7 +363,6 @@ export default function Home() {
                                 precision, using only the finest materials.
                             </p>
                         </div>
-                        {/* Delivered To You */}
                         <div className="flex flex-col items-center px-6">
                             <Package
                                 size={64}
@@ -472,6 +380,7 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
             {/* Services Section */}
             <section className="bg-brand-gradient py-24 font-cormorantGaramond">
                 <div className="container mx-auto px-4">
@@ -491,7 +400,7 @@ export default function Home() {
                         </p>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
-                        {services.map((service, idx) => (
+                        {services.map((service) => (
                             <ServiceCard key={service.title} {...service} />
                         ))}
                     </div>
@@ -508,56 +417,23 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-            {/* Partners Marquee Section */}
+
+            {/* Partners Marquee Section (dynamically imported) */}
             <CertificatesMarqueeSection />
-            {/* Videos Section */}
-            <section className="relative w-full h-[600px] flex items-center justify-start font-cormorantGaramond">
-                {/* Background Video */}
-                <video
-                    className="absolute inset-0 w-full h-full object-cover"
-                    src="/videos/GettyImages.mp4" // <-- Replace with your video path
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/30" />
-                {/* Content */}
-                <div className="relative z-10 max-w-2xl pl-5 md:pl-16">
-                    <span className="text-primary-yellow-1 text-lg uppercase font-lora tracking-widest mb-6 block">
-                        A PARTNERSHIP OF VALUE
-                    </span>
-                    <h2 className="text-3xl md:text-5xl font-cormorantGaramond text-white font-semibold mb-6 leading-tight">
-                        WHY SHOULD YOU BUY A<br />
-                        DIAMOND FROM UNIGLO
-                        <br />
-                        DIAMONDS
-                    </h2>
-                    <p className="text-white font-lora text-xs md:text-lg mb-10">
-                        Uniglo Diamonds has been selling diamonds in Antwerp,
-                        Belgium for over three decades. We buy and sell
-                        diamonds, ensuring a seamless and memorable experience.
-                        Since we manufacture in our own facilities in Antwerp,
-                        we guarantee low, wholesale pricing,
-                    </p>
-                    <Button
-                        className="purple-reveal-btn px-10 py-6 text-lg font-cormorantGaramond"
-                        size="lg"
-                    >
-                        <span>ABOUT MORE</span>
-                    </Button>
-                </div>
-            </section>
+
+            {/* Video Section (dynamically imported, client-only, lazy-loaded) */}
+            <LazyVideoSection />
+
             {/* Services Description Section */}
             <section className="bg-white py-20 font-cormorantGaramond">
                 <div className="max-w-7xl mx-auto px-4 md:px-8">
-                    {infoSections.map((section, idx) => (
+                    {infoSections.map((section) => (
                         <div
                             key={section.title}
-                            className={`flex flex-col md:flex-row items-center gap-8 py-12 border-b border-gray-300/60 ${
-                                section.reverse ? "md:flex-row-reverse" : ""
-                            }`}
+                            className={
+                                "flex flex-col md:flex-row items-center gap-8 py-12 border-b border-gray-300/60 " +
+                                (section.reverse ? "md:flex-row-reverse" : "")
+                            }
                         >
                             {/* Image */}
                             <div className="w-full md:w-1/2 flex justify-center">
@@ -567,6 +443,8 @@ export default function Home() {
                                     width={600}
                                     height={260}
                                     className="rounded-md object-cover"
+                                    placeholder="blur"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                 />
                             </div>
                             {/* Content */}
@@ -599,112 +477,6 @@ export default function Home() {
                     ))}
                 </div>
             </section>
-            {/* Latest News Section */}
-            {/* <section className="bg-[#f3f3f3] py-24 font-cormorantGaramond">
-                <div className="container mx-auto px-4 md:px-8">
-                    <div className="text-center mb-10">
-                        <span className="text-primary-yellow-1 text-lg uppercase font-lora tracking-widest">
-                            Blog
-                        </span>
-                        <h2 className="text-4xl font-cormorantGaramond font-semibold mt-2 mb-4">
-                            Latest News Update
-                        </h2>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2  gap-8 max-w-7xl mx-auto">
-                        <div className="bg-white rounded-md shadow-sm col-span-1 md:col-span-2 lg:col-span-1 flex flex-col">
-                            <Image
-                                src={blogPosts[0].image}
-                                alt={blogPosts[0].title}
-                                width={600}
-                                height={600}
-                                className="rounded-t-md object-cover w-full "
-                            />
-                            <div className="p-6">
-                                <div className="flex items-center gap-4 text-sm text-primary-yellow-1 font-lora mb-2">
-                                    <span className="flex justify-start items-center gap-2">
-                                        <User size={20} /> {blogPosts[0].author}
-                                    </span>
-                                    <span>{blogPosts[0].date}</span>
-                                </div>
-                                <h3 className="text-2xl font-cormorantGaramond font-semibold mb-2">
-                                    {blogPosts[0].title}
-                                </h3>
-                                <p className="text-slate-600 font-lora text-base mb-6">
-                                    {blogPosts[0].description}
-                                </p>
-                                <Button
-                                    className="purple-reveal-btn px-8 py-3 font-cormorantGaramond text-base"
-                                    size="lg"
-                                >
-                                    <span>{blogPosts[0].button}</span>
-                                </Button>
-                            </div>
-                        </div>
-                        <div className="flex flex-col gap-8">
-                            <div className="bg-white rounded-md shadow-sm flex flex-row h-1/2">
-                                <Image
-                                    src={blogPosts[1].image}
-                                    alt={blogPosts[1].title}
-                                    width={600}
-                                    height={140}
-                                    className=" object-cover w-1/2 h-full"
-                                />
-                                <div className="p-6">
-                                    <div className="flex items-center gap-4 text-xs text-primary-yellow-1 font-lora mb-2">
-                                        <span className="flex justify-start items-center gap-2">
-                                            <User size={20} />{" "}
-                                            {blogPosts[1].author}
-                                        </span>
-                                        <span>{blogPosts[1].date}</span>
-                                    </div>
-                                    <h3 className="text-2xl font-cormorantGaramond font-semibold mb-2">
-                                        {blogPosts[1].title}
-                                    </h3>
-                                    <p className="text-slate-600 font-lora text-base mb-6">
-                                        {blogPosts[1].description}
-                                    </p>
-                                    <Button
-                                        className="purple-reveal-btn px-8 py-3 font-cormorantGaramond text-base"
-                                        size="lg"
-                                    >
-                                        <span>{blogPosts[1].button}</span>
-                                    </Button>
-                                </div>
-                            </div>
-                            <div className="bg-white shadow-sm flex flex-row">
-                                <Image
-                                    src={blogPosts[2].image}
-                                    alt={blogPosts[2].title}
-                                    width={600}
-                                    height={140}
-                                    className="object-cover w-1/2 "
-                                />
-                                <div className="p-6">
-                                    <div className="flex items-center gap-4 text-xs text-primary-yellow-1 font-lora mb-2">
-                                        <span className="flex justify-start items-center gap-2">
-                                            <User size={20} />{" "}
-                                            {blogPosts[2].author}
-                                        </span>
-                                        <span>{blogPosts[2].date}</span>
-                                    </div>
-                                    <h3 className="text-2xl font-cormorantGaramond font-semibold mb-2">
-                                        {blogPosts[2].title}
-                                    </h3>
-                                    <p className="text-slate-600 font-lora text-base mb-6">
-                                        {blogPosts[2].description}
-                                    </p>
-                                    <Button
-                                        className="purple-reveal-btn px-8 py-3 font-cormorantGaramond text-base"
-                                        size="lg"
-                                    >
-                                        <span>{blogPosts[2].button}</span>
-                                    </Button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section> */}
         </div>
     );
 }

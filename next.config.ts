@@ -1,8 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    /* config options here */
+    reactStrictMode: true,
+    poweredByHeader: false,
     images: {
+        formats: ["image/avif", "image/webp"],
         remotePatterns: [
             {
                 protocol: "https",
@@ -11,10 +13,6 @@ const nextConfig: NextConfig = {
             {
                 protocol: "https",
                 hostname: "**.diamondservices.co.uk",
-            },
-            {
-                protocol: "https",
-                hostname: "**", // Allow all hosts — replace with specific domains for production
             },
         ],
     },

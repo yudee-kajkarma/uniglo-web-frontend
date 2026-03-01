@@ -1,11 +1,5 @@
 import type { Metadata } from "next";
-import {
-    Geist,
-    Geist_Mono,
-    Cormorant_Garamond,
-    Lora,
-    Lato,
-} from "next/font/google";
+import { Geist, Cormorant_Garamond, Lora, Lato } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
@@ -19,21 +13,18 @@ const geistSans = Geist({
     subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
-    subsets: ["latin"],
-});
-
 const cormorantGaramond = Cormorant_Garamond({
     variable: "--font-cormorant-garamond",
     subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
+    weight: ["400", "600", "700"],
+    display: "swap",
 });
 
 const lora = Lora({
     variable: "--font-lora",
     subsets: ["latin"],
-    weight: ["400", "500", "600", "700"],
+    weight: ["400", "700"],
+    display: "swap",
 });
 
 const lato = Lato({
@@ -55,7 +46,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body
-                className={`${geistSans.variable} ${geistMono.variable} ${cormorantGaramond.variable} ${lora.variable} ${lato.variable} antialiased `}
+                className={`${geistSans.variable} ${cormorantGaramond.variable} ${lora.variable} ${lato.variable} antialiased `}
             >
                 {" "}
                 <AuthProvider>
