@@ -69,12 +69,12 @@ const SHAPES: { value: DiamondShape; label: string; icon: string }[] = [
     { value: "Asscher", label: "Asscher", icon: "/shapes/asscher-diamond.png" },
     { value: "CU", label: "Cushion", icon: "/shapes/cushion-diamond.png" },
     {
-        value: "OEB",
+        value: "Oeb",
         label: "European",
         icon: "/shapes/old-european-diamond.png",
     },
     { value: "OMB", label: "Old Mine", icon: "/shapes/old-mine-diamond.png" },
-    { value: "Other", label: "Other", icon: "/shapes/radiant-diamond.png" },
+    { value: "Other", label: "Other", icon: "/shapes/other-diamond.png" },
 ];
 
 const CARAT_RANGES = [

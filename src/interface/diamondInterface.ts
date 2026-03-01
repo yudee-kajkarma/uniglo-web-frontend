@@ -11,7 +11,7 @@ export type DiamondShape =
     | "RA" // Radiant
     | "HT" // Heart
     | "Asscher" // Asscher
-    | "OEB" // European
+    | "Oeb" // European
     | "OMB" // Old Mine
     | "Other"; // Other
 
@@ -217,7 +217,7 @@ export const getShapeFullName = (shapeCode: DiamondShape | string): string => {
         RA: "Radiant",
         HT: "Heart",
         Asscher: "Asscher",
-        OEB: "European",
+        Oeb: "European",
         OMB: "Old Mine",
         Other: "Other",
     };

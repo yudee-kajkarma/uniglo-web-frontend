@@ -6,7 +6,6 @@ import Footer from "@/components/shared/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/context/AuthContext";
 import RouteGuard from "@/components/auth/RouteGuard"; // Import the new guard
-import { TooltipProvider } from "@/components/ui/tooltip";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -50,16 +49,14 @@ export default function RootLayout({
             >
                 {" "}
                 <AuthProvider>
-                    <TooltipProvider>
-                        <div className="md:h-41 bg-brand-gradient h-20" />
-                        <Navbar />
-                        <main className="relative z-0">
-                            {/* Wrap children with RouteGuard */}
-                            <RouteGuard>{children}</RouteGuard>
-                        </main>
-                        <Footer />
-                        <Toaster />
-                    </TooltipProvider>
+                    <div className="md:h-41 bg-brand-gradient h-20" />
+                    <Navbar />
+                    <main className="relative z-0">
+                        {/* Wrap children with RouteGuard */}
+                        <RouteGuard>{children}</RouteGuard>
+                    </main>
+                    <Footer />
+                    <Toaster />
                 </AuthProvider>
             </body>
         </html>
