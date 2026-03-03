@@ -11,15 +11,15 @@ import SubFooter from "@/components/shared/SubFooter";
 import SellDiamondForm from "@/components/shared/SellDiamondForm";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Diamond Buyers Antwerp, Belgium | Get Best Value for Diamonds – Uniglo",
-    description:
-        "Looking for the best diamond price in Antwerp? Uniglo offers professional evaluation, fair market offers, and fast payment for loose diamonds and jewellery.",
-    alternates: {
-        canonical:
-            "https://www.uniglodiamonds.com/the-best-price-for-your-diamonds",
-    },
-};
+// export const metadata: Metadata = {
+//     title: "Diamond Buyers Antwerp, Belgium | Get Best Value for Diamonds – Uniglo",
+//     description:
+//         "Looking for the best diamond price in Antwerp? Uniglo offers professional evaluation, fair market offers, and fast payment for loose diamonds and jewellery.",
+//     alternates: {
+//         canonical:
+//             "https://www.uniglodiamonds.com/the-best-price-for-your-diamonds",
+//     },
+// };
 
 const page = () => {
     return (
