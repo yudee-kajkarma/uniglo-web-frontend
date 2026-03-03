@@ -40,14 +40,13 @@ export default function HeroCarousel() {
                 <CarouselContent className="w-full p-0 m-0">
                     <CarouselItem className="p-0 m-0 w-full relative">
                         <Image
-                            src={banner0}
-                            alt="Uniglo Diamonds - Premium Diamond Collection"
+                            src={banner2}
+                            alt="Uniglo Diamonds - Antwerp Diamond Heritage"
                             className="w-full h-auto md:min-h-screen object-cover rounded-xl"
-                            priority
                             sizes="100vw"
                             placeholder="blur"
                         />
-                        <div className="absolute bottom-6 right-4 md:bottom-10 md:right-20 z-20">
+                        <div className="absolute bottom-6 right-4 md:bottom-20 md:right-50 z-20">
                             <CarouselCTA />
                         </div>
                     </CarouselItem>
@@ -65,13 +64,14 @@ export default function HeroCarousel() {
                     </CarouselItem>
                     <CarouselItem className="p-0 m-0 w-full relative">
                         <Image
-                            src={banner2}
-                            alt="Uniglo Diamonds - Antwerp Diamond Heritage"
+                            src={banner0}
+                            alt="Uniglo Diamonds - Premium Diamond Collection"
                             className="w-full h-auto md:min-h-screen object-cover rounded-xl"
+                            priority
                             sizes="100vw"
                             placeholder="blur"
                         />
-                        <div className="absolute bottom-6 right-4 md:bottom-20 md:right-50 z-20">
+                        <div className="absolute bottom-6 right-4 md:bottom-10 md:right-20 z-20">
                             <CarouselCTA />
                         </div>
                     </CarouselItem>
