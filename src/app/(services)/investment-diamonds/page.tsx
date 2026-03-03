@@ -5,6 +5,7 @@ import ArticleLayout from "@/components/shared/ArticleLayout";
 import FedexImage from "@/assets/services/investment/image-1.png";
 import LoupeImage from "@/assets/services/investment/image-2.png"; // Update path as needed
 import SubFooter from "@/components/shared/SubFooter";
+import { Metadata } from "next";
 
 const articles = [
     {
@@ -37,6 +38,11 @@ const articles = [
         floatImages: false,
     },
 ];
+export const metadata: Metadata = {
+    title: "Investment Diamonds | Expert Guidance – Uniglo Diamonds",
+    description:
+        "Invest in certified diamonds with expert guidance from Uniglo Diamonds. Discover investment-grade stones to diversify your portfolio with stable, high-value assets.",
+};
 
 const page = () => {
     return (

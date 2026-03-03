@@ -5,6 +5,12 @@ import ArticleLayout from "@/components/shared/ArticleLayout";
 import FinancingImg from "@/assets/services/diamond-financing-options/image-1.png"; // Update path as needed
 import Image from "next/image";
 import SubFooter from "@/components/shared/SubFooter";
+import { Metadata } from "next";
+export const metadata: Metadata = {
+    title: "Diamond Financing Options | Buy Now Pay Later – Uniglo",
+    description:
+        "Flexible diamond financing with Uniglo. Buy now, pay later with custom instalment plans, tailored payment options, and possible no-interest schemes for diamond purchases.",
+};
 
 const page = () => {
     return (

@@ -13,6 +13,7 @@ import Image from "next/image";
 import appointmentRing from "@/assets/sell-your-diamonds/online-inventory-banner.png";
 import ArticleLayout from "@/components/shared/ArticleLayout";
 import SellDiamondForm from "@/components/shared/SellDiamondForm";
+import { Metadata } from "next";
 
 const articleData = [
     {
@@ -62,6 +63,12 @@ const articleData = [
         ],
     },
 ];
+
+export const metadata: Metadata = {
+    title: "Diamond Buyers in Antwerp, Belgium | Sell Diamonds Securely – Uniglo",
+    description:
+        "Looking to sell diamonds or diamond jewellery in Antwerp, Belgium? Uniglo offers professional appraisal, recutting advice, certification, and immediate payment.",
+};
 
 const Page = () => {
     return (

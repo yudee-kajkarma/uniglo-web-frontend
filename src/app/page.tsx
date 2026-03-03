@@ -10,6 +10,7 @@ import {
     Hammer,
     Package,
 } from "lucide-react";
+import { Metadata } from "next";
 
 import sellDiamond from "@/assets/home/sell_diamonds.jpg";
 import education from "@/assets/home/Education.jpg";
@@ -158,6 +159,11 @@ function ServiceCard({
         </div>
     );
 }
+export const metadata: Metadata = {
+    title: "Uniglo Diamonds – Certified Natural & Lab Grown Diamonds",
+    description:
+        "Discover certified IGI, GIA & HRD diamonds at Uniglo Diamonds. Buy, sell, trade, invest & manufacture premium natural & lab grown stones with trusted expertise.",
+};
 
 export default function Home() {
     return (

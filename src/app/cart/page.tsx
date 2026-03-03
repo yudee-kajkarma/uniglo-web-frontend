@@ -7,7 +7,7 @@ import {
     clearCart,
     holdDiamond,
 } from "@/services/cartService";
-import { CartItem } from "@/interface/diamondInterface";
+import { calculateTotalPrice, CartItem } from "@/interface/diamondInterface";
 import {
     Trash2,
     Download,
@@ -367,7 +367,7 @@ export default function CartPage() {
                                 <th className="p-4 text-left">Length</th>
                                 <th className="p-4 text-left">Width</th>
                                 <th className="p-4 text-left">Depth</th>
-                                <th className="p-4 text-right">$ Price</th>
+                                <th className="p-4 text-right">$Total Price</th>
                             </tr>
                         </thead>
 
@@ -482,7 +482,12 @@ export default function CartPage() {
                                                 {d.depthPerc?.toFixed(2)}
                                             </td>
                                             <td className="p-4 text-right font-bold text-[#bb923a]">
-                                                {formatCurrency(d.priceListUSD)}
+                                                {formatCurrency(
+                                                    calculateTotalPrice(
+                                                        d.weight,
+                                                        d.pricePerCts,
+                                                    ),
+                                                )}
                                             </td>
                                         </tr>
                                     );
