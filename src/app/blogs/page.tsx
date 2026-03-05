@@ -13,43 +13,23 @@ import SubFooter from "@/components/shared/SubFooter";
 const blogs = [
     {
         id: 1,
-        title: "How to Choose a Diamond Engagement Ring",
+        title: "Lab Grown Diamonds in Belgium",
         author: "Uniglo Diamonds",
-        date: "October 25, 2024",
-        image: EngagementRingBlog1,
+        date: "March 6, 2026",
+        image: BuyDiamondsOnlineBlog1,
         excerpt:
-            "Learn the essential tips and tricks for selecting the perfect diamond engagement ring that matches your style and budget.",
-        slug: "how-to-choose-diamond-engagement-ring",
+            "Discover certified lab grown diamonds in Belgium. Antwerp-based experts offering IGI & GIA graded diamonds at trusted wholesale prices.",
+        slug: "lab-grown-diamonds-in-belgium",
     },
     {
         id: 2,
-        title: "Best Places to Buy Diamonds Online",
+        title: "Diamonds Are Not Made from Coal",
         author: "Uniglo Diamonds",
-        date: "October 25, 2024",
-        image: BuyDiamondsOnlineBlog1,
+        date: "March 6, 2026",
+        image: EngagementRingBlog1,
         excerpt:
-            "Discover the top online platforms and trusted retailers for purchasing authentic diamonds with confidence and quality assurance.",
-        slug: "best-places-to-buy-diamonds-online",
-    },
-    {
-        id: 3,
-        title: "How to Choose a Diamond Engagement Ring",
-        author: "Uniglo Diamonds",
-        date: "October 25, 2024",
-        image: EngagementRingBlog2,
-        excerpt:
-            "Explore in-depth guide on selecting the perfect diamond cut, color, clarity, and carat weight for your engagement ring.",
-        slug: "how-to-choose-diamond-engagement-ring-guide",
-    },
-    {
-        id: 4,
-        title: "Best Places to Buy Diamonds Online",
-        author: "Uniglo Diamonds",
-        date: "October 25, 2024",
-        image: BuyDiamondsOnlineBlog2,
-        excerpt:
-            "Complete resource for finding reputable online diamond sellers with verified certifications and excellent customer reviews.",
-        slug: "best-places-buy-diamonds-online-trusted",
+            "Many people believe that diamonds are made from coal. But the truth is different. Discover the real geological processes behind diamond formation.",
+        slug: "diamonds-are-not-made-from-coal",
     },
 ];
 
