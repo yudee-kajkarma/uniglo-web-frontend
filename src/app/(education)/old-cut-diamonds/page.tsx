@@ -12,7 +12,16 @@ import OldMineCutImage from "@/assets/old-diamonds/old-mine-cut.png";
 import OldEuropeanCutImage from "@/assets/old-diamonds/old-european-cut.png";
 import ModernRoundBrilliantImage from "@/assets/old-diamonds/modern-round-brilliant.jpg";
 import SubFooter from "@/components/shared/SubFooter";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "Old Cut Diamonds | Antique & Vintage Diamond Cuts | Uniglo",
+    description:
+        "Discover antique cut diamonds—from Rose to Old European & Old Mine cuts. Explore vintage stones with unique fire, romance & timeless elegance.",
+    alternates: {
+        canonical: "https://www.uniglodiamonds.com/old-cut-diamonds",
+    },
+};
 const articles = [
     {
         title: "The Single Cut",

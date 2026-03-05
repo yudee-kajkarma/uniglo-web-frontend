@@ -1,72 +1,172 @@
 import React from "react";
-import Image from "next/image";
 import BannerSection from "@/components/shared/BannerSection";
-import ArticleLayout from "@/components/shared/ArticleLayout";
-
-// Placeholder imports - Replace with your actual assets
 import BannerImage from "@/assets/diamond-certificates/bannerNew.png";
-import FedexImage from "@/assets/diamond-certificates/image-1.png";
-import InspectionImage from "@/assets/diamond-certificates/image-2.png";
-
-// Certificate Images (Placeholders)
-import GiaReport from "@/assets/our-partners/gia-full.png";
-import IgiReport from "@/assets/our-partners/igi-full.png";
-import HrdReport from "@/assets/our-partners/hrd-full.png";
 import SubFooter from "@/components/shared/SubFooter";
+import DynamicArticle, {
+    ArticleSection,
+} from "@/components/shared/DynamicArticle";
+import { Metadata } from "next";
 
-const articles = [
-    {
-        title: "Portfolio Building And Expert Advice",
-        subtitle: "Welcome",
-        paragraphs: [
-            "A diamond certificate or dossier is a formal document which intricately details out all the diamond's unique characteristics – like its cut, carat weight, colour and clarity. At times it may also include the diamond's finish which refers to its polish and symmetry, as well as a diamond's fluorescence. The most widely recognised and appreciated diamond grading laboratories in the world are the Gemological Institute of America and the European Gemological Laboratory.",
-            "Certification by one of these labs or a lab of the same or similar repute is crucial for assurance of your diamond's quality. It also serves as a proof of your diamond's identity. These labs grade your diamonds in an unbiased format and you can rest assured that the information that is on your diamond certificate is accurate. This certificate also helps in future valuation of the diamond – for insurance or in the case of re-sale of the diamond.",
-        ],
-        image: {
-            src: FedexImage.src,
-            alt: "Diamond Certificate",
-        },
-        reverse: false,
-    },
-    {
-        title: "We Offer GIA, IGI and HRD Certified Diamonds",
-        subtitle: "Welcome",
-        paragraphs: [
-            "When purchasing a certified diamond from Uniglo, you will receive the original diamond grading certificate which highlights your diamond's unique 4Cs. Through this certificate, you are guaranteed for a lifetime, that what is stated on your certificate is in fact what you have purchased.",
-            "Do note, a grading certificate is different from an appraisal or valuation certificate. The appraisal certificate tends to be less comprehensive and places the monetary value of the stone – which relies on estimations influenced by the supply and demand of diamonds, global economic trends and more.",
-        ],
-        image: {
-            src: InspectionImage.src,
-            alt: "Diamond Inspection",
-        },
-        reverse: true,
-    },
-];
+export const metadata: Metadata = {
+    title: "GIA, IGI & HRD Diamond Certificates | Uniglo Diamonds",
+    description:
+        "Ensure quality with GIA, IGI & HRD certified diamonds from Uniglo. Internationally recognized certificates with lifetime authenticity guarantee.",
+};
 
-const certificates = [
+const certificateData: ArticleSection[] = [
     {
-        title: "GIA Certification",
-        description:
-            "Established in 1931, GIA is the world’s foremost authority on diamonds, colored stones, and pearls. A public benefit, nonprofit institute, GIA is the leading source of knowledge, standards, and education in gems and jewelry.",
-        image: GiaReport, // Replace with actual image import
+        heading: "Portfolio Building and Expert Diamond Certification Advice",
+        content: [
+            {
+                type: "paragraph",
+                text: "Building a diamond portfolio is more than simply purchasing beautiful stones — it is about making informed, strategic decisions backed by proper documentation and expert guidance. Whether you are buying a diamond for personal jewellery, long-term investment, or resale purposes, certification and professional grading play a critical role in protecting your investment.",
+            },
+            {
+                type: "paragraph",
+                text: "A diamond is a valuable and emotional purchase. To ensure complete transparency, every serious buyer should understand the importance of a diamond certificate and how it contributes to confidence, authenticity, and long-term value.",
+            },
+        ],
     },
     {
-        title: "IGI Certification",
-        description:
-            "A certificate from IGI represents the all-important 5th C that no one should be without: Confidence. As the world’s largest independent gem certification and appraisal institute for diamonds, colored gemstones and jewelry, IGI is a standard of excellence for industry professionals and consumers around the globe.",
-        image: IgiReport, // Replace with actual image import
+        heading: "What Is a Diamond Certificate?",
+        content: [
+            {
+                type: "paragraph",
+                text: "A diamond certificate — sometimes referred to as a diamond grading report or dossier — is an official document issued by an independent gemological laboratory. This document provides a detailed and unbiased assessment of a diamond’s unique characteristics.",
+            },
+            { type: "paragraph", text: "The certificate typically includes:" },
+            {
+                type: "bullet-list",
+                items: [
+                    "Cut grade",
+                    "Carat weight",
+                    "Colour grade",
+                    "Clarity grade",
+                    "Polish",
+                    "Symmetry",
+                    "Fluorescence",
+                    "Measurements and proportions",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "These characteristics collectively define a diamond’s identity. Much like a fingerprint, no two diamonds share the exact same grading combination.",
+            },
+            {
+                type: "paragraph",
+                text: "A grading certificate is not simply a piece of paper — it is proof of quality, authenticity, and transparency. It allows buyers to understand precisely what they are purchasing and ensures that the diamond’s attributes are evaluated according to international standards.",
+            },
+        ],
     },
     {
-        title: "HRD Certification",
-        description:
-            "An HRD Antwerp grading report represents the hallmark of authentic European quality and allows any consumer to purchase diamonds or jewellery in full confidence.",
-        image: HrdReport, // Replace with actual image import
+        heading: "Why Diamond Certification Is Essential",
+        content: [
+            {
+                type: "paragraph",
+                text: "Certification from a reputable laboratory is crucial for several reasons:",
+            },
+            {
+                type: "paragraph",
+                text: "1. Quality Assurance: Independent laboratories evaluate diamonds using standardized grading systems. This ensures unbiased and consistent results. Buyers can rely on the accuracy of the grading without concern for seller bias.",
+            },
+            {
+                type: "paragraph",
+                text: "2. Proof of Identity: A certificate acts as a diamond’s identity record. Many certified diamonds also have a microscopic laser inscription on the girdle referencing the certificate number for verification.",
+            },
+            {
+                type: "paragraph",
+                text: "3. Investment Protection: If you ever choose to insure, resell, or upgrade your diamond, a recognized grading report significantly simplifies valuation and transaction processes.",
+            },
+            {
+                type: "paragraph",
+                text: "4. Portfolio Building: For individuals building a diamond portfolio, certification ensures comparability across purchases. You can evaluate and track the quality of multiple stones with clarity and confidence.",
+            },
+        ],
+    },
+    {
+        heading: "Diamond Inspection and Transparency at Uniglo",
+        content: [
+            {
+                type: "paragraph",
+                text: "At Uniglo, we specialize in certified, conflict-free diamonds and maintain strict quality standards. When you purchase a certified diamond from us, you receive the original grading certificate issued by a recognized laboratory.",
+            },
+            {
+                type: "paragraph",
+                text: "This certificate guarantees that the diamond you receive matches exactly what is documented in the grading report. It provides lifetime confidence in your purchase and serves as permanent documentation of your diamond’s specifications.",
+            },
+            {
+                type: "paragraph",
+                text: "We also offer professional diamond inspection to ensure that clients fully understand the characteristics of their selected stone before completing the purchase.",
+            },
+        ],
+    },
+    {
+        heading: "Difference Between a Grading Certificate and an Appraisal",
+        content: [
+            {
+                type: "paragraph",
+                text: "It is important to distinguish between a grading certificate and an appraisal certificate, as they serve different purposes.",
+            },
+            { type: "paragraph", text: "Grading Certificate:" },
+            {
+                type: "bullet-list",
+                items: [
+                    "Issued by an independent gemological laboratory",
+                    "Objectively evaluates the diamond’s 4Cs",
+                    "Does not assign a retail value",
+                    "Focuses purely on gemological characteristics",
+                ],
+            },
+            { type: "paragraph", text: "Appraisal Certificate:" },
+            {
+                type: "bullet-list",
+                items: [
+                    "Assigns a monetary value to the diamond",
+                    "Used mainly for insurance purposes",
+                    "Influenced by market trends, supply and demand, and economic conditions",
+                    "May not be as technically detailed as a grading report",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "For investment security and portfolio development, a recognized grading certificate is far more critical than a basic appraisal.",
+            },
+        ],
+    },
+    {
+        heading: "Globally Recognized Diamond Certification Laboratories",
+        content: [
+            {
+                type: "paragraph",
+                text: "When purchasing a diamond, certification should come from a reputable and internationally respected laboratory. The most widely recognized diamond grading institutes include:",
+            },
+            {
+                type: "paragraph",
+                text: "Gemological Institute of America (GIA): Established in 1931, GIA is considered the world’s foremost authority on diamonds, coloured stones, and pearls. It is a nonprofit public benefit organization known for setting the global standard for diamond grading, including the creation of the 4Cs system.",
+            },
+            {
+                type: "paragraph",
+                text: "GIA certificates are highly respected worldwide for their strict grading standards and consistency. For investors and serious buyers, GIA certification often represents the gold standard of quality assurance.",
+            },
+            {
+                type: "paragraph",
+                text: "International Gemological Institute (IGI): IGI is the world’s largest independent gem certification and appraisal institute for diamonds, coloured gemstones, and jewellery.",
+            },
+            {
+                type: "paragraph",
+                text: "An IGI certificate represents confidence, transparency, and global recognition. IGI serves both trade professionals and consumers, offering detailed grading reports that ensure clarity in purchasing decisions.",
+            },
+            {
+                type: "paragraph",
+                text: "For many buyers, IGI-certified diamonds provide a strong balance between reliability and market accessibility.",
+            },
+        ],
     },
 ];
 
 const page = () => {
     return (
-        <div className="min-h-screen ">
+        <div className="min-h-screen">
             <BannerSection
                 image={BannerImage}
                 text="Diamond Certificates"
@@ -74,51 +174,14 @@ const page = () => {
                 imageClassName="h-100 object-cover"
             />
 
-            {/* Articles Section */}
-            <section className="max-w-7xl mx-auto px-10 mt-20 mb-20">
-                {/* Article 1 */}
-                <div className="mb-20">
-                    <ArticleLayout {...articles[0]} floatImages={true} />
-                    <p className="mt-6 text-slate-600 text-lg leading-relaxed font-lora text-justify">
-                        Uniglo specialises in conflict-free diamonds, and will
-                        be able to produce the Kimberley Process certificate
-                        with each diamond you purchase.
-                    </p>
-                </div>
-
-                {/* Article 2 */}
-                <div>
-                    <ArticleLayout {...articles[1]} floatImages={true} />
-                </div>
+            {/* Main Articles Content Section */}
+            <section className="max-w-4xl mx-auto px-10 py-20 mb-10">
+                <DynamicArticle sections={certificateData} />
             </section>
 
-            {/* Certificate Showcase Section */}
-            <section className="w-full bg-brand-gradient py-24">
-                <div className="max-w-7xl mx-auto px-10 grid grid-cols-1 md:grid-cols-3 gap-12">
-                    {certificates.map((cert, idx) => (
-                        <div key={idx} className="flex flex-col">
-                            {/* Image Card */}
-                            <div className="bg-white p-2 mb-8 rounded-sm h-64 flex items-center justify-center overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500">
-                                {/* Use Next.js Image or img tag depending on your asset type */}
-                                <Image
-                                    src={cert.image}
-                                    alt={cert.title}
-                                    className="w-full h-full object-contain"
-                                />
-                            </div>
-                            {/* Content */}
-                            <h3 className="text-[#bb923a] text-3xl font-cormorantGaramond font-semibold mb-4">
-                                {cert.title}
-                            </h3>
-                            <p className="text-white/80 font-lora text-base leading-relaxed text-justify">
-                                {cert.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-            </section>
             <SubFooter />
         </div>
     );
 };
+
 export default page;

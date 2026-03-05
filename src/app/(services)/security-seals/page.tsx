@@ -4,7 +4,16 @@ import BannerImage from "@/assets/services/security-seals/banner11.png";
 import ArticleLayout from "@/components/shared/ArticleLayout";
 import FedexImage from "@/assets/services/security-seals/tamper-proff-seals1.jpeg";
 import SubFooter from "@/components/shared/SubFooter";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "Tamper-Proof Diamond Security Seals | Uniglo Diamonds",
+    description:
+        "Protect your diamond with our tamper-proof sealing service. Secure containers link your stone to its IGI report for safety & authenticity.",
+    alternates: {
+        canonical: "https://www.uniglodiamonds.com/security-seals",
+    },
+};
 const article = {
     title: "Tamper-Proof Sealing",
     subtitle: "Welcome",

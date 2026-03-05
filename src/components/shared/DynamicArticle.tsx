@@ -1,0 +1,69 @@
+import React from "react";
+
+export type ContentBlock =
+    | { type: "paragraph"; text: string }
+    | { type: "bullet-list"; items: string[] }
+    | { type: "numbered-list"; items: string[] };
+
+export type ArticleSection = {
+    heading?: string;
+    content: ContentBlock[];
+};
+
+interface DynamicArticleProps {
+    sections: ArticleSection[];
+}
+
+const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
+    return (
+        <div className="text-slate-700 text-lg font-lora leading-relaxed">
+            {sections.map((section, idx) => (
+                <div
+                    key={idx}
+                    className={idx > 0 && section.heading ? "mt-10" : ""}
+                >
+                    {section.heading && (
+                        <h2 className="text-3xl md:text-4xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
+                            {section.heading}
+                        </h2>
+                    )}
+
+                    <div className="space-y-4">
+                        {section.content.map((block, bIdx) => {
+                            if (block.type === "paragraph") {
+                                return <p key={bIdx}>{block.text}</p>;
+                            }
+                            if (block.type === "bullet-list") {
+                                return (
+                                    <ul
+                                        key={bIdx}
+                                        className="list-disc ml-6 mt-2 space-y-2"
+                                    >
+                                        {block.items.map((item, i) => (
+                                            <li key={i}>{item}</li>
+                                        ))}
+                                    </ul>
+                                );
+                            }
+                            if (block.type === "numbered-list") {
+                                return (
+                                    <ol
+                                        key={bIdx}
+                                        className="list-decimal ml-6 mt-2 space-y-2"
+                                    >
+                                        {block.items.map((item, i) => (
+                                            <li key={i}>{item}</li>
+                                        ))}
+                                    </ol>
+                                );
+                            }
+                            return null;
+                        })}
+                    </div>
+                </div>
+            ))}
+        </div>
+    );
+};
+
+export default DynamicArticle;

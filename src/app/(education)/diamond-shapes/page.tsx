@@ -1,15 +1,13 @@
 import React from "react";
+import Image, { StaticImageData } from "next/image";
 import BannerSection from "@/components/shared/BannerSection";
-import ArticleLayout from "@/components/shared/ArticleLayout";
-import Image from "next/image";
 import BannerImage from "@/assets/diamond-shape/banner.jpeg";
+import SubFooter from "@/components/shared/SubFooter";
+import DynamicArticle, {
+    ArticleSection,
+} from "@/components/shared/DynamicArticle";
 
-// Replace with your actual image paths
-import DiamondShapesGrid from "@/assets/diamond-shape/diamond-shape.png";
-import DiamondCutVsShapeImage from "@/assets/diamond-shape/diamond-cut.png";
-import FinancingBannerImage from "@/assets/diamond-shape/bottom-banner.jpg";
-
-// Diamond shape images - Replace with your actual paths
+// Diamond shape images
 import RoundDiamonds from "@/assets/shapes/round.png";
 import PrincessDiamonds from "@/assets/shapes/princess.png";
 import CushionDiamonds from "@/assets/shapes/cushion.png";
@@ -20,115 +18,533 @@ import AssherDiamonds from "@/assets/shapes/asscher.png";
 import MarquiseDiamonds from "@/assets/shapes/marquise.png";
 import HeartDiamonds from "@/assets/shapes/heart.png";
 import PearDiamonds from "@/assets/shapes/pear.png";
-import DiamondBannerBg from "@/assets/diamond-shape/bottom-banner.jpg";
-import SubFooter from "@/components/shared/SubFooter";
-const diamondShapes = [
+import { Metadata } from "next";
+
+const introData: ArticleSection[] = [
     {
-        name: "Round Diamonds",
+        heading: "Selecting the Perfect Diamond Shape – A Complete Guide",
+        content: [
+            {
+                type: "paragraph",
+                text: "Choosing the perfect diamond shape is one of the most exciting steps when purchasing an engagement ring, wedding band, anniversary gift, or investment stone. The shape of a diamond refers to its physical outline or form — and it is usually the very first feature people notice. Before considering carat weight, clarity, or even budget, most buyers are naturally drawn to a particular shape that reflects their personality, style, and emotional connection to the occasion. ",
+            },
+            {
+                type: "paragraph",
+                text: "Whether your choice is influenced by timeless elegance, modern trends, symbolic meaning, or value considerations, understanding diamond shapes in detail will help you make a confident and informed decision. Each shape offers its own character, brilliance pattern, and visual impact — and each interacts differently with the famous 4Cs: cut, colour, clarity, and carat weight.",
+            },
+            {
+                type: "paragraph",
+                text: "This comprehensive guide will walk you through the differences between diamond shape and cut, the importance of proportions, and a detailed overview of the most popular diamond shapes available today.",
+            },
+        ],
+    },
+    {
+        heading: "Diamond Shape vs. Diamond Cut – Understanding the Difference",
+        content: [
+            {
+                type: "paragraph",
+                text: "One of the most common misconceptions in diamond buying is confusing “shape” with “cut.” While they are related, they are not the same.",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Diamond Shape refers to the outer appearance or silhouette of the stone — for example, round, oval, princess, or emerald.",
+                    "Diamond Cut, on the other hand, refers to how well the diamond’s facets are proportioned, aligned, and polished. It determines how effectively the stone reflects and refracts light.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "A diamond of any shape can have different cut grades, such as Very Good or Excellent. The cut grade directly influences brilliance (white light reflection), fire (rainbow dispersion), and scintillation (sparkle pattern).",
+            },
+            {
+                type: "paragraph",
+                text: "At Uniglo Diamonds, we recommend selecting diamonds with a cut grade of Very Good or Excellent to maximize beauty and value. Even the most elegant shape can appear dull if poorly cut, while a well-cut diamond will radiate exceptional brilliance regardless of shape.",
+            },
+        ],
+    },
+    {
+        heading: "Length-to-Width Ratio",
+        content: [
+            {
+                type: "paragraph",
+                text: "Another important factor in selecting a shape is the length-to-width ratio.",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "A higher ratio results in a longer, more elongated appearance.",
+                    "A lower ratio produces a more square or circular look.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "For elongated shapes like oval, marquise, and pear, the ratio significantly impacts visual style and finger coverage. Choosing the right proportions ensures the diamond complements your hand and ring setting beautifully.",
+            },
+        ],
+    },
+    {
+        heading: "Popular Diamond Shapes Explained",
+        content: [
+            {
+                type: "paragraph",
+                text: "Each diamond shape has unique features, brilliance patterns, and aesthetic appeal. Below is a detailed guide to the most sought-after diamond shapes.",
+            },
+        ],
+    },
+];
+
+type ShapeSection = {
+    name: string;
+    image: StaticImageData;
+    content: ArticleSection[];
+};
+
+const shapeSections: ShapeSection[] = [
+    {
+        name: "Round",
         image: RoundDiamonds,
-        description:
-            "The round brilliant cut diamond is the most popular diamond shape. It is timeless, classic and can be applied to many versatile albeit diamond rings, and therefore has the flexibility to facilitate many tastes and style preferences.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Round Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "The round brilliant cut is the most popular diamond shape in the world. Known for its timeless appeal, it remains the top choice for engagement rings across generations.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Designed with 58 precisely arranged facets, round diamonds are engineered to maximize light reflection. This makes them the most brilliant and sparkly of all shapes.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Round Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Exceptional brilliance and fire",
+                            "Classic, versatile appearance",
+                            "Works beautifully in almost all ring settings",
+                            "Strong resale value due to high demand",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Round diamonds are ideal for those who value tradition, elegance, and maximum sparkle.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Princess Diamonds",
+        name: "Princess",
         image: PrincessDiamonds,
-        description:
-            "After the round brilliant cut diamond, princess cut diamonds are the most popular fancy diamond shape. And similar to round cut diamonds, princess cut diamond are also a good choice for their versatility.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Princess Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "Princess cut diamonds are the second most popular choice after round diamonds. They feature a square or slightly rectangular shape with pointed corners and brilliant-style faceting.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Princess cuts offer modern sophistication while maintaining impressive sparkle. They are often chosen for contemporary engagement ring designs.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Princess Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Modern, geometric aesthetic",
+                            "Strong brilliance similar to round diamonds",
+                            "Excellent value compared to round cuts",
+                            "Versatile for solitaire or halo settings",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Their clean lines and sharp corners make them especially appealing to buyers seeking a bold, fashionable look.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Cushion Diamonds",
+        name: "Cushion",
         image: CushionDiamonds,
-        description:
-            "The cushion cut combines the charm of a square cut diamond, but with soft, rounded corners, resembling a pillow. Cushion cut diamonds are a popular choice for their adaptability to any kind of diamond setting.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Cushion Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "The cushion cut combines a square shape with softly rounded corners, resembling a pillow. It has been popular for over a century and is often associated with vintage-inspired designs.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Cushion diamonds can display either a classic chunky facet pattern or a more brilliant, modern sparkle depending on the cut style.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Cushion Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Romantic, antique charm",
+                            "Soft and elegant appearance",
+                            "Adapts well to many ring styles",
+                            "Strong fire and brilliance",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Cushion cuts are perfect for those who appreciate timeless beauty with a hint of vintage glamour.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Emerald Diamonds",
+        name: "Emerald",
         image: EmeraldDiamonds,
-        description:
-            "Emerald cut diamonds feature a rectangular shape with truncated corners, and a broad flat plane that resembles stair steps if seen from a top angle. It is a shallow-square-long crown and this heightens the clarity of the stone more than any other cut.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Emerald Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "Emerald cut diamonds feature a rectangular shape with trimmed corners and step-cut facets. Instead of intense sparkle, they produce a sophisticated “hall of mirrors” effect.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "This shape emphasizes clarity more than any other, as its large open table makes inclusions easier to see. Therefore, higher clarity grades are recommended for emerald cuts.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Emerald Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Elegant, refined appearance",
+                            "Unique step-cut brilliance",
+                            "Larger visual surface area",
+                            "Timeless, sophisticated appeal",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Emerald cuts are ideal for individuals who prefer understated luxury over dramatic sparkle.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Oval Diamonds",
+        name: "Oval",
         image: OvalDiamonds,
-        description:
-            "The oval cut lies somewhere between the round brilliant cut, showcasing a similar fire, and the pear shape. Oval cut diamonds have an elongated shape that creates the illusion of them being larger than they usually are.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Oval Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "Oval diamonds combine the brilliance of round diamonds with an elongated silhouette. They are known for creating the illusion of greater size compared to other shapes of the same carat weight.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Their elongated form can also make fingers appear longer and slimmer.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Oval Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Excellent brilliance",
+                            "Appears larger than round diamonds of equal weight",
+                            "Elegant and flattering shape",
+                            "Popular for modern engagement rings",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Oval diamonds are a favorite for those who want sparkle with a distinctive twist.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Radiant Diamonds",
+        name: "Radiant",
         image: RadiantDiamonds,
-        description:
-            "The radiant shape is a unique shape because it combines the silhouette of an emerald cut diamond with the sparkle and fire of a round brilliant cut diamond as well as the depth and brilliance of an emerald and princess cut.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Radiant Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "Radiant cut diamonds blend the rectangular outline of emerald cuts with the brilliance of round cuts. Featuring trimmed corners and brilliant-style faceting, they deliver intense sparkle.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Radiant diamonds are durable and versatile, making them suitable for various settings.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Radiant Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "High brilliance and fire",
+                            "Strong, durable corners",
+                            "Modern yet refined look",
+                            "Hides inclusions better than step cuts",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "They are perfect for buyers who love rectangular shapes but desire maximum sparkle.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Asscher Diamonds",
+        name: "Asscher",
         image: AssherDiamonds,
-        description:
-            "The asscher cut features a prismatic brilliance and square shape with cut corners. This diamond shape appears sleeker and showcases a more subdued sparkle than the star-like designed facets that you will see in round brilliant or princess cuts.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Asscher Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "The Asscher cut is a square step-cut diamond with deeply trimmed corners and a distinctive vintage look. It offers a prismatic brilliance and symmetrical facet pattern.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Like emerald cuts, Asscher diamonds highlight clarity and symmetry rather than intense sparkle.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Asscher Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Art Deco elegance",
+                            "Unique geometric design",
+                            "Sophisticated light reflection",
+                            "Rare and distinctive choice",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Asscher cuts appeal to buyers who appreciate architectural precision and heritage design.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Marquise Diamonds",
+        name: "Marquise",
         image: MarquiseDiamonds,
-        description:
-            "The marquise brilliant shape looks like the hull of a small boat, featuring pointed ends with a curved middle. It has an eye-catching appearance and features a larger surface area than any other diamond shape. It can therefore, be an upright diamond, maximize carat weight and appear larger than other stones of the same size.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Marquise Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "Marquise diamonds feature a long, narrow shape with pointed ends and a curved center, resembling the hull of a boat. This shape maximizes surface area, often appearing larger than other shapes of equal carat weight.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Marquise Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Largest face-up appearance per carat",
+                            "Dramatic and eye-catching",
+                            "Elongates the finger beautifully",
+                            "Excellent for maximizing carat weight",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Marquise diamonds are bold and elegant, ideal for making a strong visual statement.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Heart Diamonds",
+        name: "Heart",
         image: HeartDiamonds,
-        description:
-            "The heart shape, one of the most romantic of all shapes, is an unmistakable symbol of true love. It is one of the rarest of all diamond shapes. Comprising of two symmetrical halves, they offer a bold and shimmering appearance.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Heart Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "The heart-shaped diamond is one of the most romantic and symbolic shapes available. Representing love and devotion, it is often chosen for special anniversary or sentimental jewellery pieces.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Heart diamonds require exceptional cutting precision to maintain symmetry between the two halves.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Heart Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Strong romantic symbolism",
+                            "Rare and distinctive",
+                            "Bold visual impact",
+                            "Ideal for meaningful occasions",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "This shape is perfect for those who want their jewellery to tell an emotional story.",
+                    },
+                ],
+            },
+        ],
     },
     {
-        name: "Pear Diamonds",
+        name: "Pear",
         image: PearDiamonds,
-        description:
-            "The pear shape is a hybrid diamond shape because it combines the silhouette of an emerald cut diamond with the sparkle and fire of a round brilliant cut diamond as well as the depth and brilliance of an emerald and princess cut.",
-        readMore: "#",
+        content: [
+            {
+                heading: "Pear Diamonds",
+                content: [
+                    {
+                        type: "paragraph",
+                        text: "Pear-shaped diamonds, also known as teardrop diamonds, combine the round and marquise shapes. They feature one rounded end and one pointed tip.",
+                    },
+                    {
+                        type: "paragraph",
+                        text: "They offer excellent brilliance and elongation, making them both elegant and eye-catching.",
+                    },
+                ],
+            },
+            {
+                heading: "Why Choose Pear Diamonds?",
+                content: [
+                    {
+                        type: "bullet-list",
+                        items: [
+                            "Unique and graceful silhouette",
+                            "Appears larger than many other shapes",
+                            "Versatile for pendants and rings",
+                            "Elegant and contemporary",
+                        ],
+                    },
+                    {
+                        type: "paragraph",
+                        text: "Pear diamonds are ideal for buyers who want sophistication with a modern edge.",
+                    },
+                ],
+            },
+        ],
     },
 ];
 
-const articles = [
+const outroData: ArticleSection[] = [
     {
-        title: "Selecting The Perfect Diamond Shape",
-        subtitle: "Welcome",
-        paragraphs: [
-            "An important attribute of a diamond, the shape, which refers to the diamond's physical form, is usually the first aspect a couple or individual considers when selecting a diamond for their engagement ring or wedding band. It could be dependent on personal taste, for an occasion like your wedding, engagement or an anniversary gift, or what is trending in the world of diamonds. It could also be related to quality and value.",
-            "All diamond shapes are unique to each other, with distinct characteristics which determine the quality for each shape. Each shape highlights the 4Cs of a diamond - cut, color, clarity and carat – in varying forms as well. And due to this, each diamond shape offers different forms of beauty, style and brilliance.",
+        heading: "Financing Options for Your Diamond Purchase",
+        content: [
+            {
+                type: "paragraph",
+                text: "Selecting the perfect diamond is an investment — and flexible financing options can make the process easier.",
+            },
+            {
+                type: "paragraph",
+                text: "Uniglo offers interest-free diamond financing options:",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Certified goods can be paid within 60 days of purchase under an interest-free plan.",
+                    "Polished diamonds may qualify for 120-day interest-free financing.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "For detailed eligibility and terms, our customer care representatives are always available to assist.",
+            },
         ],
-        image: {
-            src: DiamondShapesGrid.src,
-            alt: "Diamond Shapes",
-        },
-        reverse: false,
-        floatImages: false,
     },
     {
-        title: "Diamond Shape vs Diamond Cut",
-        subtitle: "Welcome",
-        paragraphs: [
-            "The term 'diamond shape' is often confused with the 'cut' of a diamond – one of the four Cs of a diamond. Each shape may be cut to different specifications, which impacts the overall beauty of the stone. However, the type of cut, or quality of it, is determined by different grades, which may or may not be dependent on the shape itself. The 'cut' of a diamond describes how well the diamond has been polished, and that determines the way light is reflected throughout the stone's facet arrangement. It also determines light refraction, sparkle and scintillation.",
-            "Uniglo Diamonds suggests to select a diamond with a cut grade of Very Good and above (Very Good, Excellent) to get maximum beauty and value for money. The diamond shape's length-width ratio is also of importance. A greater length to width ratio implies that the diamond will be longer and skinny, while a lower ratio means the diamond is more circular/square in appearance.",
+        heading: "How to Choose the Right Diamond Shape",
+        content: [
+            {
+                type: "paragraph",
+                text: "When deciding on a diamond shape, consider the following:",
+            },
+            {
+                type: "numbered-list",
+                items: [
+                    "Personal Style – Classic, modern, vintage, or bold?",
+                    "Hand Proportion – Elongated shapes flatter shorter fingers.",
+                    "Brilliance Preference – Do you prefer intense sparkle or subtle elegance?",
+                    "Budget – Some shapes offer better value per carat than others.",
+                    "Setting Style – Certain shapes suit specific ring designs better.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Ultimately, the perfect diamond shape is one that resonates with your personality and enhances your emotional connection to the piece.",
+            },
         ],
-        image: {
-            src: DiamondCutVsShapeImage.src,
-            alt: "Diamond Cut vs Shape",
-        },
-        reverse: true,
-        floatImages: false,
+    },
+    {
+        heading: "Final Thoughts",
+        content: [
+            {
+                type: "paragraph",
+                text: "Selecting the perfect diamond shape is a deeply personal decision. Each shape tells its own story, reflects light in its own way, and highlights the 4Cs differently. From the unmatched brilliance of round diamonds to the vintage sophistication of emerald and Asscher cuts, every option offers unique beauty.",
+            },
+            {
+                type: "paragraph",
+                text: "Understanding the differences between shape and cut, considering proportions, and evaluating personal style will ensure that your choice is both meaningful and visually stunning.",
+            },
+            {
+                type: "paragraph",
+                text: "A diamond is more than a gemstone — it is a symbol of love, celebration, and legacy. Choosing the right shape ensures that your diamond not only shines brilliantly but also reflects who you are.",
+            },
+        ],
     },
 ];
-
+export const metadata: Metadata = {
+    title: "Guide to Diamond Shapes | Round, Princess, Cushion & More",
+    description:
+        "Explore popular diamond shapes—from Round Brilliant to Emerald & Heart cuts. Discover how each shape impacts sparkle, style & value.",
+    alternates: {
+        canonical: "https://www.uniglodiamonds.com/diamond-shapes",
+    },
+};
 const page = () => {
     return (
-        <div className="min-h-screen ">
+        <div className="min-h-screen">
             <BannerSection
                 image={BannerImage}
                 text="Diamond Shape"
@@ -136,119 +552,47 @@ const page = () => {
                 imageClassName="h-130 object-cover"
             />
 
-            {/* Articles Section */}
             <section className="max-w-7xl mx-auto px-10 my-20">
-                {articles.map((article, idx) => (
-                    <ArticleLayout key={idx} {...article} />
-                ))}
-            </section>
-
-            {/* No-Interest Diamond Financing Banner */}
-            <section className="w-full container mx-auto py-16 relative overflow-hidden mb-20">
-                <div className="absolute inset-0 bg-black/70 z-10">
-                    <Image
-                        src={FinancingBannerImage}
-                        alt="Diamond Background"
-                        className="w-full h-full object-cover"
-                    />
+                {/* Intro Section Rendering */}
+                <div className="mb-20">
+                    <DynamicArticle sections={introData} />
                 </div>
-                <div className="max-w-7xl mx-auto px-10 relative z-20">
-                    <div className="flex flex-col md:flex-row items-center gap-8">
-                        <div className="flex-1">
-                            <h3 className="text-4xl font-cormorantGaramond font-semibold text-white mb-6">
-                                No-Interest Diamond Financing
-                            </h3>
-                            <ul className="space-y-4 text-white/90 font-lora text-lg">
-                                <li className="flex gap-3">
-                                    <span className="text-[#bb923a] text-2xl">
-                                        •
-                                    </span>
-                                    For certified goods, you can pay 60 days
-                                    after purchase date, under an interest-free
-                                    financing scheme.
-                                </li>
-                                <li className="flex gap-3">
-                                    <span className="text-[#bb923a] text-2xl">
-                                        •
-                                    </span>
-                                    If you are purchasing polished diamonds from
-                                    Uniglo, you can pay 120 days after purchase
-                                    date, under an interest-free diamond
-                                    financing scheme.
-                                </li>
-                            </ul>
-                            <p className="text-white/80 font-lora text-lg mt-6">
-                                To know more, contact one of our customer care
-                                representatives, or fill out the contact form,
-                                and enable us to get in touch with you.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            {/* Diamond Shapes Grid Section */}
-            <section className="w-full bg-brand-gradient py-20 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {diamondShapes.map((shape, idx) => (
-                            <div key={idx} className="flex flex-col">
-                                {/* Image Card */}
-                                <div className="bg-white p-4 mb-6  h-56 flex items-center justify-center overflow-hidden shadow-lg">
+                {/* Shapes Iteration (Image & Text side by side) */}
+                <div className="space-y-20 border-t border-b border-slate-200 py-20 mb-20">
+                    {shapeSections.map((shape, idx) => (
+                        <div
+                            key={idx}
+                            // Alternate layout so every second shape has image on the right
+                            className={`flex flex-col md:flex-row items-center md:items-start gap-12 ${
+                                idx % 2 === 1 ? "md:flex-row-reverse" : ""
+                            }`}
+                        >
+                            {/* Image side */}
+                            <div className="w-full md:w-1/3 flex justify-center sticky top-24">
+                                <div className="bg-slate-50 border border-slate-200 p-8 w-full max-w-sm flex items-center justify-center rounded-sm">
                                     <Image
                                         src={shape.image}
                                         alt={shape.name}
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105"
                                     />
                                 </div>
-                                {/* Content */}
-                                <div className="">
-                                    <h3 className="text-[#bb923a] text-2xl font-cormorantGaramond font-semibold mb-3">
-                                        {shape.name}
-                                    </h3>
-                                    <p className="text-white/80 font-lora text-sm leading-relaxed mb-2 line-clamp-4">
-                                        {shape.description}
-                                    </p>
-                                    <a
-                                        href={shape.readMore}
-                                        className="text-white/70 font-lora text-sm font-semibold hover:underline transition-all"
-                                    >
-                                        Read more...
-                                    </a>
-                                </div>
                             </div>
-                        ))}
-                    </div>
+
+                            {/* Content Side */}
+                            <div className="w-full md:w-2/3">
+                                <DynamicArticle sections={shape.content} />
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Outro & Financing Section Rendering */}
+                <div className="mb-20">
+                    <DynamicArticle sections={outroData} />
                 </div>
             </section>
 
-            {/* Educational Banner Section */}
-            <section className="w-full container mx-auto relative py-16 px-4 overflow-hidden my-20">
-                <div className="absolute inset-0">
-                    <Image
-                        src={DiamondBannerBg}
-                        alt="Diamond Background"
-                        className="w-full h-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-black/60"></div>
-                </div>
-                <div className="max-w-6xl mx-auto relative z-10">
-                    <div className="flex items-center justify-start">
-                        <p className="text-white  text-lg md:text-xl font-lora leading-relaxed max-w-4xl">
-                            Uniglo Diamonds believes in educating every customer
-                            and catering to their detailed wishes. We seek to
-                            ensure that you are well-informed about every
-                            diamond shape available, and the best one to select
-                            basis your requirement – be it for an engagement
-                            ring, jewelry piece or a special gift. Our selection
-                            of beautiful shapes, along with detailed information
-                            regarding uniqueness and history, beautiful images
-                            and recommendations of the ideal cut will help you
-                            make the best decision.
-                        </p>
-                    </div>
-                </div>
-            </section>
             <SubFooter />
         </div>
     );
