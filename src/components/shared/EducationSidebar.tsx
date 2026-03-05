@@ -36,7 +36,7 @@ const EducationSidebar = ({
               - Tablet (md to lg): flex-row (side-by-side like SubFooter)
               - Desktop (>= lg): flex-col (returns to being a vertical sidebar)
             */}
-            <div className="w-full flex flex-col md:flex-row lg:flex-col gap-8 justify-between items-start h-full">
+            <div className="w-full grid grid-cols-1  md:grid-cols-2 lg:grid-cols-1 gap-8 justify-between items-start h-full lg:h-fit">
                 {/* Posts / Chapters Section matching SubFooter style on smaller screens */}
                 <div className="bg-[#f7f8fa] p-8 flex-1 h-full w-full shadow-sm rounded-sm lg:rounded-none">
                     <h3 className="text-4xl lg:text-3xl font-semibold font-cormorantGaramond mb-6 text-[#0f172a]">
