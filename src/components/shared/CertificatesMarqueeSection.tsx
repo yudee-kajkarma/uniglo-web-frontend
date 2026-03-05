@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import Marquee from "react-fast-marquee";
 import partner2 from "@/assets/our-partners/gia-removebg-preview.png";

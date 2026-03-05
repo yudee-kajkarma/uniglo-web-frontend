@@ -1,5 +1,3 @@
-"use client";
-
 import BannerSection from "@/components/shared/BannerSection";
 import React from "react";
 import bannerImage from "@/assets/sell-your-diamonds/banner.png";
@@ -64,11 +62,11 @@ const articleData = [
     },
 ];
 
-// export const metadata: Metadata = {
-//     title: "Diamond Buyers in Antwerp, Belgium | Sell Diamonds Securely – Uniglo",
-//     description:
-//         "Looking to sell diamonds or diamond jewellery in Antwerp, Belgium? Uniglo offers professional appraisal, recutting advice, certification, and immediate payment.",
-// };
+export const metadata: Metadata = {
+    title: "Diamond Buyers in Antwerp, Belgium | Sell Diamonds Securely – Uniglo",
+    description:
+        "Looking to sell diamonds or diamond jewellery in Antwerp, Belgium? Uniglo offers professional appraisal, recutting advice, certification, and immediate payment.",
+};
 
 const Page = () => {
     return (
