@@ -12,6 +12,7 @@ import IgiLogo from "@/assets/our-partners/igi.jpg";
 import { Clock1, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BannerSection from "@/components/shared/BannerSection";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import BannerImage from "@/assets/diamond-4cs/banner4c.jpeg";
 import DynamicArticle, {
     ArticleSection,
@@ -408,145 +409,7 @@ const page = () => {
                 </div>
 
                 {/* Sidebar Column */}
-                <div className="w-full lg:w-1/3 space-y-10">
-                    {/* Popular Post */}
-                    <div className="bg-[#f7f8fa] p-8 ">
-                        <h4 className="text-2xl font-cormorantGaramond mb-6 border-b border-slate-200 pb-2">
-                            Popular Post
-                        </h4>
-                        <ul className="space-y-4 font-lora text-slate-700">
-                            <li>
-                                <a
-                                    href="#"
-                                    className="hover:text-[#bb923a] transition-colors"
-                                >
-                                    Supply Chain Policy & Procedure
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="hover:text-[#bb923a] transition-colors"
-                                >
-                                    The Diamonds 4Cs
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="hover:text-[#bb923a] transition-colors"
-                                >
-                                    Diamonds Certificates
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="hover:text-[#bb923a] transition-colors"
-                                >
-                                    Diamonds Shapes
-                                </a>
-                            </li>
-                            <li>
-                                <a
-                                    href="#"
-                                    className="hover:text-[#bb923a] transition-colors"
-                                >
-                                    Fancy Coloured Diamonds
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-                    {/* Our Partners */}
-                    <div>
-                        <h4 className="text-2xl font-cormorantGaramond mb-6 border-b border-slate-200 pb-2">
-                            Our Partners
-                        </h4>
-                        <div className="flex gap-4 items-center justify-start">
-                            <Image
-                                src={GiaLogo}
-                                alt="GIA"
-                                width={60}
-                                height={30}
-                                className="object-contain"
-                            />
-                            <Image
-                                src={HrdLogo}
-                                alt="HRD"
-                                width={80}
-                                height={30}
-                                className="object-contain"
-                            />
-                            <Image
-                                src={IgiLogo}
-                                alt="IGI"
-                                width={60}
-                                height={30}
-                                className="object-contain"
-                            />
-                        </div>
-                    </div>
-
-                    {/* Find Us */}
-                    <div className="bg-[#f7f8fa] p-8 ">
-                        <h4 className="text-2xl font-cormorantGaramond mb-6 border-b border-slate-200 pb-2">
-                            Find Us
-                        </h4>
-                        <div className="space-y-6 font-lora text-slate-700 text-sm">
-                            <div className="flex gap-3">
-                                <span className="text-[#bb923a] text-xl">
-                                    <MapPin />
-                                </span>
-                                <div>
-                                    <strong className="block text-black mb-1">
-                                        Address
-                                    </strong>
-                                    <p>
-                                        Hoveniersstraat 30, Suite 662, Bus 250
-                                        2018 Antwerp
-                                    </p>
-                                </div>
-                            </div>
-                            <div className="flex gap-3">
-                                <span className="text-[#bb923a] text-xl">
-                                    <Clock1 />
-                                </span>
-                                <div>
-                                    <strong className="block text-black mb-1">
-                                        Hours
-                                    </strong>
-                                    <p>
-                                        Monday—Friday: 10:00 – 18:00
-                                        <br />
-                                        Saturday & Sunday: On Appointment
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Ad Section */}
-                    <div className="bg-black flex flex-col items-center justify-center p-10 min-h-[400px]">
-                        <div className="flex flex-col items-center">
-                            <h3 className="text-white text-3xl md:text-4xl font-cormorantGaramond text-center mb-8">
-                                BROWSE THOUSANDS
-                                <br />
-                                OF LOOSE DIAMONDS
-                            </h3>
-                            <Button className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition px-8 py-4 text-lg font-lora tracking-wide rounded-none mt-2">
-                                ONLINE INVENTORY
-                            </Button>
-                            <Image
-                                src={AdImage}
-                                alt="Diamond Ring"
-                                width={250}
-                                height={250}
-                                className="mt-10 w-60 h-auto aspect-square object-contain"
-                            />
-                        </div>
-                    </div>
-                </div>
+                <EducationSidebar />
             </div>
         </div>
     );

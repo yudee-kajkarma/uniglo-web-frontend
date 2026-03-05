@@ -1,6 +1,7 @@
 import React from "react";
 import Image, { StaticImageData } from "next/image";
 import BannerSection from "@/components/shared/BannerSection";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import BannerImage from "@/assets/diamond-shape/banner.jpeg";
 import SubFooter from "@/components/shared/SubFooter";
 import DynamicArticle, {
@@ -552,48 +553,53 @@ const page = () => {
                 imageClassName="h-130 object-cover"
             />
 
-            <section className="max-w-7xl mx-auto px-10 my-20">
-                {/* Intro Section Rendering */}
-                <div className="mb-20">
-                    <DynamicArticle sections={introData} />
-                </div>
+            <div className="max-w-[1400px] mx-auto px-4 flex flex-col xl:flex-row gap-12 mt-10 mb-20">
+                <div className="w-full xl:w-3/4">
+                    {/* Intro Section Rendering */}
+                    <div className="mb-20">
+                        <DynamicArticle sections={introData} />
+                    </div>
 
-                {/* Shapes Iteration (Image & Text side by side) */}
-                <div className="space-y-20 border-t border-b border-slate-200 py-20 mb-20">
-                    {shapeSections.map((shape, idx) => (
-                        <div
-                            key={idx}
-                            // Alternate layout so every second shape has image on the right
-                            className={`flex flex-col md:flex-row items-center md:items-start gap-12 ${
-                                idx % 2 === 1 ? "md:flex-row-reverse" : ""
-                            }`}
-                        >
-                            {/* Image side */}
-                            <div className="w-full md:w-1/3 flex justify-center sticky top-24">
-                                <div className="bg-slate-50 border border-slate-200 p-8 w-full max-w-sm flex items-center justify-center rounded-sm">
-                                    <Image
-                                        src={shape.image}
-                                        alt={shape.name}
-                                        className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105"
-                                    />
+                    {/* Shapes Iteration (Image & Text side by side) */}
+                    <div className="space-y-20 border-t border-b border-slate-200 py-20 mb-20">
+                        {shapeSections.map((shape, idx) => (
+                            <div
+                                key={idx}
+                                // Alternate layout so every second shape has image on the right
+                                className={`flex flex-col md:flex-row items-center md:items-start gap-12 ${
+                                    idx % 2 === 1 ? "md:flex-row-reverse" : ""
+                                }`}
+                            >
+                                {/* Image side */}
+                                <div className="w-full md:w-1/3 flex justify-center lg:sticky lg:top-24">
+                                    <div className="bg-slate-50 border border-slate-200 p-8 w-full max-w-sm flex items-center justify-center rounded-sm">
+                                        <Image
+                                            src={shape.image}
+                                            alt={shape.name}
+                                            className="w-full h-auto object-contain transition-transform duration-700 hover:scale-105"
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Content Side */}
+                                <div className="w-full md:w-2/3">
+                                    <DynamicArticle sections={shape.content} />
                                 </div>
                             </div>
+                        ))}
+                    </div>
 
-                            {/* Content Side */}
-                            <div className="w-full md:w-2/3">
-                                <DynamicArticle sections={shape.content} />
-                            </div>
-                        </div>
-                    ))}
+                    {/* Outro & Financing Section Rendering */}
+                    <div>
+                        <DynamicArticle sections={outroData} />
+                    </div>
                 </div>
 
-                {/* Outro & Financing Section Rendering */}
-                <div className="mb-20">
-                    <DynamicArticle sections={outroData} />
+                {/* Sidebar */}
+                <div className="w-full xl:w-1/4">
+                    <EducationSidebar className="w-full space-y-10 sticky top-24" />
                 </div>
-            </section>
-
-            <SubFooter />
+            </div>
         </div>
     );
 };

@@ -4,6 +4,7 @@ import BannerImage from "@/assets/supply-chain/bannerSupply.jpeg";
 import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -256,36 +257,6 @@ const policyData: ArticleSection[] = [
     },
 ];
 
-const SidebarBlogs = () => {
-    const blogs = [
-        { title: "Diamond Buying Guide", href: "#" },
-        { title: "Understanding The 4Cs", href: "#" },
-        { title: "Conflict-Free Diamonds", href: "#" },
-        { title: "Jewellery Care Guide", href: "#" },
-        { title: "Our Ethical Sourcing", href: "#" },
-    ];
-
-    return (
-        <div className="bg-slate-50 p-8 rounded-sm sticky top-24">
-            <h3 className="text-2xl font-cormorantGaramond font-semibold mb-6 text-[#1f2732] border-b pb-4">
-                Other Articles
-            </h3>
-            <ul className="space-y-4 font-lora text-lg text-slate-600">
-                {blogs.map((blog, idx) => (
-                    <li key={idx}>
-                        <a
-                            href={blog.href}
-                            className="hover:text-[#bb923a] transition-colors duration-300"
-                        >
-                            {blog.title}
-                        </a>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
-};
-
 const page = () => {
     return (
         <div className="min-h-screen">
@@ -296,7 +267,7 @@ const page = () => {
                 imageClassName="h-100 object-cover"
             />
             <section className="max-w-7xl mx-auto px-10 my-20 pb-20 flex flex-col lg:flex-row gap-12">
-                <div className="lg:w-2/3">
+                <div className="w-full lg:w-2/3">
                     <div className="text-primary-yellow-1 text-lg font-lora mb-2 uppercase tracking-wider">
                         Company Policy
                     </div>
@@ -308,9 +279,7 @@ const page = () => {
                     <DynamicArticle sections={policyData} />
                 </div>
 
-                <div className="lg:w-1/3">
-                    <SidebarBlogs />
-                </div>
+                <EducationSidebar className="w-full lg:w-1/3 lg:sticky lg:top-24 h-fit" />
             </section>
         </div>
     );

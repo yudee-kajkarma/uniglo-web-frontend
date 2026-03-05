@@ -1,4 +1,5 @@
 import BannerSection from "@/components/shared/BannerSection";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
@@ -328,12 +329,12 @@ const page = () => {
                 imageClassName="h-130 object-cover transform scaleX(-1)"
             />
 
-            {/* Main Content Section */}
-            <section className="max-w-4xl mx-auto px-10 py-20 mb-10">
-                <DynamicArticle sections={conflictFreeData} />
-            </section>
-
-            <SubFooter />
+            <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-12 mt-10">
+                <div className="w-full lg:w-2/3 pb-10">
+                    <DynamicArticle sections={conflictFreeData} />
+                </div>
+                <EducationSidebar />
+            </div>
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import BannerSection from "@/components/shared/BannerSection";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import React from "react";
 import BannerImage from "@/assets/ethical-diamonds/bannerNewEthical.jpeg";
 import Image from "next/image";
@@ -259,50 +260,28 @@ const page = () => {
                 textClassName="left-10 top-110 text-5xl"
                 imageClassName="h-130 object-cover"
             />
-            {/* Article Section 1 */}
-            <section className="max-w-7xl mx-auto px-10 mt-20 mb-10">
-                <DynamicArticle sections={ethicalData1} />
-            </section>
-            {/* Article Section 2 */}
-            <section className="max-w-7xl mx-auto px-10 mb-20">
-                <DynamicArticle sections={ethicalData2} />
-            </section>
-            {/* Trust Content Section */}
-            <section className="max-w-7xl mx-auto px-10 mb-20">
-                <DynamicArticle sections={trustData} />
-            </section>
-            {/* <section className="w-full bg-brand-gradient py-20 px-4">
-                <div className="max-w-7xl mx-auto">
-                    <div className="mb-16">
-                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-white mb-2">
-                            Ethical Business Policy -{" "}
-                            <span className="text-white/70">
-                                Ensuring a seamless and Memorable experience
-                            </span>
-                        </h2>
-                        <h3 className="text-4xl font-cormorantGaramond font-semibold text-white mt-6">
-                            Commitments
-                        </h3>
-                    </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        {commitments.map((commitment, idx) => (
-                            <div
-                                key={idx}
-                                className="flex items-start gap-4 text-white/90"
-                            >
-                                <span className="text-[#bb923a] text-2xl mt-1 shrink-0">
-                                    ✓
-                                </span>
-                                <p className="font-lora text-lg leading-relaxed">
-                                    {commitment.title}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
+            <div className="max-w-[1400px] mx-auto px-4 flex flex-col xl:flex-row gap-12 mt-20 mb-20">
+                <div className="w-full xl:w-3/4">
+                    {/* Article Section 1 */}
+                    <section className="mb-10">
+                        <DynamicArticle sections={ethicalData1} />
+                    </section>
+                    {/* Article Section 2 */}
+                    <section className="mb-20">
+                        <DynamicArticle sections={ethicalData2} />
+                    </section>
+                    {/* Trust Content Section */}
+                    <section className="mb-20">
+                        <DynamicArticle sections={trustData} />
+                    </section>
                 </div>
-            </section> */}
-            <SubFooter />
+
+                {/* Sidebar */}
+                <div className="w-full xl:w-1/4">
+                    <EducationSidebar className="w-full space-y-10 xl:sticky xl:top-24" />
+                </div>
+            </div>
         </div>
     );
 };

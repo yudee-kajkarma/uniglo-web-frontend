@@ -8,7 +8,7 @@ import BlueDiamondChart from "@/assets/fancy-colored-diamonds/blue-diamonds.png"
 import YellowDiamondChart from "@/assets/fancy-colored-diamonds/green-diamonds.png";
 import GreenDiamondChart from "@/assets/fancy-colored-diamonds/green-diamond.png";
 import ContactBannerImage from "@/assets/banner_2.jpg";
-import SubFooter from "@/components/shared/SubFooter";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
@@ -424,43 +424,54 @@ const page = () => {
                 imageClassName="h-90 object-cover"
             />
 
-            {/* Intro Section */}
-            <section className="max-w-7xl mx-auto px-4 mt-20">
-                <DynamicArticle sections={introData} />
-            </section>
-
-            {/* Colored Diamonds Sections (with original Images preserving) */}
-            <div className="max-w-7xl mx-auto px-4">
-                {coloredDiamondSections.map((diamond) => (
-                    <section
-                        key={diamond.id}
-                        className="py-20 mt-10 border-t border-slate-200"
-                    >
-                        <div className="max-w-7xl mx-auto">
-                            {/* Chart Section */}
-                            <div className="mb-16">
-                                <div className="flex justify-center">
-                                    <Image
-                                        src={diamond.chartImage}
-                                        alt={diamond.chartTitle}
-                                        className="w-full max-w-7xl h-auto object-contain"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Content Section rendered dynamically */}
-                            <div>
-                                <DynamicArticle sections={diamond.sections} />
-                            </div>
-                        </div>
+            <div className="max-w-[1400px] mx-auto px-4 flex flex-col xl:flex-row gap-12 mt-10">
+                <div className="w-full xl:w-3/4">
+                    {/* Intro Section */}
+                    <section className="mt-10">
+                        <DynamicArticle sections={introData} />
                     </section>
-                ))}
-            </div>
 
-            {/* Outro Section */}
-            <section className="max-w-7xl mx-auto px-4 py-20 border-t border-slate-200">
-                <DynamicArticle sections={outroData} />
-            </section>
+                    {/* Colored Diamonds Sections (with original Images preserving) */}
+                    <div>
+                        {coloredDiamondSections.map((diamond) => (
+                            <section
+                                key={diamond.id}
+                                className="py-20 mt-10 border-t border-slate-200"
+                            >
+                                <div className="max-w-7xl mx-auto">
+                                    {/* Chart Section */}
+                                    <div className="mb-16">
+                                        <div className="flex justify-center">
+                                            <Image
+                                                src={diamond.chartImage}
+                                                alt={diamond.chartTitle}
+                                                className="w-full max-w-7xl h-auto object-contain"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Content Section rendered dynamically */}
+                                    <div>
+                                        <DynamicArticle
+                                            sections={diamond.sections}
+                                        />
+                                    </div>
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+
+                    {/* Outro Section */}
+                    <section className="py-20 border-t border-slate-200">
+                        <DynamicArticle sections={outroData} />
+                    </section>
+                </div>
+
+                {/* Sidebar */}
+                <div className="w-full xl:w-1/4 pt-10 lg:pt-0">
+                    <EducationSidebar className="w-full space-y-10 lg:sticky lg:top-24" />
+                </div>
+            </div>
 
             {/* Contact CTA Banner */}
             <section className="w-full container mx-auto relative py-16 px-4 mt-10 mb-20 overflow-hidden">
@@ -488,8 +499,6 @@ const page = () => {
                     </div>
                 </div>
             </section>
-
-            <SubFooter />
         </div>
     );
 };

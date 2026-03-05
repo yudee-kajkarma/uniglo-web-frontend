@@ -1,5 +1,6 @@
 import React from "react";
 import BannerSection from "@/components/shared/BannerSection";
+import EducationSidebar from "@/components/shared/EducationSidebar";
 import BannerImage from "@/assets/diamond-certificates/bannerNew.png";
 import SubFooter from "@/components/shared/SubFooter";
 import DynamicArticle, {
@@ -174,12 +175,12 @@ const page = () => {
                 imageClassName="h-100 object-cover"
             />
 
-            {/* Main Articles Content Section */}
-            <section className="max-w-4xl mx-auto px-10 py-20 mb-10">
-                <DynamicArticle sections={certificateData} />
-            </section>
-
-            <SubFooter />
+            <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row gap-12 mt-10">
+                <div className="w-full lg:w-2/3 pb-10">
+                    <DynamicArticle sections={certificateData} />
+                </div>
+                <EducationSidebar />
+            </div>
         </div>
     );
 };
