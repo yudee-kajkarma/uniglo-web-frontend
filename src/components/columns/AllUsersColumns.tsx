@@ -1,12 +1,15 @@
 import { PendingUser } from "@/services/adminServices";
 import { Badge } from "@/components/ui/badge";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import { ActionButtonWithTooltip } from "@/components/ui/actionButtonWithTooltip";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export interface Column<T> {
     key: keyof T | string;
     header: React.ReactNode;
-    render?: (row: PendingUser) => React.ReactNode;
+    render?: (
+        row: PendingUser,
+        onAssignEntity?: (userId: string, username: string) => void,
+    ) => React.ReactNode;
     cellClassName?: (row: PendingUser) => string;
 }
 
@@ -48,6 +51,7 @@ const getStatusBadge = (status: string) => {
 export const getAllUsersColumns = (
     expandedRows: Set<string>,
     onToggleExpand: (userId: string) => void,
+    onAssignEntity?: (userId: string, username: string) => void,
 ): Column<PendingUser>[] => [
     {
         key: "expand",
@@ -109,11 +113,27 @@ export const getAllUsersColumns = (
     {
         key: "entityKey",
         header: "Entity Key",
-        render: (row: PendingUser) => (
-            <span className="text-gray-800">
-                {(row as any).entityKey || "N/A"}
-            </span>
-        ),
+        render: (row: PendingUser, onAssignEntityCallback) => {
+            const entityKey = (row as any).entityKey;
+
+            if (entityKey) {
+                return <span className="text-gray-800">{entityKey}</span>;
+            }
+
+            return (
+                <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                        onAssignEntityCallback?.(row._id, row.username)
+                    }
+                    className="h-7 px-2 text-xs border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                >
+                    <Plus className="w-3 h-3 mr-1" />
+                    Add Entity
+                </Button>
+            );
+        },
     },
     {
         key: "createdAt",

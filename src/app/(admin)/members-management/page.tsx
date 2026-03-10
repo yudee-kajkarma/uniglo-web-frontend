@@ -14,6 +14,7 @@ import {
     getAllUsersColumns,
     UserDetailsRow,
 } from "@/components/columns/AllUsersColumns";
+import { AssignEntityDialog } from "@/components/dialogs/AssignEntityDialog";
 import { toast } from "sonner";
 import { Loader2, Users, Search, X } from "lucide-react";
 import ShimmerTable from "@/components/ui/shimmerTable";
@@ -29,6 +30,11 @@ export default function MembersManagementPage() {
     const [loading, setLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
+
+    // Entity assignment dialog state
+    const [assignEntityDialogOpen, setAssignEntityDialogOpen] = useState(false);
+    const [selectedUserId, setSelectedUserId] = useState<string>("");
+    const [selectedUsername, setSelectedUsername] = useState<string>("");
 
     // Search state
     const [searchInput, setSearchInput] = useState("");
@@ -74,10 +80,6 @@ export default function MembersManagementPage() {
             // Show info message if search is active
             if (activeSearch && response.data.length === 0) {
                 toast.info(`No results found for: "${activeSearch}"`);
-            } else if (activeSearch && response.data.length > 0) {
-                // toast.success(
-                //     `Found ${response.data.length} user(s) matching: "${activeSearch}"`,
-                // );
             }
         } catch (error: any) {
             toast.error(
@@ -156,6 +158,16 @@ export default function MembersManagementPage() {
         });
     };
 
+    const handleAssignEntity = (userId: string, username: string) => {
+        setSelectedUserId(userId);
+        setSelectedUsername(username);
+        setAssignEntityDialogOpen(true);
+    };
+
+    const handleEntityAssignmentSuccess = () => {
+        fetchAllUsers(); // Refresh the users list
+    };
+
     const handleClearSearch = () => {
         setSearchInput("");
         setActiveSearch("");
@@ -173,6 +185,7 @@ export default function MembersManagementPage() {
     const allUsersColumns = getAllUsersColumns(
         expandedRows,
         handleToggleExpand,
+        handleAssignEntity,
     );
     const currentUsers = activeTab === "pending" ? pendingUsers : allUsers;
 
@@ -393,6 +406,7 @@ export default function MembersManagementPage() {
                                                         {column.render
                                                             ? column.render(
                                                                   user,
+                                                                  handleAssignEntity,
                                                               )
                                                             : (user[
                                                                   column.key as keyof PendingUser
@@ -453,6 +467,15 @@ export default function MembersManagementPage() {
                     </div>
                 </div>
             )}
+
+            {/* Entity Assignment Dialog */}
+            <AssignEntityDialog
+                open={assignEntityDialogOpen}
+                onOpenChange={setAssignEntityDialogOpen}
+                userId={selectedUserId}
+                username={selectedUsername}
+                onSuccess={handleEntityAssignmentSuccess}
+            />
         </div>
     );
 }
