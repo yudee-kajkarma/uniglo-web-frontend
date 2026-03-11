@@ -1,7 +1,8 @@
 import { PendingUser } from "@/services/adminServices";
 import { Badge } from "@/components/ui/badge";
-import { Check, X } from "lucide-react";
+import { Check, Link, X } from "lucide-react";
 import { ActionButtonWithTooltip } from "@/components/ui/actionButtonWithTooltip";
+import { toast } from "sonner";
 
 export interface Column<T> {
     key: keyof T | string;
@@ -100,6 +101,16 @@ export const getPendingUserColumns = (
                     tooltip="Reject"
                     onClick={() => onReject(row)}
                     colorClass="text-red-600 hover:text-red-700"
+                />
+                <ActionButtonWithTooltip
+                    icon={<Link className="w-4 h-4" />}
+                    tooltip="Copy Approval Link"
+                    onClick={() => {
+                        const url = `${window.location.origin}/approve-user/${row._id}`;
+                        navigator.clipboard.writeText(url);
+                        toast.success("Approval link copied to clipboard");
+                    }}
+                    colorClass="text-blue-600 hover:text-blue-700"
                 />
             </div>
         ),
