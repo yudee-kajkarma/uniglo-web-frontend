@@ -112,3 +112,62 @@ export const fetchUserById = async (userId: string): Promise<UsersResponse> => {
         throw errorMessage;
     }
 };
+
+export interface CheckPendingRegistrationResponse {
+    hasPendingRegistration: boolean;
+}
+
+export interface ResendRegistrationOtpResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Check if a user has a pending registration
+ * @param email User's email address
+ * @returns Promise with pending registration status
+ */
+export const checkPendingRegistration = async (
+    email: string,
+): Promise<CheckPendingRegistrationResponse> => {
+    try {
+        const response = await apiClient.get<CheckPendingRegistrationResponse>(
+            "/users/check-pending-registration",
+            {
+                params: { email },
+            },
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to check pending registration. Please try again.";
+        throw errorMessage;
+    }
+};
+
+/**
+ * Resend registration OTP to user's email
+ * @param email User's email address
+ * @returns Promise with success response
+ */
+export const resendRegistrationOtp = async (
+    email: string,
+): Promise<ResendRegistrationOtpResponse> => {
+    try {
+        const response = await apiClient.post<ResendRegistrationOtpResponse>(
+            "/users/resend-registration-otp",
+            {
+                email,
+            },
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to resend OTP. Please try again.";
+        throw errorMessage;
+    }
+};

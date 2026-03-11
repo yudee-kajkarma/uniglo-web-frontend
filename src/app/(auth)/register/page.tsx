@@ -25,6 +25,10 @@ import {
     COUNTRY_CODES,
 } from "@/constants/formOptions";
 import { State, City } from "country-state-city";
+import {
+    checkPendingRegistration,
+    resendRegistrationOtp,
+} from "@/services/userService";
 
 const Page = () => {
     const router = useRouter();
@@ -162,6 +166,27 @@ const Page = () => {
         setIsLoading(true);
 
         try {
+            const pendingCheck = await checkPendingRegistration(formData.email);
+
+            if (pendingCheck.hasPendingRegistration) {
+                // User has pending registration, resend OTP
+                const resendResponse = await resendRegistrationOtp(
+                    formData.email,
+                );
+
+                toast.success(
+                    resendResponse.message ||
+                        "OTP resent successfully! Please verify your email.",
+                );
+
+                setTimeout(() => {
+                    router.push(
+                        `/verify-otp?email=${encodeURIComponent(formData.email)}`,
+                    );
+                }, 1000);
+
+                return; // Exit early, don't proceed with registration
+            }
             const registrationData = {
                 username: formData.username,
                 email: formData.email,

@@ -10,15 +10,19 @@ import { ArrowLeft, Mail } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { verifyOtp } from "@/services/authServices";
+import { resendRegistrationOtp } from "@/services/userService";
 import { toast } from "sonner";
 
 const VerifyOtpContent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [isLoading, setIsLoading] = useState(false);
+    const [isResending, setIsResending] = useState(false);
+    const [cooldownTime, setCooldownTime] = useState(0);
     const [otp, setOtp] = useState(["", "", "", ""]);
     const [email, setEmail] = useState("");
     const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+    const cooldownTimerRef = useRef<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         const emailParam = searchParams.get("email");
@@ -29,6 +33,31 @@ const VerifyOtpContent = () => {
             router.push("/register");
         }
     }, [searchParams, router]);
+
+    // Cleanup cooldown timer on unmount
+    useEffect(() => {
+        return () => {
+            if (cooldownTimerRef.current) {
+                clearInterval(cooldownTimerRef.current);
+            }
+        };
+    }, []);
+
+    const startCooldown = () => {
+        setCooldownTime(30);
+
+        cooldownTimerRef.current = setInterval(() => {
+            setCooldownTime((prev) => {
+                if (prev <= 1) {
+                    if (cooldownTimerRef.current) {
+                        clearInterval(cooldownTimerRef.current);
+                    }
+                    return 0;
+                }
+                return prev - 1;
+            });
+        }, 1000);
+    };
 
     const handleOtpChange = (index: number, value: string) => {
         // Only allow numbers
@@ -109,8 +138,37 @@ const VerifyOtpContent = () => {
     };
 
     const handleResendOtp = async () => {
-        // You can implement resend OTP functionality here if your API supports it
-        toast.info("Resend OTP functionality to be implemented");
+        if (!email) {
+            toast.error("Email not found. Please try again.");
+            return;
+        }
+
+        if (cooldownTime > 0) {
+            toast.error(
+                `Please wait ${cooldownTime} seconds before resending.`,
+            );
+            return;
+        }
+
+        setIsResending(true);
+
+        try {
+            const response = await resendRegistrationOtp(email);
+            toast.success(
+                response.message ||
+                    "OTP resent successfully! Please check your email.",
+            );
+            // Clear existing OTP inputs
+            setOtp(["", "", "", ""]);
+            inputRefs.current[0]?.focus();
+
+            // Start cooldown timer
+            startCooldown();
+        } catch (error) {
+            toast.error(error as string);
+        } finally {
+            setIsResending(false);
+        }
     };
 
     return (
@@ -187,7 +245,7 @@ const VerifyOtpContent = () => {
                                     }
                                     onKeyDown={(e) => handleKeyDown(index, e)}
                                     onPaste={handlePaste}
-                                    disabled={isLoading}
+                                    disabled={isLoading || isResending}
                                     className="w-14 h-14 md:w-16 md:h-16 text-center text-2xl md:text-3xl font-bold bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 rounded-lg"
                                 />
                             ))}
@@ -197,7 +255,9 @@ const VerifyOtpContent = () => {
                         <Button
                             type="submit"
                             variant="ghost"
-                            disabled={isLoading || otp.some((d) => !d)}
+                            disabled={
+                                isLoading || isResending || otp.some((d) => !d)
+                            }
                             className="w-full h-auto py-3.5 rounded-lg uppercase tracking-wider text-xl gold-reveal-btn border-none hover:bg-transparent font-cormorantGaramond font-bold disabled:opacity-50"
                         >
                             <span className="text-primary-purple">
@@ -214,10 +274,16 @@ const VerifyOtpContent = () => {
                         <button
                             type="button"
                             onClick={handleResendOtp}
-                            disabled={isLoading}
-                            className="text-primary-yellow-1 hover:text-primary-yellow-2 transition-colors text-sm font-semibold disabled:opacity-50"
+                            disabled={
+                                isLoading || isResending || cooldownTime > 0
+                            }
+                            className="text-primary-yellow-1 hover:text-primary-yellow-2 transition-colors text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            Resend OTP
+                            {isResending
+                                ? "Resending..."
+                                : cooldownTime > 0
+                                  ? `Resend OTP (${cooldownTime}s)`
+                                  : "Resend OTP"}
                         </button>
                     </div>
 
