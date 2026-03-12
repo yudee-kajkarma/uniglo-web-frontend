@@ -14,6 +14,7 @@ import {
     Building2,
     Phone,
     MapPin,
+    FileText,
 } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -43,6 +44,7 @@ const Page = () => {
         referCode: "",
         companyName: "",
         businessType: "",
+        vatNumber: "",
         street: "",
         state: "",
         city: "",
@@ -124,6 +126,7 @@ const Page = () => {
             // !formData.city ||
             !formData.zipCode ||
             !formData.country ||
+            !formData.vatNumber ||
             !formData.password ||
             !formData.confirmPassword
         ) {
@@ -211,7 +214,7 @@ const Page = () => {
                         state: formData.state,
                         country: formData.country,
                         zipCode: formData.zipCode,
-                        vat_No: "",
+                        vat_No: formData.vatNumber,
                         gstn_No: "",
                     },
                 ],
@@ -224,7 +227,7 @@ const Page = () => {
                         state: formData.state,
                         country: formData.country,
                         zipCode: formData.zipCode,
-                        vat_No: "",
+                        vat_No: formData.vatNumber,
                         gstn_No: "",
                     },
                 ],
@@ -255,7 +258,7 @@ const Page = () => {
                     businessInfo: {
                         companyName: formData.companyName,
                         businessType: formData.businessType,
-                        vatNumber: "",
+                        vatNumber: formData.vatNumber,
                         websiteUrl: "",
                     },
                 },
@@ -422,7 +425,7 @@ const Page = () => {
                                 <Phone className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                             </div>
 
-                            <div className="relative group">
+                            <div className="relative group col-span-2">
                                 <Input
                                     type="text"
                                     name="companyName"
@@ -434,6 +437,18 @@ const Page = () => {
                                     className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
                                 />
                                 <Building2 className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                            </div>
+                            <div className="relative group">
+                                <Input
+                                    type="text"
+                                    name="vatNumber"
+                                    placeholder="VAT Number"
+                                    value={formData.vatNumber}
+                                    onChange={handleInputChange}
+                                    disabled={isLoading}
+                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
+                                />
+                                <FileText className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                             </div>
                             <div className="relative">
                                 <select
@@ -477,8 +492,8 @@ const Page = () => {
                         </div>
 
                         {/* Address Fields - Updated with dynamic state/city */}
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div className="relative">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div className="relative col-span-2">
                                 <select
                                     name="country"
                                     value={formData.country}
