@@ -174,7 +174,7 @@ const BlogPage = () => {
             <BannerSection
                 image={BannerImage}
                 text="Diamonds Are Not Made from Coal"
-                textClassName="left-10 top-1/2 text-4xl md:text-5xl"
+                textClassName="left-10 top-80 text-4xl md:text-5xl"
                 imageClassName="h-64 md:h-96 object-cover"
             />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">

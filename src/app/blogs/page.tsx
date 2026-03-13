@@ -31,6 +31,16 @@ const blogs = [
             "Many people believe that diamonds are made from coal. But the truth is different. Discover the real geological processes behind diamond formation.",
         slug: "diamonds-are-not-made-from-coal",
     },
+    {
+        id: 3,
+        title: "Lab Grown Diamond Engagement Rings: The Ultimate Guide",
+        author: "Uniglo Diamonds",
+        date: "March 13, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "A complete guide to lab grown diamond engagement rings, including 4Cs, styles, pricing, certification, and care tips.",
+        slug: "lab-grown-diamond-engagement-rings",
+    },
 ];
 
 const page = () => {
@@ -44,10 +54,10 @@ const page = () => {
             />
 
             {/* All Blogs Section */}
-            <section className="w-full bg-brand-gradient py-20 px-4 ">
+            <section className="w-full  py-20 px-4 ">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Title */}
-                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-white mb-16">
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-primary-purple-dark mb-16">
                         All Blogs
                     </h2>
 
@@ -56,10 +66,10 @@ const page = () => {
                         {blogs.map((blog) => (
                             <div
                                 key={blog.id}
-                                className="flex flex-col h-full overflow-hidden hover:shadow-2xl transition-all duration-300"
+                                className="flex flex-col h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group"
                             >
                                 {/* Blog Image */}
-                                <div className="relative w-full h-64 md:h-72 overflow-hidden rounded-sm mb-6">
+                                <div className="relative w-full h-64 md:h-72 overflow-hidden rounded-sm mb-6 ">
                                     <Image
                                         src={blog.image}
                                         alt={blog.title}
@@ -68,19 +78,19 @@ const page = () => {
                                 </div>
 
                                 {/* Blog Content */}
-                                <div className="flex flex-col flex-1">
+                                <div className="flex flex-col flex-1 group-hover:pl-5 group-hover:pb-5 transition-all duration-300">
                                     {/* Title */}
-                                    <h3 className="text-2xl md:text-3xl font-cormorantGaramond font-semibold text-[#bb923a] mb-3 leading-tight hover:text-white transition-colors cursor-pointer">
+                                    <h3 className="text-2xl md:text-3xl font-cormorantGaramond font-semibold text-[#bb923a] mb-3 leading-tight hover:text-primary-purple2 transition-colors cursor-pointer">
                                         {blog.title}
                                     </h3>
 
                                     {/* Meta Info */}
-                                    <p className="text-white/70 font-lora text-sm mb-4">
+                                    <p className="text-primary-purple-dark font-lora text-sm mb-4">
                                         {blog.author} {blog.date}
                                     </p>
 
                                     {/* Excerpt */}
-                                    <p className="text-white/80 font-lora text-base leading-relaxed mb-6 grow line-clamp-3">
+                                    <p className="text-primary-purple-dark font-lora text-base leading-relaxed mb-6 grow line-clamp-3">
                                         {blog.excerpt}
                                     </p>
 
