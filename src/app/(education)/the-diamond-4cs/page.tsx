@@ -409,7 +409,7 @@ const page = () => {
                 </div>
 
                 {/* Sidebar Column */}
-                <EducationSidebar />
+                <EducationSidebar className="w-full lg:w-1/3 lg:sticky lg:top-24 h-fit" />
             </div>
         </div>
     );

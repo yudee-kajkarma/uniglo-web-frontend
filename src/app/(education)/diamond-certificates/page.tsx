@@ -179,7 +179,7 @@ const page = () => {
                 <div className="w-full lg:w-2/3 pb-10">
                     <DynamicArticle sections={certificateData} />
                 </div>
-                <EducationSidebar />
+                <EducationSidebar className="w-full lg:w-1/3 lg:sticky lg:top-24 h-fit" />
             </div>
         </div>
     );
