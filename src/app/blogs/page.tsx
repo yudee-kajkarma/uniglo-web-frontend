@@ -8,6 +8,7 @@ import EngagementRingBlog1 from "@/assets/home/blog_11.jpg";
 import BuyDiamondsOnlineBlog1 from "@/assets/home/blog_3.jpg";
 import EngagementRingBlog2 from "@/assets/home/blog_2.1.jpg";
 import BuyDiamondsOnlineBlog2 from "@/assets/home/blog_4.jpg";
+import RingSizeBlog from "@/assets/blogs/banner.png";
 import SubFooter from "@/components/shared/SubFooter";
 
 const blogs = [
@@ -40,6 +41,16 @@ const blogs = [
         excerpt:
             "A complete guide to lab grown diamond engagement rings, including 4Cs, styles, pricing, certification, and care tips.",
         slug: "lab-grown-diamond-engagement-rings",
+    },
+    {
+        id: 4,
+        title: "How to Measure Ring Size at Home: 5 Proven Methods",
+        author: "Uniglo Diamonds",
+        date: "March 18, 2026",
+        image: RingSizeBlog,
+        excerpt:
+            "Learn 5 proven methods to measure your ring size at home. Includes a free US/UK/EU ring size chart and expert tips from Uniglo Diamond gemologists.",
+        slug: "how-to-measure-ring-size-at-home",
     },
 ];
 
@@ -81,7 +92,9 @@ const page = () => {
                                 <div className="flex flex-col flex-1 group-hover:pl-5 group-hover:pb-5 transition-all duration-300">
                                     {/* Title */}
                                     <h3 className="text-2xl md:text-3xl font-cormorantGaramond font-semibold text-[#bb923a] mb-3 leading-tight hover:text-primary-purple2 transition-colors cursor-pointer">
-                                        {blog.title}
+                                        <a href={`/blogs/${blog.slug}`}>
+                                            {blog.title}
+                                        </a>
                                     </h3>
 
                                     {/* Meta Info */}

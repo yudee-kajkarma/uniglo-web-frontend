@@ -6,6 +6,7 @@ import Footer from "@/components/shared/Footer";
 import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/context/AuthContext";
 import RouteGuard from "@/components/auth/RouteGuard"; // Import the new guard
+import Script from "next/script";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -44,6 +45,13 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
+            <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KWXEHQ73V7" strategy="afterInteractive" />
+            <Script id="google-analytics" strategy="afterInteractive">{`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-KWXEHQ73V7');
+            `}</Script>
             <body
                 className={`${geistSans.variable} ${cormorantGaramond.variable} ${lora.variable} ${lato.variable} antialiased `}
             >
