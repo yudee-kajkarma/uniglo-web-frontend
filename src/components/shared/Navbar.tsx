@@ -78,11 +78,11 @@ const NAV_LINKS = [
         hasDropdown: true,
         submenuItems: [
             {
-                name: "Nivoda Lab Grown Diamond Supplier",
-                href: "/nivoda-lab-grown-diamond-supplier",
+                name: "Uniglo Diamonds on nivoda",
+                href: "/uniglo-diamonds-on-nivoda",
             },
             {
-                name: "Rapnet Diamond Supplier",
+                name: "Uniglo Diamonds on Rapnet",
                 href: "/rapnet-diamond-supplier-antwerp",
             },
         ],
@@ -92,7 +92,10 @@ const NAV_LINKS = [
         href: "#",
         hasDropdown: true,
         submenuItems: [
-            { name: "Lab Grown Diamonds", href: "/lab-grown-diamonds" },
+            {
+                name: "Guide to Lab Grown Diamonds ",
+                href: "/lab-grown-diamonds",
+            },
             {
                 name: "Source Lab Grown Diamonds",
                 href: "/source-lab-grown-diamonds-for-jewelers",
@@ -106,16 +109,8 @@ const NAV_LINKS = [
                 href: "/lab-grown-diamond-supplier-europe",
             },
             {
-                name: "Bulk Loose Lab Grown Diamonds",
-                href: "/bulk-loose-lab-grown-diamonds",
-            },
-            {
                 name: "IGI Certified Lab Grown Diamond Wholesale",
                 href: "/igi-certified-lab-grown-diamond-wholesale",
-            },
-            {
-                name: "Uniglo Diamonds on Nivoda",
-                href: "/uniglo-diamonds-on-nivoda",
             },
         ],
     },

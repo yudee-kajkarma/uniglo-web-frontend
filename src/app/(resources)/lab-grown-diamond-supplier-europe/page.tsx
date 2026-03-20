@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -32,7 +31,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "For jewelers, retailers, brands, and serious private buyers, the stakes of choosing the wrong supplier are significant. A poorly certified stone returned by a retail customer as \"not as described.\" A matched parcel that arrives with inconsistent grades. A supply relationship that evaporates when you need a specific stone for a commission piece. These are not hypothetical risks — they are the real commercial consequences of supplier decisions made primarily on price rather than on quality, certification, and accountability.",
+                text: 'For jewelers, retailers, brands, and serious private buyers, the stakes of choosing the wrong supplier are significant. A poorly certified stone returned by a retail customer as "not as described." A matched parcel that arrives with inconsistent grades. A supply relationship that evaporates when you need a specific stone for a commission piece. These are not hypothetical risks — they are the real commercial consequences of supplier decisions made primarily on price rather than on quality, certification, and accountability.',
             },
             {
                 type: "paragraph",
@@ -41,7 +40,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The European Lab Grown Diamond Market — What Buyers Need to Understand in 2026",
+        heading:
+            "The European Lab Grown Diamond Market — What Buyers Need to Understand in 2026",
         content: [
             {
                 type: "paragraph",
@@ -70,11 +70,12 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "What Actually Makes a Lab Grown Diamond Supplier the Best in Europe",
+        heading:
+            "What Actually Makes a Lab Grown Diamond Supplier the Best in Europe",
         content: [
             {
                 type: "paragraph",
-                text: "The word \"best\" is used freely in supplier marketing. Here is what it should actually mean — measured against criteria that directly impact your purchasing decisions, your margin, and your brand.",
+                text: 'The word "best" is used freely in supplier marketing. Here is what it should actually mean — measured against criteria that directly impact your purchasing decisions, your margin, and your brand.',
             },
             {
                 type: "paragraph",
@@ -156,7 +157,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The European Supplier Landscape — Comparing Your Options Honestly",
+        heading:
+            "The European Supplier Landscape — Comparing Your Options Honestly",
         content: [
             {
                 type: "paragraph",
@@ -192,7 +194,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Lab grown diamond prices stabilised around $168 per carat by early 2025 following the dramatic \"Great Correction\" from peak prices exceeding $4,000 per carat in 2018. This price environment has made online trading platforms increasingly competitive on raw stone price. However, the structural limitations of trading platforms — variable seller quality, no manufacturing accountability, no direct supply relationship — remain regardless of price competitiveness.",
+                text: 'Lab grown diamond prices stabilised around $168 per carat by early 2025 following the dramatic "Great Correction" from peak prices exceeding $4,000 per carat in 2018. This price environment has made online trading platforms increasingly competitive on raw stone price. However, the structural limitations of trading platforms — variable seller quality, no manufacturing accountability, no direct supply relationship — remain regardless of price competitiveness.',
             },
             {
                 type: "paragraph",
@@ -213,7 +215,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Why Uniglo Diamonds Is Europe's Most Complete Lab Grown Diamond Supplier",
+        heading:
+            "Why Uniglo Diamonds Is Europe's Most Complete Lab Grown Diamond Supplier",
         content: [
             {
                 type: "paragraph",
@@ -232,7 +235,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Buyer's Guide to Evaluating Any European Lab Grown Diamond Supplier",
+        heading:
+            "The Buyer's Guide to Evaluating Any European Lab Grown Diamond Supplier",
         content: [
             {
                 type: "paragraph",
@@ -260,7 +264,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Ask directly: \"Where are these diamonds grown and by whom?\" A direct manufacturer will give you a clear, specific, documentable answer. A reseller will give you vague information about \"trusted manufacturing partners\" without specific details. The specificity of the answer tells you everything you need to know about where in the supply chain you are actually buying from.",
+                text: 'Ask directly: "Where are these diamonds grown and by whom?" A direct manufacturer will give you a clear, specific, documentable answer. A reseller will give you vague information about "trusted manufacturing partners" without specific details. The specificity of the answer tells you everything you need to know about where in the supply chain you are actually buying from.',
             },
             {
                 type: "paragraph",
@@ -281,7 +285,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Lab Grown Diamond Shapes — What European Buyers Are Sourcing Most in 2026",
+        heading:
+            "Lab Grown Diamond Shapes — What European Buyers Are Sourcing Most in 2026",
         content: [
             {
                 type: "paragraph",
@@ -306,7 +311,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The European Market Opportunity — Why Now Is the Time to Secure Your Supply Relationship",
+        heading:
+            "The European Market Opportunity — Why Now Is the Time to Secure Your Supply Relationship",
         content: [
             {
                 type: "paragraph",
@@ -323,7 +329,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Contact Uniglo Diamonds — Europe's Most Complete Certified Lab Grown Diamond Supplier",
+        heading:
+            "Contact Uniglo Diamonds — Europe's Most Complete Certified Lab Grown Diamond Supplier",
         content: [
             {
                 type: "paragraph",
@@ -364,63 +371,68 @@ const articleData: ArticleSection[] = [
 const BestLabGrownDiamondSupplierPage = () => {
     const faqData = [
         {
-            question: "Who is the best lab grown diamond supplier in Europe for jewelers?",
-            answer: "The best European lab grown diamond supplier for jewelers is one who combines direct manufacturing capability, tri-certification (GIA, IGI, HRD), a physical presence in an established diamond centre, and a verifiable track record in the diamond industry. Uniglo Diamonds in Antwerp meets all of these criteria — supplying certified lab grown diamonds at wholesale pricing directly to jewelers, retailers, and brands across Europe from our own manufacturing facility on Hoveniersstraat in Antwerp's diamond district."
+            question:
+                "Who is the best lab grown diamond supplier in Europe for jewelers?",
+            answer: "The best European lab grown diamond supplier for jewelers is one who combines direct manufacturing capability, tri-certification (GIA, IGI, HRD), a physical presence in an established diamond centre, and a verifiable track record in the diamond industry. Uniglo Diamonds in Antwerp meets all of these criteria — supplying certified lab grown diamonds at wholesale pricing directly to jewelers, retailers, and brands across Europe from our own manufacturing facility on Hoveniersstraat in Antwerp's diamond district.",
         },
         {
-            question: "Is Antwerp really the best place to source lab grown diamonds in Europe?",
-            answer: "Yes — for quality and accountability, Antwerp remains the strongest European sourcing location for certified lab grown diamonds. The city combines the world's most concentrated diamond cutting and polishing expertise, the headquarters of HRD (one of the three globally recognised grading authorities), government investment in lab grown diamond manufacturing research, and an institutional trade framework that applies rigorous quality and ethical standards to every stone that enters and exits the market. Government-sponsored research facilities in Antwerp saw a 200 million euro investment in 2023 to support the development of more cost-efficient, high-quality synthetic diamonds."
+            question:
+                "Is Antwerp really the best place to source lab grown diamonds in Europe?",
+            answer: "Yes — for quality and accountability, Antwerp remains the strongest European sourcing location for certified lab grown diamonds. The city combines the world's most concentrated diamond cutting and polishing expertise, the headquarters of HRD (one of the three globally recognised grading authorities), government investment in lab grown diamond manufacturing research, and an institutional trade framework that applies rigorous quality and ethical standards to every stone that enters and exits the market. Government-sponsored research facilities in Antwerp saw a 200 million euro investment in 2023 to support the development of more cost-efficient, high-quality synthetic diamonds.",
         },
         {
-            question: "What certification should European jewelers require from their lab grown diamond supplier?",
-            answer: "For the European market, IGI certification is the most widely accepted and recognised standard for lab grown diamonds — it is used by the majority of professional buyers and is well understood by European consumers. GIA certification is preferred in certain premium and luxury segments. HRD certification carries particular weight in the Belgian, Dutch, and broader European professional trade. Uniglo Diamonds supplies diamonds certified by all three — giving European buyers maximum flexibility."
+            question:
+                "What certification should European jewelers require from their lab grown diamond supplier?",
+            answer: "For the European market, IGI certification is the most widely accepted and recognised standard for lab grown diamonds — it is used by the majority of professional buyers and is well understood by European consumers. GIA certification is preferred in certain premium and luxury segments. HRD certification carries particular weight in the Belgian, Dutch, and broader European professional trade. Uniglo Diamonds supplies diamonds certified by all three — giving European buyers maximum flexibility.",
         },
         {
-            question: "How do I verify that a European lab grown diamond supplier is genuinely Antwerp-based?",
-            answer: "Check the company's registered business address against the Antwerp World Diamond Centre (AWDC) directory and the Belgian business register (Crossroads Bank for Enterprises). Visit the physical address — Hoveniersstraat and its immediate surroundings are the heart of the Antwerp diamond district and are well-known to anyone with genuine diamond trade connections. A supplier with a genuine Antwerp diamond district address and a 30+ year operating history is straightforwardly verifiable."
+            question:
+                "How do I verify that a European lab grown diamond supplier is genuinely Antwerp-based?",
+            answer: "Check the company's registered business address against the Antwerp World Diamond Centre (AWDC) directory and the Belgian business register (Crossroads Bank for Enterprises). Visit the physical address — Hoveniersstraat and its immediate surroundings are the heart of the Antwerp diamond district and are well-known to anyone with genuine diamond trade connections. A supplier with a genuine Antwerp diamond district address and a 30+ year operating history is straightforwardly verifiable.",
         },
         {
-            question: "Are lab grown diamonds from European suppliers better quality than those from Asian manufacturers?",
-            answer: "Not categorically — there are high-quality manufacturers in India and China, and there are lower-quality operations in Europe. The key variable is not geography but quality control process, certification standard, and manufacturing accountability. An established Antwerp manufacturer with rigorous cutting standards, tri-certification from GIA/IGI/HRD, and 30+ years of diamond industry expertise will consistently produce better outcomes for the buyer than an Asian mass-production facility with less rigorous quality oversight — regardless of price."
+            question:
+                "Are lab grown diamonds from European suppliers better quality than those from Asian manufacturers?",
+            answer: "Not categorically — there are high-quality manufacturers in India and China, and there are lower-quality operations in Europe. The key variable is not geography but quality control process, certification standard, and manufacturing accountability. An established Antwerp manufacturer with rigorous cutting standards, tri-certification from GIA/IGI/HRD, and 30+ years of diamond industry expertise will consistently produce better outcomes for the buyer than an Asian mass-production facility with less rigorous quality oversight — regardless of price.",
         },
         {
-            question: "Can I source both natural and lab grown diamonds from the same European supplier?",
-            answer: "Yes — Uniglo Diamonds supplies both certified natural diamonds and certified lab grown diamonds wholesale. For European jewelers managing mixed inventory, consolidating supply through a single established Antwerp manufacturer simplifies sourcing, documentation, logistics, and supplier relationship management considerably."
+            question:
+                "Can I source both natural and lab grown diamonds from the same European supplier?",
+            answer: "Yes — Uniglo Diamonds supplies both certified natural diamonds and certified lab grown diamonds wholesale. For European jewelers managing mixed inventory, consolidating supply through a single established Antwerp manufacturer simplifies sourcing, documentation, logistics, and supplier relationship management considerably.",
         },
         {
-            question: "What is the minimum order for wholesale lab grown diamonds from a European supplier?",
-            answer: "At Uniglo Diamonds, there is no fixed universal minimum order quantity. We work with buyers ranging from individual private clients purchasing single stones to wholesale accounts placing regular volume orders. Contact our team to discuss your specific requirements and we will structure supply terms accordingly."
+            question:
+                "What is the minimum order for wholesale lab grown diamonds from a European supplier?",
+            answer: "At Uniglo Diamonds, there is no fixed universal minimum order quantity. We work with buyers ranging from individual private clients purchasing single stones to wholesale accounts placing regular volume orders. Contact our team to discuss your specific requirements and we will structure supply terms accordingly.",
         },
         {
-            question: "How quickly can a European lab grown diamond supplier deliver certified stones?",
-            answer: "For in-stock certified inventory, Uniglo Diamonds delivers to European destinations within a few business days — with fully insured, traceable shipment. For custom orders requiring specific specifications not available in current inventory, timelines depend on the specification complexity and volume. We provide specific delivery timelines at the point of order."
+            question:
+                "How quickly can a European lab grown diamond supplier deliver certified stones?",
+            answer: "For in-stock certified inventory, Uniglo Diamonds delivers to European destinations within a few business days — with fully insured, traceable shipment. For custom orders requiring specific specifications not available in current inventory, timelines depend on the specification complexity and volume. We provide specific delivery timelines at the point of order.",
         },
         {
-            question: "Does buying lab grown diamonds from a European supplier affect import duties for UK buyers post-Brexit?",
-            answer: "UK buyers sourcing lab grown diamonds from a Belgian supplier should account for relevant import procedures and any applicable duties under current UK-EU trade arrangements. Uniglo Diamonds provides complete documentation for all shipments — including provenance certificates, commercial invoices, and grading reports — to support smooth customs clearance for UK wholesale buyers. We recommend consulting a specialist diamond import broker for current UK duty guidance specific to your volume and stone specification."
+            question:
+                "Does buying lab grown diamonds from a European supplier affect import duties for UK buyers post-Brexit?",
+            answer: "UK buyers sourcing lab grown diamonds from a Belgian supplier should account for relevant import procedures and any applicable duties under current UK-EU trade arrangements. Uniglo Diamonds provides complete documentation for all shipments — including provenance certificates, commercial invoices, and grading reports — to support smooth customs clearance for UK wholesale buyers. We recommend consulting a specialist diamond import broker for current UK duty guidance specific to your volume and stone specification.",
         },
         {
-            question: "Why should I choose an established supplier over a newer lab grown diamond startup in Europe?",
-            answer: "The lab grown diamond market has attracted a significant number of new entrants over the past five years — some of whom offer compelling pricing but limited accountability, short operating histories, and unproven supply consistency. The risks of sourcing from an unestablished supplier — quality inconsistency, certification questions, supply disruption, poor after-sale support — are particularly acute in a market that is still maturing and where consumer expectations are rising. An established supplier with 30+ years of diamond industry experience, a physical Antwerp address, and verifiable certification partnerships offers a level of reliability, accountability, and expertise that a newer entrant simply cannot match."
-        }
+            question:
+                "Why should I choose an established supplier over a newer lab grown diamond startup in Europe?",
+            answer: "The lab grown diamond market has attracted a significant number of new entrants over the past five years — some of whom offer compelling pricing but limited accountability, short operating histories, and unproven supply consistency. The risks of sourcing from an unestablished supplier — quality inconsistency, certification questions, supply disruption, poor after-sale support — are particularly acute in a market that is still maturing and where consumer expectations are rising. An established supplier with 30+ years of diamond industry experience, a physical Antwerp address, and verifiable certification partnerships offers a level of reliability, accountability, and expertise that a newer entrant simply cannot match.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="Best Lab Grown Diamond Supplier in Europe"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        The Best Lab Grown Diamond Supplier in Europe — Why Antwerp Is the Only Answer
+                        The Best Lab Grown Diamond Supplier in Europe — Why
+                        Antwerp Is the Only Answer
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions — Best Lab Grown Diamond Supplier in Europe"
                         className="mt-12"
                     />

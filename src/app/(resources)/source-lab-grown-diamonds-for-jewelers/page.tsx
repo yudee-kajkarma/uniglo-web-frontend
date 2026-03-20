@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -37,7 +36,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Why Lab Grown Diamonds Are Now a Business Necessity, Not a Choice",
+        heading:
+            "Why Lab Grown Diamonds Are Now a Business Necessity, Not a Choice",
         content: [
             {
                 type: "paragraph",
@@ -147,7 +147,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Every diamond in every order must carry a current grading report from GIA, IGI, or HRD. No exceptions. A supplier who cannot provide certified stones — or who offers uncertified stones \"at a better price\" — is not a supplier worth working with. Certification is not paperwork. It is the independent verification that the grade assigned to the diamond is accurate, consistent, and internationally recognised. Without it, you cannot make accurate claims to your retail customers, you cannot price your product correctly, and you have no recourse if the quality does not match what was described.",
+                text: 'Every diamond in every order must carry a current grading report from GIA, IGI, or HRD. No exceptions. A supplier who cannot provide certified stones — or who offers uncertified stones "at a better price" — is not a supplier worth working with. Certification is not paperwork. It is the independent verification that the grade assigned to the diamond is accurate, consistent, and internationally recognised. Without it, you cannot make accurate claims to your retail customers, you cannot price your product correctly, and you have no recourse if the quality does not match what was described.',
             },
             {
                 type: "paragraph",
@@ -192,7 +192,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Difference Between Sourcing from Antwerp vs Other Markets",
+        heading:
+            "The Difference Between Sourcing from Antwerp vs Other Markets",
         content: [
             {
                 type: "paragraph",
@@ -318,7 +319,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Why Uniglo Diamonds Is the Right Sourcing Partner for Your Jewelry Business",
+        heading:
+            "Why Uniglo Diamonds Is the Right Sourcing Partner for Your Jewelry Business",
         content: [
             {
                 type: "paragraph",
@@ -338,7 +340,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Market Opportunity for Jewelers Who Source Lab Grown Diamonds Now",
+        heading:
+            "The Market Opportunity for Jewelers Who Source Lab Grown Diamonds Now",
         content: [
             {
                 type: "paragraph",
@@ -351,7 +354,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Start Your Lab Grown Diamond Sourcing Conversation With Uniglo Diamonds",
+        heading:
+            "Start Your Lab Grown Diamond Sourcing Conversation With Uniglo Diamonds",
         content: [
             {
                 type: "paragraph",
@@ -392,63 +396,68 @@ const articleData: ArticleSection[] = [
 const SourceLabGrownDiamondsPage = () => {
     const faqData = [
         {
-            question: "How do I start sourcing lab grown diamonds from a manufacturer in Antwerp?",
-            answer: "Contact Uniglo Diamonds directly through our website, by email at suraj@uniglodiamonds.com, or by phone at +32 03 500 91 07. We will discuss your business requirements, the shapes and grades you need, your ordering frequency, and your certification preferences. We can arrange a visit to our Antwerp showroom if you would like to view stones in person before establishing a supply relationship. The process is straightforward and does not involve lengthy registration processes or minimum commitment requirements."
+            question:
+                "How do I start sourcing lab grown diamonds from a manufacturer in Antwerp?",
+            answer: "Contact Uniglo Diamonds directly through our website, by email at suraj@uniglodiamonds.com, or by phone at +32 03 500 91 07. We will discuss your business requirements, the shapes and grades you need, your ordering frequency, and your certification preferences. We can arrange a visit to our Antwerp showroom if you would like to view stones in person before establishing a supply relationship. The process is straightforward and does not involve lengthy registration processes or minimum commitment requirements.",
         },
         {
-            question: "What certifications should lab grown diamonds have for retail sale in Europe?",
-            answer: "In the European market, IGI and GIA certifications are both widely accepted and recognised by consumers and jewelers. HRD certification carries particular weight in the Belgian, Dutch, and broader European market due to HRD's Antwerp base. For most European retail applications, IGI certified lab grown diamonds are the most commonly supplied and recognised standard. If you sell to international markets, GIA certification may be preferred by certain high-end segments. Uniglo Diamonds can supply any of the three certifications depending on your requirements."
+            question:
+                "What certifications should lab grown diamonds have for retail sale in Europe?",
+            answer: "In the European market, IGI and GIA certifications are both widely accepted and recognised by consumers and jewelers. HRD certification carries particular weight in the Belgian, Dutch, and broader European market due to HRD's Antwerp base. For most European retail applications, IGI certified lab grown diamonds are the most commonly supplied and recognised standard. If you sell to international markets, GIA certification may be preferred by certain high-end segments. Uniglo Diamonds can supply any of the three certifications depending on your requirements.",
         },
         {
-            question: "How long does it take to receive an order of wholesale lab grown diamonds?",
-            answer: "Delivery timelines depend on whether the stones you require are in our current inventory or require specific cutting and grading. Stones available from existing certified inventory are typically delivered within a few business days to European destinations. Custom orders requiring specific cutting or grading may take three to five weeks depending on complexity and volume. We provide specific timeline information at the point of order placement."
+            question:
+                "How long does it take to receive an order of wholesale lab grown diamonds?",
+            answer: "Delivery timelines depend on whether the stones you require are in our current inventory or require specific cutting and grading. Stones available from existing certified inventory are typically delivered within a few business days to European destinations. Custom orders requiring specific cutting or grading may take three to five weeks depending on complexity and volume. We provide specific timeline information at the point of order placement.",
         },
         {
-            question: "Can I visit the Uniglo Diamonds facility in Antwerp before placing a wholesale order?",
-            answer: "Yes — and we actively encourage this for new wholesale accounts. Seeing the stones in person, under proper lighting and magnification, is the best way to assess quality before committing to a supply relationship. Our facility is located at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp. Contact us to arrange an appointment and we will prepare a selection of certified lab grown diamonds matching your specifications."
+            question:
+                "Can I visit the Uniglo Diamonds facility in Antwerp before placing a wholesale order?",
+            answer: "Yes — and we actively encourage this for new wholesale accounts. Seeing the stones in person, under proper lighting and magnification, is the best way to assess quality before committing to a supply relationship. Our facility is located at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp. Contact us to arrange an appointment and we will prepare a selection of certified lab grown diamonds matching your specifications.",
         },
         {
-            question: "What is the difference between IGI and GIA certification for lab grown diamonds?",
-            answer: "Both GIA and IGI are internationally recognised independent gemological laboratories. IGI is the world's largest independent gemological laboratory and is the most widely used certification body for lab grown diamonds globally. IGI has dedicated lab grown diamond grading infrastructure and its certificates are accepted across Europe, Asia, and the Americas. GIA is the most globally prestigious grading institution overall and its lab grown diamond reports carry particular weight in the US high-end market and with certain luxury jewelry brands. For most European wholesale buyers of lab grown diamonds, IGI certification is the standard. The choice between them depends on your specific market and customer base — Uniglo Diamonds can supply either."
+            question:
+                "What is the difference between IGI and GIA certification for lab grown diamonds?",
+            answer: "Both GIA and IGI are internationally recognised independent gemological laboratories. IGI is the world's largest independent gemological laboratory and is the most widely used certification body for lab grown diamonds globally. IGI has dedicated lab grown diamond grading infrastructure and its certificates are accepted across Europe, Asia, and the Americas. GIA is the most globally prestigious grading institution overall and its lab grown diamond reports carry particular weight in the US high-end market and with certain luxury jewelry brands. For most European wholesale buyers of lab grown diamonds, IGI certification is the standard. The choice between them depends on your specific market and customer base — Uniglo Diamonds can supply either.",
         },
         {
-            question: "How does lab grown diamond sourcing affect my profit margins compared to natural diamonds?",
-            answer: "Most retailers don't realise that the biggest margin booster is not just lab grown diamonds — it's the source you buy from. Buying direct from a manufacturer eliminates middlemen and reduces cost per carat, while perfect calibration for matched sets and consistent supply of popular shapes allows retailers to offer competitive prices while still enjoying healthy profit margins. As a practical guide, jewelers sourcing lab grown diamonds directly from a manufacturer like Uniglo Diamonds typically achieve retail margins of 40–80% on lab grown stones — significantly higher than the margins achievable on equivalent natural diamond inventory."
+            question:
+                "How does lab grown diamond sourcing affect my profit margins compared to natural diamonds?",
+            answer: "Most retailers don't realise that the biggest margin booster is not just lab grown diamonds — it's the source you buy from. Buying direct from a manufacturer eliminates middlemen and reduces cost per carat, while perfect calibration for matched sets and consistent supply of popular shapes allows retailers to offer competitive prices while still enjoying healthy profit margins. As a practical guide, jewelers sourcing lab grown diamonds directly from a manufacturer like Uniglo Diamonds typically achieve retail margins of 40–80% on lab grown stones — significantly higher than the margins achievable on equivalent natural diamond inventory.",
         },
         {
-            question: "Do lab grown diamonds come with a laser inscription on the girdle?",
-            answer: "Most certified lab grown diamonds have the grading report number laser-inscribed on the girdle of the stone — visible under 10x magnification. This inscription allows the grading report to be matched definitively to the specific stone it describes, providing both buyer and seller with confirmed traceability. At Uniglo Diamonds, we confirm inscription status for every stone at the point of order."
+            question:
+                "Do lab grown diamonds come with a laser inscription on the girdle?",
+            answer: "Most certified lab grown diamonds have the grading report number laser-inscribed on the girdle of the stone — visible under 10x magnification. This inscription allows the grading report to be matched definitively to the specific stone it describes, providing both buyer and seller with confirmed traceability. At Uniglo Diamonds, we confirm inscription status for every stone at the point of order.",
         },
         {
-            question: "Can Uniglo Diamonds supply matched parcels for jewelry manufacturing?",
-            answer: "Yes. Matched parcels — sets of diamonds with consistent colour, clarity, and cut grades for use in multi-stone jewelry pieces such as tennis bracelets, eternity rings, or pavé settings — are a standard part of our wholesale supply capability. Our manufacturing facility in Antwerp has the capacity to produce matched sets to precise specifications for jewelry manufacturing applications. Contact our wholesale team with your parcel requirements and we will advise on availability and pricing."
+            question:
+                "Can Uniglo Diamonds supply matched parcels for jewelry manufacturing?",
+            answer: "Yes. Matched parcels — sets of diamonds with consistent colour, clarity, and cut grades for use in multi-stone jewelry pieces such as tennis bracelets, eternity rings, or pavé settings — are a standard part of our wholesale supply capability. Our manufacturing facility in Antwerp has the capacity to produce matched sets to precise specifications for jewelry manufacturing applications. Contact our wholesale team with your parcel requirements and we will advise on availability and pricing.",
         },
         {
-            question: "What documentation do I receive with a wholesale order from Uniglo Diamonds?",
-            answer: "Every order includes the grading report(s) for each certified stone, a detailed invoice with full stone specifications, supply chain documentation confirming lab grown origin, and packaging appropriate for the value and quantity of stones ordered. For wholesale accounts requiring additional documentation for compliance, import/export, or insurance purposes, we accommodate those requirements on a case-by-case basis."
+            question:
+                "What documentation do I receive with a wholesale order from Uniglo Diamonds?",
+            answer: "Every order includes the grading report(s) for each certified stone, a detailed invoice with full stone specifications, supply chain documentation confirming lab grown origin, and packaging appropriate for the value and quantity of stones ordered. For wholesale accounts requiring additional documentation for compliance, import/export, or insurance purposes, we accommodate those requirements on a case-by-case basis.",
         },
         {
-            question: "Is it possible to source both natural and lab grown diamonds from Uniglo Diamonds?",
-            answer: "Yes. Uniglo Diamonds is a full-spectrum wholesale diamond supplier. We supply both certified natural diamonds and certified lab grown diamonds across all major shapes and grades. For jewelry businesses who stock both product lines, working with a single established Antwerp supplier for your entire diamond inventory simplifies sourcing, documentation, and relationship management considerably."
-        }
+            question:
+                "Is it possible to source both natural and lab grown diamonds from Uniglo Diamonds?",
+            answer: "Yes. Uniglo Diamonds is a full-spectrum wholesale diamond supplier. We supply both certified natural diamonds and certified lab grown diamonds across all major shapes and grades. For jewelry businesses who stock both product lines, working with a single established Antwerp supplier for your entire diamond inventory simplifies sourcing, documentation, and relationship management considerably.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="How to Source Lab Grown Diamonds for Your Jewelry Business"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        How to Source Lab Grown Diamonds for Your Jewelry Business — The Complete Supplier Guide
+                        How to Source Lab Grown Diamonds for Your Jewelry
+                        Business — The Complete Supplier Guide
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions About Sourcing Lab Grown Diamonds for a Jewelry Business"
                         className="mt-12"
                     />

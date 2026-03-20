@@ -1,13 +1,11 @@
 import React from "react";
 import { Metadata } from "next";
 import Image from "next/image";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
 
-import BannerImage from "@/assets/blogs/banner.png";
 import WhyRingSizingImage from "@/assets/blogs/ringonfinger.png";
 import RingSizingMethodsImage from "@/assets/blogs/steps.png";
 import ExistingRingMethodImage from "@/assets/blogs/ringonscale.png";
@@ -332,12 +330,6 @@ const ringSizeChart = [
 const BlogPage = () => {
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="How to Measure Ring Size at Home"
-                textClassName="left-10 top-80 text-3xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">

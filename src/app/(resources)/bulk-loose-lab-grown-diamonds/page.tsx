@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -37,7 +36,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Current Wholesale Market for Loose Lab Grown Diamonds — What Bulk Buyers Need to Know",
+        heading:
+            "The Current Wholesale Market for Loose Lab Grown Diamonds — What Bulk Buyers Need to Know",
         content: [
             {
                 type: "paragraph",
@@ -129,7 +129,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Bulk Loose Lab Grown Diamond Pricing — Current Market Reference Data",
+        heading:
+            "Bulk Loose Lab Grown Diamond Pricing — Current Market Reference Data",
         content: [
             {
                 type: "paragraph",
@@ -219,7 +220,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "How to Buy Loose Lab Grown Diamonds in Bulk — The Step-by-Step Process",
+        heading:
+            "How to Buy Loose Lab Grown Diamonds in Bulk — The Step-by-Step Process",
         content: [
             {
                 type: "paragraph",
@@ -351,67 +353,73 @@ const articleData: ArticleSection[] = [
 const BulkLooseLabGrownDiamondsPage = () => {
     const faqData = [
         {
-            question: "Where can I buy high-quality lab grown diamonds in Belgium in bulk?",
-            answer: "Uniglo Diamonds is a certified lab grown diamond wholesale manufacturer based in Antwerp, Belgium — supplying bulk loose lab grown diamonds directly to jewelers, retailers, jewelry brands, and private buyers. Our facility is located at Hoveniersstraat 30 in Antwerp's diamond district. Contact us at suraj@uniglodiamonds.com or +32 03 500 91 07 to discuss your bulk requirements and receive current wholesale pricing."
+            question:
+                "Where can I buy high-quality lab grown diamonds in Belgium in bulk?",
+            answer: "Uniglo Diamonds is a certified lab grown diamond wholesale manufacturer based in Antwerp, Belgium — supplying bulk loose lab grown diamonds directly to jewelers, retailers, jewelry brands, and private buyers. Our facility is located at Hoveniersstraat 30 in Antwerp's diamond district. Contact us at suraj@uniglodiamonds.com or +32 03 500 91 07 to discuss your bulk requirements and receive current wholesale pricing.",
         },
         {
-            question: "What is the current wholesale price per carat for bulk loose lab grown diamonds?",
-            answer: "The average retail cost for a round, 1-carat, IGI-certified lab grown diamond was approximately $191 per carat in Q2 2025 — about double the wholesale market trading price. Bulk buyers purchasing directly from a manufacturer access pricing below even the standard wholesale market trading price — making direct manufacturer relationships the most cost-efficient sourcing option available. Contact Uniglo Diamonds for current bulk pricing on your specific shapes, grades, and carat requirements."
+            question:
+                "What is the current wholesale price per carat for bulk loose lab grown diamonds?",
+            answer: "The average retail cost for a round, 1-carat, IGI-certified lab grown diamond was approximately $191 per carat in Q2 2025 — about double the wholesale market trading price. Bulk buyers purchasing directly from a manufacturer access pricing below even the standard wholesale market trading price — making direct manufacturer relationships the most cost-efficient sourcing option available. Contact Uniglo Diamonds for current bulk pricing on your specific shapes, grades, and carat requirements.",
         },
         {
-            question: "How do lab grown diamond prices compare to natural diamond prices per carat for bulk buyers?",
-            answer: "Lab grown diamond prices currently cost about 82% less than natural diamonds. At the wholesale bulk level, that differential is even more pronounced — making bulk loose lab grown diamond purchasing one of the most capital-efficient inventory investments available to a jewelry business. A bulk buyer who previously spent €100,000 on natural diamond inventory can now purchase equivalent-graded lab grown inventory for approximately €18,000–€22,000 — freeing substantial capital for other business uses while maintaining equivalent or superior retail sales potential."
+            question:
+                "How do lab grown diamond prices compare to natural diamond prices per carat for bulk buyers?",
+            answer: "Lab grown diamond prices currently cost about 82% less than natural diamonds. At the wholesale bulk level, that differential is even more pronounced — making bulk loose lab grown diamond purchasing one of the most capital-efficient inventory investments available to a jewelry business. A bulk buyer who previously spent €100,000 on natural diamond inventory can now purchase equivalent-graded lab grown inventory for approximately €18,000–€22,000 — freeing substantial capital for other business uses while maintaining equivalent or superior retail sales potential.",
         },
         {
-            question: "What is the minimum bulk order quantity for lab grown diamonds from Uniglo Diamonds?",
-            answer: "There is no fixed universal minimum order quantity for bulk purchases from Uniglo Diamonds. We work with buyers across a wide range of order sizes — from jewelers purchasing 10–20 certified loose stones to manufacturers placing orders of several hundred or more stones. Contact our wholesale team with your specific requirements and we will provide supply terms appropriate to your order volume and frequency."
+            question:
+                "What is the minimum bulk order quantity for lab grown diamonds from Uniglo Diamonds?",
+            answer: "There is no fixed universal minimum order quantity for bulk purchases from Uniglo Diamonds. We work with buyers across a wide range of order sizes — from jewelers purchasing 10–20 certified loose stones to manufacturers placing orders of several hundred or more stones. Contact our wholesale team with your specific requirements and we will provide supply terms appropriate to your order volume and frequency.",
         },
         {
-            question: "Are HPHT or CVD lab grown diamonds better for bulk purchasing?",
-            answer: "HPHT-created goods are currently trading at a discount compared to CVD-made lab grown diamonds. Most retailers do not check if the loose lab grown diamonds they procure are HPHT or CVD — although they could save on their costs. For bulk buyers, the choice between HPHT and CVD depends primarily on your carat range requirements. For under-1.5-carat goods — particularly in higher colour grades — HPHT currently offers exceptional bulk value. For 2-carat and above, CVD is the dominant and most widely available option. Uniglo Diamonds supplies both and provides expert guidance on which best serves your specific bulk requirements."
+            question:
+                "Are HPHT or CVD lab grown diamonds better for bulk purchasing?",
+            answer: "HPHT-created goods are currently trading at a discount compared to CVD-made lab grown diamonds. Most retailers do not check if the loose lab grown diamonds they procure are HPHT or CVD — although they could save on their costs. For bulk buyers, the choice between HPHT and CVD depends primarily on your carat range requirements. For under-1.5-carat goods — particularly in higher colour grades — HPHT currently offers exceptional bulk value. For 2-carat and above, CVD is the dominant and most widely available option. Uniglo Diamonds supplies both and provides expert guidance on which best serves your specific bulk requirements.",
         },
         {
-            question: "Can I source matched parcels of bulk loose lab grown diamonds for jewelry manufacturing?",
-            answer: "Yes. Uniglo Diamonds supplies precision-matched parcels for jewelry manufacturing applications — consistent colour, clarity, and cut grades across the entire set for use in tennis bracelets, eternity rings, pavé settings, and other multi-stone pieces. Matched parcel requirements should be specified at the point of inquiry so we can confirm availability and prepare the appropriate selection."
+            question:
+                "Can I source matched parcels of bulk loose lab grown diamonds for jewelry manufacturing?",
+            answer: "Yes. Uniglo Diamonds supplies precision-matched parcels for jewelry manufacturing applications — consistent colour, clarity, and cut grades across the entire set for use in tennis bracelets, eternity rings, pavé settings, and other multi-stone pieces. Matched parcel requirements should be specified at the point of inquiry so we can confirm availability and prepare the appropriate selection.",
         },
         {
-            question: "What certification do bulk loose lab grown diamonds from Uniglo carry?",
-            answer: "Every loose lab grown diamond in our inventory carries a current grading report from GIA, IGI, or HRD — depending on the buyer's specification preference. We do not supply uncertified stones. Certificate numbers are provided for every stone in every bulk order, allowing independent verification on the grading laboratory's website before delivery is confirmed."
+            question:
+                "What certification do bulk loose lab grown diamonds from Uniglo carry?",
+            answer: "Every loose lab grown diamond in our inventory carries a current grading report from GIA, IGI, or HRD — depending on the buyer's specification preference. We do not supply uncertified stones. Certificate numbers are provided for every stone in every bulk order, allowing independent verification on the grading laboratory's website before delivery is confirmed.",
         },
         {
-            question: "How quickly can bulk loose lab grown diamond orders be delivered to Europe?",
-            answer: "For in-stock certified inventory, Uniglo Diamonds delivers to European destinations within a few business days — with fully insured, traceable shipment. For custom bulk orders requiring specific specifications not available in current certified inventory, timelines depend on the specification and volume. We provide confirmed delivery timelines at the point of order."
+            question:
+                "How quickly can bulk loose lab grown diamond orders be delivered to Europe?",
+            answer: "For in-stock certified inventory, Uniglo Diamonds delivers to European destinations within a few business days — with fully insured, traceable shipment. For custom bulk orders requiring specific specifications not available in current certified inventory, timelines depend on the specification and volume. We provide confirmed delivery timelines at the point of order.",
         },
         {
-            question: "What are the best value cuts and shapes for bulk loose lab grown diamonds?",
-            answer: "Round brilliant offers the broadest commercial appeal and the most liquid inventory — meaning stones that do not sell in one application can easily be redirected to another. Oval is the fastest-growing shape and currently shows price resilience at the wholesale level. For buyers focused on maximum value per carat, one-carat ovals were among the few categories that saw wholesale prices firm up in late Q3 2025 — suggesting growing demand relative to supply in this category. Cushion, pear, and emerald cuts serve specific high-value design applications and tend to carry premiums in retail settings relative to their wholesale cost."
+            question:
+                "What are the best value cuts and shapes for bulk loose lab grown diamonds?",
+            answer: "Round brilliant offers the broadest commercial appeal and the most liquid inventory — meaning stones that do not sell in one application can easily be redirected to another. Oval is the fastest-growing shape and currently shows price resilience at the wholesale level. For buyers focused on maximum value per carat, one-carat ovals were among the few categories that saw wholesale prices firm up in late Q3 2025 — suggesting growing demand relative to supply in this category. Cushion, pear, and emerald cuts serve specific high-value design applications and tend to carry premiums in retail settings relative to their wholesale cost.",
         },
         {
-            question: "What types of certification are available for bulk loose lab grown diamonds sold in Belgium?",
-            answer: "In Belgium and across Europe, the three accepted certification standards for lab grown diamonds are GIA (Gemological Institute of America), IGI (International Gemological Institute), and HRD (Hoge Raad voor Diamant, headquartered in Antwerp). IGI is the most widely used for lab grown diamonds across the European trade. HRD carries particular authority in the Belgian and broader European market. GIA is preferred in premium and luxury segments and certain export markets. Uniglo Diamonds can supply bulk orders certified by any of the three — contact us to specify your preference."
+            question:
+                "What types of certification are available for bulk loose lab grown diamonds sold in Belgium?",
+            answer: "In Belgium and across Europe, the three accepted certification standards for lab grown diamonds are GIA (Gemological Institute of America), IGI (International Gemological Institute), and HRD (Hoge Raad voor Diamant, headquartered in Antwerp). IGI is the most widely used for lab grown diamonds across the European trade. HRD carries particular authority in the Belgian and broader European market. GIA is preferred in premium and luxury segments and certain export markets. Uniglo Diamonds can supply bulk orders certified by any of the three — contact us to specify your preference.",
         },
         {
-            question: "Does Uniglo offer financing for large bulk loose lab grown diamond purchases?",
-            answer: "Yes. Uniglo Diamonds offers flexible financing arrangements for qualified wholesale accounts making significant bulk purchases. Financing allows buyers to build the inventory their business needs without the full upfront capital requirement — a meaningful commercial support for growing jewelry businesses managing working capital alongside inventory investment. Contact our wholesale team to discuss financing options and qualification requirements."
-        }
+            question:
+                "Does Uniglo offer financing for large bulk loose lab grown diamond purchases?",
+            answer: "Yes. Uniglo Diamonds offers flexible financing arrangements for qualified wholesale accounts making significant bulk purchases. Financing allows buyers to build the inventory their business needs without the full upfront capital requirement — a meaningful commercial support for growing jewelry businesses managing working capital alongside inventory investment. Contact our wholesale team to discuss financing options and qualification requirements.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="Bulk Loose Lab Grown Diamonds"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        Bulk Loose Lab Grown Diamonds — The Complete Wholesale Buying Guide
+                        Bulk Loose Lab Grown Diamonds — The Complete Wholesale
+                        Buying Guide
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions — Buying Bulk Loose Lab Grown Diamonds"
                         className="mt-12"
                     />

@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -14,8 +13,7 @@ export const metadata: Metadata = {
     description:
         "Buy certified lab grown diamonds wholesale direct from Antwerp's trusted manufacturer. IGI, GIA & HRD certified. Wholesale pricing for jewelers, retailers & private buyers. Request pricing today.",
     alternates: {
-        canonical:
-            "https://www.uniglodiamonds.com/lab-grown-diamonds",
+        canonical: "https://www.uniglodiamonds.com/lab-grown-diamonds",
     },
 };
 
@@ -37,7 +35,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "What Are Lab Grown Diamonds and Why Is Wholesale Demand Exploding?",
+        heading:
+            "What Are Lab Grown Diamonds and Why Is Wholesale Demand Exploding?",
         content: [
             {
                 type: "paragraph",
@@ -229,7 +228,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "CVD vs HPHT — Which Lab Grown Diamond Manufacturing Method Should You Source?",
+        heading:
+            "CVD vs HPHT — Which Lab Grown Diamond Manufacturing Method Should You Source?",
         content: [
             {
                 type: "paragraph",
@@ -270,7 +270,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Lab Grown Diamond Market in Europe — What Wholesale Buyers Need to Know in 2026",
+        heading:
+            "The Lab Grown Diamond Market in Europe — What Wholesale Buyers Need to Know in 2026",
         content: [
             {
                 type: "paragraph",
@@ -346,63 +347,66 @@ const articleData: ArticleSection[] = [
 const LabGrownDiamondsPage = () => {
     const faqData = [
         {
-            question: "What is the minimum order quantity for wholesale lab grown diamonds from Uniglo?",
-            answer: "We work with buyers of all sizes, from individual stones for private clients to bulk orders for retail chains. There is no fixed minimum order requirement that applies universally. Contact our wholesale team directly to discuss your specific requirements and we will provide pricing and availability accordingly."
+            question:
+                "What is the minimum order quantity for wholesale lab grown diamonds from Uniglo?",
+            answer: "We work with buyers of all sizes, from individual stones for private clients to bulk orders for retail chains. There is no fixed minimum order requirement that applies universally. Contact our wholesale team directly to discuss your specific requirements and we will provide pricing and availability accordingly.",
         },
         {
             question: "Are lab grown diamonds real diamonds?",
-            answer: "Yes. Lab grown diamonds are 100% real diamonds. They have the same chemical composition (pure carbon in a cubic crystal structure), the same physical properties (hardness of 10 on the Mohs scale), and the same optical properties (brilliance, fire, scintillation) as natural mined diamonds. The Federal Trade Commission (FTC) in the United States officially updated its guidelines to confirm that lab grown diamonds are diamonds — the word 'synthetic' is no longer considered appropriate for marketing purposes because it implies they are imitation or fake, which they are not."
+            answer: "Yes. Lab grown diamonds are 100% real diamonds. They have the same chemical composition (pure carbon in a cubic crystal structure), the same physical properties (hardness of 10 on the Mohs scale), and the same optical properties (brilliance, fire, scintillation) as natural mined diamonds. The Federal Trade Commission (FTC) in the United States officially updated its guidelines to confirm that lab grown diamonds are diamonds — the word 'synthetic' is no longer considered appropriate for marketing purposes because it implies they are imitation or fake, which they are not.",
         },
         {
-            question: "How do I know the grade of a lab grown diamond is accurate?",
-            answer: "Every lab grown diamond supplied by Uniglo Diamonds carries a grading report from GIA, IGI, or HRD — independent, internationally recognised gemological laboratories. These reports confirm the 4Cs (Cut, Colour, Clarity, Carat weight) and confirm the diamond's lab grown origin. The grading report is the buyer's guarantee that the grade assigned is accurate and independently verified."
+            question:
+                "How do I know the grade of a lab grown diamond is accurate?",
+            answer: "Every lab grown diamond supplied by Uniglo Diamonds carries a grading report from GIA, IGI, or HRD — independent, internationally recognised gemological laboratories. These reports confirm the 4Cs (Cut, Colour, Clarity, Carat weight) and confirm the diamond's lab grown origin. The grading report is the buyer's guarantee that the grade assigned is accurate and independently verified.",
         },
         {
-            question: "Can jewelers buy lab grown diamonds directly from a manufacturer in Antwerp?",
-            answer: "Yes — and this is strongly advisable over purchasing through brokers or trading platforms. Buying directly from a manufacturer like Uniglo Diamonds gives you direct wholesale pricing, confirmed origin, direct quality accountability, and a supply relationship you can rely on for consistent future orders. Contact our B2B wholesale team to open an account and discuss supply terms."
+            question:
+                "Can jewelers buy lab grown diamonds directly from a manufacturer in Antwerp?",
+            answer: "Yes — and this is strongly advisable over purchasing through brokers or trading platforms. Buying directly from a manufacturer like Uniglo Diamonds gives you direct wholesale pricing, confirmed origin, direct quality accountability, and a supply relationship you can rely on for consistent future orders. Contact our B2B wholesale team to open an account and discuss supply terms.",
         },
         {
-            question: "What shapes of lab grown diamonds are available wholesale?",
-            answer: "We supply all major diamond shapes at the wholesale level: round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart. We also accommodate custom cutting requests for brand-specific designs through our Antwerp manufacturing facility."
+            question:
+                "What shapes of lab grown diamonds are available wholesale?",
+            answer: "We supply all major diamond shapes at the wholesale level: round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart. We also accommodate custom cutting requests for brand-specific designs through our Antwerp manufacturing facility.",
         },
         {
             question: "Are IGI certified lab grown diamonds good?",
-            answer: "IGI (International Gemological Institute) is the world's largest independent gemological laboratory and the single most common certification body for lab grown diamonds globally. IGI certifications are widely accepted by jewelers, retailers and brands in Europe, Asia, the Americas, and across the global trade. IGI lab grown diamond grading reports confirm the 4Cs and are trusted by the wholesale and retail market. For most wholesale buyers of lab grown diamonds, IGI certification is the standard — and Uniglo Diamonds supplies IGI certified stones as part of our core inventory."
+            answer: "IGI (International Gemological Institute) is the world's largest independent gemological laboratory and the single most common certification body for lab grown diamonds globally. IGI certifications are widely accepted by jewelers, retailers and brands in Europe, Asia, the Americas, and across the global trade. IGI lab grown diamond grading reports confirm the 4Cs and are trusted by the wholesale and retail market. For most wholesale buyers of lab grown diamonds, IGI certification is the standard — and Uniglo Diamonds supplies IGI certified stones as part of our core inventory.",
         },
         {
-            question: "What is the difference between wholesale and retail pricing for lab grown diamonds?",
-            answer: "Retail pricing includes the margin of the retailer or jeweler selling to the end consumer. Wholesale pricing is the price paid before retail markup — it is the price at which a manufacturer or bulk supplier sells to trade buyers. By buying wholesale directly from Uniglo Diamonds, you access the price tier below retail — which is the foundation of your own margin when selling to consumers. The exact differential between wholesale and retail varies by stone, grade, and market, but wholesale buyers typically operate on margins of 30–100% depending on the retail channel and stone specification."
+            question:
+                "What is the difference between wholesale and retail pricing for lab grown diamonds?",
+            answer: "Retail pricing includes the margin of the retailer or jeweler selling to the end consumer. Wholesale pricing is the price paid before retail markup — it is the price at which a manufacturer or bulk supplier sells to trade buyers. By buying wholesale directly from Uniglo Diamonds, you access the price tier below retail — which is the foundation of your own margin when selling to consumers. The exact differential between wholesale and retail varies by stone, grade, and market, but wholesale buyers typically operate on margins of 30–100% depending on the retail channel and stone specification.",
         },
         {
-            question: "How do I verify a lab grown diamond is what it claims to be?",
-            answer: "The most reliable verification is the grading certificate. Match the certificate number to the diamond — most certified diamonds have the certificate number laser-inscribed on the girdle of the stone, visible under magnification. This allows any jeweler or buyer to confirm independently that the diamond in their hand matches the certificate on file. Beyond certification, specialist equipment such as a HPHT/CVD identification device can distinguish lab grown diamonds from natural diamonds and confirm the manufacturing method — though for commercial trade purposes, a valid GIA, IGI, or HRD certificate is the accepted standard."
+            question:
+                "How do I verify a lab grown diamond is what it claims to be?",
+            answer: "The most reliable verification is the grading certificate. Match the certificate number to the diamond — most certified diamonds have the certificate number laser-inscribed on the girdle of the stone, visible under magnification. This allows any jeweler or buyer to confirm independently that the diamond in their hand matches the certificate on file. Beyond certification, specialist equipment such as a HPHT/CVD identification device can distinguish lab grown diamonds from natural diamonds and confirm the manufacturing method — though for commercial trade purposes, a valid GIA, IGI, or HRD certificate is the accepted standard.",
         },
         {
-            question: "Can I visit Uniglo Diamonds in Antwerp to view diamonds before purchasing?",
-            answer: "Yes. Our showroom is located at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp — in the heart of Antwerp's diamond district. We welcome wholesale buyers, brand representatives, and private clients by appointment. Contact us to arrange a visit and we will prepare a selection of certified lab grown diamonds matched to your requirements."
+            question:
+                "Can I visit Uniglo Diamonds in Antwerp to view diamonds before purchasing?",
+            answer: "Yes. Our showroom is located at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp — in the heart of Antwerp's diamond district. We welcome wholesale buyers, brand representatives, and private clients by appointment. Contact us to arrange a visit and we will prepare a selection of certified lab grown diamonds matched to your requirements.",
         },
         {
-            question: "Does Uniglo supply both natural and lab grown diamonds wholesale?",
-            answer: "Yes. Uniglo Diamonds is a full-spectrum diamond wholesale supplier. We supply both certified natural diamonds and certified lab grown diamonds, in loose and manufactured form, to wholesale and private buyers. This makes us particularly valuable to jewelers and brands who carry both product lines and want a single, trusted Antwerp supplier for their entire diamond inventory."
-        }
+            question:
+                "Does Uniglo supply both natural and lab grown diamonds wholesale?",
+            answer: "Yes. Uniglo Diamonds is a full-spectrum diamond wholesale supplier. We supply both certified natural diamonds and certified lab grown diamonds, in loose and manufactured form, to wholesale and private buyers. This makes us particularly valuable to jewelers and brands who carry both product lines and want a single, trusted Antwerp supplier for their entire diamond inventory.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="Where to Buy Lab Grown Diamonds Wholesale"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        Where to Buy Lab Grown Diamonds Wholesale — The Complete Guide for Jewelers and Buyers
+                        Where to Buy Lab Grown Diamonds Wholesale — The Complete
+                        Guide for Jewelers and Buyers
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions About Buying Lab Grown Diamonds Wholesale"
                         className="mt-12"
                     />

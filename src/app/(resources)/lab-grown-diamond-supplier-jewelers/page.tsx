@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -41,7 +40,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Lab Grown Diamond Supply Landscape — Who Is Actually in the Market",
+        heading:
+            "The Lab Grown Diamond Supply Landscape — Who Is Actually in the Market",
         content: [
             {
                 type: "paragraph",
@@ -102,7 +102,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Why the Supplier Type Matters More Than Most Jewelers Realise",
+        heading:
+            "Why the Supplier Type Matters More Than Most Jewelers Realise",
         content: [
             {
                 type: "paragraph",
@@ -130,12 +131,13 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Today's jewelry consumers — particularly millennial and Gen Z buyers who represent the dominant purchasing demographic for engagement rings and fine jewelry — ask more questions about provenance than any previous generation. Strong demand from millennials and Gen Z consumers, who prioritize transparency and eco-conscious luxury, is accelerating adoption across mainstream and premium jewelry segments worldwide. A jeweler who can say with authority \"these diamonds are certified by IGI and sourced directly from a manufacturer in Antwerp's diamond district\" is making a materially more compelling provenance claim than one who says \"these are certified lab grown diamonds from a trading platform.\"",
+                text: 'Today\'s jewelry consumers — particularly millennial and Gen Z buyers who represent the dominant purchasing demographic for engagement rings and fine jewelry — ask more questions about provenance than any previous generation. Strong demand from millennials and Gen Z consumers, who prioritize transparency and eco-conscious luxury, is accelerating adoption across mainstream and premium jewelry segments worldwide. A jeweler who can say with authority "these diamonds are certified by IGI and sourced directly from a manufacturer in Antwerp\'s diamond district" is making a materially more compelling provenance claim than one who says "these are certified lab grown diamonds from a trading platform."',
             },
         ],
     },
     {
-        heading: "What Jewelers Should Demand From Any Lab Grown Diamond Supplier",
+        heading:
+            "What Jewelers Should Demand From Any Lab Grown Diamond Supplier",
         content: [
             {
                 type: "paragraph",
@@ -171,7 +173,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Wholesale pricing should be documentable and consistent. It should not include platform fees, broker commissions, or \"handling charges\" that erode the price advantage of sourcing wholesale. Ask every supplier to provide written pricing on specific stones and compare it to market references. A supplier confident in their pricing will have no issue putting it in writing.",
+                text: 'Wholesale pricing should be documentable and consistent. It should not include platform fees, broker commissions, or "handling charges" that erode the price advantage of sourcing wholesale. Ask every supplier to provide written pricing on specific stones and compare it to market references. A supplier confident in their pricing will have no issue putting it in writing.',
             },
             {
                 type: "paragraph",
@@ -184,11 +186,12 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Types of Lab Grown Diamonds Jewelers Source and Why Specification Matters",
+        heading:
+            "The Types of Lab Grown Diamonds Jewelers Source and Why Specification Matters",
         content: [
             {
                 type: "paragraph",
-                text: "Understanding what you are sourcing — beyond just \"a lab grown diamond\" — is essential for building a supply relationship that serves your actual jewelry business.",
+                text: 'Understanding what you are sourcing — beyond just "a lab grown diamond" — is essential for building a supply relationship that serves your actual jewelry business.',
             },
             {
                 type: "paragraph",
@@ -229,7 +232,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Antwerp Advantage — Why Where Your Supplier Is Based Matters",
+        heading:
+            "The Antwerp Advantage — Why Where Your Supplier Is Based Matters",
         content: [
             {
                 type: "paragraph",
@@ -246,7 +250,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "How Uniglo Diamonds Serves Jewelers as a Wholesale Lab Grown Diamond Supplier",
+        heading:
+            "How Uniglo Diamonds Serves Jewelers as a Wholesale Lab Grown Diamond Supplier",
         content: [
             {
                 type: "paragraph",
@@ -266,7 +271,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "How to Evaluate Whether a Lab Grown Diamond Supplier Is Right for Your Business",
+        heading:
+            "How to Evaluate Whether a Lab Grown Diamond Supplier Is Right for Your Business",
         content: [
             {
                 type: "paragraph",
@@ -294,7 +300,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "The single most important question you can ask a prospective lab grown diamond supplier is: \"Where was this diamond grown, and can you document that?\" A direct manufacturer will answer this clearly and completely. A reseller or broker will be vague. The vagueness itself tells you something important about the supply chain you would be entering.",
+                text: 'The single most important question you can ask a prospective lab grown diamond supplier is: "Where was this diamond grown, and can you document that?" A direct manufacturer will answer this clearly and completely. A reseller or broker will be vague. The vagueness itself tells you something important about the supply chain you would be entering.',
             },
             {
                 type: "paragraph",
@@ -310,12 +316,13 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Get written pricing on the specific stones you are considering before placing any order. Compare that pricing to market references from other sources. A supplier who prices fairly and confidently will have no reluctance to provide this. A supplier who is vague about pricing, or who provides \"indicative\" prices that change at order placement, is one you should approach with caution.",
+                text: 'Get written pricing on the specific stones you are considering before placing any order. Compare that pricing to market references from other sources. A supplier who prices fairly and confidently will have no reluctance to provide this. A supplier who is vague about pricing, or who provides "indicative" prices that change at order placement, is one you should approach with caution.',
             },
         ],
     },
     {
-        heading: "The Market Context — Why the Right Supplier Matters More in 2025 and 2026",
+        heading:
+            "The Market Context — Why the Right Supplier Matters More in 2025 and 2026",
         content: [
             {
                 type: "paragraph",
@@ -373,63 +380,68 @@ const articleData: ArticleSection[] = [
 const LabGrownDiamondSupplierPage = () => {
     const faqData = [
         {
-            question: "Who are the main suppliers of lab grown diamonds to European jewelers?",
-            answer: "European jewelers source lab grown diamonds from a combination of direct manufacturers based in Antwerp and other European diamond centres, wholesale distributors who aggregate supply from Asian and European manufacturers, and online trading platforms. The most commercially advantageous source — in terms of price, quality accountability, and supply reliability — is a direct Antwerp-based manufacturer such as Uniglo Diamonds. Uniglo supplies IGI, GIA, and HRD certified lab grown diamonds at direct manufacturer wholesale pricing to jewelers across Europe and globally."
+            question:
+                "Who are the main suppliers of lab grown diamonds to European jewelers?",
+            answer: "European jewelers source lab grown diamonds from a combination of direct manufacturers based in Antwerp and other European diamond centres, wholesale distributors who aggregate supply from Asian and European manufacturers, and online trading platforms. The most commercially advantageous source — in terms of price, quality accountability, and supply reliability — is a direct Antwerp-based manufacturer such as Uniglo Diamonds. Uniglo supplies IGI, GIA, and HRD certified lab grown diamonds at direct manufacturer wholesale pricing to jewelers across Europe and globally.",
         },
         {
-            question: "How do I find a reliable lab grown diamond supplier for my jewelry store?",
-            answer: "The most important steps are: verify certification on every stone (GIA, IGI, or HRD), confirm that the supplier is a direct manufacturer rather than a reseller or broker, request a trial order before committing to a supply relationship, verify the supplier's industry standing and physical presence, and obtain written pricing before placing any order. Uniglo Diamonds welcomes initial inquiries from jewelers at any scale and provides transparent wholesale pricing, trial orders, and Antwerp showroom visits by appointment."
+            question:
+                "How do I find a reliable lab grown diamond supplier for my jewelry store?",
+            answer: "The most important steps are: verify certification on every stone (GIA, IGI, or HRD), confirm that the supplier is a direct manufacturer rather than a reseller or broker, request a trial order before committing to a supply relationship, verify the supplier's industry standing and physical presence, and obtain written pricing before placing any order. Uniglo Diamonds welcomes initial inquiries from jewelers at any scale and provides transparent wholesale pricing, trial orders, and Antwerp showroom visits by appointment.",
         },
         {
-            question: "Is IGI certification good enough for retail jewelry sales in Europe?",
-            answer: "Yes. IGI (International Gemological Institute) is the world's largest independent gemological laboratory and the most widely accepted certification standard for lab grown diamonds in Europe and globally. IGI lab grown diamond grading reports are recognised by jewelers, retailers, consumers, and insurers across all major European markets. For most European retail jewelry applications, IGI certification is the primary market standard."
+            question:
+                "Is IGI certification good enough for retail jewelry sales in Europe?",
+            answer: "Yes. IGI (International Gemological Institute) is the world's largest independent gemological laboratory and the most widely accepted certification standard for lab grown diamonds in Europe and globally. IGI lab grown diamond grading reports are recognised by jewelers, retailers, consumers, and insurers across all major European markets. For most European retail jewelry applications, IGI certification is the primary market standard.",
         },
         {
-            question: "What is the difference between a lab grown diamond manufacturer and a lab grown diamond distributor?",
-            answer: "A manufacturer produces the diamonds in its own facility — controlling quality from the growing stage through cutting, polishing, and grading. A distributor purchases from manufacturers and resells to jewelers, adding a margin layer at each transaction. Buying from a manufacturer gives you better pricing and direct quality accountability. Buying from a distributor gives you broader product range access but at higher cost and with less supply chain transparency."
+            question:
+                "What is the difference between a lab grown diamond manufacturer and a lab grown diamond distributor?",
+            answer: "A manufacturer produces the diamonds in its own facility — controlling quality from the growing stage through cutting, polishing, and grading. A distributor purchases from manufacturers and resells to jewelers, adding a margin layer at each transaction. Buying from a manufacturer gives you better pricing and direct quality accountability. Buying from a distributor gives you broader product range access but at higher cost and with less supply chain transparency.",
         },
         {
-            question: "Can I source both natural and lab grown diamonds from the same Antwerp supplier?",
-            answer: "Yes. Uniglo Diamonds supplies both certified natural diamonds and certified lab grown diamonds wholesale. For jewelry businesses carrying both product lines, consolidating your diamond supply through a single established Antwerp manufacturer simplifies sourcing, documentation, relationship management, and pricing negotiations considerably."
+            question:
+                "Can I source both natural and lab grown diamonds from the same Antwerp supplier?",
+            answer: "Yes. Uniglo Diamonds supplies both certified natural diamonds and certified lab grown diamonds wholesale. For jewelry businesses carrying both product lines, consolidating your diamond supply through a single established Antwerp manufacturer simplifies sourcing, documentation, relationship management, and pricing negotiations considerably.",
         },
         {
-            question: "What shapes of lab grown diamonds are most in demand for jewelry retail?",
-            answer: "Round brilliant is consistently the highest-demand shape for engagement rings and fine jewelry globally. Oval has grown significantly in popularity, particularly for engagement rings, over the past three years. Cushion, pear, and emerald cuts follow in popularity. Princess, asscher, marquise, radiant, and heart are important for specific design applications and customer requests. Uniglo Diamonds maintains certified wholesale inventory across all major shapes."
+            question:
+                "What shapes of lab grown diamonds are most in demand for jewelry retail?",
+            answer: "Round brilliant is consistently the highest-demand shape for engagement rings and fine jewelry globally. Oval has grown significantly in popularity, particularly for engagement rings, over the past three years. Cushion, pear, and emerald cuts follow in popularity. Princess, asscher, marquise, radiant, and heart are important for specific design applications and customer requests. Uniglo Diamonds maintains certified wholesale inventory across all major shapes.",
         },
         {
-            question: "How do lab grown diamond prices compare at wholesale vs retail for jewelers?",
-            answer: "At the wholesale level, a certified lab grown diamond sourced directly from an Antwerp manufacturer will be priced significantly below the retail price at which a jeweler would sell it to an end consumer. The exact differential varies by stone specification, but jewelers sourcing directly from manufacturers typically operate on retail margins of 40–80% on lab grown diamonds — making lab grown inventory one of the highest-margin product categories available in fine jewelry retail."
+            question:
+                "How do lab grown diamond prices compare at wholesale vs retail for jewelers?",
+            answer: "At the wholesale level, a certified lab grown diamond sourced directly from an Antwerp manufacturer will be priced significantly below the retail price at which a jeweler would sell it to an end consumer. The exact differential varies by stone specification, but jewelers sourcing directly from manufacturers typically operate on retail margins of 40–80% on lab grown diamonds — making lab grown inventory one of the highest-margin product categories available in fine jewelry retail.",
         },
         {
-            question: "Do lab grown diamond suppliers provide matched sets for multi-stone jewelry?",
-            answer: "Quality wholesale suppliers — including Uniglo Diamonds — supply matched parcels for multi-stone jewelry manufacturing. Matched parcels are sets of diamonds with consistent colour, clarity, and cut grades, supplied specifically for use in tennis bracelets, eternity rings, pavé settings, and other multi-stone pieces. This capability requires precise inventory management and manufacturing control that not all supplier types can deliver."
+            question:
+                "Do lab grown diamond suppliers provide matched sets for multi-stone jewelry?",
+            answer: "Quality wholesale suppliers — including Uniglo Diamonds — supply matched parcels for multi-stone jewelry manufacturing. Matched parcels are sets of diamonds with consistent colour, clarity, and cut grades, supplied specifically for use in tennis bracelets, eternity rings, pavé settings, and other multi-stone pieces. This capability requires precise inventory management and manufacturing control that not all supplier types can deliver.",
         },
         {
-            question: "How long does it take to establish a wholesale account with Uniglo Diamonds?",
-            answer: "There is no lengthy registration or approval process for opening a wholesale account with Uniglo Diamonds. Contact us directly with your requirements — shape, grade, carat range, certification preference, and order frequency — and we will provide current wholesale pricing, confirm availability, and discuss supply arrangements that match your business needs. Most new wholesale accounts are active within a few business days of initial contact."
+            question:
+                "How long does it take to establish a wholesale account with Uniglo Diamonds?",
+            answer: "There is no lengthy registration or approval process for opening a wholesale account with Uniglo Diamonds. Contact us directly with your requirements — shape, grade, carat range, certification preference, and order frequency — and we will provide current wholesale pricing, confirm availability, and discuss supply arrangements that match your business needs. Most new wholesale accounts are active within a few business days of initial contact.",
         },
         {
-            question: "Can private buyers also source lab grown diamonds from Uniglo Diamonds, or is it strictly B2B?",
-            answer: "Uniglo Diamonds serves both business buyers and private individuals. Private buyers who want to purchase a certified lab grown diamond directly — for an engagement ring, a personal jewelry commission, or as a considered purchase — can access our inventory at wholesale pricing, bypassing the retail markup entirely. We welcome private inquiries and provide the same level of diamond expertise and certification documentation to private buyers as to our trade accounts."
-        }
+            question:
+                "Can private buyers also source lab grown diamonds from Uniglo Diamonds, or is it strictly B2B?",
+            answer: "Uniglo Diamonds serves both business buyers and private individuals. Private buyers who want to purchase a certified lab grown diamond directly — for an engagement ring, a personal jewelry commission, or as a considered purchase — can access our inventory at wholesale pricing, bypassing the retail markup entirely. We welcome private inquiries and provide the same level of diamond expertise and certification documentation to private buyers as to our trade accounts.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="Who Supplies Lab Grown Diamonds to Jewelers"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        Who Supplies Lab Grown Diamonds to Jewelers — A Complete Industry Guide
+                        Who Supplies Lab Grown Diamonds to Jewelers — A Complete
+                        Industry Guide
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions — Lab Grown Diamond Suppliers for Jewelers"
                         className="mt-12"
                     />

@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -78,7 +77,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "The certificate will clearly state whether the diamond is natural or lab-grown. For lab-grown diamonds, the certificate will explicitly mention \"Laboratory-Grown\" or \"Man-Made\" — distinguishing it from a natural diamond. This is a crucial part of the certificate as it confirms the origin of the diamond.",
+                text: 'The certificate will clearly state whether the diamond is natural or lab-grown. For lab-grown diamonds, the certificate will explicitly mention "Laboratory-Grown" or "Man-Made" — distinguishing it from a natural diamond. This is a crucial part of the certificate as it confirms the origin of the diamond.',
             },
             {
                 type: "paragraph",
@@ -180,7 +179,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "IGI vs GIA vs HRD — Which Certification Is Right for Your Wholesale Needs?",
+        heading:
+            "IGI vs GIA vs HRD — Which Certification Is Right for Your Wholesale Needs?",
         content: [
             {
                 type: "paragraph",
@@ -237,7 +237,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "What Types of Certification Are Available for Lab Grown Diamonds Sold in Belgium?",
+        heading:
+            "What Types of Certification Are Available for Lab Grown Diamonds Sold in Belgium?",
         content: [
             {
                 type: "paragraph",
@@ -262,7 +263,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "IGI Certified Lab Grown Diamond Wholesale Pricing — What Buyers Should Know",
+        heading:
+            "IGI Certified Lab Grown Diamond Wholesale Pricing — What Buyers Should Know",
         content: [
             {
                 type: "paragraph",
@@ -307,7 +309,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "How Uniglo Diamonds Works as Your IGI Certified Wholesale Partner",
+        heading:
+            "How Uniglo Diamonds Works as Your IGI Certified Wholesale Partner",
         content: [
             {
                 type: "paragraph",
@@ -326,7 +329,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Why Buying IGI Certified Lab Grown Diamonds in Belgium Matters for Both B2B and B2C",
+        heading:
+            "Why Buying IGI Certified Lab Grown Diamonds in Belgium Matters for Both B2B and B2C",
         content: [
             {
                 type: "paragraph",
@@ -347,7 +351,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "How to Verify the Authenticity of IGI Certified Lab Grown Diamonds in Belgium",
+        heading:
+            "How to Verify the Authenticity of IGI Certified Lab Grown Diamonds in Belgium",
         content: [
             {
                 type: "paragraph",
@@ -392,7 +397,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "The Commercial Case for IGI Certified Wholesale Inventory — A Summary",
+        heading:
+            "The Commercial Case for IGI Certified Wholesale Inventory — A Summary",
         content: [
             {
                 type: "paragraph",
@@ -415,7 +421,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Contact Uniglo Diamonds — Your IGI Certified Lab Grown Diamond Wholesale Partner",
+        heading:
+            "Contact Uniglo Diamonds — Your IGI Certified Lab Grown Diamond Wholesale Partner",
         content: [
             {
                 type: "paragraph",
@@ -457,62 +464,66 @@ const IGICertifiedLabGrownDiamondPage = () => {
     const faqData = [
         {
             question: "Are IGI certified lab grown diamonds good?",
-            answer: "Choosing an IGI-certified lab grown diamond is always the safer and smarter option. IGI is globally recognized and widely used for lab grown diamond grading. Many leading jewellers rely on IGI reports for lab grown diamonds because of their expertise and consistent standards. IGI specialists use advanced equipment and strict grading methods to ensure accuracy. For wholesale buyers, IGI certification is the most widely accepted and commercially trusted standard for lab grown diamonds globally — and particularly in the European market."
+            answer: "Choosing an IGI-certified lab grown diamond is always the safer and smarter option. IGI is globally recognized and widely used for lab grown diamond grading. Many leading jewellers rely on IGI reports for lab grown diamonds because of their expertise and consistent standards. IGI specialists use advanced equipment and strict grading methods to ensure accuracy. For wholesale buyers, IGI certification is the most widely accepted and commercially trusted standard for lab grown diamonds globally — and particularly in the European market.",
         },
         {
-            question: "What is the difference between IGI and GIA certification for lab grown diamonds?",
-            answer: "The International Gemological Institute is widely used in retail and known for its detailed, accessible reports. GIA is globally recognised for its rigorous grading standards and unmatched authority in the diamond industry. IGI pioneered lab grown diamond grading in 2005 and is the most widely used certification for lab grown diamonds globally. GIA introduced lab grown diamond reports in 2020 and carries the highest global prestige. For most European wholesale buyers of lab grown diamonds, IGI is the primary market standard — with GIA preferred in premium or US-facing market segments."
+            question:
+                "What is the difference between IGI and GIA certification for lab grown diamonds?",
+            answer: "The International Gemological Institute is widely used in retail and known for its detailed, accessible reports. GIA is globally recognised for its rigorous grading standards and unmatched authority in the diamond industry. IGI pioneered lab grown diamond grading in 2005 and is the most widely used certification for lab grown diamonds globally. GIA introduced lab grown diamond reports in 2020 and carries the highest global prestige. For most European wholesale buyers of lab grown diamonds, IGI is the primary market standard — with GIA preferred in premium or US-facing market segments.",
         },
         {
-            question: "What types of certification are available for lab grown diamonds in Belgium?",
-            answer: "In Belgium, the three accepted certification standards for lab grown diamonds are IGI (most widely used for lab grown diamonds globally), GIA (globally prestigious, preferred for premium segments), and HRD (headquartered in Antwerp, carries particular authority in the Belgian and European trade). Uniglo Diamonds can supply lab grown diamonds certified by all three institutions. For most Belgian retail applications, IGI certification is the standard — and our wholesale inventory is predominantly IGI certified."
+            question:
+                "What types of certification are available for lab grown diamonds in Belgium?",
+            answer: "In Belgium, the three accepted certification standards for lab grown diamonds are IGI (most widely used for lab grown diamonds globally), GIA (globally prestigious, preferred for premium segments), and HRD (headquartered in Antwerp, carries particular authority in the Belgian and European trade). Uniglo Diamonds can supply lab grown diamonds certified by all three institutions. For most Belgian retail applications, IGI certification is the standard — and our wholesale inventory is predominantly IGI certified.",
         },
         {
-            question: "How do I verify an IGI certificate for a lab grown diamond bought in Belgium?",
-            answer: "Visit igi.org, enter the report number from the certificate, and the IGI database will return the full grading report. Match the database record to the physical certificate and verify the laser inscription on the diamond's girdle matches the report number. The QR code in the bottom right allows you to verify the diamond's details on the IGI website, ensuring full transparency and confidence in your purchase. Every IGI certified stone from Uniglo Diamonds can be verified this way before delivery is confirmed."
+            question:
+                "How do I verify an IGI certificate for a lab grown diamond bought in Belgium?",
+            answer: "Visit igi.org, enter the report number from the certificate, and the IGI database will return the full grading report. Match the database record to the physical certificate and verify the laser inscription on the diamond's girdle matches the report number. The QR code in the bottom right allows you to verify the diamond's details on the IGI website, ensuring full transparency and confidence in your purchase. Every IGI certified stone from Uniglo Diamonds can be verified this way before delivery is confirmed.",
         },
         {
-            question: "Can I buy IGI certified lab grown diamonds wholesale directly in Antwerp?",
-            answer: "Yes. Uniglo Diamonds is a direct manufacturer and wholesale supplier of IGI certified lab grown diamonds located at Hoveniersstraat 30 in Antwerp's diamond district. We welcome wholesale buyers to visit our showroom by appointment, view IGI certified stones in person, and discuss supply requirements with our Antwerp diamond team. Contact us at suraj@uniglodiamonds.com or +32 03 500 91 07 to arrange a visit."
+            question:
+                "Can I buy IGI certified lab grown diamonds wholesale directly in Antwerp?",
+            answer: "Yes. Uniglo Diamonds is a direct manufacturer and wholesale supplier of IGI certified lab grown diamonds located at Hoveniersstraat 30 in Antwerp's diamond district. We welcome wholesale buyers to visit our showroom by appointment, view IGI certified stones in person, and discuss supply requirements with our Antwerp diamond team. Contact us at suraj@uniglodiamonds.com or +32 03 500 91 07 to arrange a visit.",
         },
         {
-            question: "What is the minimum order for IGI certified lab grown diamonds wholesale?",
-            answer: "There is no fixed universal minimum order at Uniglo Diamonds. We supply IGI certified lab grown diamonds to wholesale buyers across a wide range of order sizes — from individual stones to bulk orders of several hundred or more. Contact our wholesale team with your requirements and we will provide pricing and availability accordingly."
+            question:
+                "What is the minimum order for IGI certified lab grown diamonds wholesale?",
+            answer: "There is no fixed universal minimum order at Uniglo Diamonds. We supply IGI certified lab grown diamonds to wholesale buyers across a wide range of order sizes — from individual stones to bulk orders of several hundred or more. Contact our wholesale team with your requirements and we will provide pricing and availability accordingly.",
         },
         {
-            question: "Does IGI certification affect the resale value of lab grown diamonds?",
-            answer: "IGI certification significantly affects the resale value and marketability of a lab grown diamond compared to an uncertified stone. A certified diamond has an independently documented quality grade that any buyer can verify — making it fundamentally more tradeable, more insurable, and more credible in any secondary market transaction. For both wholesale buyers managing inventory and private buyers considering resale, IGI certification is the foundation of a diamond's verifiable value."
+            question:
+                "Does IGI certification affect the resale value of lab grown diamonds?",
+            answer: "IGI certification significantly affects the resale value and marketability of a lab grown diamond compared to an uncertified stone. A certified diamond has an independently documented quality grade that any buyer can verify — making it fundamentally more tradeable, more insurable, and more credible in any secondary market transaction. For both wholesale buyers managing inventory and private buyers considering resale, IGI certification is the foundation of a diamond's verifiable value.",
         },
         {
-            question: "Can private buyers purchase IGI certified lab grown diamonds at wholesale from Uniglo?",
-            answer: "Yes. Uniglo Diamonds serves both B2B wholesale accounts and private individual buyers. Private buyers who want to purchase an IGI certified lab grown diamond directly — for an engagement ring commission, a personal jewelry piece, or an investment purchase — can access our wholesale inventory and pricing without the retail markup applied by high-street jewelers or online retail platforms. Contact our team to discuss your requirements."
+            question:
+                "Can private buyers purchase IGI certified lab grown diamonds at wholesale from Uniglo?",
+            answer: "Yes. Uniglo Diamonds serves both B2B wholesale accounts and private individual buyers. Private buyers who want to purchase an IGI certified lab grown diamond directly — for an engagement ring commission, a personal jewelry piece, or an investment purchase — can access our wholesale inventory and pricing without the retail markup applied by high-street jewelers or online retail platforms. Contact our team to discuss your requirements.",
         },
         {
-            question: "What shapes of IGI certified lab grown diamonds are available wholesale?",
-            answer: "Uniglo Diamonds maintains IGI certified wholesale inventory across all major shapes: round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart. All shapes are available across a range of carat weights, colour grades (D through J for most wholesale applications), and clarity grades (IF through SI). Contact our team for current availability and pricing on your specific shape and grade requirements."
+            question:
+                "What shapes of IGI certified lab grown diamonds are available wholesale?",
+            answer: "Uniglo Diamonds maintains IGI certified wholesale inventory across all major shapes: round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart. All shapes are available across a range of carat weights, colour grades (D through J for most wholesale applications), and clarity grades (IF through SI). Contact our team for current availability and pricing on your specific shape and grade requirements.",
         },
         {
-            question: "Does Uniglo offer diamond financing for IGI certified wholesale purchases?",
-            answer: "Yes. Uniglo Diamonds offers flexible financing arrangements for qualified wholesale buyers making significant IGI certified diamond purchases. Financing allows buyers to build certified inventory without the full upfront capital requirement. Contact our wholesale team to discuss financing options and qualification criteria."
-        }
+            question:
+                "Does Uniglo offer diamond financing for IGI certified wholesale purchases?",
+            answer: "Yes. Uniglo Diamonds offers flexible financing arrangements for qualified wholesale buyers making significant IGI certified diamond purchases. Financing allows buyers to build certified inventory without the full upfront capital requirement. Contact our wholesale team to discuss financing options and qualification criteria.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="IGI Certified Lab Grown Diamond Wholesale Supplier"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        IGI Certified Lab Grown Diamond Wholesale Supplier — The Complete Guide
+                        IGI Certified Lab Grown Diamond Wholesale Supplier — The
+                        Complete Guide
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions — IGI Certified Lab Grown Diamond Wholesale"
                         className="mt-12"
                     />

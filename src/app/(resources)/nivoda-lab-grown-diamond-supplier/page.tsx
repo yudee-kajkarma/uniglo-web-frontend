@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import DynamicArticle, {
     ArticleSection,
@@ -94,7 +93,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Uniglo Diamonds — A Verified Nivoda Lab Grown Diamond Supplier",
+        heading:
+            "Uniglo Diamonds — A Verified Nivoda Lab Grown Diamond Supplier",
         content: [
             {
                 type: "paragraph",
@@ -189,7 +189,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Nivoda Diamond Prices — What Jewelers Sourcing Through the Platform Should Know",
+        heading:
+            "Nivoda Diamond Prices — What Jewelers Sourcing Through the Platform Should Know",
         content: [
             {
                 type: "paragraph",
@@ -217,7 +218,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Through Nivoda Capital, retailers have access to embedded credit directly inside the Nivoda platform with flexible 30, 60, or 90-day payment terms. Austin Cordle of Oakmont Jewelers explains: \"Nivoda's credit line has taken the pressure off cash flow and made it easy to secure the inventory I need, exactly when I need it. The flexibility to choose whether I pay upfront, in 30 days, or in 60 days is incredibly convenient and gives me full control.\"",
+                text: 'Through Nivoda Capital, retailers have access to embedded credit directly inside the Nivoda platform with flexible 30, 60, or 90-day payment terms. Austin Cordle of Oakmont Jewelers explains: "Nivoda\'s credit line has taken the pressure off cash flow and made it easy to secure the inventory I need, exactly when I need it. The flexibility to choose whether I pay upfront, in 30 days, or in 60 days is incredibly convenient and gives me full control."',
             },
             {
                 type: "paragraph",
@@ -226,7 +227,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Sourcing Certified Lab Grown Diamonds Through Nivoda — The Complete Process",
+        heading:
+            "Sourcing Certified Lab Grown Diamonds Through Nivoda — The Complete Process",
         content: [
             {
                 type: "paragraph",
@@ -263,7 +265,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Nivoda vs Ordering Direct From Uniglo Diamonds — What Is the Difference?",
+        heading:
+            "Nivoda vs Ordering Direct From Uniglo Diamonds — What Is the Difference?",
         content: [
             {
                 type: "paragraph",
@@ -303,7 +306,8 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Why Uniglo Diamonds Is the Best Antwerp Supplier to Source From on Nivoda",
+        heading:
+            "Why Uniglo Diamonds Is the Best Antwerp Supplier to Source From on Nivoda",
         content: [
             {
                 type: "paragraph",
@@ -390,74 +394,79 @@ const NivodaLabGrownDiamondSupplierPage = () => {
     const faqData = [
         {
             question: "Is Uniglo Diamonds listed on Nivoda?",
-            answer: "Yes. Uniglo Diamonds is a verified supplier listed on the Nivoda diamond platform. Jewelers using Nivoda can find and order certified lab grown diamonds from Uniglo Diamonds directly through the platform by searching for Uniglo Diamonds in the supplier directory. Contact our Antwerp team at suraj@uniglodiamonds.com to discuss your sourcing requirements and to establish a preferred supplier relationship both on and off the platform."
+            answer: "Yes. Uniglo Diamonds is a verified supplier listed on the Nivoda diamond platform. Jewelers using Nivoda can find and order certified lab grown diamonds from Uniglo Diamonds directly through the platform by searching for Uniglo Diamonds in the supplier directory. Contact our Antwerp team at suraj@uniglodiamonds.com to discuss your sourcing requirements and to establish a preferred supplier relationship both on and off the platform.",
         },
         {
-            question: "How does Nivoda work for jewelers sourcing lab grown diamonds?",
-            answer: "Nivoda allows jewelers to search for and purchase from an inventory of over 1.6 million natural, lab-grown and melee diamonds at the best price from verified suppliers all over the world with zero inventory risk. Nivoda manages the entire quality control, invoice and delivery process. Jewelers register for a free account, search platform inventory, select their preferred supplier and specifications, and place orders that Nivoda fulfils through its logistics infrastructure."
+            question:
+                "How does Nivoda work for jewelers sourcing lab grown diamonds?",
+            answer: "Nivoda allows jewelers to search for and purchase from an inventory of over 1.6 million natural, lab-grown and melee diamonds at the best price from verified suppliers all over the world with zero inventory risk. Nivoda manages the entire quality control, invoice and delivery process. Jewelers register for a free account, search platform inventory, select their preferred supplier and specifications, and place orders that Nivoda fulfils through its logistics infrastructure.",
         },
         {
-            question: "What is the difference between buying from Nivoda vs a direct manufacturer?",
-            answer: "Buying through Nivoda gives you platform logistics, consolidated invoicing, Nivoda Capital financing, and broad supplier inventory in one interface. Buying directly from Uniglo Diamonds gives you direct manufacturer pricing, deeper supplier communication, matched parcel capability, Antwerp showroom access, and a direct supply relationship. Many jewelers use both — standard inventory through Nivoda, custom and volume orders direct from Uniglo Diamonds in Antwerp."
+            question:
+                "What is the difference between buying from Nivoda vs a direct manufacturer?",
+            answer: "Buying through Nivoda gives you platform logistics, consolidated invoicing, Nivoda Capital financing, and broad supplier inventory in one interface. Buying directly from Uniglo Diamonds gives you direct manufacturer pricing, deeper supplier communication, matched parcel capability, Antwerp showroom access, and a direct supply relationship. Many jewelers use both — standard inventory through Nivoda, custom and volume orders direct from Uniglo Diamonds in Antwerp.",
         },
         {
             question: "Does Nivoda sell certified lab grown diamonds?",
-            answer: "Yes. Nivoda offers over 1.6 million natural, lab-grown and melee diamonds across its verified supplier network — including IGI, GIA, and HRD certified lab grown stones. Uniglo Diamonds lists IGI, GIA, and HRD certified loose lab grown diamonds on Nivoda across all major shapes and carat weights. Every Uniglo stone on Nivoda is independently verifiable on the respective laboratory website using the certificate report number."
+            answer: "Yes. Nivoda offers over 1.6 million natural, lab-grown and melee diamonds across its verified supplier network — including IGI, GIA, and HRD certified lab grown stones. Uniglo Diamonds lists IGI, GIA, and HRD certified loose lab grown diamonds on Nivoda across all major shapes and carat weights. Every Uniglo stone on Nivoda is independently verifiable on the respective laboratory website using the certificate report number.",
         },
         {
-            question: "Can I get IGI certified lab grown diamonds through Nivoda?",
-            answer: "Yes. IGI certified lab grown diamonds are widely available on the Nivoda platform and represent the most commonly traded certification standard for lab grown diamonds globally. Uniglo Diamonds lists IGI certified lab grown diamonds on Nivoda across all major shapes and carat weights — with GIA and HRD certified stones also available from our Antwerp inventory for buyers with specific certification requirements."
+            question:
+                "Can I get IGI certified lab grown diamonds through Nivoda?",
+            answer: "Yes. IGI certified lab grown diamonds are widely available on the Nivoda platform and represent the most commonly traded certification standard for lab grown diamonds globally. Uniglo Diamonds lists IGI certified lab grown diamonds on Nivoda across all major shapes and carat weights — with GIA and HRD certified stones also available from our Antwerp inventory for buyers with specific certification requirements.",
         },
         {
             question: "Is Nivoda available in Belgium and Europe?",
-            answer: "Yes. Nivoda powers over 10,000 retailers across more than 70 countries — including Belgium, the Netherlands, Germany, France, the UK, Italy, Spain, Scandinavia, and all major European markets. European jewelers benefit from Nivoda's consolidated European shipping infrastructure and from the availability of European-based suppliers like Uniglo Diamonds — whose Antwerp location means shorter delivery timelines and no cross-continental shipping complexity for European platform buyers."
+            answer: "Yes. Nivoda powers over 10,000 retailers across more than 70 countries — including Belgium, the Netherlands, Germany, France, the UK, Italy, Spain, Scandinavia, and all major European markets. European jewelers benefit from Nivoda's consolidated European shipping infrastructure and from the availability of European-based suppliers like Uniglo Diamonds — whose Antwerp location means shorter delivery timelines and no cross-continental shipping complexity for European platform buyers.",
         },
         {
-            question: "How do Nivoda diamond prices compare to buying direct from Antwerp?",
-            answer: "Nivoda prices reflect each supplier's wholesale pricing plus platform transaction components. Direct purchasing from Uniglo Diamonds removes all platform components — giving volume buyers and regular wholesale accounts better per-stone pricing than equivalent Nivoda-mediated transactions. For standard individual purchases, Nivoda's pricing is competitive and the platform logistics value is real. For volume and matched parcel orders, direct purchasing from our Antwerp team is the more cost-efficient option."
+            question:
+                "How do Nivoda diamond prices compare to buying direct from Antwerp?",
+            answer: "Nivoda prices reflect each supplier's wholesale pricing plus platform transaction components. Direct purchasing from Uniglo Diamonds removes all platform components — giving volume buyers and regular wholesale accounts better per-stone pricing than equivalent Nivoda-mediated transactions. For standard individual purchases, Nivoda's pricing is competitive and the platform logistics value is real. For volume and matched parcel orders, direct purchasing from our Antwerp team is the more cost-efficient option.",
         },
         {
-            question: "What types of certified lab grown diamonds does Uniglo offer on Nivoda?",
-            answer: "Uniglo Diamonds lists IGI, GIA, and HRD certified loose lab grown diamonds on Nivoda across all major shapes — round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart. Carat weights range from 0.30 through to 5+ carats. Colour grades span D through J. Clarity grades span IF through SI. Both CVD and HPHT manufacturing methods are available with method identified on every certificate."
+            question:
+                "What types of certified lab grown diamonds does Uniglo offer on Nivoda?",
+            answer: "Uniglo Diamonds lists IGI, GIA, and HRD certified loose lab grown diamonds on Nivoda across all major shapes — round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart. Carat weights range from 0.30 through to 5+ carats. Colour grades span D through J. Clarity grades span IF through SI. Both CVD and HPHT manufacturing methods are available with method identified on every certificate.",
         },
         {
-            question: "Can I visit Uniglo Diamonds in Antwerp if I find them through Nivoda?",
-            answer: "Yes. Jewelers who find Uniglo Diamonds through Nivoda are welcome to visit our showroom at Hoveniersstraat 30, Antwerp by appointment. Visiting allows you to inspect certified lab grown diamonds in person under proper gemological conditions, meet our diamond team directly, and establish a direct supply relationship that complements your Nivoda account. Contact us at suraj@uniglodiamonds.com or +32 03 500 91 07 to arrange a visit."
+            question:
+                "Can I visit Uniglo Diamonds in Antwerp if I find them through Nivoda?",
+            answer: "Yes. Jewelers who find Uniglo Diamonds through Nivoda are welcome to visit our showroom at Hoveniersstraat 30, Antwerp by appointment. Visiting allows you to inspect certified lab grown diamonds in person under proper gemological conditions, meet our diamond team directly, and establish a direct supply relationship that complements your Nivoda account. Contact us at suraj@uniglodiamonds.com or +32 03 500 91 07 to arrange a visit.",
         },
         {
-            question: "What makes Uniglo Diamonds one of the best suppliers on Nivoda?",
-            answer: "Three things distinguish Uniglo Diamonds from most Nivoda suppliers: direct manufacturer status — not a reseller — meaning manufacturer-level pricing with no intermediary markup. Tri-certification from GIA, IGI, and HRD — more flexibility than most platform suppliers offer. And 30+ years of Antwerp diamond manufacturing heritage behind every stone listed — a depth of quality control and supply chain accountability that newer or less established platform suppliers cannot match."
+            question:
+                "What makes Uniglo Diamonds one of the best suppliers on Nivoda?",
+            answer: "Three things distinguish Uniglo Diamonds from most Nivoda suppliers: direct manufacturer status — not a reseller — meaning manufacturer-level pricing with no intermediary markup. Tri-certification from GIA, IGI, and HRD — more flexibility than most platform suppliers offer. And 30+ years of Antwerp diamond manufacturing heritage behind every stone listed — a depth of quality control and supply chain accountability that newer or less established platform suppliers cannot match.",
         },
         {
-            question: "How do I contact Uniglo Diamonds directly as a Nivoda user?",
-            answer: "Contact Uniglo Diamonds directly at suraj@uniglodiamonds.com or +32 03 500 91 07. Our Antwerp team responds to all inquiries within one business day. You can also visit our showroom at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp, Belgium by appointment."
+            question:
+                "How do I contact Uniglo Diamonds directly as a Nivoda user?",
+            answer: "Contact Uniglo Diamonds directly at suraj@uniglodiamonds.com or +32 03 500 91 07. Our Antwerp team responds to all inquiries within one business day. You can also visit our showroom at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp, Belgium by appointment.",
         },
         {
-            question: "Is Nivoda good for small jewelers buying lab grown diamonds?",
-            answer: "Nivoda is designed to save jewelers time and money whilst giving access to the world's diamond supply at the best prices — trusted by thousands of retailers globally. The pricing model provides a risk-free entry with its Starter plan, ideal for sourcing curated items — with no membership fees required to start. For small jewelers lacking direct manufacturer relationships, Nivoda provides a practical and accessible entry into professional certified diamond sourcing. Finding Uniglo Diamonds within the platform is often the first step in a relationship that evolves into direct account sourcing as purchasing volume grows."
+            question:
+                "Is Nivoda good for small jewelers buying lab grown diamonds?",
+            answer: "Nivoda is designed to save jewelers time and money whilst giving access to the world's diamond supply at the best prices — trusted by thousands of retailers globally. The pricing model provides a risk-free entry with its Starter plan, ideal for sourcing curated items — with no membership fees required to start. For small jewelers lacking direct manufacturer relationships, Nivoda provides a practical and accessible entry into professional certified diamond sourcing. Finding Uniglo Diamonds within the platform is often the first step in a relationship that evolves into direct account sourcing as purchasing volume grows.",
         },
         {
-            question: "What is the best Nivoda certified lab grown diamond supplier in Europe?",
-            answer: "For European jewelers sourcing certified lab grown diamonds on Nivoda, Uniglo Diamonds is the only Antwerp-based direct manufacturer on the platform offering tri-certification from GIA, IGI, and HRD. Our 30+ year presence in Antwerp's diamond district, our own manufacturing facility, and our full shape and grade inventory make us the strongest European manufacturer option available within the Nivoda supplier network. Contact our team directly to establish a preferred supplier relationship and discuss your sourcing requirements."
-        }
+            question:
+                "What is the best Nivoda certified lab grown diamond supplier in Europe?",
+            answer: "For European jewelers sourcing certified lab grown diamonds on Nivoda, Uniglo Diamonds is the only Antwerp-based direct manufacturer on the platform offering tri-certification from GIA, IGI, and HRD. Our 30+ year presence in Antwerp's diamond district, our own manufacturing facility, and our full shape and grade inventory make us the strongest European manufacturer option available within the Nivoda supplier network. Contact our team directly to establish a preferred supplier relationship and discuss your sourcing requirements.",
+        },
     ];
 
     return (
         <div className="min-h-screen mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="Nivoda Lab Grown Diamond Supplier"
-                textClassName="left-10 top-80 text-4xl md:text-5xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        Nivoda Lab Grown Diamond Supplier — Find Uniglo Diamonds on Nivoda
+                        Nivoda Lab Grown Diamond Supplier — Find Uniglo Diamonds
+                        on Nivoda
                     </h1>
                     <DynamicArticle sections={articleData} />
-                    <FAQSection 
-                        faqs={faqData} 
+                    <FAQSection
+                        faqs={faqData}
                         title="Frequently Asked Questions — Nivoda Lab Grown Diamond Supplier"
                         className="mt-12"
                     />
