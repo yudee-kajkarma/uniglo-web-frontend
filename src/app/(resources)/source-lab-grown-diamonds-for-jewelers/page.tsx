@@ -77,7 +77,7 @@ const articleData: ArticleSection[] = [
                 text: "Before you can source effectively, you need to understand how the lab grown diamond supply chain works — because where you enter that chain determines the price you pay, the quality you receive, and the reliability of your supply.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Stage 1: Diamond Growing",
             },
             {
@@ -89,7 +89,7 @@ const articleData: ArticleSection[] = [
                 text: "Growing facilities are concentrated in a small number of global locations — India (particularly Surat), China, and increasingly, specialist operations in Europe and the United States.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Stage 2: Cutting and Polishing",
             },
             {
@@ -101,7 +101,7 @@ const articleData: ArticleSection[] = [
                 text: "Antwerp has been the world centre of diamond cutting and polishing for over five centuries. The skills, quality standards, and equipment concentrated in Antwerp's diamond district are unmatched globally. Diamonds cut and polished in Antwerp — whether natural or lab grown — carry an implicit quality standard that is recognised across every major jewelry market in the world.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Stage 3: Grading and Certification",
             },
             {
@@ -113,7 +113,7 @@ const articleData: ArticleSection[] = [
                 text: "The three laboratories whose certificates are accepted as the global standard in the wholesale and retail jewelry market are GIA (Gemological Institute of America), IGI (International Gemological Institute), and HRD (Hoge Raad voor Diamant, based in Antwerp). Every certified lab grown diamond you source should carry a current report from one of these three institutions.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Stage 4: Wholesale Distribution",
             },
             {
@@ -121,7 +121,7 @@ const articleData: ArticleSection[] = [
                 text: "Certified finished diamonds enter the wholesale market — either through direct manufacturer relationships, trading platforms, or broker networks. This is the stage at which most jewelers and retailers source their inventory. The key variable is how many intermediaries exist between the manufacturer and your purchase order — because every intermediary adds margin to the price you ultimately pay.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Stage 5: Retail",
             },
             {
@@ -142,7 +142,7 @@ const articleData: ArticleSection[] = [
                 text: "Not every lab grown diamond supplier is the right partner for your jewelry business. Here is the framework you should apply when evaluating any supplier — including us.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Certification: Non-Negotiable Baseline",
             },
             {
@@ -150,7 +150,7 @@ const articleData: ArticleSection[] = [
                 text: "Every diamond in every order must carry a current grading report from GIA, IGI, or HRD. No exceptions. A supplier who cannot provide certified stones — or who offers uncertified stones \"at a better price\" — is not a supplier worth working with. Certification is not paperwork. It is the independent verification that the grade assigned to the diamond is accurate, consistent, and internationally recognised. Without it, you cannot make accurate claims to your retail customers, you cannot price your product correctly, and you have no recourse if the quality does not match what was described.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Manufacturing Origin: Know Where the Diamond Was Made",
             },
             {
@@ -158,7 +158,7 @@ const articleData: ArticleSection[] = [
                 text: "Ask every prospective supplier directly: are these diamonds grown in your own facility, or do you source from third parties? The answer has major implications for quality control, supply consistency, and your ability to make meaningful claims about the diamond's origin to your customers. A direct manufacturer has full visibility and accountability across the entire production process. A reseller has none.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Supply Consistency: Can They Deliver What You Need, When You Need It?",
             },
             {
@@ -166,7 +166,7 @@ const articleData: ArticleSection[] = [
                 text: "The best supplier relationship is one where you can reliably forecast your inventory. Ask about lead times for standard orders, availability across the shapes and grades you sell most, and what happens if a specific stone you need is temporarily unavailable. A quality supplier should have a broad, well-managed inventory and the flexibility to accommodate your ordering patterns over time.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Flexibility on Specifications: Shapes, Grades, and Sizes",
             },
             {
@@ -174,7 +174,7 @@ const articleData: ArticleSection[] = [
                 text: "Your jewelry business has specific requirements — particular shapes that sell in your market, clarity and colour grades that match your price point, carat ranges that your customers consistently request. A strong lab grown diamond supplier should be able to accommodate the full range of shapes (round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, heart), a broad range of carat weights, and the full spectrum of colour and clarity grades. If a supplier can only offer a narrow range of specifications, your collection flexibility will be permanently constrained by their limitations.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Pricing Transparency: Clear, Documented, and Consistent",
             },
             {
@@ -182,7 +182,7 @@ const articleData: ArticleSection[] = [
                 text: "Wholesale pricing should be transparent and documentable. Your supplier should provide written pricing — either as a price list or as quoted pricing on specific stones — that you can use for your own margin planning and customer pricing. Prices that are given verbally and change between conversations are a red flag. A professional wholesale supplier prices consistently, documents pricing in writing, and gives adequate notice of any market-driven pricing adjustments.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Track Record and Industry Standing",
             },
             {
@@ -211,7 +211,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers sourcing lab grown diamonds, buying from an established Antwerp manufacturer means buying from the city that has set the global standard in diamond quality for five centuries. That heritage does not automatically guarantee quality from every Antwerp-based supplier — but it does mean the institutional framework for quality assurance and accountability is stronger in Antwerp than in most alternative sourcing markets.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Antwerp vs Online Trading Platforms",
             },
             {
@@ -276,7 +276,7 @@ const articleData: ArticleSection[] = [
                 text: "Effective sourcing is not a one-time transaction — it is a strategy you build and refine over time. Here is how to approach building a sustainable lab grown diamond supply chain for your jewelry business.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 1: Define Your Core Specification Range",
             },
             {
@@ -284,7 +284,7 @@ const articleData: ArticleSection[] = [
                 text: "Before approaching any supplier, define clearly what your business actually needs. What shapes do your customers request most? What carat ranges sell in your price point? What colour and clarity grades align with your product positioning? Having a defined specification range makes the sourcing conversation more efficient and allows your supplier to maintain appropriate stock for your specific needs.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 2: Prioritise Certification From the Start",
             },
             {
@@ -292,7 +292,7 @@ const articleData: ArticleSection[] = [
                 text: "Decide which certification or certifications your business will require on all sourced stones. GIA, IGI, and HRD are all internationally recognised, but different market segments may have preferences. European consumers increasingly recognise IGI lab grown diamond certificates. High-end markets may prefer GIA. If you operate across markets, a supplier like Uniglo Diamonds who can provide all three certifications gives you maximum flexibility.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 3: Start With a Trial Order",
             },
             {
@@ -300,7 +300,7 @@ const articleData: ArticleSection[] = [
                 text: "Before committing to a full supply relationship, request a trial order of a representative selection of stones. Evaluate the quality against the grading reports. Assess the packaging, documentation, and delivery experience. A professional wholesale supplier will welcome a trial order because they are confident in what they supply.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 4: Build the Relationship, Not Just the Transaction",
             },
             {
@@ -308,7 +308,7 @@ const articleData: ArticleSection[] = [
                 text: "The best wholesale supplier relationships are long-term partnerships, not spot purchases. A supplier who knows your business, your specifications, and your ordering patterns will serve you better over time — maintaining appropriate stock for your needs, alerting you to exceptional stones that match your requirements, and working with you on pricing as your volume grows.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 5: Document Everything",
             },
             {
@@ -362,7 +362,7 @@ const articleData: ArticleSection[] = [
                 text: "Our wholesale team in Antwerp speaks directly with every new inquiry — no automated systems, no generic responses. You deal with experienced diamond professionals who understand your business context and can provide relevant, specific guidance on sourcing, pricing, and certification for your exact requirements.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds Wholesale:",
             },
             {

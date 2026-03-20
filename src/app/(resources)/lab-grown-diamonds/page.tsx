@@ -77,7 +77,7 @@ const articleData: ArticleSection[] = [
                 text: "A 1-carat lab grown diamond now retails at approximately $1,000 on average, compared to approximately $4,200 for an equivalent natural diamond — a price difference of over 75% (Rio Grande Guardian, March 2026). At the wholesale level, those margins extend further, allowing jewelers and retailers to achieve significantly stronger profit margins than traditional natural diamond inventory allows.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Lab Grown Diamond Price Ranges by Carat (2025–2026 Market Data):",
             },
             {
@@ -112,7 +112,7 @@ const articleData: ArticleSection[] = [
                 text: "This is the question every jeweler, brand buyer, and serious private buyer eventually asks. The answer depends on three factors: certification, origin, and direct access.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Certification First — Always",
             },
             {
@@ -132,7 +132,7 @@ const articleData: ArticleSection[] = [
                 text: "At Uniglo Diamonds, every lab grown diamond in our inventory carries a current certificate from GIA, IGI, or HRD. We do not supply uncertified stones. This is non-negotiable for us because it should be non-negotiable for you.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Why Antwerp Is the Right Source",
             },
             {
@@ -151,7 +151,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Why Direct From Manufacturer Beats Diamond Trading Platforms",
             },
             {
@@ -176,7 +176,7 @@ const articleData: ArticleSection[] = [
         heading: "Who Should Buy Lab Grown Diamonds Wholesale?",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "For Jewelers and Retailers",
             },
             {
@@ -192,7 +192,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "For Jewelry Brands and Designers",
             },
             {
@@ -200,7 +200,7 @@ const articleData: ArticleSection[] = [
                 text: "Brand buyers sourcing lab grown diamonds wholesale for new collections have particular requirements: consistency of supply, grading reliability, and the ability to customise specifications. At Uniglo Diamonds, we work directly with brands to source specific shapes, colours, clarity grades, and carat ranges to match collection requirements. Our manufacturing facility in Antwerp allows us to accommodate custom cutting and polishing requests for brand-specific designs.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "For Private Buyers",
             },
             {
@@ -298,7 +298,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds is ready to support your wholesale sourcing requirements — whether you are a jeweler building inventory, a brand developing a new collection, or a private buyer who wants direct manufacturer access and wholesale pricing.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What happens when you contact us:",
             },
             {
@@ -316,7 +316,7 @@ const articleData: ArticleSection[] = [
                 text: "There are no unnecessary intermediaries in this process. No platform fees. No broker commissions. Just direct wholesale access to one of Antwerp's most experienced certified diamond manufacturers.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {

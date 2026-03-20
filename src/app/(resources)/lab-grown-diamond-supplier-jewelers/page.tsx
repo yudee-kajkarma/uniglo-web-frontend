@@ -52,7 +52,7 @@ const articleData: ArticleSection[] = [
                 text: "Here is how the supply landscape is structured:",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Type 1: Direct Manufacturers",
             },
             {
@@ -68,7 +68,7 @@ const articleData: ArticleSection[] = [
                 text: "Direct manufacturers who also operate as wholesale suppliers — like Uniglo Diamonds — offer jewelers the best of both worlds: manufacturer-level pricing combined with the service infrastructure, certification relationships, and supply flexibility of a dedicated wholesale operation.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Type 2: Wholesale Distributors",
             },
             {
@@ -80,7 +80,7 @@ const articleData: ArticleSection[] = [
                 text: "The advantage of wholesale distributors is breadth — they often carry very large, diverse inventories. The disadvantage is cost — every distributor adds a margin layer on top of manufacturer pricing. And because distributors source from multiple manufacturers with potentially varying quality standards, consistency of supply quality is not always guaranteed.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Type 3: Diamond Trading Platforms",
             },
             {
@@ -92,7 +92,7 @@ const articleData: ArticleSection[] = [
                 text: "Lab grown diamond prices plummeted approximately 96% from peak prices exceeding $4,000 per carat in 2018, stabilising around $168 per carat by early 2025 — making trading platforms increasingly competitive on price alone. However, price is not the only variable that matters to a serious jewelry business. On trading platforms, jewelers typically have no visibility into who actually manufactured the diamond they are purchasing, what quality control processes were applied, or who is accountable if a stone does not match its description.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Type 4: Diamond Brokers",
             },
             {
@@ -109,7 +109,7 @@ const articleData: ArticleSection[] = [
                 text: "The type of supplier you choose has direct, measurable consequences for your jewelry business — not just in the price you pay for diamonds, but in the quality of your product, the reliability of your supply, the depth of your margin, and the credibility of your brand.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Price Impact",
             },
             {
@@ -117,7 +117,7 @@ const articleData: ArticleSection[] = [
                 text: "Retailers enjoy higher profit margins of 30–60% more than with mined diamonds when selling lab grown stones. But those margins depend entirely on where in the supply chain you are buying. A jeweler sourcing from a direct manufacturer in Antwerp will consistently pay less per carat, for the same certified grade, than a jeweler sourcing the same stone through a broker who purchased from a distributor who sourced from the manufacturer. Each intermediary step compounds the markup. Over the course of a full year's purchasing, that difference is not marginal — it is the difference between a highly profitable lab grown diamond category and one that simply performs adequately.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Quality Impact",
             },
             {
@@ -125,7 +125,7 @@ const articleData: ArticleSection[] = [
                 text: "Every step away from the manufacturer introduces a quality control gap. A direct manufacturer knows exactly how every stone was grown, cut, and graded. A distributor knows what they received from multiple manufacturers and what the grading reports say. A broker knows what the distributor told them. On a trading platform, you know what the listing says. The further you are from the source, the less you actually know about what you are buying — and the less recourse you have when something is not right.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Brand Credibility Impact",
             },
             {
@@ -142,7 +142,7 @@ const articleData: ArticleSection[] = [
                 text: "Regardless of supplier type, any lab grown diamond supplier worth working with should meet every one of these standards without exception.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Full Certification on Every Stone",
             },
             {
@@ -150,7 +150,7 @@ const articleData: ArticleSection[] = [
                 text: "This is the absolute baseline. Every lab grown diamond supplied to a jeweler should carry a current grading report from GIA, IGI, or HRD. The certificate confirms the 4Cs (Cut, Colour, Clarity, Carat weight), confirms lab grown origin, and identifies the manufacturing method (CVD or HPHT). A supplier who offers uncertified stones — regardless of how compelling the price point — is not a supplier a professional jeweler should work with. The risk to your brand reputation if a customer later questions the quality or authenticity of a stone you sold them is simply not worth any short-term price advantage.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Transparent Supply Chain Documentation",
             },
             {
@@ -158,7 +158,7 @@ const articleData: ArticleSection[] = [
                 text: "A credible lab grown diamond supplier should be able to tell you clearly: where the diamond was grown, by what method, where it was cut and polished, and which laboratory graded it. This documentation is increasingly important for regulatory compliance in European markets and for meeting the provenance expectations of ethically-minded consumers. Suppliers who cannot or will not provide this documentation have something to hide — or have simply not built the infrastructure to track it.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Consistent Quality Across Orders",
             },
             {
@@ -166,7 +166,7 @@ const articleData: ArticleSection[] = [
                 text: "One exceptional trial order does not make a reliable supplier. The question every jeweler should ask before committing to a supply relationship is: can this supplier consistently deliver the grades they promise, across multiple orders, over an extended period? Ask for references from other jewelers they supply. Ask about their quality control processes. Ask what happens if a stone you receive does not match its certificate description.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Genuine Wholesale Pricing With No Hidden Fees",
             },
             {
@@ -174,7 +174,7 @@ const articleData: ArticleSection[] = [
                 text: "Wholesale pricing should be documentable and consistent. It should not include platform fees, broker commissions, or \"handling charges\" that erode the price advantage of sourcing wholesale. Ask every supplier to provide written pricing on specific stones and compare it to market references. A supplier confident in their pricing will have no issue putting it in writing.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Responsive, Expert Account Support",
             },
             {
@@ -191,7 +191,7 @@ const articleData: ArticleSection[] = [
                 text: "Understanding what you are sourcing — beyond just \"a lab grown diamond\" — is essential for building a supply relationship that serves your actual jewelry business.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Colorless vs Fancy Coloured Lab Grown Diamonds",
             },
             {
@@ -203,7 +203,7 @@ const articleData: ArticleSection[] = [
                 text: "For most jewelers, the core of their lab grown diamond sourcing will be colorless stones in the D-J colour range. However, fancy coloured lab grown diamonds — particularly pink, blue, and yellow — are growing rapidly in demand and represent a high-margin specialty category for jewelers who stock them. A supplier with capability across both colourless and fancy coloured inventory gives you significantly more product range flexibility.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "The Up to 2 Carat Segment — The Commercial Core",
             },
             {
@@ -211,7 +211,7 @@ const articleData: ArticleSection[] = [
                 text: "The up to 2-carat segment holds the largest market share of 70.49% in 2026, owing to lower prices and strong demand for engagement and daily-wear jewelry. For most jewelry businesses, sourcing stock concentrated in the 0.5–2.0 carat range across a variety of shapes and grades will cover the majority of customer demand. A reliable supplier should maintain deep inventory in this range as a matter of course.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "The 2–4 Carat Premium Segment",
             },
             {
@@ -219,7 +219,7 @@ const articleData: ArticleSection[] = [
                 text: "The average carat weight for lab-grown engagement stones is 2.1ct versus 1.5ct for natural diamond engagement rings. This shift reflects consumers' use of lab grown diamonds' price advantage to purchase larger stones than they could previously afford. For jewelers selling lab grown engagement rings, the 2–4 carat segment represents a significant commercial opportunity and a growing proportion of actual sales. Your supplier must have reliable inventory and sourcing capability in this range.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Shape Inventory — The Full Commercial Range",
             },
             {
@@ -273,7 +273,7 @@ const articleData: ArticleSection[] = [
                 text: "Beyond the general criteria for any supplier, here is the specific due diligence framework jewelers should apply before committing to a wholesale supply relationship.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Request a trial order before committing",
             },
             {
@@ -281,7 +281,7 @@ const articleData: ArticleSection[] = [
                 text: "Any credible supplier will welcome a trial order. Order a representative selection of stones across the shapes and grades you most commonly sell. Evaluate the stones under magnification and natural light against their grading certificates. Assess the packaging, documentation, and delivery experience. If a supplier resists a trial order or imposes punitive minimum commitments for a first purchase, that resistance itself is a signal.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Verify the certification independently",
             },
             {
@@ -289,7 +289,7 @@ const articleData: ArticleSection[] = [
                 text: "Every GIA, IGI, and HRD certificate can be verified online using the report number. Enter the certificate number on the certifying laboratory's website and confirm that the diamond's reported characteristics match the stone in your hand. A credible wholesale supplier will expect you to do this and will welcome it.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Ask directly about manufacturing origin",
             },
             {
@@ -297,7 +297,7 @@ const articleData: ArticleSection[] = [
                 text: "The single most important question you can ask a prospective lab grown diamond supplier is: \"Where was this diamond grown, and can you document that?\" A direct manufacturer will answer this clearly and completely. A reseller or broker will be vague. The vagueness itself tells you something important about the supply chain you would be entering.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Check their industry standing",
             },
             {
@@ -305,7 +305,7 @@ const articleData: ArticleSection[] = [
                 text: "A wholesale supplier with serious standing in the diamond industry will have verifiable credentials — membership in industry bodies, longstanding operating history, a physical presence at a recognised diamond centre. A company that launched two years ago, operates entirely online, and has no verifiable physical presence in the diamond industry is not the same as a 30-year-old Antwerp manufacturer with a facility on Hoveniersstraat. Due diligence here protects your business.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Discuss pricing explicitly and in writing",
             },
             {
@@ -343,7 +343,7 @@ const articleData: ArticleSection[] = [
                 text: "We do not operate through automated systems or generic inquiry forms. When you contact Uniglo Diamonds, you speak directly with an experienced diamond professional from our Antwerp team — someone who understands your business context and can provide specific, relevant guidance on sourcing, pricing, and certification.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {

@@ -56,7 +56,7 @@ const articleData: ArticleSection[] = [
                 text: "Unlike newer diamond platforms, RAPnet carries the full institutional weight of the Rapaport Group — the organisation that publishes the Rapaport Price List, the global benchmark pricing reference for diamonds used by every professional in the diamond trade. RAPnet is the only platform with the Rapaport Price List and best discounted asking prices included — ensuring smarter business decisions for every member.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How Does RAPnet Work — Step by Step",
             },
             {
@@ -80,7 +80,7 @@ const articleData: ArticleSection[] = [
                 text: "Step 5 — Access pricing tools. The Rapaport Price List is a benchmark pricing guide widely used in the diamond industry to establish diamond prices. Published weekly at midnight on Thursday EST, it provides a standardised reference for diamond traders, jewelers, and wholesalers to determine the market value of diamonds. The RAPnet Price List is an online, real-time pricing guide used within the diamond trading community — it provides market-driven, up-to-the-minute pricing for diamonds based on real transaction data on RAPnet, reflecting more dynamic, actual trading conditions.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Key Features of the RAPnet Platform for Jewelers and Trade Buyers",
             },
             {
@@ -100,7 +100,7 @@ const articleData: ArticleSection[] = [
                 text: "RAPnet offers an API service that is a game-changer for jewelry retailers — enabling easy integration of RAPnet's extensive diamond data into online stores, allowing customers to browse and purchase loose diamonds directly through the retailer's website with up-to-date inventory always current.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What Is the Rapaport Price List and Why Does It Matter for Sourcing?",
             },
             {
@@ -116,7 +116,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers sourcing through RAPnet, understanding your supplier's pricing relative to the Rapaport Price List — expressed as a percentage discount or premium — is the most reliable way to evaluate whether the pricing offered is competitive for any given specification. Uniglo Diamonds lists on RAPnet at competitive, transparent pricing relative to the Rapaport benchmark — allowing buyers to immediately assess the value of our certified inventory against the global market standard.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How Many Diamonds Are Available on RAPnet?",
             },
             {
@@ -133,7 +133,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds is verified and listed on RAPnet as a certified natural and lab grown diamond supplier. We are based at Hoveniersstraat 30 in Antwerp's diamond district and have been operating from this address for over 30 years — making us one of the longest-established Antwerp-based suppliers accessible through the RAPnet platform.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How to Find Uniglo Diamonds on the RAPnet Platform",
             },
             {
@@ -150,7 +150,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What Makes Uniglo One of RAPnet's Strongest Certified Diamond Suppliers",
             },
             {
@@ -167,7 +167,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Why Sourcing From an Antwerp Manufacturer on RAPnet Matters",
             },
             {
@@ -184,7 +184,7 @@ const articleData: ArticleSection[] = [
         heading: "What Diamonds Does Uniglo List on RAPnet?",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Natural Diamonds Available Through Uniglo on RAPnet",
             },
             {
@@ -196,7 +196,7 @@ const articleData: ArticleSection[] = [
                 text: "Every natural diamond listed by Uniglo Diamonds on RAPnet carries a current grading report from GIA, IGI, or HRD — independently verifiable on the respective laboratory website using the certificate report number. Our natural diamond supply reflects the full heritage of Uniglo's 30+ year Antwerp manufacturing operation — cutting and polishing standards applied in Antwerp's diamond district, graded by internationally recognised institutions.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Lab Grown Diamonds Available Through Uniglo on RAPnet",
             },
             {
@@ -208,7 +208,7 @@ const articleData: ArticleSection[] = [
                 text: "For RAPnet buyers who are expanding their lab grown diamond sourcing — or who are evaluating which RAPnet supplier to prioritise for certified lab grown inventory — Uniglo Diamonds offers the combination of direct Antwerp manufacturer pricing, tri-certification capability, and 30+ year industry heritage that distinguishes us from most lab grown suppliers listed on the platform.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Certifications Available on Uniglo's RAPnet Listings",
             },
             {
@@ -220,7 +220,7 @@ const articleData: ArticleSection[] = [
                 text: "For the European and global trade market served by RAPnet, GIA certification carries the highest global prestige and is particularly valued for premium natural diamond transactions. IGI certification is the most widely used standard for lab grown diamonds globally and is well-recognised across all major RAPnet buyer markets. HRD certification carries particular authority in the Belgian and European professional trade — and as an Antwerp-based manufacturer, Uniglo Diamonds has a direct relationship with HRD that adds an additional layer of institutional credibility for European RAPnet buyers.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Pricing on RAPnet — How Uniglo's Inventory Is Priced",
             },
             {
@@ -237,7 +237,7 @@ const articleData: ArticleSection[] = [
         heading: "RAPnet Diamond Pricing Tools — What Sourcing Jewelers Need to Know",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What Is the Rapaport Price List and How Is It Used?",
             },
             {
@@ -249,7 +249,7 @@ const articleData: ArticleSection[] = [
                 text: "In practice, diamond prices on RAPnet are expressed as a percentage discount or premium to the Rapaport Price List — for example, a diamond listed at \"Rapaport minus 40%\" means the asking price is 40% below the relevant Rapaport Price List entry for that specification. Understanding Rapaport discounts allows RAPnet buyers to compare pricing across different suppliers for identical specifications — the most efficient way to evaluate whether a specific listing is competitively priced against the global market.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What Is the RAPnet Price List vs the Rapaport Price List?",
             },
             {
@@ -261,7 +261,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers sourcing through RAPnet, the RAPnet Price List is the more operationally useful pricing tool — it reflects what diamonds are actually trading at in real time on the platform, rather than the weekly benchmark that may lag actual market movements. Using both tools together gives the most complete picture of current market pricing for any diamond specification.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Does RAPnet Charge Commission or Transaction Fees?",
             },
             {
@@ -269,7 +269,7 @@ const articleData: ArticleSection[] = [
                 text: "RAPnet allows members to negotiate and trade directly with diamond suppliers with no commission or transaction fees. The platform operates on a membership subscription model — buyers and sellers pay a membership fee for access, but individual transactions carry no platform commission. This is a significant practical advantage over some competing platforms where per-transaction fees erode the margin advantage of wholesale pricing. For high-volume RAPnet buyers, the absence of transaction fees means the full pricing advantage of sourcing from a direct manufacturer like Uniglo Diamonds flows directly to your bottom line.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "RAPnet Financing — What Options Are Available?",
             },
             {
@@ -286,7 +286,7 @@ const articleData: ArticleSection[] = [
         heading: "Sourcing Certified Diamonds Through RAPnet — The Complete Process",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 1 — Apply for and Receive RAPnet Membership",
             },
             {
@@ -294,7 +294,7 @@ const articleData: ArticleSection[] = [
                 text: "New applicants can apply online or contact RAPnet directly. Applicants need to provide a business licence with full contact details, business references, government-issued documentation showing current legal registration, and sufficient proof that the business is operating in the diamond or jewelry trade and is in good standing. RAPnet's vetting process typically takes a few business days for established trade professionals with proper documentation.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 2 — Find Uniglo Diamonds on the RAPnet Platform",
             },
             {
@@ -302,7 +302,7 @@ const articleData: ArticleSection[] = [
                 text: "Once your RAPnet membership is active, search for Uniglo Diamonds in the member directory or filter the inventory search by Antwerp or Belgium origin with IGI, GIA, or HRD certification selected. Our current certified inventory of natural and lab grown diamonds is listed within the platform under the Uniglo Diamonds supplier account. For specific sourcing requirements — matched parcels, custom specifications, or large volume orders — contact our Antwerp team directly before placing the RAPnet order.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 3 — Trade Directly With No Commission Fees",
             },
             {
@@ -310,7 +310,7 @@ const articleData: ArticleSection[] = [
                 text: "Negotiate and trade directly with no commissions or listing and transaction fees. Place your order through RAPnet's trading infrastructure or use the platform's messaging system to communicate directly with our Antwerp team about specific requirements before confirming any purchase. For custom or large volume orders, direct communication with Uniglo Diamonds outside the platform is available alongside your RAPnet account.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 4 — Receive Certified Diamonds With Full Documentation",
             },
             {
@@ -323,7 +323,7 @@ const articleData: ArticleSection[] = [
         heading: "RAPnet vs Ordering Direct From Uniglo Diamonds — What Is the Difference?",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "When to Source Through the RAPnet Platform",
             },
             {
@@ -336,7 +336,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "When to Order Directly From Uniglo Diamonds in Antwerp",
             },
             {
@@ -350,7 +350,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How to Use Both RAPnet and Direct Ordering Together",
             },
             {
@@ -363,7 +363,7 @@ const articleData: ArticleSection[] = [
         heading: "Why Uniglo Diamonds Is the Best Antwerp Supplier to Source From on RAPnet",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Direct Manufacturer — Not a Reseller or Broker",
             },
             {
@@ -371,7 +371,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds manufactures certified natural and lab grown diamonds in our own Antwerp facility. We do not purchase from third-party manufacturers and relist on RAPnet for a margin. Every stone Uniglo lists on RAPnet is priced at direct manufacturer level — the lowest price tier in the supply chain — with full manufacturing accountability from the company that actually produced it.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "30+ Years of Antwerp Diamond Manufacturing Heritage",
             },
             {
@@ -379,7 +379,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds has operated from Hoveniersstraat 30 in Antwerp's diamond district for over three decades — a verifiable, 30-year business history at the centre of the world's most established diamond manufacturing infrastructure. Within that independent platform, Uniglo Diamonds represents one of the longest-established Antwerp manufacturer accounts — bringing a depth of industry standing and quality heritage that newer platform entrants cannot match.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Tri-Certification — GIA, IGI and HRD on Every Stone",
             },
             {
@@ -387,7 +387,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds lists certified diamonds on RAPnet from all three globally recognised grading authorities — GIA, IGI, and HRD. For RAPnet buyers who sell into multiple markets with different certification preferences, our tri-certification capability means a single Antwerp manufacturer account covers all their certification requirements across both natural and lab grown inventory categories.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Full Natural and Lab Grown Inventory on One Platform",
             },
             {
@@ -395,7 +395,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds is one of the very few Antwerp-based RAPnet suppliers who list both certified natural diamonds and certified lab grown diamonds in volume. For trade buyers building mixed inventory — carrying both natural and lab grown certified stock — a single Antwerp manufacturer relationship on RAPnet that covers both product categories simplifies sourcing, reduces supplier management overhead, and ensures consistent quality standards across the full diamond inventory.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Custom Orders and Matched Parcels Beyond the Platform",
             },
             {
@@ -416,7 +416,7 @@ const articleData: ArticleSection[] = [
                 text: "Search for Uniglo Diamonds on RAPnet today — or contact our Antwerp team directly to discuss your requirements, arrange a showroom visit, or establish a direct supply account alongside your RAPnet membership.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {
@@ -457,7 +457,6 @@ const RapnetDiamondSupplierPage = () => {
             question: "What is the Rapaport Price List and how does it affect diamond prices?",
             answer: "The Rapaport Price List is a benchmark pricing guide published weekly at midnight Thursday EST, providing a standardised reference for diamond traders, jewelers, and wholesalers to determine the market value of diamonds. Grand Diamonds Diamond prices on RAPnet are typically expressed as a percentage discount or premium to this benchmark — allowing buyers to compare pricing across suppliers for identical specifications. Uniglo Diamonds lists certified inventory at transparent, competitive Rapaport discount levels — giving RAPnet buyers immediate pricing clarity."
         },
-        },
         {
             question: "Does RAPnet sell certified lab grown diamonds?",
             answer: "Yes. RAPnet lists certified lab grown diamonds from verified suppliers across the platform. Uniglo Diamonds lists IGI, GIA, and HRD certified loose lab grown diamonds on RAPnet across all major shapes and carat weights. Every Uniglo lab grown stone on RAPnet is independently verifiable on the respective laboratory website using the certificate report number."
@@ -470,11 +469,9 @@ const RapnetDiamondSupplierPage = () => {
             question: "What are RAPnet membership plans and costs?",
             answer: "RAPnet offers multiple membership plans — a buyer plan for sourcing diamonds gems and jewelry; a buyer-seller plan for buyers who sell occasionally with up to 50 listings; and a professional seller plan for listing inventory at scale with up to $7 million total value at once. Granddiamonds All plans require verification of trade professional status. Contact RAPnet directly for current plan pricing, or visit rapnet.com to review the latest membership options."
         },
-        },
         {
             question: "How do RAPnet diamond prices compare to buying direct from Antwerp?",
             answer: "RAPnet prices reflect each supplier's wholesale pricing expressed as a Rapaport discount percentage. Buying directly from Uniglo Diamonds in Antwerp removes all platform subscription components — giving volume buyers and regular wholesale accounts direct manufacturer pricing for the most cost-efficient sourcing available. For standard individual purchases on the platform, RAPnet's no-commission trading model keeps costs competitive. For volume and matched parcel orders, direct sourcing from Uniglo Diamonds delivers the optimal pricing and manufacturing service combination."
-        },
         },
         {
             question: "What types of certified diamonds does Uniglo offer on RAPnet?",
@@ -487,7 +484,6 @@ const RapnetDiamondSupplierPage = () => {
         {
             question: "Is RAPnet available in Belgium and Europe?",
             answer: "RAPnet connects qualified buyers and sellers across 100+ countries — including Belgium, the Netherlands, Germany, France, the UK, and all major European markets. European trade buyers benefit from RAPnet's global supplier network, the Rapaport Price List benchmark pricing, and the availability of European-based manufacturers — including Uniglo Diamonds in Antwerp — who offer shorter delivery timelines and no cross-continental shipping complexity."
-        },
         },
         {
             question: "What makes Uniglo Diamonds one of the best suppliers to source from on RAPnet?",

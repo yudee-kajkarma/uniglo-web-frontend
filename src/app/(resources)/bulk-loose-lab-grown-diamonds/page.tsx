@@ -107,7 +107,7 @@ const articleData: ArticleSection[] = [
                 text: "This is a significant piece of market intelligence for bulk buyers. Here is what it means in practice:",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Chemical Vapor Deposition (CVD)",
             },
             {
@@ -115,7 +115,7 @@ const articleData: ArticleSection[] = [
                 text: "CVD is the process by which a diamond seed is placed in a sealed chamber filled with carbon-rich gas. The gas is ionised into plasma, causing carbon atoms to deposit layer by layer onto the seed — growing a diamond crystal over a period of weeks. CVD is predominantly used for larger stones (2 carats and above), and is the primary method used in Indian manufacturing facilities. CVD diamonds are valued for their optical purity and their ability to grow very large, high-clarity stones. The bulk of lab grown diamonds weighing two carats or more are CVD.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "High-Pressure High-Temperature (HPHT)",
             },
             {
@@ -140,7 +140,7 @@ const articleData: ArticleSection[] = [
                 text: "A 1-carat lab grown diamond in 2025 costs around $1,200 to $3,000 at retail — far cheaper than a mined equivalent that often starts at $4,000 and can reach $8,000 for matching specifications. At the wholesale level, pricing is significantly lower — and for bulk buyers sourcing directly from a manufacturer, pricing is lower still.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Current Retail Price Reference Ranges by Carat and Grade (2025–2026):",
             },
             {
@@ -181,7 +181,7 @@ const articleData: ArticleSection[] = [
                 text: "The shape of a loose lab grown diamond is one of the most commercially important variables for bulk buyers — because different shapes serve different jewelry categories, different customer demographics, and different price points.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Round Brilliant — The Commercial Foundation",
             },
             {
@@ -189,7 +189,7 @@ const articleData: ArticleSection[] = [
                 text: "Round brilliant is the dominant shape in the global lab grown diamond market — commanding the largest share of engagement ring sales and the broadest appeal across all jewelry categories. Round-shaped lab grown wholesale prices were down 2% versus Q2 2025 — with two-carat stones, VS rounds, and one-carat ovals among the few categories that saw prices firm up in the last couple of months of Q3 2025. For bulk buyers, round brilliant inventory is the commercial core of any lab grown diamond purchasing strategy. Deep, well-graded round brilliant stock in the 1–3 carat range covers the majority of retail jewelry demand across engagement rings, solitaire pendants, and stud earrings.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Oval — The Fastest Growing Shape",
             },
             {
@@ -197,7 +197,7 @@ const articleData: ArticleSection[] = [
                 text: "Oval has emerged as the second most commercially important shape for lab grown diamonds — driven by its elongating visual effect on the finger and its strong appeal among millennial buyers seeking a distinctive alternative to the classic round. Oval pricing has shown relative resilience in the current market — one-carat ovals were among the few categories that saw wholesale prices firm up in the last couple of months of Q3 2025. For bulk buyers, oval represents a high-margin opportunity precisely because demand is growing faster than supply in this shape category.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Cushion, Pear, and Emerald — High-Value Fashion Shapes",
             },
             {
@@ -205,7 +205,7 @@ const articleData: ArticleSection[] = [
                 text: "Cushion cut has long been a strong commercial performer — particularly in halo engagement ring settings. Pear has grown significantly in popularity for engagement rings over the past three years. Emerald cut commands a strong premium for its sophisticated, architectural appearance and its appeal to design-conscious buyers. All three shapes are important components of a well-rounded bulk loose diamond inventory.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Princess, Asscher, Marquise, Radiant, and Heart",
             },
             {
@@ -226,7 +226,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers and retailers establishing a bulk supply relationship for the first time, understanding the process removes uncertainty and allows you to move quickly from initial inquiry to active supply relationship.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 1: Define Your Specification Requirements",
             },
             {
@@ -238,7 +238,7 @@ const articleData: ArticleSection[] = [
                 text: "The more specific you are in your initial inquiry, the faster and more accurately a professional wholesale supplier can respond with relevant pricing and availability.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 2: Contact a Direct Manufacturer — Not a Platform",
             },
             {
@@ -250,7 +250,7 @@ const articleData: ArticleSection[] = [
                 text: "Contact Uniglo Diamonds directly at suraj@uniglodiamonds.com or +32 03 500 91 07 with your specification requirements and we will provide current wholesale pricing, confirm availability, and discuss supply terms suited to your business.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 3: Request Grading Reports Before Confirming Any Order",
             },
             {
@@ -258,7 +258,7 @@ const articleData: ArticleSection[] = [
                 text: "Every stone in a bulk order should have a current grading report from GIA, IGI, or HRD. Before confirming any bulk purchase, request to see the grading reports for the specific stones you are ordering — either the actual certificates or the certificate numbers for independent verification on the grading laboratory's website. A credible wholesale supplier will provide this without hesitation.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 4: Arrange a Showroom Visit for First-Time Bulk Orders",
             },
             {
@@ -266,7 +266,7 @@ const articleData: ArticleSection[] = [
                 text: "For significant bulk purchases, visiting the supplier's facility and viewing the stones in person is the most reliable quality assurance step available. Uniglo Diamonds welcomes wholesale buyers to our Antwerp showroom at Hoveniersstraat 30, where you can inspect any stone under proper gemological lighting and magnification against its grading certificate. Contact us to arrange a visit by appointment.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 5: Confirm Supply Terms in Writing",
             },
             {
@@ -321,7 +321,7 @@ const articleData: ArticleSection[] = [
                 text: "Contact our wholesale team directly. No automated systems. No generic inquiry forms. You speak with an experienced diamond professional from our Antwerp team who understands bulk purchasing requirements and can provide specific, accurate guidance on pricing, availability, matched parcels, certification, and delivery.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {

@@ -61,7 +61,7 @@ const articleData: ArticleSection[] = [
                 text: "Understanding every element of an IGI grading report allows wholesale buyers to evaluate certificates accurately, compare stones intelligently, and communicate quality information confidently to retail customers.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "The IGI Report Number",
             },
             {
@@ -73,7 +73,7 @@ const articleData: ArticleSection[] = [
                 text: "For wholesale buyers, the report number is the most critical verification tool. Every IGI certificate can be independently verified on the IGI website using this number — confirming that the diamond in your possession matches the certified characteristics exactly. IGI co-created the modern laser inscription process. Using a very fine and precise laser beam, alphanumeric characters can be inscribed on the girdle or outside circumference of a diamond. Adding the report number to a diamond's girdle with Laserscribe permits fast identification under magnification, verifying all of its gemological details.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Lab Grown Origin Identification",
             },
             {
@@ -85,7 +85,7 @@ const articleData: ArticleSection[] = [
                 text: "This explicit origin identification on the IGI certificate is legally important in regulated markets including the EU and the United States, where the Federal Trade Commission (FTC) requires clear disclosure of lab grown origin. For wholesale buyers in European markets, the explicit lab grown identification on every IGI certificate provides the documentation necessary for compliant retail representation.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "The 4Cs — Cut, Colour, Clarity, Carat",
             },
             {
@@ -121,7 +121,7 @@ const articleData: ArticleSection[] = [
                 text: "Carat weight is the precisely measured weight of the diamond — one carat equals 200 milligrams. Carat weight is the primary driver of per-stone price at the wholesale level, with the relationship between carat weight and price being exponential rather than linear. IGI measures and records carat weight to the nearest hundredth of a carat on every grading report.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Polish and Symmetry Grades",
             },
             {
@@ -133,7 +133,7 @@ const articleData: ArticleSection[] = [
                 text: "For wholesale buyers, Triple Excellent (Excellent Cut + Excellent Polish + Excellent Symmetry) is the highest specification available for round brilliant lab grown diamonds and commands a premium at the wholesale level that is well-supported by retail pricing.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Fluorescence",
             },
             {
@@ -141,7 +141,7 @@ const articleData: ArticleSection[] = [
                 text: "Fluorescence measures the diamond's reaction to ultraviolet (UV) light, expressed in terms of intensity (None to Very Strong). While not a major factor for all diamonds, strong fluorescence can sometimes affect a diamond's appearance. For most wholesale applications, None to Faint fluorescence is preferable — avoiding the rare cases where Strong fluorescence can create a milky or hazy appearance under certain lighting conditions.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Manufacturing Method Identification",
             },
             {
@@ -149,7 +149,7 @@ const articleData: ArticleSection[] = [
                 text: "IGI grading reports for lab grown diamonds explicitly identify the manufacturing method — CVD (Chemical Vapor Deposition) or HPHT (High-Pressure High-Temperature). This identification is important for wholesale buyers who need to communicate manufacturing method to retail customers, and for buyers who are managing their purchasing strategy around the current market pricing dynamics between CVD and HPHT goods.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Security Features and QR Code",
             },
             {
@@ -187,7 +187,7 @@ const articleData: ArticleSection[] = [
                 text: "The three globally recognised certification standards for lab grown diamonds — IGI, GIA, and HRD — serve different market segments and carry different levels of recognition in different geographic markets. Understanding the distinction helps wholesale buyers specify the right certification standard for their specific business and customer base.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "IGI — The Global Lab Grown Diamond Standard",
             },
             {
@@ -199,7 +199,7 @@ const articleData: ArticleSection[] = [
                 text: "For most European wholesale buyers — particularly those selling to mainstream jewelry retail markets in Belgium, the Netherlands, Germany, France, the UK, and across the continent — IGI certification is the appropriate and widely recognised standard. Retail customers in these markets are familiar with IGI certificates and accept them as the quality standard for lab grown diamonds.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "GIA — The Global Prestige Standard",
             },
             {
@@ -211,7 +211,7 @@ const articleData: ArticleSection[] = [
                 text: "GIA is globally recognised for its rigorous grading standards and unmatched authority in the diamond industry. For wholesale buyers supplying luxury jewelry brands, high-end retail segments, or export markets in the United States where GIA is the dominant consumer-recognised certification standard, GIA certified lab grown diamonds carry the highest prestige. GIA certification typically commands a modest premium over IGI certification at the wholesale level.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "HRD — The European and Belgian Trade Standard",
             },
             {
@@ -219,7 +219,7 @@ const articleData: ArticleSection[] = [
                 text: "HRD (Hoge Raad voor Diamant — Diamond High Council) is headquartered in Antwerp, Belgium — making it uniquely positioned as the European trade certification authority. HRD applies extremely rigorous grading standards and its certificates carry particular authority among European professional diamond buyers and traders. For Belgian jewelers, Dutch trade buyers, and European professionals who prioritise grading rigour and European institutional credibility, HRD certification is highly valued.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "The Comparison:",
             },
             {
@@ -277,7 +277,7 @@ const articleData: ArticleSection[] = [
                 text: "For bulk buyers, the commercial logic of IGI certification is straightforward. Retail customers will pay significantly more for an IGI certified lab grown diamond than for an equivalent uncertified stone — because the certificate provides independent quality assurance that the uncertified stone cannot offer. The wholesale price premium for IGI certification is modest relative to the retail premium it supports — making IGI certified wholesale inventory one of the most margin-efficient specifications available to jewelry retailers.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "IGI Certified Wholesale Price Reference Ranges (2025–2026 Market Data):",
             },
             {
@@ -354,7 +354,7 @@ const articleData: ArticleSection[] = [
                 text: "Whether you are a wholesale buyer receiving a bulk order or a private buyer purchasing a single stone, verifying the authenticity of an IGI certified lab grown diamond is a straightforward process that every buyer should complete before accepting any purchase.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 1 — Match the laser inscription to the certificate",
             },
             {
@@ -362,7 +362,7 @@ const articleData: ArticleSection[] = [
                 text: "Under 10x magnification, look at the girdle of the diamond. The IGI report number should be laser-inscribed there. Match this number exactly to the IGI report number on the physical certificate.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 2 — Verify the certificate online",
             },
             {
@@ -370,7 +370,7 @@ const articleData: ArticleSection[] = [
                 text: "Visit igi.org and enter the report number in the certificate verification tool. The IGI database will return the full grading report for that certificate number. Compare the database report to the physical certificate and the stone in your possession. Every detail — 4Cs, measurements, manufacturing method — should match exactly.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 3 — Check the security features on the physical certificate",
             },
             {
@@ -378,7 +378,7 @@ const articleData: ArticleSection[] = [
                 text: "IGI paper reports feature tamper-evident security seals, and most reports include a QR code for instant digital verification. Tamper-evident seals that show signs of interference or QR codes that return no valid record are serious red flags.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 4 — Use the QR code",
             },
             {
@@ -426,7 +426,7 @@ const articleData: ArticleSection[] = [
                 text: "Contact our wholesale team directly for current pricing, availability, and supply terms on IGI certified loose lab grown diamonds across all shapes, carat weights, colour grades, and clarity grades.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {

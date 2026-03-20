@@ -68,7 +68,7 @@ const articleData: ArticleSection[] = [
         heading: "IGI Certified Lab Grown Diamonds — The Nivoda Market Standard",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What IGI Certification Means for Nivoda Jewelers",
             },
             {
@@ -88,7 +88,7 @@ const articleData: ArticleSection[] = [
                 text: "For Nivoda jewelers operating in European retail markets — Belgium, the Netherlands, Germany, France, the UK — IGI certification is the primary market standard for lab grown diamonds. IGI is very popular in Europe and Asia, offering faster certification and more accessible pricing than GIA. The majority of lab grown diamond listings on Nivoda carry IGI certification, and Uniglo Diamonds lists IGI certified stones as our primary certified inventory on the platform.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How to Verify an IGI Certificate on a Uniglo Nivoda Purchase",
             },
             {
@@ -101,7 +101,7 @@ const articleData: ArticleSection[] = [
         heading: "GIA Certified Lab Grown Diamonds — The Premium Segment Standard",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What GIA Certification Means for Premium Nivoda Buyers",
             },
             {
@@ -117,7 +117,7 @@ const articleData: ArticleSection[] = [
                 text: "For Nivoda jewelers selling into premium retail segments — luxury jewelers, high-end design studios, US-facing export markets — GIA certified lab grown diamonds from Uniglo Diamonds on Nivoda provide the certification authority that the premium end of the market expects. GIA offers the strictest grading and the highest global prestige — its reports are considered the most authoritative.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "When to Specify GIA Certification on Your Nivoda Order From Uniglo",
             },
             {
@@ -134,7 +134,7 @@ const articleData: ArticleSection[] = [
         heading: "HRD Certified Lab Grown Diamonds — The Antwerp and European Trade Standard",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "What HRD Certification Means and Why It Matters in Europe",
             },
             {
@@ -154,7 +154,7 @@ const articleData: ArticleSection[] = [
                 text: "When a European trade buyer on Nivoda sources an HRD certified lab grown diamond from Uniglo Diamonds, they are sourcing a stone graded by Antwerp's own grading institution — certified in the same city where the diamond was manufactured, by the institution that has represented the Belgian diamond industry for over 50 years.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "When to Specify HRD Certification on Your Nivoda Order From Uniglo",
             },
             {
@@ -167,7 +167,7 @@ const articleData: ArticleSection[] = [
         heading: "Why Tri-Certification From Uniglo Diamonds on Nivoda Is a Commercial Advantage",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "One Antwerp Supplier — Three Certification Options on Nivoda",
             },
             {
@@ -179,7 +179,7 @@ const articleData: ArticleSection[] = [
                 text: "This tri-certification capability has a direct commercial value for Nivoda jewelers. It means a single preferred Nivoda supplier relationship covers all certification requirements — no matter what your retail customer asks for, what segment you are selling into, or what export market you are supplying. IGI for mainstream European retail. GIA for premium and US segments. HRD for Belgian and European trade buyers. One Antwerp manufacturer on Nivoda serves all three without managing multiple supplier relationships for different certification preferences.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How Certification Choice Affects Margin on Nivoda Lab Grown Diamond Orders",
             },
             {
@@ -196,7 +196,7 @@ const articleData: ArticleSection[] = [
         heading: "How to Find IGI, GIA and HRD Certified Stones From Uniglo on Nivoda",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Searching by Certification on Nivoda",
             },
             {
@@ -204,7 +204,7 @@ const articleData: ArticleSection[] = [
                 text: "Log in to your Nivoda account and search the inventory using the certification filter — selecting IGI, GIA, or HRD as required. Then search by supplier name for Uniglo Diamonds to filter the results to our specific certified inventory. Our listings show the certification type, report number, and full specification for every stone — giving you complete transparency before any purchase is placed.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contacting Uniglo Before Placing a Nivoda Order",
             },
             {
@@ -212,7 +212,7 @@ const articleData: ArticleSection[] = [
                 text: "For specific certification requirements — particularly GIA and HRD certified stones where availability may be more limited than IGI standard inventory — contact our Antwerp team directly at suraj@uniglodiamonds.com or +32 03 500 91 07 before placing the Nivoda order. We can confirm current availability, prepare the appropriate selection, and ensure the certification type you need is confirmed before the order is processed through the platform.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {

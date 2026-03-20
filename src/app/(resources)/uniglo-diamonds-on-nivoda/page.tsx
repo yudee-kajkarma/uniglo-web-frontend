@@ -60,7 +60,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers, Nivoda solves one of the most persistent challenges in the diamond trade — access to a broad, verified supply of certified diamonds without the logistical complexity, capital intensity, and relationship requirements of traditional diamond sourcing. Nivoda also solves the logistical inconvenience and additional expense that most businesses face when buying diamonds internationally. Once you have purchased your diamonds, you can leave it to their team of experts to tend to the entire quality control, invoice and delivery process.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "How Nivoda Works — Step by Step",
             },
             {
@@ -106,7 +106,7 @@ const articleData: ArticleSection[] = [
                 text: "Not every supplier listed on Nivoda is equal. The platform hosts verified suppliers from around the world — but the quality of individual suppliers, their certification standards, their manufacturing credentials, and their reliability varies significantly. Here is exactly what distinguishes Uniglo Diamonds from the broad range of suppliers available on the Nivoda platform.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Direct Antwerp Manufacturer — Not a Reseller or Broker",
             },
             {
@@ -122,7 +122,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers using Nivoda, this means that sourcing specifically from Uniglo Diamonds within the platform gives you access to a lower effective cost per carat than sourcing from reseller suppliers listing comparable certified goods. That cost difference compounds across every order you place — translating directly into stronger gross margins on every stone you sell at retail.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "30+ Years of Antwerp Diamond Manufacturing Heritage",
             },
             {
@@ -138,7 +138,7 @@ const articleData: ArticleSection[] = [
                 text: "For jewelers who have experienced quality inconsistencies with some platform suppliers — stones that grade slightly below their certificates under careful inspection, matched parcels that are less consistent than described — the Antwerp manufacturing heritage behind Uniglo Diamonds is a meaningful and practical quality assurance signal.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Tri-Certification: GIA, IGI, and HRD",
             },
             {
@@ -146,7 +146,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds lists certified stones on Nivoda with grading reports from GIA, IGI, and HRD — the three globally recognised grading authorities. Most platform suppliers carry IGI certified inventory as their primary or only certification. Uniglo's ability to supply all three certifications gives jewelers sourcing through Nivoda significantly more specification flexibility — particularly valuable for jewelers who sell into multiple markets with different certification preferences.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Full Shape and Specification Range",
             },
             {
@@ -154,7 +154,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds maintains certified inventory on Nivoda across all major shapes — round brilliant, oval, cushion, pear, princess, emerald, asscher, marquise, radiant, and heart — and across the full commercial range of carat weights, colour grades, and clarity grades. Jewelers building lab grown diamond inventory through Nivoda can cover their complete specification requirements from a single Antwerp manufacturer account rather than managing multiple supplier relationships for different shapes and grades.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Direct Relationship Beyond the Platform",
             },
             {
@@ -171,7 +171,7 @@ const articleData: ArticleSection[] = [
         heading: "What Uniglo Diamonds Offers on Nivoda — The Complete Specification",
         content: [
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Lab Grown Diamond Shapes Available on Nivoda Through Uniglo",
             },
             {
@@ -179,7 +179,7 @@ const articleData: ArticleSection[] = [
                 text: "Jewelers browsing Uniglo Diamonds inventory on Nivoda can find certified loose lab grown diamonds in all major shapes. Round brilliant is our highest-volume listing — covering the broadest range of carat weights and grade combinations for the most commercially important shape in the lab grown market. Oval is our second highest-volume listing, reflecting the growing commercial importance of this shape in European and global engagement ring markets. Cushion, pear, emerald, princess, asscher, marquise, radiant, and heart are all listed across a range of carat weights and grades.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Certification Available Through Uniglo on Nivoda",
             },
             {
@@ -187,7 +187,7 @@ const articleData: ArticleSection[] = [
                 text: "Every stone Uniglo Diamonds lists on Nivoda carries a current grading report from IGI, GIA, or HRD. Certificate numbers are verifiable independently on the respective laboratory websites before any purchase is confirmed. Laser inscriptions are confirmed on every stone — the IGI, GIA, or HRD report number is inscribed on the diamond's girdle, visible under 10x magnification, providing physical verification that the stone matches its certificate.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Carat Range and Grade Availability",
             },
             {
@@ -195,7 +195,7 @@ const articleData: ArticleSection[] = [
                 text: "Uniglo Diamonds lists certified lab grown diamonds on Nivoda across the full commercial carat range — from 0.30 carat melee through to 5+ carat premium solitaires. Colour grades available span D through J for colorless and near-colorless applications, with fancy colored lab grown diamonds available on request. Clarity grades span IF through SI — covering everything from investment-grade flawless specifications to eye-clean SI1 commercial goods for mainstream jewelry retail.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Manufacturing Method",
             },
             {
@@ -296,7 +296,7 @@ const articleData: ArticleSection[] = [
                 text: "Find us on Nivoda by searching for Uniglo Diamonds in the platform supplier directory. Contact our Antwerp team directly to discuss your specific requirements, arrange a showroom visit, or establish a direct supply relationship alongside your Nivoda account.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {

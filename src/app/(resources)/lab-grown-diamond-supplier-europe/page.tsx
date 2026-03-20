@@ -77,7 +77,7 @@ const articleData: ArticleSection[] = [
                 text: "The word \"best\" is used freely in supplier marketing. Here is what it should actually mean — measured against criteria that directly impact your purchasing decisions, your margin, and your brand.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Criterion 1: Manufacturing Origin and Quality Control",
             },
             {
@@ -93,7 +93,7 @@ const articleData: ArticleSection[] = [
                 text: "For European buyers in particular, manufacturing origin matters for an additional reason: the regulatory and consumer environment in Europe increasingly demands provenance documentation. As blockchain-based diamond traceability systems become more common in the European trade, suppliers who cannot document their supply chain from growth to delivery will find themselves disadvantaged in the market. Over 60% of European consumers are willing to pay a premium for diamonds with verifiable ethical origins. A direct manufacturer who can document full provenance is positioned to serve this consumer segment. A reseller cannot make that claim credibly.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Criterion 2: Tri-Certification — GIA, IGI, and HRD",
             },
             {
@@ -109,7 +109,7 @@ const articleData: ArticleSection[] = [
                 text: "A supplier who can only provide one of these three certifications is constraining your options. A supplier like Uniglo Diamonds who maintains certification relationships with all three gives you the flexibility to match certification to market — which is a material commercial advantage when selling to diverse European and international customer bases.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Criterion 3: Physical Presence in an Established European Diamond Centre",
             },
             {
@@ -125,7 +125,7 @@ const articleData: ArticleSection[] = [
                 text: "For buyers — particularly B2B buyers making significant purchasing commitments — the ability to visit a supplier, see their facility, inspect stones in person, and meet the people who will be responsible for their supply relationship is not a luxury. It is a fundamental due diligence requirement. Uniglo Diamonds welcomes visits from prospective wholesale accounts at Hoveniersstraat 30 by appointment.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Criterion 4: Breadth of Inventory and Specification Flexibility",
             },
             {
@@ -142,7 +142,7 @@ const articleData: ArticleSection[] = [
                 ],
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Criterion 5: Industry Standing and Verifiable Track Record",
             },
             {
@@ -163,7 +163,7 @@ const articleData: ArticleSection[] = [
                 text: "The European lab grown diamond supply market includes several supplier types. Understanding each type honestly — including their genuine advantages and genuine limitations — helps you make a more informed sourcing decision.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Antwerp-Based Direct Manufacturers",
             },
             {
@@ -175,7 +175,7 @@ const articleData: ArticleSection[] = [
                 text: "The limitation of Antwerp-based manufacturers is that there are relatively few of them operating at the lab grown wholesale level — the Antwerp trade has been historically concentrated in natural diamonds, and the transition to lab grown wholesale supply is still maturing. This makes established Antwerp lab grown suppliers like Uniglo Diamonds relatively rare and particularly valuable as supply partners.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "European Wholesale Distributors",
             },
             {
@@ -187,7 +187,7 @@ const articleData: ArticleSection[] = [
                 text: "The limitations are consistent with the distributor model generally: additional margin layers on top of manufacturer pricing, variable quality standards across different source manufacturers, and no direct manufacturing accountability. For buyers who prioritise price above all other factors, distributors may offer competitive rates. For buyers who prioritise quality consistency and supply chain accountability, direct manufacturer relationships are the stronger choice.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Online Trading Platforms",
             },
             {
@@ -199,7 +199,7 @@ const articleData: ArticleSection[] = [
                 text: "For European buyers who purchase lab grown diamonds primarily for manufacturing or retail purposes, a trading platform is a useful price reference tool. It is not a substitute for a direct supplier relationship with a certified manufacturer.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Asian Manufacturers Selling Direct to Europe",
             },
             {
@@ -239,7 +239,7 @@ const articleData: ArticleSection[] = [
                 text: "Whether you are evaluating Uniglo Diamonds or any other supplier claiming to be the best lab grown diamond option in Europe, use this framework to assess them objectively.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 1: Verify Their Physical Presence",
             },
             {
@@ -247,7 +247,7 @@ const articleData: ArticleSection[] = [
                 text: "Look up their registered business address. Is it in a recognised diamond trading centre — Antwerp, Amsterdam, Hatton Garden in London? Or is it a virtual office? Visit their facility if possible before committing to a supply relationship. A supplier who cannot or will not invite you to their physical operation is not operating at the level of transparency a serious wholesale buyer should expect.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 2: Confirm Certification Independently",
             },
             {
@@ -255,7 +255,7 @@ const articleData: ArticleSection[] = [
                 text: "Request a representative sample of grading reports from the certification bodies they claim to work with. Verify those reports on the GIA, IGI, or HRD websites using the certificate numbers. A genuine certified supplier will welcome this verification. Any resistance to independent certificate verification is a significant warning sign.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 3: Ask Specifically About Manufacturing Origin",
             },
             {
@@ -263,7 +263,7 @@ const articleData: ArticleSection[] = [
                 text: "Ask directly: \"Where are these diamonds grown and by whom?\" A direct manufacturer will give you a clear, specific, documentable answer. A reseller will give you vague information about \"trusted manufacturing partners\" without specific details. The specificity of the answer tells you everything you need to know about where in the supply chain you are actually buying from.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 4: Request a Trial Order",
             },
             {
@@ -271,7 +271,7 @@ const articleData: ArticleSection[] = [
                 text: "Before committing to a supply relationship, place a small trial order — a representative selection of the shapes and grades you typically source. Evaluate the stones under proper gemological lighting against their certificates. Assess the packaging, documentation, and delivery experience. A confident supplier with strong product quality will welcome a trial order without reservation.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Step 5: Compare Total Cost, Not Just Stone Price",
             },
             {
@@ -334,7 +334,7 @@ const articleData: ArticleSection[] = [
                 text: "Contact our wholesale team in Antwerp directly — no automated systems, no generic responses, no unnecessary delays. You will speak with an experienced diamond professional who understands your market, your requirements, and your business context.",
             },
             {
-                type: "heading",
+                type: "paragraph",
                 text: "Contact Uniglo Diamonds:",
             },
             {
