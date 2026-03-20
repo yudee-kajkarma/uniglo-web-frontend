@@ -77,8 +77,14 @@ const NAV_LINKS = [
         href: "#",
         hasDropdown: true,
         submenuItems: [
-            { name: "Nivoda Lab Grown Diamond Supplier", href: "/nivoda-lab-grown-diamond-supplier" },
-            { name: "RAPnet Diamond Supplier", href: "/rapnet-diamond-supplier-antwerp" },
+            {
+                name: "Nivoda Lab Grown Diamond Supplier",
+                href: "/nivoda-lab-grown-diamond-supplier",
+            },
+            {
+                name: "Rapnet Diamond Supplier",
+                href: "/rapnet-diamond-supplier-antwerp",
+            },
         ],
     },
     {
@@ -87,12 +93,30 @@ const NAV_LINKS = [
         hasDropdown: true,
         submenuItems: [
             { name: "Lab Grown Diamonds", href: "/lab-grown-diamonds" },
-            { name: "Source Lab Grown Diamonds", href: "/source-lab-grown-diamonds-for-jewelers" },
-            { name: "Lab Grown Diamond Suppliers", href: "/lab-grown-diamond-supplier-jewelers" },
-            { name: "Best Lab Grown Diamond Supplier Europe", href: "/lab-grown-diamond-supplier-europe" },
-            { name: "Bulk Loose Lab Grown Diamonds", href: "/bulk-loose-lab-grown-diamonds" },
-            { name: "IGI Certified Lab Grown Diamond Wholesale", href: "/igi-certified-lab-grown-diamond-wholesale" },
-            { name: "Uniglo Diamonds on Nivoda", href: "/uniglo-diamonds-on-nivoda" },
+            {
+                name: "Source Lab Grown Diamonds",
+                href: "/source-lab-grown-diamonds-for-jewelers",
+            },
+            {
+                name: "Lab Grown Diamond Suppliers",
+                href: "/lab-grown-diamond-supplier-jewelers",
+            },
+            {
+                name: "Best Lab Grown Diamond Supplier Europe",
+                href: "/lab-grown-diamond-supplier-europe",
+            },
+            {
+                name: "Bulk Loose Lab Grown Diamonds",
+                href: "/bulk-loose-lab-grown-diamonds",
+            },
+            {
+                name: "IGI Certified Lab Grown Diamond Wholesale",
+                href: "/igi-certified-lab-grown-diamond-wholesale",
+            },
+            {
+                name: "Uniglo Diamonds on Nivoda",
+                href: "/uniglo-diamonds-on-nivoda",
+            },
         ],
     },
     { name: "Blog", href: "/blogs" },

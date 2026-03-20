@@ -1,5 +1,4 @@
 import React from "react";
-import BannerSection from "@/components/shared/BannerSection";
 import Image from "next/image";
 
 // Replace with your actual image paths
@@ -11,6 +10,7 @@ import BuyDiamondsOnlineBlog2 from "@/assets/home/blog_4.jpg";
 import RingSizeBlog from "@/assets/blogs/banner.png";
 import NivodaBlogImage from "@/assets/home/blog2.jpg";
 import SubFooter from "@/components/shared/SubFooter";
+import tamperprofseal from "@/assets/services/security-seals/tamper-proff-seals1.jpeg";
 
 const blogs = [
     {
@@ -68,24 +68,16 @@ const blogs = [
         title: "Uniglo Diamonds on Nivoda — IGI GIA HRD Certified Lab Grown",
         author: "Uniglo Diamonds",
         date: "March 20, 2026",
-        image: NivodaBlogImage,
+        image: tamperprofseal,
         excerpt:
             "Find IGI, GIA & HRD certified lab grown diamonds from Uniglo Diamonds on Nivoda — Antwerp's only tri-certified manufacturer. Verify every stone independently before you buy.",
         slug: "uniglo-diamonds-nivoda-igi-gia-hrd-certified",
     },
-    
 ];
 
 const page = () => {
     return (
         <div className="min-h-screen  mb-20">
-            <BannerSection
-                image={BannerImage}
-                text="Blog"
-                textClassName="left-10 top-1/2 text-5xl md:text-6xl"
-                imageClassName="h-64 md:h-96 object-cover"
-            />
-
             {/* All Blogs Section */}
             <section className="w-full  py-20 px-4 ">
                 <div className="max-w-7xl mx-auto">
