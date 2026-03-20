@@ -83,7 +83,7 @@ const NAV_LINKS = [
             },
             {
                 name: "Uniglo Diamonds on Rapnet",
-                href: "/rapnet-diamond-supplier-antwerp",
+                href: "/rapnet-diamond-on-nivoda",
             },
         ],
     },
@@ -94,7 +94,7 @@ const NAV_LINKS = [
         submenuItems: [
             {
                 name: "Guide to Lab Grown Diamonds ",
-                href: "/lab-grown-diamonds",
+                href: "/guide-to-lab-grown-diamonds",
             },
             {
                 name: "Source Lab Grown Diamonds",
