@@ -8,6 +8,9 @@ import {
     approveCustomerData,
     rejectCustomerData,
     approveDiamtradeEntity,
+    getReactivationRequests,
+    approveReactivation,
+    rejectReactivation,
     PendingUser,
 } from "@/services/adminServices";
 import { getPendingUserColumns } from "@/components/columns/PendingUserColumns";
@@ -15,6 +18,7 @@ import {
     getAllUsersColumns,
     UserDetailsRow,
 } from "@/components/columns/AllUsersColumns";
+import { getReactivationRequestColumns } from "@/components/columns/ReactivationRequestColumns";
 import { AssignEntityDialog } from "@/components/dialogs/AssignEntityDialog";
 import { toast } from "sonner";
 import { Loader2, Users, Search, X } from "lucide-react";
@@ -22,12 +26,13 @@ import ShimmerTable from "@/components/ui/shimmerTable";
 import TablePagination from "@/components/ui/tablePagination";
 import { Button } from "@/components/ui/button";
 
-type TabType = "pending" | "all";
+type TabType = "pending" | "all" | "reactivation";
 
 export default function MembersManagementPage() {
     const [activeTab, setActiveTab] = useState<TabType>("pending");
     const [pendingUsers, setPendingUsers] = useState<PendingUser[]>([]);
     const [allUsers, setAllUsers] = useState<PendingUser[]>([]);
+    const [reactivationRequests, setReactivationRequests] = useState<PendingUser[]>([]);
     const [loading, setLoading] = useState(true);
     const [actionLoading, setActionLoading] = useState<string | null>(null);
     const [expandedRows, setExpandedRows] = useState<Set<string>>(new Set());
@@ -58,6 +63,21 @@ export default function MembersManagementPage() {
             toast.error(
                 error?.response?.data?.message ||
                     "Failed to fetch pending users",
+            );
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    const fetchReactivationRequests = async () => {
+        try {
+            setLoading(true);
+            const response = await getReactivationRequests();
+            setReactivationRequests(response.data);
+        } catch (error: any) {
+            toast.error(
+                error?.response?.data?.message ||
+                    "Failed to fetch reactivation requests",
             );
         } finally {
             setLoading(false);
@@ -111,6 +131,8 @@ export default function MembersManagementPage() {
     useEffect(() => {
         if (activeTab === "pending") {
             fetchPendingUsers();
+        } else if (activeTab === "reactivation") {
+            fetchReactivationRequests();
         } else {
             fetchAllUsers();
         }
@@ -146,6 +168,42 @@ export default function MembersManagementPage() {
         } catch (error: any) {
             toast.error(
                 error?.response?.data?.message || "Failed to reject user",
+            );
+        } finally {
+            setActionLoading(null);
+        }
+    };
+
+    const handleApproveReactivation = async (user: PendingUser) => {
+        try {
+            setActionLoading(user._id);
+            const response = await approveReactivation(user._id);
+            toast.success(
+                response.message || "Reactivation approved successfully",
+            );
+            await fetchReactivationRequests();
+        } catch (error: any) {
+            toast.error(
+                error?.response?.data?.message ||
+                    "Failed to approve reactivation",
+            );
+        } finally {
+            setActionLoading(null);
+        }
+    };
+
+    const handleRejectReactivation = async (user: PendingUser) => {
+        try {
+            setActionLoading(user._id);
+            const response = await rejectReactivation(user._id);
+            toast.success(
+                response.message || "Reactivation rejected successfully",
+            );
+            await fetchReactivationRequests();
+        } catch (error: any) {
+            toast.error(
+                error?.response?.data?.message ||
+                    "Failed to reject reactivation",
             );
         } finally {
             setActionLoading(null);
@@ -211,7 +269,22 @@ export default function MembersManagementPage() {
         handleToggleExpand,
         handleAssignEntity,
     );
-    const currentUsers = activeTab === "pending" ? pendingUsers : allUsers;
+    const reactivationColumns = getReactivationRequestColumns(
+        handleApproveReactivation,
+        handleRejectReactivation,
+    );
+    const currentUsers =
+        activeTab === "pending"
+            ? pendingUsers
+            : activeTab === "reactivation"
+              ? reactivationRequests
+              : allUsers;
+    const currentColumns =
+        activeTab === "pending"
+            ? pendingColumns
+            : activeTab === "reactivation"
+              ? reactivationColumns
+              : allUsersColumns;
 
     return (
         <div className="p-6 space-y-6">
@@ -234,9 +307,15 @@ export default function MembersManagementPage() {
                         <span className="font-semibold">
                             {activeTab === "pending"
                                 ? pendingUsers.length
-                                : totalRecords}
+                                : activeTab === "reactivation"
+                                  ? reactivationRequests.length
+                                  : totalRecords}
                         </span>{" "}
-                        {activeTab === "pending" ? "pending" : "total"}{" "}
+                        {activeTab === "pending"
+                            ? "pending"
+                            : activeTab === "reactivation"
+                              ? "reactivation"
+                              : "total"}{" "}
                         {currentUsers.length === 1 ? "user" : "users"}
                     </div>
                 )}
@@ -280,6 +359,26 @@ export default function MembersManagementPage() {
                         {totalRecords > 0 && activeTab === "all" && (
                             <span className="ml-2 bg-gray-100 text-gray-600 rounded-full px-2 py-0.5 text-xs font-semibold">
                                 {totalRecords}
+                            </span>
+                        )}
+                    </button>
+                    <button
+                        onClick={() => {
+                            setActiveTab("reactivation");
+                            setPage(1);
+                            setSearchInput("");
+                            setActiveSearch("");
+                        }}
+                        className={`py-3 px-1 border-b-2 font-medium text-sm transition-colors ${
+                            activeTab === "reactivation"
+                                ? "border-primary-purple text-primary-purple"
+                                : "border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300"
+                        }`}
+                    >
+                        Reactivation Requests
+                        {reactivationRequests.length > 0 && (
+                            <span className="ml-2 bg-orange-100 text-orange-600 rounded-full px-2 py-0.5 text-xs font-semibold">
+                                {reactivationRequests.length}
                             </span>
                         )}
                     </button>
@@ -380,12 +479,16 @@ export default function MembersManagementPage() {
                                 <h3 className="text-lg font-medium text-gray-900 mb-1">
                                     {activeTab === "pending"
                                         ? "No pending users"
-                                        : "No users found"}
+                                        : activeTab === "reactivation"
+                                          ? "No reactivation requests"
+                                          : "No users found"}
                                 </h3>
                                 <p className="text-sm text-gray-500">
                                     {activeTab === "pending"
                                         ? "All user registrations have been reviewed"
-                                        : "No users are registered in the system"}
+                                        : activeTab === "reactivation"
+                                          ? "There are no pending reactivation requests"
+                                          : "No users are registered in the system"}
                                 </p>
                             </>
                         )}
@@ -396,10 +499,7 @@ export default function MembersManagementPage() {
                             <table className="w-full">
                                 <thead className="bg-gray-50 border-b border-gray-200">
                                     <tr>
-                                        {(activeTab === "pending"
-                                            ? pendingColumns
-                                            : allUsersColumns
-                                        ).map((column) => (
+                                        {currentColumns.map((column) => (
                                             <th
                                                 key={String(column.key)}
                                                 className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
@@ -413,31 +513,32 @@ export default function MembersManagementPage() {
                                     {currentUsers.map((user) => (
                                         <React.Fragment key={user._id}>
                                             <tr className="hover:bg-gray-50 transition-colors">
-                                                {(activeTab === "pending"
-                                                    ? pendingColumns
-                                                    : allUsersColumns
-                                                ).map((column) => (
-                                                    <td
-                                                        key={String(column.key)}
-                                                        className={`px-6 py-4 whitespace-nowrap text-sm ${
-                                                            column.cellClassName
-                                                                ? column.cellClassName(
+                                                {currentColumns.map(
+                                                    (column) => (
+                                                        <td
+                                                            key={String(
+                                                                column.key,
+                                                            )}
+                                                            className={`px-6 py-4 whitespace-nowrap text-sm ${
+                                                                column.cellClassName
+                                                                    ? column.cellClassName(
+                                                                          user,
+                                                                      )
+                                                                    : "text-gray-700"
+                                                            }`}
+                                                        >
+                                                            {column.render
+                                                                ? column.render(
                                                                       user,
+                                                                      handleAssignEntity,
+                                                                      handleApproveDiamtrade,
                                                                   )
-                                                                : "text-gray-700"
-                                                        }`}
-                                                    >
-                                                        {column.render
-                                                            ? column.render(
-                                                                  user,
-                                                                  handleAssignEntity,
-                                                                  handleApproveDiamtrade,
-                                                              )
-                                                            : (user[
-                                                                  column.key as keyof PendingUser
-                                                              ] as React.ReactNode)}
-                                                    </td>
-                                                ))}
+                                                                : (user[
+                                                                      column.key as keyof PendingUser
+                                                                  ] as React.ReactNode)}
+                                                        </td>
+                                                    ),
+                                                )}
                                             </tr>
                                             {activeTab === "all" &&
                                                 expandedRows.has(user._id) && (

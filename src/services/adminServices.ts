@@ -193,6 +193,37 @@ export const approveDiamtradeEntity = async (
     return response.data;
 };
 
+export interface GetReactivationRequestsResponse {
+    success: boolean;
+    data: PendingUser[];
+    count: number;
+    message: string;
+}
+
+export const getReactivationRequests =
+    async (): Promise<GetReactivationRequestsResponse> => {
+        const response = await apiClient.get("/users/reactivation-requests");
+        return response.data;
+    };
+
+export const approveReactivation = async (
+    userId: string,
+): Promise<ApproveUserResponse> => {
+    const response = await apiClient.post(
+        `/users/${userId}/approve-reactivation`,
+    );
+    return response.data;
+};
+
+export const rejectReactivation = async (
+    userId: string,
+): Promise<ApproveUserResponse> => {
+    const response = await apiClient.post(
+        `/users/${userId}/reject-reactivation`,
+    );
+    return response.data;
+};
+
 export const getAllUsers = async (
     params?: GetAllUsersParams,
 ): Promise<GetAllUsersResponse> => {

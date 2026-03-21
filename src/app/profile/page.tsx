@@ -228,12 +228,14 @@ export default function ProfilePage() {
                         >
                             <span>Change Password</span>
                         </button>
-                        <button
-                            onClick={() => setIsDisableDialogOpen(true)}
-                            className="px-4 py-2.5 font-lato font-semibold border border-red-500/50 text-red-400 rounded hover:bg-red-500/10 transition-all duration-300"
-                        >
-                            Disable Account
-                        </button>
+                        {user.role == "USER" && (
+                            <button
+                                onClick={() => setIsDisableDialogOpen(true)}
+                                className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
+                            >
+                                Disable Account
+                            </button>
+                        )}
                     </div>
                 </div>
 
