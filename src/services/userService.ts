@@ -152,6 +152,34 @@ export interface DisableAccountResponse {
     message: string;
 }
 
+export interface ReactivationRequestResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Submit a reactivation request for a disabled account
+ * @param email User's email address
+ * @returns Promise with success response
+ */
+export const requestReactivation = async (
+    email: string,
+): Promise<ReactivationRequestResponse> => {
+    try {
+        const response = await apiClient.post<ReactivationRequestResponse>(
+            "/users/reactivation-request",
+            { email },
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to submit reactivation request. Please try again.";
+        throw errorMessage;
+    }
+};
+
 /**
  * Disable the currently authenticated user's account
  * @returns Promise with success response
