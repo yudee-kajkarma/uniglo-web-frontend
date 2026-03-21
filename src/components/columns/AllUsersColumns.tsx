@@ -9,6 +9,7 @@ export interface Column<T> {
     render?: (
         row: PendingUser,
         onAssignEntity?: (userId: string, username: string) => void,
+        onApproveDiamtrade?: (userId: string) => void,
     ) => React.ReactNode;
     cellClassName?: (row: PendingUser) => string;
 }
@@ -86,6 +87,32 @@ export const getAllUsersColumns = (
         render: (row: PendingUser) => getStatusBadge(row.status),
     },
     {
+        key: "diamtradeStatus",
+        header: "Diamtrade Status",
+        render: (
+            row: PendingUser,
+            _onAssignEntity,
+            onApproveDiamtradeCallback,
+        ) => {
+            if (row.diamtradeStatus === "PENDING") {
+                return (
+                    <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onApproveDiamtradeCallback?.(row._id)}
+                        className="h-7 px-2 text-xs border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                    >
+                        Approve Diamtrade
+                    </Button>
+                );
+            }
+            if (row.diamtradeStatus) {
+                return getStatusBadge(row.diamtradeStatus);
+            }
+            return <span className="text-gray-500">N/A</span>;
+        },
+    },
+    {
         key: "companyName",
         header: "Company",
         render: (row: PendingUser) => (
@@ -114,7 +141,7 @@ export const getAllUsersColumns = (
         key: "entityKey",
         header: "Entity Key",
         render: (row: PendingUser, onAssignEntityCallback) => {
-            const entityKey = (row as any).entityKey;
+            const entityKey = row.entityKey;
 
             if (entityKey) {
                 return <span className="text-gray-800">{entityKey}</span>;
@@ -135,6 +162,7 @@ export const getAllUsersColumns = (
             );
         },
     },
+
     {
         key: "createdAt",
         header: "Registered",

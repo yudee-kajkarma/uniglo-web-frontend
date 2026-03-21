@@ -41,6 +41,8 @@ export interface PendingUser {
     createdAt: string;
     updatedAt: string;
     __v: number;
+    entityKey?: number;
+    diamtradeStatus?: string; // Add this line
 }
 
 export interface GetPendingUsersResponse {
@@ -173,6 +175,21 @@ export const getAllCarts = async (
     const url = `/diamonds/cart/admin/all${queryString ? `?${queryString}` : ""}`;
 
     const response = await apiClient.get<GetAllCartsResponse>(url);
+    return response.data;
+};
+
+export interface ApproveDiamtradeEntityResponse {
+    success: boolean;
+    message: string;
+    data: PendingUser;
+}
+
+export const approveDiamtradeEntity = async (
+    userId: string,
+): Promise<ApproveDiamtradeEntityResponse> => {
+    const response = await apiClient.post(
+        `/users/${userId}/approve-diamtrade-entity`,
+    );
     return response.data;
 };
 

@@ -7,6 +7,7 @@ import {
     getAllUsers,
     approveCustomerData,
     rejectCustomerData,
+    approveDiamtradeEntity,
     PendingUser,
 } from "@/services/adminServices";
 import { getPendingUserColumns } from "@/components/columns/PendingUserColumns";
@@ -71,8 +72,13 @@ export default function MembersManagementPage() {
                 limit,
                 search: activeSearch || undefined,
             });
-            setAllUsers(response.data);
-            setTotalRecords(response.pagination.totalRecords);
+            setAllUsers(
+                response.data.filter((user) => user.status === "APPROVED"),
+            ); // Ensure only approved users are shown
+            setTotalRecords(
+                response.data.filter((user) => user.status === "APPROVED")
+                    .length,
+            );
             setTotalPages(response.pagination.totalPages);
             setHasNextPage(response.pagination.hasNextPage);
             setHasPrevPage(response.pagination.hasPrevPage);
@@ -166,6 +172,24 @@ export default function MembersManagementPage() {
 
     const handleEntityAssignmentSuccess = () => {
         fetchAllUsers(); // Refresh the users list
+    };
+
+    const handleApproveDiamtrade = async (userId: string) => {
+        try {
+            setActionLoading(userId);
+            const response = await approveDiamtradeEntity(userId);
+            toast.success(
+                response.message || "Diamtrade entity approved successfully",
+            );
+            await fetchAllUsers();
+        } catch (error: any) {
+            toast.error(
+                error?.response?.data?.message ||
+                    "Failed to approve diamtrade entity",
+            );
+        } finally {
+            setActionLoading(null);
+        }
     };
 
     const handleClearSearch = () => {
@@ -407,6 +431,7 @@ export default function MembersManagementPage() {
                                                             ? column.render(
                                                                   user,
                                                                   handleAssignEntity,
+                                                                  handleApproveDiamtrade,
                                                               )
                                                             : (user[
                                                                   column.key as keyof PendingUser
