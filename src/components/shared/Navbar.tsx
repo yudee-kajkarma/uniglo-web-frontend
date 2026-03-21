@@ -83,7 +83,7 @@ const NAV_LINKS = [
             },
             {
                 name: "Uniglo Diamonds on Rapnet",
-                href: "/Uniglo-diamond-on-rapnet",
+                href: "/uniglo-diamonds-on-rapnet",
             },
         ],
     },
