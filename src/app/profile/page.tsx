@@ -4,6 +4,7 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { sendOtp, updatePassword } from "@/services/otpServices";
+import { disableAccount } from "@/services/userService";
 import { toast } from "sonner";
 import { Eye, EyeOff } from "lucide-react";
 import {
@@ -36,7 +37,7 @@ function getSafeConcatenatedValue(
 }
 
 export default function ProfilePage() {
-    const { user, loading, isAuthenticated } = useAuth();
+    const { user, loading, isAuthenticated, logout } = useAuth();
     const router = useRouter();
 
     // Password change states
@@ -50,6 +51,10 @@ export default function ProfilePage() {
     const [otpTimer, setOtpTimer] = useState(0);
     const [showNewPassword, setShowNewPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    // Disable account states
+    const [isDisableDialogOpen, setIsDisableDialogOpen] = useState(false);
+    const [isDisablingAccount, setIsDisablingAccount] = useState(false);
 
     // Check if passwords match
     const passwordsMatch =
@@ -158,6 +163,27 @@ export default function ProfilePage() {
         setShowConfirmPassword(false);
     };
 
+    // Handle Disable Account
+    const handleDisableAccount = async () => {
+        setIsDisablingAccount(true);
+        try {
+            await disableAccount();
+            toast.success(
+                "Your account has been disabled. You can request reactivation anytime.",
+            );
+            setIsDisableDialogOpen(false);
+            logout();
+        } catch (error) {
+            toast.error(
+                typeof error === "string"
+                    ? error
+                    : "Failed to disable account. Please try again.",
+            );
+        } finally {
+            setIsDisablingAccount(false);
+        }
+    };
+
     if (loading) {
         return (
             <div className="min-h-screen bg-brand-gradient flex items-center justify-center">
@@ -194,13 +220,21 @@ export default function ProfilePage() {
                             ])}
                         </p>
                     </div>
-                    {/* Change Password Button */}
-                    <button
-                        onClick={() => setIsDialogOpen(true)}
-                        className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
-                    >
-                        <span>Change Password</span>
-                    </button>
+                    {/* Action Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-3">
+                        <button
+                            onClick={() => setIsDialogOpen(true)}
+                            className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
+                        >
+                            <span>Change Password</span>
+                        </button>
+                        <button
+                            onClick={() => setIsDisableDialogOpen(true)}
+                            className="px-4 py-2.5 font-lato font-semibold border border-red-500/50 text-red-400 rounded hover:bg-red-500/10 transition-all duration-300"
+                        >
+                            Disable Account
+                        </button>
+                    </div>
                 </div>
 
                 {/* Main Grid */}
@@ -504,6 +538,43 @@ export default function ProfilePage() {
                     )}
                 </div>
             </div>
+
+            {/* Disable Account Confirmation Dialog */}
+            <Dialog
+                open={isDisableDialogOpen}
+                onOpenChange={setIsDisableDialogOpen}
+            >
+                <DialogContent className="bg-primary-purple-dark border-primary-yellow-1/30 text-white max-w-md">
+                    <DialogHeader>
+                        <DialogTitle className="text-red-400 font-cormorantGaramond text-2xl">
+                            Disable Account
+                        </DialogTitle>
+                        <DialogDescription className="text-primary-yellow-2 font-lato">
+                            Are you sure you want to disable your account? You
+                            will be logged out immediately. You can request
+                            reactivation anytime in the future.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <DialogFooter>
+                        <button
+                            onClick={() => setIsDisableDialogOpen(false)}
+                            disabled={isDisablingAccount}
+                            className="px-6 py-2 border border-primary-yellow-1/30 text-primary-yellow-2 rounded-lg font-lato font-semibold hover:bg-white/5 transition-all disabled:opacity-50"
+                        >
+                            Cancel
+                        </button>
+                        <button
+                            onClick={handleDisableAccount}
+                            disabled={isDisablingAccount}
+                            className="px-6 py-2 bg-red-500/20 border border-red-500 text-red-400 rounded-lg font-lato font-semibold hover:bg-red-500 hover:text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                        >
+                            {isDisablingAccount
+                                ? "Disabling..."
+                                : "Yes, Disable My Account"}
+                        </button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
 
             {/* Change Password Dialog */}
             <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

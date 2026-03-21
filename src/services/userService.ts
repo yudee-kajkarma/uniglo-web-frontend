@@ -147,6 +147,30 @@ export const checkPendingRegistration = async (
     }
 };
 
+export interface DisableAccountResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Disable the currently authenticated user's account
+ * @returns Promise with success response
+ */
+export const disableAccount = async (): Promise<DisableAccountResponse> => {
+    try {
+        const response = await apiClient.post<DisableAccountResponse>(
+            "/users/disable-account",
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to disable account. Please try again.";
+        throw errorMessage;
+    }
+};
+
 /**
  * Resend registration OTP to user's email
  * @param email User's email address
