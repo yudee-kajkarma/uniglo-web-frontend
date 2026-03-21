@@ -23,7 +23,16 @@ import {
     fetchDiamonds,
     searchDiamonds,
     fetchPublicDiamonds,
+    exportDiamonds,
 } from "@/services/diamondService";
+import {
+    Dialog,
+    DialogContent,
+    DialogHeader,
+    DialogTitle,
+    DialogFooter,
+} from "@/components/ui/dialog";
+import { Download } from "lucide-react";
 import {
     Diamond,
     DiamondShape,
@@ -71,6 +80,9 @@ function InventoryContent() {
     >([]);
     const [addingToCart, setAddingToCart] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
+    const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
+    const [exportFormat, setExportFormat] = useState<"xlsx" | "csv">("xlsx");
+    const [isExporting, setIsExporting] = useState(false);
 
     // Filter State
     const [filterState, setFilterState] = useState({
@@ -359,6 +371,137 @@ function InventoryContent() {
         }
     };
 
+    const handleExport = async () => {
+        setIsExporting(true);
+        try {
+            const params = {
+                shape:
+                    filterState.shape.length > 0
+                        ? filterState.shape
+                        : undefined,
+                color:
+                    filterState.color.length > 0
+                        ? filterState.color
+                        : undefined,
+                clarity:
+                    filterState.clarity.length > 0
+                        ? filterState.clarity
+                        : undefined,
+                cutGrade:
+                    filterState.cutGrade.length > 0
+                        ? filterState.cutGrade
+                        : undefined,
+                polish:
+                    filterState.polish.length > 0
+                        ? filterState.polish
+                        : undefined,
+                symmetry:
+                    filterState.symmetry.length > 0
+                        ? filterState.symmetry
+                        : undefined,
+                fluorescenceIntensity:
+                    filterState.fluorescence.length > 0
+                        ? filterState.fluorescence
+                        : undefined,
+                lab: filterState.lab.length > 0 ? filterState.lab : undefined,
+                minPrice:
+                    filterState.priceRange[0] > 0
+                        ? filterState.priceRange[0]
+                        : undefined,
+                maxPrice:
+                    filterState.priceRange[1] < 1000000
+                        ? filterState.priceRange[1]
+                        : undefined,
+                minPricePerCarat:
+                    filterState.pricePerCaratRange[0] > 0
+                        ? filterState.pricePerCaratRange[0]
+                        : undefined,
+                maxPricePerCarat:
+                    filterState.pricePerCaratRange[1] < 1000000
+                        ? filterState.pricePerCaratRange[1]
+                        : undefined,
+                minDiscount:
+                    filterState.discountRange[0] > -100
+                        ? filterState.discountRange[0]
+                        : undefined,
+                maxDiscount:
+                    filterState.discountRange[1] < 100
+                        ? filterState.discountRange[1]
+                        : undefined,
+                minCarat:
+                    filterState.caratRange[0] > 0
+                        ? filterState.caratRange[0]
+                        : undefined,
+                maxCarat:
+                    filterState.caratRange[1] < 10.99
+                        ? filterState.caratRange[1]
+                        : undefined,
+                minLength:
+                    filterState.lengthRange[0] > 0
+                        ? filterState.lengthRange[0]
+                        : undefined,
+                maxLength:
+                    filterState.lengthRange[1] < 20
+                        ? filterState.lengthRange[1]
+                        : undefined,
+                minWidth:
+                    filterState.widthRange[0] > 0
+                        ? filterState.widthRange[0]
+                        : undefined,
+                maxWidth:
+                    filterState.widthRange[1] < 20
+                        ? filterState.widthRange[1]
+                        : undefined,
+                minHeight:
+                    filterState.heightRange[0] > 0
+                        ? filterState.heightRange[0]
+                        : undefined,
+                maxHeight:
+                    filterState.heightRange[1] < 20
+                        ? filterState.heightRange[1]
+                        : undefined,
+                minDepth:
+                    filterState.depthRange[0] > 0
+                        ? filterState.depthRange[0]
+                        : undefined,
+                maxDepth:
+                    filterState.depthRange[1] < 100
+                        ? filterState.depthRange[1]
+                        : undefined,
+                minTable:
+                    filterState.tablePercentRange[0] > 40
+                        ? filterState.tablePercentRange[0]
+                        : undefined,
+                maxTable:
+                    filterState.tablePercentRange[1] < 90
+                        ? filterState.tablePercentRange[1]
+                        : undefined,
+                minDepthPercent:
+                    filterState.depthPercentRange[0] > 40
+                        ? filterState.depthPercentRange[0]
+                        : undefined,
+                maxDepthPercent:
+                    filterState.depthPercentRange[1] < 90
+                        ? filterState.depthPercentRange[1]
+                        : undefined,
+                isNatural: filterState.isNatural,
+                colorType: filterState.colorType,
+                searchTerm: filterState.searchTerm,
+                sortBy,
+                sortOrder,
+            };
+            await exportDiamonds(params, exportFormat);
+            setIsExportDialogOpen(false);
+            toast.success(
+                `Exported successfully as ${exportFormat.toUpperCase()}`,
+            );
+        } catch (error) {
+            toast.error("Failed to export. Please try again.");
+        } finally {
+            setIsExporting(false);
+        }
+    };
+
     const handleViewDetails = (diamond: Diamond | PublicDiamond) => {
         if (diamond.stockRef) {
             router.push(`${pathname}?view=${diamond.stockRef}`);
@@ -630,6 +773,17 @@ function InventoryContent() {
                                     `(${selectedDiamonds.length})`}
                             </Button>
                         )}
+
+                        {/* Export - Only show for authenticated users */}
+                        {isAuthenticated && user?.role !== "USER" && (
+                            <Button
+                                variant="outline"
+                                className="text-sm"
+                                onClick={() => setIsExportDialogOpen(true)}
+                            >
+                                <Download /> Export
+                            </Button>
+                        )}
                     </div>
 
                     {/* Right side - Search */}
@@ -764,6 +918,77 @@ function InventoryContent() {
                     )}
                 </CardContent>
             </Card>
+            {/* Export Dialog */}
+            <Dialog
+                open={isExportDialogOpen}
+                onOpenChange={setIsExportDialogOpen}
+            >
+                <DialogContent className="max-w-sm">
+                    <DialogHeader>
+                        <DialogTitle>Export Diamonds</DialogTitle>
+                    </DialogHeader>
+                    <div className="py-4 space-y-3">
+                        <p className="text-sm text-gray-500">
+                            Select a format to export the current filtered
+                            results.
+                        </p>
+                        <div className="flex gap-3">
+                            <button
+                                onClick={() => setExportFormat("xlsx")}
+                                className={`flex-1 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
+                                    exportFormat === "xlsx"
+                                        ? "border-primary-purple2 bg-primary-purple2/5 text-primary-purple2"
+                                        : "border-gray-200 text-gray-600 hover:border-gray-300"
+                                }`}
+                            >
+                                XLSX
+                                <p className="text-xs font-normal text-gray-400 mt-0.5">
+                                    Excel format
+                                </p>
+                            </button>
+                            <button
+                                onClick={() => setExportFormat("csv")}
+                                className={`flex-1 py-3 rounded-lg border-2 text-sm font-medium transition-all ${
+                                    exportFormat === "csv"
+                                        ? "border-primary-purple2 bg-primary-purple2/5 text-primary-purple2"
+                                        : "border-gray-200 text-gray-600 hover:border-gray-300"
+                                }`}
+                            >
+                                CSV
+                                <p className="text-xs font-normal text-gray-400 mt-0.5">
+                                    Comma-separated
+                                </p>
+                            </button>
+                        </div>
+                    </div>
+                    <DialogFooter>
+                        <Button
+                            variant="outline"
+                            onClick={() => setIsExportDialogOpen(false)}
+                            disabled={isExporting}
+                        >
+                            Cancel
+                        </Button>
+                        <Button
+                            onClick={handleExport}
+                            disabled={isExporting}
+                            className="bg-primary-purple2 hover:bg-primary-purple2/90 text-white"
+                        >
+                            {isExporting ? (
+                                <>
+                                    <Download className="w-4 h-4 mr-2 animate-bounce" />
+                                    Exporting...
+                                </>
+                            ) : (
+                                <>
+                                    <Download className="w-4 h-4 mr-2" />
+                                    Export {exportFormat.toUpperCase()}
+                                </>
+                            )}
+                        </Button>
+                    </DialogFooter>
+                </DialogContent>
+            </Dialog>
         </div>
     );
 }

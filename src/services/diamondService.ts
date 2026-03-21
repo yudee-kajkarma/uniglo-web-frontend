@@ -397,6 +397,117 @@ export const searchDiamonds = async (
     }
 };
 
+export const exportDiamonds = async (
+    params: DiamondParams,
+    format: "xlsx" | "csv",
+): Promise<void> => {
+    const queryParams = new URLSearchParams();
+
+    queryParams.append("format", format);
+
+    if (params.page) queryParams.append("page", params.page.toString());
+    if (params.limit) queryParams.append("limit", params.limit.toString());
+    if (params.sortBy) queryParams.append("sortBy", params.sortBy);
+    if (params.sortOrder) queryParams.append("sortOrder", params.sortOrder);
+
+    if (params.shape?.length)
+        params.shape.forEach((s) => queryParams.append("shape", s));
+    if (params.color?.length)
+        params.color.forEach((c) => queryParams.append("color", c));
+    if (params.clarity?.length)
+        params.clarity.forEach((c) => queryParams.append("clarity", c));
+    if (params.cutGrade?.length)
+        params.cutGrade.forEach((c) => queryParams.append("cutGrade", c));
+    if (params.polish?.length)
+        params.polish.forEach((p) => queryParams.append("polish", p));
+    if (params.symmetry?.length)
+        params.symmetry.forEach((s) => queryParams.append("symmetry", s));
+    if (params.fluorescenceIntensity?.length)
+        params.fluorescenceIntensity.forEach((f) =>
+            queryParams.append("fluorescenceIntensity", f),
+        );
+    if (params.lab?.length)
+        params.lab.forEach((l) => queryParams.append("lab", l));
+
+    if (params.minPrice !== undefined)
+        queryParams.append("priceListUSD_MIN", params.minPrice.toString());
+    if (params.maxPrice !== undefined)
+        queryParams.append("priceListUSD_MAX", params.maxPrice.toString());
+    if (params.minPricePerCarat !== undefined)
+        queryParams.append(
+            "pricePerCts_MIN",
+            params.minPricePerCarat.toString(),
+        );
+    if (params.maxPricePerCarat !== undefined)
+        queryParams.append(
+            "pricePerCts_MAX",
+            params.maxPricePerCarat.toString(),
+        );
+    if (params.minDiscount !== undefined)
+        queryParams.append("discPerc_MIN", params.minDiscount.toString());
+    if (params.maxDiscount !== undefined)
+        queryParams.append("discPerc_MAX", params.maxDiscount.toString());
+    if (params.minCarat !== undefined)
+        queryParams.append("weight_MIN", params.minCarat.toString());
+    if (params.maxCarat !== undefined)
+        queryParams.append("weight_MAX", params.maxCarat.toString());
+    if (params.minDepth !== undefined)
+        queryParams.append("depthPerc_MIN", params.minDepth.toString());
+    if (params.maxDepth !== undefined)
+        queryParams.append("depthPerc_MAX", params.maxDepth.toString());
+    if (params.minWidth !== undefined)
+        queryParams.append("width_MIN", params.minWidth.toString());
+    if (params.maxWidth !== undefined)
+        queryParams.append("width_MAX", params.maxWidth.toString());
+    if (params.minLength !== undefined)
+        queryParams.append("length_MIN", params.minLength.toString());
+    if (params.maxLength !== undefined)
+        queryParams.append("length_MAX", params.maxLength.toString());
+    if (params.minHeight !== undefined)
+        queryParams.append("height_MIN", params.minHeight.toString());
+    if (params.maxHeight !== undefined)
+        queryParams.append("height_MAX", params.maxHeight.toString());
+    if (params.minTable !== undefined)
+        queryParams.append("tablePerc_MIN", params.minTable.toString());
+    if (params.maxTable !== undefined)
+        queryParams.append("tablePerc_MAX", params.maxTable.toString());
+    if (params.minDepthPercent !== undefined)
+        queryParams.append(
+            "minDepthPerc",
+            params.minDepthPercent.toString(),
+        );
+    if (params.maxDepthPercent !== undefined)
+        queryParams.append(
+            "maxDepthPerc",
+            params.maxDepthPercent.toString(),
+        );
+    if (params.isNatural !== undefined)
+        queryParams.append("isNatural", params.isNatural.toString());
+    if (params.colorType)
+        queryParams.append("colorType", params.colorType);
+    if (params.searchTerm)
+        queryParams.append("searchTerm", params.searchTerm);
+
+    const response = await apiClient.get(
+        `/diamonds/export?${queryParams.toString()}`,
+        { responseType: "blob" },
+    );
+
+    const mimeType =
+        format === "xlsx"
+            ? "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            : "text/csv";
+    const blob = new Blob([response.data], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `diamonds-export.${format}`;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+};
+
 // Function to fetch a single diamond by ID
 export const fetchDiamondById = async (
     id: string,
