@@ -9,7 +9,7 @@ import BannerImage from "@/assets/fancy-colored-diamonds/banner.png";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "How to Source Lab Grown Diamonds for Your Jewelry Business",
+    title: "How to Source Lab Grown Diamonds for Jewelry Business",
     description:
         "The complete guide to sourcing certified lab grown diamonds for jewelers and retailers. Direct from Antwerp manufacturer. IGI, GIA & HRD certified. No middlemen. Start sourcing today.",
     alternates: {
