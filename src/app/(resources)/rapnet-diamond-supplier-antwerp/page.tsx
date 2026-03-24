@@ -9,9 +9,9 @@ import BannerImage from "@/assets/fancy-colored-diamonds/banner.png";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "RAPnet Diamond Supplier Antwerp | Uniglo Diamonds",
+    title: "Rapnet Diamond Supplier Antwerp | Uniglo Diamonds",
     description:
-        "Uniglo Diamonds is a verified RAPnet diamond supplier in Antwerp, Belgium. Source certified natural and lab grown diamonds wholesale through the Rapaport Diamond Network.",
+        "Uniglo Diamonds is a verified Rapnet diamond supplier in Antwerp, Belgium. Source certified natural and lab grown diamonds wholesale through the Rapaport Diamond Network.",
     alternates: {
         canonical:
             "https://www.uniglodiamonds.com/rapnet-diamond-supplier-antwerp",
@@ -27,7 +27,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Uniglo Diamonds, headquartered in Antwerp, Belgium, is a verified RAPnet diamond supplier offering global B2B buyers access to a premium inventory of natural and lab grown diamonds. Through the Rapaport Diamond Network (RAPnet), we provide a transparent and efficient platform for sourcing certified diamonds with confidence.",
+                text: "Uniglo Diamonds, headquartered in Antwerp, Belgium, is a verified Rapnet diamond supplier offering global B2B buyers access to a premium inventory of natural and lab grown diamonds. Through the Rapaport Diamond Network (Rapnet), we provide a transparent and efficient platform for sourcing certified diamonds with confidence.",
             },
             {
                 type: "paragraph",
@@ -36,23 +36,23 @@ const articleData: ArticleSection[] = [
         ],
     },
     {
-        heading: "Understanding RAPnet — The Global Diamond Trading Platform",
+        heading: "Understanding Rapnet — The Global Diamond Trading Platform",
         content: [
             {
                 type: "paragraph",
-                text: "RAPnet, short for Rapaport Diamond Network, is the world's largest and most respected diamond trading platform. It connects verified diamond suppliers, traders, and buyers across international markets.",
+                text: "Rapnet, short for Rapaport Diamond Network, is the world's largest and most respected diamond trading platform. It connects verified diamond suppliers, traders, and buyers across international markets.",
             },
             {
                 type: "paragraph",
-                text: "The platform is built on a foundation of trust and transparency. Every supplier listed on RAPnet must meet strict verification criteria, ensuring that buyers deal only with legitimate and established businesses.",
+                text: "The platform is built on a foundation of trust and transparency. Every supplier listed on Rapnet must meet strict verification criteria, ensuring that buyers deal only with legitimate and established businesses.",
             },
             {
                 type: "paragraph",
-                text: "Why RAPnet Is Important for Diamond Buyers",
+                text: "Why Rapnet Is Important for Diamond Buyers",
             },
             {
                 type: "paragraph",
-                text: "For any business sourcing diamonds, RAPnet offers several critical advantages:",
+                text: "For any business sourcing diamonds, Rapnet offers several critical advantages:",
             },
             {
                 type: "bullet-list",
@@ -75,7 +75,7 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Uniglo Diamonds is a trusted name in the global diamond trade, operating from Antwerp, widely known as the diamond capital of the world. As a verified RAPnet diamond supplier, we provide B2B clients with direct access to high-quality diamonds at competitive prices.",
+                text: "Uniglo Diamonds is a trusted name in the global diamond trade, operating from Antwerp, widely known as the diamond capital of the world. As a verified Rapnet diamond supplier, we provide B2B clients with direct access to high-quality diamonds at competitive prices.",
             },
             {
                 type: "paragraph",
@@ -88,7 +88,7 @@ const articleData: ArticleSection[] = [
             {
                 type: "bullet-list",
                 items: [
-                    "Verified RAPnet supplier status",
+                    "Verified Rapnet supplier status",
                     "Extensive inventory of certified diamonds",
                     "Strong presence in Antwerp's diamond district",
                     "Competitive wholesale pricing",
@@ -386,7 +386,7 @@ const articleData: ArticleSection[] = [
                 type: "bullet-list",
                 items: [
                     "Strategic Antwerp location",
-                    "Verified RAPnet supplier",
+                    "Verified Rapnet supplier",
                     "Wide inventory of natural and lab grown diamonds",
                     "Certified and ethically sourced diamonds",
                     "Transparent pricing",
@@ -408,12 +408,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "bullet-list",
-                items: [
-                    "Europe",
-                    "United States",
-                    "Middle East",
-                    "Asia",
-                ],
+                items: ["Europe", "United States", "Middle East", "Asia"],
             },
             {
                 type: "paragraph",
@@ -426,7 +421,7 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "The diamond industry is evolving rapidly. Digital platforms like RAPnet are transforming how diamonds are traded, while lab grown diamonds are reshaping consumer preferences.",
+                text: "The diamond industry is evolving rapidly. Digital platforms like Rapnet are transforming how diamonds are traded, while lab grown diamonds are reshaping consumer preferences.",
             },
             {
                 type: "paragraph",
@@ -451,7 +446,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Search on RAPnet: Uniglo Diamonds",
+                text: "Search on Rapnet: Uniglo Diamonds",
             },
             {
                 type: "paragraph",
@@ -468,7 +463,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "As a verified RAPnet diamond supplier based in Antwerp, we provide access to a premium inventory of natural and lab grown diamonds. Our commitment to certification, ethical sourcing, and customer satisfaction makes us the preferred choice for B2B buyers worldwide.",
+                text: "As a verified Rapnet diamond supplier based in Antwerp, we provide access to a premium inventory of natural and lab grown diamonds. Our commitment to certification, ethical sourcing, and customer satisfaction makes us the preferred choice for B2B buyers worldwide.",
             },
             {
                 type: "paragraph",
@@ -481,8 +476,8 @@ const articleData: ArticleSection[] = [
 const RapnetDiamondSupplierAntwerpPage = () => {
     const faqData = [
         {
-            question: "What is a RAPnet diamond supplier?",
-            answer: "A RAPnet diamond supplier is a verified member of the Rapaport Diamond Network, ensuring secure and transparent trading of certified diamonds.",
+            question: "What is a Rapnet diamond supplier?",
+            answer: "A Rapnet diamond supplier is a verified member of the Rapaport Diamond Network, ensuring secure and transparent trading of certified diamonds.",
         },
         {
             question: "Are lab grown diamonds real?",
@@ -520,12 +515,12 @@ const RapnetDiamondSupplierAntwerpPage = () => {
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        RAPnet Diamond Supplier Antwerp — Uniglo Diamonds
+                        Rapnet Diamond Supplier Antwerp — Uniglo Diamonds
                     </h1>
                     <DynamicArticle sections={articleData} />
                     <FAQSection
                         faqs={faqData}
-                        title="Frequently Asked Questions — RAPnet Diamond Supplier Antwerp"
+                        title="Frequently Asked Questions — Rapnet Diamond Supplier Antwerp"
                         className="mt-12"
                     />
                 </div>
