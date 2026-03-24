@@ -168,6 +168,33 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <div className="">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "FAQPage",
+                        mainEntity: [
+                            {
+                                "@type": "Question",
+                                name: "What is the customer service phone number of Uniglo Diamonds?",
+                                acceptedAnswer: {
+                                    "@type": "Answer",
+                                    text: "You can contact Uniglo Diamonds customer support at +32 03 500 91 07. Alternatively, you may also reach them at +32 473 56 57 58 during business hours (Monday to Friday, 10:00 AM – 6:00 PM CET). For email support, you can write to suraj@uniglodiamonds.com",
+                                },
+                            },
+                            {
+                                "@type": "Question",
+                                name: "Are lab-grown diamonds available in Belgium?",
+                                acceptedAnswer: {
+                                    "@type": "Answer",
+                                    text: "Yes, lab-grown diamonds are widely available in Belgium, especially in Antwerp, which is one of the world's leading diamond trading hubs. While most lab-grown diamonds are manufactured in countries like India and China, Belgian suppliers specialize in trading, certification (such as IGI, GIA, and HRD), and global distribution. Buyers can find a wide range of certified lab-grown diamonds in different cuts, sizes, and colors, often at competitive prices compared to natural diamonds.",
+                                },
+                            },
+                        ],
+                    }),
+                }}
+            />
             {/* Hero Section : Carousel (client component island) */}
             <HeroCarousel />
 

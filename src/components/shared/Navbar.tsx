@@ -112,6 +112,18 @@ const NAV_LINKS = [
                 name: "IGI Certified Lab Grown Diamond Wholesale",
                 href: "/igi-certified-lab-grown-diamond-wholesale",
             },
+            {
+                name: "Buy Lab Grown Diamonds Wholesale",
+                href: "/buy-lab-grown-diamonds-wholesale",
+            },
+            {
+                name: "Rapnet Diamond Supplier Antwerp",
+                href: "/rapnet-diamond-supplier-antwerp",
+            },
+            {
+                name: "Wedding Ring & Engagement Ring Guide",
+                href: "/wedding-ring-engagement-ring-guide",
+            },
         ],
     },
     { name: "Blog", href: "/blogs" },

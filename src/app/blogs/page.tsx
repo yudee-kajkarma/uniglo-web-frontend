@@ -72,6 +72,16 @@ const blogs = [
             "Find IGI, GIA & HRD certified lab grown diamonds from Uniglo Diamonds on Nivoda — Antwerp's only tri-certified manufacturer. Verify every stone independently before you buy.",
         slug: "uniglo-diamonds-nivoda-igi-gia-hrd-certified",
     },
+    {
+        id: 7,
+        title: "3 Carat Diamond Ring Guide: Price, Size, Quality & Buying Tips (2026)",
+        author: "Uniglo Diamonds",
+        date: "March 23, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "Discover 3 carat diamond ring price, size, quality & buying tips. Compare lab-grown vs natural diamonds and choose the perfect ring easily.",
+        slug: "3-carat-diamond-ring-guide",
+    },
 ];
 
 const page = () => {
