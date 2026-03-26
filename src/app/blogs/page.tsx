@@ -4,7 +4,10 @@ import Image from "next/image";
 // Replace with your actual image paths
 import EngagementRingBlog1 from "@/assets/home/blog_11.jpg";
 import BuyDiamondsOnlineBlog1 from "@/assets/home/blog_3.jpg";
-import EngagementRingBlog2 from "@/assets/home/blog_2.1.jpg";
+import EngagementRingBlog2 from "@/assets/blogs/1.jpeg";
+import newimage from "@/assets/blogs/labgrown.jpeg";
+import labd from "@/assets/blogs/lab2.jpeg";
+import diamondcoal from "@/assets/blogs/diamondnotfromcoal.jpeg";
 import BuyDiamondsOnlineBlog2 from "@/assets/home/blog_4.jpg";
 import RingSizeBlog from "@/assets/blogs/banner.png";
 import NivodaBlogImage from "@/assets/home/blog2.jpg";
@@ -17,7 +20,7 @@ const blogs = [
         title: "Lab Grown Diamonds in Belgium",
         author: "Uniglo Diamonds",
         date: "March 6, 2026",
-        image: BuyDiamondsOnlineBlog1,
+        image: labd,
         excerpt:
             "Discover certified lab grown diamonds in Belgium. Antwerp-based experts offering IGI & GIA graded diamonds at trusted wholesale prices.",
         slug: "lab-grown-diamonds-in-belgium",
@@ -27,7 +30,7 @@ const blogs = [
         title: "Diamonds Are Not Made from Coal",
         author: "Uniglo Diamonds",
         date: "March 6, 2026",
-        image: EngagementRingBlog1,
+        image: diamondcoal,
         excerpt:
             "Many people believe that diamonds are made from coal. But the truth is different. Discover the real geological processes behind diamond formation.",
         slug: "diamonds-are-not-made-from-coal",
@@ -37,7 +40,7 @@ const blogs = [
         title: "Lab Grown Diamond Engagement Rings: The Ultimate Guide",
         author: "Uniglo Diamonds",
         date: "March 13, 2026",
-        image: EngagementRingBlog2,
+        image: newimage,
         excerpt:
             "A complete guide to lab grown diamond engagement rings, including 4Cs, styles, pricing, certification, and care tips.",
         slug: "lab-grown-diamond-engagement-rings",
