@@ -4,9 +4,13 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { sendOtp, updatePassword } from "@/services/otpServices";
-import { disableAccount } from "@/services/userService";
+import {
+    disableAccount,
+    updateCustomerData,
+    UpdateCustomerDataRequest,
+} from "@/services/userService";
 import { toast } from "sonner";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, Pencil, Save, X } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -37,7 +41,7 @@ function getSafeConcatenatedValue(
 }
 
 export default function ProfilePage() {
-    const { user, loading, isAuthenticated, logout } = useAuth();
+    const { user, loading, isAuthenticated, logout, setUser } = useAuth();
     const router = useRouter();
 
     // Password change states
@@ -55,6 +59,11 @@ export default function ProfilePage() {
     // Disable account states
     const [isDisableDialogOpen, setIsDisableDialogOpen] = useState(false);
     const [isDisablingAccount, setIsDisablingAccount] = useState(false);
+
+    // Edit mode states
+    const [isEditing, setIsEditing] = useState(false);
+    const [isSaving, setIsSaving] = useState(false);
+    const [editData, setEditData] = useState<UpdateCustomerDataRequest>({});
 
     // Check if passwords match
     const passwordsMatch =
@@ -78,6 +87,110 @@ export default function ProfilePage() {
             return () => clearInterval(interval);
         }
     }, [otpTimer]);
+
+    // Initialize edit form with current user data
+    const handleStartEditing = () => {
+        if (!user) return;
+        setEditData({
+            customerData: {
+                firstName: user.customerData?.firstName || "",
+                lastName: user.customerData?.lastName || "",
+                phoneNumber: user.customerData?.phoneNumber || "",
+                landlineNumber: user.customerData?.landlineNumber || "",
+                countryCode: user.customerData?.countryCode || "",
+                birthDate: user.customerData?.birthDate
+                    ? new Date(user.customerData.birthDate)
+                          .toISOString()
+                          .split("T")[0]
+                    : "",
+                address: {
+                    street: user.customerData?.address?.street || "",
+                    city: user.customerData?.address?.city || "",
+                    state: user.customerData?.address?.state || "",
+                    postalCode: user.customerData?.address?.postalCode || "",
+                    country: user.customerData?.address?.country || "",
+                },
+                businessInfo: {
+                    companyName:
+                        user.customerData?.businessInfo?.companyName || "",
+                    businessType:
+                        user.customerData?.businessInfo?.businessType || "",
+                    vatNumber:
+                        user.customerData?.businessInfo?.vatNumber || "",
+                    websiteUrl:
+                        user.customerData?.businessInfo?.websiteUrl || "",
+                },
+            },
+            contactDetail: {
+                contactName: user.contactDetail?.contactName || "",
+                designation: user.contactDetail?.designation || "",
+                businessTel1: user.contactDetail?.businessTel1 || "",
+                businessTel2: user.contactDetail?.businessTel2 || "",
+                businessFax: user.contactDetail?.businessFax || "",
+                mobileNo: user.contactDetail?.mobileNo || "",
+                personalNo: user.contactDetail?.personalNo || "",
+                otherNo: user.contactDetail?.otherNo || "",
+                email: user.contactDetail?.email || "",
+            },
+            billingAddress: user.billingAddress?.length
+                ? user.billingAddress.map((addr) => ({ ...addr }))
+                : [
+                      {
+                          isDefault: "Y",
+                          printName: "",
+                          street: "",
+                          city: "",
+                          state: "",
+                          country: "",
+                          zipCode: "",
+                          vat_No: "",
+                          gstn_No: "",
+                      },
+                  ],
+            shippingAddress: user.shippingAddress?.length
+                ? user.shippingAddress.map((addr) => ({ ...addr }))
+                : [
+                      {
+                          isDefault: "Y",
+                          printName: "",
+                          street: "",
+                          city: "",
+                          state: "",
+                          country: "",
+                          zipCode: "",
+                          vat_No: "",
+                          gstn_No: "",
+                      },
+                  ],
+        });
+        setIsEditing(true);
+    };
+
+    const handleCancelEditing = () => {
+        setIsEditing(false);
+        setEditData({});
+    };
+
+    const handleSaveChanges = async () => {
+        setIsSaving(true);
+        try {
+            const response = await updateCustomerData(editData);
+            if (response.success && response.data?.user) {
+                setUser(response.data.user);
+            }
+            toast.success("Profile updated successfully");
+            setIsEditing(false);
+            setEditData({});
+        } catch (error) {
+            toast.error(
+                typeof error === "string"
+                    ? error
+                    : "Failed to update profile. Please try again.",
+            );
+        } finally {
+            setIsSaving(false);
+        }
+    };
 
     // Handle Send OTP
     const handleSendOtp = async () => {
@@ -222,19 +335,55 @@ export default function ProfilePage() {
                     </div>
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3">
-                        <button
-                            onClick={() => setIsDialogOpen(true)}
-                            className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
-                        >
-                            <span>Change Password</span>
-                        </button>
-                        {user.role == "USER" && (
-                            <button
-                                onClick={() => setIsDisableDialogOpen(true)}
-                                className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
-                            >
-                                Disable Account
-                            </button>
+                        {isEditing ? (
+                            <>
+                                <button
+                                    onClick={handleSaveChanges}
+                                    disabled={isSaving}
+                                    className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                >
+                                    <Save size={16} />
+                                    <span>
+                                        {isSaving
+                                            ? "Saving..."
+                                            : "Save Changes"}
+                                    </span>
+                                </button>
+                                <button
+                                    onClick={handleCancelEditing}
+                                    disabled={isSaving}
+                                    className="px-4 py-2.5 border border-primary-yellow-1/30 text-primary-yellow-2 rounded-lg font-lato font-semibold hover:bg-white/5 transition-all disabled:opacity-50 flex items-center gap-2"
+                                >
+                                    <X size={16} />
+                                    Cancel
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button
+                                    onClick={handleStartEditing}
+                                    className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2"
+                                >
+                                    <Pencil size={16} />
+                                    <span>Edit Profile</span>
+                                </button>
+                                <button
+                                    onClick={() => setIsDialogOpen(true)}
+                                    className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
+                                >
+                                    <span>Change Password</span>
+                                </button>
+                                {user.role == "USER" && (
+                                    <button
+                                        onClick={() =>
+                                            setIsDisableDialogOpen(true)
+                                        }
+                                        className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
+                                    >
+                                        Disable Account
+                                    </button>
+                                )}
+                            </>
                         )}
                     </div>
                 </div>
@@ -335,39 +484,258 @@ export default function ProfilePage() {
                             Personal Information
                         </h2>
                         <div className="space-y-3 font-lato">
-                            <InfoRow
-                                label="Name"
-                                value={getSafeConcatenatedValue([
-                                    user.customerData?.firstName,
-                                    user.customerData?.lastName,
-                                ])}
-                            />
-                            <InfoRow
-                                label="Phone"
-                                value={getSafeConcatenatedValue([
-                                    user.customerData?.countryCode,
-                                    user.customerData?.phoneNumber,
-                                ])}
-                            />
-                            <InfoRow
-                                label="Landline"
-                                value={getSafeValue(
-                                    user.customerData?.landlineNumber,
-                                )}
-                            />
-                            <InfoRow
-                                label="Address"
-                                value={getSafeConcatenatedValue(
-                                    [
-                                        user.customerData?.address?.street,
-                                        user.customerData?.address?.city,
-                                        user.customerData?.address?.state,
-                                        user.customerData?.address?.postalCode,
-                                        user.customerData?.address?.country,
-                                    ],
-                                    ", ",
-                                )}
-                            />
+                            {isEditing ? (
+                                <>
+                                    <EditableRow
+                                        label="First Name"
+                                        value={
+                                            editData.customerData?.firstName ||
+                                            ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    firstName: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Last Name"
+                                        value={
+                                            editData.customerData?.lastName ||
+                                            ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    lastName: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Birth Date"
+                                        value={
+                                            editData.customerData?.birthDate ||
+                                            ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    birthDate: v,
+                                                },
+                                            }))
+                                        }
+                                        type="date"
+                                    />
+                                    <EditableRow
+                                        label="Country Code"
+                                        value={
+                                            editData.customerData
+                                                ?.countryCode || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    countryCode: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Phone"
+                                        value={
+                                            editData.customerData
+                                                ?.phoneNumber || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    phoneNumber: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Landline"
+                                        value={
+                                            editData.customerData
+                                                ?.landlineNumber || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    landlineNumber: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Street"
+                                        value={
+                                            editData.customerData?.address
+                                                ?.street || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    address: {
+                                                        ...prev.customerData
+                                                            ?.address,
+                                                        street: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="City"
+                                        value={
+                                            editData.customerData?.address
+                                                ?.city || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    address: {
+                                                        ...prev.customerData
+                                                            ?.address,
+                                                        city: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="State"
+                                        value={
+                                            editData.customerData?.address
+                                                ?.state || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    address: {
+                                                        ...prev.customerData
+                                                            ?.address,
+                                                        state: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Postal Code"
+                                        value={
+                                            editData.customerData?.address
+                                                ?.postalCode || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    address: {
+                                                        ...prev.customerData
+                                                            ?.address,
+                                                        postalCode: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Country"
+                                        value={
+                                            editData.customerData?.address
+                                                ?.country || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    address: {
+                                                        ...prev.customerData
+                                                            ?.address,
+                                                        country: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                </>
+                            ) : (
+                                <>
+                                    <InfoRow
+                                        label="Name"
+                                        value={getSafeConcatenatedValue([
+                                            user.customerData?.firstName,
+                                            user.customerData?.lastName,
+                                        ])}
+                                    />
+                                    <InfoRow
+                                        label="Birth Date"
+                                        value={
+                                            user.customerData?.birthDate
+                                                ? new Date(
+                                                      user.customerData.birthDate,
+                                                  ).toLocaleDateString()
+                                                : "N/A"
+                                        }
+                                    />
+                                    <InfoRow
+                                        label="Phone"
+                                        value={getSafeConcatenatedValue([
+                                            user.customerData?.countryCode,
+                                            user.customerData?.phoneNumber,
+                                        ])}
+                                    />
+                                    <InfoRow
+                                        label="Landline"
+                                        value={getSafeValue(
+                                            user.customerData?.landlineNumber,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Address"
+                                        value={getSafeConcatenatedValue(
+                                            [
+                                                user.customerData?.address
+                                                    ?.street,
+                                                user.customerData?.address
+                                                    ?.city,
+                                                user.customerData?.address
+                                                    ?.state,
+                                                user.customerData?.address
+                                                    ?.postalCode,
+                                                user.customerData?.address
+                                                    ?.country,
+                                            ],
+                                            ", ",
+                                        )}
+                                    />
+                                </>
+                            )}
                         </div>
                     </div>
 
@@ -377,26 +745,115 @@ export default function ProfilePage() {
                             Business Information
                         </h2>
                         <div className="space-y-3 font-lato">
-                            <InfoRow
-                                label="Business Type"
-                                value={getSafeValue(
-                                    user.customerData?.businessInfo
-                                        ?.businessType,
-                                )}
-                            />
-                            <InfoRow
-                                label="VAT Number"
-                                value={getSafeValue(
-                                    user.customerData?.businessInfo?.vatNumber,
-                                )}
-                            />
-                            <InfoRow
-                                label="Website"
-                                value={getSafeValue(
-                                    user.customerData?.businessInfo?.websiteUrl,
-                                )}
-                                isLink
-                            />
+                            {isEditing ? (
+                                <>
+                                    <EditableRow
+                                        label="Company Name"
+                                        value={
+                                            editData.customerData?.businessInfo
+                                                ?.companyName || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    businessInfo: {
+                                                        ...prev.customerData
+                                                            ?.businessInfo,
+                                                        companyName: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Business Type"
+                                        value={
+                                            editData.customerData?.businessInfo
+                                                ?.businessType || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    businessInfo: {
+                                                        ...prev.customerData
+                                                            ?.businessInfo,
+                                                        businessType: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="VAT Number"
+                                        value={
+                                            editData.customerData?.businessInfo
+                                                ?.vatNumber || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    businessInfo: {
+                                                        ...prev.customerData
+                                                            ?.businessInfo,
+                                                        vatNumber: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Website"
+                                        value={
+                                            editData.customerData?.businessInfo
+                                                ?.websiteUrl || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                customerData: {
+                                                    ...prev.customerData,
+                                                    businessInfo: {
+                                                        ...prev.customerData
+                                                            ?.businessInfo,
+                                                        websiteUrl: v,
+                                                    },
+                                                },
+                                            }))
+                                        }
+                                    />
+                                </>
+                            ) : (
+                                <>
+                                    <InfoRow
+                                        label="Business Type"
+                                        value={getSafeValue(
+                                            user.customerData?.businessInfo
+                                                ?.businessType,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="VAT Number"
+                                        value={getSafeValue(
+                                            user.customerData?.businessInfo
+                                                ?.vatNumber,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Website"
+                                        value={getSafeValue(
+                                            user.customerData?.businessInfo
+                                                ?.websiteUrl,
+                                        )}
+                                        isLink
+                                    />
+                                </>
+                            )}
                         </div>
                     </div>
 
@@ -406,135 +863,657 @@ export default function ProfilePage() {
                             Contact Details
                         </h2>
                         <div className="space-y-3 font-lato">
-                            <InfoRow
-                                label="Contact Name"
-                                value={getSafeValue(
-                                    user.contactDetail?.contactName,
-                                )}
-                            />
-                            <InfoRow
-                                label="Designation"
-                                value={getSafeValue(
-                                    user.contactDetail?.designation,
-                                )}
-                            />
-                            <InfoRow
-                                label="Business Tel 1"
-                                value={getSafeValue(
-                                    user.contactDetail?.businessTel1,
-                                )}
-                            />
-                            <InfoRow
-                                label="Business Tel 2"
-                                value={getSafeValue(
-                                    user.contactDetail?.businessTel2,
-                                )}
-                            />
-                            <InfoRow
-                                label="Business Fax"
-                                value={getSafeValue(
-                                    user.contactDetail?.businessFax,
-                                )}
-                            />
-                            <InfoRow
-                                label="Mobile"
-                                value={getSafeValue(
-                                    user.contactDetail?.mobileNo,
-                                )}
-                            />
-                            <InfoRow
-                                label="Personal"
-                                value={getSafeValue(
-                                    user.contactDetail?.personalNo,
-                                )}
-                            />
-                            <InfoRow
-                                label="Email"
-                                value={getSafeValue(user.contactDetail?.email)}
-                            />
+                            {isEditing ? (
+                                <>
+                                    <EditableRow
+                                        label="Contact Name"
+                                        value={
+                                            editData.contactDetail
+                                                ?.contactName || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    contactName: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Designation"
+                                        value={
+                                            editData.contactDetail
+                                                ?.designation || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    designation: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Business Tel 1"
+                                        value={
+                                            editData.contactDetail
+                                                ?.businessTel1 || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    businessTel1: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Business Tel 2"
+                                        value={
+                                            editData.contactDetail
+                                                ?.businessTel2 || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    businessTel2: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Business Fax"
+                                        value={
+                                            editData.contactDetail
+                                                ?.businessFax || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    businessFax: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Mobile"
+                                        value={
+                                            editData.contactDetail?.mobileNo ||
+                                            ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    mobileNo: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Personal"
+                                        value={
+                                            editData.contactDetail
+                                                ?.personalNo || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    personalNo: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                    <EditableRow
+                                        label="Email"
+                                        value={
+                                            editData.contactDetail?.email || ""
+                                        }
+                                        onChange={(v) =>
+                                            setEditData((prev) => ({
+                                                ...prev,
+                                                contactDetail: {
+                                                    ...prev.contactDetail,
+                                                    email: v,
+                                                },
+                                            }))
+                                        }
+                                    />
+                                </>
+                            ) : (
+                                <>
+                                    <InfoRow
+                                        label="Contact Name"
+                                        value={getSafeValue(
+                                            user.contactDetail?.contactName,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Designation"
+                                        value={getSafeValue(
+                                            user.contactDetail?.designation,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Business Tel 1"
+                                        value={getSafeValue(
+                                            user.contactDetail?.businessTel1,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Business Tel 2"
+                                        value={getSafeValue(
+                                            user.contactDetail?.businessTel2,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Business Fax"
+                                        value={getSafeValue(
+                                            user.contactDetail?.businessFax,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Mobile"
+                                        value={getSafeValue(
+                                            user.contactDetail?.mobileNo,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Personal"
+                                        value={getSafeValue(
+                                            user.contactDetail?.personalNo,
+                                        )}
+                                    />
+                                    <InfoRow
+                                        label="Email"
+                                        value={getSafeValue(
+                                            user.contactDetail?.email,
+                                        )}
+                                    />
+                                </>
+                            )}
                         </div>
                     </div>
 
                     {/* Billing Address */}
-                    {defaultBillingAddress && (
+                    {(defaultBillingAddress || isEditing) && (
                         <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-primary-yellow-1/20 p-6">
                             <h2 className="text-2xl font-cormorantGaramond font-semibold text-primary-yellow-1 mb-4 border-b border-primary-yellow-1/20 pb-2">
                                 Billing Address
                             </h2>
                             <div className="space-y-3 font-lato">
-                                <InfoRow
-                                    label="Print Name"
-                                    value={getSafeValue(
-                                        defaultBillingAddress.printName,
-                                    )}
-                                />
-                                <InfoRow
-                                    label="Address"
-                                    value={getSafeConcatenatedValue(
-                                        [
-                                            defaultBillingAddress.street,
-                                            defaultBillingAddress.city,
-                                            defaultBillingAddress.state,
-                                            defaultBillingAddress.zipCode,
-                                            defaultBillingAddress.country,
-                                        ],
-                                        ", ",
-                                    )}
-                                />
-                                <InfoRow
-                                    label="VAT No"
-                                    value={getSafeValue(
-                                        defaultBillingAddress.vat_No,
-                                    )}
-                                />
-                                <InfoRow
-                                    label="GSTN No"
-                                    value={getSafeValue(
-                                        defaultBillingAddress.gstn_No,
-                                    )}
-                                />
+                                {isEditing ? (
+                                    <>
+                                        <EditableRow
+                                            label="Print Name"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.printName || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        printName: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="Street"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.street || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        street: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="City"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.city || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        city: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="State"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.state || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        state: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="Country"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.country || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        country: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="Zip Code"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.zipCode || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        zipCode: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="VAT No"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.vat_No || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        vat_No: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="GSTN No"
+                                            value={
+                                                editData.billingAddress?.[0]
+                                                    ?.gstn_No || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.billingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        gstn_No: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        billingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                    </>
+                                ) : (
+                                    defaultBillingAddress && (
+                                        <>
+                                            <InfoRow
+                                                label="Print Name"
+                                                value={getSafeValue(
+                                                    defaultBillingAddress.printName,
+                                                )}
+                                            />
+                                            <InfoRow
+                                                label="Address"
+                                                value={getSafeConcatenatedValue(
+                                                    [
+                                                        defaultBillingAddress.street,
+                                                        defaultBillingAddress.city,
+                                                        defaultBillingAddress.state,
+                                                        defaultBillingAddress.zipCode,
+                                                        defaultBillingAddress.country,
+                                                    ],
+                                                    ", ",
+                                                )}
+                                            />
+                                            <InfoRow
+                                                label="VAT No"
+                                                value={getSafeValue(
+                                                    defaultBillingAddress.vat_No,
+                                                )}
+                                            />
+                                            <InfoRow
+                                                label="GSTN No"
+                                                value={getSafeValue(
+                                                    defaultBillingAddress.gstn_No,
+                                                )}
+                                            />
+                                        </>
+                                    )
+                                )}
                             </div>
                         </div>
                     )}
 
                     {/* Shipping Address */}
-                    {defaultShippingAddress && (
+                    {(defaultShippingAddress || isEditing) && (
                         <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-primary-yellow-1/20 p-6">
                             <h2 className="text-2xl font-cormorantGaramond font-semibold text-primary-yellow-1 mb-4 border-b border-primary-yellow-1/20 pb-2">
                                 Shipping Address
                             </h2>
                             <div className="space-y-3 font-lato">
-                                <InfoRow
-                                    label="Print Name"
-                                    value={getSafeValue(
-                                        defaultShippingAddress.printName,
-                                    )}
-                                />
-                                <InfoRow
-                                    label="Address"
-                                    value={getSafeConcatenatedValue(
-                                        [
-                                            defaultShippingAddress.street,
-                                            defaultShippingAddress.city,
-                                            defaultShippingAddress.state,
-                                            defaultShippingAddress.zipCode,
-                                            defaultShippingAddress.country,
-                                        ],
-                                        ", ",
-                                    )}
-                                />
-                                <InfoRow
-                                    label="VAT No"
-                                    value={getSafeValue(
-                                        defaultShippingAddress.vat_No,
-                                    )}
-                                />
-                                <InfoRow
-                                    label="GSTN No"
-                                    value={getSafeValue(
-                                        defaultShippingAddress.gstn_No,
-                                    )}
-                                />
+                                {isEditing ? (
+                                    <>
+                                        <EditableRow
+                                            label="Print Name"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.printName || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        printName: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="Street"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.street || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        street: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="City"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.city || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        city: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="State"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.state || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        state: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="Country"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.country || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        country: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="Zip Code"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.zipCode || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        zipCode: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="VAT No"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.vat_No || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        vat_No: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                        <EditableRow
+                                            label="GSTN No"
+                                            value={
+                                                editData.shippingAddress?.[0]
+                                                    ?.gstn_No || ""
+                                            }
+                                            onChange={(v) =>
+                                                setEditData((prev) => {
+                                                    const addrs = [
+                                                        ...(prev.shippingAddress ||
+                                                            []),
+                                                    ];
+                                                    addrs[0] = {
+                                                        ...addrs[0],
+                                                        gstn_No: v,
+                                                    };
+                                                    return {
+                                                        ...prev,
+                                                        shippingAddress: addrs,
+                                                    };
+                                                })
+                                            }
+                                        />
+                                    </>
+                                ) : (
+                                    defaultShippingAddress && (
+                                        <>
+                                            <InfoRow
+                                                label="Print Name"
+                                                value={getSafeValue(
+                                                    defaultShippingAddress.printName,
+                                                )}
+                                            />
+                                            <InfoRow
+                                                label="Address"
+                                                value={getSafeConcatenatedValue(
+                                                    [
+                                                        defaultShippingAddress.street,
+                                                        defaultShippingAddress.city,
+                                                        defaultShippingAddress.state,
+                                                        defaultShippingAddress.zipCode,
+                                                        defaultShippingAddress.country,
+                                                    ],
+                                                    ", ",
+                                                )}
+                                            />
+                                            <InfoRow
+                                                label="VAT No"
+                                                value={getSafeValue(
+                                                    defaultShippingAddress.vat_No,
+                                                )}
+                                            />
+                                            <InfoRow
+                                                label="GSTN No"
+                                                value={getSafeValue(
+                                                    defaultShippingAddress.gstn_No,
+                                                )}
+                                            />
+                                        </>
+                                    )
+                                )}
                             </div>
                         </div>
                     )}
@@ -785,6 +1764,34 @@ function InfoRow({
             ) : (
                 <span className="text-white">{value}</span>
             )}
+        </div>
+    );
+}
+
+// Editable row component for edit mode
+function EditableRow({
+    label,
+    value,
+    onChange,
+    type = "text",
+}: {
+    label: string;
+    value: string;
+    onChange: (value: string) => void;
+    type?: "text" | "date";
+}) {
+    return (
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1">
+            <label className="text-primary-yellow-2 font-medium shrink-0">
+                {label}:
+            </label>
+            <input
+                type={type}
+                value={value}
+                onChange={(e) => onChange(e.target.value)}
+                className="sm:max-w-[60%] w-full px-3 py-1.5 bg-white/10 border border-primary-yellow-1/30 rounded-lg text-white placeholder-primary-yellow-2/50 focus:outline-none focus:ring-2 focus:ring-primary-yellow-1 font-lato text-sm"
+                placeholder={label}
+            />
         </div>
     );
 }

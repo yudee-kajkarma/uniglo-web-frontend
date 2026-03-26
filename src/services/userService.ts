@@ -1,47 +1,14 @@
 import apiClient from "@/lib/api";
 import { AxiosError } from "axios";
+import {
+    Address,
+    ContactDetail,
+    CustomerData,
+    ApiSuccessResponse,
+    User,
+} from "./authServices";
 
-export interface Address {
-    street: string;
-    city: string;
-    state: string;
-    postalCode: string;
-    country: string;
-}
-
-export interface BusinessInfo {
-    companyName: string;
-    businessType: string;
-    vatNumber: string;
-    websiteUrl: string;
-}
-
-export interface CustomerData {
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    landlineNumber: string;
-    countryCode: string;
-    address: Address;
-    businessInfo: BusinessInfo;
-    submittedAt: string;
-}
-
-export interface User {
-    _id: string;
-    username: string;
-    email: string;
-    status: "APPROVED" | "PENDING" | "REJECTED";
-    role: "USER" | "SUPER_ADMIN" | "ADMIN";
-    companyName?: string;
-    contactName?: string;
-    customerData?: CustomerData;
-    quotations: string[];
-    entityKey?: number;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-}
+export type { Address, ContactDetail, CustomerData, User } from "./authServices";
 
 export interface Pagination {
     currentPage: number;
@@ -220,6 +187,40 @@ export const resendRegistrationOtp = async (
         const errorMessage =
             axiosError.response?.data?.message ||
             "Failed to resend OTP. Please try again.";
+        throw errorMessage;
+    }
+};
+
+export interface UpdateCustomerDataRequest {
+    billingAddress?: Partial<Address>[];
+    shippingAddress?: Partial<Address>[];
+    contactDetail?: Partial<ContactDetail>;
+    customerData?: Partial<
+        Omit<CustomerData, "address" | "businessInfo"> & {
+            address?: Partial<CustomerData["address"]>;
+            businessInfo?: Partial<CustomerData["businessInfo"]>;
+        }
+    >;
+}
+
+/**
+ * Update customer data for the currently authenticated user
+ * @param data Updated customer data fields
+ * @returns Promise with updated user data
+ */
+export const updateCustomerData = async (
+    data: UpdateCustomerDataRequest,
+): Promise<ApiSuccessResponse<{ user: User }>> => {
+    try {
+        const response = await apiClient.put<
+            ApiSuccessResponse<{ user: User }>
+        >("/users/customer-data", data);
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to update customer data. Please try again.";
         throw errorMessage;
     }
 };
