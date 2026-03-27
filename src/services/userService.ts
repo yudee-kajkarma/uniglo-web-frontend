@@ -191,6 +191,31 @@ export const resendRegistrationOtp = async (
     }
 };
 
+export interface DeleteAccountResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Permanently delete the currently authenticated user's account
+ * This action is irreversible.
+ * @returns Promise with success response
+ */
+export const deleteAccount = async (): Promise<DeleteAccountResponse> => {
+    try {
+        const response = await apiClient.delete<DeleteAccountResponse>(
+            "/users/delete-account",
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to delete account. Please try again.";
+        throw errorMessage;
+    }
+};
+
 export interface UpdateCustomerDataRequest {
     billingAddress?: Partial<Address>[];
     shippingAddress?: Partial<Address>[];

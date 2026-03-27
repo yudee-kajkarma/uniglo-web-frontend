@@ -5,12 +5,21 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { sendOtp, updatePassword } from "@/services/otpServices";
 import {
+    deleteAccount,
     disableAccount,
     updateCustomerData,
     UpdateCustomerDataRequest,
 } from "@/services/userService";
 import { toast } from "sonner";
-import { Eye, EyeOff, Pencil, Save, X } from "lucide-react";
+import {
+    AlertTriangle,
+    Eye,
+    EyeOff,
+    Pencil,
+    Save,
+    Trash2,
+    X,
+} from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -59,6 +68,18 @@ export default function ProfilePage() {
     // Disable account states
     const [isDisableDialogOpen, setIsDisableDialogOpen] = useState(false);
     const [isDisablingAccount, setIsDisablingAccount] = useState(false);
+
+    // Delete account states
+    const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+    const [deleteStep, setDeleteStep] = useState<1 | 2 | 3>(1);
+    const [isDeletingAccount, setIsDeletingAccount] = useState(false);
+    const [deleteConfirmations, setDeleteConfirmations] = useState({
+        understand: false,
+        noRecovery: false,
+        loseData: false,
+        loseAccess: false,
+    });
+    const [deleteConfirmText, setDeleteConfirmText] = useState("");
 
     // Edit mode states
     const [isEditing, setIsEditing] = useState(false);
@@ -115,8 +136,7 @@ export default function ProfilePage() {
                         user.customerData?.businessInfo?.companyName || "",
                     businessType:
                         user.customerData?.businessInfo?.businessType || "",
-                    vatNumber:
-                        user.customerData?.businessInfo?.vatNumber || "",
+                    vatNumber: user.customerData?.businessInfo?.vatNumber || "",
                     websiteUrl:
                         user.customerData?.businessInfo?.websiteUrl || "",
                 },
@@ -297,6 +317,43 @@ export default function ProfilePage() {
         }
     };
 
+    // Delete account helpers
+    const allDeleteConfirmationsChecked =
+        Object.values(deleteConfirmations).every(Boolean);
+
+    const handleCloseDeleteDialog = () => {
+        setIsDeleteDialogOpen(false);
+        setDeleteStep(1);
+        setDeleteConfirmations({
+            understand: false,
+            noRecovery: false,
+            loseData: false,
+            loseAccess: false,
+        });
+        setDeleteConfirmText("");
+    };
+
+    const handleDeleteAccount = async () => {
+        if (!allDeleteConfirmationsChecked || deleteConfirmText !== "DELETE")
+            return;
+
+        setIsDeletingAccount(true);
+        try {
+            await deleteAccount();
+            toast.success("Your account has been permanently deleted.");
+            handleCloseDeleteDialog();
+            logout();
+        } catch (error) {
+            toast.error(
+                typeof error === "string"
+                    ? error
+                    : "Failed to delete account. Please try again.",
+            );
+        } finally {
+            setIsDeletingAccount(false);
+        }
+    };
+
     if (loading) {
         return (
             <div className="min-h-screen bg-brand-gradient flex items-center justify-center">
@@ -340,7 +397,7 @@ export default function ProfilePage() {
                                 <button
                                     onClick={handleSaveChanges}
                                     disabled={isSaving}
-                                    className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                                    className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 justify-center"
                                 >
                                     <Save size={16} />
                                     <span>
@@ -374,14 +431,25 @@ export default function ProfilePage() {
                                     <span>Change Password</span>
                                 </button>
                                 {user.role == "USER" && (
-                                    <button
-                                        onClick={() =>
-                                            setIsDisableDialogOpen(true)
-                                        }
-                                        className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
-                                    >
-                                        Disable Account
-                                    </button>
+                                    <>
+                                        <button
+                                            onClick={() =>
+                                                setIsDisableDialogOpen(true)
+                                            }
+                                            className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg"
+                                        >
+                                            Disable Account
+                                        </button>
+                                        <button
+                                            onClick={() =>
+                                                setIsDeleteDialogOpen(true)
+                                            }
+                                            className="purple-reveal-btn px-4 py-2.5 font-lato font-semibold transition-all duration-300 hover:shadow-lg flex items-center gap-2 justify-center"
+                                        >
+                                            <Trash2 size={16} />
+                                            Delete Account
+                                        </button>
+                                    </>
                                 )}
                             </>
                         )}
@@ -698,7 +766,8 @@ export default function ProfilePage() {
                                         value={
                                             user.customerData?.birthDate
                                                 ? new Date(
-                                                      user.customerData.birthDate,
+                                                      user.customerData
+                                                          .birthDate,
                                                   ).toLocaleDateString()
                                                 : "N/A"
                                         }
@@ -1554,6 +1623,265 @@ export default function ProfilePage() {
                                 : "Yes, Disable My Account"}
                         </button>
                     </DialogFooter>
+                </DialogContent>
+            </Dialog>
+
+            {/* Delete Account Dialog */}
+            <Dialog
+                open={isDeleteDialogOpen}
+                onOpenChange={(open) => {
+                    if (!open) handleCloseDeleteDialog();
+                    else setIsDeleteDialogOpen(true);
+                }}
+            >
+                <DialogContent className="bg-primary-purple-dark border-red-500/30 text-white max-w-lg">
+                    <DialogHeader>
+                        <DialogTitle className="text-red-400 font-cormorantGaramond text-2xl flex items-center gap-2">
+                            <AlertTriangle size={24} />
+                            {deleteStep === 1 && "Delete Account"}
+                            {deleteStep === 2 && "Confirm Account Deletion"}
+                            {deleteStep === 3 && "Final Confirmation"}
+                        </DialogTitle>
+                    </DialogHeader>
+
+                    {/* Step 1: Recommend deactivation first */}
+                    {deleteStep === 1 && (
+                        <div className="space-y-4 py-2">
+                            <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
+                                <h3 className="text-yellow-400 font-lato font-semibold mb-2">
+                                    Consider Disabling Instead
+                                </h3>
+                                <p className="text-primary-yellow-2 font-lato text-sm leading-relaxed">
+                                    Before deleting your account permanently,
+                                    you can choose to
+                                    <strong className="text-yellow-400">
+                                        {" "}
+                                        disable{" "}
+                                    </strong>
+                                    it instead. A disabled account:
+                                </p>
+                                <ul className="mt-2 space-y-1 text-sm text-primary-yellow-2 font-lato">
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-0.5">
+                                            &#10003;
+                                        </span>
+                                        Can be reactivated anytime by contacting
+                                        support
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-0.5">
+                                            &#10003;
+                                        </span>
+                                        Preserves all your data and history
+                                    </li>
+                                    <li className="flex items-start gap-2">
+                                        <span className="text-green-400 mt-0.5">
+                                            &#10003;
+                                        </span>
+                                        Keeps your account recoverable
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+                                <h3 className="text-red-400 font-lato font-semibold mb-2">
+                                    Permanent Deletion Warning
+                                </h3>
+                                <p className="text-primary-yellow-2 font-lato text-sm leading-relaxed">
+                                    Deleting your account is{" "}
+                                    <strong className="text-red-400">
+                                        permanent and irreversible
+                                    </strong>
+                                    . All your data, order history, saved
+                                    preferences, and account information will be
+                                    permanently erased and cannot be recovered.
+                                </p>
+                            </div>
+                            <DialogFooter className="flex gap-2 pt-2">
+                                <button
+                                    onClick={handleCloseDeleteDialog}
+                                    className="px-5 py-2 border border-primary-yellow-1/30 text-primary-yellow-2 rounded-lg font-lato font-semibold hover:bg-white/5 transition-all"
+                                >
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={() => {
+                                        handleCloseDeleteDialog();
+                                        setIsDisableDialogOpen(true);
+                                    }}
+                                    className="px-5 py-2 bg-yellow-500/20 border border-yellow-500 text-yellow-400 rounded-lg font-lato font-semibold hover:bg-yellow-500/30 transition-all"
+                                >
+                                    Disable Instead
+                                </button>
+                                <button
+                                    onClick={() => setDeleteStep(2)}
+                                    className="px-5 py-2 bg-red-500/20 border border-red-500 text-red-400 rounded-lg font-lato font-semibold hover:bg-red-500/30 transition-all"
+                                >
+                                    Continue to Delete
+                                </button>
+                            </DialogFooter>
+                        </div>
+                    )}
+
+                    {/* Step 2: Confirmation checkboxes */}
+                    {deleteStep === 2 && (
+                        <div className="space-y-4 py-2">
+                            <p className="text-primary-yellow-2 font-lato text-sm">
+                                Please acknowledge each of the following to
+                                proceed:
+                            </p>
+                            <div className="space-y-3">
+                                <label className="flex items-start gap-3 cursor-pointer group">
+                                    <input
+                                        type="checkbox"
+                                        checked={deleteConfirmations.understand}
+                                        onChange={(e) =>
+                                            setDeleteConfirmations((prev) => ({
+                                                ...prev,
+                                                understand: e.target.checked,
+                                            }))
+                                        }
+                                        className="mt-1 h-4 w-4 rounded border-red-500/50 bg-white/10 text-red-500 focus:ring-red-500 accent-red-500 shrink-0"
+                                    />
+                                    <span className="text-sm text-primary-yellow-2 font-lato group-hover:text-white transition-colors">
+                                        I understand that deleting my account is{" "}
+                                        <strong className="text-red-400">
+                                            permanent and cannot be undone
+                                        </strong>
+                                        .
+                                    </span>
+                                </label>
+                                <label className="flex items-start gap-3 cursor-pointer group">
+                                    <input
+                                        type="checkbox"
+                                        checked={deleteConfirmations.noRecovery}
+                                        onChange={(e) =>
+                                            setDeleteConfirmations((prev) => ({
+                                                ...prev,
+                                                noRecovery: e.target.checked,
+                                            }))
+                                        }
+                                        className="mt-1 h-4 w-4 rounded border-red-500/50 bg-white/10 text-red-500 focus:ring-red-500 accent-red-500 shrink-0"
+                                    />
+                                    <span className="text-sm text-primary-yellow-2 font-lato group-hover:text-white transition-colors">
+                                        I acknowledge that my account{" "}
+                                        <strong className="text-red-400">
+                                            cannot be recovered
+                                        </strong>{" "}
+                                        after deletion, even by contacting
+                                        support.
+                                    </span>
+                                </label>
+                                <label className="flex items-start gap-3 cursor-pointer group">
+                                    <input
+                                        type="checkbox"
+                                        checked={deleteConfirmations.loseData}
+                                        onChange={(e) =>
+                                            setDeleteConfirmations((prev) => ({
+                                                ...prev,
+                                                loseData: e.target.checked,
+                                            }))
+                                        }
+                                        className="mt-1 h-4 w-4 rounded border-red-500/50 bg-white/10 text-red-500 focus:ring-red-500 accent-red-500 shrink-0"
+                                    />
+                                    <span className="text-sm text-primary-yellow-2 font-lato group-hover:text-white transition-colors">
+                                        I understand that all my{" "}
+                                        <strong className="text-red-400">
+                                            data, order history, saved items,
+                                            and preferences
+                                        </strong>{" "}
+                                        will be permanently erased.
+                                    </span>
+                                </label>
+                                <label className="flex items-start gap-3 cursor-pointer group">
+                                    <input
+                                        type="checkbox"
+                                        checked={deleteConfirmations.loseAccess}
+                                        onChange={(e) =>
+                                            setDeleteConfirmations((prev) => ({
+                                                ...prev,
+                                                loseAccess: e.target.checked,
+                                            }))
+                                        }
+                                        className="mt-1 h-4 w-4 rounded border-red-500/50 bg-white/10 text-red-500 focus:ring-red-500 accent-red-500 shrink-0"
+                                    />
+                                    <span className="text-sm text-primary-yellow-2 font-lato group-hover:text-white transition-colors">
+                                        I will{" "}
+                                        <strong className="text-red-400">
+                                            lose access to all services
+                                        </strong>{" "}
+                                        associated with this account
+                                        immediately.
+                                    </span>
+                                </label>
+                            </div>
+                            <DialogFooter className="flex gap-2 pt-2">
+                                <button
+                                    onClick={() => setDeleteStep(1)}
+                                    className="px-5 py-2 border border-primary-yellow-1/30 text-primary-yellow-2 rounded-lg font-lato font-semibold hover:bg-white/5 transition-all"
+                                >
+                                    Back
+                                </button>
+                                <button
+                                    onClick={() => setDeleteStep(3)}
+                                    disabled={!allDeleteConfirmationsChecked}
+                                    className="px-5 py-2 bg-red-500/20 border border-red-500 text-red-400 rounded-lg font-lato font-semibold hover:bg-red-500/30 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                                >
+                                    Proceed
+                                </button>
+                            </DialogFooter>
+                        </div>
+                    )}
+
+                    {/* Step 3: Type DELETE to confirm */}
+                    {deleteStep === 3 && (
+                        <div className="space-y-4 py-2">
+                            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4">
+                                <p className="text-red-400 font-lato text-sm font-semibold text-center">
+                                    This is your last chance to turn back.
+                                </p>
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-sm font-lato text-primary-yellow-2">
+                                    Type{" "}
+                                    <strong className="text-red-400 font-mono">
+                                        DELETE
+                                    </strong>{" "}
+                                    to confirm permanent account deletion:
+                                </label>
+                                <input
+                                    type="text"
+                                    value={deleteConfirmText}
+                                    onChange={(e) =>
+                                        setDeleteConfirmText(e.target.value)
+                                    }
+                                    placeholder="Type DELETE here"
+                                    className="w-full px-4 py-2 bg-white/10 border border-red-500/30 rounded-lg text-white placeholder-primary-yellow-2/50 focus:outline-none focus:ring-2 focus:ring-red-500 font-lato font-mono tracking-widest"
+                                    autoComplete="off"
+                                />
+                            </div>
+                            <DialogFooter className="flex gap-2 pt-2">
+                                <button
+                                    onClick={() => setDeleteStep(2)}
+                                    disabled={isDeletingAccount}
+                                    className="px-5 py-2 border border-primary-yellow-1/30 text-primary-yellow-2 rounded-lg font-lato font-semibold hover:bg-white/5 transition-all disabled:opacity-50"
+                                >
+                                    Back
+                                </button>
+                                <button
+                                    onClick={handleDeleteAccount}
+                                    disabled={
+                                        isDeletingAccount ||
+                                        deleteConfirmText !== "DELETE"
+                                    }
+                                    className="px-5 py-2 bg-red-600 border border-red-500 text-white rounded-lg font-lato font-semibold hover:bg-red-700 transition-all disabled:opacity-30 disabled:cursor-not-allowed"
+                                >
+                                    {isDeletingAccount
+                                        ? "Deleting..."
+                                        : "Permanently Delete My Account"}
+                                </button>
+                            </DialogFooter>
+                        </div>
+                    )}
                 </DialogContent>
             </Dialog>
 
