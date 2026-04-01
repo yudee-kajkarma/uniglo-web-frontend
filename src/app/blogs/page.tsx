@@ -56,26 +56,6 @@ const blogs = [
         slug: "how-to-measure-ring-size-at-home",
     },
     {
-        id: 5,
-        title: "How Uniglo Diamonds Supplies Certified Lab Grown Diamonds Through Nivoda",
-        author: "Uniglo Diamonds",
-        date: "March 20, 2026",
-        image: NivodaBlogImage,
-        excerpt:
-            "Discover how Uniglo Diamonds operates as a verified Nivoda supplier, offering direct Antwerp manufacturer pricing, tri-certification, and 30+ years of diamond expertise through the platform.",
-        slug: "uniglo-diamonds-nivoda-lab-grown-diamond-supply",
-    },
-    {
-        id: 6,
-        title: "Uniglo Diamonds on Nivoda — IGI GIA HRD Certified Lab Grown",
-        author: "Uniglo Diamonds",
-        date: "March 20, 2026",
-        image: tamperprofseal,
-        excerpt:
-            "Find IGI, GIA & HRD certified lab grown diamonds from Uniglo Diamonds on Nivoda — Antwerp's only tri-certified manufacturer. Verify every stone independently before you buy.",
-        slug: "uniglo-diamonds-nivoda-igi-gia-hrd-certified",
-    },
-    {
         id: 7,
         title: "3 Carat Diamond Ring Guide: Price, Size, Quality & Buying Tips (2026)",
         author: "Uniglo Diamonds",

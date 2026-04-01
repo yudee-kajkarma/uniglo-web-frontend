@@ -78,10 +78,6 @@ const NAV_LINKS = [
         hasDropdown: true,
         submenuItems: [
             {
-                name: "Uniglo Diamonds on nivoda",
-                href: "/uniglo-diamonds-on-nivoda",
-            },
-            {
                 name: "Uniglo Diamonds on Rapnet",
                 href: "/uniglo-diamonds-on-rapnet",
             },
