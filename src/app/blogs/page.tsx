@@ -65,6 +65,16 @@ const blogs = [
             "Discover 3 carat diamond ring price, size, quality & buying tips. Compare lab-grown vs natural diamonds and choose the perfect ring easily.",
         slug: "3-carat-diamond-ring-guide",
     },
+    {
+        id: 8,
+        title: "Radiant Cut Diamond: The Ultimate Guide to the Most Brilliant Diamond Shape",
+        author: "Uniglo Diamonds",
+        date: "April 3, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Discover radiant cut diamonds—brilliant sparkle, elegant shape, and buying tips. Learn why this hybrid cut is perfect for modern engagement rings.",
+        slug: "radiant-cut-diamond-guide",
+    },
 ];
 
 const page = () => {
