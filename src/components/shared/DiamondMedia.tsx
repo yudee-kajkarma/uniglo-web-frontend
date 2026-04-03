@@ -1,18 +1,20 @@
 import { Diamond, PublicDiamond } from "@/interface/diamondInterface";
 import { Gem, ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 
 export const DiamondImage = ({
     diamond,
     showdefault,
     showVideo = false,
     showCarousel = false,
+    showStill = true,
 }: {
     diamond?: Diamond | PublicDiamond;
     showdefault?: boolean;
     showVideo?: boolean;
     showCarousel?: boolean;
+    showStill?: boolean;
 }) => {
     const [error, setError] = useState(false);
     const [videoError, setVideoError] = useState(false);
@@ -20,12 +22,37 @@ export const DiamondImage = ({
     const [carouselIndex, setCarouselIndex] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
 
-    const imageUrls = diamond?.imageUrls;
-    const hasImages = imageUrls && imageUrls.length > 0;
-    const hasMultipleImages = imageUrls && imageUrls.length > 1;
+    const rawImageUrls = diamond?.imageUrls || [];
+
+    // Filter and sort the images
+    const imageUrls = useMemo(() => {
+        if (!rawImageUrls.length) return [];
+
+        // 1. Filter out all URLs that contain "small"
+        const filtered = rawImageUrls.filter((url) => !url.includes("small"));
+
+        // 2. Find the index of the "still.jpg" image
+        const stillIndex = filtered.findIndex((url) => url.includes("still"));
+
+        // 3. If found and it's not already at the front, move it to index 0
+        if (stillIndex > 0) {
+            const [stillImage] = filtered.splice(stillIndex, 1);
+            filtered.unshift(stillImage);
+        }
+
+        return filtered;
+    }, [rawImageUrls]);
+
+    const hasImages = imageUrls.length > 0;
+    const hasMultipleImages = imageUrls.length > 1;
     const videoUrl = diamond?.videoUrls?.[0];
     const videoLink = diamond?.videoLink;
     const webLink = diamond?.webLink;
+
+    // Isolate the exact "still" image, avoiding "still_small"
+    const stillImageUrl = imageUrls.find(
+        (url) => url.includes("still") && !url.includes("small"),
+    );
 
     // Reset loading state when carousel image changes
     useEffect(() => {
@@ -82,8 +109,8 @@ export const DiamondImage = ({
         );
     }
 
-    // 2. Show carousel if showCarousel is true and multiple images exist
-    if (showCarousel && hasMultipleImages) {
+    // 2. Show carousel if requested, multiple images exist, AND showStill is false
+    if (showCarousel && hasMultipleImages && !showStill) {
         return (
             <div className="relative w-full h-full flex items-center justify-center">
                 <LoadingOverlay />
@@ -150,8 +177,13 @@ export const DiamondImage = ({
         );
     }
 
-    // 3. Show single image: prefer imageUrls[0], fallback to webLink
-    const src = hasImages ? imageUrls[0] : webLink;
+    // 3. Show single image (Prioritize specific still image if prop is true, then default)
+    const src =
+        showStill && stillImageUrl
+            ? stillImageUrl
+            : hasImages
+              ? imageUrls[0]
+              : webLink;
 
     if (!src || error) {
         if (showdefault) {

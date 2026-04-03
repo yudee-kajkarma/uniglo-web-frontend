@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
             },
             {
                 protocol: "https",
+                hostname: "storageassets.ams3.cdn.digitaloceanspaces.com",
+            },
+            {
+                protocol: "https",
                 hostname: "**.diamondservices.co.uk",
             },
         ],
