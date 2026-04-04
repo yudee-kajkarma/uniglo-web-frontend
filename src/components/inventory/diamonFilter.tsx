@@ -97,7 +97,6 @@ const COLORS: DiamondColor[] = [
     "D",
     "E",
     "F",
-    "E-F",
     "G",
     "H",
     "I",
@@ -118,13 +117,13 @@ const COLORS: DiamondColor[] = [
     "X",
     "Y",
     "Z",
-    "N-O",
-    "OP",
-    "QR",
-    "ST",
-    "UV",
-    "WX",
-    "YZ",
+    // "N-O",
+    // "OP",
+    // "QR",
+    // "ST",
+    // "UV",
+    // "WX",
+    // "YZ",
 ];
 
 const FANCY_COLORS = [
@@ -377,8 +376,12 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
     const { isAuthenticated } = useAuth();
 
     // Local string state for carat inputs
-    const [localCaratMin, setLocalCaratMin] = React.useState(String(filters.caratRange[0]));
-    const [localCaratMax, setLocalCaratMax] = React.useState(String(filters.caratRange[1]));
+    const [localCaratMin, setLocalCaratMin] = React.useState(
+        String(filters.caratRange[0]),
+    );
+    const [localCaratMax, setLocalCaratMax] = React.useState(
+        String(filters.caratRange[1]),
+    );
 
     React.useEffect(() => {
         setLocalCaratMin(String(filters.caratRange[0]));
