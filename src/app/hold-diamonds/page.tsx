@@ -7,7 +7,14 @@ import {
     clearCart,
 } from "@/services/cartService";
 import { CartItem } from "@/interface/diamondInterface";
-import { Trash2, GitCompare, Loader2, AlertTriangle } from "lucide-react";
+import {
+    Trash2,
+    GitCompare,
+    Loader2,
+    AlertTriangle,
+    Download,
+} from "lucide-react";
+import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -118,6 +125,19 @@ export default function HoldDiamondsPage() {
                         Compare stone{" "}
                         {selectedIds.length > 0 && `(${selectedIds.length})`}
                     </span>
+                </button>
+                <button
+                    className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={holdItems.length === 0}
+                    onClick={() =>
+                        exportDiamondsToExcel(
+                            holdItems.map((item) => item.diamond),
+                            "hold-diamonds",
+                        )
+                    }
+                >
+                    <Download className="w-4 h-4" />
+                    <span>Export to Excel</span>
                 </button>
             </div>
 

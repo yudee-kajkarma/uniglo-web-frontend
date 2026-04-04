@@ -137,6 +137,9 @@ const ADMIN_NAV_LINKS = [
         href: "/sell-diamonds-requests",
         icon: FormInputIcon,
     },
+    { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
+    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
 ];
 
@@ -153,6 +156,9 @@ const SUPER_ADMIN_NAV_LINKS = [
         href: "/sell-diamonds-form-requests",
         icon: FormInputIcon,
     },
+    { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
+    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
 ];
 

@@ -19,6 +19,7 @@ import {
     AlertTriangle,
     Clock,
 } from "lucide-react";
+import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -226,6 +227,20 @@ export default function CartPage() {
                         Compare stone{" "}
                         {selectedIds.length > 0 && `(${selectedIds.length})`}
                     </span>
+                </button>
+
+                <button
+                    className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={cartItems.length === 0}
+                    onClick={() =>
+                        exportDiamondsToExcel(
+                            cartItems.map((item) => item.diamond),
+                            "cart-diamonds",
+                        )
+                    }
+                >
+                    <Download className="w-4 h-4" />
+                    <span>Export to Excel</span>
                 </button>
 
                 <AlertDialog

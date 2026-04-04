@@ -749,7 +749,7 @@ function InventoryContent() {
                         </Button>
 
                         {/* Cart - Only show for authenticated users */}
-                        {isAuthenticated && user?.role === "USER" && (
+                        {isAuthenticated && (
                             <Button
                                 variant="outline"
                                 className="text-sm"
@@ -775,7 +775,7 @@ function InventoryContent() {
                         )}
 
                         {/* Export - Only show for authenticated users */}
-                        {isAuthenticated && user?.role !== "USER" && (
+                        {isAuthenticated && (
                             <Button
                                 variant="outline"
                                 className="text-sm"

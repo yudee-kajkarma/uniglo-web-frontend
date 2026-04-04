@@ -570,69 +570,66 @@ export default function DiamondDetailView({
                                 )}
 
                             {/* Regular Hold Diamond - Only for regular users */}
-                            {!isPublic &&
-                                isDiamond(diamond) &&
-                                !isAdminOrSuperAdmin && (
-                                    <AlertDialog
-                                        open={showHoldDialog}
-                                        onOpenChange={setShowHoldDialog}
-                                    >
-                                        <AlertDialogTrigger asChild>
-                                            <Button
-                                                className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond disabled:opacity-50"
+                            {!isPublic && isDiamond(diamond) && (
+                                <AlertDialog
+                                    open={showHoldDialog}
+                                    onOpenChange={setShowHoldDialog}
+                                >
+                                    <AlertDialogTrigger asChild>
+                                        <Button
+                                            className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond disabled:opacity-50"
+                                            disabled={holdLoading}
+                                        >
+                                            <span className="flex items-center gap-2">
+                                                {holdLoading ? (
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                ) : (
+                                                    "Hold Diamond"
+                                                )}
+                                            </span>
+                                        </Button>
+                                    </AlertDialogTrigger>
+                                    <AlertDialogContent>
+                                        <AlertDialogHeader>
+                                            <AlertDialogMedia>
+                                                <Clock className="text-primary-purple" />
+                                            </AlertDialogMedia>
+                                            <AlertDialogTitle>
+                                                Hold this diamond?
+                                            </AlertDialogTitle>
+                                            <AlertDialogDescription>
+                                                This will reserve the diamond
+                                                for you temporarily. You can
+                                                view all your held diamonds in
+                                                the enquiry section.
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter>
+                                            <AlertDialogCancel
                                                 disabled={holdLoading}
                                             >
-                                                <span className="flex items-center gap-2">
-                                                    {holdLoading ? (
-                                                        <Loader2 className="w-4 h-4 animate-spin" />
-                                                    ) : (
-                                                        "Hold Diamond"
-                                                    )}
-                                                </span>
-                                            </Button>
-                                        </AlertDialogTrigger>
-                                        <AlertDialogContent>
-                                            <AlertDialogHeader>
-                                                <AlertDialogMedia>
-                                                    <Clock className="text-primary-purple" />
-                                                </AlertDialogMedia>
-                                                <AlertDialogTitle>
-                                                    Hold this diamond?
-                                                </AlertDialogTitle>
-                                                <AlertDialogDescription>
-                                                    This will reserve the
-                                                    diamond for you temporarily.
-                                                    You can view all your held
-                                                    diamonds in the enquiry
-                                                    section.
-                                                </AlertDialogDescription>
-                                            </AlertDialogHeader>
-                                            <AlertDialogFooter>
-                                                <AlertDialogCancel
-                                                    disabled={holdLoading}
-                                                >
-                                                    Cancel
-                                                </AlertDialogCancel>
-                                                <AlertDialogAction
-                                                    onClick={
-                                                        handleHoldDiamondConfirm
-                                                    }
-                                                    disabled={holdLoading}
-                                                    className="rounded-sm"
-                                                >
-                                                    {holdLoading ? (
-                                                        <>
-                                                            <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                                            Holding...
-                                                        </>
-                                                    ) : (
-                                                        "Hold Diamond"
-                                                    )}
-                                                </AlertDialogAction>
-                                            </AlertDialogFooter>
-                                        </AlertDialogContent>
-                                    </AlertDialog>
-                                )}
+                                                Cancel
+                                            </AlertDialogCancel>
+                                            <AlertDialogAction
+                                                onClick={
+                                                    handleHoldDiamondConfirm
+                                                }
+                                                disabled={holdLoading}
+                                                className="rounded-sm"
+                                            >
+                                                {holdLoading ? (
+                                                    <>
+                                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                                                        Holding...
+                                                    </>
+                                                ) : (
+                                                    "Hold Diamond"
+                                                )}
+                                            </AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
+                            )}
 
                             {/* Add to Cart - Only for authenticated users */}
                             {!isPublic && isDiamond(diamond) && (
