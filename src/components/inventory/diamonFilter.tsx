@@ -65,6 +65,7 @@ const SHAPES: { value: DiamondShape; label: string; icon: string }[] = [
     { value: "OV", label: "Oval", icon: "/shapes/Oval-Diamond.png" },
     { value: "EM", label: "Emerald", icon: "/shapes/emerald-diamond.png" },
     { value: "MQ", label: "Marquise", icon: "/shapes/marquise-diamond.png" },
+    { value: "RA", label: "Radiant", icon: "/shapes/radiant-diamond.png" },
     { value: "HT", label: "Heart", icon: "/shapes/heart.png" },
     { value: "Asscher", label: "Asscher", icon: "/shapes/asscher-diamond.png" },
     { value: "CU", label: "Cushion", icon: "/shapes/cushion-diamond.png" },
@@ -74,6 +75,11 @@ const SHAPES: { value: DiamondShape; label: string; icon: string }[] = [
         icon: "/shapes/old-european-diamond.png",
     },
     { value: "OMB", label: "Old Mine", icon: "/shapes/old-mine-diamond.png" },
+    {
+        value: "SE",
+        label: "Square Emerald",
+        icon: "/shapes/square-emerald.png",
+    },
     { value: "Other", label: "Other", icon: "/shapes/other-diamond.png" },
 ];
 
@@ -407,7 +413,7 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
         ({ variant }: { variant: boolean }) => {
             return (
                 <div
-                    className={`grid ${variant ? "grid-cols-2  sm:grid-cols-4 " : "grid-cols-6"} gap-2`}
+                    className={`grid ${variant ? "grid-cols-2  sm:grid-cols-4 " : "grid-cols-7"} gap-2`}
                 >
                     {SHAPES.map((shape) => (
                         <TooltipProvider key={shape.value}>

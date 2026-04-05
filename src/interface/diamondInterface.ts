@@ -10,6 +10,8 @@ export type DiamondShape =
     | "MQ" // Marquise
     | "RA" // Radiant
     | "HT" // Heart
+    | "SE" // Square Emerald
+    | "SQE" // Square Emerald
     | "Asscher" // Asscher
     | "Oeb" // European
     | "OMB" // Old Mine
@@ -216,10 +218,12 @@ export const getShapeFullName = (shapeCode: DiamondShape | string): string => {
         MQ: "Marquise",
         RA: "Radiant",
         HT: "Heart",
+        SE: "Square Emerald",
         Asscher: "Asscher",
         Oeb: "European",
         OMB: "Old Mine",
         Other: "Other",
+        SQE: "Square Emerald",
     };
     if (typeof shapeCode === "string" && shapeCode in shapeMap) {
         return shapeMap[shapeCode as DiamondShape];
