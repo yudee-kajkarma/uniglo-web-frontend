@@ -53,7 +53,7 @@ const EducationSidebar = ({
                                     className="flex items-center justify-between text-slate-700 hover:text-[#bb923a] transition-colors py-1 lg:py-2"
                                 >
                                     <div className="flex items-center gap-4">
-                                        <span className="hidden lg:block w-2 h-2 rounded-full border border-current flex-shrink-0 group-hover:border-[#bb923a]"></span>
+                                        <span className="hidden lg:block w-2 h-2 rounded-full border border-current shrink-0 group-hover:border-[#bb923a]"></span>
                                         <span className="font-lora text-lg lg:text-sm lg:font-sans lg:font-semibold lg:tracking-wide underline lg:no-underline underline-offset-4">
                                             {link.title}
                                         </span>

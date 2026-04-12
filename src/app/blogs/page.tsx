@@ -75,6 +75,56 @@ const blogs = [
             "Discover radiant cut diamonds—brilliant sparkle, elegant shape, and buying tips. Learn why this hybrid cut is perfect for modern engagement rings.",
         slug: "radiant-cut-diamond-guide",
     },
+    {
+        id: 9,
+        title: "Oval Diamond Obsession: Why Everyone's Choosing It",
+        author: "Uniglo Diamonds",
+        date: "April 10, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Discover why oval diamonds are everyone's favorite. Learn about their elegance, flattering shape, and timeless appeal at Uniglo Jewels.",
+        slug: "oval-diamond-obsession",
+    },
+    {
+        id: 10,
+        title: 'The "Looks Expensive" Diamond Edit: 7 Jewelry Pieces That Instantly Upgrade Any Outfit',
+        author: "Uniglo Diamonds",
+        date: "April 10, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "Discover 7 diamond jewelry pieces that instantly upgrade any outfit. From studs to tennis bracelets, find timeless luxury at Uniglo Jewels.",
+        slug: "looks-expensive-diamond-edit",
+    },
+    {
+        id: 11,
+        title: "Jewellery That Speaks Love This Valentine's Day",
+        author: "Uniglo Diamonds",
+        date: "April 10, 2026",
+        image: BuyDiamondsOnlineBlog1,
+        excerpt:
+            "Discover jewellery that speaks love this Valentine's Day. Uniglo Jewels offers timeless, meaningful designs for every heart and every relationship.",
+        slug: "jewellery-that-speaks-love-valentines-day",
+    },
+    {
+        id: 12,
+        title: "Little Sparks, Forever Love: A Valentine's Day Story in Diamond & Lab-Grown Diamond",
+        author: "Uniglo Diamonds",
+        date: "April 10, 2026",
+        image: tamperprofseal,
+        excerpt:
+            "Discover diamond and lab-grown diamond jewelry for children this Valentine's Day. Uniglo Jewels offers meaningful gifts that grow with your little ones.",
+        slug: "little-sparks-forever-love-valentines-day",
+    },
+    {
+        id: 13,
+        title: "A Circle of Love: Celebrating Valentine's Day with Diamonds for Every Heart",
+        author: "Uniglo Diamonds",
+        date: "April 10, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "Celebrate Valentine's Day with diamonds for every heart. Discover diamond and lab-grown diamond jewelry for partners, parents, and children at Uniglo Jewels.",
+        slug: "circle-of-love-valentines-day-diamonds",
+    },
 ];
 
 const page = () => {
