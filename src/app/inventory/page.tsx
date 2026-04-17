@@ -10,10 +10,12 @@ import {
     ShoppingCart, // New (for Cart)
     Hand, // New (for Inquiry/Hand icon)
     Scale,
+    Plus,
 } from "lucide-react";
 import DataTable from "@/components/ui/table";
 import MelleDataTable from "@/components/ui/melleTable";
 import DiamondGrid from "@/components/ui/diamondGrid";
+import MelleDiamondGrid from "@/components/ui/melleDiamondGrid";
 import TablePagination from "@/components/ui/tablePagination";
 import { DiamondFilters } from "@/components/inventory/diamonFilter";
 import { MelleDiamondFilters } from "@/components/inventory/MelleDiamondFilter";
@@ -35,6 +37,8 @@ import {
     searchMelleDiamonds,
     fetchPublicMelleDiamonds,
 } from "@/services/melleDiamondService";
+import { MelleDiamondFormDialog } from "@/components/dialogs/MelleDiamondFormDialog";
+import { DeleteMelleDiamondDialog } from "@/components/dialogs/DeleteMelleDiamondDialog";
 import {
     MelleDiamond,
     MelleFilterOptions,
@@ -64,6 +68,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import DiamondDetailView from "@/components/inventory/DiamondDetailView";
+import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
 import { toast } from "sonner";
 import { addToCart } from "@/services/cartService";
 import { useAuth } from "@/context/AuthContext";
@@ -76,6 +81,7 @@ function InventoryContent() {
 
     // 2. Extract the View ID
     const viewId = searchParams.get("view");
+    const viewType = searchParams.get("type");
 
     const [data, setData] = useState<(Diamond | PublicDiamond)[]>([]);
     const [melleData, setMelleData] = useState<
@@ -146,6 +152,22 @@ function InventoryContent() {
     const [melleOptions, setMelleOptions] = useState<MelleFilterOptions | null>(
         null,
     );
+
+    // Melee selection (for cart / compare).
+    const [selectedMelle, setSelectedMelle] = useState<
+        (MelleDiamond | PublicMelleDiamond)[]
+    >([]);
+
+    // Admin mutation dialogs.
+    const [melleFormOpen, setMelleFormOpen] = useState(false);
+    const [melleFormTarget, setMelleFormTarget] = useState<
+        MelleDiamond | undefined
+    >(undefined);
+    const [melleDeleteTarget, setMelleDeleteTarget] =
+        useState<MelleDiamond | null>(null);
+
+    const isAdminOrSuperAdmin =
+        user?.role === "ADMIN" || user?.role === "SUPER_ADMIN";
 
     // Check if any filters are applied
     const hasActiveFilters = useCallback(() => {
@@ -516,6 +538,7 @@ function InventoryContent() {
         setIsMelee(false);
         setPage(1);
         setMelleData([]);
+        setSelectedMelle([]);
         setFilterState(updater);
     };
 
@@ -721,6 +744,79 @@ function InventoryContent() {
         }
     };
 
+    const handleViewMelleDetails = (
+        diamond: MelleDiamond | PublicMelleDiamond,
+    ) => {
+        if (diamond._id) {
+            router.push(
+                `${pathname}?view=${encodeURIComponent(diamond._id)}&type=melle`,
+            );
+        } else {
+            console.error("Melle diamond missing _id");
+        }
+    };
+
+    const openMelleCreate = () => {
+        setMelleFormTarget(undefined);
+        setMelleFormOpen(true);
+    };
+
+    const openMelleEdit = (d: MelleDiamond) => {
+        setMelleFormTarget(d);
+        setMelleFormOpen(true);
+    };
+
+    const openMelleDelete = (d: MelleDiamond) => {
+        setMelleDeleteTarget(d);
+    };
+
+    const handleMelleSaved = () => {
+        loadMelleData();
+    };
+
+    const handleMelleDeleted = (deletedId: string) => {
+        setMelleData((prev) => prev.filter((d) => d._id !== deletedId));
+        setSelectedMelle((prev) => prev.filter((d) => d._id !== deletedId));
+    };
+
+    const handleMelleAddToCart = async () => {
+        if (!isAuthenticated) {
+            toast.error("Please login to add items to cart");
+            router.push("/login");
+            return;
+        }
+        if (selectedMelle.length === 0) {
+            toast.warning("Please select melee diamonds to add to cart");
+            return;
+        }
+        setAddingToCart(true);
+        try {
+            const ids = selectedMelle
+                .filter((d): d is MelleDiamond => "_id" in d)
+                .map((d) => d._id);
+            await addToCart(ids);
+            toast.success("Selected melee diamonds added to cart");
+            setSelectedMelle([]);
+        } catch (error) {
+            toast.error(
+                typeof error === "string"
+                    ? error
+                    : "Failed to add melee diamonds to cart",
+            );
+        } finally {
+            setAddingToCart(false);
+        }
+    };
+
+    const handleMelleCompare = () => {
+        if (selectedMelle.length < 2) {
+            toast.warning("Please select at least 2 melee diamonds to compare");
+            return;
+        }
+        const ids = selectedMelle.map((d) => d._id).join(",");
+        router.push(`/compare?ids=${ids}&type=melle`);
+    };
+
     const handleSort = useCallback(
         (columnKey: string) => {
             setSortBy(columnKey);
@@ -739,6 +835,14 @@ function InventoryContent() {
 
     // 4. CONDITIONAL RENDER: If viewId exists, show Detail View
     if (viewId) {
+        if (viewType === "melle") {
+            return (
+                <MelleDiamondDetailView
+                    diamondId={viewId}
+                    isPublic={!isAuthenticated}
+                />
+            );
+        }
         return (
             <DiamondDetailView diamondId={viewId} isPublic={!isAuthenticated} />
         );
@@ -904,12 +1008,17 @@ function InventoryContent() {
                         <RotateCcw size={18} />
                     </button>
 
-                    {/* Cart / Compare are hidden in melee mode for v1. */}
-                    {isAuthenticated && !isMelee && (
+                    {isAuthenticated && (
                         <button
-                            onClick={handleAddToCart}
+                            onClick={
+                                isMelee
+                                    ? handleMelleAddToCart
+                                    : handleAddToCart
+                            }
                             className={`p-2 rounded-full border border-gray-100 bg-gray-100 ${
-                                selectedDiamonds.length > 0
+                                (isMelee
+                                    ? selectedMelle.length
+                                    : selectedDiamonds.length) > 0
                                     ? "text-primary-purple2 bg-purple-50"
                                     : "text-gray-500"
                             }`}
@@ -918,9 +1027,11 @@ function InventoryContent() {
                         </button>
                     )}
 
-                    {isAuthenticated && !isMelee && (
+                    {isAuthenticated && (
                         <button
-                            onClick={handleCompare}
+                            onClick={
+                                isMelee ? handleMelleCompare : handleCompare
+                            }
                             className="p-2 text-gray-500 bg-gray-200 hover:bg-gray-300 rounded-full"
                             title="Compare"
                         >
@@ -992,9 +1103,19 @@ function InventoryContent() {
                             <Filter /> Advanced Filters
                         </Button>
 
-                        {/* Cart / Compare / Export are hidden in melee mode
-                             until the backend supports those flows for
-                             melle diamonds. */}
+                        {/* Admin-only: create melee diamond */}
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                                onClick={openMelleCreate}
+                            >
+                                <Plus /> Add Melee Diamond
+                            </Button>
+                        )}
+
+                        {/* Cart — regular mode uses diamond cart; melee mode
+                             sends melle _ids to the same endpoint. */}
                         {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
@@ -1006,7 +1127,20 @@ function InventoryContent() {
                                     `(${selectedDiamonds.length})`}
                             </Button>
                         )}
+                        {isAuthenticated && isMelee && (
+                            <Button
+                                variant="outline"
+                                className="text-sm"
+                                onClick={handleMelleAddToCart}
+                                disabled={addingToCart}
+                            >
+                                <ShoppingCart /> Cart{" "}
+                                {selectedMelle.length > 0 &&
+                                    `(${selectedMelle.length})`}
+                            </Button>
+                        )}
 
+                        {/* Compare */}
                         {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
@@ -1016,6 +1150,17 @@ function InventoryContent() {
                                 <Scale /> Compare{" "}
                                 {selectedDiamonds.length > 0 &&
                                     `(${selectedDiamonds.length})`}
+                            </Button>
+                        )}
+                        {isAuthenticated && isMelee && (
+                            <Button
+                                variant="outline"
+                                className="text-sm"
+                                onClick={handleMelleCompare}
+                            >
+                                <Scale /> Compare{" "}
+                                {selectedMelle.length > 0 &&
+                                    `(${selectedMelle.length})`}
                             </Button>
                         )}
 
@@ -1124,15 +1269,34 @@ function InventoryContent() {
                             </div>
                         ) : isMelee ? (
                             melleData.length > 0 ? (
-                                isAuthenticated ? (
+                                view === "grid" ? (
+                                    <MelleDiamondGrid
+                                        data={melleData}
+                                        onViewDetails={handleViewMelleDetails}
+                                    />
+                                ) : isAuthenticated ? (
                                     <MelleDataTable
                                         data={melleData as MelleDiamond[]}
                                         columns={getMelleDiamondColumns(
-                                            () => {},
+                                            handleViewMelleDetails,
                                             handleSort,
                                             sortBy,
                                             sortOrder,
+                                            isAdminOrSuperAdmin
+                                                ? {
+                                                      onEdit: openMelleEdit,
+                                                      onDelete:
+                                                          openMelleDelete,
+                                                  }
+                                                : undefined,
                                         )}
+                                        enableSelection
+                                        selected={
+                                            selectedMelle as MelleDiamond[]
+                                        }
+                                        onSelectionChange={(rows) =>
+                                            setSelectedMelle(rows)
+                                        }
                                     />
                                 ) : (
                                     <MelleDataTable
@@ -1140,7 +1304,7 @@ function InventoryContent() {
                                             melleData as PublicMelleDiamond[]
                                         }
                                         columns={getPublicMelleDiamondColumns(
-                                            () => {},
+                                            handleViewMelleDetails,
                                             handleSort,
                                             sortBy,
                                             sortOrder,
@@ -1294,6 +1458,27 @@ function InventoryContent() {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
+
+            {/* Melee admin dialogs */}
+            {isAuthenticated && isAdminOrSuperAdmin && (
+                <>
+                    <MelleDiamondFormDialog
+                        open={melleFormOpen}
+                        onOpenChange={setMelleFormOpen}
+                        diamond={melleFormTarget}
+                        options={melleOptions}
+                        onSuccess={handleMelleSaved}
+                    />
+                    <DeleteMelleDiamondDialog
+                        open={melleDeleteTarget !== null}
+                        onOpenChange={(open) =>
+                            !open && setMelleDeleteTarget(null)
+                        }
+                        diamond={melleDeleteTarget}
+                        onSuccess={handleMelleDeleted}
+                    />
+                </>
+            )}
         </div>
     );
 }

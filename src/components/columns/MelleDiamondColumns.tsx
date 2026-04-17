@@ -1,7 +1,8 @@
 // components/columns/MelleDiamondColumns.tsx
 import React from "react";
 import Link from "next/link";
-import { ArrowUp, ArrowDown, ArrowUpDown } from "lucide-react";
+import { ArrowUp, ArrowDown, ArrowUpDown, Pencil, Trash2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
     MelleDiamond,
     PublicMelleDiamond,
@@ -56,11 +57,17 @@ const formatRange = (min?: string, max?: string) => {
     return lo || hi || "N/A";
 };
 
+export interface MelleAdminHandlers {
+    onEdit: (diamond: MelleDiamond) => void;
+    onDelete: (diamond: MelleDiamond) => void;
+}
+
 export const getMelleDiamondColumns = (
     onViewDetails: (diamond: MelleDiamond) => void,
     onSort: (columnKey: string) => void,
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
+    adminHandlers?: MelleAdminHandlers,
 ): MelleColumn<MelleDiamond>[] => [
     {
         key: "stockId",
@@ -151,6 +158,39 @@ export const getMelleDiamondColumns = (
                 ? new Date(row.createdAt).toLocaleDateString()
                 : "N/A",
     },
+    ...(adminHandlers
+        ? [
+              {
+                  key: "actions",
+                  header: "Actions",
+                  render: (row: MelleDiamond) => (
+                      <div
+                          className="flex items-center gap-2"
+                          onClick={(e) => e.stopPropagation()}
+                      >
+                          <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => adminHandlers.onEdit(row)}
+                              className="h-7 px-2 text-xs border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                          >
+                              <Pencil className="w-3 h-3 mr-1" />
+                              Edit
+                          </Button>
+                          <Button
+                              size="sm"
+                              variant="outline"
+                              onClick={() => adminHandlers.onDelete(row)}
+                              className="h-7 px-2 text-xs border-red-400 text-red-600 hover:bg-red-50"
+                          >
+                              <Trash2 className="w-3 h-3 mr-1" />
+                              Delete
+                          </Button>
+                      </div>
+                  ),
+              } as MelleColumn<MelleDiamond>,
+          ]
+        : []),
 ];
 
 export const getPublicMelleDiamondColumns = (

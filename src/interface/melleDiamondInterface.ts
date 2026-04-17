@@ -66,6 +66,25 @@ export interface MelleFilterState {
     searchTerm: string | undefined;
 }
 
+// Body used to create a melle diamond. Server generates _id, stockId,
+// carat, createdAt, updatedAt, __v — do not send those.
+export interface CreateMelleDiamondBody {
+    shape: MelleShape;
+    price: number;
+    color: MelleColor;
+    clarity: MelleClarity;
+    avgPtr: number;
+    measurementMin: string;
+    measurementMax: string;
+    sieveMin: string;
+    sieveMax: string;
+    isLab: boolean;
+    melleCategory: MelleCategory;
+    cut?: MelleCut;
+}
+
+export type UpdateMelleDiamondBody = Partial<CreateMelleDiamondBody>;
+
 // Flattened params the service layer accepts. The service is responsible
 // for serializing into the Melle API's MIN/MAX suffix style.
 export interface MelleDiamondParams {

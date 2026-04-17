@@ -1,4 +1,5 @@
 import React from "react";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
     Tooltip,
     TooltipContent,
@@ -10,6 +11,9 @@ import { MelleColumn } from "@/components/columns/MelleDiamondColumns";
 interface MelleDataTableProps<T extends { _id: string }> {
     data: T[];
     columns: MelleColumn<T>[];
+    enableSelection?: boolean;
+    selected?: T[];
+    onSelectionChange?: (rows: T[]) => void;
 }
 
 const getTextContent = (content: React.ReactNode): string => {
@@ -28,7 +32,28 @@ const getTextContent = (content: React.ReactNode): string => {
 function MelleDataTable<T extends { _id: string }>({
     data,
     columns,
+    enableSelection = false,
+    selected = [],
+    onSelectionChange,
 }: MelleDataTableProps<T>) {
+    const allSelected = data.length > 0 && selected.length === data.length;
+    const someSelected = selected.length > 0 && selected.length < data.length;
+
+    const toggleSelectAll = () => {
+        if (!onSelectionChange) return;
+        onSelectionChange(allSelected ? [] : [...data]);
+    };
+
+    const toggleRow = (row: T) => {
+        if (!onSelectionChange) return;
+        const isSelected = selected.some((r) => r._id === row._id);
+        onSelectionChange(
+            isSelected
+                ? selected.filter((r) => r._id !== row._id)
+                : [...selected, row],
+        );
+    };
+
     return (
         <div
             className="w-full h-full overflow-auto rounded"
@@ -37,6 +62,21 @@ function MelleDataTable<T extends { _id: string }>({
             <table data-slot="table" className="min-w-[70vh] w-full text-left">
                 <thead className="sticky top-0 z-10 bg-primary-purple-dark border-b border-gray-200">
                     <tr className="data-[state=selected]:bg-muted border-b transition-colors">
+                        {enableSelection && (
+                            <th className="p-2 pl-5 h-10 text-left table-10px align-middle whitespace-nowrap font-semibold text-white">
+                                <Checkbox
+                                    className="border-white"
+                                    checked={
+                                        allSelected
+                                            ? true
+                                            : someSelected
+                                              ? "indeterminate"
+                                              : false
+                                    }
+                                    onCheckedChange={toggleSelectAll}
+                                />
+                            </th>
+                        )}
                         {columns.map((col) => (
                             <th
                                 key={col.key.toString()}
@@ -51,7 +91,9 @@ function MelleDataTable<T extends { _id: string }>({
                     {data.length === 0 ? (
                         <tr>
                             <td
-                                colSpan={columns.length}
+                                colSpan={
+                                    columns.length + (enableSelection ? 1 : 0)
+                                }
                                 className="text-center p-4 text-gray-500"
                             >
                                 No data available
@@ -63,6 +105,18 @@ function MelleDataTable<T extends { _id: string }>({
                                 key={row._id}
                                 className="cursor-pointer bg-white even:bg-primary-yellow-1/10 transition-colors"
                             >
+                                {enableSelection && (
+                                    <td className="p-2 pl-5 border-b">
+                                        <Checkbox
+                                            checked={selected.some(
+                                                (r) => r._id === row._id,
+                                            )}
+                                            onCheckedChange={() =>
+                                                toggleRow(row)
+                                            }
+                                        />
+                                    </td>
+                                )}
                                 {columns.map((col) => {
                                     const cellContent = col.render
                                         ? col.render(row)

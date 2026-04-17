@@ -1,10 +1,12 @@
 // services/melleDiamondService.ts
 import apiClient from "@/lib/api";
 import {
+    CreateMelleDiamondBody,
     MelleDiamond,
     MelleDiamondParams,
     MelleFilterOptions,
     PublicMelleDiamond,
+    UpdateMelleDiamondBody,
 } from "@/interface/melleDiamondInterface";
 
 interface ApiPagination {
@@ -180,4 +182,42 @@ export const fetchMelleDiamondById = async (
         throw new Error(res.data.message || "Melle diamond not found");
     }
     return res.data.data;
+};
+
+// Admin-only mutations.
+
+export const createMelleDiamond = async (
+    body: CreateMelleDiamondBody,
+): Promise<MelleDiamond> => {
+    const res = await apiClient.post<ItemResponse<MelleDiamond>>(
+        `/melle-diamonds`,
+        body,
+    );
+    if (!res.data.success) {
+        throw new Error(res.data.message || "Failed to create melle diamond");
+    }
+    return res.data.data;
+};
+
+export const updateMelleDiamond = async (
+    id: string,
+    body: UpdateMelleDiamondBody,
+): Promise<MelleDiamond> => {
+    const res = await apiClient.put<ItemResponse<MelleDiamond>>(
+        `/melle-diamonds/${encodeURIComponent(id)}`,
+        body,
+    );
+    if (!res.data.success) {
+        throw new Error(res.data.message || "Failed to update melle diamond");
+    }
+    return res.data.data;
+};
+
+export const deleteMelleDiamond = async (id: string): Promise<void> => {
+    const res = await apiClient.delete<{ success: boolean; message: string }>(
+        `/melle-diamonds/${encodeURIComponent(id)}`,
+    );
+    if (!res.data.success) {
+        throw new Error(res.data.message || "Failed to delete melle diamond");
+    }
 };
