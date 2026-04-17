@@ -174,7 +174,7 @@ interface DiamondFilterSectionProps {
     wrapperClassName?: string;
 }
 
-const DiamondFilterSection: React.FC<DiamondFilterSectionProps> = ({
+export const DiamondFilterSection: React.FC<DiamondFilterSectionProps> = ({
     title,
     children,
     variant = "default",
@@ -239,7 +239,7 @@ const DiamondFilterSection: React.FC<DiamondFilterSectionProps> = ({
     );
 };
 
-const ToggleButton = ({
+export const ToggleButton = ({
     active,
     onClick,
     label,
@@ -264,7 +264,7 @@ const ToggleButton = ({
     </button>
 );
 
-const RangeSliderWithInputs = ({
+export const RangeSliderWithInputs = ({
     label,
     value,
     onChange,
