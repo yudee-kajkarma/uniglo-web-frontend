@@ -175,6 +175,7 @@ export const getAllUsersColumns = (
 ];
 
 export const UserDetailsRow = ({ user }: { user: PendingUser }) => {
+    const dateOfBirth = new Date(user.customerData.birthDate);
     return (
         <div className="bg-gray-50 p-6 border-t border-gray-200">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -192,6 +193,10 @@ export const UserDetailsRow = ({ user }: { user: PendingUser }) => {
                         />
                         <DetailItem label="Username" value={user.username} />
                         <DetailItem label="Email" value={user.email} />
+                        <DetailItem
+                            label="Date of Birth"
+                            value={dateOfBirth.toLocaleDateString()}
+                        />
                         <DetailItem
                             label="Phone"
                             value={

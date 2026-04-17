@@ -26,6 +26,7 @@ export interface CustomerData {
     address: Address;
     businessInfo: BusinessInfo;
     submittedAt: string;
+    birthDate: string;
 }
 
 export interface PendingUser {
