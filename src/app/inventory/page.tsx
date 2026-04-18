@@ -887,7 +887,7 @@ function InventoryContent() {
                     >
                         Lab Diamonds
                     </Button>
-                    <Button
+                    {/* <Button
                         variant={"ghost"}
                         onClick={handleEnterMeleeMode}
                         className={`text-white my-1 rounded-md hover:text-white transition-all ${
@@ -897,7 +897,7 @@ function InventoryContent() {
                         }`}
                     >
                         Melee Diamonds
-                    </Button>
+                    </Button> */}
                 </div>
                 {!isMelee && (
                     <div className="bg-white flex justify-start items-center gap-2">
@@ -1011,9 +1011,7 @@ function InventoryContent() {
                     {isAuthenticated && (
                         <button
                             onClick={
-                                isMelee
-                                    ? handleMelleAddToCart
-                                    : handleAddToCart
+                                isMelee ? handleMelleAddToCart : handleAddToCart
                             }
                             className={`p-2 rounded-full border border-gray-100 bg-gray-100 ${
                                 (isMelee
@@ -1285,8 +1283,7 @@ function InventoryContent() {
                                             isAdminOrSuperAdmin
                                                 ? {
                                                       onEdit: openMelleEdit,
-                                                      onDelete:
-                                                          openMelleDelete,
+                                                      onDelete: openMelleDelete,
                                                   }
                                                 : undefined,
                                         )}
@@ -1300,9 +1297,7 @@ function InventoryContent() {
                                     />
                                 ) : (
                                     <MelleDataTable
-                                        data={
-                                            melleData as PublicMelleDiamond[]
-                                        }
+                                        data={melleData as PublicMelleDiamond[]}
                                         columns={getPublicMelleDiamondColumns(
                                             handleViewMelleDetails,
                                             handleSort,
@@ -1369,22 +1364,22 @@ function InventoryContent() {
                     {/* 3. PAGINATION */}
                     {!loading &&
                         (isMelee ? melleData.length > 0 : data.length > 0) && (
-                        <div className="border-t p-2">
-                            <TablePagination
-                                total={totalCount}
-                                page={page}
-                                rowsPerPage={rowsPerPage}
-                                totalPages={totalPages}
-                                hasNextPage={hasNextPage}
-                                hasPrevPage={hasPrevPage}
-                                onPageChange={setPage}
-                                onRowsPerPageChange={(newRowsPerPage) => {
-                                    setRowsPerPage(newRowsPerPage);
-                                    setPage(1);
-                                }}
-                            />
-                        </div>
-                    )}
+                            <div className="border-t p-2">
+                                <TablePagination
+                                    total={totalCount}
+                                    page={page}
+                                    rowsPerPage={rowsPerPage}
+                                    totalPages={totalPages}
+                                    hasNextPage={hasNextPage}
+                                    hasPrevPage={hasPrevPage}
+                                    onPageChange={setPage}
+                                    onRowsPerPageChange={(newRowsPerPage) => {
+                                        setRowsPerPage(newRowsPerPage);
+                                        setPage(1);
+                                    }}
+                                />
+                            </div>
+                        )}
                 </CardContent>
             </Card>
             {/* Export Dialog */}
