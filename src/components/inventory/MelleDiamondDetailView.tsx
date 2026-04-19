@@ -10,9 +10,39 @@ import {
     Palette,
     Eye,
     GemIcon,
+    Clock,
+    Loader2,
+    MessageSquare,
 } from "lucide-react";
+import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogMedia,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog";
+import { AdminHoldDialog } from "@/components/admin-hold-dialog";
+import { useAuth } from "@/context/AuthContext";
 import { fetchMelleDiamondById } from "@/services/melleDiamondService";
+import { addMelleToCart, holdDiamond } from "@/services/cartService";
+import { createDiamondInquiry } from "@/services/inquiryService";
 import { MelleDiamond } from "@/interface/melleDiamondInterface";
 
 interface MelleDiamondDetailViewProps {
@@ -33,9 +63,22 @@ export default function MelleDiamondDetailView({
     isPublic = false,
 }: MelleDiamondDetailViewProps) {
     const router = useRouter();
+    const { user } = useAuth();
     const [diamond, setDiamond] = useState<MelleDiamond | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+
+    const [holdLoading, setHoldLoading] = useState(false);
+    const [cartLoading, setCartLoading] = useState(false);
+    const [showHoldDialog, setShowHoldDialog] = useState(false);
+    const [showAdminHoldDialog, setShowAdminHoldDialog] = useState(false);
+
+    const [showInquiryDialog, setShowInquiryDialog] = useState(false);
+    const [inquiryText, setInquiryText] = useState("");
+    const [inquiryLoading, setInquiryLoading] = useState(false);
+
+    const isAdminOrSuperAdmin =
+        user?.role === "ADMIN" || user?.role === "SUPER_ADMIN";
 
     useEffect(() => {
         let cancelled = false;
@@ -43,7 +86,7 @@ export default function MelleDiamondDetailView({
             try {
                 setLoading(true);
                 const id = decodeURIComponent(diamondId);
-                const data = await fetchMelleDiamondById(id);
+                const data = await fetchMelleDiamondById(id, isPublic);
                 if (cancelled) return;
                 setDiamond(data);
             } catch (err) {
@@ -57,7 +100,65 @@ export default function MelleDiamondDetailView({
         return () => {
             cancelled = true;
         };
-    }, [diamondId]);
+    }, [diamondId, isPublic]);
+
+    const handleHoldDiamondConfirm = async () => {
+        if (!diamond?.stockId) {
+            toast.error("Stock ID not available");
+            return;
+        }
+        try {
+            setHoldLoading(true);
+            const response = await holdDiamond([diamond.stockId]);
+            toast.success(response.message || "Diamond held successfully");
+            setShowHoldDialog(false);
+        } catch (err: any) {
+            toast.error(err || "Failed to hold diamond");
+        } finally {
+            setHoldLoading(false);
+        }
+    };
+
+    const handleAddToCart = async () => {
+        if (!diamond?._id) {
+            toast.error("Diamond ID not available");
+            return;
+        }
+        try {
+            setCartLoading(true);
+            const response = await addMelleToCart([diamond._id]);
+            toast.success(response.message);
+        } catch (err: any) {
+            toast.error(err || "Failed to add diamond to cart");
+        } finally {
+            setCartLoading(false);
+        }
+    };
+
+    const handleSubmitInquiry = async () => {
+        if (!diamond?.stockId) {
+            toast.error("Stock ID not available");
+            return;
+        }
+        if (!inquiryText.trim()) {
+            toast.error("Please enter your inquiry");
+            return;
+        }
+        try {
+            setInquiryLoading(true);
+            const response = await createDiamondInquiry({
+                stockRef: diamond.stockId,
+                query: inquiryText,
+            });
+            toast.success(response.message || "Inquiry submitted successfully");
+            setShowInquiryDialog(false);
+            setInquiryText("");
+        } catch (err: any) {
+            toast.error(err || "Failed to submit inquiry");
+        } finally {
+            setInquiryLoading(false);
+        }
+    };
 
     if (loading) {
         return (
@@ -158,8 +259,8 @@ export default function MelleDiamondDetailView({
                     <div className="lg:col-span-7 space-y-8">
                         <div className="border-b border-primary-yellow-2 pb-4">
                             <p className="text-gray-900 font-lato text-2xl mb-1">
-                                {diamond.shape} {diamond.color} {diamond.clarity}{" "}
-                                {diamond.cut}
+                                {diamond.shape} {diamond.color}{" "}
+                                {diamond.clarity} {diamond.cut}
                             </p>
                             <h1 className="text-md font-cormorantGaramond font-medium text-gray-900 mb-2 flex items-center gap-2">
                                 Stock ID:{" "}
@@ -230,16 +331,183 @@ export default function MelleDiamondDetailView({
                             </div>
                         </div>
 
-                        {isPublic && (
-                            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                            {!isPublic && (
+                                <Dialog
+                                    open={showInquiryDialog}
+                                    onOpenChange={setShowInquiryDialog}
+                                >
+                                    <DialogTrigger asChild>
+                                        <Button className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond disabled:opacity-50">
+                                            <span className="flex items-center gap-2">
+                                                <MessageSquare className="w-4 h-4" />
+                                                Enquiry
+                                            </span>
+                                        </Button>
+                                    </DialogTrigger>
+                                    <DialogContent>
+                                        <DialogHeader>
+                                            <DialogTitle>
+                                                Melee Diamond Inquiry
+                                            </DialogTitle>
+                                            <DialogDescription>
+                                                Submit your inquiry about this
+                                                melee diamond. Stock ID:{" "}
+                                                {diamond.stockId}
+                                            </DialogDescription>
+                                        </DialogHeader>
+                                        <div className="py-4">
+                                            <Textarea
+                                                placeholder="Type your inquiry here... (e.g., Is this lot available for immediate purchase?)"
+                                                value={inquiryText}
+                                                onChange={(e) =>
+                                                    setInquiryText(
+                                                        e.target.value,
+                                                    )
+                                                }
+                                                rows={6}
+                                                className="resize-none"
+                                            />
+                                        </div>
+                                        <DialogFooter>
+                                            <Button
+                                                variant="outline"
+                                                onClick={() => {
+                                                    setShowInquiryDialog(false);
+                                                    setInquiryText("");
+                                                }}
+                                                disabled={inquiryLoading}
+                                            >
+                                                Cancel
+                                            </Button>
+                                            <Button
+                                                onClick={handleSubmitInquiry}
+                                                disabled={
+                                                    inquiryLoading ||
+                                                    !inquiryText.trim()
+                                                }
+                                                className="rounded-sm"
+                                            >
+                                                {inquiryLoading ? (
+                                                    <>
+                                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                                                        Sending...
+                                                    </>
+                                                ) : (
+                                                    "Send Enquiry"
+                                                )}
+                                            </Button>
+                                        </DialogFooter>
+                                    </DialogContent>
+                                </Dialog>
+                            )}
+
+                            {!isPublic && isAdminOrSuperAdmin && (
+                                <>
+                                    <Button
+                                        className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond"
+                                        onClick={() =>
+                                            setShowAdminHoldDialog(true)
+                                        }
+                                    >
+                                        <span className="flex items-center gap-2">
+                                            <Clock className="w-4 h-4" />
+                                            Hold for User
+                                        </span>
+                                    </Button>
+                                    <AdminHoldDialog
+                                        open={showAdminHoldDialog}
+                                        onOpenChange={setShowAdminHoldDialog}
+                                        stockRef={diamond.stockId}
+                                    />
+                                </>
+                            )}
+
+                            {!isPublic && (
+                                <AlertDialog
+                                    open={showHoldDialog}
+                                    onOpenChange={setShowHoldDialog}
+                                >
+                                    <AlertDialogTrigger asChild>
+                                        <Button
+                                            className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond disabled:opacity-50"
+                                            disabled={holdLoading}
+                                        >
+                                            <span className="flex items-center gap-2">
+                                                {holdLoading ? (
+                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                ) : (
+                                                    "Hold Diamond"
+                                                )}
+                                            </span>
+                                        </Button>
+                                    </AlertDialogTrigger>
+                                    <AlertDialogContent>
+                                        <AlertDialogHeader>
+                                            <AlertDialogMedia>
+                                                <Clock className="text-primary-purple" />
+                                            </AlertDialogMedia>
+                                            <AlertDialogTitle>
+                                                Hold this melee diamond?
+                                            </AlertDialogTitle>
+                                            <AlertDialogDescription>
+                                                This will reserve the lot for
+                                                you temporarily. You can view
+                                                all your held diamonds in the
+                                                enquiry section.
+                                            </AlertDialogDescription>
+                                        </AlertDialogHeader>
+                                        <AlertDialogFooter>
+                                            <AlertDialogCancel
+                                                disabled={holdLoading}
+                                            >
+                                                Cancel
+                                            </AlertDialogCancel>
+                                            <AlertDialogAction
+                                                onClick={
+                                                    handleHoldDiamondConfirm
+                                                }
+                                                disabled={holdLoading}
+                                                className="rounded-sm"
+                                            >
+                                                {holdLoading ? (
+                                                    <>
+                                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                                                        Holding...
+                                                    </>
+                                                ) : (
+                                                    "Hold Diamond"
+                                                )}
+                                            </AlertDialogAction>
+                                        </AlertDialogFooter>
+                                    </AlertDialogContent>
+                                </AlertDialog>
+                            )}
+
+                            {!isPublic && (
+                                <Button
+                                    className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond disabled:opacity-50"
+                                    onClick={handleAddToCart}
+                                    disabled={cartLoading}
+                                >
+                                    <span className="flex items-center gap-2">
+                                        {cartLoading && (
+                                            <Loader2 className="w-4 h-4 animate-spin" />
+                                        )}
+                                        Add to Cart
+                                    </span>
+                                </Button>
+                            )}
+
+                            {isPublic && (
                                 <Button
                                     className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond"
                                     onClick={() => router.push("/login")}
                                 >
                                     <span>Login to Purchase</span>
                                 </Button>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
                 </div>
 

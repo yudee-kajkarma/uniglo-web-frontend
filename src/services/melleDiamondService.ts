@@ -174,9 +174,10 @@ export const fetchMelleFilterOptions =
 
 export const fetchMelleDiamondById = async (
     id: string,
+    isPublic = false,
 ): Promise<MelleDiamond> => {
     const res = await apiClient.get<ItemResponse<MelleDiamond>>(
-        `/melle-diamonds/${encodeURIComponent(id)}`,
+        `/melle-diamonds/${isPublic ? "safe/" : ""}${encodeURIComponent(id)}`,
     );
     if (!res.data.success) {
         throw new Error(res.data.message || "Melle diamond not found");

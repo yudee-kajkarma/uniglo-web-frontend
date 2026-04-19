@@ -61,6 +61,22 @@ export const addToCart = async (
     }
 };
 
+export const addMelleToCart = async (
+    melleId: string[],
+): Promise<ApiSuccessResponse<AddToCartResponseData>> => {
+    try {
+        const response = await apiClient.post<
+            ApiSuccessResponse<AddToCartResponseData>
+        >("/diamonds/cart/add", {
+            melleId,
+        });
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw axiosError.response?.data?.message;
+    }
+};
+
 export const removeFromCart = async (
     diamondId: string,
 ): Promise<ApiSuccessResponse<RemoveFromCartResponseData>> => {

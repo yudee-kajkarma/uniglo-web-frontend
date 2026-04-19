@@ -70,7 +70,7 @@ import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import DiamondDetailView from "@/components/inventory/DiamondDetailView";
 import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
 import { toast } from "sonner";
-import { addToCart } from "@/services/cartService";
+import { addToCart, addMelleToCart } from "@/services/cartService";
 import { useAuth } from "@/context/AuthContext";
 
 function InventoryContent() {
@@ -794,7 +794,7 @@ function InventoryContent() {
             const ids = selectedMelle
                 .filter((d): d is MelleDiamond => "_id" in d)
                 .map((d) => d._id);
-            await addToCart(ids);
+            await addMelleToCart(ids);
             toast.success("Selected melee diamonds added to cart");
             setSelectedMelle([]);
         } catch (error) {
@@ -887,7 +887,7 @@ function InventoryContent() {
                     >
                         Lab Diamonds
                     </Button>
-                    {/* <Button
+                    <Button
                         variant={"ghost"}
                         onClick={handleEnterMeleeMode}
                         className={`text-white my-1 rounded-md hover:text-white transition-all ${
@@ -897,7 +897,7 @@ function InventoryContent() {
                         }`}
                     >
                         Melee Diamonds
-                    </Button> */}
+                    </Button>
                 </div>
                 {!isMelee && (
                     <div className="bg-white flex justify-start items-center gap-2">
