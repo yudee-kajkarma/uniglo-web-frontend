@@ -6,6 +6,7 @@ import { fetchDiamondById } from "@/services/diamondService";
 import {
     Diamond,
     PublicDiamond,
+    calculateTotalPrice,
     getShapeFullName,
 } from "@/interface/diamondInterface";
 import { Button } from "@/components/ui/button";
@@ -433,8 +434,10 @@ export default function DiamondDetailView({
                                 <div className="flex items-baseline gap-3 mt-4">
                                     <span className="text-3xl font-bold text-gray-900">
                                         $
-                                        {diamond.priceListUSD?.toLocaleString()}{" "}
-                                        USD
+                                        {calculateTotalPrice(
+                                            diamond.weight,
+                                            diamond.pricePerCts,
+                                        )?.toLocaleString() || "N/A"}{" "}
                                     </span>
                                 </div>
                             )}
