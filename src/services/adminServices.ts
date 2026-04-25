@@ -245,3 +245,84 @@ export const getAllUsers = async (
     const response = await apiClient.get<GetAllUsersResponse>(url);
     return response.data;
 };
+
+export interface AdminCreateCustomerAddress {
+    isDefault: string;
+    printName: string;
+    street: string;
+    city: string;
+    state: string;
+    country: string;
+    zipCode: string;
+    vat_No: string;
+    gstn_No: string;
+}
+
+export interface AdminCreateCustomerContactDetail {
+    contactName: string;
+    designation: string;
+    businessTel1: string;
+    businessTel2: string;
+    businessFax: string;
+    mobileNo: string;
+    personalNo: string;
+    otherNo: string;
+    email: string;
+}
+
+export interface AdminCreateCustomerData {
+    firstName: string;
+    lastName: string;
+    phoneNumber: string;
+    landlineNumber: string;
+    countryCode: string;
+    birthDate: string;
+    address: {
+        street: string;
+        city: string;
+        state: string;
+        postalCode: string;
+        country: string;
+    };
+    businessInfo: {
+        companyName: string;
+        businessType: string;
+        vatNumber: string;
+        websiteUrl: string;
+    };
+}
+
+export interface AdminCreateCustomerRequest {
+    username: string;
+    email: string;
+    password: string;
+    companyName: string;
+    contactName: string;
+    currency: string;
+    companyGroup: string;
+    firmRegNo: string;
+    defaultTerms: string;
+    creditLimit: string;
+    annualTarget: string;
+    remarks: string;
+    billingAddress: AdminCreateCustomerAddress[];
+    shippingAddress: AdminCreateCustomerAddress[];
+    contactDetail: AdminCreateCustomerContactDetail;
+    customerData: AdminCreateCustomerData;
+}
+
+export interface AdminCreateCustomerResponse {
+    success: boolean;
+    message: string;
+    data?: any;
+}
+
+export const createCustomerByAdmin = async (
+    data: AdminCreateCustomerRequest,
+): Promise<AdminCreateCustomerResponse> => {
+    const response = await apiClient.post<AdminCreateCustomerResponse>(
+        "/users/admin/create",
+        data,
+    );
+    return response.data;
+};
