@@ -11,6 +11,8 @@ import {
     Hand, // New (for Inquiry/Hand icon)
     Scale,
     Plus,
+    Upload,
+    Trash2,
 } from "lucide-react";
 import DataTable from "@/components/ui/table";
 import MelleDataTable from "@/components/ui/melleTable";
@@ -39,6 +41,8 @@ import {
 } from "@/services/melleDiamondService";
 import { MelleDiamondFormDialog } from "@/components/dialogs/MelleDiamondFormDialog";
 import { DeleteMelleDiamondDialog } from "@/components/dialogs/DeleteMelleDiamondDialog";
+import { MelleDiamondImportDialog } from "@/components/dialogs/MelleDiamondImportDialog";
+import { BulkDeleteMelleDiamondsDialog } from "@/components/dialogs/BulkDeleteMelleDiamondsDialog";
 import {
     MelleDiamond,
     MelleFilterOptions,
@@ -167,6 +171,8 @@ function InventoryContent() {
     >(undefined);
     const [melleDeleteTarget, setMelleDeleteTarget] =
         useState<MelleDiamond | null>(null);
+    const [melleImportOpen, setMelleImportOpen] = useState(false);
+    const [melleBulkDeleteOpen, setMelleBulkDeleteOpen] = useState(false);
 
     const isAdminOrSuperAdmin =
         user?.role === "ADMIN" || user?.role === "SUPER_ADMIN";
@@ -806,6 +812,20 @@ function InventoryContent() {
         setSelectedMelle((prev) => prev.filter((d) => d._id !== deletedId));
     };
 
+    const handleMelleBulkDeleted = (deletedIds: string[]) => {
+        const idSet = new Set(deletedIds);
+        setMelleData((prev) => prev.filter((d) => !idSet.has(d._id)));
+        setSelectedMelle((prev) => prev.filter((d) => !idSet.has(d._id)));
+    };
+
+    const openMelleBulkDelete = () => {
+        if (selectedMelle.length === 0) {
+            toast.warning("Select at least one melee diamond to delete");
+            return;
+        }
+        setMelleBulkDeleteOpen(true);
+    };
+
     const handleMelleAddToCart = async () => {
         if (!isAuthenticated) {
             toast.error("Please login to add items to cart");
@@ -1189,6 +1209,29 @@ function InventoryContent() {
                             </Button>
                         )}
 
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-red-500 text-red-600 hover:bg-red-50 disabled:opacity-50"
+                                onClick={openMelleBulkDelete}
+                                disabled={selectedMelle.length === 0}
+                            >
+                                <Trash2 /> Delete{" "}
+                                {selectedMelle.length > 0 &&
+                                    `(${selectedMelle.length})`}
+                            </Button>
+                        )}
+
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                                onClick={() => setMelleImportOpen(true)}
+                            >
+                                <Upload /> Import
+                            </Button>
+                        )}
+
                         {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
@@ -1498,6 +1541,18 @@ function InventoryContent() {
                         }
                         diamond={melleDeleteTarget}
                         onSuccess={handleMelleDeleted}
+                    />
+                    <MelleDiamondImportDialog
+                        open={melleImportOpen}
+                        onOpenChange={setMelleImportOpen}
+                        options={melleOptions}
+                        onSuccess={loadMelleData}
+                    />
+                    <BulkDeleteMelleDiamondsDialog
+                        open={melleBulkDeleteOpen}
+                        onOpenChange={setMelleBulkDeleteOpen}
+                        ids={selectedMelle.map((d) => d._id)}
+                        onSuccess={handleMelleBulkDeleted}
                     />
                 </>
             )}

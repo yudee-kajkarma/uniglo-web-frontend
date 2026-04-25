@@ -26,6 +26,22 @@ interface MelleDiamondFiltersProps {
 const toggle = <T extends string>(list: T[], item: T): T[] =>
     list.includes(item) ? list.filter((i) => i !== item) : [...list, item];
 
+// Display order for melee clarity grades. Anything not in this list is
+// appended in the order the backend returned it.
+const CLARITY_ORDER = ["VVS", "VS", "I1", "SI1", "SI2"];
+
+const orderClarities = (clarities: string[]): string[] => {
+    const ranked = [...clarities].sort((a, b) => {
+        const ai = CLARITY_ORDER.indexOf(a);
+        const bi = CLARITY_ORDER.indexOf(b);
+        if (ai === -1 && bi === -1) return 0;
+        if (ai === -1) return 1;
+        if (bi === -1) return -1;
+        return ai - bi;
+    });
+    return ranked;
+};
+
 export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     filters,
     setFilters,
@@ -119,7 +135,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
 
     const clarityContent = (
         <div className="flex flex-wrap gap-1">
-            {options.clarities.map((clarity) => (
+            {orderClarities(options.clarities).map((clarity) => (
                 <ToggleButton
                     key={clarity}
                     label={clarity}
@@ -155,24 +171,24 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         </div>
     );
 
-    const categoryContent = (
-        <div className="flex flex-wrap gap-1">
-            {options.melleCategories.map((cat) => (
-                <ToggleButton
-                    key={cat}
-                    label={cat}
-                    active={filters.melleCategory.includes(cat)}
-                    onClick={() =>
-                        setFilters((p) => ({
-                            ...p,
-                            melleCategory: toggle(p.melleCategory, cat),
-                        }))
-                    }
-                    className="border border-primary-yellow-2 min-w-[48px]"
-                />
-            ))}
-        </div>
-    );
+    // const categoryContent = (
+    //     <div className="flex flex-wrap gap-1">
+    //         {options.melleCategories.map((cat) => (
+    //             <ToggleButton
+    //                 key={cat}
+    //                 label={cat}
+    //                 active={filters.melleCategory.includes(cat)}
+    //                 onClick={() =>
+    //                     setFilters((p) => ({
+    //                         ...p,
+    //                         melleCategory: toggle(p.melleCategory, cat),
+    //                     }))
+    //                 }
+    //                 className="border border-primary-yellow-2 min-w-[48px]"
+    //             />
+    //         ))}
+    //     </div>
+    // );
 
     const isLabContent = (
         <div className="flex gap-2">
@@ -205,9 +221,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         <RangeSliderWithInputs
             label="Price"
             value={filters.priceRange}
-            onChange={(val) =>
-                setFilters((p) => ({ ...p, priceRange: val }))
-            }
+            onChange={(val) => setFilters((p) => ({ ...p, priceRange: val }))}
             minLimit={options.priceRange.min}
             maxLimit={options.priceRange.max}
             step={1}
@@ -220,9 +234,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         <RangeSliderWithInputs
             label="Avg Ptr"
             value={filters.avgPtrRange}
-            onChange={(val) =>
-                setFilters((p) => ({ ...p, avgPtrRange: val }))
-            }
+            onChange={(val) => setFilters((p) => ({ ...p, avgPtrRange: val }))}
             minLimit={options.avgPtrRange.min}
             maxLimit={options.avgPtrRange.max}
             step={0.001}
@@ -234,9 +246,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         <RangeSliderWithInputs
             label="Carat"
             value={filters.caratRange}
-            onChange={(val) =>
-                setFilters((p) => ({ ...p, caratRange: val }))
-            }
+            onChange={(val) => setFilters((p) => ({ ...p, caratRange: val }))}
             minLimit={options.caratRange.min}
             maxLimit={options.caratRange.max}
             step={0.0001}
@@ -262,9 +272,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         <RangeSliderWithInputs
             label="Sieve"
             value={filters.sieveRange}
-            onChange={(val) =>
-                setFilters((p) => ({ ...p, sieveRange: val }))
-            }
+            onChange={(val) => setFilters((p) => ({ ...p, sieveRange: val }))}
             minLimit={options.sieveRange.min}
             maxLimit={options.sieveRange.max}
             step={0.5}
@@ -287,12 +295,12 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                 <DiamondFilterSection title="Cut" variant="sidebar">
                     {cutContent}
                 </DiamondFilterSection>
-                <DiamondFilterSection
+                {/* <DiamondFilterSection
                     title="Melee Category"
                     variant="sidebar"
                 >
                     {categoryContent}
-                </DiamondFilterSection>
+                </DiamondFilterSection> */}
                 <DiamondFilterSection title="Type" variant="sidebar">
                     {isLabContent}
                 </DiamondFilterSection>
@@ -309,11 +317,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
 
     return (
         <div className="w-full bg-white p-2 rounded-lg font-lato">
-            <div
-                className={cn(
-                    "grid grid-cols-1 lg:grid-cols-12 gap-2",
-                )}
-            >
+            <div className={cn("grid grid-cols-1 lg:grid-cols-12 gap-2")}>
                 <div className="lg:col-span-4 flex flex-col gap-2">
                     <DiamondFilterSection title="Shape">
                         {shapesContent}
@@ -329,9 +333,9 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     <DiamondFilterSection title="Cut">
                         {cutContent}
                     </DiamondFilterSection>
-                    <DiamondFilterSection title="Melee Category">
+                    {/* <DiamondFilterSection title="Melee Category">
                         {categoryContent}
-                    </DiamondFilterSection>
+                    </DiamondFilterSection> */}
                     <DiamondFilterSection title="Type">
                         {isLabContent}
                     </DiamondFilterSection>

@@ -224,6 +224,35 @@ export const updateMelleDiamond = async (
     return res.data.data;
 };
 
+export interface ImportMelleDiamondsResult {
+    inserted?: number;
+    updated?: number;
+    skipped?: number;
+    errors?: { row: number; message: string }[];
+    [key: string]: unknown;
+}
+
+export const importMelleDiamonds = async (input: {
+    file: File;
+    isLab: boolean;
+    melleCategory: string;
+}): Promise<ImportMelleDiamondsResult> => {
+    const formData = new FormData();
+    formData.append("file", input.file);
+    formData.append("isLab", String(input.isLab));
+    formData.append("melleCategory", input.melleCategory);
+
+    const res = await apiClient.post<ItemResponse<ImportMelleDiamondsResult>>(
+        `/melle-diamonds/import`,
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } },
+    );
+    if (!res.data.success) {
+        throw new Error(res.data.message || "Failed to import melle diamonds");
+    }
+    return res.data.data;
+};
+
 export const deleteMelleDiamond = async (id: string): Promise<void> => {
     const res = await apiClient.delete<{ success: boolean; message: string }>(
         `/melle-diamonds/${encodeURIComponent(id)}`,
@@ -231,4 +260,21 @@ export const deleteMelleDiamond = async (id: string): Promise<void> => {
     if (!res.data.success) {
         throw new Error(res.data.message || "Failed to delete melle diamond");
     }
+};
+
+export interface BulkDeleteMelleDiamondsResult {
+    deletedCount?: number;
+    [key: string]: unknown;
+}
+
+export const bulkDeleteMelleDiamonds = async (
+    ids: string[],
+): Promise<BulkDeleteMelleDiamondsResult> => {
+    const res = await apiClient.delete<
+        ItemResponse<BulkDeleteMelleDiamondsResult>
+    >(`/melle-diamonds`, { data: { ids } });
+    if (!res.data.success) {
+        throw new Error(res.data.message || "Failed to delete melle diamonds");
+    }
+    return res.data.data ?? {};
 };
