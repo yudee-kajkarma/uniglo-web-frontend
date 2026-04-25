@@ -81,6 +81,16 @@ const buildMelleQuery = (params: MelleDiamondParams): URLSearchParams => {
     if (params.maxCarat !== undefined)
         q.append("carat_MAX", params.maxCarat.toString());
 
+    if (params.minMeasurement !== undefined)
+        q.append("measurement_MIN", params.minMeasurement.toString());
+    if (params.maxMeasurement !== undefined)
+        q.append("measurement_MAX", params.maxMeasurement.toString());
+
+    if (params.minSieve !== undefined)
+        q.append("sieve_MIN", params.minSieve.toString());
+    if (params.maxSieve !== undefined)
+        q.append("sieve_MAX", params.maxSieve.toString());
+
     if (params.searchTerm) q.append("searchTerm", params.searchTerm);
 
     return q;

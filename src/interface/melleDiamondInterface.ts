@@ -50,6 +50,8 @@ export interface MelleFilterOptions {
     priceRange: MelleNumericRange;
     avgPtrRange: MelleNumericRange;
     caratRange: MelleNumericRange;
+    measurementRange: MelleNumericRange;
+    sieveRange: MelleNumericRange;
 }
 
 // UI-side state the Melle filter component owns.
@@ -63,6 +65,8 @@ export interface MelleFilterState {
     priceRange: [number, number];
     avgPtrRange: [number, number];
     caratRange: [number, number];
+    measurementRange: [number, number];
+    sieveRange: [number, number];
     searchTerm: string | undefined;
 }
 
@@ -104,5 +108,9 @@ export interface MelleDiamondParams {
     maxAvgPtr?: number;
     minCarat?: number;
     maxCarat?: number;
+    minMeasurement?: number;
+    maxMeasurement?: number;
+    minSieve?: number;
+    maxSieve?: number;
     searchTerm?: string;
 }

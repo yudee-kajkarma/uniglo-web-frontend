@@ -244,6 +244,34 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         />
     );
 
+    const measurementSlider = (
+        <RangeSliderWithInputs
+            label="Measurement"
+            value={filters.measurementRange}
+            onChange={(val) =>
+                setFilters((p) => ({ ...p, measurementRange: val }))
+            }
+            minLimit={options.measurementRange.min}
+            maxLimit={options.measurementRange.max}
+            step={0.01}
+            variant={variant}
+        />
+    );
+
+    const sieveSlider = (
+        <RangeSliderWithInputs
+            label="Sieve"
+            value={filters.sieveRange}
+            onChange={(val) =>
+                setFilters((p) => ({ ...p, sieveRange: val }))
+            }
+            minLimit={options.sieveRange.min}
+            maxLimit={options.sieveRange.max}
+            step={0.5}
+            variant={variant}
+        />
+    );
+
     if (variant === "sidebar") {
         return (
             <div className="w-full bg-white font-lato flex flex-col">
@@ -272,6 +300,8 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     {priceSlider}
                     {avgPtrSlider}
                     {caratSlider}
+                    {measurementSlider}
+                    {sieveSlider}
                 </div>
             </div>
         );
@@ -310,6 +340,8 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     {priceSlider}
                     {avgPtrSlider}
                     {caratSlider}
+                    {measurementSlider}
+                    {sieveSlider}
                 </div>
             </div>
         </div>

@@ -147,6 +147,8 @@ function InventoryContent() {
         priceRange: [0, Number.MAX_SAFE_INTEGER],
         avgPtrRange: [0, Number.MAX_SAFE_INTEGER],
         caratRange: [0, Number.MAX_SAFE_INTEGER],
+        measurementRange: [0, Number.MAX_SAFE_INTEGER],
+        sieveRange: [0, Number.MAX_SAFE_INTEGER],
         searchTerm: undefined,
     });
     const [melleOptions, setMelleOptions] = useState<MelleFilterOptions | null>(
@@ -229,6 +231,14 @@ function InventoryContent() {
                 melleFilterState.caratRange,
                 melleOptions?.caratRange,
             );
+            const measurement = narrowRange(
+                melleFilterState.measurementRange,
+                melleOptions?.measurementRange,
+            );
+            const sieve = narrowRange(
+                melleFilterState.sieveRange,
+                melleOptions?.sieveRange,
+            );
 
             const params = {
                 page,
@@ -262,6 +272,10 @@ function InventoryContent() {
                 maxAvgPtr: avgPtr.max,
                 minCarat: carat.min,
                 maxCarat: carat.max,
+                minMeasurement: measurement.min,
+                maxMeasurement: measurement.max,
+                minSieve: sieve.min,
+                maxSieve: sieve.max,
                 searchTerm: melleFilterState.searchTerm,
             };
 
@@ -487,6 +501,14 @@ function InventoryContent() {
             options?.caratRange.min ?? 0,
             options?.caratRange.max ?? Number.MAX_SAFE_INTEGER,
         ],
+        measurementRange: [
+            options?.measurementRange.min ?? 0,
+            options?.measurementRange.max ?? Number.MAX_SAFE_INTEGER,
+        ],
+        sieveRange: [
+            options?.sieveRange.min ?? 0,
+            options?.sieveRange.max ?? Number.MAX_SAFE_INTEGER,
+        ],
         searchTerm: undefined,
     });
 
@@ -562,6 +584,11 @@ function InventoryContent() {
                     priceRange: clamp(prev.priceRange, options.priceRange),
                     avgPtrRange: clamp(prev.avgPtrRange, options.avgPtrRange),
                     caratRange: clamp(prev.caratRange, options.caratRange),
+                    measurementRange: clamp(
+                        prev.measurementRange,
+                        options.measurementRange,
+                    ),
+                    sieveRange: clamp(prev.sieveRange, options.sieveRange),
                 };
             });
         },

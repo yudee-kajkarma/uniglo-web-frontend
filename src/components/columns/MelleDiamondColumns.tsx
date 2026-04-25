@@ -175,7 +175,7 @@ export const getMelleDiamondColumns = (
                               className="h-7 px-2 text-xs border-primary-purple text-primary-purple hover:bg-primary-purple/10"
                           >
                               <Pencil className="w-3 h-3 mr-1" />
-                              Edit
+                              {/* Edit */}
                           </Button>
                           <Button
                               size="sm"
@@ -184,7 +184,7 @@ export const getMelleDiamondColumns = (
                               className="h-7 px-2 text-xs border-red-400 text-red-600 hover:bg-red-50"
                           >
                               <Trash2 className="w-3 h-3 mr-1" />
-                              Delete
+                              {/* Delete */}
                           </Button>
                       </div>
                   ),
