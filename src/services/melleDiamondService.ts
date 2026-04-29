@@ -71,29 +71,26 @@ const buildMelleQuery = (params: MelleDiamondParams): URLSearchParams => {
     if (params.maxPrice !== undefined)
         q.append("price_MAX", params.maxPrice.toString());
 
-    if (params.minAvgPtr !== undefined)
-        q.append("avgPtr_MIN", params.minAvgPtr.toString());
-    if (params.maxAvgPtr !== undefined)
-        q.append("avgPtr_MAX", params.maxAvgPtr.toString());
-
-    if (params.minCarat !== undefined)
-        q.append("carat_MIN", params.minCarat.toString());
-    if (params.maxCarat !== undefined)
-        q.append("carat_MAX", params.maxCarat.toString());
-
-    if (params.minMeasurement !== undefined)
-        q.append("measurement_MIN", params.minMeasurement.toString());
-    if (params.maxMeasurement !== undefined)
-        q.append("measurement_MAX", params.maxMeasurement.toString());
-
-    if (params.minSieve !== undefined)
-        q.append("sieve_MIN", params.minSieve.toString());
-    if (params.maxSieve !== undefined)
-        q.append("sieve_MAX", params.maxSieve.toString());
+    appendBucketRanges(q, "avgPtrRanges", params.avgPtrRanges);
+    appendBucketRanges(q, "caratRanges", params.caratRanges);
+    appendBucketRanges(q, "measurementRanges", params.measurementRanges);
+    appendBucketRanges(q, "sieveRanges", params.sieveRanges);
 
     if (params.searchTerm) q.append("searchTerm", params.searchTerm);
 
     return q;
+};
+
+// Backend expects each range field as a single CSV value, e.g.
+//   caratRanges=0.00005-0.000068,0.00002-0.00004
+const appendBucketRanges = (
+    q: URLSearchParams,
+    field: string,
+    ranges: [number, number][] | undefined,
+) => {
+    if (!ranges || ranges.length === 0) return;
+    const csv = ranges.map(([min, max]) => `${min}-${max}`).join(",");
+    q.append(field, csv);
 };
 
 const normalizePage = <T>(

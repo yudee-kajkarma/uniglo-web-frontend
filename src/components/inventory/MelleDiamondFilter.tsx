@@ -1,7 +1,7 @@
 // components/inventory/MelleDiamondFilter.tsx
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useMemo, useState } from "react";
 import {
     DiamondFilterSection,
     RangeSliderWithInputs,
@@ -14,7 +14,12 @@ import {
 import { fetchMelleFilterOptions } from "@/services/melleDiamondService";
 import { useAuth } from "@/context/AuthContext";
 import { cn } from "@/lib/utils";
-import { Loader2 } from "lucide-react";
+import { ChevronDown, Loader2, X } from "lucide-react";
+import {
+    Popover,
+    PopoverContent,
+    PopoverTrigger,
+} from "@/components/ui/popover";
 
 interface MelleDiamondFiltersProps {
     filters: MelleFilterState;
@@ -52,6 +57,26 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     const [options, setOptions] = useState<MelleFilterOptions | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+    // Carat and Avg Ptr describe the same stone size in different units, so
+    // we render only one at a time. Default to Avg Ptr.
+    const [sizeMode, setSizeMode] = useState<"carat" | "avgPtr">("avgPtr");
+    // Two MelleDiamondFilters instances can be mounted at once (desktop +
+    // mobile drawer). Without a unique `name`, both radio groups would share
+    // the same browser-level group and React's controlled `checked` would
+    // fight the browser's own checked tracking — that's the "click twice to
+    // select" bug.
+    const radioGroupName = `melle-size-mode-${useId()}`;
+
+    const handleSizeModeChange = (mode: "carat" | "avgPtr") => {
+        if (mode === sizeMode) return;
+        setSizeMode(mode);
+        // Clear the hidden filter's selections so they don't silently keep
+        // narrowing search results after the user switches view.
+        setFilters((p) => ({
+            ...p,
+            ...(mode === "carat" ? { avgPtrRanges: [] } : { caratRanges: [] }),
+        }));
+    };
 
     useEffect(() => {
         let cancelled = false;
@@ -230,54 +255,93 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         />
     );
 
-    const avgPtrSlider = (
-        <RangeSliderWithInputs
+    const avgPtrDropdown = (
+        <MultiRangeSelect
             label="Avg Ptr"
-            value={filters.avgPtrRange}
-            onChange={(val) => setFilters((p) => ({ ...p, avgPtrRange: val }))}
-            minLimit={options.avgPtrRange.min}
-            maxLimit={options.avgPtrRange.max}
-            step={0.001}
-            variant={variant}
-        />
-    );
-
-    const caratSlider = (
-        <RangeSliderWithInputs
-            label="Carat"
-            value={filters.caratRange}
-            onChange={(val) => setFilters((p) => ({ ...p, caratRange: val }))}
-            minLimit={options.caratRange.min}
-            maxLimit={options.caratRange.max}
-            step={0.0001}
-            variant={variant}
-        />
-    );
-
-    const measurementSlider = (
-        <RangeSliderWithInputs
-            label="Measurement"
-            value={filters.measurementRange}
-            onChange={(val) =>
-                setFilters((p) => ({ ...p, measurementRange: val }))
+            min={options.avgPtrRange.min}
+            max={options.avgPtrRange.max}
+            step={
+                (options.avgPtrRange.max - options.avgPtrRange.min) / 10 ||
+                0.001
             }
-            minLimit={options.measurementRange.min}
-            maxLimit={options.measurementRange.max}
-            step={0.01}
-            variant={variant}
+            decimals={3}
+            selected={filters.avgPtrRanges ?? []}
+            onChange={(ranges) =>
+                setFilters((p) => ({ ...p, avgPtrRanges: ranges }))
+            }
         />
     );
 
-    const sieveSlider = (
-        <RangeSliderWithInputs
-            label="Sieve"
-            value={filters.sieveRange}
-            onChange={(val) => setFilters((p) => ({ ...p, sieveRange: val }))}
-            minLimit={options.sieveRange.min}
-            maxLimit={options.sieveRange.max}
-            step={0.5}
-            variant={variant}
+    const caratDropdown = (
+        <MultiRangeSelect
+            label="Carat"
+            min={options.caratRange.min}
+            max={options.caratRange.max}
+            step={
+                (options.caratRange.max - options.caratRange.min) / 10 || 0.0001
+            }
+            decimals={5}
+            selected={filters.caratRanges ?? []}
+            onChange={(ranges) =>
+                setFilters((p) => ({ ...p, caratRanges: ranges }))
+            }
         />
+    );
+
+    const measurementDropdown = (
+        <MultiRangeSelect
+            label="Measurement"
+            min={options.measurementRange.min}
+            max={options.measurementRange.max}
+            step={0.1}
+            decimals={2}
+            selected={filters.measurementRanges ?? []}
+            onChange={(ranges) =>
+                setFilters((p) => ({ ...p, measurementRanges: ranges }))
+            }
+        />
+    );
+
+    const sieveDropdown = (
+        <MultiRangeSelect
+            label="Sieve"
+            min={options.sieveRange.min}
+            max={options.sieveRange.max}
+            step={0.5}
+            decimals={1}
+            selected={filters.sieveRanges ?? []}
+            onChange={(ranges) =>
+                setFilters((p) => ({ ...p, sieveRanges: ranges }))
+            }
+        />
+    );
+
+    const sizeModeRadio = (
+        <div className="flex items-start pt-5 gap-3 px-2 py-1 text-xs">
+            <span className="font-semibold text-gray-700">Size by:</span>
+            <label className="inline-flex items-center gap-1 cursor-pointer">
+                <input
+                    type="radio"
+                    name={radioGroupName}
+                    value="carat"
+                    checked={sizeMode === "carat"}
+                    onChange={() => handleSizeModeChange("carat")}
+                    className="accent-primary-purple2"
+                />
+                <span>Carat</span>
+            </label>
+            <label className="inline-flex items-center gap-1 cursor-pointer">
+                <input
+                    type="radio"
+                    name={radioGroupName}
+                    value="avgPtr"
+                    checked={sizeMode === "avgPtr"}
+                    onChange={() => handleSizeModeChange("avgPtr")}
+                    className="accent-primary-purple2"
+                />
+                <span>Avg Ptr</span>
+            </label>
+        </div>
     );
 
     if (variant === "sidebar") {
@@ -305,11 +369,11 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     {isLabContent}
                 </DiamondFilterSection>
                 <div className="flex flex-col">
+                    {sizeModeRadio}
                     {priceSlider}
-                    {avgPtrSlider}
-                    {caratSlider}
-                    {measurementSlider}
-                    {sieveSlider}
+                    {sizeMode === "avgPtr" ? avgPtrDropdown : caratDropdown}
+                    {measurementDropdown}
+                    {sieveDropdown}
                 </div>
             </div>
         );
@@ -339,15 +403,194 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     <DiamondFilterSection title="Type">
                         {isLabContent}
                     </DiamondFilterSection>
+                    {/* RangeSliderWithInputs adds h-full to its wrapper for
+                        the default variant. In this stretched grid column it
+                        steals all the height from the Cut/Type cards above —
+                        wrapping in a plain div localizes h-full to this
+                        container's natural height. */}
+                    <div>{priceSlider}</div>
                 </div>
                 <div className="lg:col-span-4 grid grid-cols-2 gap-2">
-                    {priceSlider}
-                    {avgPtrSlider}
-                    {caratSlider}
-                    {measurementSlider}
-                    {sieveSlider}
+                    {sizeModeRadio}
+                    {sizeMode === "avgPtr" ? avgPtrDropdown : caratDropdown}
+                    {measurementDropdown}
+                    {sieveDropdown}
                 </div>
             </div>
+        </div>
+    );
+};
+
+interface MultiRangeSelectProps {
+    label: string;
+    min: number;
+    max: number;
+    step: number;
+    decimals: number;
+    selected: [number, number][];
+    onChange: (ranges: [number, number][]) => void;
+}
+
+const formatNum = (n: number, decimals: number) => {
+    if (!isFinite(n)) return "—";
+    return decimals === 0 ? Math.round(n).toString() : n.toFixed(decimals);
+};
+
+const rangeKey = (r: [number, number]) => `${r[0]}::${r[1]}`;
+
+const generateBuckets = (
+    min: number,
+    max: number,
+    step: number,
+): [number, number][] => {
+    if (!isFinite(min) || !isFinite(max) || step <= 0 || max <= min) return [];
+    const buckets: [number, number][] = [];
+    const safetyCap = 500;
+    let lower = min;
+    let i = 0;
+    while (lower < max && i < safetyCap) {
+        const upper = Math.min(lower + step, max);
+        // Round to a stable 10-decimal precision so the CSV the backend
+        // receives doesn't pick up floating-point drift like 0.30000000004.
+        const lo = Number(lower.toFixed(10));
+        const hi = Number(upper.toFixed(10));
+        if (hi > lo) buckets.push([lo, hi]);
+        lower = upper;
+        i++;
+    }
+    return buckets;
+};
+
+const MultiRangeSelect: React.FC<MultiRangeSelectProps> = ({
+    label,
+    min,
+    max,
+    step,
+    decimals,
+    selected,
+    onChange,
+}) => {
+    const [open, setOpen] = useState(false);
+    const buckets = useMemo(
+        () => generateBuckets(min, max, step),
+        [min, max, step],
+    );
+    const selectedKeys = useMemo(
+        () => new Set(selected.map(rangeKey)),
+        [selected],
+    );
+
+    const toggleRange = (r: [number, number]) => {
+        const key = rangeKey(r);
+        if (selectedKeys.has(key)) {
+            onChange(selected.filter((s) => rangeKey(s) !== key));
+        } else {
+            onChange([...selected, r]);
+        }
+    };
+
+    const removeRange = (e: React.MouseEvent, r: [number, number]) => {
+        e.stopPropagation();
+        const key = rangeKey(r);
+        onChange(selected.filter((s) => rangeKey(s) !== key));
+    };
+
+    return (
+        <div className="flex flex-col gap-1 w-full">
+            <label className="text-xs font-semibold text-gray-700">
+                {label}
+            </label>
+            <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild>
+                    <button
+                        type="button"
+                        className="w-full min-h-[36px] flex items-center justify-between gap-2 px-2 py-1 bg-white border border-primary-yellow-2 rounded text-xs text-gray-700 hover:border-primary-purple2 transition-colors"
+                    >
+                        <div className="flex flex-wrap gap-1 flex-1 items-center">
+                            {selected.length === 0 ? (
+                                <span className="text-gray-400">
+                                    Select {label.toLowerCase()} range…
+                                </span>
+                            ) : (
+                                selected.map((r) => (
+                                    <span
+                                        key={rangeKey(r)}
+                                        className="inline-flex items-center gap-1 bg-gray-100 border border-gray-200 rounded px-1.5 py-0.5 text-[11px]"
+                                    >
+                                        {formatNum(r[0], decimals)} -{" "}
+                                        {formatNum(r[1], decimals)}
+                                        <span
+                                            role="button"
+                                            tabIndex={0}
+                                            onClick={(e) => removeRange(e, r)}
+                                            onKeyDown={(e) => {
+                                                if (
+                                                    e.key === "Enter" ||
+                                                    e.key === " "
+                                                ) {
+                                                    e.stopPropagation();
+                                                    onChange(
+                                                        selected.filter(
+                                                            (s) =>
+                                                                rangeKey(s) !==
+                                                                rangeKey(r),
+                                                        ),
+                                                    );
+                                                }
+                                            }}
+                                            className="text-gray-500 hover:text-red-500 cursor-pointer"
+                                            aria-label={`Remove ${formatNum(r[0], decimals)} - ${formatNum(r[1], decimals)}`}
+                                        >
+                                            <X size={12} />
+                                        </span>
+                                    </span>
+                                ))
+                            )}
+                        </div>
+                        <ChevronDown
+                            size={14}
+                            className={cn(
+                                "text-gray-500 transition-transform shrink-0",
+                                open && "rotate-180",
+                            )}
+                        />
+                    </button>
+                </PopoverTrigger>
+                <PopoverContent
+                    align="start"
+                    className="w-[var(--radix-popover-trigger-width)] p-0 max-h-72 overflow-y-auto"
+                >
+                    {buckets.length === 0 ? (
+                        <div className="p-3 text-xs text-gray-500 text-center">
+                            No ranges available
+                        </div>
+                    ) : (
+                        <ul className="py-1">
+                            {buckets.map((b) => {
+                                const isSelected = selectedKeys.has(
+                                    rangeKey(b),
+                                );
+                                return (
+                                    <li key={rangeKey(b)}>
+                                        <button
+                                            type="button"
+                                            onClick={() => toggleRange(b)}
+                                            className={cn(
+                                                "w-full text-left px-3 py-1.5 text-xs hover:bg-blue-50 transition-colors",
+                                                isSelected &&
+                                                    "bg-blue-100 font-medium",
+                                            )}
+                                        >
+                                            {formatNum(b[0], decimals)} -{" "}
+                                            {formatNum(b[1], decimals)}
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
+                </PopoverContent>
+            </Popover>
         </div>
     );
 };

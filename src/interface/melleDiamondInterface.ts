@@ -63,10 +63,10 @@ export interface MelleFilterState {
     melleCategory: MelleCategory[];
     isLab: boolean | undefined;
     priceRange: [number, number];
-    avgPtrRange: [number, number];
-    caratRange: [number, number];
-    measurementRange: [number, number];
-    sieveRange: [number, number];
+    avgPtrRanges: [number, number][];
+    caratRanges: [number, number][];
+    measurementRanges: [number, number][];
+    sieveRanges: [number, number][];
     searchTerm: string | undefined;
 }
 
@@ -104,13 +104,9 @@ export interface MelleDiamondParams {
     isLab?: boolean;
     minPrice?: number;
     maxPrice?: number;
-    minAvgPtr?: number;
-    maxAvgPtr?: number;
-    minCarat?: number;
-    maxCarat?: number;
-    minMeasurement?: number;
-    maxMeasurement?: number;
-    minSieve?: number;
-    maxSieve?: number;
+    avgPtrRanges?: [number, number][];
+    caratRanges?: [number, number][];
+    measurementRanges?: [number, number][];
+    sieveRanges?: [number, number][];
     searchTerm?: string;
 }
