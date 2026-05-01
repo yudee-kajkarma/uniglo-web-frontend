@@ -225,6 +225,106 @@ const blogs = [
             "CVD vs HPHT lab grown diamonds: what is the difference and which is better? Learn quality, clarity, color, and buying factors in this 2026 guide.",
         slug: "cvd-vs-hpht-diamonds-which-is-better",
     },
+    {
+        id: 24,
+        title: "Why Are Lab Grown Diamonds So Expensive? (And Why Some Are Cheap)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: newimage,
+        excerpt:
+            "Confused by lab grown diamond prices? Learn why some cost thousands while others are cheap, and what really affects pricing in 2026.",
+        slug: "why-are-lab-grown-diamonds-so-expensive",
+    },
+    {
+        id: 25,
+        title: "Disadvantages of Lab Grown Diamonds: 7 Things Buyers Should Know (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: labd,
+        excerpt:
+            "What are the disadvantages of lab grown diamonds? Learn the real downsides, resale value, perception, and what sellers do not always explain in 2026.",
+        slug: "disadvantages-of-lab-grown-diamonds",
+    },
+    {
+        id: 26,
+        title: "Are Lab Grown Diamonds Ethical? The Truth About Sustainability (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Are lab grown diamonds more ethical? Explore sustainability, environmental impact, and sourcing in this honest 2026 guide.",
+        slug: "are-lab-grown-diamonds-ethical",
+    },
+    {
+        id: 27,
+        title: "Lab Grown vs Natural Diamond Price (2026): Real Comparison & Costs",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Compare lab grown vs natural diamond prices in 2026. See real cost differences, why prices vary, and what buyers should expect before purchasing.",
+        slug: "lab-grown-vs-natural-diamond-price-2026",
+    },
+    {
+        id: 28,
+        title: "How Much Does a 3 Carat Lab Grown Diamond Cost in 2026? Price Guide",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "How much is a 3 carat lab grown diamond in 2026? See real price ranges by quality, settings, and what affects cost before you buy.",
+        slug: "3-carat-lab-grown-diamond-price-2026",
+    },
+    {
+        id: 29,
+        title: "How Much Is a 4 Carat Lab Grown Diamond in 2026? Price Guide",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: RingSizeBlog,
+        excerpt:
+            "Find out how much a 4 carat lab grown diamond costs in 2026. Explore price ranges, quality factors, and what affects the final value.",
+        slug: "4-carat-lab-grown-diamond-price-2026",
+    },
+    {
+        id: 30,
+        title: "How Much Does a 3 Carat Natural Diamond Cost in 2026? Price Guide",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: diamondcoal,
+        excerpt:
+            "See how much a 3 carat natural diamond costs in 2026. Learn price ranges, quality factors, and what affects value before you buy.",
+        slug: "3-carat-natural-diamond-price-2026",
+    },
+    {
+        id: 31,
+        title: "Do Lab Grown Diamonds Hold Value? 2026 Resale Reality Explained",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "Do lab grown diamonds hold their value? Learn real resale rates, what affects value, and what to expect in 2026 before you buy.",
+        slug: "do-lab-grown-diamonds-hold-value",
+    },
+    {
+        id: 32,
+        title: "Lab Grown Diamond Resale Value: What You Will Actually Get (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog1,
+        excerpt:
+            "Thinking of selling a lab grown diamond? Learn real resale value, what affects price, and how to get the best offer in 2026.",
+        slug: "lab-grown-diamond-resale-value-2026",
+    },
+    {
+        id: 33,
+        title: "Lab Grown vs Natural Diamond Resale Value (2026 Comparison Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: tamperprofseal,
+        excerpt:
+            "Compare lab grown vs natural diamond resale value in 2026. See real percentages, what affects resale, and what buyers should expect.",
+        slug: "lab-grown-vs-natural-diamond-resale-value",
+    },
 ];
 
 const page = () => {
