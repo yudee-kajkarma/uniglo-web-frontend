@@ -525,6 +525,106 @@ const blogs = [
             "Not sure how to choose an engagement ring? Learn size, style, diamond quality, and budget tips in this complete 2026 guide.",
         slug: "how-to-choose-engagement-ring-guide",
     },
+    {
+        id: 54,
+        title: "Natural vs Lab Grown Diamonds: Which Should You Buy in 2026?",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: newimage,
+        excerpt:
+            "Natural or lab grown diamonds? Learn the real differences, pricing, value, and which option is right for you in 2026.",
+        slug: "natural-vs-lab-grown-diamonds-guide",
+    },
+    {
+        id: 55,
+        title: "Best Diamond Size for Engagement Rings (2026 Carat Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: RingSizeBlog,
+        excerpt:
+            "What diamond size should you choose? Learn the best carat sizes, finger fit, budget tips, and how big a diamond should be in 2026.",
+        slug: "best-diamond-size-for-engagement-ring",
+    },
+    {
+        id: 56,
+        title: "Best Diamond Settings for Engagement Rings (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Explore the best diamond settings for engagement rings in 2026. Learn styles, durability, and how to choose the right setting.",
+        slug: "best-diamond-settings-for-engagement-rings",
+    },
+    {
+        id: 57,
+        title: "How to Clean Diamond Jewelry at Home (Safe Methods Guide 2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog1,
+        excerpt:
+            "Learn how to clean diamond rings, earrings, and necklaces at home safely. Step-by-step methods to keep your diamonds sparkling in 2026.",
+        slug: "how-to-clean-diamond-jewelry-at-home",
+    },
+    {
+        id: 58,
+        title: "How to Store Diamond Jewelry Safely (2026 Storage Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Learn how to store diamond jewelry properly to avoid scratches and damage. Simple storage tips for rings, earrings, and necklaces.",
+        slug: "how-to-store-diamond-jewelry-safely",
+    },
+    {
+        id: 59,
+        title: "How to Insure Your Diamond Jewelry (2026 Guide & Cost Tips)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: tamperprofseal,
+        excerpt:
+            "Learn how to insure diamond jewelry, what it covers, costs, and how to protect your ring or diamonds in 2026.",
+        slug: "how-to-insure-diamond-jewelry",
+    },
+    {
+        id: 60,
+        title: "Diamond Resale Value Explained: Do Diamonds Hold Value in 2026?",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: diamondcoal,
+        excerpt:
+            "Do diamonds hold value? Learn how resale value works, what affects it, and what to expect when selling a diamond in 2026.",
+        slug: "diamond-resale-value-guide",
+    },
+    {
+        id: 61,
+        title: "Diamond Certification vs Appraisal: What's the Difference? (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "Diamond certificate vs appraisal explained. Learn the key differences, why both matter, and when you need each in 2026.",
+        slug: "diamond-certification-vs-appraisal",
+    },
+    {
+        id: 62,
+        title: "How to Spot a Fake Diamond (2026 Guide to Real vs Fake Diamonds)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "Worried about fake diamonds? Learn simple ways to identify real diamonds vs fake ones, tests you can do, and what actually works in 2026.",
+        slug: "how-to-spot-fake-diamond",
+    },
+    {
+        id: 63,
+        title: "Diamond Buying Checklist 2026: What to Know Before You Buy",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: labd,
+        excerpt:
+            "Use this diamond buying checklist before you purchase. Learn what to check, avoid mistakes, and choose the best diamond in 2026.",
+        slug: "diamond-buying-checklist-2026",
+    },
 ];
 
 const page = () => {
