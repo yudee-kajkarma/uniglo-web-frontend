@@ -125,6 +125,106 @@ const blogs = [
             "Celebrate Valentine's Day with diamonds for every heart. Discover diamond and lab-grown diamond jewelry for partners, parents, and children at Uniglo Jewels.",
         slug: "circle-of-love-valentines-day-diamonds",
     },
+    {
+        id: 14,
+        title: "How to Tell If a Diamond Is Real at Home (2026 Guide with 10 Easy Tests)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Wondering if your diamond is real? Learn 10 simple at-home tests to check diamond authenticity in 2026, plus expert tips to verify it properly.",
+        slug: "how-to-tell-if-a-diamond-is-real-at-home",
+    },
+    {
+        id: 15,
+        title: "How to Tell If a Diamond Ring Is Real (2026 Buyer's Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "Not sure if your diamond ring is real? Learn how to verify a diamond ring using hallmarks, certificates, sparkle tests, and expert tips in this 2026 guide.",
+        slug: "how-to-know-if-diamond-ring-is-real",
+    },
+    {
+        id: 16,
+        title: "Do Lab-Grown Diamonds Pass a Diamond Tester? (2026 Answer Explained)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: newimage,
+        excerpt:
+            "Do lab-grown diamonds pass diamond testers? Yes, and here is why. Learn how diamond testers work, what they detect, and how to tell the origin in 2026.",
+        slug: "do-lab-grown-diamonds-pass-diamond-tester",
+    },
+    {
+        id: 17,
+        title: "What Does a Real Diamond Look Like? (2026 Visual Guide for Buyers)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "What does a real diamond actually look like? Learn how to identify a natural diamond by sparkle, inclusions, color, and light behavior in this 2026 guide.",
+        slug: "what-does-a-real-diamond-look-like",
+    },
+    {
+        id: 18,
+        title: "What Are the 4 Types of Diamonds? Type I vs Type II Explained (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Learn the 4 types of diamonds (Type Ia, Ib, IIa, IIb) and what they mean for quality, rarity, and value in this simple 2026 buyer guide.",
+        slug: "what-are-the-4-types-of-diamonds",
+    },
+    {
+        id: 19,
+        title: "GIA Certified Lab Grown Diamonds: What the Certificate Really Means (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: newimage,
+        excerpt:
+            "What does a GIA certificate for lab grown diamonds actually tell you? Learn how to read, verify, and understand diamond reports in 2026.",
+        slug: "gia-certified-lab-grown-diamonds-guide",
+    },
+    {
+        id: 20,
+        title: "What Is a Lab Grown Diamond? Complete Beginner Guide (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: labd,
+        excerpt:
+            "What is a lab grown diamond? Learn how they are made, why they are real diamonds, and why 60%+ of engagement rings use them in 2026.",
+        slug: "what-is-a-lab-grown-diamond-guide",
+    },
+    {
+        id: 21,
+        title: "Are Lab Grown Diamonds Real? The Truth Explained (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Are lab grown diamonds real or fake? Learn the truth about their composition, certification, and how they compare to natural diamonds in 2026.",
+        slug: "are-lab-grown-diamonds-real",
+    },
+    {
+        id: 22,
+        title: "How Are Lab Grown Diamonds Made? CVD vs HPHT Explained (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "Learn how lab grown diamonds are made using CVD and HPHT methods in this simple 2026 guide. Understand the process without technical jargon.",
+        slug: "how-are-lab-grown-diamonds-made-cvd-vs-hpht",
+    },
+    {
+        id: 23,
+        title: "CVD vs HPHT Diamonds: Which Is Better in 2026? Full Comparison",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: RingSizeBlog,
+        excerpt:
+            "CVD vs HPHT lab grown diamonds: what is the difference and which is better? Learn quality, clarity, color, and buying factors in this 2026 guide.",
+        slug: "cvd-vs-hpht-diamonds-which-is-better",
+    },
 ];
 
 const page = () => {
