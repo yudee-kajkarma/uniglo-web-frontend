@@ -325,6 +325,106 @@ const blogs = [
             "Compare lab grown vs natural diamond resale value in 2026. See real percentages, what affects resale, and what buyers should expect.",
         slug: "lab-grown-vs-natural-diamond-resale-value",
     },
+    {
+        id: 34,
+        title: "Why Are Lab Grown Diamonds Cheaper Than Natural? (2026 Explained)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: newimage,
+        excerpt:
+            "Why are lab grown diamonds so much cheaper than natural diamonds? Learn the real reasons behind the price difference in 2026.",
+        slug: "why-are-lab-grown-diamonds-cheaper-than-natural",
+    },
+    {
+        id: 35,
+        title: "Natural Diamond Rings Guide 2026: Styles, Settings & Buying Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "Discover how to choose a natural diamond ring in 2026. Learn about styles, settings, 4Cs, and what matters before you buy.",
+        slug: "natural-diamond-rings-buying-guide-2026",
+    },
+    {
+        id: 36,
+        title: "Natural Diamond Tennis Bracelet Guide (2026): What to Look For",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: tamperprofseal,
+        excerpt:
+            "Buying a diamond tennis bracelet? Learn what to look for: diamond matching, settings, carat weight, and quality tips in this 2026 guide.",
+        slug: "natural-diamond-tennis-bracelet-buying-guide",
+    },
+    {
+        id: 37,
+        title: "Natural Diamond Necklace Guide 2026: Styles, Sizes & Buying Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog1,
+        excerpt:
+            "Looking for a diamond necklace? Learn how to choose the right style, size, and quality in this complete natural diamond necklace guide for 2026.",
+        slug: "natural-diamond-necklace-buying-guide",
+    },
+    {
+        id: 38,
+        title: "Natural Diamond Stud Earrings Guide 2026: Size, Quality & Buying Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Buying diamond stud earrings? Learn the best sizes, clarity, color, and how to choose perfect natural diamond studs in 2026.",
+        slug: "natural-diamond-stud-earrings-buying-guide",
+    },
+    {
+        id: 39,
+        title: "Lab Grown Diamond Rings Guide 2026: Styles, Settings & Buying Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: labd,
+        excerpt:
+            "Discover how to choose the perfect lab grown diamond ring in 2026. Learn styles, settings, quality factors, and what to look for before buying.",
+        slug: "lab-grown-diamond-rings-buying-guide-2026",
+    },
+    {
+        id: 40,
+        title: "Lab Grown Diamond Earrings Guide 2026: Studs, Hoops & Buying Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Looking for lab grown diamond earrings? Learn how to choose studs, hoops, sizes, and quality in this complete 2026 buying guide.",
+        slug: "lab-grown-diamond-earrings-buying-guide",
+    },
+    {
+        id: 41,
+        title: "Lab Grown Diamond Necklace Guide 2026: Styles, Sizes & Buying Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "Discover how to choose a lab grown diamond necklace in 2026. Learn about styles, sizes, chain length, and quality before you buy.",
+        slug: "lab-grown-diamond-necklace-buying-guide",
+    },
+    {
+        id: 42,
+        title: "Lab Grown Diamond Tennis Bracelet Guide 2026: Size, Quality & Tips",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: RingSizeBlog,
+        excerpt:
+            "Buying a lab grown diamond tennis bracelet? Learn how to choose size, diamond quality, settings, and what to look for in 2026.",
+        slug: "lab-grown-diamond-tennis-bracelet-buying-guide",
+    },
+    {
+        id: 43,
+        title: "Custom Diamond Jewelry Guide 2026: How to Design Your Perfect Piece",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: diamondcoal,
+        excerpt:
+            "Design your own diamond jewelry in 2026. Learn the custom process, pricing, and how to create rings, necklaces, or bracelets step by step.",
+        slug: "custom-diamond-jewelry-design-guide-2026",
+    },
 ];
 
 const page = () => {
