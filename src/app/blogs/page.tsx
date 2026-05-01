@@ -425,6 +425,106 @@ const blogs = [
             "Design your own diamond jewelry in 2026. Learn the custom process, pricing, and how to create rings, necklaces, or bracelets step by step.",
         slug: "custom-diamond-jewelry-design-guide-2026",
     },
+    {
+        id: 44,
+        title: "Best Diamond Shapes for Engagement Rings (2026 Guide & Comparison)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Round, oval, cushion or emerald? Discover the best diamond shapes for engagement rings in 2026 and how to choose the right one.",
+        slug: "best-diamond-shapes-for-engagement-rings",
+    },
+    {
+        id: 45,
+        title: "Diamond Cut vs Clarity: What Matters More? (2026 Buying Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: EngagementRingBlog2,
+        excerpt:
+            "Cut or clarity: which matters more in a diamond? Learn the real difference and what to prioritize when buying in 2026.",
+        slug: "diamond-cut-vs-clarity-which-matters",
+    },
+    {
+        id: 46,
+        title: "Diamond Color vs Clarity: Which Should You Choose in 2026?",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: newimage,
+        excerpt:
+            "Diamond color or clarity: which matters more? Learn the key differences, price impact, and how to choose the right balance in 2026.",
+        slug: "diamond-color-vs-clarity-which-matters",
+    },
+    {
+        id: 47,
+        title: "Diamond Cut vs Color: Which Matters More? (2026 Buying Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: labd,
+        excerpt:
+            "Cut or color: which should you prioritize? Learn how each affects sparkle, appearance, and price in this 2026 diamond buying guide.",
+        slug: "diamond-cut-vs-color-which-matters",
+    },
+    {
+        id: 48,
+        title: "VS vs VVS Diamonds: What’s the Difference & Which Is Better? (2026)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "VS vs VVS diamonds explained. Learn the real difference, visibility, pricing, and which clarity grade is better for your budget in 2026.",
+        slug: "vs-vs-vvs-diamonds-difference",
+    },
+    {
+        id: 49,
+        title: "SI vs VS Diamonds: Which Clarity Is Better Value? (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: RingSizeBlog,
+        excerpt:
+            "SI vs VS diamonds explained. Learn the difference, visibility, pricing, and which clarity grade gives the best value in 2026.",
+        slug: "si-vs-vs-diamonds-which-better",
+    },
+    {
+        id: 50,
+        title: "Diamond Fluorescence Explained: Is It Good or Bad? (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "What is diamond fluorescence and should you avoid it? Learn how it affects price, appearance, and value in this 2026 guide.",
+        slug: "diamond-fluorescence-explained-good-or-bad",
+    },
+    {
+        id: 51,
+        title: "What Is Diamond Certification? GIA vs IGI Explained (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: BuyDiamondsOnlineBlog1,
+        excerpt:
+            "What is a diamond certificate and which one should you trust? Learn GIA vs IGI differences and how certification affects your purchase.",
+        slug: "what-is-diamond-certification-gia-vs-igi",
+    },
+    {
+        id: 52,
+        title: "How to Buy a Diamond Online Safely (2026 Guide & Checklist)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: tamperprofseal,
+        excerpt:
+            "Buying a diamond online? Learn how to choose safely, avoid scams, check certification, and get the best value in 2026.",
+        slug: "how-to-buy-diamond-online-safely",
+    },
+    {
+        id: 53,
+        title: "How to Choose the Perfect Engagement Ring (2026 Complete Guide)",
+        author: "Uniglo Diamonds",
+        date: "May 1, 2026",
+        image: diamondcoal,
+        excerpt:
+            "Not sure how to choose an engagement ring? Learn size, style, diamond quality, and budget tips in this complete 2026 guide.",
+        slug: "how-to-choose-engagement-ring-guide",
+    },
 ];
 
 const page = () => {
