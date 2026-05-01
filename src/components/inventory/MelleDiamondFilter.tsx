@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useEffect, useId, useMemo, useState } from "react";
+import Image from "next/image";
 import {
     DiamondFilterSection,
     RangeSliderWithInputs,
@@ -20,6 +21,12 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface MelleDiamondFiltersProps {
     filters: MelleFilterState;
@@ -30,6 +37,28 @@ interface MelleDiamondFiltersProps {
 
 const toggle = <T extends string>(list: T[], item: T): T[] =>
     list.includes(item) ? list.filter((i) => i !== item) : [...list, item];
+
+// Maps melee shape codes from the API to display label + icon. RBC is the
+// Round Brilliant Cut variant the melee API currently emits; the other
+// codes mirror the regular diamond filter so adding new ones server-side
+// "just works" visually.
+const MELLE_SHAPE_META: Record<string, { label: string; icon: string }> = {
+    RBC: { label: "Round", icon: "/shapes/round-diamond.png" },
+    RD: { label: "Round", icon: "/shapes/round-diamond.png" },
+    PC: { label: "Princess", icon: "/shapes/princess-diamond.png" },
+    PS: { label: "Pear", icon: "/shapes/pear-diamond.png" },
+    OV: { label: "Oval", icon: "/shapes/Oval-Diamond.png" },
+    EM: { label: "Emerald", icon: "/shapes/emerald-diamond.png" },
+    MQ: { label: "Marquise", icon: "/shapes/marquise-diamond.png" },
+    RA: { label: "Radiant", icon: "/shapes/radiant-diamond.png" },
+    HT: { label: "Heart", icon: "/shapes/heart.png" },
+    Asscher: { label: "Asscher", icon: "/shapes/asscher-diamond.png" },
+    CU: { label: "Cushion", icon: "/shapes/cushion-diamond.png" },
+    Oeb: { label: "European", icon: "/shapes/old-european-diamond.png" },
+    OMB: { label: "Old Mine", icon: "/shapes/old-mine-diamond.png" },
+    SE: { label: "Square Emerald", icon: "/shapes/square-emerald.png" },
+    Other: { label: "Other", icon: "/shapes/other-diamond.png" },
+};
 
 // Display order for melee clarity grades. Anything not in this list is
 // appended in the order the backend returned it.
@@ -121,21 +150,52 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     }
 
     const shapesContent = (
-        <div className="flex flex-wrap gap-1">
-            {options.shapes.map((shape) => (
-                <ToggleButton
-                    key={shape}
-                    label={shape}
-                    active={filters.shape.includes(shape)}
-                    onClick={() =>
-                        setFilters((p) => ({
-                            ...p,
-                            shape: toggle(p.shape, shape),
-                        }))
-                    }
-                    className="border border-primary-yellow-2 min-w-[60px]"
-                />
-            ))}
+        <div
+            className={cn(
+                "grid gap-2",
+                variant === "sidebar"
+                    ? "grid-cols-2 sm:grid-cols-4"
+                    : "grid-cols-7",
+            )}
+        >
+            {options.shapes.map((code) => {
+                const meta = MELLE_SHAPE_META[code] ?? {
+                    label: code,
+                    icon: "/shapes/other-diamond.png",
+                };
+                const isActive = filters.shape.includes(code);
+                return (
+                    <TooltipProvider key={code}>
+                        <Tooltip>
+                            <TooltipTrigger asChild>
+                                <button
+                                    onClick={() =>
+                                        setFilters((p) => ({
+                                            ...p,
+                                            shape: toggle(p.shape, code),
+                                        }))
+                                    }
+                                    className={cn(
+                                        "flex cursor-pointer flex-col items-center justify-center p-2 rounded border transition-colors aspect-square",
+                                        isActive
+                                            ? "bg-[#d4b98c] text-black border-[#d4b98c] font-medium"
+                                            : "border-primary-yellow-2",
+                                    )}
+                                >
+                                    <Image
+                                        src={meta.icon}
+                                        width={54}
+                                        height={54}
+                                        alt={meta.label}
+                                        className="aspect-square object-contain"
+                                    />
+                                </button>
+                            </TooltipTrigger>
+                            <TooltipContent>{meta.label}</TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                );
+            })}
         </div>
     );
 
@@ -382,18 +442,21 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     return (
         <div className="w-full bg-white p-2 rounded-lg font-lato">
             <div className={cn("grid grid-cols-1 lg:grid-cols-12 gap-2")}>
+                {/* Col 1 — Shapes + Color */}
                 <div className="lg:col-span-4 flex flex-col gap-2">
-                    <DiamondFilterSection title="Shape">
+                    <DiamondFilterSection title="Shapes">
                         {shapesContent}
                     </DiamondFilterSection>
                     <DiamondFilterSection title="Color">
                         {colorContent}
                     </DiamondFilterSection>
+                </div>
+
+                {/* Col 2 — Clarity + Cut + Type */}
+                <div className="lg:col-span-4 flex flex-col gap-2">
                     <DiamondFilterSection title="Clarity">
                         {clarityContent}
                     </DiamondFilterSection>
-                </div>
-                <div className="lg:col-span-4 flex flex-col gap-2">
                     <DiamondFilterSection title="Cut">
                         {cutContent}
                     </DiamondFilterSection>
@@ -403,18 +466,19 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     <DiamondFilterSection title="Type">
                         {isLabContent}
                     </DiamondFilterSection>
-                    {/* RangeSliderWithInputs adds h-full to its wrapper for
-                        the default variant. In this stretched grid column it
-                        steals all the height from the Cut/Type cards above —
-                        wrapping in a plain div localizes h-full to this
-                        container's natural height. */}
-                    <div>{priceSlider}</div>
                 </div>
-                <div className="lg:col-span-4 grid grid-cols-2 gap-2">
+
+                {/* Col 3 — size-mode radio, active size dropdown, Measurement,
+                    Sieve, then Price spanning the full column width */}
+                <div className="lg:col-span-4 grid grid-cols-2 gap-2 auto-rows-min content-start">
                     {sizeModeRadio}
                     {sizeMode === "avgPtr" ? avgPtrDropdown : caratDropdown}
                     {measurementDropdown}
                     {sieveDropdown}
+                    {/* RangeSliderWithInputs forces h-full on its wrapper.
+                        Wrapping in a plain div with col-span-2 keeps it from
+                        stretching to fill leftover column height. */}
+                    <div className="col-span-2">{priceSlider}</div>
                 </div>
             </div>
         </div>
@@ -496,10 +560,7 @@ const MultiRangeSelect: React.FC<MultiRangeSelectProps> = ({
     };
 
     return (
-        <div className="flex flex-col gap-1 w-full">
-            <label className="text-xs font-semibold text-gray-700">
-                {label}
-            </label>
+        <DiamondFilterSection title={label} className="p-0">
             <Popover open={open} onOpenChange={setOpen}>
                 <PopoverTrigger asChild>
                     <button
@@ -591,6 +652,6 @@ const MultiRangeSelect: React.FC<MultiRangeSelectProps> = ({
                     )}
                 </PopoverContent>
             </Popover>
-        </div>
+        </DiamondFilterSection>
     );
 };
