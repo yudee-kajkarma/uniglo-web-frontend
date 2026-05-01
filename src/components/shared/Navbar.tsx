@@ -24,6 +24,7 @@ import {
     Shield,
     FormInputIcon,
     Gem,
+    UserPlus,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -127,6 +128,7 @@ const NAV_LINKS = [
 
 const ADMIN_NAV_LINKS = [
     { name: "Members Management", href: "/members-management", icon: Users },
+    { name: "Create Customer", href: "/create-customer", icon: UserPlus },
     {
         name: "Enquiry Management",
         href: "/enquiry-management",
@@ -145,6 +147,7 @@ const ADMIN_NAV_LINKS = [
 
 const SUPER_ADMIN_NAV_LINKS = [
     { name: "Members Management", href: "/members-management", icon: Users },
+    { name: "Create Customer", href: "/create-customer", icon: UserPlus },
     {
         name: "Enquiry Management",
         href: "/enquiry-management",

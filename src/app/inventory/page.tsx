@@ -10,21 +10,45 @@ import {
     ShoppingCart, // New (for Cart)
     Hand, // New (for Inquiry/Hand icon)
     Scale,
+    Plus,
+    Upload,
+    Trash2,
 } from "lucide-react";
 import DataTable from "@/components/ui/table";
+import MelleDataTable from "@/components/ui/melleTable";
 import DiamondGrid from "@/components/ui/diamondGrid";
+import MelleDiamondGrid from "@/components/ui/melleDiamondGrid";
 import TablePagination from "@/components/ui/tablePagination";
 import { DiamondFilters } from "@/components/inventory/diamonFilter";
+import { MelleDiamondFilters } from "@/components/inventory/MelleDiamondFilter";
 import {
     getDiamondColumns,
     getPublicDiamondColumns,
 } from "@/components/columns/DiamondColumns";
+import {
+    getMelleDiamondColumns,
+    getPublicMelleDiamondColumns,
+} from "@/components/columns/MelleDiamondColumns";
 import {
     fetchDiamonds,
     searchDiamonds,
     fetchPublicDiamonds,
     exportDiamonds,
 } from "@/services/diamondService";
+import {
+    searchMelleDiamonds,
+    fetchPublicMelleDiamonds,
+} from "@/services/melleDiamondService";
+import { MelleDiamondFormDialog } from "@/components/dialogs/MelleDiamondFormDialog";
+import { DeleteMelleDiamondDialog } from "@/components/dialogs/DeleteMelleDiamondDialog";
+import { MelleDiamondImportDialog } from "@/components/dialogs/MelleDiamondImportDialog";
+import { BulkDeleteMelleDiamondsDialog } from "@/components/dialogs/BulkDeleteMelleDiamondsDialog";
+import {
+    MelleDiamond,
+    MelleFilterOptions,
+    MelleFilterState,
+    PublicMelleDiamond,
+} from "@/interface/melleDiamondInterface";
 import {
     Dialog,
     DialogContent,
@@ -48,8 +72,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRouter, useSearchParams, usePathname } from "next/navigation";
 import DiamondDetailView from "@/components/inventory/DiamondDetailView";
+import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
 import { toast } from "sonner";
-import { addToCart } from "@/services/cartService";
+import { addToCart, addMelleToCart } from "@/services/cartService";
 import { useAuth } from "@/context/AuthContext";
 
 function InventoryContent() {
@@ -60,8 +85,13 @@ function InventoryContent() {
 
     // 2. Extract the View ID
     const viewId = searchParams.get("view");
+    const viewType = searchParams.get("type");
 
     const [data, setData] = useState<(Diamond | PublicDiamond)[]>([]);
+    const [melleData, setMelleData] = useState<
+        (MelleDiamond | PublicMelleDiamond)[]
+    >([]);
+    const [isMelee, setIsMelee] = useState(false);
     const [loading, setLoading] = useState(false);
     const [totalCount, setTotalCount] = useState(0);
     const [totalPages, setTotalPages] = useState(0);
@@ -109,6 +139,44 @@ function InventoryContent() {
         searchTerm: undefined as string | undefined,
     });
 
+    // Melee-specific filter state. Numeric ranges start at "everything" and
+    // are clamped to the server-provided options once they load.
+    const [melleFilterState, setMelleFilterState] = useState<MelleFilterState>({
+        shape: [],
+        color: [],
+        clarity: [],
+        cut: [],
+        melleCategory: [],
+        isLab: undefined,
+        priceRange: [0, Number.MAX_SAFE_INTEGER],
+        avgPtrRanges: [],
+        caratRanges: [],
+        measurementRanges: [],
+        sieveRanges: [],
+        searchTerm: undefined,
+    });
+    const [melleOptions, setMelleOptions] = useState<MelleFilterOptions | null>(
+        null,
+    );
+
+    // Melee selection (for cart / compare).
+    const [selectedMelle, setSelectedMelle] = useState<
+        (MelleDiamond | PublicMelleDiamond)[]
+    >([]);
+
+    // Admin mutation dialogs.
+    const [melleFormOpen, setMelleFormOpen] = useState(false);
+    const [melleFormTarget, setMelleFormTarget] = useState<
+        MelleDiamond | undefined
+    >(undefined);
+    const [melleDeleteTarget, setMelleDeleteTarget] =
+        useState<MelleDiamond | null>(null);
+    const [melleImportOpen, setMelleImportOpen] = useState(false);
+    const [melleBulkDeleteOpen, setMelleBulkDeleteOpen] = useState(false);
+
+    const isAdminOrSuperAdmin =
+        user?.role === "ADMIN" || user?.role === "SUPER_ADMIN";
+
     // Check if any filters are applied
     const hasActiveFilters = useCallback(() => {
         return (
@@ -139,6 +207,104 @@ function InventoryContent() {
             filterState.searchTerm !== undefined
         );
     }, [filterState]);
+
+    // Narrow-or-skip helper: only pass a range bound if the user has moved
+    // it off the server-provided extremum for the Melee filters.
+    const narrowRange = (
+        current: [number, number],
+        bounds?: { min: number; max: number },
+    ): { min?: number; max?: number } => {
+        if (!bounds) return { min: current[0], max: current[1] };
+        return {
+            min: current[0] > bounds.min ? current[0] : undefined,
+            max: current[1] < bounds.max ? current[1] : undefined,
+        };
+    };
+
+    const loadMelleData = useCallback(async () => {
+        if (viewId) return;
+        setLoading(true);
+        try {
+            const price = narrowRange(
+                melleFilterState.priceRange,
+                melleOptions?.priceRange,
+            );
+            const params = {
+                page,
+                limit: rowsPerPage,
+                sortBy,
+                sortOrder,
+                shape:
+                    melleFilterState.shape.length > 0
+                        ? melleFilterState.shape
+                        : undefined,
+                color:
+                    melleFilterState.color.length > 0
+                        ? melleFilterState.color
+                        : undefined,
+                clarity:
+                    melleFilterState.clarity.length > 0
+                        ? melleFilterState.clarity
+                        : undefined,
+                cut:
+                    melleFilterState.cut.length > 0
+                        ? melleFilterState.cut
+                        : undefined,
+                melleCategory:
+                    melleFilterState.melleCategory.length > 0
+                        ? melleFilterState.melleCategory
+                        : undefined,
+                isLab: melleFilterState.isLab,
+                minPrice: isAuthenticated ? price.min : undefined,
+                maxPrice: isAuthenticated ? price.max : undefined,
+                avgPtrRanges:
+                    melleFilterState.avgPtrRanges.length > 0
+                        ? melleFilterState.avgPtrRanges
+                        : undefined,
+                caratRanges:
+                    melleFilterState.caratRanges.length > 0
+                        ? melleFilterState.caratRanges
+                        : undefined,
+                measurementRanges:
+                    melleFilterState.measurementRanges.length > 0
+                        ? melleFilterState.measurementRanges
+                        : undefined,
+                sieveRanges:
+                    melleFilterState.sieveRanges.length > 0
+                        ? melleFilterState.sieveRanges
+                        : undefined,
+                searchTerm: melleFilterState.searchTerm,
+            };
+
+            const result = isAuthenticated
+                ? await searchMelleDiamonds(params)
+                : await fetchPublicMelleDiamonds(params);
+
+            setMelleData(result.data);
+            setTotalCount(result.totalCount);
+            setTotalPages(result.totalPages);
+            setHasNextPage(result.hasNextPage);
+            setHasPrevPage(result.hasPrevPage);
+        } catch (error) {
+            console.error("Failed to fetch melle diamonds", error);
+            setMelleData([]);
+            setTotalCount(0);
+            setTotalPages(0);
+            setHasNextPage(false);
+            setHasPrevPage(false);
+        } finally {
+            setLoading(false);
+        }
+    }, [
+        page,
+        rowsPerPage,
+        sortBy,
+        sortOrder,
+        melleFilterState,
+        melleOptions,
+        isAuthenticated,
+        viewId,
+    ]);
 
     const loadData = useCallback(async () => {
         if (viewId) return;
@@ -295,18 +461,48 @@ function InventoryContent() {
         viewId,
     ]);
 
-    // Wait for auth to load before fetching data
+    // Wait for auth to load before fetching data. In melee mode we hit the
+    // melle endpoints; otherwise the existing diamond endpoints.
     useEffect(() => {
         if (authLoading) return;
 
         const timeoutId = setTimeout(() => {
-            loadData();
+            if (isMelee) {
+                loadMelleData();
+            } else {
+                loadData();
+            }
         }, 500);
 
         return () => clearTimeout(timeoutId);
-    }, [loadData, hasActiveFilters, authLoading]);
+    }, [loadData, loadMelleData, hasActiveFilters, authLoading, isMelee]);
+
+    const buildResetMelleState = (
+        options: MelleFilterOptions | null,
+    ): MelleFilterState => ({
+        shape: [],
+        color: [],
+        clarity: [],
+        cut: [],
+        melleCategory: [],
+        isLab: undefined,
+        priceRange: [
+            options?.priceRange.min ?? 0,
+            options?.priceRange.max ?? Number.MAX_SAFE_INTEGER,
+        ],
+        avgPtrRanges: [],
+        caratRanges: [],
+        measurementRanges: [],
+        sieveRanges: [],
+        searchTerm: undefined,
+    });
 
     const handleReset = () => {
+        if (isMelee) {
+            setMelleFilterState(buildResetMelleState(melleOptions));
+            setPage(1);
+            return;
+        }
         setFilterState({
             shape: [],
             caratRange: [0, 10.99],
@@ -333,6 +529,49 @@ function InventoryContent() {
         setPage(1);
         setSelectedDiamonds([]); // Clear selection on reset
     };
+
+    const handleEnterMeleeMode = () => {
+        setIsMelee(true);
+        setPage(1);
+        setSelectedDiamonds([]);
+        setData([]);
+        setSortBy("createdAt");
+        setMelleFilterState(buildResetMelleState(melleOptions));
+    };
+
+    const handleExitMeleeMode = (
+        updater: (prev: typeof filterState) => typeof filterState,
+    ) => {
+        setIsMelee(false);
+        setPage(1);
+        setMelleData([]);
+        setSelectedMelle([]);
+        setFilterState(updater);
+    };
+
+    const handleMelleOptionsLoaded = useCallback(
+        (options: MelleFilterOptions) => {
+            setMelleOptions(options);
+            setMelleFilterState((prev) => {
+                const clamp = (
+                    current: [number, number],
+                    bounds: { min: number; max: number },
+                ): [number, number] => [
+                    current[0] <= bounds.min || !isFinite(current[0])
+                        ? bounds.min
+                        : current[0],
+                    current[1] >= bounds.max || !isFinite(current[1])
+                        ? bounds.max
+                        : current[1],
+                ];
+                return {
+                    ...prev,
+                    priceRange: clamp(prev.priceRange, options.priceRange),
+                };
+            });
+        },
+        [],
+    );
 
     const handleCompare = () => {
         if (selectedDiamonds.length < 2) {
@@ -510,6 +749,93 @@ function InventoryContent() {
         }
     };
 
+    const handleViewMelleDetails = (
+        diamond: MelleDiamond | PublicMelleDiamond,
+    ) => {
+        if (diamond._id) {
+            router.push(
+                `${pathname}?view=${encodeURIComponent(diamond._id)}&type=melle`,
+            );
+        } else {
+            console.error("Melle diamond missing _id");
+        }
+    };
+
+    const openMelleCreate = () => {
+        setMelleFormTarget(undefined);
+        setMelleFormOpen(true);
+    };
+
+    const openMelleEdit = (d: MelleDiamond) => {
+        setMelleFormTarget(d);
+        setMelleFormOpen(true);
+    };
+
+    const openMelleDelete = (d: MelleDiamond) => {
+        setMelleDeleteTarget(d);
+    };
+
+    const handleMelleSaved = () => {
+        loadMelleData();
+    };
+
+    const handleMelleDeleted = (deletedId: string) => {
+        setMelleData((prev) => prev.filter((d) => d._id !== deletedId));
+        setSelectedMelle((prev) => prev.filter((d) => d._id !== deletedId));
+    };
+
+    const handleMelleBulkDeleted = (deletedIds: string[]) => {
+        const idSet = new Set(deletedIds);
+        setMelleData((prev) => prev.filter((d) => !idSet.has(d._id)));
+        setSelectedMelle((prev) => prev.filter((d) => !idSet.has(d._id)));
+    };
+
+    const openMelleBulkDelete = () => {
+        if (selectedMelle.length === 0) {
+            toast.warning("Select at least one melee diamond to delete");
+            return;
+        }
+        setMelleBulkDeleteOpen(true);
+    };
+
+    const handleMelleAddToCart = async () => {
+        if (!isAuthenticated) {
+            toast.error("Please login to add items to cart");
+            router.push("/login");
+            return;
+        }
+        if (selectedMelle.length === 0) {
+            toast.warning("Please select melee diamonds to add to cart");
+            return;
+        }
+        setAddingToCart(true);
+        try {
+            const ids = selectedMelle
+                .filter((d): d is MelleDiamond => "_id" in d)
+                .map((d) => d._id);
+            await addMelleToCart(ids);
+            toast.success("Selected melee diamonds added to cart");
+            setSelectedMelle([]);
+        } catch (error) {
+            toast.error(
+                typeof error === "string"
+                    ? error
+                    : "Failed to add melee diamonds to cart",
+            );
+        } finally {
+            setAddingToCart(false);
+        }
+    };
+
+    const handleMelleCompare = () => {
+        if (selectedMelle.length < 2) {
+            toast.warning("Please select at least 2 melee diamonds to compare");
+            return;
+        }
+        const ids = selectedMelle.map((d) => d._id).join(",");
+        router.push(`/compare?ids=${ids}&type=melle`);
+    };
+
     const handleSort = useCallback(
         (columnKey: string) => {
             setSortBy(columnKey);
@@ -528,6 +854,14 @@ function InventoryContent() {
 
     // 4. CONDITIONAL RENDER: If viewId exists, show Detail View
     if (viewId) {
+        if (viewType === "melle") {
+            return (
+                <MelleDiamondDetailView
+                    diamondId={viewId}
+                    isPublic={!isAuthenticated}
+                />
+            );
+        }
         return (
             <DiamondDetailView diamondId={viewId} isPublic={!isAuthenticated} />
         );
@@ -537,18 +871,19 @@ function InventoryContent() {
     return (
         <div className="p-4 space-y-2 bg-brand-gradient min-h-screen ">
             {/* 1. FILTER DASHBOARD */}
+            {/* Diamond Types */}
             <div className="flex flex-col rounded-lg w-full overflow-hidden border-primary border-2 mb-4">
                 <div className="bg-primary-purple2 flex justify-start items-center gap-2">
                     <Button
                         variant={"ghost"}
                         onClick={() =>
-                            setFilterState((prev) => ({
+                            handleExitMeleeMode((prev) => ({
                                 ...prev,
                                 isNatural: true,
                             }))
                         }
                         className={`text-white my-1 rounded-md ml-1 hover:text-white transition-all ${
-                            filterState.isNatural === true
+                            !isMelee && filterState.isNatural === true
                                 ? "border-2 border-primary-yellow-1  font-semibold"
                                 : "hover:bg-white/10"
                         }`}
@@ -558,61 +893,82 @@ function InventoryContent() {
                     <Button
                         variant={"ghost"}
                         onClick={() =>
-                            setFilterState((prev) => ({
+                            handleExitMeleeMode((prev) => ({
                                 ...prev,
                                 isNatural: false,
                             }))
                         }
                         className={`text-white my-1 rounded-md hover:text-white transition-all ${
-                            filterState.isNatural === false
+                            !isMelee && filterState.isNatural === false
                                 ? "border-2 border-primary-yellow-1 font-semibold"
                                 : "hover:bg-white/10"
                         }`}
                     >
                         Lab Diamonds
                     </Button>
-                </div>
-                <div className="bg-white flex justify-start items-center gap-2">
                     <Button
                         variant={"ghost"}
-                        onClick={() =>
-                            setFilterState((prev) => ({
-                                ...prev,
-                                colorType: "white",
-                            }))
-                        }
-                        className={`text-black my-1 rounded-md ml-1 transition-all ${
-                            filterState.colorType === "white"
+                        onClick={handleEnterMeleeMode}
+                        className={`text-white my-1 rounded-md hover:text-white transition-all ${
+                            isMelee
                                 ? "border-2 border-primary-yellow-1 font-semibold"
-                                : "hover:bg-gray-100"
+                                : "hover:bg-white/10"
                         }`}
                     >
-                        White Diamonds
-                    </Button>
-                    <Button
-                        variant={"ghost"}
-                        onClick={() =>
-                            setFilterState((prev) => ({
-                                ...prev,
-                                colorType: "fancy",
-                            }))
-                        }
-                        className={`text-black my-1 rounded-md transition-all ${
-                            filterState.colorType === "fancy"
-                                ? "border-2 border-primary-yellow-1 font-semibold"
-                                : "hover:bg-gray-100"
-                        }`}
-                    >
-                        Fancy Color
+                        Melee Diamonds
                     </Button>
                 </div>
+                {!isMelee && (
+                    <div className="bg-white flex justify-start items-center gap-2">
+                        <Button
+                            variant={"ghost"}
+                            onClick={() =>
+                                setFilterState((prev) => ({
+                                    ...prev,
+                                    colorType: "white",
+                                }))
+                            }
+                            className={`text-black my-1 rounded-md ml-1 transition-all ${
+                                filterState.colorType === "white"
+                                    ? "border-2 border-primary-yellow-1 font-semibold"
+                                    : "hover:bg-gray-100"
+                            }`}
+                        >
+                            White Diamonds
+                        </Button>
+                        <Button
+                            variant={"ghost"}
+                            onClick={() =>
+                                setFilterState((prev) => ({
+                                    ...prev,
+                                    colorType: "fancy",
+                                }))
+                            }
+                            className={`text-black my-1 rounded-md transition-all ${
+                                filterState.colorType === "fancy"
+                                    ? "border-2 border-primary-yellow-1 font-semibold"
+                                    : "hover:bg-gray-100"
+                            }`}
+                        >
+                            Fancy Color
+                        </Button>
+                    </div>
+                )}
             </div>
             <div className="hidden lg:block">
-                <DiamondFilters
-                    filters={filterState}
-                    setFilters={setFilterState}
-                    onReset={handleReset}
-                />
+                {isMelee ? (
+                    <MelleDiamondFilters
+                        filters={melleFilterState}
+                        setFilters={setMelleFilterState}
+                        onOptionsLoaded={handleMelleOptionsLoaded}
+                    />
+                ) : (
+                    <DiamondFilters
+                        filters={filterState}
+                        setFilters={setFilterState}
+                        onReset={handleReset}
+                    />
+                )}
             </div>
             {/* mobile actions row */}
             <div className="flex lg:hidden items-center justify-between gap-2 bg-white p-2 rounded-lg mb-4 shadow-sm">
@@ -632,14 +988,26 @@ function InventoryContent() {
                 <div className="flex-1 relative min-w-20">
                     <Input
                         type="text"
-                        placeholder="Diamond ID"
-                        value={filterState.searchTerm || ""}
+                        placeholder={isMelee ? "Stock ID" : "Diamond ID"}
+                        value={
+                            isMelee
+                                ? melleFilterState.searchTerm || ""
+                                : filterState.searchTerm || ""
+                        }
                         className="h-10 w-full rounded-full bg-gray-50 border-gray-200 pl-4 pr-10 text-sm focus-visible:ring-1 focus-visible:ring-primary-purple2"
                         onChange={(e) => {
-                            setFilterState((prev) => ({
-                                ...prev,
-                                searchTerm: e.target.value || undefined,
-                            }));
+                            const val = e.target.value || undefined;
+                            if (isMelee) {
+                                setMelleFilterState((prev) => ({
+                                    ...prev,
+                                    searchTerm: val,
+                                }));
+                            } else {
+                                setFilterState((prev) => ({
+                                    ...prev,
+                                    searchTerm: val,
+                                }));
+                            }
                         }}
                     />
                     <button className="absolute right-1 top-1/2 -translate-y-1/2 p-1.5 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
@@ -659,12 +1027,15 @@ function InventoryContent() {
                         <RotateCcw size={18} />
                     </button>
 
-                    {/* Cart - Only show for authenticated users */}
                     {isAuthenticated && (
                         <button
-                            onClick={handleAddToCart}
+                            onClick={
+                                isMelee ? handleMelleAddToCart : handleAddToCart
+                            }
                             className={`p-2 rounded-full border border-gray-100 bg-gray-100 ${
-                                selectedDiamonds.length > 0
+                                (isMelee
+                                    ? selectedMelle.length
+                                    : selectedDiamonds.length) > 0
                                     ? "text-primary-purple2 bg-purple-50"
                                     : "text-gray-500"
                             }`}
@@ -673,10 +1044,11 @@ function InventoryContent() {
                         </button>
                     )}
 
-                    {/* Compare - Only show for authenticated users */}
                     {isAuthenticated && (
                         <button
-                            onClick={handleCompare}
+                            onClick={
+                                isMelee ? handleMelleCompare : handleCompare
+                            }
                             className="p-2 text-gray-500 bg-gray-200 hover:bg-gray-300 rounded-full"
                             title="Compare"
                         >
@@ -748,8 +1120,20 @@ function InventoryContent() {
                             <Filter /> Advanced Filters
                         </Button>
 
-                        {/* Cart - Only show for authenticated users */}
-                        {isAuthenticated && (
+                        {/* Admin-only: create melee diamond */}
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                                onClick={openMelleCreate}
+                            >
+                                <Plus /> Add Melee Diamond
+                            </Button>
+                        )}
+
+                        {/* Cart — regular mode uses diamond cart; melee mode
+                             sends melle _ids to the same endpoint. */}
+                        {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
                                 className="text-sm"
@@ -760,9 +1144,21 @@ function InventoryContent() {
                                     `(${selectedDiamonds.length})`}
                             </Button>
                         )}
+                        {isAuthenticated && isMelee && (
+                            <Button
+                                variant="outline"
+                                className="text-sm"
+                                onClick={handleMelleAddToCart}
+                                disabled={addingToCart}
+                            >
+                                <ShoppingCart /> Cart{" "}
+                                {selectedMelle.length > 0 &&
+                                    `(${selectedMelle.length})`}
+                            </Button>
+                        )}
 
-                        {/* Compare - Only show for authenticated users */}
-                        {isAuthenticated && (
+                        {/* Compare */}
+                        {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
                                 className="text-sm"
@@ -773,9 +1169,42 @@ function InventoryContent() {
                                     `(${selectedDiamonds.length})`}
                             </Button>
                         )}
+                        {isAuthenticated && isMelee && (
+                            <Button
+                                variant="outline"
+                                className="text-sm"
+                                onClick={handleMelleCompare}
+                            >
+                                <Scale /> Compare{" "}
+                                {selectedMelle.length > 0 &&
+                                    `(${selectedMelle.length})`}
+                            </Button>
+                        )}
 
-                        {/* Export - Only show for authenticated users */}
-                        {isAuthenticated && (
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-red-500 text-red-600 hover:bg-red-50 disabled:opacity-50"
+                                onClick={openMelleBulkDelete}
+                                disabled={selectedMelle.length === 0}
+                            >
+                                <Trash2 /> Delete{" "}
+                                {selectedMelle.length > 0 &&
+                                    `(${selectedMelle.length})`}
+                            </Button>
+                        )}
+
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                                onClick={() => setMelleImportOpen(true)}
+                            >
+                                <Upload /> Import
+                            </Button>
+                        )}
+
+                        {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
                                 className="text-sm"
@@ -790,14 +1219,28 @@ function InventoryContent() {
                     <div className="relative w-full max-w-sm">
                         <Input
                             type="text"
-                            placeholder="Lot/Certificate"
-                            value={filterState.searchTerm || ""}
+                            placeholder={
+                                isMelee ? "Stock ID" : "Lot/Certificate"
+                            }
+                            value={
+                                isMelee
+                                    ? melleFilterState.searchTerm || ""
+                                    : filterState.searchTerm || ""
+                            }
                             className="h-10 w-full rounded-4xl border border-gray-300 pl-5 pr-28 focus-visible:ring-2 focus-visible:ring-primary-purple2"
                             onChange={(e) => {
-                                setFilterState((prev) => ({
-                                    ...prev,
-                                    searchTerm: e.target.value || undefined,
-                                }));
+                                const val = e.target.value || undefined;
+                                if (isMelee) {
+                                    setMelleFilterState((prev) => ({
+                                        ...prev,
+                                        searchTerm: val,
+                                    }));
+                                } else {
+                                    setFilterState((prev) => ({
+                                        ...prev,
+                                        searchTerm: val,
+                                    }));
+                                }
                             }}
                         />
                         <Button className="absolute right-0 top-0 h-full  rounded-4xl bg-gray-800 px-8 text-white hover:bg-gray-700">
@@ -834,12 +1277,23 @@ function InventoryContent() {
                                         </button>
                                     </div>
                                     <div className="flex-1 overflow-y-auto">
-                                        <DiamondFilters
-                                            filters={filterState}
-                                            setFilters={setFilterState}
-                                            onReset={handleReset}
-                                            variant="sidebar"
-                                        />
+                                        {isMelee ? (
+                                            <MelleDiamondFilters
+                                                filters={melleFilterState}
+                                                setFilters={setMelleFilterState}
+                                                onOptionsLoaded={
+                                                    handleMelleOptionsLoaded
+                                                }
+                                                variant="sidebar"
+                                            />
+                                        ) : (
+                                            <DiamondFilters
+                                                filters={filterState}
+                                                setFilters={setFilterState}
+                                                onReset={handleReset}
+                                                variant="sidebar"
+                                            />
+                                        )}
                                     </div>
                                 </div>
                             </div>
@@ -853,6 +1307,57 @@ function InventoryContent() {
                                     columnCount={12}
                                 />
                             </div>
+                        ) : isMelee ? (
+                            melleData.length > 0 ? (
+                                view === "grid" ? (
+                                    <MelleDiamondGrid
+                                        data={melleData}
+                                        onViewDetails={handleViewMelleDetails}
+                                    />
+                                ) : isAuthenticated ? (
+                                    <MelleDataTable
+                                        data={melleData as MelleDiamond[]}
+                                        columns={getMelleDiamondColumns(
+                                            handleViewMelleDetails,
+                                            handleSort,
+                                            sortBy,
+                                            sortOrder,
+                                            isAdminOrSuperAdmin
+                                                ? {
+                                                      onEdit: openMelleEdit,
+                                                      onDelete: openMelleDelete,
+                                                  }
+                                                : undefined,
+                                        )}
+                                        enableSelection
+                                        selected={
+                                            selectedMelle as MelleDiamond[]
+                                        }
+                                        onSelectionChange={(rows) =>
+                                            setSelectedMelle(rows)
+                                        }
+                                    />
+                                ) : (
+                                    <MelleDataTable
+                                        data={melleData as PublicMelleDiamond[]}
+                                        columns={getPublicMelleDiamondColumns(
+                                            handleViewMelleDetails,
+                                            handleSort,
+                                            sortBy,
+                                            sortOrder,
+                                        )}
+                                    />
+                                )
+                            ) : (
+                                <div className="text-center py-12 text-gray-500 w-full">
+                                    <p className="text-lg font-medium">
+                                        No melee diamonds found
+                                    </p>
+                                    <p className="text-sm mt-2">
+                                        Try adjusting your filters
+                                    </p>
+                                </div>
+                            )
                         ) : data.length > 0 ? (
                             view === "grid" ? (
                                 <DiamondGrid
@@ -899,23 +1404,24 @@ function InventoryContent() {
                     </div>
 
                     {/* 3. PAGINATION */}
-                    {!loading && data.length > 0 && (
-                        <div className="border-t p-2">
-                            <TablePagination
-                                total={totalCount}
-                                page={page}
-                                rowsPerPage={rowsPerPage}
-                                totalPages={totalPages}
-                                hasNextPage={hasNextPage}
-                                hasPrevPage={hasPrevPage}
-                                onPageChange={setPage}
-                                onRowsPerPageChange={(newRowsPerPage) => {
-                                    setRowsPerPage(newRowsPerPage);
-                                    setPage(1);
-                                }}
-                            />
-                        </div>
-                    )}
+                    {!loading &&
+                        (isMelee ? melleData.length > 0 : data.length > 0) && (
+                            <div className="border-t p-2">
+                                <TablePagination
+                                    total={totalCount}
+                                    page={page}
+                                    rowsPerPage={rowsPerPage}
+                                    totalPages={totalPages}
+                                    hasNextPage={hasNextPage}
+                                    hasPrevPage={hasPrevPage}
+                                    onPageChange={setPage}
+                                    onRowsPerPageChange={(newRowsPerPage) => {
+                                        setRowsPerPage(newRowsPerPage);
+                                        setPage(1);
+                                    }}
+                                />
+                            </div>
+                        )}
                 </CardContent>
             </Card>
             {/* Export Dialog */}
@@ -989,6 +1495,39 @@ function InventoryContent() {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
+
+            {/* Melee admin dialogs */}
+            {isAuthenticated && isAdminOrSuperAdmin && (
+                <>
+                    <MelleDiamondFormDialog
+                        open={melleFormOpen}
+                        onOpenChange={setMelleFormOpen}
+                        diamond={melleFormTarget}
+                        options={melleOptions}
+                        onSuccess={handleMelleSaved}
+                    />
+                    <DeleteMelleDiamondDialog
+                        open={melleDeleteTarget !== null}
+                        onOpenChange={(open) =>
+                            !open && setMelleDeleteTarget(null)
+                        }
+                        diamond={melleDeleteTarget}
+                        onSuccess={handleMelleDeleted}
+                    />
+                    <MelleDiamondImportDialog
+                        open={melleImportOpen}
+                        onOpenChange={setMelleImportOpen}
+                        options={melleOptions}
+                        onSuccess={loadMelleData}
+                    />
+                    <BulkDeleteMelleDiamondsDialog
+                        open={melleBulkDeleteOpen}
+                        onOpenChange={setMelleBulkDeleteOpen}
+                        ids={selectedMelle.map((d) => d._id)}
+                        onSuccess={handleMelleBulkDeleted}
+                    />
+                </>
+            )}
         </div>
     );
 }
