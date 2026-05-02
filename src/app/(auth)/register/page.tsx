@@ -52,7 +52,7 @@ const Page = () => {
         country: "",
         password: "",
         confirmPassword: "",
-        birthDate: new Date(Date.now()).toISOString().split("T")[0], // Default to today's date in YYYY-MM-DD format
+        birthDate: "",
     });
     console.log("Form Data:", formData.birthDate); // Debugging log
 
@@ -429,7 +429,7 @@ const Page = () => {
                                 <Phone className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                             </div>
 
-                            <div className="relative group col-span-1">
+                            <div className="relative group col-span-2">
                                 <Input
                                     type="text"
                                     name="companyName"
@@ -442,19 +442,7 @@ const Page = () => {
                                 />
                                 <Building2 className="absolute right-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
                             </div>
-                            <div className="relative group">
-                                {" "}
-                                <Input
-                                    type="date"
-                                    name="birthDate"
-                                    placeholder="Date of Birth"
-                                    value={formData.birthDate}
-                                    onChange={handleInputChange}
-                                    required
-                                    disabled={isLoading}
-                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
-                                />{" "}
-                            </div>
+
                             <div className="relative group">
                                 <Input
                                     type="text"
@@ -505,6 +493,25 @@ const Page = () => {
                                         <path d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </div>
+                            </div>
+                            <div className="relative group">
+                                <label
+                                    htmlFor="birthDate"
+                                    className="block text-sm font-lora text-gray-300 mb-2"
+                                >
+                                    Date of Birth
+                                </label>
+                                <Input
+                                    id="birthDate"
+                                    type="date"
+                                    name="birthDate"
+                                    placeholder="Date of Birth"
+                                    value={formData.birthDate}
+                                    onChange={handleInputChange}
+                                    required
+                                    disabled={isLoading}
+                                    className="w-full bg-white/10 border-white/10 text-white placeholder:text-gray-400 focus-visible:ring-primary-yellow-1/50 focus:bg-white/15 h-auto py-3 pl-4 pr-10 rounded-lg"
+                                />
                             </div>
                         </div>
 
