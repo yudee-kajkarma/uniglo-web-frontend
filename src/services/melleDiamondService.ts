@@ -232,12 +232,12 @@ export interface ImportMelleDiamondsResult {
 export const importMelleDiamonds = async (input: {
     file: File;
     isLab: boolean;
-    melleCategory: string;
+    // melleCategory: string;
 }): Promise<ImportMelleDiamondsResult> => {
     const formData = new FormData();
     formData.append("file", input.file);
     formData.append("isLab", String(input.isLab));
-    formData.append("melleCategory", input.melleCategory);
+    // formData.append("melleCategory", input.melleCategory);
 
     const res = await apiClient.post<ItemResponse<ImportMelleDiamondsResult>>(
         `/melle-diamonds/import`,
