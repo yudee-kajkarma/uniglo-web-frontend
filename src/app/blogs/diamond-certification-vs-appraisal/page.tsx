@@ -15,37 +15,361 @@ export const metadata: Metadata = {
 };
 
 const articleData: ArticleSection[] = [
-    { heading: "Why Buyers Often Confuse These Two Terms", content: [{ type: "paragraph", text: "Certification and appraisal both describe a diamond, which is why many buyers assume they are the same. They are not, and each serves a different purpose." }] },
-    { heading: "What Is Diamond Certification?", content: [{ type: "paragraph", text: "Certification is an objective grading report from a lab that documents cut, color, clarity, carat, proportions, and other technical factors." }] },
-    { heading: "What Is a Diamond Appraisal?", content: [{ type: "paragraph", text: "An appraisal estimates monetary value, often for insurance. It includes replacement valuation and broader market considerations." }] },
-    { heading: "The Core Difference: Identification vs Value", content: [{ type: "paragraph", text: "Certification tells you what the diamond is. Appraisal tells you what it is worth. One is grading, the other is valuation." }] },
-    { heading: "Why Certification Comes First", content: [{ type: "paragraph", text: "Appraisal quality depends on verified diamond data. Certification provides the standardized foundation for accurate valuation." }] },
-    { heading: "Why Appraisals Are Essential for Insurance", content: [{ type: "paragraph", text: "Insurers use appraisal values to set coverage limits and replacement expectations in case of loss or damage." }] },
-    { heading: "Why Appraisal Values Can Be Higher Than Purchase Price", content: [{ type: "paragraph", text: "Appraisals often reflect replacement cost, not immediate resale market value, which can make numbers appear higher than purchase price." }] },
-    { heading: "Can You Have One Without the Other?", content: [{ type: "paragraph", text: "You can, but best practice is to keep both. Certification supports confidence and comparison, while appraisal supports insurance and valuation management." }] },
-    { heading: "How Certification and Appraisal Work Together", content: [{ type: "paragraph", text: "Together they provide both technical and financial clarity for ownership, resale, upgrades, and insurance planning." }] },
-    { heading: "Common Mistakes Buyers Make", content: [{ type: "paragraph", text: "Common errors include assuming certificates include price, using appraisal without certification, and failing to refresh appraisal values over time." }] },
+    {
+        heading: "Why Buyers Often Confuse These Two Terms",
+        content: [
+            {
+                type: "paragraph",
+                text: "When buying or owning diamond jewelry, two documents often come up-certification and appraisal.",
+            },
+            {
+                type: "paragraph",
+                text: "At first glance, they seem similar. Both describe the diamond, both include details, and both are used in the buying process. Because of this overlap, many buyers assume they serve the same purpose.",
+            },
+            {
+                type: "paragraph",
+                text: "They do not.",
+            },
+            {
+                type: "paragraph",
+                text: "In 2026, understanding the difference between a diamond certificate and an appraisal is essential-not just for buying, but for insurance, resale, and long-term ownership.",
+            },
+        ],
+    },
+    {
+        heading: "What Is Diamond Certification?",
+        content: [
+            {
+                type: "paragraph",
+                text: "A diamond certificate, also known as a grading report, is an independent evaluation of a diamond's quality.",
+            },
+            {
+                type: "paragraph",
+                text: "It is issued by a gemological laboratory and focuses on objective characteristics such as:",
+            },
+            {
+                type: "paragraph",
+                text: "Cut",
+            },
+            {
+                type: "paragraph",
+                text: "Color",
+            },
+            {
+                type: "paragraph",
+                text: "Clarity",
+            },
+            {
+                type: "paragraph",
+                text: "Carat weight",
+            },
+            {
+                type: "paragraph",
+                text: "Proportions and measurements",
+            },
+            {
+                type: "paragraph",
+                text: "Fluorescence",
+            },
+            {
+                type: "paragraph",
+                text: "Certification does not assign a price-it defines what the diamond is.",
+            },
+            {
+                type: "paragraph",
+                text: "The most recognized labs include Gemological Institute of America, International Gemological Institute, and Hoge Raad voor Diamant.",
+            },
+        ],
+    },
+    {
+        heading: "What Is a Diamond Appraisal?",
+        content: [
+            {
+                type: "paragraph",
+                text: "An appraisal is a valuation document.",
+            },
+            {
+                type: "paragraph",
+                text: "It estimates how much the diamond or jewelry piece is worth in monetary terms. This value is often used for insurance purposes or resale reference.",
+            },
+            {
+                type: "paragraph",
+                text: "An appraisal typically includes:",
+            },
+            {
+                type: "paragraph",
+                text: "Description of the diamond",
+            },
+            {
+                type: "paragraph",
+                text: "Estimated replacement value",
+            },
+            {
+                type: "paragraph",
+                text: "Market considerations",
+            },
+            {
+                type: "paragraph",
+                text: "Details of the setting and overall jewelry",
+            },
+            {
+                type: "paragraph",
+                text: "Unlike certification, an appraisal focuses on price, not just characteristics.",
+            },
+        ],
+    },
+    {
+        heading: "The Core Difference: Identification vs Value",
+        content: [
+            {
+                type: "paragraph",
+                text: "The simplest way to understand the difference is this:",
+            },
+            {
+                type: "paragraph",
+                text: "Certification tells you what the diamond is",
+            },
+            {
+                type: "paragraph",
+                text: "Appraisal tells you what the diamond is worth",
+            },
+            {
+                type: "paragraph",
+                text: "Certification is objective and standardized. Appraisal is subjective and can vary depending on the evaluator and market conditions.",
+            },
+            {
+                type: "paragraph",
+                text: "Both are important, but they serve completely different roles.",
+            },
+        ],
+    },
+    {
+        heading: "Why Certification Comes First",
+        content: [
+            {
+                type: "paragraph",
+                text: "Certification should always come before appraisal.",
+            },
+            {
+                type: "paragraph",
+                text: "Without a verified grading report, an appraisal has no reliable foundation. The accuracy of the valuation depends on the accuracy of the diamond's specifications.",
+            },
+            {
+                type: "paragraph",
+                text: "This is why certified diamonds are easier to evaluate, insure, and resell.",
+            },
+        ],
+    },
+    {
+        heading: "Why Appraisals Are Essential for Insurance",
+        content: [
+            {
+                type: "paragraph",
+                text: "Insurance companies rely on appraisals to determine coverage.",
+            },
+            {
+                type: "paragraph",
+                text: "The appraisal value represents the cost to replace the jewelry in case of loss or damage. Without this document, it becomes difficult to establish appropriate coverage.",
+            },
+            {
+                type: "paragraph",
+                text: "Appraisals are often updated over time to reflect changes in market value.",
+            },
+        ],
+    },
+    {
+        heading: "Why Appraisal Values Can Be Higher Than Purchase Price",
+        content: [
+            {
+                type: "paragraph",
+                text: "Many buyers are surprised to see appraisal values higher than what they paid.",
+            },
+            {
+                type: "paragraph",
+                text: "This is because appraisals often reflect replacement cost, not market resale value. Replacement cost includes factors such as retail pricing, labor, and sourcing.",
+            },
+            {
+                type: "paragraph",
+                text: "It is important to understand that appraisal value is not the same as resale value.",
+            },
+        ],
+    },
+    {
+        heading: "Can You Have One Without the Other?",
+        content: [
+            {
+                type: "paragraph",
+                text: "Technically, yes-but it is not ideal.",
+            },
+            {
+                type: "paragraph",
+                text: "A diamond can have certification without an appraisal, especially at the time of purchase. However, for insurance purposes, an appraisal is usually required.",
+            },
+            {
+                type: "paragraph",
+                text: "An appraisal without certification is less reliable, as it lacks standardized verification.",
+            },
+            {
+                type: "paragraph",
+                text: "For complete protection and clarity, both documents are recommended.",
+            },
+        ],
+    },
+    {
+        heading: "How Certification and Appraisal Work Together",
+        content: [
+            {
+                type: "paragraph",
+                text: "When used together, certification and appraisal provide a complete picture.",
+            },
+            {
+                type: "paragraph",
+                text: "Certification defines the diamond's characteristics, while appraisal translates those characteristics into value. This combination supports:",
+            },
+            {
+                type: "paragraph",
+                text: "Accurate insurance coverage",
+            },
+            {
+                type: "paragraph",
+                text: "Easier resale or trade-in",
+            },
+            {
+                type: "paragraph",
+                text: "Better understanding of what you own",
+            },
+            {
+                type: "paragraph",
+                text: "It creates both technical and financial clarity.",
+            },
+        ],
+    },
+    {
+        heading: "Common Mistakes Buyers Make",
+        content: [
+            {
+                type: "paragraph",
+                text: "One of the most common mistakes is assuming that a certificate includes valuation.",
+            },
+            {
+                type: "paragraph",
+                text: "Buyers may also rely on appraisals without checking certification, which can lead to inaccurate assessments.",
+            },
+            {
+                type: "paragraph",
+                text: "Another mistake is not updating appraisals over time, especially as market conditions change.",
+            },
+            {
+                type: "paragraph",
+                text: "Avoiding these mistakes ensures better long-term management of diamond jewelry.",
+            },
+        ],
+    },
     {
         heading: "When You Need Each Document",
         content: [
-            { type: "paragraph", text: "Use certification for buying, comparing, and quality verification." },
-            { type: "paragraph", text: "Use appraisal for insurance setup, policy updates, and replacement-value estimation." },
+            {
+                type: "paragraph",
+                text: "You need certification when:",
+            },
+            {
+                type: "paragraph",
+                text: "Buying a diamond",
+            },
+            {
+                type: "paragraph",
+                text: "Comparing options",
+            },
+            {
+                type: "paragraph",
+                text: "Verifying quality",
+            },
+            {
+                type: "paragraph",
+                text: "You need an appraisal when:",
+            },
+            {
+                type: "paragraph",
+                text: "Insuring jewelry",
+            },
+            {
+                type: "paragraph",
+                text: "Updating coverage",
+            },
+            {
+                type: "paragraph",
+                text: "Estimating replacement value",
+            },
+            {
+                type: "paragraph",
+                text: "Understanding when each document is required simplifies the process.",
+            },
         ],
     },
-    { heading: "Final Thoughts", content: [{ type: "paragraph", text: "Certification and appraisal are different tools. Owning both gives a complete and reliable view of your diamond's quality and value." }] },
+    {
+        heading: "Final Thoughts",
+        content: [
+            {
+                type: "paragraph",
+                text: "Diamond certification and appraisal serve different but equally important purposes.",
+            },
+            {
+                type: "paragraph",
+                text: "One defines the diamond. The other defines its value. Together, they provide a complete understanding of what you own and how it is positioned in the market.",
+            },
+            {
+                type: "paragraph",
+                text: "In 2026, where transparency and informed decisions are more important than ever, having both documents is not just helpful-it is essential.",
+            },
+            {
+                type: "paragraph",
+                text: "And when one tells you exactly what you are buying while the other tells you what it is worth, does having both not give you the full picture you need?",
+            },
+        ],
+    },
 ];
 
 const faqData = [
-    { question: "What is a diamond certificate?", answer: "A grading report that defines diamond quality." },
-    { question: "What is a diamond appraisal?", answer: "A valuation document estimating monetary worth." },
-    { question: "Are certification and appraisal the same?", answer: "No, they have different purposes." },
-    { question: "Do I need both?", answer: "Yes, for complete clarity and insurance readiness." },
-    { question: "Which comes first?", answer: "Certification should come before appraisal." },
-    { question: "Why is appraisal value higher sometimes?", answer: "Because it may use replacement cost, not resale value." },
-    { question: "Can I insure without appraisal?", answer: "Usually no; insurers commonly require valuation." },
-    { question: "Do certificates include price?", answer: "No, certification does not assign monetary value." },
-    { question: "Should I update my appraisal?", answer: "Yes, update periodically as market value changes." },
-    { question: "What labs provide certification?", answer: "GIA, IGI, and HRD are widely recognized." },
+    {
+        question: "What is a diamond certificate?",
+        answer: "A report that defines a diamond's quality.",
+    },
+    {
+        question: "What is a diamond appraisal?",
+        answer: "A document that estimates its value.",
+    },
+    {
+        question: "Are certification and appraisal the same?",
+        answer: "No, they serve different purposes.",
+    },
+    {
+        question: "Do I need both?",
+        answer: "Yes, for complete understanding and insurance.",
+    },
+    {
+        question: "Which comes first?",
+        answer: "Certification should come before appraisal.",
+    },
+    {
+        question: "Why is appraisal value higher?",
+        answer: "It reflects replacement cost, not resale value.",
+    },
+    {
+        question: "Can I insure without appraisal?",
+        answer: "Usually not-insurance requires valuation.",
+    },
+    {
+        question: "Do certificates include price?",
+        answer: "No, they only describe the diamond.",
+    },
+    {
+        question: "Should I update my appraisal?",
+        answer: "Yes, periodically as value changes.",
+    },
+    {
+        question: "What labs provide certification?",
+        answer: "GIA, IGI, and HRD are widely recognized.",
+    },
 ];
 
 const faqSchema = {

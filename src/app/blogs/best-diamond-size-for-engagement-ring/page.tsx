@@ -20,7 +20,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Size decisions are not just about carat numbers. Two diamonds with the same carat weight can look very different based on cut, shape, and setting. In 2026, buyers focus on how the stone looks on the hand, not only on weight.",
+                text: "One of the first questions buyers ask is simple: how big should the diamond be?",
+            },
+            {
+                type: "paragraph",
+                text: "At first, it seems like the answer should be straightforward-just choose a carat weight. But in reality, diamond size is not just about numbers. Two diamonds with the same carat weight can look completely different depending on how they are cut, shaped, and set.",
+            },
+            {
+                type: "paragraph",
+                text: "In 2026, buyers are moving beyond the idea that bigger is always better. Instead, they are focusing on how the diamond actually looks on the hand.",
+            },
+            {
+                type: "paragraph",
+                text: "Understanding what size really means is the first step to making the right choice.",
             },
         ],
     },
@@ -29,7 +41,15 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Carat measures weight, not face-up size. Visual size depends on surface area and proportions. A well-cut diamond can appear larger than a poorly cut diamond of the same weight.",
+                text: "Carat weight measures how much a diamond weighs-not how large it appears.",
+            },
+            {
+                type: "paragraph",
+                text: "Visual size is determined by the diamond's surface area and proportions. A well-cut diamond with ideal proportions will often appear larger than a poorly cut diamond of the same weight.",
+            },
+            {
+                type: "paragraph",
+                text: "This is why focusing only on carat can lead to unexpected results. Appearance is influenced by how the diamond is cut, not just how much it weighs.",
             },
         ],
     },
@@ -37,13 +57,28 @@ const articleData: ArticleSection[] = [
         heading: "The Most Popular Diamond Sizes in 2026",
         content: [
             {
-                type: "bullet-list",
-                items: [
-                    "0.50 - 0.75 carat: subtle and minimal",
-                    "1.00 carat: the most popular balanced choice",
-                    "1.50 - 2.00 carats: noticeable without overwhelming",
-                    "2.00+ carats: strong statement presence",
-                ],
+                type: "paragraph",
+                text: "While there is no single best size, certain ranges are more commonly chosen.",
+            },
+            {
+                type: "paragraph",
+                text: "0.50 - 0.75 carat: Subtle and minimal, ideal for everyday wear",
+            },
+            {
+                type: "paragraph",
+                text: "1.00 carat: The most popular choice, offering a balanced look",
+            },
+            {
+                type: "paragraph",
+                text: "1.50 - 2.00 carats: Noticeable without being overwhelming",
+            },
+            {
+                type: "paragraph",
+                text: "2.00+ carats: Statement pieces with strong visual presence",
+            },
+            {
+                type: "paragraph",
+                text: "These ranges reflect a balance between visibility, practicality, and budget.",
             },
         ],
     },
@@ -52,7 +87,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Elongated shapes such as oval, pear, and marquise often appear larger than round diamonds of the same carat. Round diamonds usually deliver stronger brilliance due to cut structure.",
+                text: "Shape plays a major role in how large a diamond looks.",
+            },
+            {
+                type: "paragraph",
+                text: "Elongated shapes like oval, pear, and marquise tend to appear larger than round diamonds of the same carat weight. This is because they have a greater surface area and extend further across the finger.",
+            },
+            {
+                type: "paragraph",
+                text: "Round diamonds, while slightly smaller in appearance, offer more brilliance due to their optimized cut.",
+            },
+            {
+                type: "paragraph",
+                text: "Choosing the right shape can make a noticeable difference in perceived size.",
             },
         ],
     },
@@ -61,7 +108,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Cut quality has a major impact on apparent size. Better light return increases brightness and attention, often making a stone look larger than its carat weight suggests.",
+                text: "Cut quality is one of the most effective ways to enhance size appearance.",
+            },
+            {
+                type: "paragraph",
+                text: "A well-cut diamond reflects light efficiently, creating brightness and sparkle that draws attention. This can make the diamond appear larger than its actual carat weight.",
+            },
+            {
+                type: "paragraph",
+                text: "Poorly cut diamonds may appear smaller because they lack brightness and lose light internally.",
+            },
+            {
+                type: "paragraph",
+                text: "This is why prioritizing cut can have a greater impact than increasing carat weight.",
             },
         ],
     },
@@ -70,7 +129,15 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "A 1-carat diamond can look larger on a smaller finger and more subtle on a larger one. Balanced proportion matters more than chasing a single number.",
+                text: "Diamond size should always be considered in relation to finger size.",
+            },
+            {
+                type: "paragraph",
+                text: "A 1-carat diamond may look larger on a smaller finger and more subtle on a larger one. The same applies to larger stones-they can appear more or less prominent depending on proportion.",
+            },
+            {
+                type: "paragraph",
+                text: "The goal is to choose a size that feels balanced on the hand rather than focusing on a specific number.",
             },
         ],
     },
@@ -79,7 +146,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Halo settings and thinner bands can make the center stone appear larger. Heavy bands may visually reduce center-stone impact.",
+                text: "The setting can influence how large a diamond appears.",
+            },
+            {
+                type: "paragraph",
+                text: "A halo setting surrounds the center diamond with smaller stones, creating the illusion of a larger size. Thin bands can also make the diamond appear more prominent by reducing visual competition.",
+            },
+            {
+                type: "paragraph",
+                text: "On the other hand, thicker bands or heavy designs may make the diamond appear smaller.",
+            },
+            {
+                type: "paragraph",
+                text: "Understanding how the setting interacts with the diamond helps maximize visual impact.",
             },
         ],
     },
@@ -88,7 +167,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Price rises quickly near key carat thresholds. Choosing slightly below milestones, such as 0.90 or 1.90 carats, can preserve appearance while reducing cost.",
+                text: "Budget plays a key role in determining diamond size.",
+            },
+            {
+                type: "paragraph",
+                text: "Increasing carat weight significantly raises the price, especially at key thresholds like 1.00 or 2.00 carats. Slightly below these thresholds-such as 0.90 or 1.90 carats-can offer similar appearance at a lower cost.",
+            },
+            {
+                type: "paragraph",
+                text: "Balancing size with cut, color, and clarity ensures that the diamond looks its best without exceeding budget.",
+            },
+            {
+                type: "paragraph",
+                text: "At Uniglo Diamonds, both natural and lab grown diamonds are curated across size ranges, allowing buyers to compare options and find the right balance between appearance and value.",
             },
         ],
     },
@@ -97,7 +188,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "With lab grown diamonds, many buyers can choose larger sizes within the same budget. The visual physics are the same, but budget flexibility is greater.",
+                text: "Lab grown diamonds have changed how buyers approach size.",
+            },
+            {
+                type: "paragraph",
+                text: "Because they are more affordable, buyers can often choose larger carat weights within the same budget compared to natural diamonds.",
+            },
+            {
+                type: "paragraph",
+                text: "This does not change how the diamond looks-it simply expands the range of options available.",
+            },
+            {
+                type: "paragraph",
+                text: "The choice depends on whether you prioritize size flexibility or traditional positioning.",
             },
         ],
     },
@@ -106,7 +209,15 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "A common mistake is focusing only on carat and ignoring cut quality and proportion. A smaller well-cut stone can outperform a larger poorly cut one.",
+                text: "One of the most common mistakes is focusing only on carat weight.",
+            },
+            {
+                type: "paragraph",
+                text: "A larger diamond with poor cut quality may look less impressive than a smaller, well-cut diamond. Another mistake is ignoring proportion-choosing a size that does not suit the wearer's hand.",
+            },
+            {
+                type: "paragraph",
+                text: "These decisions can affect how the diamond is perceived in everyday wear.",
             },
         ],
     },
@@ -114,13 +225,28 @@ const articleData: ArticleSection[] = [
         heading: "How to Decide the Right Size for You",
         content: [
             {
-                type: "bullet-list",
-                items: [
-                    "Personal style preference",
-                    "Finger size and hand proportion",
-                    "Budget flexibility",
-                    "Desired level of visibility",
-                ],
+                type: "paragraph",
+                text: "Choosing the right size comes down to a few key factors:",
+            },
+            {
+                type: "paragraph",
+                text: "Personal style preference",
+            },
+            {
+                type: "paragraph",
+                text: "Finger size and proportion",
+            },
+            {
+                type: "paragraph",
+                text: "Budget flexibility",
+            },
+            {
+                type: "paragraph",
+                text: "Desired level of visibility",
+            },
+            {
+                type: "paragraph",
+                text: "The best size is not the biggest one-it is the one that feels balanced and intentional.",
             },
         ],
     },
@@ -129,23 +255,61 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "The best size is not automatically the biggest one. The best size is the one that looks balanced, performs well, and fits your style and budget.",
+                text: "Diamond size is one of the most visible aspects of an engagement ring, but it is also one of the most misunderstood.",
+            },
+            {
+                type: "paragraph",
+                text: "It is not just about carat weight-it is about how the diamond looks, how it fits, and how it complements the overall design. When shape, cut, and setting are considered together, size becomes a more precise decision.",
+            },
+            {
+                type: "paragraph",
+                text: "And when the goal is to choose a diamond that looks right rather than just measuring right, does understanding what actually creates that appearance not make all the difference?",
             },
         ],
     },
 ];
 
 const faqData = [
-    { question: "What is the most popular diamond size?", answer: "Around 1 carat is the most common choice." },
-    { question: "Does carat weight equal size?", answer: "No, visual size depends on cut and shape." },
-    { question: "Which shape looks the biggest?", answer: "Elongated shapes like oval and marquise usually appear larger." },
-    { question: "Can cut affect size appearance?", answer: "Yes, better cut often makes diamonds look bigger." },
-    { question: "What size is best for small fingers?", answer: "0.50 to 1.00 carat often appears balanced." },
-    { question: "Are larger diamonds always better?", answer: "No, proportion and cut quality matter more than size alone." },
-    { question: "How can I make a diamond look bigger?", answer: "Use elongated shapes, strong cut quality, and size-enhancing settings." },
-    { question: "Are lab grown diamonds bigger?", answer: "They can be chosen in larger sizes due to lower cost." },
-    { question: "Should I hit exact carat numbers?", answer: "Not always. Slightly below can save money with similar appearance." },
-    { question: "What should I prioritize?", answer: "A balance of size, cut, and overall ring proportion." },
+    {
+        question: "What is the most popular diamond size?",
+        answer: "Around 1 carat is the most common choice.",
+    },
+    {
+        question: "Does carat weight equal size?",
+        answer: "No, appearance depends on cut and shape.",
+    },
+    {
+        question: "Which shape looks the biggest?",
+        answer: "Oval and marquise shapes appear larger.",
+    },
+    {
+        question: "Can cut affect size appearance?",
+        answer: "Yes, better cut makes diamonds look bigger.",
+    },
+    {
+        question: "What size is best for small fingers?",
+        answer: "0.50 to 1.00 carat often looks balanced.",
+    },
+    {
+        question: "Are larger diamonds always better?",
+        answer: "Not necessarily-it depends on proportion.",
+    },
+    {
+        question: "How can I make a diamond look bigger?",
+        answer: "Choose elongated shapes or halo settings.",
+    },
+    {
+        question: "Are lab grown diamonds bigger?",
+        answer: "They can be, due to lower cost.",
+    },
+    {
+        question: "Should I hit exact carat numbers?",
+        answer: "Not always-slightly below can save money.",
+    },
+    {
+        question: "What should I prioritize?",
+        answer: "Balance between size, cut, and overall look.",
+    },
 ];
 
 const faqSchema = {

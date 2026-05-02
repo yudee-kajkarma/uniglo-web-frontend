@@ -14,28 +14,228 @@ export const metadata: Metadata = {
 };
 
 const articleData: ArticleSection[] = [
-    { heading: "Why 3 Carat Diamonds Are the New Standard", content: [{ type: "paragraph", text: "In the lab grown segment, 3 carat stones are now far more accessible and widely compared by modern buyers." }] },
-    { heading: "The Real Price Range for a 3 Carat Lab Grown Diamond", content: [{ type: "paragraph", text: "In 2026, this category can span a broad range depending on quality. Differences in cut, color, and clarity become easier to notice at this size." }] },
-    { heading: "How Quality Impacts Pricing at 3 Carats", content: [{ type: "paragraph", text: "Color and clarity differences are more visible in larger stones, but cut quality remains the strongest driver of brilliance and visual performance." }] },
-    { heading: "Why Certification Matters Even More at This Size", content: [{ type: "paragraph", text: "Small grading differences can create large price changes at higher carat weights, making certification essential for fair comparison." }] },
-    { heading: "The Cost of the Setting and Total Ring Price", content: [{ type: "paragraph", text: "Total ring price includes both the diamond and the setting. Metal choice and design complexity can materially affect final cost." }] },
-    { heading: "Why 3 Carat Lab Grown Diamonds Are So Popular", content: [{ type: "paragraph", text: "They offer strong visual impact with better budget accessibility than natural diamonds of the same size." }] },
-    { heading: "How to Evaluate Value at This Level", content: [{ type: "paragraph", text: "Compare trade-offs between size and quality grades while prioritizing visible performance in real lighting." }] },
-    { heading: "Why Online Buying Requires More Attention to Detail", content: [{ type: "paragraph", text: "Use certified reports and reliable visuals, since presentation can vary by platform and lighting setup." }] },
-    { heading: "Final Thoughts", content: [{ type: "paragraph", text: "At 3 carats, quality differences are amplified. Understanding grading and cut helps turn price comparisons into better decisions." }] },
+    {
+        heading: "Why 3 Carat Diamonds Are the New Standard",
+        content: [
+            {
+                type: "paragraph",
+                text: "A few years ago, a 3 carat diamond was considered a rare, high-end choice that only a small segment of buyers could realistically consider. In 2026, that perception has changed significantly-especially in the lab grown segment.",
+            },
+            {
+                type: "paragraph",
+                text: "The shift has not been subtle. As lab grown diamonds have become more accessible, buyer expectations have evolved with them. What once felt aspirational now feels achievable, and that is reflected in modern engagement trends. Industry data shows that the average lab grown engagement diamond now sits around 2.45 carats, bringing the 3 carat range firmly into the mainstream.",
+            },
+            {
+                type: "paragraph",
+                text: "This does not mean every buyer is choosing 3 carats, but it does explain why this size has become one of the most searched and compared categories in today's market.",
+            },
+        ],
+    },
+    {
+        heading: "The Real Price Range for a 3 Carat Lab Grown Diamond",
+        content: [
+            {
+                type: "paragraph",
+                text: "In 2026, the price of a 3 carat lab grown diamond varies widely depending on quality. Unlike smaller stones, where differences may be less noticeable, a 3 carat diamond amplifies every detail-cut precision, clarity, and color all become more visible.",
+            },
+            {
+                type: "paragraph",
+                text: "At a general level, a 3 carat lab grown diamond can range from $3,500 to $15,000+ at wholesale levels, depending on grading and overall quality. The variation within this range reflects the difference between commercial-grade stones and premium-quality diamonds.",
+            },
+            {
+                type: "paragraph",
+                text: "A lower-priced diamond in this category may have visible inclusions, lower color grades, or less precise cut proportions. At the higher end, diamonds with D-F color and VVS clarity command significantly higher prices due to the level of control required during production.",
+            },
+            {
+                type: "paragraph",
+                text: "The key takeaway is that size alone does not define price-quality becomes increasingly important as carat weight increases.",
+            },
+        ],
+    },
+    {
+        heading: "How Quality Impacts Pricing at 3 Carats",
+        content: [
+            {
+                type: "paragraph",
+                text: "At this size, the balance between quality factors becomes more critical.",
+            },
+            {
+                type: "paragraph",
+                text: "Color is one of the first elements buyers notice. In a 3 carat diamond, even slight color tints can be more visible, especially in certain lighting conditions. This is why higher color grades often carry a noticeable price premium.",
+            },
+            {
+                type: "paragraph",
+                text: "Clarity also plays a larger role. While small inclusions may be difficult to see in smaller diamonds, they become easier to detect in larger stones. Diamonds with higher clarity grades require more precise growth conditions, which increases their cost.",
+            },
+            {
+                type: "paragraph",
+                text: "Cut quality, however, remains the most important factor in how the diamond actually looks. A well-cut 3 carat diamond will reflect light more effectively, creating stronger brilliance and making the stone appear more vibrant overall.",
+            },
+        ],
+    },
+    {
+        heading: "Why Certification Matters Even More at This Size",
+        content: [
+            {
+                type: "paragraph",
+                text: "As carat weight increases, so does the importance of certification.",
+            },
+            {
+                type: "paragraph",
+                text: "A 3 carat diamond represents a significant purchase, and small differences in grading can have a noticeable impact on both appearance and price. Certification from recognized laboratories such as GIA, IGI, or HRD provides a standardized evaluation that helps buyers compare options accurately.",
+            },
+            {
+                type: "paragraph",
+                text: "Without certification, it becomes difficult to verify the true quality of the diamond. At this level, relying on visual impressions alone is not enough.",
+            },
+            {
+                type: "paragraph",
+                text: "At Uniglo Diamonds, all 3 carat lab grown diamonds are certified, ensuring that buyers can evaluate quality with complete transparency before making a decision.",
+            },
+        ],
+    },
+    {
+        heading: "The Cost of the Setting and Total Ring Price",
+        content: [
+            {
+                type: "paragraph",
+                text: "When buying a diamond ring, the stone itself is only part of the total cost.",
+            },
+            {
+                type: "paragraph",
+                text: "The setting-whether it's a simple solitaire, a halo design, or a more intricate custom piece-adds to the overall price. The type of metal used, such as gold or platinum, also influences the final cost.",
+            },
+            {
+                type: "paragraph",
+                text: "For a 3 carat lab grown diamond ring, the total price can vary depending on these factors. While the diamond may fall within a specific price range, the final ring cost reflects both the stone and the design choices around it.",
+            },
+            {
+                type: "paragraph",
+                text: "This is why it is important to consider the full picture rather than focusing on the diamond alone.",
+            },
+        ],
+    },
+    {
+        heading: "Why 3 Carat Lab Grown Diamonds Are So Popular",
+        content: [
+            {
+                type: "paragraph",
+                text: "The popularity of 3 carat lab grown diamonds is not just about size-it is about what that size represents.",
+            },
+            {
+                type: "paragraph",
+                text: "For many buyers, it offers a balance between visual impact and accessibility. It's large enough to make a statement, yet still within reach for a wider range of budgets compared to natural diamonds of the same size.",
+            },
+            {
+                type: "paragraph",
+                text: "This combination has made 3 carat diamonds a defining trend in modern engagement rings. It reflects a shift in priorities, where buyers are increasingly focused on how the diamond looks and feels rather than strictly following traditional size norms.",
+            },
+        ],
+    },
+    {
+        heading: "How to Evaluate Value at This Level",
+        content: [
+            {
+                type: "paragraph",
+                text: "At 3 carats, value becomes more nuanced.",
+            },
+            {
+                type: "paragraph",
+                text: "Two diamonds with the same carat weight can differ significantly in price based on their grading. A slightly lower color or clarity grade can reduce cost, but the visual difference may be minimal depending on how the diamond is cut.",
+            },
+            {
+                type: "paragraph",
+                text: "This is where understanding trade-offs becomes important. Some buyers prioritize maximum size within their budget, while others focus on achieving higher quality grades.",
+            },
+            {
+                type: "paragraph",
+                text: "The best approach is to evaluate how the diamond looks in real conditions rather than relying solely on specifications.",
+            },
+        ],
+    },
+    {
+        heading: "Why Online Buying Requires More Attention to Detail",
+        content: [
+            {
+                type: "paragraph",
+                text: "Many buyers in 2026 are purchasing diamonds online, which makes detailed evaluation even more important.",
+            },
+            {
+                type: "paragraph",
+                text: "High-resolution images, 360 deg videos, and certification reports provide valuable information, but they still require careful interpretation. Lighting conditions, camera angles, and presentation can influence how a diamond appears on screen.",
+            },
+            {
+                type: "paragraph",
+                text: "This is why certification and transparency are essential when buying online. They provide a reliable reference point that goes beyond visual presentation.",
+            },
+        ],
+    },
+    {
+        heading: "Final Thoughts",
+        content: [
+            {
+                type: "paragraph",
+                text: "A 3 carat lab grown diamond represents a significant step up in both size and presence. It's a category where quality becomes more visible, and where small differences can have a larger impact.",
+            },
+            {
+                type: "paragraph",
+                text: "The wide price range reflects this complexity. It's not just about how big the diamond is-it is about how well it's made, how it's graded, and how it performs in real-world conditions.",
+            },
+            {
+                type: "paragraph",
+                text: "Understanding these factors turns pricing from a source of confusion into a guide for making a more confident decision.",
+            },
+            {
+                type: "paragraph",
+                text: "And when a diamond of this size can vary so much in both price and appearance, does not knowing what to look for make all the difference?",
+            },
+        ],
+    },
 ];
 
 const faqData = [
-    { question: "How much does a 3 carat lab grown diamond cost?", answer: "Prices vary widely by quality and certification in this size category." },
-    { question: "What affects price the most?", answer: "Cut, color, clarity, carat, and certification." },
-    { question: "Is a 3 carat lab grown diamond expensive?", answer: "It can be premium-priced by grade, but usually remains more accessible than natural." },
-    { question: "Do larger diamonds show more imperfections?", answer: "Yes, inclusions are generally easier to notice as size increases." },
-    { question: "Does certification matter for 3 carat diamonds?", answer: "Yes, it is essential for quality verification." },
-    { question: "How much does the setting add?", answer: "It depends on metal and design complexity." },
-    { question: "Why are 3 carat stones popular in 2026?", answer: "They offer statement size within modern budgets." },
-    { question: "Can I buy a 3 carat diamond online?", answer: "Yes, with proper certification and transparent visuals." },
-    { question: "Should I prioritize size or quality?", answer: "Most buyers benefit from a balanced approach." },
-    { question: "What color range is commonly preferred?", answer: "Higher grades are often chosen at larger sizes, but preference and budget vary." },
+    {
+        question: "How much does a 3 carat lab grown diamond cost?",
+        answer:
+            "Typically between $3,500 and $15,000+, depending on quality.",
+    },
+    {
+        question: "What affects the price of a 3 carat diamond?",
+        answer: "Cut, color, clarity, and certification.",
+    },
+    {
+        question: "Is a 3 carat lab grown diamond expensive?",
+        answer:
+            "It depends on quality, but it's more accessible than natural diamonds.",
+    },
+    {
+        question: "Do larger diamonds show more imperfections?",
+        answer: "Yes, inclusions are more visible in larger stones.",
+    },
+    {
+        question: "Does certification matter for 3 carat diamonds?",
+        answer: "Yes, it's essential for verifying quality.",
+    },
+    {
+        question: "How much does the ring setting add to the cost?",
+        answer: "It varies based on design and metal choice.",
+    },
+    {
+        question: "Why are 3 carat diamonds popular in 2026?",
+        answer: "Because they offer strong visual impact within modern budgets.",
+    },
+    {
+        question: "Can I buy a 3 carat diamond online?",
+        answer: "Yes, but certification and detailed visuals are important.",
+    },
+    {
+        question: "What is the best color grade for a 3 carat diamond?",
+        answer: "D-F for premium quality, but G-H can also look good.",
+    },
+    {
+        question: "Should I prioritize size or quality?",
+        answer: "It depends on personal preference and budget.",
+    },
 ];
 
 const faqSchema = {
