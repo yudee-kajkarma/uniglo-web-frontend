@@ -22,15 +22,15 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "Most buyers are familiar with the 4Cs: cut, color, clarity, and carat. But there is another classification that operates behind the scenes, one that even many experienced shoppers overlook: diamond type.",
+                text: "Most buyers are familiar with the 4Cs, cut, color, clarity, and carat. But there's another classification that operates behind the scenes, one that even many experienced shoppers overlook: diamond type.",
             },
             {
                 type: "paragraph",
-                text: "This classification is not about how a diamond looks on the surface. It is about what is happening at a microscopic level, specifically the presence of certain elements inside the diamond's crystal structure. These elements influence how a diamond forms, how rare it is, and in some cases, how it behaves under light.",
+                text: "This classification isn't about how a diamond looks on the surface. It's about what's happening at a microscopic level, specifically, the presence of certain elements inside the diamond's crystal structure. These elements influence how a diamond forms, how rare it is, and in some cases, how it behaves under light.",
             },
             {
                 type: "paragraph",
-                text: "Understanding diamond types does not mean you need to become a gemologist. But it gives you a deeper layer of clarity, especially if you are trying to understand why some diamonds are considered exceptionally rare while others are more common.",
+                text: "Understanding diamond types doesn't mean you need to become a gemologist. But it does give you a deeper layer of clarity, especially if you're trying to understand why some diamonds are considered exceptionally rare while others are more common.",
             },
         ],
     },
@@ -47,7 +47,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "From there, each category is further split into subtypes, creating the four classifications used worldwide today.",
+                text: "From there, each category is further split into subtypes, creating the four classifications that are used worldwide today.",
             },
         ],
     },
@@ -60,7 +60,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "What defines this category is the presence of nitrogen within the crystal structure. This does not make the diamond inferior. It simply means the diamond formed under conditions where nitrogen atoms were incorporated into its structure.",
+                text: "What defines this category is the presence of nitrogen within the crystal structure. This nitrogen doesn't necessarily make the diamond inferior, it simply means the diamond formed under conditions where nitrogen atoms were incorporated into its structure.",
             },
             {
                 type: "paragraph",
@@ -77,11 +77,11 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "In these diamonds, nitrogen atoms are grouped together in clusters. This clustering can slightly affect how the diamond absorbs light, often resulting in a faint yellow tint, even if it is not immediately visible.",
+                text: "In these diamonds, nitrogen atoms are grouped together in clusters. This clustering can slightly affect how the diamond absorbs light, often resulting in a faint yellow tint, even if it's not immediately visible.",
             },
             {
                 type: "paragraph",
-                text: "Despite this, many high-quality diamonds, including those used in fine jewelry, fall into this category. They can still achieve excellent grades in color and clarity, especially when well cut.",
+                text: "Despite this, many high-quality diamonds, including those used in fine jewelry, fall into this category. They can still achieve excellent grades in color and clarity, especially when well-cut.",
             },
             {
                 type: "paragraph",
@@ -102,7 +102,7 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "Because of their rarity and color intensity, Type Ib diamonds are sometimes associated with fancy color diamonds, though not all fancy color diamonds fall into this category.",
+                text: "Because of their rarity and color intensity, Type Ib diamonds are sometimes associated with fancy color diamonds. However, not all fancy color diamonds fall into this category.",
             },
         ],
     },
@@ -174,24 +174,32 @@ const articleData: ArticleSection[] = [
             },
             {
                 type: "paragraph",
-                text: "This means that, from a structural standpoint, many lab grown diamonds share characteristics with some of the rarest natural diamonds. The key difference remains their origin, not their composition or classification.",
+                text: "This means that, from a structural standpoint, many lab grown diamonds share characteristics with some of the rarest natural diamonds.",
+            },
+            {
+                type: "paragraph",
+                text: "However, the key difference remains their origin, not their composition or classification.",
             },
         ],
     },
     {
-        heading: "Why Diamond Type Does Not Replace the 4Cs",
+        heading: "Why Diamond Type Doesn't Replace the 4Cs",
         content: [
             {
                 type: "paragraph",
-                text: "While diamond type provides valuable insight, it does not replace the traditional grading system.",
+                text: "While diamond type provides valuable insight, it doesn't replace the traditional grading system.",
             },
             {
                 type: "paragraph",
-                text: "The 4Cs still determine how a diamond looks and performs visually. A Type IIa diamond may be extremely pure, but if it is poorly cut, it will not display the brilliance expected from a high-quality stone.",
+                text: "The 4Cs still determine how a diamond looks and performs visually. A Type IIa diamond, for example, may be extremely pure, but if it's poorly cut, it won't display the brilliance expected from a high-quality stone.",
             },
             {
                 type: "paragraph",
-                text: "Similarly, a Type Ia diamond can still appear stunning if it has an excellent cut and strong clarity. Professionals consider diamond type as an additional layer of information rather than a standalone factor.",
+                text: "Similarly, a Type Ia diamond can still appear stunning if it has an excellent cut and strong clarity.",
+            },
+            {
+                type: "paragraph",
+                text: "This is why professionals consider diamond type as an additional layer of information rather than a standalone factor.",
             },
         ],
     },
@@ -200,11 +208,11 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "For most buyers, understanding diamond types is about awareness rather than pressure.",
+                text: "For most buyers, understanding diamond types is about awareness rather than decision-making pressure.",
             },
             {
                 type: "paragraph",
-                text: "If you are purchasing for beauty and emotional value, the 4Cs remain your primary focus. If you are exploring rare or high-end stones, knowing the difference between Type I and Type II provides valuable context.",
+                text: "If you're purchasing a diamond for its beauty and emotional value, the 4Cs will remain your primary focus. However, if you're exploring rare or high-end stones, knowing the difference between Type I and Type II can provide valuable context.",
             },
             {
                 type: "paragraph",
@@ -217,15 +225,19 @@ const articleData: ArticleSection[] = [
         content: [
             {
                 type: "paragraph",
-                text: "The idea that all diamonds are the same could not be further from the truth. Beneath their surface brilliance lies a complex structure shaped by elements most people never see.",
+                text: "The idea that all diamonds are the same couldn't be further from the truth. Beneath their surface brilliance lies a complex structure shaped by elements most people never see.",
             },
             {
                 type: "paragraph",
-                text: "From nitrogen-rich Type I diamonds to ultra-pure Type IIa stones and rare blue Type IIb, each classification tells a different story about how the diamond formed and what makes it unique.",
+                text: "From nitrogen-rich Type I diamonds to the ultra-pure Type IIa stones and the rare blue Type IIb, each classification tells a different story about how the diamond formed and what makes it unique.",
             },
             {
                 type: "paragraph",
-                text: "For buyers willing to look beyond the basics, this knowledge adds depth to the experience and turns a simple purchase into a more informed and meaningful choice.",
+                text: "For buyers willing to look beyond the basics, this knowledge adds depth to the experience, turning a simple purchase into a more informed and meaningful choice.",
+            },
+            {
+                type: "paragraph",
+                text: "Because when you understand what makes a diamond truly rare, doesn't it change the way you see it?",
             },
         ],
     },
@@ -250,7 +262,7 @@ const faqData = [
     },
     {
         question: "Do diamond types affect value?",
-        answer: "Yes. Rarer types like IIa and IIb can command higher value.",
+        answer: "Yes, rarer types like IIa and IIb can command higher value.",
     },
     {
         question: "Are lab grown diamonds Type IIa?",
@@ -258,11 +270,11 @@ const faqData = [
     },
     {
         question: "What causes color in Type Ib diamonds?",
-        answer: "Isolated nitrogen atoms can create strong yellow or orange colors.",
+        answer: "Isolated nitrogen atoms create strong yellow or orange colors.",
     },
     {
         question: "Why are Type IIb diamonds blue?",
-        answer: "They contain boron, which influences their blue tone.",
+        answer: "They contain boron, which affects their color.",
     },
     {
         question: "Should I choose a diamond based on type?",
@@ -270,7 +282,7 @@ const faqData = [
     },
     {
         question: "Does diamond type affect sparkle?",
-        answer: "Not directly. Cut quality has a bigger impact on sparkle.",
+        answer: "Not directly, cut quality has a bigger impact on sparkle.",
     },
 ];
 
@@ -297,7 +309,7 @@ const BlogPage = () => {
             <div className="max-w-7xl mx-auto px-4 py-16 flex flex-col lg:flex-row gap-12 relative">
                 <div className="flex-1 w-full lg:w-2/3">
                     <h1 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-[#1f2732] mb-6">
-                        What Are the 4 Types of Diamonds? Type I, Type II and What Buyers Need to Know
+                        What Are the 4 Types of Diamonds? Type I, Type II & What Buyers Need to Know
                     </h1>
                     <DynamicArticle sections={articleData} />
                     <FAQSection
