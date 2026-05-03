@@ -12,8 +12,8 @@ import {
 import bannerImage from "@/assets/banner_2.jpg";
 import contactImage1 from "@/assets/contact-us/contact-1.webp";
 import contactImage2 from "@/assets//contact-us/contact-3.png";
-
-// Icons
+import { submitGetInTouchForm } from "@/services/formServices";
+import { toast } from "sonner";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 const Page = () => {
@@ -23,17 +23,43 @@ const Page = () => {
         phone: "",
         message: "",
     });
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState(false);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     ) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
+        setError("");
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log("Form submitted:", formData);
-        // Add your form submission logic here
+        setLoading(true);
+        setError("");
+        setSuccess(false);
+
+        try {
+            await submitGetInTouchForm({
+                name: formData.name,
+                email: formData.email,
+                phoneNumber: formData.phone,
+                message: formData.message,
+            });
+
+            setFormData({ name: "", email: "", phone: "", message: "" });
+            toast.success(
+                "Message sent successfully! We'll get back to you soon.",
+            );
+        } catch (err) {
+            const errorMessage =
+                err instanceof Error ? err.message : "An error occurred";
+            setError(errorMessage);
+            toast.error(errorMessage);
+        } finally {
+            setLoading(false);
+        }
     };
 
     // Hoveniersstraat 30, 2018 Antwerpen coordinates
@@ -166,9 +192,12 @@ const Page = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="gold-reveal-btn w-full py-4 text-primary font-bold text-lg transition-all duration-300"
+                                disabled={loading}
+                                className="gold-reveal-btn w-full py-4 text-primary font-bold text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <span>SEND MESSAGE</span>
+                                <span>
+                                    {loading ? "SENDING..." : "SEND MESSAGE"}
+                                </span>
                             </button>
                         </form>
                     </div>

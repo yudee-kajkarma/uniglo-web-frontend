@@ -30,7 +30,8 @@ interface MelleDiamondImportDialogProps {
     onSuccess?: () => void;
 }
 
-const ACCEPT = ".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel";
+const ACCEPT =
+    ".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel";
 
 export function MelleDiamondImportDialog({
     open,
@@ -41,14 +42,12 @@ export function MelleDiamondImportDialog({
     const fileInputRef = useRef<HTMLInputElement>(null);
     const [file, setFile] = useState<File | null>(null);
     const [isLab, setIsLab] = useState<"true" | "false">("false");
-    const [melleCategory, setMelleCategory] = useState("");
     const [submitting, setSubmitting] = useState(false);
 
     useEffect(() => {
         if (!open) {
             setFile(null);
             setIsLab("false");
-            setMelleCategory("");
             if (fileInputRef.current) fileInputRef.current.value = "";
         }
     }, [open]);
@@ -65,17 +64,12 @@ export function MelleDiamondImportDialog({
             toast.error("Please select an Excel file to import");
             return;
         }
-        if (!melleCategory) {
-            toast.error("Please select a melee category");
-            return;
-        }
 
         try {
             setSubmitting(true);
             const result = await importMelleDiamonds({
                 file,
                 isLab: isLab === "true",
-                melleCategory,
             });
             const summary = [
                 result.inserted !== undefined && `${result.inserted} inserted`,
@@ -114,8 +108,8 @@ export function MelleDiamondImportDialog({
                 <DialogHeader>
                     <DialogTitle>Import Melee Diamonds</DialogTitle>
                     <DialogDescription>
-                        Upload an Excel file (.xlsx) of melee diamonds. Type
-                        and category apply to every row in the file.
+                        Upload an Excel file (.xlsx) of melee diamonds. Type and
+                        category apply to every row in the file.
                     </DialogDescription>
                 </DialogHeader>
 
@@ -153,27 +147,6 @@ export function MelleDiamondImportDialog({
                             </SelectContent>
                         </Select>
                     </div>
-
-                    <div className="space-y-1">
-                        <Label>Melee Category *</Label>
-                        <Select
-                            value={melleCategory}
-                            onValueChange={setMelleCategory}
-                        >
-                            <SelectTrigger>
-                                <SelectValue placeholder="Select category" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                {withFallback(categories, melleCategory).map(
-                                    (c) => (
-                                        <SelectItem key={c} value={c}>
-                                            {c}
-                                        </SelectItem>
-                                    ),
-                                )}
-                            </SelectContent>
-                        </Select>
-                    </div>
                 </div>
 
                 <DialogFooter>
@@ -186,7 +159,7 @@ export function MelleDiamondImportDialog({
                     </Button>
                     <Button
                         onClick={handleSubmit}
-                        disabled={submitting || !file || !melleCategory}
+                        disabled={submitting || !file}
                         className="bg-primary-purple2 hover:bg-primary-purple2/90 text-white"
                     >
                         {submitting ? (

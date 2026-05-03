@@ -49,6 +49,27 @@ export interface ApiErrorResponse {
     error?: string;
 }
 
+// Get in Touch Form Submission
+export interface GetInTouchPayload {
+    name: string;
+    email: string;
+    phoneNumber: string;
+    message: string;
+}
+
+export interface GetInTouchResponse {
+    success: boolean;
+    message: string;
+    data?: {
+        _id: string;
+        name: string;
+        email: string;
+        phoneNumber: string;
+        message: string;
+        createdAt: string;
+    };
+}
+
 // Service Functions
 export const getAllFormSubmissions = async (
     page: number = 1,
@@ -118,6 +139,24 @@ export const deleteFormSubmission = async (id: string): Promise<void> => {
         throw new Error(
             axiosError.response?.data?.message ||
                 "Failed to delete form submission",
+        );
+    }
+};
+
+export const submitGetInTouchForm = async (
+    payload: GetInTouchPayload,
+): Promise<GetInTouchResponse> => {
+    try {
+        const response = await apiClient.post<GetInTouchResponse>(
+            "/forms/get-in-touch",
+            payload,
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw new Error(
+            axiosError.response?.data?.message ||
+                "Failed to submit get in touch form",
         );
     }
 };
