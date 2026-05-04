@@ -40,6 +40,16 @@ export interface MelleNumericRange {
     max: number;
 }
 
+// Sieve grades are categorical strings ("0", "00", "000", "1.5"…) where
+// leading zeros are significant — "00" is a finer grade than "0". The
+// backend therefore returns them as a fixed list of buckets instead of a
+// numeric min/max range.
+export interface MelleSieveOption {
+    sieveMin: string;
+    sieveMax: string;
+    label: string;
+}
+
 export interface MelleFilterOptions {
     shapes: MelleShape[];
     colors: MelleColor[];
@@ -51,7 +61,7 @@ export interface MelleFilterOptions {
     avgPtrRange: MelleNumericRange;
     caratRange: MelleNumericRange;
     measurementRange: MelleNumericRange;
-    sieveRange: MelleNumericRange;
+    sieveOptions: MelleSieveOption[];
 }
 
 // UI-side state the Melle filter component owns.
@@ -66,7 +76,7 @@ export interface MelleFilterState {
     avgPtrRanges: [number, number][];
     caratRanges: [number, number][];
     measurementRanges: [number, number][];
-    sieveRanges: [number, number][];
+    sieveRanges: [string, string][];
     searchTerm: string | undefined;
 }
 
@@ -107,6 +117,6 @@ export interface MelleDiamondParams {
     avgPtrRanges?: [number, number][];
     caratRanges?: [number, number][];
     measurementRanges?: [number, number][];
-    sieveRanges?: [number, number][];
+    sieveRanges?: [string, string][];
     searchTerm?: string;
 }
