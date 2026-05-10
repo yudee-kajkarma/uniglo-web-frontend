@@ -139,7 +139,7 @@ export const getMelleDiamondColumns = (
         key: "price",
         header: (
             <SortableHeader
-                label="Price"
+                label="Price/Ct."
                 columnKey="price"
                 currentSortBy={currentSortBy}
                 currentSortOrder={currentSortOrder}
