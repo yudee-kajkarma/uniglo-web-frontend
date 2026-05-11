@@ -1,9 +1,18 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getAllCarts, type AdminCartData } from "@/services/adminServices";
+import {
+    deleteCartItemMessage,
+    getAllCarts,
+    replyToCartItem,
+    type AdminCartData,
+} from "@/services/adminServices";
 import { getAllAdminQueries, replyToQuery } from "@/services/inquiryService";
-import { Diamond } from "@/interface/diamondInterface";
+import {
+    CartItem,
+    CartItemMessage,
+    Diamond,
+} from "@/interface/diamondInterface";
 import {
     ChevronDown,
     ChevronUp,
@@ -19,6 +28,8 @@ import {
     ClockIcon,
     Search,
     X,
+    MessageSquare,
+    Trash2,
 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -74,6 +85,321 @@ const StatCard = ({
         </div>
     </div>
 );
+
+const getCartItemMessages = (item: CartItem): CartItemMessage[] => {
+    const messages = [...(item.messages || [])];
+
+    if (
+        item.adminReply &&
+        !messages.some((message) => message.message === item.adminReply)
+    ) {
+        messages.push({
+            id: "legacy",
+            message: item.adminReply,
+            sentAt: item.repliedAt || item.addedAt,
+            sentBy: item.repliedBy,
+        });
+    }
+
+    return messages.sort(
+        (left, right) =>
+            new Date(left.sentAt).getTime() - new Date(right.sentAt).getTime(),
+    );
+};
+
+const CartItemsTable = ({
+    items,
+    userId,
+    onCartItemUpdated,
+}: {
+    items: CartItem[];
+    userId: string;
+    onCartItemUpdated: (updatedItem: CartItem) => void;
+}) => {
+    const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
+        null,
+    );
+    const [replyText, setReplyText] = useState("");
+    const [isReplying, setIsReplying] = useState(false);
+    const [deletingMessageId, setDeletingMessageId] = useState<string | null>(
+        null,
+    );
+
+    if (!items || items.length === 0) {
+        return (
+            <div className="p-4 text-sm text-gray-500 italic">
+                No items found.
+            </div>
+        );
+    }
+
+    const columnCount = 14;
+
+    const handleToggleMessages = (diamondId: string) => {
+        setExpandedDiamondId((current) =>
+            current === diamondId ? null : diamondId,
+        );
+        setReplyText("");
+    };
+
+    const handleSendReply = async (item: CartItem) => {
+        if (!replyText.trim()) {
+            toast.error("Please enter a reply");
+            return;
+        }
+
+        try {
+            setIsReplying(true);
+            const response = await replyToCartItem({
+                userId,
+                diamondId: item.diamondId,
+                reply: replyText,
+            });
+            toast.success("Reply sent successfully");
+            setReplyText("");
+            if (response.data?.item) {
+                onCartItemUpdated(response.data.item);
+            }
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error ? error.message : "Failed to send reply";
+            toast.error(errorMessage);
+        } finally {
+            setIsReplying(false);
+        }
+    };
+
+    const handleDeleteMessage = async (
+        item: CartItem,
+        messageId: string,
+    ) => {
+        try {
+            setDeletingMessageId(messageId);
+            const response = await deleteCartItemMessage({
+                userId,
+                diamondId: item.diamondId,
+                messageId,
+            });
+            toast.success("Message deleted");
+            if (response.data?.item) {
+                onCartItemUpdated(response.data.item);
+            }
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to delete message";
+            toast.error(errorMessage);
+        } finally {
+            setDeletingMessageId(null);
+        }
+    };
+
+    return (
+        <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left">
+                <thead className="bg-gray-100 text-gray-600 font-semibold border-b border-gray-200">
+                    <tr>
+                        <th className="py-2 px-3">Stock Ref</th>
+                        <th className="py-2 px-3">Loc.</th>
+                        <th className="py-2 px-3">Number</th>
+                        <th className="py-2 px-3">Lab</th>
+                        <th className="py-2 px-3">Shape</th>
+                        <th className="py-2 px-3">Carat</th>
+                        <th className="py-2 px-3">Color</th>
+                        <th className="py-2 px-3">Clarity</th>
+                        <th className="py-2 px-3">Cut</th>
+                        <th className="py-2 px-3">Depth%</th>
+                        <th className="py-2 px-3">Table%</th>
+                        <th className="py-2 px-3">Price/Ct</th>
+                        <th className="py-2 px-3 text-right">Total</th>
+                        <th className="py-2 px-3 text-center">Message</th>
+                    </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                    {items.map((item, idx) => {
+                        const d = item.diamond;
+                        const totalPrice = d.weight * d.pricePerCts;
+                        const isExpanded = expandedDiamondId === item.diamondId;
+                        const messages = getCartItemMessages(item);
+
+                        return (
+                            <React.Fragment key={item.diamondId || d._id || idx}>
+                                <tr className="hover:bg-gray-50">
+                                    <td className="py-2 px-3 font-medium text-gray-700">
+                                        <Link
+                                            href={`/inventory?view=${d.certiNo}`}
+                                            className="font-semibold text-[#26062b] hover:text-[#bb923a] underline transition-colors"
+                                        >
+                                            {d.stockRef}
+                                        </Link>
+                                    </td>
+                                    <td className="py-2 px-3 text-gray-500">
+                                        {d.country
+                                            ? d.country
+                                                  .substring(0, 2)
+                                                  .toUpperCase()
+                                            : "-"}
+                                    </td>
+                                    <td className="py-2 px-3 text-gray-500">
+                                        {d.certiNo}
+                                    </td>
+                                    <td className="py-2 px-3">{d.lab}</td>
+                                    <td className="py-2 px-3">{d.shape}</td>
+                                    <td className="py-2 px-3">{d.weight}</td>
+                                    <td className="py-2 px-3">{d.color}</td>
+                                    <td className="py-2 px-3">{d.clarity}</td>
+                                    <td className="py-2 px-3">{d.cutGrade}</td>
+                                    <td className="py-2 px-3">{d.depthPerc}%</td>
+                                    <td className="py-2 px-3">{d.tablePerc}%</td>
+                                    <td className="py-2 px-3">
+                                        ${d.pricePerCts.toLocaleString()}
+                                    </td>
+                                    <td className="py-2 px-3 font-medium text-right">
+                                        $
+                                        {totalPrice.toLocaleString(undefined, {
+                                            minimumFractionDigits: 2,
+                                            maximumFractionDigits: 2,
+                                        })}
+                                    </td>
+                                    <td className="py-2 px-3 text-center">
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleToggleMessages(
+                                                    item.diamondId,
+                                                )
+                                            }
+                                            className={`inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                                isExpanded
+                                                    ? "bg-primary-purple/10 text-primary-purple"
+                                                    : "text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                            }`}
+                                            aria-label={
+                                                isExpanded
+                                                    ? "Hide messages"
+                                                    : "Show messages"
+                                            }
+                                        >
+                                            <MessageSquare size={16} />
+                                        </button>
+                                    </td>
+                                </tr>
+                                {isExpanded && (
+                                    <tr className="bg-gray-50">
+                                        <td
+                                            colSpan={columnCount}
+                                            className="px-3 py-3"
+                                        >
+                                            <div className="space-y-3">
+                                                <div className="space-y-2 max-h-48 overflow-y-auto">
+                                                    {messages.length > 0 ? (
+                                                        messages.map(
+                                                            (message) => (
+                                                                <div
+                                                                    key={
+                                                                        message.id
+                                                                    }
+                                                                    className="rounded border border-green-100 bg-green-50 p-3 text-sm text-gray-700"
+                                                                >
+                                                                    <div className="flex items-start justify-between gap-3">
+                                                                        <div className="flex-1">
+                                                                            <p>
+                                                                                {
+                                                                                    message.message
+                                                                                }
+                                                                            </p>
+                                                                            <p className="text-xs text-gray-500 mt-2">
+                                                                                Sent{" "}
+                                                                                {formatDateTime(
+                                                                                    message.sentAt,
+                                                                                )}
+                                                                            </p>
+                                                                        </div>
+                                                                        <button
+                                                                            type="button"
+                                                                            onClick={() =>
+                                                                                handleDeleteMessage(
+                                                                                    item,
+                                                                                    message.id,
+                                                                                )
+                                                                            }
+                                                                            disabled={
+                                                                                deletingMessageId ===
+                                                                                message.id
+                                                                            }
+                                                                            className="text-red-500 hover:text-red-700 disabled:opacity-50"
+                                                                            aria-label="Delete message"
+                                                                        >
+                                                                            {deletingMessageId ===
+                                                                            message.id ? (
+                                                                                <Loader2 className="w-4 h-4 animate-spin" />
+                                                                            ) : (
+                                                                                <Trash2 className="w-4 h-4" />
+                                                                            )}
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            ),
+                                                        )
+                                                    ) : (
+                                                        <p className="text-xs text-gray-500 italic">
+                                                            No messages yet.
+                                                        </p>
+                                                    )}
+                                                </div>
+                                                <div className="space-y-2">
+                                                        <Textarea
+                                                            placeholder="Type your message here..."
+                                                            value={replyText}
+                                                            onChange={(e) =>
+                                                                setReplyText(
+                                                                    e.target
+                                                                        .value,
+                                                                )
+                                                            }
+                                                            className="min-h-20 text-sm"
+                                                            disabled={isReplying}
+                                                        />
+                                                        <div className="flex justify-end">
+                                                            <Button
+                                                                onClick={() =>
+                                                                    handleSendReply(
+                                                                        item,
+                                                                    )
+                                                                }
+                                                                disabled={
+                                                                    isReplying ||
+                                                                    !replyText.trim()
+                                                                }
+                                                                className="bg-[#26062b] hover:bg-[#26062b]/90 text-white"
+                                                            >
+                                                                {isReplying ? (
+                                                                    <>
+                                                                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                                                        Sending...
+                                                                    </>
+                                                                ) : (
+                                                                    <>
+                                                                        <Send className="w-4 h-4 mr-2" />
+                                                                        Send
+                                                                    </>
+                                                                )}
+                                                            </Button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )}
+                            </React.Fragment>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
+    );
+};
 
 const InnerDiamondTable = ({
     items,
@@ -179,6 +505,53 @@ const InnerDiamondTable = ({
         </div>
     );
 };
+
+const formatDateTime = (dateString: string) => {
+    const date = new Date(dateString);
+    return date.toLocaleString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
+    });
+};
+
+const getStatusBadge = (status: string) => {
+    const statusConfig = {
+        pending: {
+            bg: "bg-yellow-100",
+            text: "text-yellow-800",
+            label: "Pending",
+        },
+        replied: {
+            bg: "bg-green-100",
+            text: "text-green-800",
+            label: "Replied",
+        },
+        answered: {
+            bg: "bg-blue-100",
+            text: "text-blue-800",
+            label: "Answered",
+        },
+        closed: {
+            bg: "bg-gray-100",
+            text: "text-gray-800",
+            label: "Closed",
+        },
+    };
+    const config =
+        statusConfig[status as keyof typeof statusConfig] ||
+        statusConfig.pending;
+    return (
+        <span
+            className={`px-2 py-1 rounded-full text-xs font-medium ${config.bg} ${config.text}`}
+        >
+            {config.label}
+        </span>
+    );
+};
+
 
 const QueryItem = ({
     query,
@@ -411,6 +784,7 @@ const EnquiryRow = ({
     limit,
     queriesData,
     onReplySuccess,
+    onCartItemUpdated,
     onExtendHoldSuccess,
 }: {
     data: AdminCartData;
@@ -419,6 +793,7 @@ const EnquiryRow = ({
     limit: number;
     queriesData?: AdminQueriesData;
     onReplySuccess: () => void;
+    onCartItemUpdated: (userId: string, updatedItem: CartItem) => void;
     onExtendHoldSuccess: () => void;
 }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -520,9 +895,18 @@ const EnquiryRow = ({
                             {/* Cart Items Section */}
                             <div className="bg-white rounded-md border border-gray-200 overflow-hidden">
                                 <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 font-semibold text-sm text-gray-700">
-                                    Items in cart
+                                    Items in cart ({cart.items?.length || 0})
                                 </div>
-                                <InnerDiamondTable items={cart.items} />
+                                <CartItemsTable
+                                    items={cart.items || []}
+                                    userId={user._id}
+                                    onCartItemUpdated={(updatedItem) =>
+                                        onCartItemUpdated(
+                                            user._id,
+                                            updatedItem,
+                                        )
+                                    }
+                                />
                             </div>
 
                             {/* Hold Items Section */}
@@ -603,9 +987,15 @@ export default function EnquiryManagementPage() {
         }
     };
 
-    const fetchData = async (page: number, stockRef?: string) => {
+    const fetchData = async (
+        page: number,
+        stockRef?: string,
+        background = false,
+    ) => {
         try {
-            setLoading(true);
+            if (!background) {
+                setLoading(true);
+            }
             const response = await getAllCarts({
                 page,
                 limit: 10,
@@ -673,8 +1063,50 @@ export default function EnquiryManagementPage() {
         fetchQueries();
     };
 
+    const handleCartItemUpdated = (
+        userId: string,
+        updatedItem: CartItem,
+    ) => {
+        const updatedDiamondId =
+            typeof updatedItem.diamondId === "string"
+                ? updatedItem.diamondId
+                : updatedItem.diamond._id;
+
+        setCarts((previousCarts) =>
+            previousCarts.map((entry) => {
+                if (entry.user._id !== userId) {
+                    return entry;
+                }
+
+                return {
+                    ...entry,
+                    cart: {
+                        ...entry.cart,
+                        items: entry.cart.items.map((item) => {
+                            const itemDiamondId =
+                                typeof item.diamondId === "string"
+                                    ? item.diamondId
+                                    : item.diamond._id;
+
+                            if (itemDiamondId !== updatedDiamondId) {
+                                return item;
+                            }
+
+                            return {
+                                ...item,
+                                ...updatedItem,
+                                diamond:
+                                    updatedItem.diamond || item.diamond,
+                            };
+                        }),
+                    },
+                };
+            }),
+        );
+    };
+
     const handleExtendHoldSuccess = () => {
-        fetchData(pagination.currentPage, activeSearch);
+        fetchData(pagination.currentPage, activeSearch, true);
     };
 
     // Calculate stats
@@ -949,6 +1381,9 @@ export default function EnquiryManagementPage() {
                                             limit={pagination.recordsPerPage}
                                             queriesData={userQueryData}
                                             onReplySuccess={handleReplySuccess}
+                                            onCartItemUpdated={
+                                                handleCartItemUpdated
+                                            }
                                             onExtendHoldSuccess={
                                                 handleExtendHoldSuccess
                                             }
