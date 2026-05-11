@@ -125,11 +125,11 @@ export const getMelleDiamondColumns = (
         header: "Measurement (mm)",
         render: (row) => formatRange(row.measurementMin, row.measurementMax),
     },
-    {
-        key: "melleCategory",
-        header: "Category",
-        render: (row) => row.melleCategory || "N/A",
-    },
+    // {
+    //     key: "melleCategory",
+    //     header: "Category",
+    //     render: (row) => row.melleCategory || "N/A",
+    // },
     {
         key: "isLab",
         header: "Type",
@@ -139,7 +139,7 @@ export const getMelleDiamondColumns = (
         key: "price",
         header: (
             <SortableHeader
-                label="Price"
+                label="Price/Ct."
                 columnKey="price"
                 currentSortBy={currentSortBy}
                 currentSortOrder={currentSortOrder}
@@ -255,11 +255,11 @@ export const getPublicMelleDiamondColumns = (
         header: "Measurement (mm)",
         render: (row) => formatRange(row.measurementMin, row.measurementMax),
     },
-    {
-        key: "melleCategory",
-        header: "Category",
-        render: (row) => row.melleCategory || "N/A",
-    },
+    // {
+    //     key: "melleCategory",
+    //     header: "Category",
+    //     render: (row) => row.melleCategory || "N/A",
+    // },
     {
         key: "isLab",
         header: "Type",

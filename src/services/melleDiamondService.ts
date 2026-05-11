@@ -83,10 +83,12 @@ const buildMelleQuery = (params: MelleDiamondParams): URLSearchParams => {
 
 // Backend expects each range field as a single CSV value, e.g.
 //   caratRanges=0.00005-0.000068,0.00002-0.00004
-const appendBucketRanges = (
+// Sieve buckets pass through as strings ("00-0,000-00") since sieve grades
+// are categorical labels where leading zeros matter.
+const appendBucketRanges = <T extends number | string>(
     q: URLSearchParams,
     field: string,
-    ranges: [number, number][] | undefined,
+    ranges: [T, T][] | undefined,
 ) => {
     if (!ranges || ranges.length === 0) return;
     const csv = ranges.map(([min, max]) => `${min}-${max}`).join(",");

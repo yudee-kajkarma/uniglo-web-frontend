@@ -11,6 +11,7 @@ import {
 import {
     MelleFilterOptions,
     MelleFilterState,
+    MelleSieveOption,
 } from "@/interface/melleDiamondInterface";
 import { fetchMelleFilterOptions } from "@/services/melleDiamondService";
 import { useAuth } from "@/context/AuthContext";
@@ -363,12 +364,9 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     );
 
     const sieveDropdown = (
-        <MultiRangeSelect
+        <SieveMultiSelect
             label="Sieve"
-            min={options.sieveRange.min}
-            max={options.sieveRange.max}
-            step={0.5}
-            decimals={1}
+            options={options.sieveOptions}
             selected={filters.sieveRanges ?? []}
             onChange={(ranges) =>
                 setFilters((p) => ({ ...p, sieveRanges: ranges }))
@@ -644,6 +642,172 @@ const MultiRangeSelect: React.FC<MultiRangeSelectProps> = ({
                                         >
                                             {formatNum(b[0], decimals)} -{" "}
                                             {formatNum(b[1], decimals)}
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
+                </PopoverContent>
+            </Popover>
+        </DiamondFilterSection>
+    );
+};
+
+interface SieveMultiSelectProps {
+    label: string;
+    options: MelleSieveOption[];
+    selected: [string, string][];
+    onChange: (ranges: [string, string][]) => void;
+}
+
+// Sieves like "0", "00", "000", "0000" are progressively finer grades, so
+// straight string sort puts them in the wrong order ("0", "00", "000",
+// "1", "10"...). Map all-zero strings to negative integers (-length) so
+// they sort before numeric grades and from finest to coarsest.
+const sieveSortKey = (s: string): number => {
+    if (/^0+$/.test(s)) return -s.length;
+    const n = parseFloat(s);
+    return Number.isFinite(n) ? n : Number.POSITIVE_INFINITY;
+};
+
+const sieveRangeKey = (r: [string, string]) => `${r[0]}::${r[1]}`;
+
+const SieveMultiSelect: React.FC<SieveMultiSelectProps> = ({
+    label,
+    options,
+    selected,
+    onChange,
+}) => {
+    const [open, setOpen] = useState(false);
+
+    const sortedOptions = useMemo(
+        () =>
+            [...options].sort(
+                (a, b) =>
+                    sieveSortKey(a.sieveMin) - sieveSortKey(b.sieveMin) ||
+                    sieveSortKey(a.sieveMax) - sieveSortKey(b.sieveMax),
+            ),
+        [options],
+    );
+
+    const selectedKeys = useMemo(
+        () => new Set(selected.map(sieveRangeKey)),
+        [selected],
+    );
+
+    const labelFor = (r: [string, string]) => {
+        const match = options.find(
+            (o) => o.sieveMin === r[0] && o.sieveMax === r[1],
+        );
+        return match?.label ?? `${r[0]} - ${r[1]}`;
+    };
+
+    const toggleOption = (opt: MelleSieveOption) => {
+        const r: [string, string] = [opt.sieveMin, opt.sieveMax];
+        const key = sieveRangeKey(r);
+        if (selectedKeys.has(key)) {
+            onChange(selected.filter((s) => sieveRangeKey(s) !== key));
+        } else {
+            onChange([...selected, r]);
+        }
+    };
+
+    const removeRange = (e: React.MouseEvent, r: [string, string]) => {
+        e.stopPropagation();
+        const key = sieveRangeKey(r);
+        onChange(selected.filter((s) => sieveRangeKey(s) !== key));
+    };
+
+    return (
+        <DiamondFilterSection title={label} className="p-0">
+            <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild>
+                    <button
+                        type="button"
+                        className="w-full min-h-[36px] flex items-center justify-between gap-2 px-2 py-1 bg-white border border-primary-yellow-2 rounded text-xs text-gray-700 hover:border-primary-purple2 transition-colors"
+                    >
+                        <div className="flex flex-wrap gap-1 flex-1 items-center">
+                            {selected.length === 0 ? (
+                                <span className="text-gray-400">
+                                    Select {label.toLowerCase()} range…
+                                </span>
+                            ) : (
+                                selected.map((r) => (
+                                    <span
+                                        key={sieveRangeKey(r)}
+                                        className="inline-flex items-center gap-1 bg-gray-100 border border-gray-200 rounded px-1.5 py-0.5 text-[11px]"
+                                    >
+                                        {labelFor(r)}
+                                        <span
+                                            role="button"
+                                            tabIndex={0}
+                                            onClick={(e) => removeRange(e, r)}
+                                            onKeyDown={(e) => {
+                                                if (
+                                                    e.key === "Enter" ||
+                                                    e.key === " "
+                                                ) {
+                                                    e.stopPropagation();
+                                                    onChange(
+                                                        selected.filter(
+                                                            (s) =>
+                                                                sieveRangeKey(
+                                                                    s,
+                                                                ) !==
+                                                                sieveRangeKey(
+                                                                    r,
+                                                                ),
+                                                        ),
+                                                    );
+                                                }
+                                            }}
+                                            className="text-gray-500 hover:text-red-500 cursor-pointer"
+                                            aria-label={`Remove ${labelFor(r)}`}
+                                        >
+                                            <X size={12} />
+                                        </span>
+                                    </span>
+                                ))
+                            )}
+                        </div>
+                        <ChevronDown
+                            size={14}
+                            className={cn(
+                                "text-gray-500 transition-transform shrink-0",
+                                open && "rotate-180",
+                            )}
+                        />
+                    </button>
+                </PopoverTrigger>
+                <PopoverContent
+                    align="start"
+                    className="w-[var(--radix-popover-trigger-width)] p-0 max-h-72 overflow-y-auto"
+                >
+                    {sortedOptions.length === 0 ? (
+                        <div className="p-3 text-xs text-gray-500 text-center">
+                            No ranges available
+                        </div>
+                    ) : (
+                        <ul className="py-1">
+                            {sortedOptions.map((opt) => {
+                                const key = sieveRangeKey([
+                                    opt.sieveMin,
+                                    opt.sieveMax,
+                                ]);
+                                const isSelected = selectedKeys.has(key);
+                                return (
+                                    <li key={key}>
+                                        <button
+                                            type="button"
+                                            onClick={() => toggleOption(opt)}
+                                            className={cn(
+                                                "w-full text-left px-3 py-1.5 text-xs hover:bg-blue-50 transition-colors",
+                                                isSelected &&
+                                                    "bg-blue-100 font-medium",
+                                            )}
+                                        >
+                                            {opt.label}
                                         </button>
                                     </li>
                                 );
