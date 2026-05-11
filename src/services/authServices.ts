@@ -56,6 +56,7 @@ export interface CustomerData {
     phoneNumber: string;
     landlineNumber: string;
     countryCode: string;
+    birthDate: string;
     address: {
         street: string;
         city: string;
@@ -73,6 +74,7 @@ export interface CustomerData {
 
 export interface LoginResponseData {
     user: User;
+    token: string;
 }
 
 export interface ApiSuccessResponse<T> {
@@ -129,6 +131,12 @@ export const loginUser = async (
             email,
             password,
         });
+
+        // Store token in localStorage
+        if (response.data.data.token) {
+            localStorage.setItem("authToken", response.data.data.token);
+        }
+
         return response.data;
     } catch (error) {
         const axiosError = error as AxiosError<ApiErrorResponse>;
@@ -158,8 +166,14 @@ export const logoutUser = async (): Promise<ApiSuccessResponse<null>> => {
     try {
         const response =
             await apiClient.post<ApiSuccessResponse<null>>("/users/logout");
+
+        // Clear token from localStorage
+        localStorage.removeItem("authToken");
+
         return response.data;
     } catch (error) {
+        // Clear token even if logout request fails
+        localStorage.removeItem("authToken");
         throw error;
     }
 };
@@ -189,6 +203,15 @@ export const verifyOtp = async (
         const response = await apiClient.post<
             ApiSuccessResponse<VerifyOtpResponseData>
         >("/users/verify-otp", data);
+
+        // Store token in localStorage if provided
+        if (response.data.data && "token" in response.data.data) {
+            localStorage.setItem(
+                "authToken",
+                (response.data.data as any).token,
+            );
+        }
+
         return response.data;
     } catch (error) {
         const axiosError = error as AxiosError<ApiErrorResponse>;

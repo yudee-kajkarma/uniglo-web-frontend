@@ -1,8 +1,17 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getCart, removeFromCart, clearCart } from "@/services/cartService";
-import { CartItem, CartItemMessage } from "@/interface/diamondInterface";
+import {
+    getCart,
+    removeFromCart,
+    clearCart,
+    holdDiamond,
+} from "@/services/cartService";
+import {
+    calculateTotalPrice,
+    CartItem,
+    CartItemMessage,
+} from "@/interface/diamondInterface";
 import {
     Trash2,
     Download,
@@ -12,7 +21,9 @@ import {
     ChevronLeft,
     ChevronRight,
     AlertTriangle,
+    Clock,
 } from "lucide-react";
+import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -31,13 +42,13 @@ import {
 } from "@/components/ui/alert-dialog";
 
 // Helper to calculate total price
-const calculateTotal = (weight: number, pricePerCts: number) => {
-    if (!weight || !pricePerCts) return "-";
-    return (weight * pricePerCts).toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-    });
-};
+// const calculateTotal = (weight: number, pricePerCts: number) => {
+//     if (!weight || !pricePerCts) return "-";
+//     return (weight * pricePerCts).toLocaleString("en-US", {
+//         style: "currency",
+//         currency: "USD",
+//     });
+// };
 
 // Helper for currency formatting
 const formatCurrency = (value: number) => {
@@ -77,6 +88,8 @@ export default function CartPage() {
     const [error, setError] = useState<string | null>(null);
     const [removing, setRemoving] = useState(false);
     const [showClearDialog, setShowClearDialog] = useState(false);
+    const [holdLoading, setHoldLoading] = useState(false);
+    const [showHoldDialog, setShowHoldDialog] = useState(false);
 
     const fetchCart = async () => {
         try {
@@ -163,6 +176,30 @@ export default function CartPage() {
         router.push(`/compare?ids=${queryString}`);
     };
 
+    const handleHoldSelected = async () => {
+        if (selectedIds.length === 0) return;
+
+        const selectedStockRefs = cartItems
+            .filter((item) => selectedIds.includes(item.diamond._id))
+            .map((item) => item.diamond.stockRef);
+
+        try {
+            setHoldLoading(true);
+            const response = await holdDiamond(selectedStockRefs);
+            toast.success(
+                response.message ||
+                    `${selectedStockRefs.length} diamond(s) held successfully`,
+            );
+            setShowHoldDialog(false);
+            setSelectedIds([]);
+            await fetchCart();
+        } catch (error: any) {
+            toast.error(error || "Failed to hold diamonds");
+        } finally {
+            setHoldLoading(false);
+        }
+    };
+
     const isAllSelected =
         cartItems.length > 0 && selectedIds.length === cartItems.length;
 
@@ -216,6 +253,76 @@ export default function CartPage() {
                         {selectedIds.length > 0 && `(${selectedIds.length})`}
                     </span>
                 </button>
+
+                <button
+                    className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                    disabled={cartItems.length === 0}
+                    onClick={() =>
+                        exportDiamondsToExcel(
+                            cartItems.map((item) => item.diamond),
+                            "cart-diamonds",
+                        )
+                    }
+                >
+                    <Download className="w-4 h-4" />
+                    <span>Export to Excel</span>
+                </button>
+
+                <AlertDialog
+                    open={showHoldDialog}
+                    onOpenChange={setShowHoldDialog}
+                >
+                    <AlertDialogTrigger asChild>
+                        <button
+                            className="flex items-center gap-1 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                            disabled={selectedIds.length === 0 || holdLoading}
+                        >
+                            {holdLoading ? (
+                                <Loader2 className="w-4 h-4 animate-spin mr-1" />
+                            ) : (
+                                <Clock className="w-4 h-4 mr-1" />
+                            )}
+                            Hold Diamond
+                            {selectedIds.length > 0
+                                ? ` (${selectedIds.length})`
+                                : ""}
+                        </button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                        <AlertDialogHeader>
+                            <AlertDialogMedia>
+                                <Clock className="text-primary-purple" />
+                            </AlertDialogMedia>
+                            <AlertDialogTitle>
+                                Hold selected diamonds?
+                            </AlertDialogTitle>
+                            <AlertDialogDescription>
+                                This will reserve {selectedIds.length}{" "}
+                                diamond(s) for you temporarily. You can view all
+                                your held diamonds in the hold section.
+                            </AlertDialogDescription>
+                        </AlertDialogHeader>
+                        <AlertDialogFooter>
+                            <AlertDialogCancel disabled={holdLoading}>
+                                Cancel
+                            </AlertDialogCancel>
+                            <AlertDialogAction
+                                onClick={handleHoldSelected}
+                                disabled={holdLoading}
+                                className="rounded-sm"
+                            >
+                                {holdLoading ? (
+                                    <>
+                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
+                                        Holding...
+                                    </>
+                                ) : (
+                                    "Hold Diamond"
+                                )}
+                            </AlertDialogAction>
+                        </AlertDialogFooter>
+                    </AlertDialogContent>
+                </AlertDialog>
 
                 <AlertDialog
                     open={showClearDialog}
@@ -300,7 +407,7 @@ export default function CartPage() {
                                 <th className="p-4 text-left">Length</th>
                                 <th className="p-4 text-left">Width</th>
                                 <th className="p-4 text-left">Depth</th>
-                                <th className="p-4 text-right">$/Total</th>
+                                <th className="p-4 text-right">$Total Price</th>
                             </tr>
                         </thead>
 
@@ -416,9 +523,11 @@ export default function CartPage() {
                                                 {d.depthPerc?.toFixed(2)}
                                             </td>
                                             <td className="p-4 text-right font-bold text-[#bb923a]">
-                                                {calculateTotal(
-                                                    d.weight,
-                                                    d.pricePerCts,
+                                                {formatCurrency(
+                                                    calculateTotalPrice(
+                                                        d.weight,
+                                                        d.pricePerCts,
+                                                    ),
                                                 )}
                                             </td>
                                         </tr>

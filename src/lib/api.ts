@@ -8,7 +8,7 @@ const BASE_URL =
 const apiClient = axios.create({
     baseURL: BASE_URL,
     // timeout: 40000, // 10 seconds timeout
-    withCredentials: true,
+    withCredentials: false,
 
     headers: {
         "Content-Type": "application/json",
@@ -20,6 +20,20 @@ const apiClient = axios.create({
     },
 });
 
+// Request Interceptor - Attach token to every request
+apiClient.interceptors.request.use(
+    (config) => {
+        const token = localStorage.getItem("authToken");
+        if (token) {
+            config.headers.Authorization = `Bearer ${token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    },
+);
+
 // Response Interceptor
 apiClient.interceptors.response.use(
     (response: AxiosResponse) => {
@@ -28,9 +42,8 @@ apiClient.interceptors.response.use(
     },
     (error: AxiosError<ApiErrorResponse>) => {
         if (error.response && error.response.status === 401) {
-            // if (window.location.pathname === "/login") {
-            //     return Promise.reject(error);
-            // }
+            // Clear token from localStorage
+            localStorage.removeItem("authToken");
 
             console.log("Unauthorized! Redirecting to login...");
             // toast.error(

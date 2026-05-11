@@ -23,9 +23,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
     const [loading, setLoading] = useState(true);
 
-    // 1. Check if user is logged in on app load
+    // 1. Check if user is logged in on app load (skip if no token)
     useEffect(() => {
         const checkUserLoggedIn = async () => {
+            // Skip the API call entirely if there's no auth token
+            const token = localStorage.getItem("authToken");
+            if (!token) {
+                setUser(null);
+                setLoading(false);
+                return;
+            }
+
             try {
                 const response = await getCurrentUser();
                 if (response.success && response.data.user) {
@@ -51,7 +59,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         } catch (error) {
             console.error("Logout failed", error);
         } finally {
-            // Always clear local state even if server request fails
+            // Always clear local state and token even if server request fails
+            localStorage.removeItem("authToken");
             setUser(null);
             // Optional: Redirect to login page
             window.location.href = "/login";

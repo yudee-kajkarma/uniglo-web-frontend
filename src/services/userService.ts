@@ -1,47 +1,14 @@
 import apiClient from "@/lib/api";
 import { AxiosError } from "axios";
+import {
+    Address,
+    ContactDetail,
+    CustomerData,
+    ApiSuccessResponse,
+    User,
+} from "./authServices";
 
-export interface Address {
-    street: string;
-    city: string;
-    state: string;
-    postalCode: string;
-    country: string;
-}
-
-export interface BusinessInfo {
-    companyName: string;
-    businessType: string;
-    vatNumber: string;
-    websiteUrl: string;
-}
-
-export interface CustomerData {
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    landlineNumber: string;
-    countryCode: string;
-    address: Address;
-    businessInfo: BusinessInfo;
-    submittedAt: string;
-}
-
-export interface User {
-    _id: string;
-    username: string;
-    email: string;
-    status: "APPROVED" | "PENDING" | "REJECTED";
-    role: "USER" | "SUPER_ADMIN" | "ADMIN";
-    companyName?: string;
-    contactName?: string;
-    customerData?: CustomerData;
-    quotations: string[];
-    entityKey?: number;
-    createdAt: string;
-    updatedAt: string;
-    __v: number;
-}
+export type { Address, ContactDetail, CustomerData, User } from "./authServices";
 
 export interface Pagination {
     currentPage: number;
@@ -109,6 +76,176 @@ export const fetchUserById = async (userId: string): Promise<UsersResponse> => {
         const errorMessage =
             axiosError.response?.data?.message ||
             "Failed to fetch user details. Please try again.";
+        throw errorMessage;
+    }
+};
+
+export interface CheckPendingRegistrationResponse {
+    hasPendingRegistration: boolean;
+}
+
+export interface ResendRegistrationOtpResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Check if a user has a pending registration
+ * @param email User's email address
+ * @returns Promise with pending registration status
+ */
+export const checkPendingRegistration = async (
+    email: string,
+): Promise<CheckPendingRegistrationResponse> => {
+    try {
+        const response = await apiClient.get<CheckPendingRegistrationResponse>(
+            "/users/check-pending-registration",
+            {
+                params: { email },
+            },
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to check pending registration. Please try again.";
+        throw errorMessage;
+    }
+};
+
+export interface DisableAccountResponse {
+    success: boolean;
+    message: string;
+}
+
+export interface ReactivationRequestResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Submit a reactivation request for a disabled account
+ * @param email User's email address
+ * @returns Promise with success response
+ */
+export const requestReactivation = async (
+    email: string,
+): Promise<ReactivationRequestResponse> => {
+    try {
+        const response = await apiClient.post<ReactivationRequestResponse>(
+            "/users/reactivation-request",
+            { email },
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to submit reactivation request. Please try again.";
+        throw errorMessage;
+    }
+};
+
+/**
+ * Disable the currently authenticated user's account
+ * @returns Promise with success response
+ */
+export const disableAccount = async (): Promise<DisableAccountResponse> => {
+    try {
+        const response = await apiClient.post<DisableAccountResponse>(
+            "/users/disable-account",
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to disable account. Please try again.";
+        throw errorMessage;
+    }
+};
+
+/**
+ * Resend registration OTP to user's email
+ * @param email User's email address
+ * @returns Promise with success response
+ */
+export const resendRegistrationOtp = async (
+    email: string,
+): Promise<ResendRegistrationOtpResponse> => {
+    try {
+        const response = await apiClient.post<ResendRegistrationOtpResponse>(
+            "/users/resend-registration-otp",
+            {
+                email,
+            },
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to resend OTP. Please try again.";
+        throw errorMessage;
+    }
+};
+
+export interface DeleteAccountResponse {
+    success: boolean;
+    message: string;
+}
+
+/**
+ * Permanently delete the currently authenticated user's account
+ * This action is irreversible.
+ * @returns Promise with success response
+ */
+export const deleteAccount = async (): Promise<DeleteAccountResponse> => {
+    try {
+        const response = await apiClient.delete<DeleteAccountResponse>(
+            "/users/delete-account",
+        );
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to delete account. Please try again.";
+        throw errorMessage;
+    }
+};
+
+export interface UpdateCustomerDataRequest {
+    billingAddress?: Partial<Address>[];
+    shippingAddress?: Partial<Address>[];
+    contactDetail?: Partial<ContactDetail>;
+    customerData?: Partial<
+        Omit<CustomerData, "address" | "businessInfo"> & {
+            address?: Partial<CustomerData["address"]>;
+            businessInfo?: Partial<CustomerData["businessInfo"]>;
+        }
+    >;
+}
+
+/**
+ * Update customer data for the currently authenticated user
+ * @param data Updated customer data fields
+ * @returns Promise with updated user data
+ */
+export const updateCustomerData = async (
+    data: UpdateCustomerDataRequest,
+): Promise<ApiSuccessResponse<{ user: User }>> => {
+    try {
+        const response = await apiClient.put<
+            ApiSuccessResponse<{ user: User }>
+        >("/users/customer-data", data);
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<{ message: string }>;
+        const errorMessage =
+            axiosError.response?.data?.message ||
+            "Failed to update customer data. Please try again.";
         throw errorMessage;
     }
 };

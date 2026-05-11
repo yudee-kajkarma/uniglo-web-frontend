@@ -1,7 +1,5 @@
-"use client";
-
 import BannerSection from "@/components/shared/BannerSection";
-import BannerImage from "@/../public/uniglow-family/uniglo2.jpeg";
+import BannerImage from "@/../public/uniglow-family/uniglo2.jpg";
 // import BannerImage from "@/assets/services/the-best-price-for-your-diamonds/bannerNew.jpeg";
 import React from "react";
 import ArticleLayout from "@/components/shared/ArticleLayout";
@@ -9,6 +7,17 @@ import DiamondsBanner from "@/assets/services/the-best-price-for-your-diamonds/b
 import FedexImage from "@/assets/services/the-best-price-for-your-diamonds/fedex.jpg";
 import SubFooter from "@/components/shared/SubFooter";
 import SellDiamondForm from "@/components/shared/SellDiamondForm";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Diamond Buyers Antwerp, Belgium | Get Best Value for Diamonds – Uniglo",
+    description:
+        "Looking for the best diamond price in Antwerp? Uniglo offers professional evaluation, fair market offers, and fast payment for loose diamonds and jewellery.",
+    alternates: {
+        canonical:
+            "https://www.uniglodiamonds.com/the-best-price-for-your-diamonds",
+    },
+};
 
 const page = () => {
     return (
@@ -16,8 +25,8 @@ const page = () => {
             <BannerSection
                 image={BannerImage}
                 text="The best price for your diamond"
-                textClassName="left-10 top-110 text-5xl"
-                imageClassName="h-120 object-cover"
+                textClassName="left-10 top-80 text-5xl"
+                imageClassName="h-90 object-cover"
             />
             {/* Article Section */}
             <section className=" max-w-7xl mx-auto px-10 mt-20">

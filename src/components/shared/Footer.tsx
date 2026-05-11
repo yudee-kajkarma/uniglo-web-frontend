@@ -207,6 +207,9 @@ export default function Footer() {
                     width={400}
                     height={400}
                     className="object-cover w-full h-full"
+                    loading="lazy"
+                    placeholder="blur"
+                    sizes="100vw"
                 />
             </div>
             <div className="absolute left-1/2 bottom-0 -translate-x-1/2 z-10 w-full h-full bg-primary-purple/10 pointer-events-none"></div>

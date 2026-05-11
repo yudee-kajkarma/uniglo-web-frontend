@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -la \"/d/Projects/uniglow-frontend/src/app/\\(auth\\)/\")",
+      "Bash(xargs grep:*)",
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)"
+    ]
+  }
+}

@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from "react";
 import { fetchDiamondById } from "@/services/diamondService";
 import { Diamond, getShapeFullName } from "@/interface/diamondInterface";
-import { DiamondImage } from "@/app/compare/page";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
+import { DiamondImage } from "../shared/DiamondMedia";
 
 interface SimilarDiamondsProps {
     similarDiamondIds: string[];
@@ -139,7 +139,7 @@ export default function SimilarDiamonds({
                             {/* Diamond Image */}
                             <div className="aspect-square bg-gray-50 flex items-center justify-center p-4">
                                 <DiamondImage
-                                    src={diamond.webLink}
+                                    diamond={diamond}
                                     showdefault={false}
                                 />
                             </div>

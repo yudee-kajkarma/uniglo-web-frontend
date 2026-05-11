@@ -23,6 +23,8 @@ import {
     FileStack,
     Shield,
     FormInputIcon,
+    Gem,
+    UserPlus,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
@@ -71,11 +73,62 @@ const NAV_LINKS = [
             { name: "Old Cut Diamonds", href: "/old-cut-diamonds" },
         ],
     },
+    {
+        name: "MarketPlaces",
+        href: "#",
+        hasDropdown: true,
+        submenuItems: [
+            {
+                name: "Uniglo Diamonds on Rapnet",
+                href: "/uniglo-diamonds-on-rapnet",
+            },
+        ],
+    },
+    {
+        name: "Resources",
+        href: "#",
+        hasDropdown: true,
+        submenuItems: [
+            {
+                name: "Guide to Lab Grown Diamonds ",
+                href: "/guide-to-lab-grown-diamonds",
+            },
+            {
+                name: "Source Lab Grown Diamonds",
+                href: "/source-lab-grown-diamonds-for-jewelers",
+            },
+            {
+                name: "Lab Grown Diamond Suppliers",
+                href: "/lab-grown-diamond-supplier-jewelers",
+            },
+            {
+                name: "Best Lab Grown Diamond Supplier Europe",
+                href: "/lab-grown-diamond-supplier-europe",
+            },
+            {
+                name: "IGI Certified Lab Grown Diamond Wholesale",
+                href: "/igi-certified-lab-grown-diamond-wholesale",
+            },
+            {
+                name: "Buy Lab Grown Diamonds Wholesale",
+                href: "/buy-lab-grown-diamonds-wholesale",
+            },
+            {
+                name: "Rapnet Diamond Supplier Antwerp",
+                href: "/rapnet-diamond-supplier-antwerp",
+            },
+            {
+                name: "Wedding Ring & Engagement Ring Guide",
+                href: "/wedding-ring-engagement-ring-guide",
+            },
+        ],
+    },
     { name: "Blog", href: "/blogs" },
 ];
 
 const ADMIN_NAV_LINKS = [
     { name: "Members Management", href: "/members-management", icon: Users },
+    { name: "Create Customer", href: "/create-customer", icon: UserPlus },
     {
         name: "Enquiry Management",
         href: "/enquiry-management",
@@ -86,11 +139,15 @@ const ADMIN_NAV_LINKS = [
         href: "/sell-diamonds-requests",
         icon: FormInputIcon,
     },
+    { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
+    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
 ];
 
 const SUPER_ADMIN_NAV_LINKS = [
     { name: "Members Management", href: "/members-management", icon: Users },
+    { name: "Create Customer", href: "/create-customer", icon: UserPlus },
     {
         name: "Enquiry Management",
         href: "/enquiry-management",
@@ -102,11 +159,15 @@ const SUPER_ADMIN_NAV_LINKS = [
         href: "/sell-diamonds-form-requests",
         icon: FormInputIcon,
     },
+    { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
+    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
 ];
 
 const USER_NAV_LINKS = [
     { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
     { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
 ];
@@ -206,7 +267,7 @@ export default function Navbar() {
                                 </Link>
                             </div>
                             {/* Right Actions */}
-                            <div className="hidden md:flex gap-3 w-1/3 justify-end">
+                            <div className="hidden md:flex gap-3 lg:w-1/3 max-w-1/3 justify-end">
                                 {loading ? (
                                     <>
                                         <div className="h-10 w-32 bg-gray-200/50 animate-pulse " />

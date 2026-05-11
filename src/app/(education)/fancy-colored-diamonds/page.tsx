@@ -1,112 +1,480 @@
 import BannerSection from "@/components/shared/BannerSection";
 import React from "react";
 import BannerImage from "@/assets/fancy-colored-diamonds/fancybanner.jpeg";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 // Replace with your actual image paths
 import BlueDiamondChart from "@/assets/fancy-colored-diamonds/blue-diamonds.png";
 import YellowDiamondChart from "@/assets/fancy-colored-diamonds/green-diamonds.png";
 import GreenDiamondChart from "@/assets/fancy-colored-diamonds/green-diamond.png";
 import ContactBannerImage from "@/assets/banner_2.jpg";
-import SubFooter from "@/components/shared/SubFooter";
-const coloredDiamonds = [
+import EducationSidebar from "@/components/shared/EducationSidebar";
+import DynamicArticle, {
+    ArticleSection,
+} from "@/components/shared/DynamicArticle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Fancy Colored Diamonds | Rare Blue, Yellow & Green Diamonds",
+    description:
+        "Discover fancy colored diamonds at Uniglo. From vivid blues to canary yellow & emerald green, shop GIA-certified gems for unique collections.",
+    alternates: {
+        canonical: "https://www.uniglodiamonds.com/fancy-colored-diamonds",
+    },
+};
+
+const introData: ArticleSection[] = [
+    {
+        heading: "Fancy Coloured Diamonds – Blue, Yellow and Green Diamonds",
+        content: [
+            {
+                type: "paragraph",
+                text: "Fancy coloured diamonds represent some of the rarest and most captivating treasures in the world of fine gemstones. Unlike traditional white diamonds, these extraordinary stones display vivid natural colours formed deep within the Earth under highly specific geological conditions.",
+            },
+            {
+                type: "paragraph",
+                text: "Among the most desirable and investment-worthy fancy diamonds are blue, yellow, and green diamonds. Each of these colours is created by unique natural elements and processes, making them highly sought-after by collectors, investors, and jewellery enthusiasts worldwide.",
+            },
+        ],
+    },
+];
+
+const blueData: ArticleSection[] = [
+    {
+        heading: "Blue Diamonds – Rare Beauty from the Depths of the Earth",
+        content: [
+            {
+                type: "paragraph",
+                text: "Blue diamonds are among the rarest and most valuable gemstones ever discovered. Their mesmerizing colour, combined with extreme scarcity, has made them legendary in both the jewellery market and popular culture.",
+            },
+        ],
+    },
+    {
+        heading: "Origins and Rarity",
+        content: [
+            {
+                type: "paragraph",
+                text: "Historically, some of the earliest blue diamonds were discovered in India. Over time, additional deposits were found in select regions of Africa. However, blue diamonds remain exceptionally rare, with only a limited number entering the global market each year.",
+            },
+            {
+                type: "paragraph",
+                text: "Their rarity significantly increases their desirability — particularly among high-end collectors and diamond investors. Because supply is limited and demand continues to grow, blue diamonds have shown strong long-term value appreciation.",
+            },
+            {
+                type: "paragraph",
+                text: "Owning a natural blue diamond is often considered a privilege reserved for connoisseurs. These stones are not only valuable but also geological marvels formed billions of years ago under immense pressure deep beneath the Earth’s surface.",
+            },
+        ],
+    },
+    {
+        heading: "What Gives Blue Diamonds Their Colour?",
+        content: [
+            {
+                type: "paragraph",
+                text: "Blue diamonds obtain their stunning hue from the presence of boron within their carbon structure. The higher the boron concentration, the deeper and more intense the blue colour.",
+            },
+            {
+                type: "paragraph",
+                text: "Scientific studies suggest that these diamonds crystallize at significantly deeper levels within the Earth compared to most other diamonds. Some research even indicates that their boron content may have originated from ancient oceanic crust material that was carried deep into the Earth’s mantle through tectonic processes.",
+            },
+            {
+                type: "paragraph",
+                text: "Despite their colour, blue diamonds are composed almost entirely of carbon, making them extremely durable and suitable for everyday jewellery wear.",
+            },
+            {
+                type: "paragraph",
+                text: "Many natural blue diamonds also contain subtle grey undertones, which can further influence their rarity and grading.",
+            },
+        ],
+    },
+    {
+        heading: "Certification and Grading",
+        content: [
+            {
+                type: "paragraph",
+                text: "The colour of blue diamonds — like all fancy coloured diamonds — is determined by respected gemological laboratories such as the Gemological Institute of America (GIA).",
+            },
+            {
+                type: "paragraph",
+                text: "The GIA uses advanced technology and strict grading standards to evaluate:",
+            },
+            { type: "bullet-list", items: ["Hue", "Tone", "Saturation"] },
+            {
+                type: "paragraph",
+                text: "For blue diamonds, deeper saturation levels such as Fancy Intense or Fancy Vivid command significantly higher prices.",
+            },
+        ],
+    },
+    {
+        heading: "Famous Blue Diamonds",
+        content: [
+            {
+                type: "paragraph",
+                text: "One of the most iconic blue diamonds in history is the Hope Diamond. Known for its deep blue colour and fascinating history, it has become a symbol of mystery and luxury in popular culture.",
+            },
+        ],
+    },
+    {
+        heading: "Investment Potential",
+        content: [
+            {
+                type: "paragraph",
+                text: "Because of their rarity and increasing demand, blue diamonds are considered strong investment assets. Over the years, auction prices for high-quality natural blue diamonds have consistently broken records. For investors seeking diversification into tangible luxury assets, blue diamonds offer both emotional and financial value.",
+            },
+        ],
+    },
+];
+
+const yellowData: ArticleSection[] = [
+    {
+        heading: "Yellow Diamonds – Radiant Sunshine in a Gem",
+        content: [
+            {
+                type: "paragraph",
+                text: "Yellow diamonds are among the most popular fancy coloured diamonds. Their vibrant glow resembles sunlight captured within a gemstone, making them a joyful and eye-catching choice for jewellery.",
+            },
+        ],
+    },
+    {
+        heading: "What Causes the Yellow Colour?",
+        content: [
+            {
+                type: "paragraph",
+                text: "Yellow diamonds owe their colour to the presence of nitrogen during their formation. Nitrogen atoms absorb blue light, which results in the diamond reflecting a yellow hue.",
+            },
+            {
+                type: "paragraph",
+                text: "The intensity of yellow can range from very light to deep, vivid shades.",
+            },
+        ],
+    },
+    {
+        heading: "Understanding Yellow Diamond Grading",
+        content: [
+            {
+                type: "paragraph",
+                text: "Fancy yellow diamonds are graded based on colour intensity, including:",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Fancy Light Yellow",
+                    "Fancy Yellow",
+                    "Fancy Intense Yellow",
+                    "Fancy Vivid Yellow",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "The stronger and more saturated the yellow, the higher the value.",
+            },
+            {
+                type: "paragraph",
+                text: "When yellow diamonds display secondary hues such as orange or green, their value may increase depending on the attractiveness and rarity of the combination.",
+            },
+        ],
+    },
+    {
+        heading: "Canary Yellow Diamonds",
+        content: [
+            {
+                type: "paragraph",
+                text: "When a yellow diamond displays a rich, deep, and intense golden tone, it is often referred to as a Canary Yellow Diamond or simply “Canary.”",
+            },
+            {
+                type: "paragraph",
+                text: "This term became popular in the late 1800s when vibrant yellow diamonds were discovered in South Africa’s Cape Colony mines. These diamonds are particularly admired for their bold and luxurious appearance.",
+            },
+        ],
+    },
+    {
+        heading: "Investment and Value Considerations",
+        content: [
+            {
+                type: "paragraph",
+                text: "Compared to other fancy coloured diamonds like blue or green, yellow diamonds are relatively more affordable. This is largely because they are more commonly found. However, pricing still depends heavily on:",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Colour intensity",
+                    "Cut quality",
+                    "Clarity",
+                    "Carat weight",
+                    "Presence of secondary hues",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Even slight colour variations can significantly impact value. For example:",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "A pure vivid yellow stone commands a premium.",
+                    "A noticeable brownish tint may reduce value.",
+                    "Orange or green modifiers may increase desirability.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Before investing in yellow diamonds, consulting with experienced diamond professionals is highly recommended.",
+            },
+        ],
+    },
+    {
+        heading: "Setting Considerations",
+        content: [
+            {
+                type: "paragraph",
+                text: "When purchasing a yellow diamond for jewellery, the metal setting plays a critical role.",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Yellow gold enhances warmth and harmony.",
+                    "White gold or platinum creates contrast, making the diamond appear more vibrant.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Choosing the right setting ensures the diamond’s colour stands out beautifully.",
+            },
+        ],
+    },
+];
+
+const greenData: ArticleSection[] = [
+    {
+        heading: "Green Diamonds – Nature’s Rare Masterpiece",
+        content: [
+            {
+                type: "paragraph",
+                text: "Green diamonds are among the rarest fancy coloured diamonds in the world. Only a handful reach the global market each year, making them exceptionally valuable and highly coveted.",
+            },
+        ],
+    },
+    {
+        heading: "Formation and Origin",
+        content: [
+            {
+                type: "paragraph",
+                text: "Green diamonds form at depths of approximately 150–200 kilometers beneath the Earth’s surface under extreme temperatures and pressures over millions of years.",
+            },
+            {
+                type: "paragraph",
+                text: "Their colour is not caused by a chemical element like boron or nitrogen. Instead, it results from natural radiation exposure over long geological periods. This radiation alters the diamond’s crystal lattice structure, producing a green hue.",
+            },
+            {
+                type: "paragraph",
+                text: "Many green diamonds originate from parts of South America and Africa, though production remains extremely limited.",
+            },
+        ],
+    },
+    {
+        heading: "Types of Natural Green Diamonds",
+        content: [
+            {
+                type: "paragraph",
+                text: "Natural green diamonds generally fall into two categories:",
+            },
+            {
+                type: "paragraph",
+                text: "1. Green Surface Shade: In these diamonds, the green colour appears only on the outer layer of the stone due to surface radiation exposure. Once cut or polished, some of the colour may be removed.",
+            },
+            {
+                type: "paragraph",
+                text: "2. Green Body Colour: These diamonds display green colour throughout the entire stone. The hue is evenly distributed, resulting in stronger saturation and higher value.",
+            },
+            {
+                type: "paragraph",
+                text: "Green body colour diamonds are significantly rarer and more valuable than surface-shaded stones.",
+            },
+        ],
+    },
+    {
+        heading: "Investment Trends",
+        content: [
+            {
+                type: "paragraph",
+                text: "Over recent years, green diamond prices have steadily increased. Due to their extreme rarity and growing demand, they are considered a strong long-term investment.",
+            },
+            {
+                type: "paragraph",
+                text: "High-quality natural green diamonds have achieved remarkable results at international auctions, attracting collectors seeking unique and limited assets.",
+            },
+        ],
+    },
+    {
+        heading: "Beauty and Appeal",
+        content: [
+            {
+                type: "paragraph",
+                text: "Green diamonds are admired for their striking and elegant appearance. Their colour ranges from soft mint tones to deep forest green shades. The interaction between light and the stone’s crystal structure creates a captivating visual effect that sets them apart from other coloured diamonds.",
+            },
+        ],
+    },
+];
+
+const outroData: ArticleSection[] = [
+    {
+        heading: "Why Fancy Coloured Diamonds Are Valuable Investments",
+        content: [
+            {
+                type: "paragraph",
+                text: "Fancy coloured diamonds are increasingly viewed as alternative investment assets. Unlike traditional financial instruments, these diamonds:",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Are tangible and portable",
+                    "Have limited supply",
+                    "Are resistant to inflation",
+                    "Offer long-term appreciation potential",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Blue and green diamonds, in particular, have demonstrated significant price growth due to extreme scarcity. Yellow diamonds provide a more accessible entry point while still offering strong aesthetic and investment appeal.",
+            },
+            {
+                type: "paragraph",
+                text: "However, purchasing coloured diamonds requires careful evaluation of authenticity, certification, and market trends.",
+            },
+        ],
+    },
+    {
+        heading: "The Importance of Certification",
+        content: [
+            {
+                type: "paragraph",
+                text: "When investing in coloured diamonds, always ensure certification from reputable laboratories such as the Gemological Institute of America.",
+            },
+            { type: "paragraph", text: "Certification verifies:" },
+            {
+                type: "bullet-list",
+                items: [
+                    "Natural origin of colour",
+                    "Absence of treatments",
+                    "Accurate colour grading",
+                    "Authenticity of the stone",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Without certification, assessing the true value of a fancy coloured diamond becomes extremely difficult.",
+            },
+            {
+                type: "paragraph",
+                text: "Blue, yellow, and green diamonds represent the pinnacle of rarity, beauty, and geological wonder.",
+            },
+            {
+                type: "bullet-list",
+                items: [
+                    "Blue diamonds captivate with their oceanic depth and extreme scarcity.",
+                    "Yellow diamonds radiate warmth and optimism like captured sunlight.",
+                    "Green diamonds enchant with their mysterious and natural elegance.",
+                ],
+            },
+            {
+                type: "paragraph",
+                text: "Each colour tells a unique story shaped by nature over billions of years. Whether you are purchasing for personal jewellery, portfolio diversification, or long-term investment, fancy coloured diamonds offer both emotional significance and financial potential.",
+            },
+            {
+                type: "paragraph",
+                text: "Owning one is not just about possessing a gemstone — it is about holding a rare piece of Earth’s history, crafted by nature and treasured for generations.",
+            },
+        ],
+    },
+];
+
+const coloredDiamondSections: {
+    id: string;
+    chartImage: StaticImageData;
+    chartTitle: string;
+    sections: ArticleSection[];
+}[] = [
     {
         id: "blue",
-        title: "Blue Diamonds",
-        colorName: "Blue Diamonds",
         chartImage: BlueDiamondChart,
         chartTitle: "Color Chart For Blue Diamonds",
-        description: [
-            "They are also difficult to find, because they are available at a limited number of spots in the world. Many years ago, India was where plenty of these blue diamonds were found, but even now, they have become rarer or obtain in both Africa.",
-            "The very fact that these blue diamonds are extremely rare, coupled with their soaring prices serves to increase their popularity. And this is especially true if you happen to be a diamond investor or even a collector. It lets you make the most of its ever-increasing value with time that you can then spin into a handsome profit. It is a rarer that you get physically witness and grasp.",
-            "The colour of your blue (or any other) diamond is ultimately determined by qualified gemological institutes. The Gemological Institute of America's (GIA), of course, leads the charge. They conduct thorough tests by employing cutting-edge tools to study the colour of the diamond. When it comes to those blue diamonds, studies have proved that they are 'superb' diamonds, meaning that they become crystallized at much deeper levels than most of the other diamonds. Their boron content is also said to come from the deep, vast oceans. Interesting, right?",
-            "Blue diamonds obtain their dazzling colour because of the presence of boron. The higher the boron content, the deeper the hue. They are actually completely made of carbon in a pure form and are highly durable. Such blue diamonds also have a subtle hints of grey in them, which in turn makes them very rare. The hope diamond is one of the most popular blue diamonds in pop culture.",
-        ],
+        sections: blueData,
     },
     {
         id: "yellow",
-        title: "Yellow Diamonds",
-        colorName: "Yellow Diamonds",
         chartImage: YellowDiamondChart,
         chartTitle: "Color Chart For Yellow Diamonds",
-        description: [
-            "If you're considering investing in a yellow diamond, always think about the colour of the metal that is being used in the setting. You must never fail to consider the colour chart to the harmony of colours present, strive you view the diamond in the setting. The shade of the metal could truly contrast with the diamond, making it truly pop. Alternatively, the colours of the metal and the diamond could be in sync with each other.",
-            "In terms of investing in these diamonds, you must know that fancy yellow coloured diamonds are relatively (as compared to other coloured diamonds) more affordable. This is also because they are relatively common. However, you should note that pricing or evaluating the price of such yellow diamonds is a detailed process.",
-            "This is because the tiniest hints of boron can tinting down the value of a yellow diamond. But if there are green or orange tints present, the value immediately shoots up. So, you must always talk to experts before you go ahead and purchase such diamonds.",
-            "Dazzling with promise, fancy coloured yellow diamonds often resemble shifting bits of flesh lasting sun. But sometimes, they reflect secondary shades like an orange or a reddish one. When these diamonds, yellow and red that deep, intense shade that you can have your heart to, they're called 'Canary Yellow Diamonds.' They are sometimes also called 'Canaries'. This name originated in the late 1800s when plenty of diamonds of the similar colouring were churned out from the South African mines. Cape Colony.",
-            "Wondering here they get their dazzling hue? Well, this colour is actually the result of the presence of nitrogen at their time of composition. During this stage, any present nitrogen molecules take in blue light, turning the stone a shade of yellow. This yellow colour could also range from light to dark.",
-        ],
+        sections: yellowData,
     },
     {
         id: "green",
-        title: "Green Diamonds",
-        colorName: "Green Diamonds",
         chartImage: GreenDiamondChart,
         chartTitle: "Color Chart For Green Diamonds",
-        description: [
-            "Did you know that just a handful of these beautiful green coloured diamonds finally arrive in the market every year? That's what makes them so highly-sought-after all over the world over. Most of these beauties come from South America and Africa and are also pretty rare. They are actually formed at a depth of 150-200 kilometers below the earth, at a searing temperature. This is a process that takes millions of years to over slow.",
-            "Natural green diamonds actually come in two types:",
-            "1. Green Shade – These diamonds are green alright, but lighter in colour. The green hue appears only on the outer portion of the diamond.",
-            "2. Green Body Colour – These diamonds are green through and through. The hue is absorbed throughout the stone and the colour is far more intense and darker.",
-            "When it comes to investing, what you should know is that the price of green coloured diamonds has been on the rise in past few years. So, of course, investing in them is always a sound decision. Take the various Green coloured diamonds for instance – the most expensive diamonds at the market, you can get you large profits.",
-            "Natural colour green diamonds are strikingly beautiful. They catch your eye and their physical characteristics sum up elegance in every way. How do they do it? Well, it's in their colouring. A colour circle is built by interaction between a subject and an object by perfection.",
-        ],
+        sections: greenData,
     },
 ];
 
 const page = () => {
     return (
-        <div className="min-h-screen  mb-20">
+        <div className="min-h-screen mb-20">
             <BannerSection
                 image={BannerImage}
                 text="Fancy Colored Diamonds"
-                textClassName="left-10 top-110 text-5xl text-white"
-                imageClassName="h-130 object-cover"
+                textClassName="left-10 top-80 text-5xl text-white"
+                imageClassName="h-90 object-cover"
             />
 
-            {/* Colored Diamonds Sections */}
-            <div className="max-w-7xl mx-auto px-4">
-                {coloredDiamonds.map((diamond, idx) => (
-                    <section key={diamond.id} className={`py-20 `}>
-                        <div className="max-w-7xl mx-auto px-4">
-                            {/* Chart Section */}
-                            <div className="mb-16">
-                                {/* Chart Image */}
-                                <div className="flex justify-center">
-                                    <Image
-                                        src={diamond.chartImage}
-                                        alt={diamond.chartTitle}
-                                        className="w-full max-w-7xl h-auto object-contain"
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Content Section */}
-                            <div className="mt-12">
-                                <h3 className="text-3xl md:text-4xl font-cormorantGaramond font-semibold text-black mb-6">
-                                    {diamond.colorName}
-                                </h3>
-
-                                <div className="space-y-6">
-                                    {diamond.description.map(
-                                        (paragraph, pidx) => (
-                                            <p
-                                                key={pidx}
-                                                className="text-slate-700 font-lora text-lg leading-relaxed text-justify"
-                                            >
-                                                {paragraph}
-                                            </p>
-                                        ),
-                                    )}
-                                </div>
-                            </div>
-                        </div>
+            <div className="max-w-[1400px] mx-auto px-4 flex flex-col xl:flex-row gap-12 mt-10">
+                <div className="w-full xl:w-3/4">
+                    {/* Intro Section */}
+                    <section className="mt-10">
+                        <DynamicArticle sections={introData} />
                     </section>
-                ))}
+
+                    {/* Colored Diamonds Sections (with original Images preserving) */}
+                    <div>
+                        {coloredDiamondSections.map((diamond) => (
+                            <section
+                                key={diamond.id}
+                                className="py-20 mt-10 border-t border-slate-200"
+                            >
+                                <div className="max-w-7xl mx-auto">
+                                    {/* Chart Section */}
+                                    <div className="mb-16">
+                                        <div className="flex justify-center">
+                                            <Image
+                                                src={diamond.chartImage}
+                                                alt={diamond.chartTitle}
+                                                className="w-full max-w-7xl h-auto object-contain"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    {/* Content Section rendered dynamically */}
+                                    <div>
+                                        <DynamicArticle
+                                            sections={diamond.sections}
+                                        />
+                                    </div>
+                                </div>
+                            </section>
+                        ))}
+                    </div>
+
+                    {/* Outro Section */}
+                    <section className="py-20 border-t border-slate-200">
+                        <DynamicArticle sections={outroData} />
+                    </section>
+                </div>
+
+                {/* Sidebar */}
+                <div className="w-full xl:w-1/4 pt-10 lg:pt-0">
+                    <EducationSidebar className="w-full space-y-10 lg:sticky lg:top-24" />
+                </div>
             </div>
 
             {/* Contact CTA Banner */}
-            <section className="w-full container mx-auto   relative py-16 px-4 mt-20 mb-20 overflow-hidden">
+            <section className="w-full container mx-auto relative py-16 px-4 mt-10 mb-20 overflow-hidden">
                 <div className="absolute inset-0">
                     <Image
                         src={ContactBannerImage}
@@ -131,8 +499,6 @@ const page = () => {
                     </div>
                 </div>
             </section>
-
-            <SubFooter />
         </div>
     );
 };

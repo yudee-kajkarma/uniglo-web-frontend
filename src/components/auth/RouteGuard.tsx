@@ -12,6 +12,7 @@ const protectedRoutes = [
     "/checkout",
     "/enquiries",
     "/profile",
+    "/hold-diamonds",
 ];
 
 // 2. Routes that are ONLY for guests (redirect to home if logged in)
@@ -23,6 +24,7 @@ const adminRoutes = [
     "/enquiry-management",
     "/inventory-management",
     "/sell-diamonds-form-submissions",
+    "/create-customer",
 ];
 
 // 4. Super Admin-only routes

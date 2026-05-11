@@ -168,6 +168,24 @@ const Page = () => {
                             Register
                         </Link>
                     </div>
+                    <div className=" text-center text-lg text-gray-300 font-cormorantGaramond">
+                        Forgot your password?{" "}
+                        <Link
+                            href="/forgot-password"
+                            className="text-primary-yellow-1 hover:text-primary-yellow-2 ml-1 transition-colors"
+                        >
+                            Reset Password
+                        </Link>
+                    </div>
+                    <div className="text-center text-lg text-gray-300 font-cormorantGaramond">
+                        Account disabled?{" "}
+                        <Link
+                            href="/reactivate-account"
+                            className="text-primary-yellow-1 hover:text-primary-yellow-2 ml-1 transition-colors"
+                        >
+                            Request Reactivation
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>

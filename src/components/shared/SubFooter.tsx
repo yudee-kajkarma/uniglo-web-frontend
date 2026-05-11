@@ -20,24 +20,24 @@ export const subFooterInfo = {
 
 export const recentPosts = [
     {
-        title: "How to choose Diamond Engagement Ring",
-        url: "#",
+        title: "Lab Grown Diamonds in Belgium",
+        url: "/blogs/lab-grown-diamonds-in-belgium",
     },
     {
-        title: "Best Place to Buy Diamond Online",
-        url: "#",
+        title: "Diamonds Are Not Made from Coal",
+        url: "/blogs/diamonds-are-not-made-from-coal",
     },
     {
-        title: "Diamond Investment Guide: What You Need to Know Before Investing",
-        url: "#",
+        title: "The Diamond 4Cs",
+        url: "/the-diamond-4cs",
     },
     {
-        title: "Loose Diamonds Buying Guide: How to Choose the Perfect Stone",
-        url: "#",
+        title: "Diamond Certificates",
+        url: "/diamond-certificates",
     },
     {
-        title: "Diamond Size Guide: Understanding Carat Weight and Visual Appearance",
-        url: "#",
+        title: "Fancy Coloured Diamonds",
+        url: "/fancy-colored-diamonds",
     },
 ];
 

@@ -2,7 +2,7 @@
 
 export type DiamondShape =
     | "RD" // Round
-    | "PR" // Princess
+    | "PC" // Princess
     | "PS" // Pear
     | "OV" // Oval
     | "EM" // Emerald
@@ -10,7 +10,12 @@ export type DiamondShape =
     | "MQ" // Marquise
     | "RA" // Radiant
     | "HT" // Heart
-    | "AS"; // Asscher
+    | "SE" // Square Emerald
+    | "SQE" // Square Emerald
+    | "Asscher" // Asscher
+    | "Oeb" // European
+    | "OMB" // Old Mine
+    | "Other"; // Other
 
 export type DiamondColor =
     | "D"
@@ -146,6 +151,8 @@ export interface Diamond {
     // --- Media ---
     webLink: string; // Image URL
     videoLink: string; // Video URL
+    imageUrls?: string[]; // Array of image URLs
+    videoUrls?: string[]; // Array of video URLs
 
     // --- Pairing ---
     pairStockRef: string;
@@ -203,7 +210,7 @@ export interface DiamondParams {
 export const getShapeFullName = (shapeCode: DiamondShape | string): string => {
     const shapeMap: Record<DiamondShape, string> = {
         RD: "Round",
-        PR: "Princess",
+        PC: "Princess",
         PS: "Pear",
         OV: "Oval",
         EM: "Emerald",
@@ -211,7 +218,12 @@ export const getShapeFullName = (shapeCode: DiamondShape | string): string => {
         MQ: "Marquise",
         RA: "Radiant",
         HT: "Heart",
-        AS: "Asscher",
+        SE: "Square Emerald",
+        Asscher: "Asscher",
+        Oeb: "European",
+        OMB: "Old Mine",
+        Other: "Other",
+        SQE: "Square Emerald",
     };
     if (typeof shapeCode === "string" && shapeCode in shapeMap) {
         return shapeMap[shapeCode as DiamondShape];
@@ -338,4 +350,6 @@ export interface PublicDiamond {
     // --- Media ---
     webLink: string;
     videoLink: string;
+    imageUrls?: string[];
+    videoUrls?: string[];
 }

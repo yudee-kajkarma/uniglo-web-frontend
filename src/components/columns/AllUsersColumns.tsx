@@ -1,12 +1,16 @@
 import { PendingUser } from "@/services/adminServices";
 import { Badge } from "@/components/ui/badge";
-import { ChevronDown, ChevronRight } from "lucide-react";
-import { ActionButtonWithTooltip } from "@/components/ui/actionButtonWithTooltip";
+import { ChevronDown, ChevronRight, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export interface Column<T> {
     key: keyof T | string;
     header: React.ReactNode;
-    render?: (row: PendingUser) => React.ReactNode;
+    render?: (
+        row: PendingUser,
+        onAssignEntity?: (userId: string, username: string) => void,
+        onApproveDiamtrade?: (userId: string) => void,
+    ) => React.ReactNode;
     cellClassName?: (row: PendingUser) => string;
 }
 
@@ -48,6 +52,7 @@ const getStatusBadge = (status: string) => {
 export const getAllUsersColumns = (
     expandedRows: Set<string>,
     onToggleExpand: (userId: string) => void,
+    onAssignEntity?: (userId: string, username: string) => void,
 ): Column<PendingUser>[] => [
     {
         key: "expand",
@@ -82,6 +87,32 @@ export const getAllUsersColumns = (
         render: (row: PendingUser) => getStatusBadge(row.status),
     },
     {
+        key: "diamtradeStatus",
+        header: "Diamtrade Status",
+        render: (
+            row: PendingUser,
+            _onAssignEntity,
+            onApproveDiamtradeCallback,
+        ) => {
+            if (row.diamtradeStatus === "PENDING") {
+                return (
+                    <Button
+                        size="sm"
+                        variant="outline"
+                        onClick={() => onApproveDiamtradeCallback?.(row._id)}
+                        className="h-7 px-2 text-xs border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                    >
+                        Approve Diamtrade
+                    </Button>
+                );
+            }
+            if (row.diamtradeStatus) {
+                return getStatusBadge(row.diamtradeStatus);
+            }
+            return <span className="text-gray-500">N/A</span>;
+        },
+    },
+    {
         key: "companyName",
         header: "Company",
         render: (row: PendingUser) => (
@@ -109,12 +140,29 @@ export const getAllUsersColumns = (
     {
         key: "entityKey",
         header: "Entity Key",
-        render: (row: PendingUser) => (
-            <span className="text-gray-800">
-                {(row as any).entityKey || "N/A"}
-            </span>
-        ),
+        render: (row: PendingUser, onAssignEntityCallback) => {
+            const entityKey = row.entityKey;
+
+            if (entityKey) {
+                return <span className="text-gray-800">{entityKey}</span>;
+            }
+
+            return (
+                <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() =>
+                        onAssignEntityCallback?.(row._id, row.username)
+                    }
+                    className="h-7 px-2 text-xs border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                >
+                    <Plus className="w-3 h-3 mr-1" />
+                    Add Entity
+                </Button>
+            );
+        },
     },
+
     {
         key: "createdAt",
         header: "Registered",
@@ -127,6 +175,7 @@ export const getAllUsersColumns = (
 ];
 
 export const UserDetailsRow = ({ user }: { user: PendingUser }) => {
+    const dateOfBirth = new Date(user.customerData.birthDate);
     return (
         <div className="bg-gray-50 p-6 border-t border-gray-200">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -139,18 +188,20 @@ export const UserDetailsRow = ({ user }: { user: PendingUser }) => {
                         <DetailItem
                             label="Full Name"
                             value={
-                                user.customerData
-                                    ? `${user.customerData.firstName} ${user.customerData.lastName}`
-                                    : "N/A"
+                                user.contactName ? `${user.contactName}` : "N/A"
                             }
                         />
                         <DetailItem label="Username" value={user.username} />
                         <DetailItem label="Email" value={user.email} />
                         <DetailItem
+                            label="Date of Birth"
+                            value={dateOfBirth.toLocaleDateString()}
+                        />
+                        <DetailItem
                             label="Phone"
                             value={
                                 user.customerData
-                                    ? `${user.customerData.countryCode} ${user.customerData.phoneNumber}`
+                                    ? `${user.customerData?.countryCode ? `${user.customerData.countryCode} ` : ""}${user.customerData.phoneNumber}`
                                     : "N/A"
                             }
                         />

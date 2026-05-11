@@ -21,6 +21,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useAuth } from "@/context/AuthContext";
+import { Badge } from "../ui/badge";
 
 // --- Types & Interfaces ---
 
@@ -59,15 +60,27 @@ interface DiamondFiltersProps {
 
 const SHAPES: { value: DiamondShape; label: string; icon: string }[] = [
     { value: "RD", label: "Round", icon: "/shapes/round-diamond.png" },
-    { value: "PR", label: "Princess", icon: "/shapes/princess-diamond.png" },
+    { value: "PC", label: "Princess", icon: "/shapes/princess-diamond.png" },
     { value: "PS", label: "Pear", icon: "/shapes/pear-diamond.png" },
     { value: "OV", label: "Oval", icon: "/shapes/Oval-Diamond.png" },
     { value: "EM", label: "Emerald", icon: "/shapes/emerald-diamond.png" },
     { value: "MQ", label: "Marquise", icon: "/shapes/marquise-diamond.png" },
-    { value: "HT", label: "Heart", icon: "/shapes/heart.png" },
     { value: "RA", label: "Radiant", icon: "/shapes/radiant-diamond.png" },
-    { value: "AS", label: "Asscher", icon: "/shapes/asscher-diamond.png" },
+    { value: "HT", label: "Heart", icon: "/shapes/heart.png" },
+    { value: "Asscher", label: "Asscher", icon: "/shapes/asscher-diamond.png" },
     { value: "CU", label: "Cushion", icon: "/shapes/cushion-diamond.png" },
+    {
+        value: "Oeb",
+        label: "European",
+        icon: "/shapes/old-european-diamond.png",
+    },
+    { value: "OMB", label: "Old Mine", icon: "/shapes/old-mine-diamond.png" },
+    {
+        value: "SE",
+        label: "Square Emerald",
+        icon: "/shapes/square-emerald.png",
+    },
+    { value: "Other", label: "Other", icon: "/shapes/other-diamond.png" },
 ];
 
 const CARAT_RANGES = [
@@ -90,7 +103,6 @@ const COLORS: DiamondColor[] = [
     "D",
     "E",
     "F",
-    "E-F",
     "G",
     "H",
     "I",
@@ -111,13 +123,13 @@ const COLORS: DiamondColor[] = [
     "X",
     "Y",
     "Z",
-    "N-O",
-    "OP",
-    "QR",
-    "ST",
-    "UV",
-    "WX",
-    "YZ",
+    // "N-O",
+    // "OP",
+    // "QR",
+    // "ST",
+    // "UV",
+    // "WX",
+    // "YZ",
 ];
 
 const FANCY_COLORS = [
@@ -148,7 +160,7 @@ const CLARITIES: DiamondClarity[] = [
     "I2",
 ];
 
-const CUT_OPTIONS: DiamondCut[] = ["EX", "VG", "G", "F", "I"];
+const CUT_OPTIONS: DiamondCut[] = ["I", "EX", "VG", "G", "F"];
 const FLUORESCENCE_OPTIONS = ["NON", "FNT", "MED", "STG", "VSL"];
 const LAB_OPTIONS = ["GIA", "HRD", "IGI", "OTHERS"];
 
@@ -162,7 +174,7 @@ interface DiamondFilterSectionProps {
     wrapperClassName?: string;
 }
 
-const DiamondFilterSection: React.FC<DiamondFilterSectionProps> = ({
+export const DiamondFilterSection: React.FC<DiamondFilterSectionProps> = ({
     title,
     children,
     variant = "default",
@@ -227,7 +239,7 @@ const DiamondFilterSection: React.FC<DiamondFilterSectionProps> = ({
     );
 };
 
-const ToggleButton = ({
+export const ToggleButton = ({
     active,
     onClick,
     label,
@@ -252,7 +264,7 @@ const ToggleButton = ({
     </button>
 );
 
-const RangeSliderWithInputs = ({
+export const RangeSliderWithInputs = ({
     label,
     value,
     onChange,
@@ -273,6 +285,36 @@ const RangeSliderWithInputs = ({
     variant?: "default" | "sidebar";
     disabled?: boolean;
 }) => {
+    const [localMin, setLocalMin] = React.useState(String(value[0]));
+    const [localMax, setLocalMax] = React.useState(String(value[1]));
+
+    // Sync local state when value changes externally (e.g. from slider)
+    React.useEffect(() => {
+        setLocalMin(String(value[0]));
+    }, [value[0]]);
+
+    React.useEffect(() => {
+        setLocalMax(String(value[1]));
+    }, [value[1]]);
+
+    const commitMin = () => {
+        const parsed = Number(localMin);
+        if (localMin === "" || isNaN(parsed)) {
+            setLocalMin(String(value[0]));
+        } else {
+            onChange([parsed, value[1]]);
+        }
+    };
+
+    const commitMax = () => {
+        const parsed = Number(localMax);
+        if (localMax === "" || isNaN(parsed)) {
+            setLocalMax(String(value[1]));
+        } else {
+            onChange([value[0], parsed]);
+        }
+    };
+
     return (
         <DiamondFilterSection
             title={label}
@@ -305,10 +347,9 @@ const RangeSliderWithInputs = ({
                 <Input
                     type="number"
                     className="h-8 text-xs border-primary-yellow-2 border rounded-lg"
-                    value={value[0]}
-                    onChange={(e) =>
-                        onChange([Number(e.target.value), value[1]])
-                    }
+                    value={localMin}
+                    onChange={(e) => setLocalMin(e.target.value)}
+                    onBlur={commitMin}
                     step={step}
                     disabled={disabled}
                 />
@@ -316,10 +357,9 @@ const RangeSliderWithInputs = ({
                 <Input
                     type="number"
                     className="h-8 text-xs border-primary-yellow-2 border rounded-lg"
-                    value={value[1]}
-                    onChange={(e) =>
-                        onChange([value[0], Number(e.target.value)])
-                    }
+                    value={localMax}
+                    onChange={(e) => setLocalMax(e.target.value)}
+                    onBlur={commitMax}
                     step={step}
                     disabled={disabled}
                 />
@@ -340,6 +380,23 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
     variant = "default",
 }) => {
     const { isAuthenticated } = useAuth();
+
+    // Local string state for carat inputs
+    const [localCaratMin, setLocalCaratMin] = React.useState(
+        String(filters.caratRange[0]),
+    );
+    const [localCaratMax, setLocalCaratMax] = React.useState(
+        String(filters.caratRange[1]),
+    );
+
+    React.useEffect(() => {
+        setLocalCaratMin(String(filters.caratRange[0]));
+    }, [filters.caratRange[0]]);
+
+    React.useEffect(() => {
+        setLocalCaratMax(String(filters.caratRange[1]));
+    }, [filters.caratRange[1]]);
+
     // Generic toggle helper
     const toggleFilter = <T extends string>(
         currentList: T[],
@@ -356,33 +413,40 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
         ({ variant }: { variant: boolean }) => {
             return (
                 <div
-                    className={`grid ${variant ? "grid-cols-2  sm:grid-cols-4 " : "grid-cols-5"} gap-2`}
+                    className={`grid ${variant ? "grid-cols-2  sm:grid-cols-4 " : "grid-cols-7"} gap-2`}
                 >
                     {SHAPES.map((shape) => (
-                        <button
-                            key={shape.value}
-                            onClick={() =>
-                                toggleFilter(
-                                    filters.shape,
-                                    shape.value,
-                                    "shape",
-                                )
-                            }
-                            className={cn(
-                                "flex cursor-pointer flex-col items-center justify-center p-2 rounded border transition-colors aspect-square",
-                                filters.shape.includes(shape.value)
-                                    ? "bg-[#d4b98c] text-black border-[#d4b98c] font-medium"
-                                    : " border-primary-yellow-2 border",
-                            )}
-                        >
-                            <Image
-                                src={shape.icon}
-                                width={54}
-                                height={54}
-                                alt={shape.label}
-                                className=" aspect-square object-contain "
-                            />
-                        </button>
+                        <TooltipProvider key={shape.value}>
+                            <Tooltip>
+                                <TooltipTrigger>
+                                    <button
+                                        key={shape.value}
+                                        onClick={() =>
+                                            toggleFilter(
+                                                filters.shape,
+                                                shape.value,
+                                                "shape",
+                                            )
+                                        }
+                                        className={cn(
+                                            "flex cursor-pointer flex-col items-center justify-center p-2 rounded border transition-colors aspect-square group relative",
+                                            filters.shape.includes(shape.value)
+                                                ? "bg-[#d4b98c] text-black border-[#d4b98c] font-medium"
+                                                : " border-primary-yellow-2 border",
+                                        )}
+                                    >
+                                        <Image
+                                            src={shape.icon}
+                                            width={54}
+                                            height={54}
+                                            alt={shape.label}
+                                            className=" aspect-square object-contain "
+                                        />
+                                    </button>
+                                </TooltipTrigger>
+                                <TooltipContent>{shape.label}</TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     ))}
                 </div>
             );
@@ -414,31 +478,37 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
                 <Input
                     type="number"
                     className="h-8 text-xs border-primary-yellow-2 border rounded-lg"
-                    value={filters.caratRange[0]}
-                    onChange={(e) =>
-                        setFilters((prev) => ({
-                            ...prev,
-                            caratRange: [
-                                Number(e.target.value),
-                                prev.caratRange[1],
-                            ],
-                        }))
-                    }
+                    value={localCaratMin}
+                    onChange={(e) => setLocalCaratMin(e.target.value)}
+                    onBlur={() => {
+                        const parsed = Number(localCaratMin);
+                        if (localCaratMin === "" || isNaN(parsed)) {
+                            setLocalCaratMin(String(filters.caratRange[0]));
+                        } else {
+                            setFilters((prev) => ({
+                                ...prev,
+                                caratRange: [parsed, prev.caratRange[1]],
+                            }));
+                        }
+                    }}
                 />
                 <span className="self-center text-sm text-gray-400">To</span>
                 <Input
                     type="number"
                     className="h-8 text-xs border-primary-yellow-2 border rounded-lg"
-                    value={filters.caratRange[1]}
-                    onChange={(e) =>
-                        setFilters((prev) => ({
-                            ...prev,
-                            caratRange: [
-                                prev.caratRange[0],
-                                Number(e.target.value),
-                            ],
-                        }))
-                    }
+                    value={localCaratMax}
+                    onChange={(e) => setLocalCaratMax(e.target.value)}
+                    onBlur={() => {
+                        const parsed = Number(localCaratMax);
+                        if (localCaratMax === "" || isNaN(parsed)) {
+                            setLocalCaratMax(String(filters.caratRange[1]));
+                        } else {
+                            setFilters((prev) => ({
+                                ...prev,
+                                caratRange: [prev.caratRange[0], parsed],
+                            }));
+                        }
+                    }}
                 />
             </div>
 

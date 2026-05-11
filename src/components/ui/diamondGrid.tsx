@@ -6,7 +6,7 @@ import {
 } from "@/interface/diamondInterface";
 import { Button } from "@/components/ui/button";
 import { Heart } from "lucide-react";
-import { DiamondImage } from "@/app/compare/page";
+import { DiamondImage } from "../shared/DiamondMedia";
 
 interface DiamondGridProps {
     data: Diamond[] | PublicDiamond[];
@@ -43,7 +43,11 @@ export default function DiamondGrid({ data, onViewDetails }: DiamondGridProps) {
                         <button className="absolute top-3 right-3 text-gray-300 hover:text-red-500 transition-colors z-10 bg-white/80 rounded-full p-1.5 shadow-sm">
                             <Heart className="w-4 h-4" />
                         </button>
-                        <DiamondImage src={item.webLink} showdefault={false} />
+                        <DiamondImage
+                            diamond={item}
+                            showdefault={false}
+                            showVideo={false}
+                        />
                     </div>
 
                     {/* Diamond Title */}

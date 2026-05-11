@@ -10,6 +10,16 @@ import customDiamondImage from "@/assets/services/diamond-manufacturing/custom-d
 import whyChooseImage from "@/assets/services/diamond-manufacturing/image-3.png";
 import contactUsImage from "@/assets/services/diamond-manufacturing/contact-us.jpg";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Diamond Manufacturing in Antwerp, Belgium | Precision Cutting – Uniglo",
+    description:
+        "Leading diamond manufacturer in Antwerp, Belgium offering custom cuts, loose diamonds, and bulk diamond production. Precision craftsmanship and superior quality by Uniglo.",
+    alternates: {
+        canonical: "https://www.uniglodiamonds.com/diamond-manufacturing",
+    },
+};
 
 const page = () => {
     return (
