@@ -152,6 +152,59 @@ export const rejectCustomerData = async (
     return response.data;
 };
 
+export interface ReplyToCartItemParams {
+    userId: string;
+    diamondId: string;
+    reply: string;
+}
+
+export interface ReplyToCartItemResponse {
+    success: boolean;
+    message: string;
+    data?: {
+        item: CartItem;
+    };
+}
+
+export const replyToCartItem = async (
+    params: ReplyToCartItemParams,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.put<ReplyToCartItemResponse>(
+        `/diamonds/cart/admin/${params.userId}/items/${params.diamondId}/reply`,
+        {
+            reply: params.reply,
+        },
+    );
+
+    if (!response.data.success) {
+        throw new Error(response.data.message || "Failed to reply to cart item");
+    }
+
+    return response.data;
+};
+
+export interface DeleteCartItemMessageParams {
+    userId: string;
+    diamondId: string;
+    messageId: string;
+}
+
+export const deleteCartItemMessage = async (
+    params: DeleteCartItemMessageParams,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.delete<ReplyToCartItemResponse>(
+        `/diamonds/cart/admin/${params.userId}/items/${params.diamondId}/messages/${params.messageId}`,
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message || "Failed to delete cart item message",
+        );
+    }
+
+    return response.data;
+};
+
 export const getAllCarts = async (
     params?: GetAllCartsParams,
 ): Promise<GetAllCartsResponse> => {

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { getCart, removeFromCart, clearCart } from "@/services/cartService";
-import { CartItem } from "@/interface/diamondInterface";
+import { CartItem, CartItemMessage } from "@/interface/diamondInterface";
 import {
     Trash2,
     Download,
@@ -46,6 +46,27 @@ const formatCurrency = (value: number) => {
         style: "currency",
         currency: "USD",
     });
+};
+
+const getCartItemMessages = (item: CartItem): CartItemMessage[] => {
+    const messages = [...(item.messages || [])];
+
+    if (
+        item.adminReply &&
+        !messages.some((message) => message.message === item.adminReply)
+    ) {
+        messages.push({
+            id: "legacy",
+            message: item.adminReply,
+            sentAt: item.repliedAt || item.addedAt,
+            sentBy: item.repliedBy,
+        });
+    }
+
+    return messages.sort(
+        (left, right) =>
+            new Date(left.sentAt).getTime() - new Date(right.sentAt).getTime(),
+    );
 };
 
 export default function CartPage() {
@@ -163,7 +184,7 @@ export default function CartPage() {
     }
 
     return (
-        <div className="min-h-screen bg-white p-4 md:p-8 font-lato">
+        <div className="min-h-screen bg-white px-4 pb-8 pt-24 md:px-8 md:pt-32 font-lato">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-4xl font-cormorantGaramond font-bold text-[#26062b]">
                     My Cart
@@ -306,9 +327,10 @@ export default function CartPage() {
                                 cartItems.map((item, index) => {
                                     const d = item.diamond;
                                     const isEven = index % 2 === 0;
+                                    const messages = getCartItemMessages(item);
                                     return (
+                                        <React.Fragment key={item.diamondId}>
                                         <tr
-                                            key={item.diamondId}
                                             className={`border-b font-lato border-[#e7d7b4] hover:bg-[#fffbf2] transition-colors ${
                                                 !isEven
                                                     ? "bg-[#fffbf2]/30"
@@ -400,6 +422,47 @@ export default function CartPage() {
                                                 )}
                                             </td>
                                         </tr>
+                                        {messages.length > 0 && (
+                                            <tr
+                                                className={`border-b font-lato border-[#e7d7b4] ${
+                                                    !isEven
+                                                        ? "bg-[#fffbf2]/30"
+                                                        : "bg-white"
+                                                }`}
+                                            >
+                                                <td colSpan={17} className="px-4 pt-4 pb-4">
+                                                    <div className="space-y-3">
+                                                        {messages.map(
+                                                            (message) => (
+                                                                <div
+                                                                    key={
+                                                                        message.id
+                                                                    }
+                                                                    className="rounded-md border border-green-200 bg-green-50 p-3 text-sm text-gray-700"
+                                                                >
+                                                                    <p className="font-semibold text-[#26062b] mb-1">
+                                                                        Message
+                                                                        from our
+                                                                        team
+                                                                    </p>
+                                                                    <p>
+                                                                        {
+                                                                            message.message
+                                                                        }
+                                                                    </p>
+                                                                    <p className="text-xs text-gray-500 mt-2">
+                                                                        {new Date(
+                                                                            message.sentAt,
+                                                                        ).toLocaleString()}
+                                                                    </p>
+                                                                </div>
+                                                            ),
+                                                        )}
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        )}
+                                        </React.Fragment>
                                     );
                                 })
                             )}
