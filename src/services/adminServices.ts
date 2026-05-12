@@ -209,6 +209,32 @@ export const deleteCartItemMessage = async (
     return response.data;
 };
 
+export interface UpdateCartItemMessageParams {
+    userId: string;
+    diamondId: string;
+    messageId: string;
+    message: string;
+}
+
+export const updateCartItemMessage = async (
+    params: UpdateCartItemMessageParams,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.put<ReplyToCartItemResponse>(
+        `/diamonds/cart/admin/${params.userId}/items/${params.diamondId}/messages/${params.messageId}`,
+        {
+            message: params.message,
+        },
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message || "Failed to update cart item message",
+        );
+    }
+
+    return response.data;
+};
+
 export const getAllCarts = async (
     params?: GetAllCartsParams,
 ): Promise<GetAllCartsResponse> => {

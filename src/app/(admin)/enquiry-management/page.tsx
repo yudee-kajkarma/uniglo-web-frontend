@@ -5,6 +5,7 @@ import {
     deleteCartItemMessage,
     getAllCarts,
     replyToCartItem,
+    updateCartItemMessage,
     type AdminCartData,
 } from "@/services/adminServices";
 import { getAllAdminQueries, replyToQuery } from "@/services/inquiryService";
@@ -13,6 +14,12 @@ import {
     CartItemMessage,
     Diamond,
 } from "@/interface/diamondInterface";
+import {
+    canModifyCartMessage,
+    formatCartMessageDateTime,
+    getCartItemMessages,
+    getCartMessageAuthorLabel,
+} from "@/lib/cartItemMessages";
 import {
     ChevronDown,
     ChevronUp,
@@ -30,6 +37,7 @@ import {
     X,
     MessageSquare,
     Trash2,
+    Pencil,
 } from "lucide-react";
 import Link from "next/link";
 import { toast } from "sonner";
@@ -86,27 +94,6 @@ const StatCard = ({
     </div>
 );
 
-const getCartItemMessages = (item: CartItem): CartItemMessage[] => {
-    const messages = [...(item.messages || [])];
-
-    if (
-        item.adminReply &&
-        !messages.some((message) => message.message === item.adminReply)
-    ) {
-        messages.push({
-            id: "legacy",
-            message: item.adminReply,
-            sentAt: item.repliedAt || item.addedAt,
-            sentBy: item.repliedBy,
-        });
-    }
-
-    return messages.sort(
-        (left, right) =>
-            new Date(left.sentAt).getTime() - new Date(right.sentAt).getTime(),
-    );
-};
-
 const CartItemsTable = ({
     items,
     userId,
@@ -124,6 +111,10 @@ const CartItemsTable = ({
     const [deletingMessageId, setDeletingMessageId] = useState<string | null>(
         null,
     );
+    const [editingMessageId, setEditingMessageId] = useState<string | null>(
+        null,
+    );
+    const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
 
     if (!items || items.length === 0) {
         return (
@@ -140,11 +131,39 @@ const CartItemsTable = ({
             current === diamondId ? null : diamondId,
         );
         setReplyText("");
+        setEditingMessageId(null);
     };
 
-    const handleSendReply = async (item: CartItem) => {
+    const handleSubmitReply = async (item: CartItem) => {
         if (!replyText.trim()) {
             toast.error("Please enter a reply");
+            return;
+        }
+
+        if (editingMessageId) {
+            try {
+                setIsUpdatingMessage(true);
+                const response = await updateCartItemMessage({
+                    userId,
+                    diamondId: item.diamondId,
+                    messageId: editingMessageId,
+                    message: replyText,
+                });
+                toast.success("Message updated");
+                setEditingMessageId(null);
+                setReplyText("");
+                if (response.data?.item) {
+                    onCartItemUpdated(response.data.item);
+                }
+            } catch (error: unknown) {
+                const errorMessage =
+                    error instanceof Error
+                        ? error.message
+                        : "Failed to update message";
+                toast.error(errorMessage);
+            } finally {
+                setIsUpdatingMessage(false);
+            }
             return;
         }
 
@@ -193,6 +212,16 @@ const CartItemsTable = ({
         } finally {
             setDeletingMessageId(null);
         }
+    };
+
+    const handleStartEditMessage = (message: CartItemMessage) => {
+        setEditingMessageId(message.id);
+        setReplyText(message.message);
+    };
+
+    const handleCancelEditMessage = () => {
+        setEditingMessageId(null);
+        setReplyText("");
     };
 
     return (
@@ -295,52 +324,95 @@ const CartItemsTable = ({
                                                 <div className="space-y-2 max-h-48 overflow-y-auto">
                                                     {messages.length > 0 ? (
                                                         messages.map(
-                                                            (message) => (
-                                                                <div
-                                                                    key={
-                                                                        message.id
-                                                                    }
-                                                                    className="rounded border border-green-100 bg-green-50 p-3 text-sm text-gray-700"
-                                                                >
-                                                                    <div className="flex items-start justify-between gap-3">
-                                                                        <div className="flex-1">
-                                                                            <p>
-                                                                                {
-                                                                                    message.message
-                                                                                }
-                                                                            </p>
-                                                                            <p className="text-xs text-gray-500 mt-2">
-                                                                                Sent{" "}
-                                                                                {formatDateTime(
-                                                                                    message.sentAt,
-                                                                                )}
-                                                                            </p>
+                                                            (message) => {
+                                                                const isEditing =
+                                                                    editingMessageId ===
+                                                                    message.id;
+                                                                const canModify =
+                                                                    canModifyCartMessage(
+                                                                        message,
+                                                                        "admin",
+                                                                    );
+                                                                const bubbleClass =
+                                                                    message.senderRole ===
+                                                                    "admin"
+                                                                        ? "border-green-100 bg-green-50"
+                                                                        : "border-blue-100 bg-blue-50";
+
+                                                                return (
+                                                                    <div
+                                                                        key={
+                                                                            message.id
+                                                                        }
+                                                                        className={`rounded border p-3 text-sm text-gray-700 ${bubbleClass} ${
+                                                                            isEditing
+                                                                                ? "ring-2 ring-[#26062b]/20"
+                                                                                : ""
+                                                                        }`}
+                                                                    >
+                                                                        <div className="flex items-start justify-between gap-3">
+                                                                            <div className="flex-1 space-y-2">
+                                                                                <p className="text-xs font-semibold text-gray-600">
+                                                                                    {getCartMessageAuthorLabel(
+                                                                                        message,
+                                                                                        "admin",
+                                                                                    )}
+                                                                                </p>
+                                                                                <p>
+                                                                                    {
+                                                                                        message.message
+                                                                                    }
+                                                                                </p>
+                                                                                <p className="text-xs text-gray-500">
+                                                                                    Sent{" "}
+                                                                                    {formatCartMessageDateTime(
+                                                                                        message.sentAt,
+                                                                                    )}
+                                                                                </p>
+                                                                            </div>
+                                                                            <div className="flex items-center gap-2">
+                                                                                {canModify &&
+                                                                                    !isEditing && (
+                                                                                        <button
+                                                                                            type="button"
+                                                                                            onClick={() =>
+                                                                                                handleStartEditMessage(
+                                                                                                    message,
+                                                                                                )
+                                                                                            }
+                                                                                            className="text-gray-500 hover:text-gray-700"
+                                                                                            aria-label="Edit message"
+                                                                                        >
+                                                                                            <Pencil className="w-4 h-4" />
+                                                                                        </button>
+                                                                                    )}
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() =>
+                                                                                        handleDeleteMessage(
+                                                                                            item,
+                                                                                            message.id,
+                                                                                        )
+                                                                                    }
+                                                                                    disabled={
+                                                                                        deletingMessageId ===
+                                                                                        message.id
+                                                                                    }
+                                                                                    className="text-red-500 hover:text-red-700 disabled:opacity-50"
+                                                                                    aria-label="Delete message"
+                                                                                >
+                                                                                    {deletingMessageId ===
+                                                                                    message.id ? (
+                                                                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                                                                    ) : (
+                                                                                        <Trash2 className="w-4 h-4" />
+                                                                                    )}
+                                                                                </button>
+                                                                            </div>
                                                                         </div>
-                                                                        <button
-                                                                            type="button"
-                                                                            onClick={() =>
-                                                                                handleDeleteMessage(
-                                                                                    item,
-                                                                                    message.id,
-                                                                                )
-                                                                            }
-                                                                            disabled={
-                                                                                deletingMessageId ===
-                                                                                message.id
-                                                                            }
-                                                                            className="text-red-500 hover:text-red-700 disabled:opacity-50"
-                                                                            aria-label="Delete message"
-                                                                        >
-                                                                            {deletingMessageId ===
-                                                                            message.id ? (
-                                                                                <Loader2 className="w-4 h-4 animate-spin" />
-                                                                            ) : (
-                                                                                <Trash2 className="w-4 h-4" />
-                                                                            )}
-                                                                        </button>
                                                                     </div>
-                                                                </div>
-                                                            ),
+                                                                );
+                                                            },
                                                         )
                                                     ) : (
                                                         <p className="text-xs text-gray-500 italic">
@@ -350,7 +422,11 @@ const CartItemsTable = ({
                                                 </div>
                                                 <div className="space-y-2">
                                                         <Textarea
-                                                            placeholder="Type your message here..."
+                                                            placeholder={
+                                                                editingMessageId
+                                                                    ? "Update your message..."
+                                                                    : "Type your message here..."
+                                                            }
                                                             value={replyText}
                                                             onChange={(e) =>
                                                                 setReplyText(
@@ -359,26 +435,48 @@ const CartItemsTable = ({
                                                                 )
                                                             }
                                                             className="min-h-20 text-sm"
-                                                            disabled={isReplying}
+                                                            disabled={
+                                                                isReplying ||
+                                                                isUpdatingMessage
+                                                            }
                                                         />
-                                                        <div className="flex justify-end">
+                                                        <div className="flex justify-end gap-2">
+                                                            {editingMessageId && (
+                                                                <Button
+                                                                    variant="outline"
+                                                                    onClick={
+                                                                        handleCancelEditMessage
+                                                                    }
+                                                                    disabled={
+                                                                        isUpdatingMessage
+                                                                    }
+                                                                >
+                                                                    Cancel
+                                                                </Button>
+                                                            )}
                                                             <Button
                                                                 onClick={() =>
-                                                                    handleSendReply(
+                                                                    handleSubmitReply(
                                                                         item,
                                                                     )
                                                                 }
                                                                 disabled={
                                                                     isReplying ||
+                                                                    isUpdatingMessage ||
                                                                     !replyText.trim()
                                                                 }
                                                                 className="bg-[#26062b] hover:bg-[#26062b]/90 text-white"
                                                             >
-                                                                {isReplying ? (
+                                                                {isReplying ||
+                                                                isUpdatingMessage ? (
                                                                     <>
                                                                         <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                                                                        Sending...
+                                                                        {editingMessageId
+                                                                            ? "Updating..."
+                                                                            : "Sending..."}
                                                                     </>
+                                                                ) : editingMessageId ? (
+                                                                    "Update"
                                                                 ) : (
                                                                     <>
                                                                         <Send className="w-4 h-4 mr-2" />

@@ -261,6 +261,7 @@ export interface CartItemMessage {
     message: string;
     sentAt: string;
     sentBy?: string;
+    senderRole: "admin" | "customer";
 }
 
 export interface CartItem {

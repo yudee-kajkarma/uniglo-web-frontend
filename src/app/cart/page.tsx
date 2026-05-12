@@ -6,26 +6,32 @@ import {
     removeFromCart,
     clearCart,
     holdDiamond,
+    addCartItemMessage,
+    updateCartItemMessage,
+    deleteCartItemMessage,
 } from "@/services/cartService";
+import { calculateTotalPrice, CartItem, CartItemMessage } from "@/interface/diamondInterface";
 import {
-    calculateTotalPrice,
-    CartItem,
-    CartItemMessage,
-} from "@/interface/diamondInterface";
+    canModifyCartMessage,
+    formatCartMessageDateTime,
+    getCartItemMessages,
+    getCartMessageAuthorLabel,
+} from "@/lib/cartItemMessages";
 import {
     Trash2,
     Download,
     GitCompare,
-    Mail,
     Loader2,
-    ChevronLeft,
-    ChevronRight,
     AlertTriangle,
     Clock,
+    MessageSquare,
+    Send,
+    Pencil,
 } from "lucide-react";
 import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import {
@@ -59,27 +65,6 @@ const formatCurrency = (value: number) => {
     });
 };
 
-const getCartItemMessages = (item: CartItem): CartItemMessage[] => {
-    const messages = [...(item.messages || [])];
-
-    if (
-        item.adminReply &&
-        !messages.some((message) => message.message === item.adminReply)
-    ) {
-        messages.push({
-            id: "legacy",
-            message: item.adminReply,
-            sentAt: item.repliedAt || item.addedAt,
-            sentBy: item.repliedBy,
-        });
-    }
-
-    return messages.sort(
-        (left, right) =>
-            new Date(left.sentAt).getTime() - new Date(right.sentAt).getTime(),
-    );
-};
-
 export default function CartPage() {
     const router = useRouter();
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -90,6 +75,44 @@ export default function CartPage() {
     const [showClearDialog, setShowClearDialog] = useState(false);
     const [holdLoading, setHoldLoading] = useState(false);
     const [showHoldDialog, setShowHoldDialog] = useState(false);
+    const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
+        null,
+    );
+    const [messageText, setMessageText] = useState("");
+    const [isSendingMessage, setIsSendingMessage] = useState(false);
+    const [deletingMessageId, setDeletingMessageId] = useState<string | null>(
+        null,
+    );
+    const [editingMessageId, setEditingMessageId] = useState<string | null>(
+        null,
+    );
+    const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
+
+    const updateCartItemInState = (updatedItem: CartItem) => {
+        const updatedDiamondId =
+            typeof updatedItem.diamondId === "string"
+                ? updatedItem.diamondId
+                : updatedItem.diamond._id;
+
+        setCartItems((previousItems) =>
+            previousItems.map((item) => {
+                const itemDiamondId =
+                    typeof item.diamondId === "string"
+                        ? item.diamondId
+                        : item.diamond._id;
+
+                if (itemDiamondId !== updatedDiamondId) {
+                    return item;
+                }
+
+                return {
+                    ...item,
+                    ...updatedItem,
+                    diamond: updatedItem.diamond || item.diamond,
+                };
+            }),
+        );
+    };
 
     const fetchCart = async () => {
         try {
@@ -198,6 +221,101 @@ export default function CartPage() {
         } finally {
             setHoldLoading(false);
         }
+    };
+
+    const handleToggleMessages = (diamondId: string) => {
+        setExpandedDiamondId((current) =>
+            current === diamondId ? null : diamondId,
+        );
+        setMessageText("");
+        setEditingMessageId(null);
+    };
+
+    const handleSubmitMessage = async (item: CartItem) => {
+        if (!messageText.trim()) {
+            toast.error("Please enter a message");
+            return;
+        }
+
+        if (editingMessageId) {
+            try {
+                setIsUpdatingMessage(true);
+                const response = await updateCartItemMessage(
+                    item.diamondId,
+                    editingMessageId,
+                    messageText,
+                );
+                toast.success("Message updated");
+                setEditingMessageId(null);
+                setMessageText("");
+                if (response.data?.item) {
+                    updateCartItemInState(response.data.item);
+                }
+            } catch (error: unknown) {
+                const errorMessage =
+                    error instanceof Error
+                        ? error.message
+                        : "Failed to update message";
+                toast.error(errorMessage);
+            } finally {
+                setIsUpdatingMessage(false);
+            }
+            return;
+        }
+
+        try {
+            setIsSendingMessage(true);
+            const response = await addCartItemMessage(
+                item.diamondId,
+                messageText,
+            );
+            toast.success("Message sent");
+            setMessageText("");
+            if (response.data?.item) {
+                updateCartItemInState(response.data.item);
+            }
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error ? error.message : "Failed to send message";
+            toast.error(errorMessage);
+        } finally {
+            setIsSendingMessage(false);
+        }
+    };
+
+    const handleDeleteMessage = async (
+        item: CartItem,
+        messageId: string,
+    ) => {
+        try {
+            setDeletingMessageId(messageId);
+            const response = await deleteCartItemMessage(
+                item.diamondId,
+                messageId,
+            );
+            toast.success("Message deleted");
+            if (response.data?.item) {
+                updateCartItemInState(response.data.item);
+            }
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to delete message";
+            toast.error(errorMessage);
+        } finally {
+            setDeletingMessageId(null);
+        }
+    };
+
+    const handleStartEditMessage = (message: CartItemMessage) => {
+        setEditingMessageId(message.id);
+        setMessageText(message.message);
+    };
+
+    const handleCancelEditMessage = () => {
+        setEditingMessageId(null);
+        setMessageText("");
     };
 
     const isAllSelected =
@@ -408,6 +526,7 @@ export default function CartPage() {
                                 <th className="p-4 text-left">Width</th>
                                 <th className="p-4 text-left">Depth</th>
                                 <th className="p-4 text-right">$Total Price</th>
+                                <th className="p-4 text-center">Message</th>
                             </tr>
                         </thead>
 
@@ -416,7 +535,7 @@ export default function CartPage() {
                             {cartItems.length === 0 ? (
                                 <tr>
                                     <td
-                                        colSpan={17}
+                                        colSpan={18}
                                         className="p-12 text-center text-gray-500"
                                     >
                                         <div className="flex flex-col items-center gap-2">
@@ -435,6 +554,8 @@ export default function CartPage() {
                                     const d = item.diamond;
                                     const isEven = index % 2 === 0;
                                     const messages = getCartItemMessages(item);
+                                    const isExpanded =
+                                        expandedDiamondId === item.diamondId;
                                     return (
                                         <React.Fragment key={item.diamondId}>
                                         <tr
@@ -530,8 +651,30 @@ export default function CartPage() {
                                                     ),
                                                 )}
                                             </td>
+                                            <td className="p-4 text-center">
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        handleToggleMessages(
+                                                            item.diamondId,
+                                                        )
+                                                    }
+                                                    className={`inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                                        isExpanded
+                                                            ? "bg-[#26062b]/10 text-[#26062b]"
+                                                            : "text-gray-500 hover:bg-gray-100 hover:text-[#26062b]"
+                                                    }`}
+                                                    aria-label={
+                                                        isExpanded
+                                                            ? "Hide messages"
+                                                            : "Show messages"
+                                                    }
+                                                >
+                                                    <MessageSquare size={16} />
+                                                </button>
+                                            </td>
                                         </tr>
-                                        {messages.length > 0 && (
+                                        {isExpanded && (
                                             <tr
                                                 className={`border-b font-lato border-[#e7d7b4] ${
                                                     !isEven
@@ -539,34 +682,174 @@ export default function CartPage() {
                                                         : "bg-white"
                                                 }`}
                                             >
-                                                <td colSpan={17} className="px-4 pt-4 pb-4">
+                                                <td colSpan={18} className="px-4 pt-4 pb-4">
                                                     <div className="space-y-3">
-                                                        {messages.map(
-                                                            (message) => (
-                                                                <div
-                                                                    key={
-                                                                        message.id
-                                                                    }
-                                                                    className="rounded-md border border-green-200 bg-green-50 p-3 text-sm text-gray-700"
-                                                                >
-                                                                    <p className="font-semibold text-[#26062b] mb-1">
-                                                                        Message
-                                                                        from our
-                                                                        team
-                                                                    </p>
-                                                                    <p>
-                                                                        {
-                                                                            message.message
+                                                        <div className="space-y-2 max-h-48 overflow-y-auto">
+                                                            {messages.length > 0 ? (
+                                                                messages.map(
+                                                                    (message) => {
+                                                                        const isEditing =
+                                                                            editingMessageId ===
+                                                                            message.id;
+                                                                        const canModify =
+                                                                            canModifyCartMessage(
+                                                                                message,
+                                                                                "customer",
+                                                                            );
+                                                                        const bubbleClass =
+                                                                            message.senderRole ===
+                                                                            "customer"
+                                                                                ? "border-blue-200 bg-blue-50"
+                                                                                : "border-green-200 bg-green-50";
+
+                                                                        return (
+                                                                            <div
+                                                                                key={
+                                                                                    message.id
+                                                                                }
+                                                                                className={`rounded-md border p-3 text-sm text-gray-700 ${bubbleClass} ${
+                                                                                    isEditing
+                                                                                        ? "ring-2 ring-[#26062b]/20"
+                                                                                        : ""
+                                                                                }`}
+                                                                            >
+                                                                                <div className="flex items-start justify-between gap-3">
+                                                                                    <div className="flex-1 space-y-2">
+                                                                                        <p className="font-semibold text-[#26062b]">
+                                                                                            {getCartMessageAuthorLabel(
+                                                                                                message,
+                                                                                                "customer",
+                                                                                            )}
+                                                                                        </p>
+                                                                                        <p>
+                                                                                            {
+                                                                                                message.message
+                                                                                            }
+                                                                                        </p>
+                                                                                        <p className="text-xs text-gray-500">
+                                                                                            {formatCartMessageDateTime(
+                                                                                                message.sentAt,
+                                                                                            )}
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div className="flex items-center gap-2">
+                                                                                        {canModify &&
+                                                                                            !isEditing && (
+                                                                                                <button
+                                                                                                    type="button"
+                                                                                                    onClick={() =>
+                                                                                                        handleStartEditMessage(
+                                                                                                            message,
+                                                                                                        )
+                                                                                                    }
+                                                                                                    className="text-gray-500 hover:text-gray-700"
+                                                                                                    aria-label="Edit message"
+                                                                                                >
+                                                                                                    <Pencil className="w-4 h-4" />
+                                                                                                </button>
+                                                                                            )}
+                                                                                        {canModify && (
+                                                                                            <button
+                                                                                                type="button"
+                                                                                                onClick={() =>
+                                                                                                    handleDeleteMessage(
+                                                                                                        item,
+                                                                                                        message.id,
+                                                                                                    )
+                                                                                                }
+                                                                                                disabled={
+                                                                                                    deletingMessageId ===
+                                                                                                    message.id
+                                                                                                }
+                                                                                                className="text-red-500 hover:text-red-700 disabled:opacity-50"
+                                                                                                aria-label="Delete message"
+                                                                                            >
+                                                                                                {deletingMessageId ===
+                                                                                                message.id ? (
+                                                                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                                                                ) : (
+                                                                                                    <Trash2 className="w-4 h-4" />
+                                                                                                )}
+                                                                                            </button>
+                                                                                        )}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        );
+                                                                    },
+                                                                )
+                                                            ) : (
+                                                                <p className="text-xs text-gray-500 italic">
+                                                                    No messages yet.
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                        <div className="space-y-2">
+                                                            <Textarea
+                                                                placeholder={
+                                                                    editingMessageId
+                                                                        ? "Update your message..."
+                                                                        : "Type your message here..."
+                                                                }
+                                                                value={messageText}
+                                                                onChange={(e) =>
+                                                                    setMessageText(
+                                                                        e.target
+                                                                            .value,
+                                                                    )
+                                                                }
+                                                                className="min-h-20 text-sm"
+                                                                disabled={
+                                                                    isSendingMessage ||
+                                                                    isUpdatingMessage
+                                                                }
+                                                            />
+                                                            <div className="flex justify-end gap-2">
+                                                                {editingMessageId && (
+                                                                    <Button
+                                                                        variant="outline"
+                                                                        onClick={
+                                                                            handleCancelEditMessage
                                                                         }
-                                                                    </p>
-                                                                    <p className="text-xs text-gray-500 mt-2">
-                                                                        {new Date(
-                                                                            message.sentAt,
-                                                                        ).toLocaleString()}
-                                                                    </p>
-                                                                </div>
-                                                            ),
-                                                        )}
+                                                                        disabled={
+                                                                            isUpdatingMessage
+                                                                        }
+                                                                    >
+                                                                        Cancel
+                                                                    </Button>
+                                                                )}
+                                                                <Button
+                                                                    onClick={() =>
+                                                                        handleSubmitMessage(
+                                                                            item,
+                                                                        )
+                                                                    }
+                                                                    disabled={
+                                                                        isSendingMessage ||
+                                                                        isUpdatingMessage ||
+                                                                        !messageText.trim()
+                                                                    }
+                                                                    className="bg-[#26062b] hover:bg-[#26062b]/90 text-white"
+                                                                >
+                                                                    {isSendingMessage ||
+                                                                    isUpdatingMessage ? (
+                                                                        <>
+                                                                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                                                            {editingMessageId
+                                                                                ? "Updating..."
+                                                                                : "Sending..."}
+                                                                        </>
+                                                                    ) : editingMessageId ? (
+                                                                        "Update"
+                                                                    ) : (
+                                                                        <>
+                                                                            <Send className="w-4 h-4 mr-2" />
+                                                                            Send
+                                                                        </>
+                                                                    )}
+                                                                </Button>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </td>
                                             </tr>
