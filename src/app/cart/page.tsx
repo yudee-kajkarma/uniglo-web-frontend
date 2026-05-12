@@ -11,6 +11,7 @@ import {
     deleteCartItemMessage,
 } from "@/services/cartService";
 import { calculateTotalPrice, CartItem, CartItemMessage } from "@/interface/diamondInterface";
+import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
 import {
     canModifyCartMessage,
     formatCartMessageDateTime,
@@ -512,6 +513,7 @@ export default function CartPage() {
                                 </th>
                                 <th className="p-4 text-left">Image</th>
                                 <th className="p-4 text-left">Pct No</th>
+                                <th className="p-4 text-left">Status</th>
                                 <th className="p-4 text-left">Location</th>
                                 <th className="p-4 text-left">Report No</th>
                                 <th className="p-4 text-left">Lab</th>
@@ -535,7 +537,7 @@ export default function CartPage() {
                             {cartItems.length === 0 ? (
                                 <tr>
                                     <td
-                                        colSpan={18}
+                                        colSpan={19}
                                         className="p-12 text-center text-gray-500"
                                     >
                                         <div className="flex flex-col items-center gap-2">
@@ -617,6 +619,11 @@ export default function CartPage() {
                                                 </Link>
                                             </td>
                                             <td className="p-4">
+                                                <DiamondAvailabilityStatusBadge
+                                                    availability={d.availability}
+                                                />
+                                            </td>
+                                            <td className="p-4">
                                                 {d.city || d.country || "MU"}
                                             </td>
                                             <td className="p-4">{d.certiNo}</td>
@@ -682,7 +689,7 @@ export default function CartPage() {
                                                         : "bg-white"
                                                 }`}
                                             >
-                                                <td colSpan={18} className="px-4 pt-4 pb-4">
+                                                <td colSpan={19} className="px-4 pt-4 pb-4">
                                                     <div className="space-y-3">
                                                         <div className="space-y-2 max-h-48 overflow-y-auto">
                                                             {messages.length > 0 ? (

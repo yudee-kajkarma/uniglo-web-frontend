@@ -14,6 +14,7 @@ import {
     CartItemMessage,
     Diamond,
 } from "@/interface/diamondInterface";
+import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
 import {
     canModifyCartMessage,
     formatCartMessageDateTime,
@@ -124,7 +125,7 @@ const CartItemsTable = ({
         );
     }
 
-    const columnCount = 14;
+    const columnCount = 15;
 
     const handleToggleMessages = (diamondId: string) => {
         setExpandedDiamondId((current) =>
@@ -230,6 +231,7 @@ const CartItemsTable = ({
                 <thead className="bg-gray-100 text-gray-600 font-semibold border-b border-gray-200">
                     <tr>
                         <th className="py-2 px-3">Stock Ref</th>
+                        <th className="py-2 px-3">Status</th>
                         <th className="py-2 px-3">Loc.</th>
                         <th className="py-2 px-3">Number</th>
                         <th className="py-2 px-3">Lab</th>
@@ -262,6 +264,11 @@ const CartItemsTable = ({
                                         >
                                             {d.stockRef}
                                         </Link>
+                                    </td>
+                                    <td className="py-2 px-3">
+                                        <DiamondAvailabilityStatusBadge
+                                            availability={d.availability}
+                                        />
                                     </td>
                                     <td className="py-2 px-3 text-gray-500">
                                         {d.country
