@@ -4,11 +4,16 @@ import React, { useEffect, useState } from "react";
 import {
     deleteCartItemMessage,
     getAllCarts,
+    markAdminCartItemMessagesDelivered,
     replyToCartItem,
     updateCartItemMessage,
     type AdminCartData,
 } from "@/services/adminServices";
-import { getAllAdminQueries, replyToQuery } from "@/services/inquiryService";
+import {
+    getAllAdminQueries,
+    markQueryDelivered,
+    replyToQuery,
+} from "@/services/inquiryService";
 import {
     CartItem,
     CartItemMessage,
@@ -17,6 +22,7 @@ import {
 import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
 import {
     canModifyCartMessage,
+    getCartMessageCounts,
     formatCartMessageDateTime,
     getCartItemMessages,
     getCartMessageAuthorLabel,
@@ -41,10 +47,13 @@ import {
     Pencil,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import ExtendHoldDialog from "@/components/admin/ExtendHoldDialog";
+import { emitNotificationsRefresh } from "@/services/notificationService";
+import { getQueryMessageCounts } from "@/lib/queryMessages";
 
 // --- Types ---
 interface GroupedQuery {
@@ -61,6 +70,8 @@ interface GroupedQuery {
     adminReply?: string;
     repliedAt?: string;
     repliedBy?: string;
+    deliveredToAdminAt?: string;
+    deliveredToCustomerAt?: string;
 }
 
 interface AdminQueriesData {
@@ -79,7 +90,7 @@ const StatCard = ({
     title: string;
     count: string | number;
     desc: string;
-    icon: any;
+    icon: React.ElementType;
 }) => (
     <div className="bg-white rounded-lg p-5 border border-gray-100 shadow-sm flex flex-col justify-between h-full">
         <div className="flex items-center gap-2 mb-2 text-gray-600">
@@ -99,10 +110,12 @@ const CartItemsTable = ({
     items,
     userId,
     onCartItemUpdated,
+    autoExpandDiamondId,
 }: {
     items: CartItem[];
     userId: string;
     onCartItemUpdated: (updatedItem: CartItem) => void;
+    autoExpandDiamondId?: string | null;
 }) => {
     const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
         null,
@@ -116,16 +129,61 @@ const CartItemsTable = ({
         null,
     );
     const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
-
-    if (!items || items.length === 0) {
-        return (
-            <div className="p-4 text-sm text-gray-500 italic">
-                No items found.
-            </div>
-        );
-    }
+    const autoOpenedThreadRef = React.useRef<string | null>(null);
+    const getCartThreadId = (item: CartItem) =>
+        typeof item.diamondId === "string" ? item.diamondId : item.diamond._id;
 
     const columnCount = 15;
+
+    useEffect(() => {
+        if (!autoExpandDiamondId) {
+            autoOpenedThreadRef.current = null;
+            return;
+        }
+
+        if (
+            autoOpenedThreadRef.current === autoExpandDiamondId ||
+            expandedDiamondId === autoExpandDiamondId
+        ) {
+            return;
+        }
+
+        const targetItem = items.find(
+            (item) => getCartThreadId(item) === autoExpandDiamondId,
+        );
+
+        if (!targetItem) {
+            return;
+        }
+
+        autoOpenedThreadRef.current = autoExpandDiamondId;
+
+        void (async () => {
+            setExpandedDiamondId(autoExpandDiamondId);
+            setReplyText("");
+            setEditingMessageId(null);
+
+            try {
+                const response = await markAdminCartItemMessagesDelivered({
+                    userId,
+                    diamondId: autoExpandDiamondId,
+                });
+                if (response.data?.item) {
+                    onCartItemUpdated(response.data.item);
+                }
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error(
+                    "Failed to mark admin cart messages delivered:",
+                    error,
+                );
+            } finally {
+                document
+                    .getElementById(`admin-cart-thread-${autoExpandDiamondId}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        })();
+    }, [autoExpandDiamondId, expandedDiamondId, items, onCartItemUpdated, userId]);
 
     const handleToggleMessages = (diamondId: string) => {
         setExpandedDiamondId((current) =>
@@ -133,6 +191,29 @@ const CartItemsTable = ({
         );
         setReplyText("");
         setEditingMessageId(null);
+    };
+
+    const handleToggleMessagesWithDelivery = async (item: CartItem) => {
+        const threadId = getCartThreadId(item);
+        const shouldExpand = expandedDiamondId !== threadId;
+        handleToggleMessages(threadId);
+
+        if (!shouldExpand) {
+            return;
+        }
+
+        try {
+            const response = await markAdminCartItemMessagesDelivered({
+                userId,
+                diamondId: threadId,
+            });
+            if (response.data?.item) {
+                onCartItemUpdated(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark admin cart messages delivered:", error);
+        }
     };
 
     const handleSubmitReply = async (item: CartItem) => {
@@ -156,6 +237,7 @@ const CartItemsTable = ({
                 if (response.data?.item) {
                     onCartItemUpdated(response.data.item);
                 }
+                emitNotificationsRefresh();
             } catch (error: unknown) {
                 const errorMessage =
                     error instanceof Error
@@ -180,6 +262,7 @@ const CartItemsTable = ({
             if (response.data?.item) {
                 onCartItemUpdated(response.data.item);
             }
+            emitNotificationsRefresh();
         } catch (error: unknown) {
             const errorMessage =
                 error instanceof Error ? error.message : "Failed to send reply";
@@ -204,6 +287,7 @@ const CartItemsTable = ({
             if (response.data?.item) {
                 onCartItemUpdated(response.data.item);
             }
+            emitNotificationsRefresh();
         } catch (error: unknown) {
             const errorMessage =
                 error instanceof Error
@@ -224,6 +308,14 @@ const CartItemsTable = ({
         setEditingMessageId(null);
         setReplyText("");
     };
+
+    if (!items || items.length === 0) {
+        return (
+            <div className="p-4 text-sm text-gray-500 italic">
+                No items found.
+            </div>
+        );
+    }
 
     return (
         <div className="overflow-x-auto">
@@ -250,13 +342,18 @@ const CartItemsTable = ({
                 <tbody className="divide-y divide-gray-100">
                     {items.map((item, idx) => {
                         const d = item.diamond;
+                        const threadId = getCartThreadId(item);
                         const totalPrice = d.weight * d.pricePerCts;
-                        const isExpanded = expandedDiamondId === item.diamondId;
+                        const isExpanded = expandedDiamondId === threadId;
                         const messages = getCartItemMessages(item);
+                        const counts = getCartMessageCounts(item, "admin");
 
                         return (
-                            <React.Fragment key={item.diamondId || d._id || idx}>
-                                <tr className="hover:bg-gray-50">
+                            <React.Fragment key={threadId || d._id || idx}>
+                                <tr
+                                    id={`admin-cart-thread-${threadId}`}
+                                    className="hover:bg-gray-50"
+                                >
                                     <td className="py-2 px-3 font-medium text-gray-700">
                                         <Link
                                             href={`/inventory?view=${d.certiNo}`}
@@ -302,11 +399,11 @@ const CartItemsTable = ({
                                         <button
                                             type="button"
                                             onClick={() =>
-                                                handleToggleMessages(
-                                                    item.diamondId,
+                                                handleToggleMessagesWithDelivery(
+                                                    item,
                                                 )
                                             }
-                                            className={`inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                            className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
                                                 isExpanded
                                                     ? "bg-primary-purple/10 text-primary-purple"
                                                     : "text-gray-500 hover:bg-gray-200 hover:text-gray-700"
@@ -318,6 +415,14 @@ const CartItemsTable = ({
                                             }
                                         >
                                             <MessageSquare size={16} />
+                                            <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                {counts.totalCount}
+                                            </span>
+                                            {counts.unreadCount > 0 && (
+                                                <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                    {counts.unreadCount}
+                                                </span>
+                                            )}
                                         </button>
                                     </td>
                                 </tr>
@@ -509,12 +614,10 @@ const CartItemsTable = ({
 const InnerDiamondTable = ({
     items,
     isHold = false,
-    userId,
     onExtendHold,
 }: {
     items: { diamond: Diamond }[];
     isHold?: boolean;
-    userId?: string;
     onExtendHold?: (stockRef: string) => void;
 }) => {
     if (!items || items.length === 0) {
@@ -611,59 +714,16 @@ const InnerDiamondTable = ({
     );
 };
 
-const formatDateTime = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        hour: "2-digit",
-        minute: "2-digit",
-    });
-};
-
-const getStatusBadge = (status: string) => {
-    const statusConfig = {
-        pending: {
-            bg: "bg-yellow-100",
-            text: "text-yellow-800",
-            label: "Pending",
-        },
-        replied: {
-            bg: "bg-green-100",
-            text: "text-green-800",
-            label: "Replied",
-        },
-        answered: {
-            bg: "bg-blue-100",
-            text: "text-blue-800",
-            label: "Answered",
-        },
-        closed: {
-            bg: "bg-gray-100",
-            text: "text-gray-800",
-            label: "Closed",
-        },
-    };
-    const config =
-        statusConfig[status as keyof typeof statusConfig] ||
-        statusConfig.pending;
-    return (
-        <span
-            className={`px-2 py-1 rounded-full text-xs font-medium ${config.bg} ${config.text}`}
-        >
-            {config.label}
-        </span>
-    );
-};
-
-
 const QueryItem = ({
     query,
     onReplySuccess,
+    domId,
+    highlight = false,
 }: {
     query: GroupedQuery;
     onReplySuccess: () => void;
+    domId?: string;
+    highlight?: boolean;
 }) => {
     const [replyText, setReplyText] = useState("");
     const [isReplying, setIsReplying] = useState(false);
@@ -739,7 +799,14 @@ const QueryItem = ({
     };
 
     return (
-        <div className="border border-gray-200 rounded-lg p-4 bg-white">
+        <div
+            id={domId}
+            className={`border rounded-lg p-4 bg-white ${
+                highlight
+                    ? "border-primary-purple ring-2 ring-primary-purple/20"
+                    : "border-gray-200"
+            }`}
+        >
             {/* Query Header */}
             <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
@@ -890,7 +957,11 @@ const EnquiryRow = ({
     queriesData,
     onReplySuccess,
     onCartItemUpdated,
+    onQueryUpdated,
     onExtendHoldSuccess,
+    autoExpand = false,
+    autoExpandCartThreadId,
+    targetQueryId,
 }: {
     data: AdminCartData;
     index: number;
@@ -899,9 +970,14 @@ const EnquiryRow = ({
     queriesData?: AdminQueriesData;
     onReplySuccess: () => void;
     onCartItemUpdated: (userId: string, updatedItem: CartItem) => void;
+    onQueryUpdated: (updatedQuery: GroupedQuery) => void;
     onExtendHoldSuccess: () => void;
+    autoExpand?: boolean;
+    autoExpandCartThreadId?: string | null;
+    targetQueryId?: string | null;
 }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(autoExpand);
+    const autoHandledRef = React.useRef(false);
     const [extendHoldDialog, setExtendHoldDialog] = useState<{
         open: boolean;
         stockRef: string;
@@ -926,16 +1002,103 @@ const EnquiryRow = ({
     const serialNumber = (currentPage - 1) * limit + (index + 1);
 
     // Get queries for this user
-    const userQueries = queriesData?.queries || [];
+    const userQueries = React.useMemo(
+        () => queriesData?.queries || [],
+        [queriesData],
+    );
 
     const handleExtendHold = (stockRef: string) => {
         setExtendHoldDialog({ open: true, stockRef });
+    };
+
+    const handleToggleExpanded = async () => {
+        const shouldExpand = !isExpanded;
+        setIsExpanded(shouldExpand);
+
+        if (!shouldExpand || userQueries.length === 0) {
+            return;
+        }
+
+        const unreadQueries = userQueries.filter(
+            (query) => getQueryMessageCounts(query, "admin").unreadCount > 0,
+        );
+
+        if (unreadQueries.length === 0) {
+            return;
+        }
+
+        try {
+            const responses = await Promise.all(
+                unreadQueries.map((query) => markQueryDelivered(query.id)),
+            );
+            responses.forEach((response) => {
+                if (response.data?.query) {
+                    onQueryUpdated(response.data.query as GroupedQuery);
+                }
+            });
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark queries delivered:", error);
+        }
     };
 
     const handleExtendHoldSuccess = () => {
         onExtendHoldSuccess();
         setExtendHoldDialog({ open: false, stockRef: "" });
     };
+
+    useEffect(() => {
+        if (!autoExpand || !isExpanded || autoHandledRef.current) {
+            return;
+        }
+
+        const unreadQueries = userQueries.filter(
+            (query) => getQueryMessageCounts(query, "admin").unreadCount > 0,
+        );
+
+        if (unreadQueries.length === 0) {
+            autoHandledRef.current = true;
+            return;
+        }
+
+        autoHandledRef.current = true;
+
+        void (async () => {
+            try {
+                const responses = await Promise.all(
+                    unreadQueries.map((query) => markQueryDelivered(query.id)),
+                );
+                responses.forEach((response) => {
+                    if (response.data?.query) {
+                        onQueryUpdated(response.data.query as GroupedQuery);
+                    }
+                });
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error("Failed to mark queries delivered:", error);
+            }
+        })();
+    }, [autoExpand, isExpanded, onQueryUpdated, userQueries]);
+
+    useEffect(() => {
+        if (!isExpanded) {
+            return;
+        }
+
+        const targetId = targetQueryId
+            ? `admin-query-${targetQueryId}`
+            : autoExpandCartThreadId
+              ? `admin-cart-thread-${autoExpandCartThreadId}`
+              : null;
+
+        if (!targetId) {
+            return;
+        }
+
+        document
+            .getElementById(targetId)
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, [autoExpandCartThreadId, isExpanded, targetQueryId]);
 
     return (
         <React.Fragment>
@@ -979,7 +1142,7 @@ const EnquiryRow = ({
                 </td>
                 <td className="px-4 py-4 text-center">
                     <button
-                        onClick={() => setIsExpanded(!isExpanded)}
+                        onClick={handleToggleExpanded}
                         className="p-1 rounded-md hover:bg-gray-200 text-gray-500 transition-all"
                     >
                         {isExpanded ? (
@@ -1011,6 +1174,7 @@ const EnquiryRow = ({
                                             updatedItem,
                                         )
                                     }
+                                    autoExpandDiamondId={autoExpandCartThreadId}
                                 />
                             </div>
 
@@ -1022,7 +1186,6 @@ const EnquiryRow = ({
                                 <InnerDiamondTable
                                     items={cart.holdItems}
                                     isHold={true}
-                                    userId={user._id}
                                     onExtendHold={handleExtendHold}
                                 />
                             </div>
@@ -1039,6 +1202,8 @@ const EnquiryRow = ({
                                                 key={query.id}
                                                 query={query}
                                                 onReplySuccess={onReplySuccess}
+                                                domId={`admin-query-${query.id}`}
+                                                highlight={targetQueryId === query.id}
                                             />
                                         ))}
                                     </div>
@@ -1064,6 +1229,12 @@ const EnquiryRow = ({
 };
 
 export default function EnquiryManagementPage() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const targetUserId = searchParams.get("user");
+    const targetCartThreadId = searchParams.get("cartThread");
+    const targetQueryId = searchParams.get("query");
+    const targetStockRef = searchParams.get("stockRef");
     const [carts, setCarts] = useState<AdminCartData[]>([]);
     const [queries, setQueries] = useState<AdminQueriesData[]>([]);
     const [loading, setLoading] = useState(true);
@@ -1076,6 +1247,42 @@ export default function EnquiryManagementPage() {
         totalRecords: 0,
         recordsPerPage: 10,
     });
+
+    useEffect(() => {
+        if (!targetStockRef) {
+            return;
+        }
+
+        const normalizedStockRef = targetStockRef.trim().toUpperCase();
+        setSearchInput((prev) =>
+            prev === normalizedStockRef ? prev : normalizedStockRef,
+        );
+        setActiveSearch((prev) =>
+            prev === normalizedStockRef ? prev : normalizedStockRef,
+        );
+        setPagination((prev) =>
+            prev.currentPage === 1 ? prev : { ...prev, currentPage: 1 },
+        );
+    }, [targetStockRef]);
+
+    useEffect(() => {
+        if (!targetUserId && !targetCartThreadId && !targetQueryId) {
+            return;
+        }
+
+        const nextParams = new URLSearchParams(searchParams.toString());
+        nextParams.delete("user");
+        nextParams.delete("cartThread");
+        nextParams.delete("query");
+
+        const nextQueryString = nextParams.toString();
+        router.replace(
+            nextQueryString
+                ? `/enquiry-management?${nextQueryString}`
+                : "/enquiry-management",
+            { scroll: false },
+        );
+    }, [router, searchParams, targetCartThreadId, targetQueryId, targetUserId]);
 
     const fetchQueries = async () => {
         try {
@@ -1131,9 +1338,7 @@ export default function EnquiryManagementPage() {
 
     useEffect(() => {
         fetchData(pagination.currentPage, activeSearch);
-        if (!activeSearch) {
-            fetchQueries();
-        }
+        fetchQueries();
     }, [pagination.currentPage, activeSearch]);
 
     const handlePageChange = (newPage: number) => {
@@ -1166,6 +1371,7 @@ export default function EnquiryManagementPage() {
 
     const handleReplySuccess = () => {
         fetchQueries();
+        emitNotificationsRefresh();
     };
 
     const handleCartItemUpdated = (
@@ -1212,6 +1418,17 @@ export default function EnquiryManagementPage() {
 
     const handleExtendHoldSuccess = () => {
         fetchData(pagination.currentPage, activeSearch, true);
+    };
+
+    const handleQueryUpdated = (updatedQuery: GroupedQuery) => {
+        setQueries((previousQueries) =>
+            previousQueries.map((group) => ({
+                ...group,
+                queries: group.queries.map((query) =>
+                    query.id === updatedQuery.id ? updatedQuery : query,
+                ),
+            })),
+        );
     };
 
     // Calculate stats
@@ -1449,8 +1666,9 @@ export default function EnquiryManagementPage() {
                                                     </p>
                                                     <p className="text-gray-500 text-sm">
                                                         No customer has diamond
-                                                        with stock reference "
-                                                        {activeSearch}" in their
+                                                        with stock reference{" "}
+                                                        &quot;{activeSearch}
+                                                        &quot; in their
                                                         cart or hold
                                                     </p>
                                                 </div>
@@ -1477,9 +1695,12 @@ export default function EnquiryManagementPage() {
                                     const userQueryData = queries.find(
                                         (q) => q.email === data.user.email,
                                     );
+                                    const isTargetUser =
+                                        !!targetUserId &&
+                                        targetUserId === data.user._id;
                                     return (
                                         <EnquiryRow
-                                            key={data.cart._id}
+                                            key={`${data.cart._id}-${isTargetUser ? `${targetCartThreadId || ""}-${targetQueryId || ""}` : ""}`}
                                             data={data}
                                             index={index}
                                             currentPage={pagination.currentPage}
@@ -1489,8 +1710,22 @@ export default function EnquiryManagementPage() {
                                             onCartItemUpdated={
                                                 handleCartItemUpdated
                                             }
+                                            onQueryUpdated={handleQueryUpdated}
                                             onExtendHoldSuccess={
                                                 handleExtendHoldSuccess
+                                            }
+                                            autoExpand={
+                                                isTargetUser &&
+                                                (!!targetCartThreadId ||
+                                                    !!targetQueryId)
+                                            }
+                                            autoExpandCartThreadId={
+                                                isTargetUser
+                                                    ? targetCartThreadId
+                                                    : null
+                                            }
+                                            targetQueryId={
+                                                isTargetUser ? targetQueryId : null
                                             }
                                         />
                                     );

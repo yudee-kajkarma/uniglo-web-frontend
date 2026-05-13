@@ -210,3 +210,20 @@ export const deleteCartItemMessage = async (
         );
     }
 };
+
+export const markCartItemMessagesDelivered = async (
+    diamondId: string,
+): Promise<ApiSuccessResponse<CartItemMessageResponseData>> => {
+    try {
+        const response = await apiClient.post<
+            ApiSuccessResponse<CartItemMessageResponseData>
+        >(`/diamonds/cart/${diamondId}/messages/delivered`);
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw (
+            axiosError.response?.data?.message ||
+            "Failed to mark messages delivered. Please try again."
+        );
+    }
+};

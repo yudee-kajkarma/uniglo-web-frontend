@@ -1,5 +1,5 @@
 import apiClient from "@/lib/api";
-import { Diamond, CartItem } from "@/interface/diamondInterface";
+import { CartItem } from "@/interface/diamondInterface";
 
 // Types
 export interface Address {
@@ -38,7 +38,7 @@ export interface PendingUser {
     companyName: string;
     contactName: string;
     customerData: CustomerData;
-    quotations: any[];
+    quotations: unknown[];
     createdAt: string;
     updatedAt: string;
     __v: number;
@@ -56,7 +56,7 @@ export interface GetPendingUsersResponse {
 export interface ApproveUserResponse {
     success: boolean;
     message: string;
-    data?: any;
+    data?: unknown;
 }
 
 // Cart-related interfaces
@@ -78,7 +78,7 @@ export interface UserDetails {
     companyName?: string;
     contactName?: string;
     customerData?: CustomerData;
-    quotations: any[];
+    quotations: unknown[];
     createdAt: string;
     updatedAt: string;
     __v: number;
@@ -229,6 +229,22 @@ export const updateCartItemMessage = async (
     if (!response.data.success) {
         throw new Error(
             response.data.message || "Failed to update cart item message",
+        );
+    }
+
+    return response.data;
+};
+
+export const markAdminCartItemMessagesDelivered = async (
+    params: Pick<UpdateCartItemMessageParams, "userId" | "diamondId">,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.post<ReplyToCartItemResponse>(
+        `/diamonds/cart/admin/${params.userId}/items/${params.diamondId}/messages/delivered`,
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message || "Failed to mark cart item message delivered",
         );
     }
 
@@ -393,7 +409,7 @@ export interface AdminCreateCustomerRequest {
 export interface AdminCreateCustomerResponse {
     success: boolean;
     message: string;
-    data?: any;
+    data?: unknown;
 }
 
 export const createCustomerByAdmin = async (

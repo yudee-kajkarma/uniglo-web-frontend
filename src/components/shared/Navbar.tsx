@@ -32,6 +32,7 @@ import logo from "@/assets/Uniglo-Logo-Horizontal1.png";
 import logoIcon from "@/../public/logo/logo.png";
 import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
+import NotificationBell from "./NotificationBell";
 
 const NAV_LINKS = [
     { name: "About", href: "/about" },
@@ -275,6 +276,8 @@ export default function Navbar() {
                                     </>
                                 ) : isAuthenticated && user ? (
                                     <>
+                                        <NotificationBell />
+
                                         {/* Profile Button with Dropdown */}
                                         <div className="relative group">
                                             <Button className="gold-reveal-btn font-cormorantGaramond uppercase flex items-center gap-2">
@@ -557,6 +560,9 @@ export default function Navbar() {
                                                 <p className="text-primary text-xs uppercase px-2 mb-2 font-cormorantGaramond">
                                                     My Account
                                                 </p>
+                                                <div className="px-2 pb-3">
+                                                    <NotificationBell className="border-slate-700 bg-slate-800 hover:bg-slate-700" />
+                                                </div>
                                                 {roleNavLinks.map((link) => (
                                                     <Link
                                                         key={link.name}

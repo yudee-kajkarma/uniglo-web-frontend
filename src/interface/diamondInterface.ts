@@ -262,6 +262,8 @@ export interface CartItemMessage {
     sentAt: string;
     sentBy?: string;
     senderRole: "admin" | "customer";
+    deliveredToAdminAt?: string;
+    deliveredToCustomerAt?: string;
 }
 
 export interface CartItem {
@@ -270,6 +272,7 @@ export interface CartItem {
     diamond: Diamond;
     messages?: CartItemMessage[];
     adminReply?: string;
+    adminReplyDeliveredToCustomerAt?: string;
     status?: "pending" | "replied";
     repliedAt?: string;
     repliedBy?: string;

@@ -1,6 +1,23 @@
 import apiClient from "@/lib/api";
 import { Diamond } from "@/interface/diamondInterface";
 
+const getErrorMessage = (error: unknown, fallback: string) => {
+    if (typeof error === "object" && error !== null) {
+        const errorWithResponse = error as {
+            response?: { data?: { message?: string } };
+            message?: string;
+        };
+
+        return (
+            errorWithResponse.response?.data?.message ||
+            errorWithResponse.message ||
+            fallback
+        );
+    }
+
+    return fallback;
+};
+
 interface InquiryResponse {
     success: boolean;
     message: string;
@@ -19,6 +36,8 @@ interface InquiryResponse {
             adminReply?: string;
             repliedAt?: string;
             repliedBy?: string;
+            deliveredToAdminAt?: string;
+            deliveredToCustomerAt?: string;
         };
     };
 }
@@ -37,6 +56,8 @@ interface GroupedQuery {
     adminReply?: string;
     repliedAt?: string;
     repliedBy?: string;
+    deliveredToAdminAt?: string;
+    deliveredToCustomerAt?: string;
 }
 
 interface AdminQueriesResponse {
@@ -71,7 +92,7 @@ interface ReplyToQueryParams {
 interface FormSubmitResponse {
     success: boolean;
     message: string;
-    data?: any;
+    data?: unknown;
 }
 
 export const createDiamondInquiry = async (
@@ -93,9 +114,9 @@ export const createDiamondInquiry = async (
         }
 
         return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error creating diamond inquiry:", error);
-        throw error.response?.data?.message || "Failed to submit inquiry";
+        throw getErrorMessage(error, "Failed to submit inquiry");
     }
 };
 
@@ -112,9 +133,9 @@ export const getAllAdminQueries = async (): Promise<AdminQueriesResponse> => {
         }
 
         return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error fetching admin queries:", error);
-        throw error.response?.data?.message || "Failed to fetch queries";
+        throw getErrorMessage(error, "Failed to fetch queries");
     }
 };
 
@@ -130,9 +151,9 @@ export const getUserQueries = async (): Promise<UserQueriesResponse> => {
         }
 
         return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error fetching user queries:", error);
-        throw error.response?.data?.message || "Failed to fetch queries";
+        throw getErrorMessage(error, "Failed to fetch queries");
     }
 };
 
@@ -154,9 +175,30 @@ export const replyToQuery = async (
         }
 
         return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error replying to query:", error);
-        throw error.response?.data?.message || "Failed to send reply";
+        throw getErrorMessage(error, "Failed to send reply");
+    }
+};
+
+export const markQueryDelivered = async (
+    queryId: string,
+): Promise<InquiryResponse> => {
+    try {
+        const response = await apiClient.post<InquiryResponse>(
+            `/diamonds/queries/${queryId}/delivered`,
+        );
+
+        if (!response.data.success) {
+            throw new Error(
+                response.data.message || "Failed to mark query delivered",
+            );
+        }
+
+        return response.data;
+    } catch (error: unknown) {
+        console.error("Error marking query delivered:", error);
+        throw getErrorMessage(error, "Failed to mark query delivered");
     }
 };
 
@@ -211,13 +253,9 @@ export const submitInquiryForm = async (
         }
 
         return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error submitting inquiry form:", error);
-        throw (
-            error.response?.data?.message ||
-            error.message ||
-            "Failed to submit inquiry form"
-        );
+        throw getErrorMessage(error, "Failed to submit inquiry form");
     }
 };
 
@@ -268,12 +306,8 @@ export const submitSellDiamondForm = async (
         }
 
         return response.data;
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error("Error submitting sell diamond form:", error);
-        throw (
-            error.response?.data?.message ||
-            error.message ||
-            "Failed to submit sell diamond form"
-        );
+        throw getErrorMessage(error, "Failed to submit sell diamond form");
     }
 };

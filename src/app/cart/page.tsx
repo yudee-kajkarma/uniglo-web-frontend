@@ -9,11 +9,13 @@ import {
     addCartItemMessage,
     updateCartItemMessage,
     deleteCartItemMessage,
+    markCartItemMessagesDelivered,
 } from "@/services/cartService";
 import { calculateTotalPrice, CartItem, CartItemMessage } from "@/interface/diamondInterface";
 import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
 import {
     canModifyCartMessage,
+    getCartMessageCounts,
     formatCartMessageDateTime,
     getCartItemMessages,
     getCartMessageAuthorLabel,
@@ -34,7 +36,8 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { emitNotificationsRefresh } from "@/services/notificationService";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -68,6 +71,9 @@ const formatCurrency = (value: number) => {
 
 export default function CartPage() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const targetThreadId = searchParams.get("thread");
+    const autoOpenedThreadRef = React.useRef<string | null>(null);
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -88,6 +94,9 @@ export default function CartPage() {
         null,
     );
     const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
+
+    const getCartThreadId = (item: CartItem) =>
+        typeof item.diamondId === "string" ? item.diamondId : item.diamond._id;
 
     const updateCartItemInState = (updatedItem: CartItem) => {
         const updatedDiamondId =
@@ -122,8 +131,10 @@ export default function CartPage() {
             if (response.success) {
                 setCartItems(response.data.cart?.items || []);
             }
-        } catch (err: any) {
-            setError(err.message || "Failed to load cart");
+        } catch (err: unknown) {
+            setError(
+                err instanceof Error ? err.message : "Failed to load cart",
+            );
         } finally {
             setLoading(false);
         }
@@ -132,6 +143,49 @@ export default function CartPage() {
     useEffect(() => {
         fetchCart();
     }, []);
+
+    useEffect(() => {
+        if (!targetThreadId) {
+            autoOpenedThreadRef.current = null;
+            return;
+        }
+
+        if (autoOpenedThreadRef.current === targetThreadId || cartItems.length === 0) {
+            return;
+        }
+
+        const targetItem = cartItems.find(
+            (item) => getCartThreadId(item) === targetThreadId,
+        );
+
+        if (!targetItem || expandedDiamondId === targetThreadId) {
+            return;
+        }
+
+        autoOpenedThreadRef.current = targetThreadId;
+
+        void (async () => {
+            setExpandedDiamondId(targetThreadId);
+            setMessageText("");
+            setEditingMessageId(null);
+
+            try {
+                const response =
+                    await markCartItemMessagesDelivered(targetThreadId);
+                if (response.data?.item) {
+                    updateCartItemInState(response.data.item);
+                }
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error("Failed to mark cart messages delivered:", error);
+            } finally {
+                document
+                    .getElementById(`cart-thread-${targetThreadId}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                router.replace("/cart", { scroll: false });
+            }
+        })();
+    }, [cartItems, expandedDiamondId, router, targetThreadId]);
 
     const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.checked) {
@@ -161,8 +215,12 @@ export default function CartPage() {
             toast.success(`${selectedIds.length} item(s) removed from cart`);
             setSelectedIds([]);
             await fetchCart();
-        } catch (err: any) {
-            toast.error(err || "Failed to remove items from cart");
+        } catch (err: unknown) {
+            toast.error(
+                err instanceof Error
+                    ? err.message
+                    : "Failed to remove items from cart",
+            );
         } finally {
             setRemoving(false);
         }
@@ -176,8 +234,10 @@ export default function CartPage() {
             setSelectedIds([]);
             await fetchCart();
             setShowClearDialog(false);
-        } catch (err: any) {
-            toast.error(err || "Failed to clear cart");
+        } catch (err: unknown) {
+            toast.error(
+                err instanceof Error ? err.message : "Failed to clear cart",
+            );
         } finally {
             setRemoving(false);
         }
@@ -217,8 +277,10 @@ export default function CartPage() {
             setShowHoldDialog(false);
             setSelectedIds([]);
             await fetchCart();
-        } catch (error: any) {
-            toast.error(error || "Failed to hold diamonds");
+        } catch (error: unknown) {
+            toast.error(
+                error instanceof Error ? error.message : "Failed to hold diamonds",
+            );
         } finally {
             setHoldLoading(false);
         }
@@ -230,6 +292,26 @@ export default function CartPage() {
         );
         setMessageText("");
         setEditingMessageId(null);
+    };
+
+    const handleToggleMessagesWithDelivery = async (item: CartItem) => {
+        const threadId = getCartThreadId(item);
+        const shouldExpand = expandedDiamondId !== threadId;
+        handleToggleMessages(threadId);
+
+        if (!shouldExpand) {
+            return;
+        }
+
+        try {
+            const response = await markCartItemMessagesDelivered(threadId);
+            if (response.data?.item) {
+                updateCartItemInState(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark cart messages delivered:", error);
+        }
     };
 
     const handleSubmitMessage = async (item: CartItem) => {
@@ -252,6 +334,7 @@ export default function CartPage() {
                 if (response.data?.item) {
                     updateCartItemInState(response.data.item);
                 }
+                emitNotificationsRefresh();
             } catch (error: unknown) {
                 const errorMessage =
                     error instanceof Error
@@ -275,6 +358,7 @@ export default function CartPage() {
             if (response.data?.item) {
                 updateCartItemInState(response.data.item);
             }
+            emitNotificationsRefresh();
         } catch (error: unknown) {
             const errorMessage =
                 error instanceof Error ? error.message : "Failed to send message";
@@ -298,6 +382,7 @@ export default function CartPage() {
             if (response.data?.item) {
                 updateCartItemInState(response.data.item);
             }
+            emitNotificationsRefresh();
         } catch (error: unknown) {
             const errorMessage =
                 error instanceof Error
@@ -554,13 +639,19 @@ export default function CartPage() {
                             ) : (
                                 cartItems.map((item, index) => {
                                     const d = item.diamond;
+                                    const threadId = getCartThreadId(item);
                                     const isEven = index % 2 === 0;
                                     const messages = getCartItemMessages(item);
+                                    const counts = getCartMessageCounts(
+                                        item,
+                                        "customer",
+                                    );
                                     const isExpanded =
-                                        expandedDiamondId === item.diamondId;
+                                        expandedDiamondId === threadId;
                                     return (
-                                        <React.Fragment key={item.diamondId}>
+                                        <React.Fragment key={threadId}>
                                         <tr
+                                            id={`cart-thread-${threadId}`}
                                             className={`border-b font-lato border-[#e7d7b4] hover:bg-[#fffbf2] transition-colors ${
                                                 !isEven
                                                     ? "bg-[#fffbf2]/30"
@@ -662,11 +753,11 @@ export default function CartPage() {
                                                 <button
                                                     type="button"
                                                     onClick={() =>
-                                                        handleToggleMessages(
-                                                            item.diamondId,
+                                                        handleToggleMessagesWithDelivery(
+                                                            item,
                                                         )
                                                     }
-                                                    className={`inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                                    className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
                                                         isExpanded
                                                             ? "bg-[#26062b]/10 text-[#26062b]"
                                                             : "text-gray-500 hover:bg-gray-100 hover:text-[#26062b]"
@@ -678,6 +769,14 @@ export default function CartPage() {
                                                     }
                                                 >
                                                     <MessageSquare size={16} />
+                                                    <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                        {counts.totalCount}
+                                                    </span>
+                                                    {counts.unreadCount > 0 && (
+                                                        <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                            {counts.unreadCount}
+                                                        </span>
+                                                    )}
                                                 </button>
                                             </td>
                                         </tr>

@@ -13,6 +13,7 @@ export const getCartItemMessages = (item: CartItem): CartItemMessage[] => {
             sentAt: item.repliedAt || item.addedAt,
             sentBy: item.repliedBy,
             senderRole: "admin",
+            deliveredToCustomerAt: item.adminReplyDeliveredToCustomerAt,
         });
     }
 
@@ -53,4 +54,27 @@ export const canModifyCartMessage = (
     }
 
     return viewerRole === "customer";
+};
+
+export const getCartMessageCounts = (
+    item: CartItem,
+    viewerRole: "admin" | "customer",
+) => {
+    const messages = getCartItemMessages(item);
+    const unreadCount = messages.filter((message) => {
+        if (viewerRole === "admin") {
+            return (
+                message.senderRole === "customer" && !message.deliveredToAdminAt
+            );
+        }
+
+        return (
+            message.senderRole === "admin" && !message.deliveredToCustomerAt
+        );
+    }).length;
+
+    return {
+        unreadCount,
+        totalCount: messages.length,
+    };
 };
