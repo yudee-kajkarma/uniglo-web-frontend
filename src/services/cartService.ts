@@ -147,3 +147,83 @@ export const getHoldItems = async (): Promise<
         );
     }
 };
+
+export interface CartItemMessageResponseData {
+    item: CartItem;
+}
+
+export const addCartItemMessage = async (
+    diamondId: string,
+    message: string,
+): Promise<ApiSuccessResponse<CartItemMessageResponseData>> => {
+    try {
+        const response = await apiClient.post<
+            ApiSuccessResponse<CartItemMessageResponseData>
+        >(`/diamonds/cart/${diamondId}/messages`, {
+            message,
+        });
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw (
+            axiosError.response?.data?.message ||
+            "Failed to send message. Please try again."
+        );
+    }
+};
+
+export const updateCartItemMessage = async (
+    diamondId: string,
+    messageId: string,
+    message: string,
+): Promise<ApiSuccessResponse<CartItemMessageResponseData>> => {
+    try {
+        const response = await apiClient.put<
+            ApiSuccessResponse<CartItemMessageResponseData>
+        >(`/diamonds/cart/${diamondId}/messages/${messageId}`, {
+            message,
+        });
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw (
+            axiosError.response?.data?.message ||
+            "Failed to update message. Please try again."
+        );
+    }
+};
+
+export const deleteCartItemMessage = async (
+    diamondId: string,
+    messageId: string,
+): Promise<ApiSuccessResponse<CartItemMessageResponseData>> => {
+    try {
+        const response = await apiClient.delete<
+            ApiSuccessResponse<CartItemMessageResponseData>
+        >(`/diamonds/cart/${diamondId}/messages/${messageId}`);
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw (
+            axiosError.response?.data?.message ||
+            "Failed to delete message. Please try again."
+        );
+    }
+};
+
+export const markCartItemMessagesDelivered = async (
+    diamondId: string,
+): Promise<ApiSuccessResponse<CartItemMessageResponseData>> => {
+    try {
+        const response = await apiClient.post<
+            ApiSuccessResponse<CartItemMessageResponseData>
+        >(`/diamonds/cart/${diamondId}/messages/delivered`);
+        return response.data;
+    } catch (error) {
+        const axiosError = error as AxiosError<ApiErrorResponse>;
+        throw (
+            axiosError.response?.data?.message ||
+            "Failed to mark messages delivered. Please try again."
+        );
+    }
+};

@@ -1,6 +1,7 @@
 // components/columns/DiamondColumns.tsx
 import {
     Diamond,
+    DiamondAvailability,
     getShapeFullName,
     calculateTotalPrice,
 } from "@/interface/diamondInterface";
@@ -8,6 +9,25 @@ import { Badge } from "@/components/ui/badge";
 import { PublicDiamond } from "@/interface/diamondInterface";
 import Link from "next/link";
 import { ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
+
+export const DiamondAvailabilityStatusBadge = ({
+    availability,
+}: {
+    availability?: DiamondAvailability | string;
+}) => {
+    const color =
+        availability === "A"
+            ? "bg-primary-purple text-white"
+            : availability === "S"
+              ? "bg-red-100 text-red-700"
+              : "bg-yellow-100 text-primary-purple";
+
+    return (
+        <Badge className={`${color} text-xs rounded-[2] px-2 py-1`}>
+            {availability ? availability : "UNKNOWN"}
+        </Badge>
+    );
+};
 
 export interface PrivateColumn<T> {
     key: keyof T | string;
@@ -89,19 +109,9 @@ export const getDiamondColumns = (
     {
         key: "availability",
         header: "Status",
-        render: (row: Diamond) => {
-            const color =
-                row.availability === "A"
-                    ? "bg-primary-purple text-white"
-                    : row.availability === "S"
-                      ? "bg-red-100 text-red-700"
-                      : "bg-yellow-100 text-primary-purple";
-            return (
-                <Badge className={`${color} text-xs rounded-[2] px-2 py-1`}>
-                    {row.availability ? row.availability : "UNKNOWN"}
-                </Badge>
-            );
-        },
+        render: (row: Diamond) => (
+            <DiamondAvailabilityStatusBadge availability={row.availability} />
+        ),
     },
 
     // --- Basic Specs ---
@@ -340,19 +350,9 @@ export const getPublicDiamondColumns = (
     {
         key: "availability",
         header: "Status",
-        render: (row: PublicDiamond) => {
-            const color =
-                row.availability === "A"
-                    ? "bg-primary-purple text-white"
-                    : row.availability === "S"
-                      ? "bg-red-100 text-red-700"
-                      : "bg-yellow-100 text-primary-purple";
-            return (
-                <Badge className={`${color} text-xs rounded-[2] px-2 py-1`}>
-                    {row.availability ? row.availability : "UNKNOWN"}
-                </Badge>
-            );
-        },
+        render: (row: PublicDiamond) => (
+            <DiamondAvailabilityStatusBadge availability={row.availability} />
+        ),
     },
     {
         key: "shape",

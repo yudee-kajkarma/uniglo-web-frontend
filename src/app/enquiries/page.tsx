@@ -1,18 +1,21 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getUserQueries } from "@/services/inquiryService";
+import {
+    getUserQueries,
+    markQueryDelivered,
+} from "@/services/inquiryService";
 import { Diamond } from "@/interface/diamondInterface";
 import {
-    ChevronDown,
-    ChevronUp,
     MessageSquare,
     Clock,
     CheckCircle,
-    Loader2,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
+import { getQueryMessageCounts } from "@/lib/queryMessages";
+import { emitNotificationsRefresh } from "@/services/notificationService";
 
 interface GroupedQuery {
     userId: string;
@@ -28,6 +31,8 @@ interface GroupedQuery {
     adminReply?: string;
     repliedAt?: string;
     repliedBy?: string;
+    deliveredToAdminAt?: string;
+    deliveredToCustomerAt?: string;
 }
 
 const StatCard = ({
@@ -39,7 +44,7 @@ const StatCard = ({
     title: string;
     count: string | number;
     desc: string;
-    icon: any;
+    icon: React.ElementType;
 }) => (
     <div className="bg-white rounded-lg p-5 border border-gray-100 shadow-sm flex flex-col justify-between h-full">
         <div className="flex items-center gap-2 mb-2 text-gray-600">
@@ -55,8 +60,46 @@ const StatCard = ({
     </div>
 );
 
-const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+const EnquiryRow = ({
+    query,
+    autoExpand = false,
+}: {
+    query: GroupedQuery;
+    autoExpand?: boolean;
+}) => {
+    const [localQuery, setLocalQuery] = useState(query);
+    const [isExpanded, setIsExpanded] = useState(autoExpand);
+    const autoHandledRef = React.useRef(false);
+    const counts = getQueryMessageCounts(localQuery, "customer");
+
+    useEffect(() => {
+        setLocalQuery(query);
+    }, [query]);
+
+    useEffect(() => {
+        if (
+            !autoExpand ||
+            !isExpanded ||
+            autoHandledRef.current ||
+            counts.unreadCount === 0
+        ) {
+            return;
+        }
+
+        autoHandledRef.current = true;
+
+        void (async () => {
+            try {
+                const response = await markQueryDelivered(query.id);
+                if (response.data?.query) {
+                    setLocalQuery(response.data.query);
+                }
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error("Failed to mark query delivered:", error);
+            }
+        })();
+    }, [autoExpand, counts.unreadCount, isExpanded, query.id]);
 
     const getStatusBadge = (status: string) => {
         const statusConfig = {
@@ -104,52 +147,76 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
         });
     };
 
+    const handleToggleThread = async () => {
+        const shouldExpand = !isExpanded;
+        setIsExpanded(shouldExpand);
+
+        if (!shouldExpand || counts.unreadCount === 0) {
+            return;
+        }
+
+        try {
+            const response = await markQueryDelivered(query.id);
+            if (response.data?.query) {
+                setLocalQuery(response.data.query);
+            }
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark query delivered:", error);
+        }
+    };
+
     return (
         <React.Fragment>
             <tr
+                id={`enquiry-thread-${query.id}`}
                 className={`border-b border-gray-100 transition-colors ${isExpanded ? "bg-gray-50" : "hover:bg-gray-50/50"}`}
             >
                 <td className="px-4 py-4 text-sm">
                     <Link
-                        href={`/inventory?view=${query.diamondId.certiNo}`}
+                        href={`/inventory?view=${localQuery.diamondId.certiNo}`}
                         className="font-semibold text-[#26062b] hover:text-[#bb923a] underline transition-colors"
                     >
-                        {query.stockRef}
+                        {localQuery.stockRef}
                     </Link>
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-600">
-                    {query.diamondId.shape}
+                    {localQuery.diamondId.shape}
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-600">
-                    {query.diamondId.weight}
+                    {localQuery.diamondId.weight}
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-600">
-                    {query.diamondId.color}
+                    {localQuery.diamondId.color}
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-600">
-                    {query.diamondId.clarity}
+                    {localQuery.diamondId.clarity}
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-600">
-                    {query.diamondId.lab}
+                    {localQuery.diamondId.lab}
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-600 max-w-[200px] truncate">
-                    {query.query}
+                    {localQuery.query}
                 </td>
                 <td className="px-4 py-4 text-sm">
-                    {getStatusBadge(query.status)}
+                    {getStatusBadge(localQuery.status)}
                 </td>
                 <td className="px-4 py-4 text-sm text-gray-500">
-                    {formatDate(query.createdAt)}
+                    {formatDate(localQuery.createdAt)}
                 </td>
                 <td className="px-4 py-4 text-center">
                     <button
-                        onClick={() => setIsExpanded(!isExpanded)}
-                        className="p-1 rounded-md hover:bg-gray-200 text-gray-500 transition-all"
+                        onClick={handleToggleThread}
+                        className="relative inline-flex items-center justify-center rounded-md p-1.5 text-gray-500 transition-all hover:bg-gray-200"
                     >
-                        {isExpanded ? (
-                            <ChevronUp size={18} />
-                        ) : (
-                            <ChevronDown size={18} />
+                        <MessageSquare size={18} />
+                        <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                            {counts.totalCount}
+                        </span>
+                        {counts.unreadCount > 0 && (
+                            <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                {counts.unreadCount}
+                            </span>
                         )}
                     </button>
                 </td>
@@ -172,10 +239,10 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Stock Ref:
                                         </span>{" "}
                                         <Link
-                                            href={`/inventory?view=${query.diamondId.certiNo}`}
+                        href={`/inventory?view=${localQuery.diamondId.certiNo}`}
                                             className="font-semibold text-[#26062b] hover:text-[#bb923a] underline transition-colors"
                                         >
-                                            {query.stockRef}
+                        {localQuery.stockRef}
                                         </Link>
                                     </div>
                                     <div>
@@ -183,7 +250,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Shape:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.shape}
+                                            {localQuery.diamondId.shape}
                                         </span>
                                     </div>
                                     <div>
@@ -191,7 +258,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Carats:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.weight}
+                                            {localQuery.diamondId.weight}
                                         </span>
                                     </div>
                                     <div>
@@ -199,7 +266,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Color:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.color}
+                                            {localQuery.diamondId.color}
                                         </span>
                                     </div>
                                     <div>
@@ -207,7 +274,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Clarity:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.clarity}
+                                            {localQuery.diamondId.clarity}
                                         </span>
                                     </div>
                                     <div>
@@ -215,7 +282,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Cut:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.cutGrade}
+                                            {localQuery.diamondId.cutGrade}
                                         </span>
                                     </div>
                                     <div>
@@ -223,7 +290,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Lab:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.lab}
+                                            {localQuery.diamondId.lab}
                                         </span>
                                     </div>
                                     <div>
@@ -231,7 +298,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                             Cert No:
                                         </span>{" "}
                                         <span className="font-medium">
-                                            {query.diamondId.certiNo}
+                                            {localQuery.diamondId.certiNo}
                                         </span>
                                     </div>
                                     <div>
@@ -240,7 +307,7 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                         </span>{" "}
                                         <span className="font-medium">
                                             $
-                                            {query.diamondId.pricePerCts.toLocaleString()}
+                                            {localQuery.diamondId.pricePerCts.toLocaleString()}
                                         </span>
                                     </div>
                                     <div>
@@ -250,8 +317,8 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                         <span className="font-medium">
                                             $
                                             {(
-                                                query.diamondId.weight *
-                                                query.diamondId.pricePerCts
+                                                localQuery.diamondId.weight *
+                                                localQuery.diamondId.pricePerCts
                                             ).toLocaleString()}
                                         </span>
                                     </div>
@@ -264,38 +331,38 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
                                     Your Query:
                                 </h4>
                                 <p className="text-sm text-gray-600">
-                                    {query.query}
+                                    {localQuery.query}
                                 </p>
                                 <p className="text-xs text-gray-400 mt-2">
-                                    Submitted on {formatDate(query.createdAt)}
+                                    Submitted on {formatDate(localQuery.createdAt)}
                                 </p>
                             </div>
 
                             {/* Admin Reply */}
-                            {query.adminReply && (
+                            {localQuery.adminReply && (
                                 <div className="bg-green-50 rounded-lg p-4 border border-green-200">
                                     <h4 className="font-semibold text-sm text-green-800 mb-2">
                                         Admin Reply:
                                     </h4>
                                     <p className="text-sm text-gray-700">
-                                        {query.adminReply}
+                                        {localQuery.adminReply}
                                     </p>
-                                    {query.repliedAt && (
+                                    {localQuery.repliedAt && (
                                         <p className="text-xs text-gray-500 mt-2">
                                             Replied on{" "}
-                                            {formatDate(query.repliedAt)}
+                                            {formatDate(localQuery.repliedAt)}
                                         </p>
                                     )}
                                 </div>
                             )}
 
                             {/* Pending Status Message */}
-                            {query.status === "pending" &&
-                                !query.adminReply && (
+                            {localQuery.status === "pending" &&
+                                !localQuery.adminReply && (
                                     <div className="bg-yellow-50 rounded-lg p-4 border border-yellow-200">
                                         <p className="text-sm text-yellow-800 flex items-center gap-2">
                                             <Clock size={16} />
-                                            Your enquiry is pending. We'll
+                                            Your enquiry is pending. We&apos;ll
                                             respond soon.
                                         </p>
                                     </div>
@@ -309,6 +376,9 @@ const EnquiryRow = ({ query }: { query: GroupedQuery }) => {
 };
 
 export default function UserEnquiriesPage() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const targetQueryId = searchParams.get("query");
     const [queries, setQueries] = useState<GroupedQuery[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -319,9 +389,13 @@ export default function UserEnquiriesPage() {
             if (response.success) {
                 setQueries(response.data.queries);
             }
-        } catch (error: any) {
+        } catch (error: unknown) {
             console.error("Failed to fetch queries:", error);
-            toast.error(error || "Failed to fetch your enquiries");
+            const message =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to fetch your enquiries";
+            toast.error(message);
         } finally {
             setLoading(false);
         }
@@ -330,6 +404,18 @@ export default function UserEnquiriesPage() {
     useEffect(() => {
         fetchQueries();
     }, []);
+
+    useEffect(() => {
+        if (!targetQueryId) {
+            return;
+        }
+
+        router.replace("/enquiries", { scroll: false });
+
+        document
+            .getElementById(`enquiry-thread-${targetQueryId}`)
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, [queries, router, targetQueryId]);
 
     // Calculate stats
     const totalQueries = queries.length;
@@ -419,7 +505,7 @@ export default function UserEnquiriesPage() {
                                     Date
                                 </th>
                                 <th className="px-4 py-3 font-normal whitespace-nowrap text-center">
-                                    Details
+                                    Messages
                                 </th>
                             </tr>
                         </thead>
@@ -475,7 +561,11 @@ export default function UserEnquiriesPage() {
                                 </tr>
                             ) : (
                                 queries.map((query) => (
-                                    <EnquiryRow key={query.id} query={query} />
+                                    <EnquiryRow
+                                        key={`${query.id}-${targetQueryId === query.id ? "target" : "default"}`}
+                                        query={query}
+                                        autoExpand={targetQueryId === query.id}
+                                    />
                                 ))
                             )}
                         </tbody>

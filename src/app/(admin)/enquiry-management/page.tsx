@@ -1,9 +1,32 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { getAllCarts, type AdminCartData } from "@/services/adminServices";
-import { getAllAdminQueries, replyToQuery } from "@/services/inquiryService";
-import { Diamond } from "@/interface/diamondInterface";
+import {
+    deleteCartItemMessage,
+    getAllCarts,
+    markAdminCartItemMessagesDelivered,
+    replyToCartItem,
+    updateCartItemMessage,
+    type AdminCartData,
+} from "@/services/adminServices";
+import {
+    getAllAdminQueries,
+    markQueryDelivered,
+    replyToQuery,
+} from "@/services/inquiryService";
+import {
+    CartItem,
+    CartItemMessage,
+    Diamond,
+} from "@/interface/diamondInterface";
+import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
+import {
+    canModifyCartMessage,
+    getCartMessageCounts,
+    formatCartMessageDateTime,
+    getCartItemMessages,
+    getCartMessageAuthorLabel,
+} from "@/lib/cartItemMessages";
 import {
     ChevronDown,
     ChevronUp,
@@ -19,12 +42,18 @@ import {
     ClockIcon,
     Search,
     X,
+    MessageSquare,
+    Trash2,
+    Pencil,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import ExtendHoldDialog from "@/components/admin/ExtendHoldDialog";
+import { emitNotificationsRefresh } from "@/services/notificationService";
+import { getQueryMessageCounts } from "@/lib/queryMessages";
 
 // --- Types ---
 interface GroupedQuery {
@@ -41,6 +70,8 @@ interface GroupedQuery {
     adminReply?: string;
     repliedAt?: string;
     repliedBy?: string;
+    deliveredToAdminAt?: string;
+    deliveredToCustomerAt?: string;
 }
 
 interface AdminQueriesData {
@@ -59,7 +90,7 @@ const StatCard = ({
     title: string;
     count: string | number;
     desc: string;
-    icon: any;
+    icon: React.ElementType;
 }) => (
     <div className="bg-white rounded-lg p-5 border border-gray-100 shadow-sm flex flex-col justify-between h-full">
         <div className="flex items-center gap-2 mb-2 text-gray-600">
@@ -75,15 +106,518 @@ const StatCard = ({
     </div>
 );
 
+const CartItemsTable = ({
+    items,
+    userId,
+    onCartItemUpdated,
+    autoExpandDiamondId,
+}: {
+    items: CartItem[];
+    userId: string;
+    onCartItemUpdated: (updatedItem: CartItem) => void;
+    autoExpandDiamondId?: string | null;
+}) => {
+    const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
+        null,
+    );
+    const [replyText, setReplyText] = useState("");
+    const [isReplying, setIsReplying] = useState(false);
+    const [deletingMessageId, setDeletingMessageId] = useState<string | null>(
+        null,
+    );
+    const [editingMessageId, setEditingMessageId] = useState<string | null>(
+        null,
+    );
+    const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
+    const autoOpenedThreadRef = React.useRef<string | null>(null);
+    const getCartThreadId = (item: CartItem) =>
+        typeof item.diamondId === "string" ? item.diamondId : item.diamond._id;
+
+    const columnCount = 15;
+
+    useEffect(() => {
+        if (!autoExpandDiamondId) {
+            autoOpenedThreadRef.current = null;
+            return;
+        }
+
+        if (
+            autoOpenedThreadRef.current === autoExpandDiamondId ||
+            expandedDiamondId === autoExpandDiamondId
+        ) {
+            return;
+        }
+
+        const targetItem = items.find(
+            (item) => getCartThreadId(item) === autoExpandDiamondId,
+        );
+
+        if (!targetItem) {
+            return;
+        }
+
+        autoOpenedThreadRef.current = autoExpandDiamondId;
+
+        void (async () => {
+            setExpandedDiamondId(autoExpandDiamondId);
+            setReplyText("");
+            setEditingMessageId(null);
+
+            try {
+                const response = await markAdminCartItemMessagesDelivered({
+                    userId,
+                    diamondId: autoExpandDiamondId,
+                });
+                if (response.data?.item) {
+                    onCartItemUpdated(response.data.item);
+                }
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error(
+                    "Failed to mark admin cart messages delivered:",
+                    error,
+                );
+            } finally {
+                document
+                    .getElementById(`admin-cart-thread-${autoExpandDiamondId}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+            }
+        })();
+    }, [autoExpandDiamondId, expandedDiamondId, items, onCartItemUpdated, userId]);
+
+    const handleToggleMessages = (diamondId: string) => {
+        setExpandedDiamondId((current) =>
+            current === diamondId ? null : diamondId,
+        );
+        setReplyText("");
+        setEditingMessageId(null);
+    };
+
+    const handleToggleMessagesWithDelivery = async (item: CartItem) => {
+        const threadId = getCartThreadId(item);
+        const shouldExpand = expandedDiamondId !== threadId;
+        handleToggleMessages(threadId);
+
+        if (!shouldExpand) {
+            return;
+        }
+
+        try {
+            const response = await markAdminCartItemMessagesDelivered({
+                userId,
+                diamondId: threadId,
+            });
+            if (response.data?.item) {
+                onCartItemUpdated(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark admin cart messages delivered:", error);
+        }
+    };
+
+    const handleSubmitReply = async (item: CartItem) => {
+        if (!replyText.trim()) {
+            toast.error("Please enter a reply");
+            return;
+        }
+
+        if (editingMessageId) {
+            try {
+                setIsUpdatingMessage(true);
+                const response = await updateCartItemMessage({
+                    userId,
+                    diamondId: item.diamondId,
+                    messageId: editingMessageId,
+                    message: replyText,
+                });
+                toast.success("Message updated");
+                setEditingMessageId(null);
+                setReplyText("");
+                if (response.data?.item) {
+                    onCartItemUpdated(response.data.item);
+                }
+                emitNotificationsRefresh();
+            } catch (error: unknown) {
+                const errorMessage =
+                    error instanceof Error
+                        ? error.message
+                        : "Failed to update message";
+                toast.error(errorMessage);
+            } finally {
+                setIsUpdatingMessage(false);
+            }
+            return;
+        }
+
+        try {
+            setIsReplying(true);
+            const response = await replyToCartItem({
+                userId,
+                diamondId: item.diamondId,
+                reply: replyText,
+            });
+            toast.success("Reply sent successfully");
+            setReplyText("");
+            if (response.data?.item) {
+                onCartItemUpdated(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error ? error.message : "Failed to send reply";
+            toast.error(errorMessage);
+        } finally {
+            setIsReplying(false);
+        }
+    };
+
+    const handleDeleteMessage = async (
+        item: CartItem,
+        messageId: string,
+    ) => {
+        try {
+            setDeletingMessageId(messageId);
+            const response = await deleteCartItemMessage({
+                userId,
+                diamondId: item.diamondId,
+                messageId,
+            });
+            toast.success("Message deleted");
+            if (response.data?.item) {
+                onCartItemUpdated(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to delete message";
+            toast.error(errorMessage);
+        } finally {
+            setDeletingMessageId(null);
+        }
+    };
+
+    const handleStartEditMessage = (message: CartItemMessage) => {
+        setEditingMessageId(message.id);
+        setReplyText(message.message);
+    };
+
+    const handleCancelEditMessage = () => {
+        setEditingMessageId(null);
+        setReplyText("");
+    };
+
+    if (!items || items.length === 0) {
+        return (
+            <div className="p-4 text-sm text-gray-500 italic">
+                No items found.
+            </div>
+        );
+    }
+
+    return (
+        <div className="overflow-x-auto">
+            <table className="w-full text-xs text-left">
+                <thead className="bg-gray-100 text-gray-600 font-semibold border-b border-gray-200">
+                    <tr>
+                        <th className="py-2 px-3">Stock Ref</th>
+                        <th className="py-2 px-3">Status</th>
+                        <th className="py-2 px-3">Loc.</th>
+                        <th className="py-2 px-3">Number</th>
+                        <th className="py-2 px-3">Lab</th>
+                        <th className="py-2 px-3">Shape</th>
+                        <th className="py-2 px-3">Carat</th>
+                        <th className="py-2 px-3">Color</th>
+                        <th className="py-2 px-3">Clarity</th>
+                        <th className="py-2 px-3">Cut</th>
+                        <th className="py-2 px-3">Depth%</th>
+                        <th className="py-2 px-3">Table%</th>
+                        <th className="py-2 px-3">Price/Ct</th>
+                        <th className="py-2 px-3 text-right">Total</th>
+                        <th className="py-2 px-3 text-center">Message</th>
+                    </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-100">
+                    {items.map((item, idx) => {
+                        const d = item.diamond;
+                        const threadId = getCartThreadId(item);
+                        const totalPrice = d.weight * d.pricePerCts;
+                        const isExpanded = expandedDiamondId === threadId;
+                        const messages = getCartItemMessages(item);
+                        const counts = getCartMessageCounts(item, "admin");
+
+                        return (
+                            <React.Fragment key={threadId || d._id || idx}>
+                                <tr
+                                    id={`admin-cart-thread-${threadId}`}
+                                    className="hover:bg-gray-50"
+                                >
+                                    <td className="py-2 px-3 font-medium text-gray-700">
+                                        <Link
+                                            href={`/inventory?view=${d.certiNo}`}
+                                            className="font-semibold text-[#26062b] hover:text-[#bb923a] underline transition-colors"
+                                        >
+                                            {d.stockRef}
+                                        </Link>
+                                    </td>
+                                    <td className="py-2 px-3">
+                                        <DiamondAvailabilityStatusBadge
+                                            availability={d.availability}
+                                        />
+                                    </td>
+                                    <td className="py-2 px-3 text-gray-500">
+                                        {d.country
+                                            ? d.country
+                                                  .substring(0, 2)
+                                                  .toUpperCase()
+                                            : "-"}
+                                    </td>
+                                    <td className="py-2 px-3 text-gray-500">
+                                        {d.certiNo}
+                                    </td>
+                                    <td className="py-2 px-3">{d.lab}</td>
+                                    <td className="py-2 px-3">{d.shape}</td>
+                                    <td className="py-2 px-3">{d.weight}</td>
+                                    <td className="py-2 px-3">{d.color}</td>
+                                    <td className="py-2 px-3">{d.clarity}</td>
+                                    <td className="py-2 px-3">{d.cutGrade}</td>
+                                    <td className="py-2 px-3">{d.depthPerc}%</td>
+                                    <td className="py-2 px-3">{d.tablePerc}%</td>
+                                    <td className="py-2 px-3">
+                                        ${d.pricePerCts.toLocaleString()}
+                                    </td>
+                                    <td className="py-2 px-3 font-medium text-right">
+                                        $
+                                        {totalPrice.toLocaleString(undefined, {
+                                            minimumFractionDigits: 2,
+                                            maximumFractionDigits: 2,
+                                        })}
+                                    </td>
+                                    <td className="py-2 px-3 text-center">
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleToggleMessagesWithDelivery(
+                                                    item,
+                                                )
+                                            }
+                                            className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                                isExpanded
+                                                    ? "bg-primary-purple/10 text-primary-purple"
+                                                    : "text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                            }`}
+                                            aria-label={
+                                                isExpanded
+                                                    ? "Hide messages"
+                                                    : "Show messages"
+                                            }
+                                        >
+                                            <MessageSquare size={16} />
+                                            <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                {counts.totalCount}
+                                            </span>
+                                            {counts.unreadCount > 0 && (
+                                                <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                    {counts.unreadCount}
+                                                </span>
+                                            )}
+                                        </button>
+                                    </td>
+                                </tr>
+                                {isExpanded && (
+                                    <tr className="bg-gray-50">
+                                        <td
+                                            colSpan={columnCount}
+                                            className="px-3 py-3"
+                                        >
+                                            <div className="space-y-3">
+                                                <div className="space-y-2 max-h-48 overflow-y-auto">
+                                                    {messages.length > 0 ? (
+                                                        messages.map(
+                                                            (message) => {
+                                                                const isEditing =
+                                                                    editingMessageId ===
+                                                                    message.id;
+                                                                const canModify =
+                                                                    canModifyCartMessage(
+                                                                        message,
+                                                                        "admin",
+                                                                    );
+                                                                const bubbleClass =
+                                                                    message.senderRole ===
+                                                                    "admin"
+                                                                        ? "border-green-100 bg-green-50"
+                                                                        : "border-blue-100 bg-blue-50";
+
+                                                                return (
+                                                                    <div
+                                                                        key={
+                                                                            message.id
+                                                                        }
+                                                                        className={`rounded border p-3 text-sm text-gray-700 ${bubbleClass} ${
+                                                                            isEditing
+                                                                                ? "ring-2 ring-[#26062b]/20"
+                                                                                : ""
+                                                                        }`}
+                                                                    >
+                                                                        <div className="flex items-start justify-between gap-3">
+                                                                            <div className="flex-1 space-y-2">
+                                                                                <p className="text-xs font-semibold text-gray-600">
+                                                                                    {getCartMessageAuthorLabel(
+                                                                                        message,
+                                                                                        "admin",
+                                                                                    )}
+                                                                                </p>
+                                                                                <p>
+                                                                                    {
+                                                                                        message.message
+                                                                                    }
+                                                                                </p>
+                                                                                <p className="text-xs text-gray-500">
+                                                                                    Sent{" "}
+                                                                                    {formatCartMessageDateTime(
+                                                                                        message.sentAt,
+                                                                                    )}
+                                                                                </p>
+                                                                            </div>
+                                                                            <div className="flex items-center gap-2">
+                                                                                {canModify &&
+                                                                                    !isEditing && (
+                                                                                        <button
+                                                                                            type="button"
+                                                                                            onClick={() =>
+                                                                                                handleStartEditMessage(
+                                                                                                    message,
+                                                                                                )
+                                                                                            }
+                                                                                            className="text-gray-500 hover:text-gray-700"
+                                                                                            aria-label="Edit message"
+                                                                                        >
+                                                                                            <Pencil className="w-4 h-4" />
+                                                                                        </button>
+                                                                                    )}
+                                                                                <button
+                                                                                    type="button"
+                                                                                    onClick={() =>
+                                                                                        handleDeleteMessage(
+                                                                                            item,
+                                                                                            message.id,
+                                                                                        )
+                                                                                    }
+                                                                                    disabled={
+                                                                                        deletingMessageId ===
+                                                                                        message.id
+                                                                                    }
+                                                                                    className="text-red-500 hover:text-red-700 disabled:opacity-50"
+                                                                                    aria-label="Delete message"
+                                                                                >
+                                                                                    {deletingMessageId ===
+                                                                                    message.id ? (
+                                                                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                                                                    ) : (
+                                                                                        <Trash2 className="w-4 h-4" />
+                                                                                    )}
+                                                                                </button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                );
+                                                            },
+                                                        )
+                                                    ) : (
+                                                        <p className="text-xs text-gray-500 italic">
+                                                            No messages yet.
+                                                        </p>
+                                                    )}
+                                                </div>
+                                                <div className="space-y-2">
+                                                        <Textarea
+                                                            placeholder={
+                                                                editingMessageId
+                                                                    ? "Update your message..."
+                                                                    : "Type your message here..."
+                                                            }
+                                                            value={replyText}
+                                                            onChange={(e) =>
+                                                                setReplyText(
+                                                                    e.target
+                                                                        .value,
+                                                                )
+                                                            }
+                                                            className="min-h-20 text-sm"
+                                                            disabled={
+                                                                isReplying ||
+                                                                isUpdatingMessage
+                                                            }
+                                                        />
+                                                        <div className="flex justify-end gap-2">
+                                                            {editingMessageId && (
+                                                                <Button
+                                                                    variant="outline"
+                                                                    onClick={
+                                                                        handleCancelEditMessage
+                                                                    }
+                                                                    disabled={
+                                                                        isUpdatingMessage
+                                                                    }
+                                                                >
+                                                                    Cancel
+                                                                </Button>
+                                                            )}
+                                                            <Button
+                                                                onClick={() =>
+                                                                    handleSubmitReply(
+                                                                        item,
+                                                                    )
+                                                                }
+                                                                disabled={
+                                                                    isReplying ||
+                                                                    isUpdatingMessage ||
+                                                                    !replyText.trim()
+                                                                }
+                                                                className="bg-[#26062b] hover:bg-[#26062b]/90 text-white"
+                                                            >
+                                                                {isReplying ||
+                                                                isUpdatingMessage ? (
+                                                                    <>
+                                                                        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                                                        {editingMessageId
+                                                                            ? "Updating..."
+                                                                            : "Sending..."}
+                                                                    </>
+                                                                ) : editingMessageId ? (
+                                                                    "Update"
+                                                                ) : (
+                                                                    <>
+                                                                        <Send className="w-4 h-4 mr-2" />
+                                                                        Send
+                                                                    </>
+                                                                )}
+                                                            </Button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                )}
+                            </React.Fragment>
+                        );
+                    })}
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
 const InnerDiamondTable = ({
     items,
     isHold = false,
-    userId,
     onExtendHold,
 }: {
     items: { diamond: Diamond }[];
     isHold?: boolean;
-    userId?: string;
     onExtendHold?: (stockRef: string) => void;
 }) => {
     if (!items || items.length === 0) {
@@ -183,9 +717,13 @@ const InnerDiamondTable = ({
 const QueryItem = ({
     query,
     onReplySuccess,
+    domId,
+    highlight = false,
 }: {
     query: GroupedQuery;
     onReplySuccess: () => void;
+    domId?: string;
+    highlight?: boolean;
 }) => {
     const [replyText, setReplyText] = useState("");
     const [isReplying, setIsReplying] = useState(false);
@@ -261,7 +799,14 @@ const QueryItem = ({
     };
 
     return (
-        <div className="border border-gray-200 rounded-lg p-4 bg-white">
+        <div
+            id={domId}
+            className={`border rounded-lg p-4 bg-white ${
+                highlight
+                    ? "border-primary-purple ring-2 ring-primary-purple/20"
+                    : "border-gray-200"
+            }`}
+        >
             {/* Query Header */}
             <div className="flex items-start justify-between mb-3">
                 <div className="flex-1">
@@ -411,7 +956,12 @@ const EnquiryRow = ({
     limit,
     queriesData,
     onReplySuccess,
+    onCartItemUpdated,
+    onQueryUpdated,
     onExtendHoldSuccess,
+    autoExpand = false,
+    autoExpandCartThreadId,
+    targetQueryId,
 }: {
     data: AdminCartData;
     index: number;
@@ -419,9 +969,15 @@ const EnquiryRow = ({
     limit: number;
     queriesData?: AdminQueriesData;
     onReplySuccess: () => void;
+    onCartItemUpdated: (userId: string, updatedItem: CartItem) => void;
+    onQueryUpdated: (updatedQuery: GroupedQuery) => void;
     onExtendHoldSuccess: () => void;
+    autoExpand?: boolean;
+    autoExpandCartThreadId?: string | null;
+    targetQueryId?: string | null;
 }) => {
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(autoExpand);
+    const autoHandledRef = React.useRef(false);
     const [extendHoldDialog, setExtendHoldDialog] = useState<{
         open: boolean;
         stockRef: string;
@@ -446,16 +1002,103 @@ const EnquiryRow = ({
     const serialNumber = (currentPage - 1) * limit + (index + 1);
 
     // Get queries for this user
-    const userQueries = queriesData?.queries || [];
+    const userQueries = React.useMemo(
+        () => queriesData?.queries || [],
+        [queriesData],
+    );
 
     const handleExtendHold = (stockRef: string) => {
         setExtendHoldDialog({ open: true, stockRef });
+    };
+
+    const handleToggleExpanded = async () => {
+        const shouldExpand = !isExpanded;
+        setIsExpanded(shouldExpand);
+
+        if (!shouldExpand || userQueries.length === 0) {
+            return;
+        }
+
+        const unreadQueries = userQueries.filter(
+            (query) => getQueryMessageCounts(query, "admin").unreadCount > 0,
+        );
+
+        if (unreadQueries.length === 0) {
+            return;
+        }
+
+        try {
+            const responses = await Promise.all(
+                unreadQueries.map((query) => markQueryDelivered(query.id)),
+            );
+            responses.forEach((response) => {
+                if (response.data?.query) {
+                    onQueryUpdated(response.data.query as GroupedQuery);
+                }
+            });
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark queries delivered:", error);
+        }
     };
 
     const handleExtendHoldSuccess = () => {
         onExtendHoldSuccess();
         setExtendHoldDialog({ open: false, stockRef: "" });
     };
+
+    useEffect(() => {
+        if (!autoExpand || !isExpanded || autoHandledRef.current) {
+            return;
+        }
+
+        const unreadQueries = userQueries.filter(
+            (query) => getQueryMessageCounts(query, "admin").unreadCount > 0,
+        );
+
+        if (unreadQueries.length === 0) {
+            autoHandledRef.current = true;
+            return;
+        }
+
+        autoHandledRef.current = true;
+
+        void (async () => {
+            try {
+                const responses = await Promise.all(
+                    unreadQueries.map((query) => markQueryDelivered(query.id)),
+                );
+                responses.forEach((response) => {
+                    if (response.data?.query) {
+                        onQueryUpdated(response.data.query as GroupedQuery);
+                    }
+                });
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error("Failed to mark queries delivered:", error);
+            }
+        })();
+    }, [autoExpand, isExpanded, onQueryUpdated, userQueries]);
+
+    useEffect(() => {
+        if (!isExpanded) {
+            return;
+        }
+
+        const targetId = targetQueryId
+            ? `admin-query-${targetQueryId}`
+            : autoExpandCartThreadId
+              ? `admin-cart-thread-${autoExpandCartThreadId}`
+              : null;
+
+        if (!targetId) {
+            return;
+        }
+
+        document
+            .getElementById(targetId)
+            ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, [autoExpandCartThreadId, isExpanded, targetQueryId]);
 
     return (
         <React.Fragment>
@@ -499,7 +1142,7 @@ const EnquiryRow = ({
                 </td>
                 <td className="px-4 py-4 text-center">
                     <button
-                        onClick={() => setIsExpanded(!isExpanded)}
+                        onClick={handleToggleExpanded}
                         className="p-1 rounded-md hover:bg-gray-200 text-gray-500 transition-all"
                     >
                         {isExpanded ? (
@@ -520,9 +1163,19 @@ const EnquiryRow = ({
                             {/* Cart Items Section */}
                             <div className="bg-white rounded-md border border-gray-200 overflow-hidden">
                                 <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 font-semibold text-sm text-gray-700">
-                                    Items in cart
+                                    Items in cart ({cart.items?.length || 0})
                                 </div>
-                                <InnerDiamondTable items={cart.items} />
+                                <CartItemsTable
+                                    items={cart.items || []}
+                                    userId={user._id}
+                                    onCartItemUpdated={(updatedItem) =>
+                                        onCartItemUpdated(
+                                            user._id,
+                                            updatedItem,
+                                        )
+                                    }
+                                    autoExpandDiamondId={autoExpandCartThreadId}
+                                />
                             </div>
 
                             {/* Hold Items Section */}
@@ -533,7 +1186,6 @@ const EnquiryRow = ({
                                 <InnerDiamondTable
                                     items={cart.holdItems}
                                     isHold={true}
-                                    userId={user._id}
                                     onExtendHold={handleExtendHold}
                                 />
                             </div>
@@ -550,6 +1202,8 @@ const EnquiryRow = ({
                                                 key={query.id}
                                                 query={query}
                                                 onReplySuccess={onReplySuccess}
+                                                domId={`admin-query-${query.id}`}
+                                                highlight={targetQueryId === query.id}
                                             />
                                         ))}
                                     </div>
@@ -575,6 +1229,12 @@ const EnquiryRow = ({
 };
 
 export default function EnquiryManagementPage() {
+    const router = useRouter();
+    const searchParams = useSearchParams();
+    const targetUserId = searchParams.get("user");
+    const targetCartThreadId = searchParams.get("cartThread");
+    const targetQueryId = searchParams.get("query");
+    const targetStockRef = searchParams.get("stockRef");
     const [carts, setCarts] = useState<AdminCartData[]>([]);
     const [queries, setQueries] = useState<AdminQueriesData[]>([]);
     const [loading, setLoading] = useState(true);
@@ -587,6 +1247,42 @@ export default function EnquiryManagementPage() {
         totalRecords: 0,
         recordsPerPage: 10,
     });
+
+    useEffect(() => {
+        if (!targetStockRef) {
+            return;
+        }
+
+        const normalizedStockRef = targetStockRef.trim().toUpperCase();
+        setSearchInput((prev) =>
+            prev === normalizedStockRef ? prev : normalizedStockRef,
+        );
+        setActiveSearch((prev) =>
+            prev === normalizedStockRef ? prev : normalizedStockRef,
+        );
+        setPagination((prev) =>
+            prev.currentPage === 1 ? prev : { ...prev, currentPage: 1 },
+        );
+    }, [targetStockRef]);
+
+    useEffect(() => {
+        if (!targetUserId && !targetCartThreadId && !targetQueryId) {
+            return;
+        }
+
+        const nextParams = new URLSearchParams(searchParams.toString());
+        nextParams.delete("user");
+        nextParams.delete("cartThread");
+        nextParams.delete("query");
+
+        const nextQueryString = nextParams.toString();
+        router.replace(
+            nextQueryString
+                ? `/enquiry-management?${nextQueryString}`
+                : "/enquiry-management",
+            { scroll: false },
+        );
+    }, [router, searchParams, targetCartThreadId, targetQueryId, targetUserId]);
 
     const fetchQueries = async () => {
         try {
@@ -603,9 +1299,15 @@ export default function EnquiryManagementPage() {
         }
     };
 
-    const fetchData = async (page: number, stockRef?: string) => {
+    const fetchData = async (
+        page: number,
+        stockRef?: string,
+        background = false,
+    ) => {
         try {
-            setLoading(true);
+            if (!background) {
+                setLoading(true);
+            }
             const response = await getAllCarts({
                 page,
                 limit: 10,
@@ -636,9 +1338,7 @@ export default function EnquiryManagementPage() {
 
     useEffect(() => {
         fetchData(pagination.currentPage, activeSearch);
-        if (!activeSearch) {
-            fetchQueries();
-        }
+        fetchQueries();
     }, [pagination.currentPage, activeSearch]);
 
     const handlePageChange = (newPage: number) => {
@@ -671,10 +1371,64 @@ export default function EnquiryManagementPage() {
 
     const handleReplySuccess = () => {
         fetchQueries();
+        emitNotificationsRefresh();
+    };
+
+    const handleCartItemUpdated = (
+        userId: string,
+        updatedItem: CartItem,
+    ) => {
+        const updatedDiamondId =
+            typeof updatedItem.diamondId === "string"
+                ? updatedItem.diamondId
+                : updatedItem.diamond._id;
+
+        setCarts((previousCarts) =>
+            previousCarts.map((entry) => {
+                if (entry.user._id !== userId) {
+                    return entry;
+                }
+
+                return {
+                    ...entry,
+                    cart: {
+                        ...entry.cart,
+                        items: entry.cart.items.map((item) => {
+                            const itemDiamondId =
+                                typeof item.diamondId === "string"
+                                    ? item.diamondId
+                                    : item.diamond._id;
+
+                            if (itemDiamondId !== updatedDiamondId) {
+                                return item;
+                            }
+
+                            return {
+                                ...item,
+                                ...updatedItem,
+                                diamond:
+                                    updatedItem.diamond || item.diamond,
+                            };
+                        }),
+                    },
+                };
+            }),
+        );
     };
 
     const handleExtendHoldSuccess = () => {
-        fetchData(pagination.currentPage, activeSearch);
+        fetchData(pagination.currentPage, activeSearch, true);
+    };
+
+    const handleQueryUpdated = (updatedQuery: GroupedQuery) => {
+        setQueries((previousQueries) =>
+            previousQueries.map((group) => ({
+                ...group,
+                queries: group.queries.map((query) =>
+                    query.id === updatedQuery.id ? updatedQuery : query,
+                ),
+            })),
+        );
     };
 
     // Calculate stats
@@ -912,8 +1666,9 @@ export default function EnquiryManagementPage() {
                                                     </p>
                                                     <p className="text-gray-500 text-sm">
                                                         No customer has diamond
-                                                        with stock reference "
-                                                        {activeSearch}" in their
+                                                        with stock reference{" "}
+                                                        &quot;{activeSearch}
+                                                        &quot; in their
                                                         cart or hold
                                                     </p>
                                                 </div>
@@ -940,17 +1695,37 @@ export default function EnquiryManagementPage() {
                                     const userQueryData = queries.find(
                                         (q) => q.email === data.user.email,
                                     );
+                                    const isTargetUser =
+                                        !!targetUserId &&
+                                        targetUserId === data.user._id;
                                     return (
                                         <EnquiryRow
-                                            key={data.cart._id}
+                                            key={`${data.cart._id}-${isTargetUser ? `${targetCartThreadId || ""}-${targetQueryId || ""}` : ""}`}
                                             data={data}
                                             index={index}
                                             currentPage={pagination.currentPage}
                                             limit={pagination.recordsPerPage}
                                             queriesData={userQueryData}
                                             onReplySuccess={handleReplySuccess}
+                                            onCartItemUpdated={
+                                                handleCartItemUpdated
+                                            }
+                                            onQueryUpdated={handleQueryUpdated}
                                             onExtendHoldSuccess={
                                                 handleExtendHoldSuccess
+                                            }
+                                            autoExpand={
+                                                isTargetUser &&
+                                                (!!targetCartThreadId ||
+                                                    !!targetQueryId)
+                                            }
+                                            autoExpandCartThreadId={
+                                                isTargetUser
+                                                    ? targetCartThreadId
+                                                    : null
+                                            }
+                                            targetQueryId={
+                                                isTargetUser ? targetQueryId : null
                                             }
                                         />
                                     );

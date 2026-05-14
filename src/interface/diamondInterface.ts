@@ -256,10 +256,26 @@ export const calculateTotalPrice = (
     return weight * pricePerCts;
 };
 
+export interface CartItemMessage {
+    id: string;
+    message: string;
+    sentAt: string;
+    sentBy?: string;
+    senderRole: "admin" | "customer";
+    deliveredToAdminAt?: string;
+    deliveredToCustomerAt?: string;
+}
+
 export interface CartItem {
     diamondId: string;
     addedAt: string;
     diamond: Diamond;
+    messages?: CartItemMessage[];
+    adminReply?: string;
+    adminReplyDeliveredToCustomerAt?: string;
+    status?: "pending" | "replied";
+    repliedAt?: string;
+    repliedBy?: string;
 }
 
 export interface Cart {

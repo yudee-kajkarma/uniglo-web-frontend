@@ -6,24 +6,38 @@ import {
     removeFromCart,
     clearCart,
     holdDiamond,
+    addCartItemMessage,
+    updateCartItemMessage,
+    deleteCartItemMessage,
+    markCartItemMessagesDelivered,
 } from "@/services/cartService";
-import { calculateTotalPrice, CartItem } from "@/interface/diamondInterface";
+import { calculateTotalPrice, CartItem, CartItemMessage } from "@/interface/diamondInterface";
+import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
+import {
+    canModifyCartMessage,
+    getCartMessageCounts,
+    formatCartMessageDateTime,
+    getCartItemMessages,
+    getCartMessageAuthorLabel,
+} from "@/lib/cartItemMessages";
 import {
     Trash2,
     Download,
     GitCompare,
-    Mail,
     Loader2,
-    ChevronLeft,
-    ChevronRight,
     AlertTriangle,
     Clock,
+    MessageSquare,
+    Send,
+    Pencil,
 } from "lucide-react";
 import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { emitNotificationsRefresh } from "@/services/notificationService";
 import {
     AlertDialog,
     AlertDialogAction,
@@ -57,6 +71,9 @@ const formatCurrency = (value: number) => {
 
 export default function CartPage() {
     const router = useRouter();
+    const searchParams = useSearchParams();
+    const targetThreadId = searchParams.get("thread");
+    const autoOpenedThreadRef = React.useRef<string | null>(null);
     const [cartItems, setCartItems] = useState<CartItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
@@ -65,6 +82,47 @@ export default function CartPage() {
     const [showClearDialog, setShowClearDialog] = useState(false);
     const [holdLoading, setHoldLoading] = useState(false);
     const [showHoldDialog, setShowHoldDialog] = useState(false);
+    const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
+        null,
+    );
+    const [messageText, setMessageText] = useState("");
+    const [isSendingMessage, setIsSendingMessage] = useState(false);
+    const [deletingMessageId, setDeletingMessageId] = useState<string | null>(
+        null,
+    );
+    const [editingMessageId, setEditingMessageId] = useState<string | null>(
+        null,
+    );
+    const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
+
+    const getCartThreadId = (item: CartItem) =>
+        typeof item.diamondId === "string" ? item.diamondId : item.diamond._id;
+
+    const updateCartItemInState = (updatedItem: CartItem) => {
+        const updatedDiamondId =
+            typeof updatedItem.diamondId === "string"
+                ? updatedItem.diamondId
+                : updatedItem.diamond._id;
+
+        setCartItems((previousItems) =>
+            previousItems.map((item) => {
+                const itemDiamondId =
+                    typeof item.diamondId === "string"
+                        ? item.diamondId
+                        : item.diamond._id;
+
+                if (itemDiamondId !== updatedDiamondId) {
+                    return item;
+                }
+
+                return {
+                    ...item,
+                    ...updatedItem,
+                    diamond: updatedItem.diamond || item.diamond,
+                };
+            }),
+        );
+    };
 
     const fetchCart = async () => {
         try {
@@ -73,8 +131,10 @@ export default function CartPage() {
             if (response.success) {
                 setCartItems(response.data.cart?.items || []);
             }
-        } catch (err: any) {
-            setError(err.message || "Failed to load cart");
+        } catch (err: unknown) {
+            setError(
+                err instanceof Error ? err.message : "Failed to load cart",
+            );
         } finally {
             setLoading(false);
         }
@@ -83,6 +143,49 @@ export default function CartPage() {
     useEffect(() => {
         fetchCart();
     }, []);
+
+    useEffect(() => {
+        if (!targetThreadId) {
+            autoOpenedThreadRef.current = null;
+            return;
+        }
+
+        if (autoOpenedThreadRef.current === targetThreadId || cartItems.length === 0) {
+            return;
+        }
+
+        const targetItem = cartItems.find(
+            (item) => getCartThreadId(item) === targetThreadId,
+        );
+
+        if (!targetItem || expandedDiamondId === targetThreadId) {
+            return;
+        }
+
+        autoOpenedThreadRef.current = targetThreadId;
+
+        void (async () => {
+            setExpandedDiamondId(targetThreadId);
+            setMessageText("");
+            setEditingMessageId(null);
+
+            try {
+                const response =
+                    await markCartItemMessagesDelivered(targetThreadId);
+                if (response.data?.item) {
+                    updateCartItemInState(response.data.item);
+                }
+                emitNotificationsRefresh();
+            } catch (error) {
+                console.error("Failed to mark cart messages delivered:", error);
+            } finally {
+                document
+                    .getElementById(`cart-thread-${targetThreadId}`)
+                    ?.scrollIntoView({ behavior: "smooth", block: "center" });
+                router.replace("/cart", { scroll: false });
+            }
+        })();
+    }, [cartItems, expandedDiamondId, router, targetThreadId]);
 
     const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.checked) {
@@ -112,8 +215,12 @@ export default function CartPage() {
             toast.success(`${selectedIds.length} item(s) removed from cart`);
             setSelectedIds([]);
             await fetchCart();
-        } catch (err: any) {
-            toast.error(err || "Failed to remove items from cart");
+        } catch (err: unknown) {
+            toast.error(
+                err instanceof Error
+                    ? err.message
+                    : "Failed to remove items from cart",
+            );
         } finally {
             setRemoving(false);
         }
@@ -127,8 +234,10 @@ export default function CartPage() {
             setSelectedIds([]);
             await fetchCart();
             setShowClearDialog(false);
-        } catch (err: any) {
-            toast.error(err || "Failed to clear cart");
+        } catch (err: unknown) {
+            toast.error(
+                err instanceof Error ? err.message : "Failed to clear cart",
+            );
         } finally {
             setRemoving(false);
         }
@@ -168,11 +277,131 @@ export default function CartPage() {
             setShowHoldDialog(false);
             setSelectedIds([]);
             await fetchCart();
-        } catch (error: any) {
-            toast.error(error || "Failed to hold diamonds");
+        } catch (error: unknown) {
+            toast.error(
+                error instanceof Error ? error.message : "Failed to hold diamonds",
+            );
         } finally {
             setHoldLoading(false);
         }
+    };
+
+    const handleToggleMessages = (diamondId: string) => {
+        setExpandedDiamondId((current) =>
+            current === diamondId ? null : diamondId,
+        );
+        setMessageText("");
+        setEditingMessageId(null);
+    };
+
+    const handleToggleMessagesWithDelivery = async (item: CartItem) => {
+        const threadId = getCartThreadId(item);
+        const shouldExpand = expandedDiamondId !== threadId;
+        handleToggleMessages(threadId);
+
+        if (!shouldExpand) {
+            return;
+        }
+
+        try {
+            const response = await markCartItemMessagesDelivered(threadId);
+            if (response.data?.item) {
+                updateCartItemInState(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error) {
+            console.error("Failed to mark cart messages delivered:", error);
+        }
+    };
+
+    const handleSubmitMessage = async (item: CartItem) => {
+        if (!messageText.trim()) {
+            toast.error("Please enter a message");
+            return;
+        }
+
+        if (editingMessageId) {
+            try {
+                setIsUpdatingMessage(true);
+                const response = await updateCartItemMessage(
+                    item.diamondId,
+                    editingMessageId,
+                    messageText,
+                );
+                toast.success("Message updated");
+                setEditingMessageId(null);
+                setMessageText("");
+                if (response.data?.item) {
+                    updateCartItemInState(response.data.item);
+                }
+                emitNotificationsRefresh();
+            } catch (error: unknown) {
+                const errorMessage =
+                    error instanceof Error
+                        ? error.message
+                        : "Failed to update message";
+                toast.error(errorMessage);
+            } finally {
+                setIsUpdatingMessage(false);
+            }
+            return;
+        }
+
+        try {
+            setIsSendingMessage(true);
+            const response = await addCartItemMessage(
+                item.diamondId,
+                messageText,
+            );
+            toast.success("Message sent");
+            setMessageText("");
+            if (response.data?.item) {
+                updateCartItemInState(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error ? error.message : "Failed to send message";
+            toast.error(errorMessage);
+        } finally {
+            setIsSendingMessage(false);
+        }
+    };
+
+    const handleDeleteMessage = async (
+        item: CartItem,
+        messageId: string,
+    ) => {
+        try {
+            setDeletingMessageId(messageId);
+            const response = await deleteCartItemMessage(
+                item.diamondId,
+                messageId,
+            );
+            toast.success("Message deleted");
+            if (response.data?.item) {
+                updateCartItemInState(response.data.item);
+            }
+            emitNotificationsRefresh();
+        } catch (error: unknown) {
+            const errorMessage =
+                error instanceof Error
+                    ? error.message
+                    : "Failed to delete message";
+            toast.error(errorMessage);
+        } finally {
+            setDeletingMessageId(null);
+        }
+    };
+
+    const handleStartEditMessage = (message: CartItemMessage) => {
+        setEditingMessageId(message.id);
+        setMessageText(message.message);
+    };
+
+    const handleCancelEditMessage = () => {
+        setEditingMessageId(null);
+        setMessageText("");
     };
 
     const isAllSelected =
@@ -196,7 +425,7 @@ export default function CartPage() {
     }
 
     return (
-        <div className="min-h-screen bg-white p-4 md:p-8 font-lato">
+        <div className="min-h-screen bg-white px-4 pb-8 pt-24 md:px-8 md:pt-32 font-lato">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-4xl font-cormorantGaramond font-bold text-[#26062b]">
                     My Cart
@@ -369,6 +598,7 @@ export default function CartPage() {
                                 </th>
                                 <th className="p-4 text-left">Image</th>
                                 <th className="p-4 text-left">Pct No</th>
+                                <th className="p-4 text-left">Status</th>
                                 <th className="p-4 text-left">Location</th>
                                 <th className="p-4 text-left">Report No</th>
                                 <th className="p-4 text-left">Lab</th>
@@ -383,6 +613,7 @@ export default function CartPage() {
                                 <th className="p-4 text-left">Width</th>
                                 <th className="p-4 text-left">Depth</th>
                                 <th className="p-4 text-right">$Total Price</th>
+                                <th className="p-4 text-center">Message</th>
                             </tr>
                         </thead>
 
@@ -391,7 +622,7 @@ export default function CartPage() {
                             {cartItems.length === 0 ? (
                                 <tr>
                                     <td
-                                        colSpan={17}
+                                        colSpan={19}
                                         className="p-12 text-center text-gray-500"
                                     >
                                         <div className="flex flex-col items-center gap-2">
@@ -408,10 +639,19 @@ export default function CartPage() {
                             ) : (
                                 cartItems.map((item, index) => {
                                     const d = item.diamond;
+                                    const threadId = getCartThreadId(item);
                                     const isEven = index % 2 === 0;
+                                    const messages = getCartItemMessages(item);
+                                    const counts = getCartMessageCounts(
+                                        item,
+                                        "customer",
+                                    );
+                                    const isExpanded =
+                                        expandedDiamondId === threadId;
                                     return (
+                                        <React.Fragment key={threadId}>
                                         <tr
-                                            key={item.diamondId}
+                                            id={`cart-thread-${threadId}`}
                                             className={`border-b font-lato border-[#e7d7b4] hover:bg-[#fffbf2] transition-colors ${
                                                 !isEven
                                                     ? "bg-[#fffbf2]/30"
@@ -470,6 +710,11 @@ export default function CartPage() {
                                                 </Link>
                                             </td>
                                             <td className="p-4">
+                                                <DiamondAvailabilityStatusBadge
+                                                    availability={d.availability}
+                                                />
+                                            </td>
+                                            <td className="p-4">
                                                 {d.city || d.country || "MU"}
                                             </td>
                                             <td className="p-4">{d.certiNo}</td>
@@ -504,7 +749,218 @@ export default function CartPage() {
                                                     ),
                                                 )}
                                             </td>
+                                            <td className="p-4 text-center">
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        handleToggleMessagesWithDelivery(
+                                                            item,
+                                                        )
+                                                    }
+                                                    className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                                        isExpanded
+                                                            ? "bg-[#26062b]/10 text-[#26062b]"
+                                                            : "text-gray-500 hover:bg-gray-100 hover:text-[#26062b]"
+                                                    }`}
+                                                    aria-label={
+                                                        isExpanded
+                                                            ? "Hide messages"
+                                                            : "Show messages"
+                                                    }
+                                                >
+                                                    <MessageSquare size={16} />
+                                                    <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                        {counts.totalCount}
+                                                    </span>
+                                                    {counts.unreadCount > 0 && (
+                                                        <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                            {counts.unreadCount}
+                                                        </span>
+                                                    )}
+                                                </button>
+                                            </td>
                                         </tr>
+                                        {isExpanded && (
+                                            <tr
+                                                className={`border-b font-lato border-[#e7d7b4] ${
+                                                    !isEven
+                                                        ? "bg-[#fffbf2]/30"
+                                                        : "bg-white"
+                                                }`}
+                                            >
+                                                <td colSpan={19} className="px-4 pt-4 pb-4">
+                                                    <div className="space-y-3">
+                                                        <div className="space-y-2 max-h-48 overflow-y-auto">
+                                                            {messages.length > 0 ? (
+                                                                messages.map(
+                                                                    (message) => {
+                                                                        const isEditing =
+                                                                            editingMessageId ===
+                                                                            message.id;
+                                                                        const canModify =
+                                                                            canModifyCartMessage(
+                                                                                message,
+                                                                                "customer",
+                                                                            );
+                                                                        const bubbleClass =
+                                                                            message.senderRole ===
+                                                                            "customer"
+                                                                                ? "border-blue-200 bg-blue-50"
+                                                                                : "border-green-200 bg-green-50";
+
+                                                                        return (
+                                                                            <div
+                                                                                key={
+                                                                                    message.id
+                                                                                }
+                                                                                className={`rounded-md border p-3 text-sm text-gray-700 ${bubbleClass} ${
+                                                                                    isEditing
+                                                                                        ? "ring-2 ring-[#26062b]/20"
+                                                                                        : ""
+                                                                                }`}
+                                                                            >
+                                                                                <div className="flex items-start justify-between gap-3">
+                                                                                    <div className="flex-1 space-y-2">
+                                                                                        <p className="font-semibold text-[#26062b]">
+                                                                                            {getCartMessageAuthorLabel(
+                                                                                                message,
+                                                                                                "customer",
+                                                                                            )}
+                                                                                        </p>
+                                                                                        <p>
+                                                                                            {
+                                                                                                message.message
+                                                                                            }
+                                                                                        </p>
+                                                                                        <p className="text-xs text-gray-500">
+                                                                                            {formatCartMessageDateTime(
+                                                                                                message.sentAt,
+                                                                                            )}
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div className="flex items-center gap-2">
+                                                                                        {canModify &&
+                                                                                            !isEditing && (
+                                                                                                <button
+                                                                                                    type="button"
+                                                                                                    onClick={() =>
+                                                                                                        handleStartEditMessage(
+                                                                                                            message,
+                                                                                                        )
+                                                                                                    }
+                                                                                                    className="text-gray-500 hover:text-gray-700"
+                                                                                                    aria-label="Edit message"
+                                                                                                >
+                                                                                                    <Pencil className="w-4 h-4" />
+                                                                                                </button>
+                                                                                            )}
+                                                                                        {canModify && (
+                                                                                            <button
+                                                                                                type="button"
+                                                                                                onClick={() =>
+                                                                                                    handleDeleteMessage(
+                                                                                                        item,
+                                                                                                        message.id,
+                                                                                                    )
+                                                                                                }
+                                                                                                disabled={
+                                                                                                    deletingMessageId ===
+                                                                                                    message.id
+                                                                                                }
+                                                                                                className="text-red-500 hover:text-red-700 disabled:opacity-50"
+                                                                                                aria-label="Delete message"
+                                                                                            >
+                                                                                                {deletingMessageId ===
+                                                                                                message.id ? (
+                                                                                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                                                                                ) : (
+                                                                                                    <Trash2 className="w-4 h-4" />
+                                                                                                )}
+                                                                                            </button>
+                                                                                        )}
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        );
+                                                                    },
+                                                                )
+                                                            ) : (
+                                                                <p className="text-xs text-gray-500 italic">
+                                                                    No messages yet.
+                                                                </p>
+                                                            )}
+                                                        </div>
+                                                        <div className="space-y-2">
+                                                            <Textarea
+                                                                placeholder={
+                                                                    editingMessageId
+                                                                        ? "Update your message..."
+                                                                        : "Type your message here..."
+                                                                }
+                                                                value={messageText}
+                                                                onChange={(e) =>
+                                                                    setMessageText(
+                                                                        e.target
+                                                                            .value,
+                                                                    )
+                                                                }
+                                                                className="min-h-20 text-sm"
+                                                                disabled={
+                                                                    isSendingMessage ||
+                                                                    isUpdatingMessage
+                                                                }
+                                                            />
+                                                            <div className="flex justify-end gap-2">
+                                                                {editingMessageId && (
+                                                                    <Button
+                                                                        variant="outline"
+                                                                        onClick={
+                                                                            handleCancelEditMessage
+                                                                        }
+                                                                        disabled={
+                                                                            isUpdatingMessage
+                                                                        }
+                                                                    >
+                                                                        Cancel
+                                                                    </Button>
+                                                                )}
+                                                                <Button
+                                                                    onClick={() =>
+                                                                        handleSubmitMessage(
+                                                                            item,
+                                                                        )
+                                                                    }
+                                                                    disabled={
+                                                                        isSendingMessage ||
+                                                                        isUpdatingMessage ||
+                                                                        !messageText.trim()
+                                                                    }
+                                                                    className="bg-[#26062b] hover:bg-[#26062b]/90 text-white"
+                                                                >
+                                                                    {isSendingMessage ||
+                                                                    isUpdatingMessage ? (
+                                                                        <>
+                                                                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                                                                            {editingMessageId
+                                                                                ? "Updating..."
+                                                                                : "Sending..."}
+                                                                        </>
+                                                                    ) : editingMessageId ? (
+                                                                        "Update"
+                                                                    ) : (
+                                                                        <>
+                                                                            <Send className="w-4 h-4 mr-2" />
+                                                                            Send
+                                                                        </>
+                                                                    )}
+                                                                </Button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        )}
+                                        </React.Fragment>
                                     );
                                 })
                             )}
