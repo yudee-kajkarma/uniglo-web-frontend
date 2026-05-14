@@ -1,9 +1,18 @@
 import React from "react";
+import Image from "next/image";
 
 export type ContentBlock =
     | { type: "paragraph"; text: string }
     | { type: "bullet-list"; items: string[] }
-    | { type: "numbered-list"; items: string[] };
+    | { type: "numbered-list"; items: string[] }
+    | {
+          type: "image";
+          src: string;
+          alt: string;
+          //   caption?: string;
+          width?: number;
+          height?: number;
+      };
 
 export type ArticleSection = {
     heading?: string;
@@ -55,6 +64,26 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                                             <li key={i}>{item}</li>
                                         ))}
                                     </ol>
+                                );
+                            }
+                            if (block.type === "image") {
+                                return (
+                                    <figure key={bIdx} className="my-8">
+                                        <div className="relative w-full overflow-hidden rounded-md">
+                                            <Image
+                                                src={block.src}
+                                                alt={block.alt}
+                                                width={block.width ?? 1200}
+                                                height={block.height ?? 750}
+                                                className="w-full h-auto object-cover"
+                                            />
+                                        </div>
+                                        {/* {block.caption && (
+                                            <figcaption className="text-sm text-slate-500 mt-3 text-center italic font-lora">
+                                                {block.caption}
+                                            </figcaption>
+                                        )} */}
+                                    </figure>
                                 );
                             }
                             return null;

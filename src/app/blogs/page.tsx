@@ -625,6 +625,26 @@ const blogs = [
             "Use this diamond buying checklist before you purchase. Learn what to check, avoid mistakes, and choose the best diamond in 2026.",
         slug: "diamond-buying-checklist-2026",
     },
+    {
+        id: 64,
+        title: "Uniglo at Cannes Festival 2026: Where Brilliance Meets the Riviera",
+        author: "Uniglo Diamonds",
+        date: "May 14, 2026",
+        image: "/uniglo-canes/uniglo-canes-1.jpeg",
+        excerpt:
+            "Uniglo Diamonds & Uniglo Jewels arrive at Cannes Festival 2026 with Maja Malnar, bringing Antwerp craftsmanship and modern haute joaillerie to the Riviera.",
+        slug: "uniglo-at-cannes-festival-2026",
+    },
+    {
+        id: 65,
+        title: "Uniglo Jewels at Cannes 2026: A Story of Pink Diamonds, Riviera Light, and Modern Haute Joaillerie",
+        author: "Uniglo Diamonds",
+        date: "May 14, 2026",
+        image: "/uniglo-canes/uniglo-canes-4.jpeg",
+        excerpt:
+            "Discover Uniglo Jewels' pink diamond masterpieces at Cannes 2026—nearly 40 carat earrings and a 30 carat pendant worn by Maja Malnar on the Riviera.",
+        slug: "uniglo-jewels-cannes-2026-pink-diamonds",
+    },
 ];
 
 const page = () => {
@@ -640,7 +660,7 @@ const page = () => {
 
                     {/* Blogs Grid */}
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        {blogs.map((blog) => (
+                        {[...blogs].reverse().map((blog) => (
                             <div
                                 key={blog.id}
                                 className="flex flex-col h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group"
@@ -650,7 +670,8 @@ const page = () => {
                                     <Image
                                         src={blog.image}
                                         alt={blog.title}
-                                        className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                        fill
+                                        className="object-cover hover:scale-105 transition-transform duration-300"
                                     />
                                 </div>
 
