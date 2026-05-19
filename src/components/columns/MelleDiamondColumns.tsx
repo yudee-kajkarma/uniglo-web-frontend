@@ -133,7 +133,12 @@ export const getMelleDiamondColumns = (
     {
         key: "isLab",
         header: "Type",
-        render: (row) => (row.isLab ? "Lab" : "Natural"),
+        render: (row) =>
+            row.isLab
+                ? row.labType
+                    ? `Lab (${row.labType})`
+                    : "Lab"
+                : "Natural",
     },
     {
         key: "price",
@@ -263,7 +268,12 @@ export const getPublicMelleDiamondColumns = (
     {
         key: "isLab",
         header: "Type",
-        render: (row) => (row.isLab ? "Lab" : "Natural"),
+        render: (row) =>
+            row.isLab
+                ? row.labType
+                    ? `Lab (${row.labType})`
+                    : "Lab"
+                : "Natural",
     },
     {
         key: "price",

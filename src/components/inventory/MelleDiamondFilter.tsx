@@ -285,6 +285,8 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     setFilters((p) => ({
                         ...p,
                         isLab: p.isLab === false ? undefined : false,
+                        // Switching off Lab must clear stale HPHT/CVD chips.
+                        labType: [],
                     }))
                 }
                 className="border border-primary-yellow-2 flex-1"
@@ -296,12 +298,33 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     setFilters((p) => ({
                         ...p,
                         isLab: p.isLab === true ? undefined : true,
+                        labType: p.isLab === true ? [] : p.labType,
                     }))
                 }
                 className="border border-primary-yellow-2 flex-1"
             />
         </div>
     );
+
+    const labTypeContent =
+        filters.isLab === true && options.labTypes.length > 0 ? (
+            <div className="flex flex-wrap gap-1 pt-2">
+                {options.labTypes.map((t) => (
+                    <ToggleButton
+                        key={t}
+                        label={t}
+                        active={filters.labType.includes(t)}
+                        onClick={() =>
+                            setFilters((p) => ({
+                                ...p,
+                                labType: toggle(p.labType, t),
+                            }))
+                        }
+                        className="border border-primary-yellow-2 min-w-[48px]"
+                    />
+                ))}
+            </div>
+        ) : null;
 
     const priceSlider = (
         <RangeSliderWithInputs
@@ -425,6 +448,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                 </DiamondFilterSection> */}
                 <DiamondFilterSection title="Type" variant="sidebar">
                     {isLabContent}
+                    {labTypeContent}
                 </DiamondFilterSection>
                 <div className="flex flex-col">
                     {sizeModeRadio}
@@ -463,6 +487,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     </DiamondFilterSection> */}
                     <DiamondFilterSection title="Type">
                         {isLabContent}
+                        {labTypeContent}
                     </DiamondFilterSection>
                 </div>
 

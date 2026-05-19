@@ -22,6 +22,8 @@ export interface MelleDiamond {
     measurementMin: string;
     carat: number;
     isLab: boolean;
+    /** HPHT or CVD for lab-grown stones; empty string otherwise. */
+    labType?: string;
     melleCategory: MelleCategory;
     __v?: number;
     createdAt: string;
@@ -56,6 +58,7 @@ export interface MelleFilterOptions {
     clarities: MelleClarity[];
     cuts: MelleCut[];
     melleCategories: MelleCategory[];
+    labTypes: string[];
     isLabOptions: boolean[];
     priceRange: MelleNumericRange;
     avgPtrRange: MelleNumericRange;
@@ -71,6 +74,7 @@ export interface MelleFilterState {
     clarity: MelleClarity[];
     cut: MelleCut[];
     melleCategory: MelleCategory[];
+    labType: string[];
     isLab: boolean | undefined;
     priceRange: [number, number];
     avgPtrRanges: [number, number][];
@@ -93,6 +97,7 @@ export interface CreateMelleDiamondBody {
     sieveMin: string;
     sieveMax: string;
     isLab: boolean;
+    labType?: string;
     melleCategory: MelleCategory;
     cut?: MelleCut;
 }
@@ -111,6 +116,7 @@ export interface MelleDiamondParams {
     clarity?: MelleClarity[];
     cut?: MelleCut[];
     melleCategory?: MelleCategory[];
+    labType?: string[];
     isLab?: boolean;
     minPrice?: number;
     maxPrice?: number;

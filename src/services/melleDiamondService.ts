@@ -64,6 +64,9 @@ const buildMelleQuery = (params: MelleDiamondParams): URLSearchParams => {
     params.cut?.forEach((c) => q.append("cut", c));
     params.melleCategory?.forEach((m) => q.append("melleCategory", m));
 
+    if (params.labType?.length)
+        q.append("labType", params.labType.join(","));
+
     if (params.isLab !== undefined) q.append("isLab", String(params.isLab));
 
     if (params.minPrice !== undefined)
@@ -248,6 +251,28 @@ export const importMelleDiamonds = async (input: {
     );
     if (!res.data.success) {
         throw new Error(res.data.message || "Failed to import melle diamonds");
+    }
+    return res.data.data;
+};
+
+// v2 import: flat Master Price List Excel. Type (Natural/Lab) and labType
+// (HPHT/CVD) are derived per row from the TYPE column, so the dialog only
+// needs the file.
+export const importMelleDiamondsV2 = async (input: {
+    file: File;
+}): Promise<ImportMelleDiamondsResult> => {
+    const formData = new FormData();
+    formData.append("file", input.file);
+
+    const res = await apiClient.post<ItemResponse<ImportMelleDiamondsResult>>(
+        `/melle-diamonds/import-v2`,
+        formData,
+        { headers: { "Content-Type": "multipart/form-data" } },
+    );
+    if (!res.data.success) {
+        throw new Error(
+            res.data.message || "Failed to import melle diamonds (v2)",
+        );
     }
     return res.data.data;
 };

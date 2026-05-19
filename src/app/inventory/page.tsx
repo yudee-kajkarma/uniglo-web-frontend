@@ -42,6 +42,7 @@ import {
 import { MelleDiamondFormDialog } from "@/components/dialogs/MelleDiamondFormDialog";
 import { DeleteMelleDiamondDialog } from "@/components/dialogs/DeleteMelleDiamondDialog";
 import { MelleDiamondImportDialog } from "@/components/dialogs/MelleDiamondImportDialog";
+import { MelleDiamondImportV2Dialog } from "@/components/dialogs/MelleDiamondImportV2Dialog";
 import { BulkDeleteMelleDiamondsDialog } from "@/components/dialogs/BulkDeleteMelleDiamondsDialog";
 import {
     MelleDiamond,
@@ -147,6 +148,7 @@ function InventoryContent() {
         clarity: [],
         cut: [],
         melleCategory: [],
+        labType: [],
         isLab: undefined,
         priceRange: [0, Number.MAX_SAFE_INTEGER],
         avgPtrRanges: [],
@@ -172,6 +174,7 @@ function InventoryContent() {
     const [melleDeleteTarget, setMelleDeleteTarget] =
         useState<MelleDiamond | null>(null);
     const [melleImportOpen, setMelleImportOpen] = useState(false);
+    const [melleImportV2Open, setMelleImportV2Open] = useState(false);
     const [melleBulkDeleteOpen, setMelleBulkDeleteOpen] = useState(false);
 
     const isAdminOrSuperAdmin =
@@ -253,6 +256,10 @@ function InventoryContent() {
                 melleCategory:
                     melleFilterState.melleCategory.length > 0
                         ? melleFilterState.melleCategory
+                        : undefined,
+                labType:
+                    melleFilterState.labType.length > 0
+                        ? melleFilterState.labType
                         : undefined,
                 isLab: melleFilterState.isLab,
                 minPrice: isAuthenticated ? price.min : undefined,
@@ -485,6 +492,7 @@ function InventoryContent() {
         clarity: [],
         cut: [],
         melleCategory: [],
+        labType: [],
         isLab: undefined,
         priceRange: [
             options?.priceRange.min ?? 0,
@@ -1204,6 +1212,16 @@ function InventoryContent() {
                             </Button>
                         )}
 
+                        {isAuthenticated && isMelee && isAdminOrSuperAdmin && (
+                            <Button
+                                variant="outline"
+                                className="text-sm border-primary-purple text-primary-purple hover:bg-primary-purple/10"
+                                onClick={() => setMelleImportV2Open(true)}
+                            >
+                                <Upload /> Import v2
+                            </Button>
+                        )}
+
                         {isAuthenticated && !isMelee && (
                             <Button
                                 variant="outline"
@@ -1518,6 +1536,11 @@ function InventoryContent() {
                         open={melleImportOpen}
                         onOpenChange={setMelleImportOpen}
                         options={melleOptions}
+                        onSuccess={loadMelleData}
+                    />
+                    <MelleDiamondImportV2Dialog
+                        open={melleImportV2Open}
+                        onOpenChange={setMelleImportV2Open}
                         onSuccess={loadMelleData}
                     />
                     <BulkDeleteMelleDiamondsDialog
