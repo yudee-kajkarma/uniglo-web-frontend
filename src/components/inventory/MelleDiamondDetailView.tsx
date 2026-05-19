@@ -272,7 +272,12 @@ export default function MelleDiamondDetailView({
                                 <span>Category: {diamond.melleCategory}</span>
                                 <span>•</span>
                                 <span>
-                                    Type: {diamond.isLab ? "Lab" : "Natural"}
+                                    Type:{" "}
+                                    {diamond.isLab
+                                        ? diamond.labType
+                                            ? `Lab (${diamond.labType})`
+                                            : "Lab"
+                                        : "Natural"}
                                 </span>
                             </div>
 
@@ -526,7 +531,11 @@ export default function MelleDiamondDetailView({
                             },
                             {
                                 label: "Type",
-                                value: diamond.isLab ? "Lab" : "Natural",
+                                value: diamond.isLab
+                                    ? diamond.labType
+                                        ? `Lab (${diamond.labType})`
+                                        : "Lab"
+                                    : "Natural",
                             },
                             {
                                 label: "Avg Ptr",

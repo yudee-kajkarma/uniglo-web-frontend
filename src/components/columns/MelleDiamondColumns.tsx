@@ -122,7 +122,20 @@ export const getMelleDiamondColumns = (
     },
     {
         key: "measurement",
-        header: "Measurement (mm)",
+        // measurementMin/measurementMax are stored as strings so a direct
+        // sort would be lexicographic ("10.00" < "2.00"). Carat is the
+        // numeric proxy the rows are bucketed by, so we sort on that and
+        // get the expected visual order in the measurement column.
+        header: (
+            <SortableHeader
+                label="Measurement (mm)"
+                columnKey="carat"
+                currentSortBy={currentSortBy}
+                currentSortOrder={currentSortOrder}
+                onSort={onSort}
+            />
+        ),
+        sortable: true,
         render: (row) => formatRange(row.measurementMin, row.measurementMax),
     },
     // {
@@ -133,7 +146,12 @@ export const getMelleDiamondColumns = (
     {
         key: "isLab",
         header: "Type",
-        render: (row) => (row.isLab ? "Lab" : "Natural"),
+        render: (row) =>
+            row.isLab
+                ? row.labType
+                    ? `Lab (${row.labType})`
+                    : "Lab"
+                : "Natural",
     },
     {
         key: "price",
@@ -152,7 +170,16 @@ export const getMelleDiamondColumns = (
     },
     {
         key: "createdAt",
-        header: "Added",
+        header: (
+            <SortableHeader
+                label="Added"
+                columnKey="createdAt"
+                currentSortBy={currentSortBy}
+                currentSortOrder={currentSortOrder}
+                onSort={onSort}
+            />
+        ),
+        sortable: true,
         render: (row) =>
             row.createdAt
                 ? new Date(row.createdAt).toLocaleDateString()
@@ -252,7 +279,16 @@ export const getPublicMelleDiamondColumns = (
     },
     {
         key: "measurement",
-        header: "Measurement (mm)",
+        header: (
+            <SortableHeader
+                label="Measurement (mm)"
+                columnKey="carat"
+                currentSortBy={currentSortBy}
+                currentSortOrder={currentSortOrder}
+                onSort={onSort}
+            />
+        ),
+        sortable: true,
         render: (row) => formatRange(row.measurementMin, row.measurementMax),
     },
     // {
@@ -263,7 +299,12 @@ export const getPublicMelleDiamondColumns = (
     {
         key: "isLab",
         header: "Type",
-        render: (row) => (row.isLab ? "Lab" : "Natural"),
+        render: (row) =>
+            row.isLab
+                ? row.labType
+                    ? `Lab (${row.labType})`
+                    : "Lab"
+                : "Natural",
     },
     {
         key: "price",

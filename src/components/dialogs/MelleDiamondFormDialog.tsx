@@ -47,6 +47,7 @@ type FormState = {
     cut: string;
     melleCategory: string;
     isLab: "true" | "false";
+    labType: string;
     price: string;
     avgPtr: string;
     measurementMin: string;
@@ -62,6 +63,7 @@ const emptyForm: FormState = {
     cut: "",
     melleCategory: "",
     isLab: "false",
+    labType: "",
     price: "",
     avgPtr: "",
     measurementMin: "",
@@ -77,6 +79,7 @@ const fromDiamond = (d: MelleDiamond): FormState => ({
     cut: d.cut ?? "",
     melleCategory: d.melleCategory,
     isLab: d.isLab ? "true" : "false",
+    labType: d.labType ?? "",
     price: String(d.price ?? ""),
     avgPtr: String(d.avgPtr ?? ""),
     measurementMin: d.measurementMin ?? "",
@@ -106,6 +109,7 @@ export function MelleDiamondFormDialog({
     const clarities = options?.clarities ?? [];
     const cuts = options?.cuts ?? [];
     const categories = options?.melleCategories ?? [];
+    const labTypes = options?.labTypes ?? [];
 
     const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
         setForm((prev) => ({ ...prev, [key]: value }));
@@ -135,6 +139,7 @@ export function MelleDiamondFormDialog({
         cut: form.cut || undefined,
         melleCategory: form.melleCategory,
         isLab: form.isLab === "true",
+        labType: form.isLab === "true" ? form.labType || undefined : undefined,
         price: Number(form.price),
         avgPtr: Number(form.avgPtr),
         measurementMin: form.measurementMin.trim(),
@@ -304,9 +309,16 @@ export function MelleDiamondFormDialog({
                         <Label>Type *</Label>
                         <Select
                             value={form.isLab}
-                            onValueChange={(v) =>
-                                update("isLab", v as "true" | "false")
-                            }
+                            onValueChange={(v) => {
+                                const next = v as "true" | "false";
+                                setForm((prev) => ({
+                                    ...prev,
+                                    isLab: next,
+                                    // Natural cannot carry a labType, clear it.
+                                    labType:
+                                        next === "true" ? prev.labType : "",
+                                }));
+                            }}
                         >
                             <SelectTrigger>
                                 <SelectValue />
@@ -314,6 +326,37 @@ export function MelleDiamondFormDialog({
                             <SelectContent>
                                 <SelectItem value="false">Natural</SelectItem>
                                 <SelectItem value="true">Lab</SelectItem>
+                            </SelectContent>
+                        </Select>
+                    </div>
+
+                    <div className="space-y-1">
+                        <Label>Lab Type</Label>
+                        <Select
+                            value={form.labType || "none"}
+                            onValueChange={(v) =>
+                                update("labType", v === "none" ? "" : v)
+                            }
+                            disabled={form.isLab !== "true"}
+                        >
+                            <SelectTrigger>
+                                <SelectValue
+                                    placeholder={
+                                        form.isLab === "true"
+                                            ? "Select HPHT or CVD"
+                                            : "Only for Lab"
+                                    }
+                                />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="none">—</SelectItem>
+                                {withFallback(labTypes, form.labType)
+                                    .filter((t) => t && t !== "-")
+                                    .map((t) => (
+                                        <SelectItem key={t} value={t}>
+                                            {t}
+                                        </SelectItem>
+                                    ))}
                             </SelectContent>
                         </Select>
                     </div>
