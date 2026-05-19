@@ -63,19 +63,43 @@ const MELLE_SHAPE_META: Record<string, { label: string; icon: string }> = {
 
 // Display order for melee clarity grades. Anything not in this list is
 // appended in the order the backend returned it.
-const CLARITY_ORDER = ["VVS", "VS", "I1", "SI1", "SI2"];
+const CLARITY_ORDER = ["VVS", "VVS-VS", "VS", "SI1", "SI2", "I1"];
 
-const orderClarities = (clarities: string[]): string[] => {
-    const ranked = [...clarities].sort((a, b) => {
-        const ai = CLARITY_ORDER.indexOf(a);
-        const bi = CLARITY_ORDER.indexOf(b);
+// Display order for melee color grades. White grades first (D-F, GH, HI),
+// then fancy / natural-color grades in the user-specified sequence.
+// Comparison is case-insensitive so legacy lower/mixed-case values still
+// land in the right slot. Anything not in this list is appended in the
+// order the backend returned it.
+const COLOR_ORDER = [
+    "D-F",
+    "GH",
+    "HI",
+    "BLACK",
+    "BROWN",
+    "BLUE",
+    "GREEN",
+    "PINK",
+    "YELLOW",
+];
+
+const orderByList = (values: string[], order: string[]): string[] => {
+    const normalized = order.map((v) => v.toUpperCase());
+    const rankOf = (value: string) => normalized.indexOf(value.toUpperCase());
+    return [...values].sort((a, b) => {
+        const ai = rankOf(a);
+        const bi = rankOf(b);
         if (ai === -1 && bi === -1) return 0;
         if (ai === -1) return 1;
         if (bi === -1) return -1;
         return ai - bi;
     });
-    return ranked;
 };
+
+const orderClarities = (clarities: string[]): string[] =>
+    orderByList(clarities, CLARITY_ORDER);
+
+const orderColors = (colors: string[]): string[] =>
+    orderByList(colors, COLOR_ORDER);
 
 export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     filters,
@@ -202,7 +226,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
 
     const colorContent = (
         <div className="flex flex-wrap gap-1">
-            {options.colors.map((color) => (
+            {orderColors(options.colors).map((color) => (
                 <ToggleButton
                     key={color}
                     label={color}
