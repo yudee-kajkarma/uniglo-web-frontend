@@ -1,15 +1,23 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
+import ArticleInlineContent, { InlinePart } from "@/components/shared/ArticleInlineContent";
+
+export type { InlinePart };
+
+export type CtaButton = { label: string; href: string };
 
 export type ContentBlock =
-    | { type: "paragraph"; text: string }
-    | { type: "bullet-list"; items: string[] }
-    | { type: "numbered-list"; items: string[] }
+    | { type: "paragraph"; text?: string; parts?: InlinePart[] }
+    | { type: "bullet-list"; items: string[]; itemsParts?: InlinePart[][] }
+    | { type: "numbered-list"; items: string[]; itemsParts?: InlinePart[][] }
+    | { type: "cta-group"; buttons: CtaButton[] }
     | {
           type: "image";
           src: string;
           alt: string;
-          //   caption?: string;
           width?: number;
           height?: number;
       };
@@ -40,7 +48,14 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                     <div className="space-y-4">
                         {section.content.map((block, bIdx) => {
                             if (block.type === "paragraph") {
-                                return <p key={bIdx}>{block.text}</p>;
+                                return (
+                                    <p key={bIdx}>
+                                        <ArticleInlineContent
+                                            text={block.text}
+                                            parts={block.parts}
+                                        />
+                                    </p>
+                                );
                             }
                             if (block.type === "bullet-list") {
                                 return (
@@ -49,7 +64,12 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                                         className="list-disc ml-6 mt-2 space-y-2"
                                     >
                                         {block.items.map((item, i) => (
-                                            <li key={i}>{item}</li>
+                                            <li key={i}>
+                                                <ArticleInlineContent
+                                                    text={item}
+                                                    parts={block.itemsParts?.[i]}
+                                                />
+                                            </li>
                                         ))}
                                     </ul>
                                 );
@@ -61,9 +81,32 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                                         className="list-decimal ml-6 mt-2 space-y-2"
                                     >
                                         {block.items.map((item, i) => (
-                                            <li key={i}>{item}</li>
+                                            <li key={i}>
+                                                <ArticleInlineContent
+                                                    text={item}
+                                                    parts={block.itemsParts?.[i]}
+                                                />
+                                            </li>
                                         ))}
                                     </ol>
+                                );
+                            }
+                            if (block.type === "cta-group") {
+                                return (
+                                    <div
+                                        key={bIdx}
+                                        className="flex flex-wrap gap-4 my-6"
+                                    >
+                                        {block.buttons.map((btn, i) => (
+                                            <Link
+                                                key={i}
+                                                href={btn.href}
+                                                className="inline-block bg-[#bb923a] text-white px-6 py-2.5 text-sm font-bold font-lora uppercase tracking-wider hover:bg-[#9a7a2f] transition-colors rounded-sm"
+                                            >
+                                                {btn.label}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 );
                             }
                             if (block.type === "image") {
@@ -78,11 +121,6 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                                                 className="w-full h-auto object-cover"
                                             />
                                         </div>
-                                        {/* {block.caption && (
-                                            <figcaption className="text-sm text-slate-500 mt-3 text-center italic font-lora">
-                                                {block.caption}
-                                            </figcaption>
-                                        )} */}
                                     </figure>
                                 );
                             }

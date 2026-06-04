@@ -645,6 +645,46 @@ const blogs = [
             "Discover Uniglo Jewels' pink diamond masterpieces at Cannes 2026—nearly 40 carat earrings and a 30 carat pendant worn by Maja Malnar on the Riviera.",
         slug: "uniglo-jewels-cannes-2026-pink-diamonds",
     },
+    {
+        id: 66,
+        title: "Summer 2026 Bridal Guide: Engagement Rings & Wedding Bands for Couples",
+        author: "Uniglo Jewels",
+        date: "June 3, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Choose the perfect engagement ring and wedding bands for a Summer 2026 wedding. Ring pairing tips, guest jewellery ideas, and bridal appointment guidance.",
+        slug: "summer-2026-bridal-guide-engagement-rings-wedding-bands-couples",
+    },
+    {
+        id: 67,
+        title: "What to Wear to a Summer Wedding 2026: Fine Jewellery Guide for Guests",
+        author: "Uniglo Jewels",
+        date: "June 3, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Discover what jewellery to wear to a Summer 2026 wedding as a guest. Outfit-based styling tips for earrings, necklaces, bracelets, and rings.",
+        slug: "what-to-wear-summer-wedding-2026-fine-jewellery-guest-guide",
+    },
+    {
+        id: 68,
+        title: "Lab-Grown Diamond Wedding Band Trends 2026: The Styles Couples Are Choosing",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: newimage,
+        excerpt:
+            "Explore top lab-grown diamond wedding band trends for 2026—bezel-set, eternity, baguette, emerald-cut, stackable, and sculptural styles.",
+        slug: "lab-grown-diamond-wedding-band-trends-2026",
+    },
+    {
+        id: 69,
+        title: "How to Match a Lab-Grown Diamond Wedding Band to Your Engagement Ring (2026)",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: labd,
+        excerpt:
+            "Learn how to match a lab-grown diamond wedding band to your engagement ring. Curved, contoured, halo-fit bands, metal colours, and ring shapes explained.",
+        slug: "how-to-match-lab-grown-diamond-wedding-band-engagement-ring-2026",
+    },
 ];
 
 const page = () => {
