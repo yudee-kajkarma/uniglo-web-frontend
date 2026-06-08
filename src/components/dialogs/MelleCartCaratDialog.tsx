@@ -30,6 +30,22 @@ interface MelleCartCaratDialogProps {
 
 type CaratFormState = Record<string, string>;
 
+const formatUsd = (value: number) =>
+    value.toLocaleString("en-US", {
+        style: "currency",
+        currency: "USD",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+    });
+
+const parseRequestedCarat = (raw?: string): number | null => {
+    const value = Number(raw?.trim());
+    if (!raw?.trim() || !Number.isFinite(value) || value <= 0) {
+        return null;
+    }
+    return value;
+};
+
 export function MelleCartCaratDialog({
     open,
     onOpenChange,
@@ -75,6 +91,22 @@ export function MelleCartCaratDialog({
         return items;
     };
 
+    const lineTotals = diamonds.map((d) => {
+        const requested = parseRequestedCarat(carats[d._id]);
+        const pricePerCt = d.price ?? 0;
+        const lineTotal =
+            requested !== null && pricePerCt > 0
+                ? requested * pricePerCt
+                : null;
+        return { diamond: d, requested, pricePerCt, lineTotal };
+    });
+
+    const cartTotal = lineTotals.reduce((sum, line) => {
+        return sum + (line.lineTotal ?? 0);
+    }, 0);
+
+    const hasAnyLineTotal = lineTotals.some((line) => line.lineTotal !== null);
+
     const handleSubmit = async () => {
         const items = validate();
         if (!items) return;
@@ -108,44 +140,81 @@ export function MelleCartCaratDialog({
                 </DialogHeader>
 
                 <div className="space-y-4 py-2 max-h-[50vh] overflow-y-auto pr-1">
-                    {diamonds.map((d) => {
-                        const available = d.availableCarat ?? 100;
-                        return (
-                            <div
-                                key={d._id}
-                                className="rounded-md border border-gray-200 p-3 space-y-2"
-                            >
-                                <div className="text-sm font-medium text-gray-900">
-                                    {d.stockId} — {d.shape} {d.color}{" "}
-                                    {d.clarity}
+                    {lineTotals.map(
+                        ({ diamond: d, requested, pricePerCt, lineTotal }) => {
+                            const available = d.availableCarat ?? 100;
+                            const hasPrice =
+                                d.price !== undefined && d.price !== null;
+
+                            return (
+                                <div
+                                    key={d._id}
+                                    className="rounded-md border border-gray-200 p-3 space-y-2"
+                                >
+                                    <div className="text-sm font-medium text-gray-900">
+                                        {d.stockId} — {d.shape} {d.color}{" "}
+                                        {d.clarity}
+                                    </div>
+                                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-xs text-gray-500">
+                                        <span>
+                                            Available: {available.toFixed(2)}{" "}
+                                            ct
+                                        </span>
+                                        {hasPrice ? (
+                                            <span>
+                                                Price/Ct: {formatUsd(pricePerCt)}
+                                            </span>
+                                        ) : (
+                                            <span>Price/Ct: —</span>
+                                        )}
+                                    </div>
+                                    <div className="space-y-1">
+                                        <Label htmlFor={`carat-${d._id}`}>
+                                            Requested carat (ct)
+                                        </Label>
+                                        <Input
+                                            id={`carat-${d._id}`}
+                                            type="number"
+                                            step="0.01"
+                                            min="0.01"
+                                            max={available}
+                                            placeholder="e.g. 5"
+                                            value={carats[d._id] ?? ""}
+                                            onChange={(e) =>
+                                                setCarats((prev) => ({
+                                                    ...prev,
+                                                    [d._id]: e.target.value,
+                                                }))
+                                            }
+                                        />
+                                    </div>
+                                    {hasPrice && requested !== null && (
+                                        <div className="flex items-center justify-between rounded-md bg-gray-50 px-3 py-2 text-sm">
+                                            <span className="text-gray-600">
+                                                {requested.toFixed(2)} ct ×{" "}
+                                                {formatUsd(pricePerCt)}
+                                            </span>
+                                            <span className="font-semibold text-gray-900">
+                                                {formatUsd(lineTotal ?? 0)}
+                                            </span>
+                                        </div>
+                                    )}
                                 </div>
-                                <p className="text-xs text-gray-500">
-                                    Available: {available.toFixed(2)} ct
-                                </p>
-                                <div className="space-y-1">
-                                    <Label htmlFor={`carat-${d._id}`}>
-                                        Requested carat (ct)
-                                    </Label>
-                                    <Input
-                                        id={`carat-${d._id}`}
-                                        type="number"
-                                        step="0.01"
-                                        min="0.01"
-                                        max={available}
-                                        placeholder="e.g. 5"
-                                        value={carats[d._id] ?? ""}
-                                        onChange={(e) =>
-                                            setCarats((prev) => ({
-                                                ...prev,
-                                                [d._id]: e.target.value,
-                                            }))
-                                        }
-                                    />
-                                </div>
-                            </div>
-                        );
-                    })}
+                            );
+                        },
+                    )}
                 </div>
+
+                {hasAnyLineTotal && (
+                    <div className="flex items-center justify-between rounded-md border border-primary-purple/20 bg-primary-purple/5 px-4 py-3">
+                        <span className="text-sm font-medium text-gray-700">
+                            Cart total
+                        </span>
+                        <span className="text-lg font-bold text-primary-purple">
+                            {formatUsd(cartTotal)}
+                        </span>
+                    </div>
+                )}
 
                 <DialogFooter>
                     <Button
