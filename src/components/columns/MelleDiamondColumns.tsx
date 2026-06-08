@@ -116,6 +116,20 @@ export const getMelleDiamondColumns = (
             row.carat !== undefined ? row.carat.toFixed(5) : "N/A",
     },
     {
+        key: "availableCarat",
+        header: (
+            <SortableHeader
+                label="Available Ct."
+                columnKey="availableCarat"
+                currentSortBy={currentSortBy}
+                currentSortOrder={currentSortOrder}
+                onSort={onSort}
+            />
+        ),
+        sortable: true,
+        render: (row) => (row.availableCarat ?? 100).toFixed(2),
+    },
+    {
         key: "sieve",
         header: "Sieve",
         render: (row) => formatRange(row.sieveMin, row.sieveMax),
@@ -271,6 +285,20 @@ export const getPublicMelleDiamondColumns = (
         sortable: true,
         render: (row) =>
             row.carat !== undefined ? row.carat.toFixed(5) : "N/A",
+    },
+    {
+        key: "availableCarat",
+        header: (
+            <SortableHeader
+                label="Available Ct."
+                columnKey="availableCarat"
+                currentSortBy={currentSortBy}
+                currentSortOrder={currentSortOrder}
+                onSort={onSort}
+            />
+        ),
+        sortable: true,
+        render: (row) => (row.availableCarat ?? 100).toFixed(2),
     },
     {
         key: "sieve",

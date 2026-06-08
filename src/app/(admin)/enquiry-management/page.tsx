@@ -54,6 +54,7 @@ import { Textarea } from "@/components/ui/textarea";
 import ExtendHoldDialog from "@/components/admin/ExtendHoldDialog";
 import { emitNotificationsRefresh } from "@/services/notificationService";
 import { getQueryMessageCounts } from "@/lib/queryMessages";
+import { getCartLineId, isMelleCartItem } from "@/lib/cartItems";
 
 // --- Types ---
 interface GroupedQuery {
@@ -130,10 +131,9 @@ const CartItemsTable = ({
     );
     const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
     const autoOpenedThreadRef = React.useRef<string | null>(null);
-    const getCartThreadId = (item: CartItem) =>
-        typeof item.diamondId === "string" ? item.diamondId : item.diamond._id;
+    const getCartThreadId = getCartLineId;
 
-    const columnCount = 15;
+    const columnCount = 16;
 
     useEffect(() => {
         if (!autoExpandDiamondId) {
@@ -227,7 +227,7 @@ const CartItemsTable = ({
                 setIsUpdatingMessage(true);
                 const response = await updateCartItemMessage({
                     userId,
-                    diamondId: item.diamondId,
+                    diamondId: getCartLineId(item),
                     messageId: editingMessageId,
                     message: replyText,
                 });
@@ -254,7 +254,7 @@ const CartItemsTable = ({
             setIsReplying(true);
             const response = await replyToCartItem({
                 userId,
-                diamondId: item.diamondId,
+                diamondId: getCartLineId(item),
                 reply: replyText,
             });
             toast.success("Reply sent successfully");
@@ -280,7 +280,7 @@ const CartItemsTable = ({
             setDeletingMessageId(messageId);
             const response = await deleteCartItemMessage({
                 userId,
-                diamondId: item.diamondId,
+                diamondId: getCartLineId(item),
                 messageId,
             });
             toast.success("Message deleted");
@@ -309,7 +309,12 @@ const CartItemsTable = ({
         setReplyText("");
     };
 
-    if (!items || items.length === 0) {
+    const sortedItems = [...(items || [])].sort(
+        (a, b) =>
+            new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime(),
+    );
+
+    if (sortedItems.length === 0) {
         return (
             <div className="p-4 text-sm text-gray-500 italic">
                 No items found.
@@ -329,6 +334,7 @@ const CartItemsTable = ({
                         <th className="py-2 px-3">Lab</th>
                         <th className="py-2 px-3">Shape</th>
                         <th className="py-2 px-3">Carat</th>
+                        <th className="py-2 px-3">Requested Ct.</th>
                         <th className="py-2 px-3">Color</th>
                         <th className="py-2 px-3">Clarity</th>
                         <th className="py-2 px-3">Cut</th>
@@ -340,16 +346,119 @@ const CartItemsTable = ({
                     </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-100">
-                    {items.map((item, idx) => {
-                        const d = item.diamond;
+                    {sortedItems.map((item, idx) => {
                         const threadId = getCartThreadId(item);
-                        const totalPrice = d.weight * d.pricePerCts;
                         const isExpanded = expandedDiamondId === threadId;
                         const messages = getCartItemMessages(item);
                         const counts = getCartMessageCounts(item, "admin");
+                        const isMelle = isMelleCartItem(item);
 
-                        return (
-                            <React.Fragment key={threadId || d._id || idx}>
+                        const messageCell = (
+                            <td className="py-2 px-3 text-center">
+                                <button
+                                    type="button"
+                                    onClick={() =>
+                                        handleToggleMessagesWithDelivery(item)
+                                    }
+                                    className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                        isExpanded
+                                            ? "bg-primary-purple/10 text-primary-purple"
+                                            : "text-gray-500 hover:bg-gray-200 hover:text-gray-700"
+                                    }`}
+                                    aria-label={
+                                        isExpanded
+                                            ? "Hide messages"
+                                            : "Show messages"
+                                    }
+                                >
+                                    <MessageSquare size={16} />
+                                    <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                        {counts.totalCount}
+                                    </span>
+                                    {counts.unreadCount > 0 && (
+                                        <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                            {counts.unreadCount}
+                                        </span>
+                                    )}
+                                </button>
+                            </td>
+                        );
+
+                        let mainRow: React.ReactNode;
+
+                        if (isMelle) {
+                            const m = item.melle;
+                            const totalPrice =
+                                (m.price ?? 0) * (item.requestedCarat ?? 0);
+
+                            mainRow = (
+                                    <tr
+                                        id={`admin-cart-thread-${threadId}`}
+                                        className="hover:bg-gray-50"
+                                    >
+                                        <td className="py-2 px-3 font-medium text-gray-700">
+                                            <Link
+                                                href={`/inventory?view=${m._id}&type=melle`}
+                                                className="font-semibold text-[#26062b] hover:text-[#bb923a] underline transition-colors"
+                                            >
+                                                {m.stockId}
+                                            </Link>
+                                        </td>
+                                        <td className="py-2 px-3">-</td>
+                                        <td className="py-2 px-3 text-gray-500">
+                                            -
+                                        </td>
+                                        <td className="py-2 px-3 text-gray-500">
+                                            -
+                                        </td>
+                                        <td className="py-2 px-3">
+                                            {m.isLab
+                                                ? m.labType
+                                                    ? `Lab (${m.labType})`
+                                                    : "Lab"
+                                                : "Natural"}
+                                        </td>
+                                        <td className="py-2 px-3">{m.shape}</td>
+                                        <td className="py-2 px-3">
+                                            {m.carat?.toFixed(5) ?? "-"}
+                                        </td>
+                                        <td className="py-2 px-3 font-semibold text-primary-purple">
+                                            {(item.requestedCarat ?? 0).toFixed(
+                                                2,
+                                            )}{" "}
+                                            ct
+                                        </td>
+                                        <td className="py-2 px-3">{m.color}</td>
+                                        <td className="py-2 px-3">
+                                            {m.clarity}
+                                        </td>
+                                        <td className="py-2 px-3">
+                                            {m.cut || "-"}
+                                        </td>
+                                        <td className="py-2 px-3">-</td>
+                                        <td className="py-2 px-3">-</td>
+                                        <td className="py-2 px-3">
+                                            $
+                                            {(m.price ?? 0).toLocaleString()}
+                                        </td>
+                                        <td className="py-2 px-3 font-medium text-right">
+                                            $
+                                            {totalPrice.toLocaleString(
+                                                undefined,
+                                                {
+                                                    minimumFractionDigits: 2,
+                                                    maximumFractionDigits: 2,
+                                                },
+                                            )}
+                                        </td>
+                                        {messageCell}
+                                    </tr>
+                            );
+                        } else {
+                        const d = item.diamond;
+                        const totalPrice = d.weight * d.pricePerCts;
+
+                            mainRow = (
                                 <tr
                                     id={`admin-cart-thread-${threadId}`}
                                     className="hover:bg-gray-50"
@@ -380,6 +489,7 @@ const CartItemsTable = ({
                                     <td className="py-2 px-3">{d.lab}</td>
                                     <td className="py-2 px-3">{d.shape}</td>
                                     <td className="py-2 px-3">{d.weight}</td>
+                                    <td className="py-2 px-3">-</td>
                                     <td className="py-2 px-3">{d.color}</td>
                                     <td className="py-2 px-3">{d.clarity}</td>
                                     <td className="py-2 px-3">{d.cutGrade}</td>
@@ -395,37 +505,22 @@ const CartItemsTable = ({
                                             maximumFractionDigits: 2,
                                         })}
                                     </td>
-                                    <td className="py-2 px-3 text-center">
-                                        <button
-                                            type="button"
-                                            onClick={() =>
-                                                handleToggleMessagesWithDelivery(
-                                                    item,
-                                                )
-                                            }
-                                            className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
-                                                isExpanded
-                                                    ? "bg-primary-purple/10 text-primary-purple"
-                                                    : "text-gray-500 hover:bg-gray-200 hover:text-gray-700"
-                                            }`}
-                                            aria-label={
-                                                isExpanded
-                                                    ? "Hide messages"
-                                                    : "Show messages"
-                                            }
-                                        >
-                                            <MessageSquare size={16} />
-                                            <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
-                                                {counts.totalCount}
-                                            </span>
-                                            {counts.unreadCount > 0 && (
-                                                <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
-                                                    {counts.unreadCount}
-                                                </span>
-                                            )}
-                                        </button>
-                                    </td>
+                                    {messageCell}
                                 </tr>
+                            );
+                        }
+
+                        return (
+                            <React.Fragment
+                                key={
+                                    threadId ||
+                                    (isMelle
+                                        ? item.melle._id
+                                        : item.diamond._id) ||
+                                    idx
+                                }
+                            >
+                                {mainRow}
                                 {isExpanded && (
                                     <tr className="bg-gray-50">
                                         <td
@@ -1312,6 +1407,8 @@ export default function EnquiryManagementPage() {
                 page,
                 limit: 10,
                 stockRef: stockRef || undefined,
+                sortBy: "updatedAt",
+                sortOrder: "desc",
             });
             if (response.success) {
                 setCarts(response.data);

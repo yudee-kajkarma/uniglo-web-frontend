@@ -1,5 +1,7 @@
 // interfaces/diamond.interface.ts
 
+import type { MelleDiamond } from "@/interface/melleDiamondInterface";
+
 export type DiamondShape =
     | "RD" // Round
     | "PC" // Princess
@@ -266,7 +268,7 @@ export interface CartItemMessage {
     deliveredToCustomerAt?: string;
 }
 
-export interface CartItem {
+export interface DiamondCartItem {
     diamondId: string;
     addedAt: string;
     diamond: Diamond;
@@ -277,6 +279,21 @@ export interface CartItem {
     repliedAt?: string;
     repliedBy?: string;
 }
+
+export interface MelleCartItem {
+    melleId: string;
+    requestedCarat: number;
+    addedAt: string;
+    melle: MelleDiamond;
+    messages?: CartItemMessage[];
+    adminReply?: string;
+    adminReplyDeliveredToCustomerAt?: string;
+    status?: "pending" | "replied";
+    repliedAt?: string;
+    repliedBy?: string;
+}
+
+export type CartItem = DiamondCartItem | MelleCartItem;
 
 export interface Cart {
     _id: string;

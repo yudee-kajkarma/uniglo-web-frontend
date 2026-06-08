@@ -54,6 +54,7 @@ type FormState = {
     measurementMax: string;
     sieveMin: string;
     sieveMax: string;
+    availableCarat: string;
 };
 
 const emptyForm: FormState = {
@@ -70,6 +71,7 @@ const emptyForm: FormState = {
     measurementMax: "",
     sieveMin: "",
     sieveMax: "",
+    availableCarat: "100",
 };
 
 const fromDiamond = (d: MelleDiamond): FormState => ({
@@ -86,6 +88,7 @@ const fromDiamond = (d: MelleDiamond): FormState => ({
     measurementMax: d.measurementMax ?? "",
     sieveMin: d.sieveMin ?? "",
     sieveMax: d.sieveMax ?? "",
+    availableCarat: String(d.availableCarat ?? 100),
 });
 
 export function MelleDiamondFormDialog({
@@ -129,6 +132,9 @@ export function MelleDiamondFormDialog({
             return "Measurement min and max are required";
         if (!form.sieveMin.trim() || !form.sieveMax.trim())
             return "Sieve min and max are required";
+        const availableCarat = Number(form.availableCarat);
+        if (!Number.isFinite(availableCarat) || availableCarat < 0)
+            return "Available carat must be a non-negative number";
         return null;
     };
 
@@ -146,6 +152,7 @@ export function MelleDiamondFormDialog({
         measurementMax: form.measurementMax.trim(),
         sieveMin: form.sieveMin.trim(),
         sieveMax: form.sieveMax.trim(),
+        availableCarat: Number(form.availableCarat),
     });
 
     const handleSubmit = async () => {
@@ -378,6 +385,20 @@ export function MelleDiamondFormDialog({
                             step="0.001"
                             value={form.avgPtr}
                             onChange={(e) => update("avgPtr", e.target.value)}
+                        />
+                    </div>
+
+                    <div className="space-y-1">
+                        <Label>Available Carat (ct)</Label>
+                        <Input
+                            type="number"
+                            step="0.01"
+                            min="0"
+                            value={form.availableCarat}
+                            onChange={(e) =>
+                                update("availableCarat", e.target.value)
+                            }
+                            placeholder="Default: 100"
                         />
                     </div>
 

@@ -109,7 +109,9 @@ export interface GetAllCartsResponse {
 export interface GetAllCartsParams {
     page?: number;
     limit?: number;
-    stockRef?: string; // Add this line
+    stockRef?: string;
+    sortBy?: string;
+    sortOrder?: "asc" | "desc";
 }
 
 export interface GetAllUsersParams {
@@ -262,10 +264,11 @@ export const getAllCarts = async (
     if (params?.limit) {
         queryParams.append("limit", params.limit.toString());
     }
-    // Add stockRef parameter
     if (params?.stockRef) {
         queryParams.append("stockRef", params.stockRef);
     }
+    queryParams.append("sortBy", params?.sortBy ?? "updatedAt");
+    queryParams.append("sortOrder", params?.sortOrder ?? "desc");
 
     const queryString = queryParams.toString();
     const url = `/diamonds/cart/admin/all${queryString ? `?${queryString}` : ""}`;

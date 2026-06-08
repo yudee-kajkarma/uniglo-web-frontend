@@ -76,6 +76,7 @@ import DiamondDetailView from "@/components/inventory/DiamondDetailView";
 import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
 import { toast } from "sonner";
 import { addToCart, addMelleToCart } from "@/services/cartService";
+import { MelleCartCaratDialog } from "@/components/dialogs/MelleCartCaratDialog";
 import { useAuth } from "@/context/AuthContext";
 
 function InventoryContent() {
@@ -110,6 +111,7 @@ function InventoryContent() {
         (Diamond | PublicDiamond)[]
     >([]);
     const [addingToCart, setAddingToCart] = useState(false);
+    const [melleCartDialogOpen, setMelleCartDialogOpen] = useState(false);
     const [isFilterOpen, setIsFilterOpen] = useState(false);
     const [isExportDialogOpen, setIsExportDialogOpen] = useState(false);
     const [exportFormat, setExportFormat] = useState<"xlsx" | "csv">("xlsx");
@@ -806,7 +808,7 @@ function InventoryContent() {
         setMelleBulkDeleteOpen(true);
     };
 
-    const handleMelleAddToCart = async () => {
+    const handleMelleAddToCart = () => {
         if (!isAuthenticated) {
             toast.error("Please login to add items to cart");
             router.push("/login");
@@ -816,20 +818,17 @@ function InventoryContent() {
             toast.warning("Please select melee diamonds to add to cart");
             return;
         }
+        setMelleCartDialogOpen(true);
+    };
+
+    const handleMelleCartConfirm = async (
+        items: { melleId: string; requestedCarat: number }[],
+    ) => {
         setAddingToCart(true);
         try {
-            const ids = selectedMelle
-                .filter((d): d is MelleDiamond => "_id" in d)
-                .map((d) => d._id);
-            await addMelleToCart(ids);
+            await addMelleToCart(items);
             toast.success("Selected melee diamonds added to cart");
             setSelectedMelle([]);
-        } catch (error) {
-            toast.error(
-                typeof error === "string"
-                    ? error
-                    : "Failed to add melee diamonds to cart",
-            );
         } finally {
             setAddingToCart(false);
         }
@@ -1513,6 +1512,17 @@ function InventoryContent() {
                     </DialogFooter>
                 </DialogContent>
             </Dialog>
+
+            {isAuthenticated && isMelee && (
+                <MelleCartCaratDialog
+                    open={melleCartDialogOpen}
+                    onOpenChange={setMelleCartDialogOpen}
+                    diamonds={selectedMelle.filter(
+                        (d): d is MelleDiamond => "_id" in d,
+                    )}
+                    onConfirm={handleMelleCartConfirm}
+                />
+            )}
 
             {/* Melee admin dialogs */}
             {isAuthenticated && isAdminOrSuperAdmin && (

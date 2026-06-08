@@ -421,6 +421,10 @@ function MelleCompareContent() {
                 d.carat !== undefined ? d.carat.toFixed(5) : "-",
         },
         {
+            label: "Available Carat",
+            getValue: (d) => `${(d.availableCarat ?? 100).toFixed(2)} ct`,
+        },
+        {
             label: "Sieve",
             getValue: (d) => formatRange(d.sieveMin, d.sieveMax),
         },

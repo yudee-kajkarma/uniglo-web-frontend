@@ -21,6 +21,8 @@ export interface MelleDiamond {
     measurementMax: string;
     measurementMin: string;
     carat: number;
+    /** Available carat weight in stock; defaults to 100. */
+    availableCarat?: number;
     isLab: boolean;
     /** HPHT or CVD for lab-grown stones; empty string otherwise. */
     labType?: string;
@@ -100,6 +102,7 @@ export interface CreateMelleDiamondBody {
     labType?: string;
     melleCategory: MelleCategory;
     cut?: MelleCut;
+    availableCarat?: number;
 }
 
 export type UpdateMelleDiamondBody = Partial<CreateMelleDiamondBody>;

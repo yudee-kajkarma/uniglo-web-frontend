@@ -61,14 +61,19 @@ export const addToCart = async (
     }
 };
 
+export interface MelleCartLineInput {
+    melleId: string;
+    requestedCarat: number;
+}
+
 export const addMelleToCart = async (
-    melleId: string[],
+    items: MelleCartLineInput[],
 ): Promise<ApiSuccessResponse<AddToCartResponseData>> => {
     try {
         const response = await apiClient.post<
             ApiSuccessResponse<AddToCartResponseData>
         >("/diamonds/cart/add", {
-            melleId,
+            melleItems: items,
         });
         return response.data;
     } catch (error) {

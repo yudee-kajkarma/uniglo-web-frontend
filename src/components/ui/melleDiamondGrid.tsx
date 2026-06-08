@@ -88,6 +88,12 @@ export default function MelleDiamondGrid({
                                     <span>{item.carat.toFixed(5)}</span>
                                 </div>
                             )}
+                            <div className="flex items-center justify-start gap-2">
+                                <span className="font-medium">Avail:</span>
+                                <span>
+                                    {(item.availableCarat ?? 100).toFixed(2)} ct
+                                </span>
+                            </div>
                             {sieve && (
                                 <div className="flex items-center justify-start gap-2 col-span-2">
                                     <span className="font-medium">Sieve:</span>

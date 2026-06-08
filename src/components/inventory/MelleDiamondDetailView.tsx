@@ -42,6 +42,7 @@ import { AdminHoldDialog } from "@/components/admin-hold-dialog";
 import { useAuth } from "@/context/AuthContext";
 import { fetchMelleDiamondById } from "@/services/melleDiamondService";
 import { addMelleToCart, holdDiamond } from "@/services/cartService";
+import { MelleCartCaratDialog } from "@/components/dialogs/MelleCartCaratDialog";
 import { createDiamondInquiry } from "@/services/inquiryService";
 import { MelleDiamond } from "@/interface/melleDiamondInterface";
 
@@ -70,6 +71,7 @@ export default function MelleDiamondDetailView({
 
     const [holdLoading, setHoldLoading] = useState(false);
     const [cartLoading, setCartLoading] = useState(false);
+    const [cartCaratDialogOpen, setCartCaratDialogOpen] = useState(false);
     const [showHoldDialog, setShowHoldDialog] = useState(false);
     const [showAdminHoldDialog, setShowAdminHoldDialog] = useState(false);
 
@@ -119,17 +121,21 @@ export default function MelleDiamondDetailView({
         }
     };
 
-    const handleAddToCart = async () => {
+    const handleAddToCart = () => {
         if (!diamond?._id) {
             toast.error("Diamond ID not available");
             return;
         }
+        setCartCaratDialogOpen(true);
+    };
+
+    const handleCartCaratConfirm = async (
+        items: { melleId: string; requestedCarat: number }[],
+    ) => {
         try {
             setCartLoading(true);
-            const response = await addMelleToCart([diamond._id]);
+            const response = await addMelleToCart(items);
             toast.success(response.message);
-        } catch (err: any) {
-            toast.error(err || "Failed to add diamond to cart");
         } finally {
             setCartLoading(false);
         }
@@ -236,6 +242,7 @@ export default function MelleDiamondDetailView({
     );
 
     return (
+        <>
         <div className="min-h-screen bg-white text-gray-800 font-sans pb-20 pt-5">
             <div className="max-w-[1400px] mx-auto px-4 md:px-8">
                 <div className="flex flex-col md:flex-row md:items-center justify-start mb-6 gap-4">
@@ -322,6 +329,11 @@ export default function MelleDiamondDetailView({
                                     icon={Scale}
                                     title="Carat"
                                     subtitle={`${diamond.carat?.toFixed(5) ?? "-"} ct`}
+                                />
+                                <InfoCard
+                                    icon={Scale}
+                                    title="Available Carat"
+                                    subtitle={`${(diamond.availableCarat ?? 100).toFixed(2)} ct`}
                                 />
                                 <InfoCard
                                     icon={Palette}
@@ -585,5 +597,14 @@ export default function MelleDiamondDetailView({
                 </div>
             </div>
         </div>
+        {diamond && (
+            <MelleCartCaratDialog
+                open={cartCaratDialogOpen}
+                onOpenChange={setCartCaratDialogOpen}
+                diamonds={[diamond]}
+                onConfirm={handleCartCaratConfirm}
+            />
+        )}
+        </>
     );
 }
