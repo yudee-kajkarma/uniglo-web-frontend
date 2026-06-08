@@ -6,7 +6,7 @@ import {
     removeFromCart,
     clearCart,
 } from "@/services/cartService";
-import { CartItem } from "@/interface/diamondInterface";
+import { HoldCartItem } from "@/interface/diamondInterface";
 import {
     Trash2,
     GitCompare,
@@ -30,7 +30,7 @@ const formatCurrency = (value: number) => {
 
 export default function HoldDiamondsPage() {
     const router = useRouter();
-    const [holdItems, setHoldItems] = useState<CartItem[]>([]);
+    const [holdItems, setHoldItems] = useState<HoldCartItem[]>([]);
     const [loading, setLoading] = useState(true);
     const [selectedIds, setSelectedIds] = useState<string[]>([]);
     const [error, setError] = useState<string | null>(null);

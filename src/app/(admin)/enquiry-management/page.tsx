@@ -1475,10 +1475,7 @@ export default function EnquiryManagementPage() {
         userId: string,
         updatedItem: CartItem,
     ) => {
-        const updatedDiamondId =
-            typeof updatedItem.diamondId === "string"
-                ? updatedItem.diamondId
-                : updatedItem.diamond._id;
+        const updatedLineId = getCartLineId(updatedItem);
 
         setCarts((previousCarts) =>
             previousCarts.map((entry) => {
@@ -1491,21 +1488,30 @@ export default function EnquiryManagementPage() {
                     cart: {
                         ...entry.cart,
                         items: entry.cart.items.map((item) => {
-                            const itemDiamondId =
-                                typeof item.diamondId === "string"
-                                    ? item.diamondId
-                                    : item.diamond._id;
-
-                            if (itemDiamondId !== updatedDiamondId) {
+                            if (getCartLineId(item) !== updatedLineId) {
                                 return item;
                             }
 
-                            return {
-                                ...item,
-                                ...updatedItem,
-                                diamond:
-                                    updatedItem.diamond || item.diamond,
-                            };
+                            if (
+                                isMelleCartItem(updatedItem) &&
+                                isMelleCartItem(item)
+                            ) {
+                                return { ...item, ...updatedItem };
+                            }
+
+                            if (
+                                !isMelleCartItem(updatedItem) &&
+                                !isMelleCartItem(item)
+                            ) {
+                                return {
+                                    ...item,
+                                    ...updatedItem,
+                                    diamond:
+                                        updatedItem.diamond || item.diamond,
+                                };
+                            }
+
+                            return updatedItem;
                         }),
                     },
                 };

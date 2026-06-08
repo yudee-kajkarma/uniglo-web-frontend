@@ -12,6 +12,11 @@ import {
     markCartItemMessagesDelivered,
 } from "@/services/cartService";
 import { calculateTotalPrice, CartItem, CartItemMessage } from "@/interface/diamondInterface";
+import {
+    getCartLineId,
+    isDiamondCartItem,
+    isMelleCartItem,
+} from "@/lib/cartItems";
 import { DiamondAvailabilityStatusBadge } from "@/components/columns/DiamondColumns";
 import {
     canModifyCartMessage,
@@ -95,31 +100,30 @@ export default function CartPage() {
     );
     const [isUpdatingMessage, setIsUpdatingMessage] = useState(false);
 
-    const getCartThreadId = (item: CartItem) =>
-        typeof item.diamondId === "string" ? item.diamondId : item.diamond._id;
+    const getCartThreadId = getCartLineId;
 
     const updateCartItemInState = (updatedItem: CartItem) => {
-        const updatedDiamondId =
-            typeof updatedItem.diamondId === "string"
-                ? updatedItem.diamondId
-                : updatedItem.diamond._id;
+        const updatedLineId = getCartLineId(updatedItem);
 
         setCartItems((previousItems) =>
             previousItems.map((item) => {
-                const itemDiamondId =
-                    typeof item.diamondId === "string"
-                        ? item.diamondId
-                        : item.diamond._id;
-
-                if (itemDiamondId !== updatedDiamondId) {
+                if (getCartLineId(item) !== updatedLineId) {
                     return item;
                 }
 
-                return {
-                    ...item,
-                    ...updatedItem,
-                    diamond: updatedItem.diamond || item.diamond,
-                };
+                if (isMelleCartItem(updatedItem) && isMelleCartItem(item)) {
+                    return { ...item, ...updatedItem };
+                }
+
+                if (isDiamondCartItem(updatedItem) && isDiamondCartItem(item)) {
+                    return {
+                        ...item,
+                        ...updatedItem,
+                        diamond: updatedItem.diamond || item.diamond,
+                    };
+                }
+
+                return updatedItem;
             }),
         );
     };
@@ -189,7 +193,7 @@ export default function CartPage() {
 
     const handleSelectAll = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.checked) {
-            setSelectedIds(cartItems.map((item) => item.diamond._id));
+            setSelectedIds(cartItems.map((item) => getCartLineId(item)));
         } else {
             setSelectedIds([]);
         }
@@ -250,8 +254,10 @@ export default function CartPage() {
         }
 
         // Get selected diamonds and create query string
-        const selectedDiamonds = cartItems.filter((item) =>
-            selectedIds.includes(item.diamond._id),
+        const selectedDiamonds = cartItems.filter(
+            (item): item is Extract<CartItem, { diamond: unknown }> =>
+                isDiamondCartItem(item) &&
+                selectedIds.includes(getCartLineId(item)),
         );
         const queryString = selectedDiamonds
             .map((item) => item.diamond.certiNo)
@@ -264,7 +270,11 @@ export default function CartPage() {
         if (selectedIds.length === 0) return;
 
         const selectedStockRefs = cartItems
-            .filter((item) => selectedIds.includes(item.diamond._id))
+            .filter(
+                (item): item is Extract<CartItem, { diamond: unknown }> =>
+                    isDiamondCartItem(item) &&
+                    selectedIds.includes(getCartLineId(item)),
+            )
             .map((item) => item.diamond.stockRef);
 
         try {
@@ -324,7 +334,7 @@ export default function CartPage() {
             try {
                 setIsUpdatingMessage(true);
                 const response = await updateCartItemMessage(
-                    item.diamondId,
+                    getCartLineId(item),
                     editingMessageId,
                     messageText,
                 );
@@ -350,7 +360,7 @@ export default function CartPage() {
         try {
             setIsSendingMessage(true);
             const response = await addCartItemMessage(
-                item.diamondId,
+                getCartLineId(item),
                 messageText,
             );
             toast.success("Message sent");
@@ -375,7 +385,7 @@ export default function CartPage() {
         try {
             setDeletingMessageId(messageId);
             const response = await deleteCartItemMessage(
-                item.diamondId,
+                getCartLineId(item),
                 messageId,
             );
             toast.success("Message deleted");
@@ -463,7 +473,9 @@ export default function CartPage() {
                     disabled={cartItems.length === 0}
                     onClick={() =>
                         exportDiamondsToExcel(
-                            cartItems.map((item) => item.diamond),
+                            cartItems
+                                .filter(isDiamondCartItem)
+                                .map((item) => item.diamond),
                             "cart-diamonds",
                         )
                     }
@@ -638,7 +650,6 @@ export default function CartPage() {
                                 </tr>
                             ) : (
                                 cartItems.map((item, index) => {
-                                    const d = item.diamond;
                                     const threadId = getCartThreadId(item);
                                     const isEven = index % 2 === 0;
                                     const messages = getCartItemMessages(item);
@@ -648,6 +659,133 @@ export default function CartPage() {
                                     );
                                     const isExpanded =
                                         expandedDiamondId === threadId;
+
+                                    if (isMelleCartItem(item)) {
+                                        const m = item.melle;
+                                        const lineId = getCartLineId(item);
+                                        const totalPrice =
+                                            (m.price ?? 0) *
+                                            (item.requestedCarat ?? 0);
+                                        return (
+                                            <React.Fragment key={threadId}>
+                                                <tr
+                                                    id={`cart-thread-${threadId}`}
+                                                    className={`border-b font-lato border-[#e7d7b4] hover:bg-[#fffbf2] transition-colors ${
+                                                        !isEven
+                                                            ? "bg-[#fffbf2]/30"
+                                                            : "bg-white"
+                                                    }`}
+                                                >
+                                                    <td className="p-4 text-center">
+                                                        <input
+                                                            type="checkbox"
+                                                            className="w-4 h-4 accent-[#bb923a] cursor-pointer"
+                                                            checked={selectedIds.includes(
+                                                                lineId,
+                                                            )}
+                                                            onChange={() =>
+                                                                handleSelectOne(
+                                                                    lineId,
+                                                                )
+                                                            }
+                                                        />
+                                                    </td>
+                                                    <td className="p-2">—</td>
+                                                    <td className="p-4">
+                                                        <Link
+                                                            href={`/inventory?view=${m._id}&type=melle`}
+                                                            className="font-semibold text-[#26062b] hover:text-[#bb923a] underline transition-colors"
+                                                        >
+                                                            {m.stockId}
+                                                        </Link>
+                                                    </td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4">
+                                                        {m.isLab
+                                                            ? "Lab"
+                                                            : "Natural"}
+                                                    </td>
+                                                    <td className="p-4">
+                                                        {m.shape}
+                                                    </td>
+                                                    <td className="p-4">
+                                                        {item.requestedCarat.toFixed(
+                                                            2,
+                                                        )}{" "}
+                                                        ct req.
+                                                    </td>
+                                                    <td className="p-4">
+                                                        {m.color}
+                                                    </td>
+                                                    <td className="p-4">
+                                                        {m.clarity}
+                                                    </td>
+                                                    <td className="p-4">
+                                                        {m.cut || "—"}
+                                                    </td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4 text-right">
+                                                        {formatCurrency(
+                                                            m.price ?? 0,
+                                                        )}
+                                                    </td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4">—</td>
+                                                    <td className="p-4 text-right font-bold text-[#bb923a]">
+                                                        {formatCurrency(
+                                                            totalPrice,
+                                                        )}
+                                                    </td>
+                                                    <td className="p-4 text-center">
+                                                        <button
+                                                            type="button"
+                                                            onClick={() =>
+                                                                handleToggleMessagesWithDelivery(
+                                                                    item,
+                                                                )
+                                                            }
+                                                            className={`relative inline-flex items-center justify-center rounded-md p-1.5 transition-colors ${
+                                                                isExpanded
+                                                                    ? "bg-[#26062b]/10 text-[#26062b]"
+                                                                    : "text-gray-500 hover:bg-gray-100 hover:text-[#26062b]"
+                                                            }`}
+                                                            aria-label={
+                                                                isExpanded
+                                                                    ? "Hide messages"
+                                                                    : "Show messages"
+                                                            }
+                                                        >
+                                                            <MessageSquare
+                                                                size={16}
+                                                            />
+                                                            <span className="absolute -right-2 -top-2 rounded-full bg-slate-900 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                                {
+                                                                    counts.totalCount
+                                                                }
+                                                            </span>
+                                                            {counts.unreadCount >
+                                                                0 && (
+                                                                <span className="absolute -bottom-2 -right-2 rounded-full bg-red-500 px-1.5 py-0.5 text-[10px] font-semibold leading-none text-white">
+                                                                    {
+                                                                        counts.unreadCount
+                                                                    }
+                                                                </span>
+                                                            )}
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </React.Fragment>
+                                        );
+                                    }
+
+                                    if (!isDiamondCartItem(item)) {
+                                        return null;
+                                    }
+
+                                    const d = item.diamond;
                                     return (
                                         <React.Fragment key={threadId}>
                                         <tr

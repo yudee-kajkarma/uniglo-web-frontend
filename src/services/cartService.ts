@@ -1,6 +1,6 @@
 import apiClient from "@/lib/api";
 import { ApiSuccessResponse, ApiErrorResponse } from "./authServices";
-import { Cart, CartItem } from "@/interface/diamondInterface";
+import { Cart, CartItem, HoldCartItem } from "@/interface/diamondInterface";
 import { AxiosError } from "axios";
 
 export interface CartResponseData {
@@ -23,7 +23,7 @@ export interface RemoveFromCartResponseData {
 }
 
 export interface HoldItemsResponseData {
-    holdItems: CartItem[];
+    holdItems: HoldCartItem[];
     totalItems: number;
 }
 

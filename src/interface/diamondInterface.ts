@@ -295,6 +295,12 @@ export interface MelleCartItem {
 
 export type CartItem = DiamondCartItem | MelleCartItem;
 
+export interface HoldCartItem {
+    diamondId: string;
+    addedAt: string;
+    diamond: Diamond;
+}
+
 export interface Cart {
     _id: string;
     userId: string;

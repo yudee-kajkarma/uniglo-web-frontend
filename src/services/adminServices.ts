@@ -1,5 +1,5 @@
 import apiClient from "@/lib/api";
-import { CartItem } from "@/interface/diamondInterface";
+import { CartItem, HoldCartItem } from "@/interface/diamondInterface";
 
 // Types
 export interface Address {
@@ -64,7 +64,7 @@ export interface CartWithDetails {
     _id: string;
     userId: string;
     items: CartItem[];
-    holdItems: CartItem[];
+    holdItems: HoldCartItem[];
     createdAt: string;
     updatedAt: string;
 }
