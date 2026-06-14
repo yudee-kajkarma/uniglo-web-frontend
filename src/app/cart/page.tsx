@@ -668,6 +668,7 @@ export default function CartPage() {
                                 <th className="p-4 text-left">Lab</th>
                                 <th className="p-4 text-left">Shape</th>
                                 <th className="p-4 text-left">Carat</th>
+                                <th className="p-4 text-left">Pieces</th>
                                 <th className="p-4 text-left">Color</th>
                                 <th className="p-4 text-left">Purity</th>
                                 <th className="p-4 text-left">Cut</th>
@@ -686,7 +687,7 @@ export default function CartPage() {
                             {cartItems.length === 0 ? (
                                 <tr>
                                     <td
-                                        colSpan={19}
+                                        colSpan={20}
                                         className="p-12 text-center text-gray-500"
                                     >
                                         <div className="flex flex-col items-center gap-2">
@@ -718,6 +719,14 @@ export default function CartPage() {
                                         const totalPrice =
                                             (m.price ?? 0) *
                                             (item.requestedCarat ?? 0);
+                                        // Pieces from the API; fall back to
+                                        // deriving from the per-piece carat.
+                                        const requestedPieces =
+                                            item.requestedPieces ??
+                                            (m.carat
+                                                ? (item.requestedCarat ?? 0) /
+                                                  m.carat
+                                                : undefined);
                                         return (
                                             <React.Fragment key={threadId}>
                                                 <tr
@@ -767,6 +776,14 @@ export default function CartPage() {
                                                             2,
                                                         )}{" "}
                                                         ct req.
+                                                    </td>
+                                                    <td className="p-4">
+                                                        {requestedPieces !==
+                                                        undefined
+                                                            ? `${Math.round(
+                                                                  requestedPieces,
+                                                              ).toLocaleString()} pcs`
+                                                            : "—"}
                                                     </td>
                                                     <td className="p-4">
                                                         {m.color}
@@ -913,6 +930,7 @@ export default function CartPage() {
                                             <td className="p-4">
                                                 {d.weight?.toFixed(2)}
                                             </td>
+                                            <td className="p-4">—</td>
                                             <td className="p-4">{d.color}</td>
                                             <td className="p-4 text-[#3b82f6]">
                                                 {d.clarity}
@@ -978,7 +996,7 @@ export default function CartPage() {
                                                         : "bg-white"
                                                 }`}
                                             >
-                                                <td colSpan={19} className="px-4 pt-4 pb-4">
+                                                <td colSpan={20} className="px-4 pt-4 pb-4">
                                                     <div className="space-y-3">
                                                         <div className="space-y-2 max-h-48 overflow-y-auto">
                                                             {messages.length > 0 ? (

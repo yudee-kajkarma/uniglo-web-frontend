@@ -163,7 +163,7 @@ const CartItemsTable = ({
     const autoOpenedThreadRef = React.useRef<string | null>(null);
     const getCartThreadId = getCartLineId;
 
-    const columnCount = 16;
+    const columnCount = 17;
 
     useEffect(() => {
         if (!autoExpandDiamondId) {
@@ -365,6 +365,7 @@ const CartItemsTable = ({
                         <th className="py-2 px-3">Shape</th>
                         <th className="py-2 px-3">Carat</th>
                         <th className="py-2 px-3">Requested Ct.</th>
+                        <th className="py-2 px-3">Pieces</th>
                         <th className="py-2 px-3">Color</th>
                         <th className="py-2 px-3">Clarity</th>
                         <th className="py-2 px-3">Cut</th>
@@ -467,14 +468,13 @@ const CartItemsTable = ({
                                                 2,
                                             )}{" "}
                                             ct
-                                            {requestedPieces !== undefined && (
-                                                <div className="text-xs font-normal text-gray-500">
-                                                    {Math.round(
-                                                        requestedPieces,
-                                                    ).toLocaleString()}{" "}
-                                                    pcs
-                                                </div>
-                                            )}
+                                        </td>
+                                        <td className="py-2 px-3">
+                                            {requestedPieces !== undefined
+                                                ? `${Math.round(
+                                                      requestedPieces,
+                                                  ).toLocaleString()} pcs`
+                                                : "—"}
                                         </td>
                                         <td className="py-2 px-3">{m.color}</td>
                                         <td className="py-2 px-3">
@@ -552,6 +552,7 @@ const CartItemsTable = ({
                                     <td className="py-2 px-3">{d.shape}</td>
                                     <td className="py-2 px-3">{d.weight}</td>
                                     <td className="py-2 px-3">-</td>
+                                    <td className="py-2 px-3">—</td>
                                     <td className="py-2 px-3">{d.color}</td>
                                     <td className="py-2 px-3">{d.clarity}</td>
                                     <td className="py-2 px-3">{d.cutGrade}</td>
