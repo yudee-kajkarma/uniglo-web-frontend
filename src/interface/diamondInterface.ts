@@ -283,6 +283,10 @@ export interface DiamondCartItem {
 export interface MelleCartItem {
     melleId: string;
     requestedCarat: number;
+    /** Stones the requested carat works out to (requestedCarat / per-piece carat). */
+    requestedPieces?: number;
+    /** Price for a single stone (price-per-carat × per-piece carat). */
+    pricePerPiece?: number;
     addedAt: string;
     melle: MelleDiamond;
     messages?: CartItemMessage[];

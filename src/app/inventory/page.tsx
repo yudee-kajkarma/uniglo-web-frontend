@@ -961,6 +961,51 @@ function InventoryContent() {
                         </Button>
                     </div>
                 )}
+                {isMelee && (
+                    <div className="bg-white flex justify-start items-center gap-2">
+                        <Button
+                            variant={"ghost"}
+                            onClick={() =>
+                                setMelleFilterState((prev) => ({
+                                    ...prev,
+                                    isLab:
+                                        prev.isLab === false
+                                            ? undefined
+                                            : false,
+                                    // Switching off Lab must clear stale
+                                    // HPHT/CVD chips.
+                                    labType: [],
+                                }))
+                            }
+                            className={`text-black my-1 rounded-md ml-1 transition-all ${
+                                melleFilterState.isLab === false
+                                    ? "border-2 border-primary-yellow-1 font-semibold"
+                                    : "hover:bg-gray-100"
+                            }`}
+                        >
+                            Natural
+                        </Button>
+                        <Button
+                            variant={"ghost"}
+                            onClick={() =>
+                                setMelleFilterState((prev) => ({
+                                    ...prev,
+                                    isLab:
+                                        prev.isLab === true ? undefined : true,
+                                    labType:
+                                        prev.isLab === true ? [] : prev.labType,
+                                }))
+                            }
+                            className={`text-black my-1 rounded-md transition-all ${
+                                melleFilterState.isLab === true
+                                    ? "border-2 border-primary-yellow-1 font-semibold"
+                                    : "hover:bg-gray-100"
+                            }`}
+                        >
+                            Lab
+                        </Button>
+                    </div>
+                )}
             </div>
             <div className="hidden lg:block">
                 {isMelee ? (

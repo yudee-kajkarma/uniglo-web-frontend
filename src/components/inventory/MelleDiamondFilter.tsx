@@ -300,36 +300,9 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
     //     </div>
     // );
 
-    const isLabContent = (
-        <div className="flex gap-2">
-            <ToggleButton
-                label="Natural"
-                active={filters.isLab === false}
-                onClick={() =>
-                    setFilters((p) => ({
-                        ...p,
-                        isLab: p.isLab === false ? undefined : false,
-                        // Switching off Lab must clear stale HPHT/CVD chips.
-                        labType: [],
-                    }))
-                }
-                className="border border-primary-yellow-2 flex-1"
-            />
-            <ToggleButton
-                label="Lab"
-                active={filters.isLab === true}
-                onClick={() =>
-                    setFilters((p) => ({
-                        ...p,
-                        isLab: p.isLab === true ? undefined : true,
-                        labType: p.isLab === true ? [] : p.labType,
-                    }))
-                }
-                className="border border-primary-yellow-2 flex-1"
-            />
-        </div>
-    );
-
+    // Natural/Lab is selected via the sub-tab bar above the filter panel
+    // (see inventory page). Here we only surface the HPHT/CVD chips when the
+    // user has the Lab sub-tab active.
     const labTypeContent =
         filters.isLab === true && options.labTypes.length > 0 ? (
             <div className="flex flex-wrap gap-1 pt-2">
@@ -470,10 +443,11 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                 >
                     {categoryContent}
                 </DiamondFilterSection> */}
-                <DiamondFilterSection title="Type" variant="sidebar">
-                    {isLabContent}
-                    {labTypeContent}
-                </DiamondFilterSection>
+                {filters.isLab === true && options.labTypes.length > 0 && (
+                    <DiamondFilterSection title="Lab Type" variant="sidebar">
+                        {labTypeContent}
+                    </DiamondFilterSection>
+                )}
                 <div className="flex flex-col">
                     {sizeModeRadio}
                     {priceSlider}
@@ -498,7 +472,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     </DiamondFilterSection>
                 </div>
 
-                {/* Col 2 — Clarity + Cut + Type */}
+                {/* Col 2 — Clarity + Cut + Lab Type */}
                 <div className="lg:col-span-4 flex flex-col gap-2">
                     <DiamondFilterSection title="Clarity">
                         {clarityContent}
@@ -509,10 +483,12 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     {/* <DiamondFilterSection title="Melee Category">
                         {categoryContent}
                     </DiamondFilterSection> */}
-                    <DiamondFilterSection title="Type">
-                        {isLabContent}
-                        {labTypeContent}
-                    </DiamondFilterSection>
+                    {filters.isLab === true &&
+                        options.labTypes.length > 0 && (
+                            <DiamondFilterSection title="Lab Type">
+                                {labTypeContent}
+                            </DiamondFilterSection>
+                        )}
                 </div>
 
                 {/* Col 3 — size-mode radio, active size dropdown, Measurement,

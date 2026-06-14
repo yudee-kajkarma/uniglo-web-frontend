@@ -277,6 +277,128 @@ export const getAllCarts = async (
     return response.data;
 };
 
+// ---- Checkout admin services -------------------------------------------------
+// Checkout is an independent feature (own /diamonds/checkout endpoints) that
+// mirrors cart. Its admin payload is shaped like AdminCartData so the same
+// enquiry-management rendering can display it.
+
+interface AdminCheckoutRaw {
+    checkout: CartWithDetails;
+    user: UserDetails;
+    totalItems: number;
+}
+
+interface GetAllCheckoutsRawResponse {
+    success: boolean;
+    message: string;
+    data: AdminCheckoutRaw[];
+    pagination: GetAllCartsResponse["pagination"];
+}
+
+export const getAllCheckouts = async (
+    params?: GetAllCartsParams,
+): Promise<GetAllCartsResponse> => {
+    const queryParams = new URLSearchParams();
+
+    if (params?.page) {
+        queryParams.append("page", params.page.toString());
+    }
+    if (params?.limit) {
+        queryParams.append("limit", params.limit.toString());
+    }
+    if (params?.stockRef) {
+        queryParams.append("stockRef", params.stockRef);
+    }
+    queryParams.append("sortBy", params?.sortBy ?? "updatedAt");
+    queryParams.append("sortOrder", params?.sortOrder ?? "desc");
+
+    const queryString = queryParams.toString();
+    const url = `/diamonds/checkout/admin/all${queryString ? `?${queryString}` : ""}`;
+
+    const response = await apiClient.get<GetAllCheckoutsRawResponse>(url);
+    const raw = response.data;
+    return {
+        ...raw,
+        data: raw.data.map((entry) => ({
+            cart: entry.checkout,
+            user: entry.user,
+            totalItems: entry.totalItems,
+            totalHoldItems: 0,
+        })),
+    };
+};
+
+export const replyToCheckoutItem = async (
+    params: ReplyToCartItemParams,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.put<ReplyToCartItemResponse>(
+        `/diamonds/checkout/admin/${params.userId}/items/${params.diamondId}/reply`,
+        {
+            reply: params.reply,
+        },
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message || "Failed to reply to checkout item",
+        );
+    }
+
+    return response.data;
+};
+
+export const deleteCheckoutItemMessage = async (
+    params: DeleteCartItemMessageParams,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.delete<ReplyToCartItemResponse>(
+        `/diamonds/checkout/admin/${params.userId}/items/${params.diamondId}/messages/${params.messageId}`,
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message || "Failed to delete checkout item message",
+        );
+    }
+
+    return response.data;
+};
+
+export const updateCheckoutItemMessage = async (
+    params: UpdateCartItemMessageParams,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.put<ReplyToCartItemResponse>(
+        `/diamonds/checkout/admin/${params.userId}/items/${params.diamondId}/messages/${params.messageId}`,
+        {
+            message: params.message,
+        },
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message || "Failed to update checkout item message",
+        );
+    }
+
+    return response.data;
+};
+
+export const markAdminCheckoutItemMessagesDelivered = async (
+    params: Pick<UpdateCartItemMessageParams, "userId" | "diamondId">,
+): Promise<ReplyToCartItemResponse> => {
+    const response = await apiClient.post<ReplyToCartItemResponse>(
+        `/diamonds/checkout/admin/${params.userId}/items/${params.diamondId}/messages/delivered`,
+    );
+
+    if (!response.data.success) {
+        throw new Error(
+            response.data.message ||
+                "Failed to mark checkout item message delivered",
+        );
+    }
+
+    return response.data;
+};
+
 export interface ApproveDiamtradeEntityResponse {
     success: boolean;
     message: string;

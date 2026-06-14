@@ -7,6 +7,11 @@ import {
     markAdminCartItemMessagesDelivered,
     replyToCartItem,
     updateCartItemMessage,
+    getAllCheckouts,
+    deleteCheckoutItemMessage,
+    markAdminCheckoutItemMessagesDelivered,
+    replyToCheckoutItem,
+    updateCheckoutItemMessage,
     type AdminCartData,
 } from "@/services/adminServices";
 import {
@@ -107,16 +112,41 @@ const StatCard = ({
     </div>
 );
 
+// Admin message actions, injectable so the same table serves cart and the
+// independent checkout feature (different endpoints, identical signatures).
+type CartAdminApi = {
+    reply: typeof replyToCartItem;
+    update: typeof updateCartItemMessage;
+    remove: typeof deleteCartItemMessage;
+    markDelivered: typeof markAdminCartItemMessagesDelivered;
+};
+
+const CART_ADMIN_API: CartAdminApi = {
+    reply: replyToCartItem,
+    update: updateCartItemMessage,
+    remove: deleteCartItemMessage,
+    markDelivered: markAdminCartItemMessagesDelivered,
+};
+
+const CHECKOUT_ADMIN_API: CartAdminApi = {
+    reply: replyToCheckoutItem,
+    update: updateCheckoutItemMessage,
+    remove: deleteCheckoutItemMessage,
+    markDelivered: markAdminCheckoutItemMessagesDelivered,
+};
+
 const CartItemsTable = ({
     items,
     userId,
     onCartItemUpdated,
     autoExpandDiamondId,
+    adminApi = CART_ADMIN_API,
 }: {
     items: CartItem[];
     userId: string;
     onCartItemUpdated: (updatedItem: CartItem) => void;
     autoExpandDiamondId?: string | null;
+    adminApi?: CartAdminApi;
 }) => {
     const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
         null,
@@ -164,7 +194,7 @@ const CartItemsTable = ({
             setEditingMessageId(null);
 
             try {
-                const response = await markAdminCartItemMessagesDelivered({
+                const response = await adminApi.markDelivered({
                     userId,
                     diamondId: autoExpandDiamondId,
                 });
@@ -203,7 +233,7 @@ const CartItemsTable = ({
         }
 
         try {
-            const response = await markAdminCartItemMessagesDelivered({
+            const response = await adminApi.markDelivered({
                 userId,
                 diamondId: threadId,
             });
@@ -225,7 +255,7 @@ const CartItemsTable = ({
         if (editingMessageId) {
             try {
                 setIsUpdatingMessage(true);
-                const response = await updateCartItemMessage({
+                const response = await adminApi.update({
                     userId,
                     diamondId: getCartLineId(item),
                     messageId: editingMessageId,
@@ -252,7 +282,7 @@ const CartItemsTable = ({
 
         try {
             setIsReplying(true);
-            const response = await replyToCartItem({
+            const response = await adminApi.reply({
                 userId,
                 diamondId: getCartLineId(item),
                 reply: replyText,
@@ -278,7 +308,7 @@ const CartItemsTable = ({
     ) => {
         try {
             setDeletingMessageId(messageId);
-            const response = await deleteCartItemMessage({
+            const response = await adminApi.remove({
                 userId,
                 diamondId: getCartLineId(item),
                 messageId,
@@ -390,6 +420,16 @@ const CartItemsTable = ({
                             const m = item.melle;
                             const totalPrice =
                                 (m.price ?? 0) * (item.requestedCarat ?? 0);
+                            // Per-piece figures come from the API; fall back to
+                            // deriving them from the stone's per-piece carat.
+                            const requestedPieces =
+                                item.requestedPieces ??
+                                (m.carat
+                                    ? (item.requestedCarat ?? 0) / m.carat
+                                    : undefined);
+                            const pricePerPiece =
+                                item.pricePerPiece ??
+                                (m.carat ? (m.price ?? 0) * m.carat : undefined);
 
                             mainRow = (
                                     <tr
@@ -427,6 +467,14 @@ const CartItemsTable = ({
                                                 2,
                                             )}{" "}
                                             ct
+                                            {requestedPieces !== undefined && (
+                                                <div className="text-xs font-normal text-gray-500">
+                                                    {Math.round(
+                                                        requestedPieces,
+                                                    ).toLocaleString()}{" "}
+                                                    pcs
+                                                </div>
+                                            )}
                                         </td>
                                         <td className="py-2 px-3">{m.color}</td>
                                         <td className="py-2 px-3">
@@ -440,6 +488,20 @@ const CartItemsTable = ({
                                         <td className="py-2 px-3">
                                             $
                                             {(m.price ?? 0).toLocaleString()}
+                                            {pricePerPiece !== undefined && (
+                                                <div className="text-xs text-gray-500">
+                                                    {pricePerPiece.toLocaleString(
+                                                        undefined,
+                                                        {
+                                                            style: "currency",
+                                                            currency: "USD",
+                                                            minimumFractionDigits: 2,
+                                                            maximumFractionDigits: 4,
+                                                        },
+                                                    )}
+                                                    /pc
+                                                </div>
+                                            )}
                                         </td>
                                         <td className="py-2 px-3 font-medium text-right">
                                             $
@@ -1057,6 +1119,7 @@ const EnquiryRow = ({
     autoExpand = false,
     autoExpandCartThreadId,
     targetQueryId,
+    mode = "cart",
 }: {
     data: AdminCartData;
     index: number;
@@ -1070,7 +1133,9 @@ const EnquiryRow = ({
     autoExpand?: boolean;
     autoExpandCartThreadId?: string | null;
     targetQueryId?: string | null;
+    mode?: "cart" | "checkout";
 }) => {
+    const isCheckout = mode === "checkout";
     const [isExpanded, setIsExpanded] = useState(autoExpand);
     const autoHandledRef = React.useRef(false);
     const [extendHoldDialog, setExtendHoldDialog] = useState<{
@@ -1255,10 +1320,11 @@ const EnquiryRow = ({
                         className="px-6 py-4 bg-gray-50 border-b border-gray-100"
                     >
                         <div className="space-y-6">
-                            {/* Cart Items Section */}
+                            {/* Cart / Checkout Items Section */}
                             <div className="bg-white rounded-md border border-gray-200 overflow-hidden">
                                 <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 font-semibold text-sm text-gray-700">
-                                    Items in cart ({cart.items?.length || 0})
+                                    {isCheckout ? "Items in checkout" : "Items in cart"}{" "}
+                                    ({cart.items?.length || 0})
                                 </div>
                                 <CartItemsTable
                                     items={cart.items || []}
@@ -1270,23 +1336,30 @@ const EnquiryRow = ({
                                         )
                                     }
                                     autoExpandDiamondId={autoExpandCartThreadId}
+                                    adminApi={
+                                        isCheckout
+                                            ? CHECKOUT_ADMIN_API
+                                            : CART_ADMIN_API
+                                    }
                                 />
                             </div>
 
-                            {/* Hold Items Section */}
-                            <div className="bg-white rounded-md border border-gray-200 overflow-hidden">
-                                <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 font-semibold text-sm text-gray-700">
-                                    Holded Items
+                            {/* Hold Items Section (cart only) */}
+                            {!isCheckout && (
+                                <div className="bg-white rounded-md border border-gray-200 overflow-hidden">
+                                    <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 font-semibold text-sm text-gray-700">
+                                        Holded Items
+                                    </div>
+                                    <InnerDiamondTable
+                                        items={cart.holdItems}
+                                        isHold={true}
+                                        onExtendHold={handleExtendHold}
+                                    />
                                 </div>
-                                <InnerDiamondTable
-                                    items={cart.holdItems}
-                                    isHold={true}
-                                    onExtendHold={handleExtendHold}
-                                />
-                            </div>
+                            )}
 
-                            {/* Enquiries Section */}
-                            {userQueries.length > 0 && (
+                            {/* Enquiries Section (cart only) */}
+                            {!isCheckout && userQueries.length > 0 && (
                                 <div className="bg-white rounded-md border border-gray-200 overflow-hidden">
                                     <div className="px-4 py-2 bg-gray-50 border-b border-gray-200 font-semibold text-sm text-gray-700">
                                         Enquiries ({userQueries.length})
@@ -1331,6 +1404,7 @@ export default function EnquiryManagementPage() {
     const targetQueryId = searchParams.get("query");
     const targetStockRef = searchParams.get("stockRef");
     const [carts, setCarts] = useState<AdminCartData[]>([]);
+    const [cartView, setCartView] = useState<"cart" | "checkout">("cart");
     const [queries, setQueries] = useState<AdminQueriesData[]>([]);
     const [loading, setLoading] = useState(true);
     const [queriesLoading, setQueriesLoading] = useState(true);
@@ -1403,7 +1477,9 @@ export default function EnquiryManagementPage() {
             if (!background) {
                 setLoading(true);
             }
-            const response = await getAllCarts({
+            const fetcher =
+                cartView === "checkout" ? getAllCheckouts : getAllCarts;
+            const response = await fetcher({
                 page,
                 limit: 10,
                 stockRef: stockRef || undefined,
@@ -1436,7 +1512,17 @@ export default function EnquiryManagementPage() {
     useEffect(() => {
         fetchData(pagination.currentPage, activeSearch);
         fetchQueries();
-    }, [pagination.currentPage, activeSearch]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [pagination.currentPage, activeSearch, cartView]);
+
+    const handleSwitchCartView = (next: "cart" | "checkout") => {
+        if (next === cartView) return;
+        setCarts([]);
+        setCartView(next);
+        setPagination((prev) =>
+            prev.currentPage === 1 ? prev : { ...prev, currentPage: 1 },
+        );
+    };
 
     const handlePageChange = (newPage: number) => {
         if (newPage >= 1 && newPage <= pagination.totalPages) {
@@ -1680,6 +1766,25 @@ export default function EnquiryManagementPage() {
                 )}
             </div>
 
+            {/* Cart / Checkout view toggle */}
+            <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1 shadow-sm">
+                {(["cart", "checkout"] as const).map((view) => (
+                    <button
+                        key={view}
+                        type="button"
+                        onClick={() => handleSwitchCartView(view)}
+                        disabled={loading}
+                        className={`px-5 py-2 text-sm font-medium rounded-md transition-colors disabled:opacity-50 ${
+                            cartView === view
+                                ? "bg-[#26062b] text-white shadow-sm"
+                                : "text-gray-600 hover:bg-gray-100"
+                        }`}
+                    >
+                        {view === "cart" ? "Cart" : "Checkout"}
+                    </button>
+                ))}
+            </div>
+
             {/* Main Table Container */}
             <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                 <div className="overflow-x-auto">
@@ -1830,6 +1935,7 @@ export default function EnquiryManagementPage() {
                                             targetQueryId={
                                                 isTargetUser ? targetQueryId : null
                                             }
+                                            mode={cartView}
                                         />
                                     );
                                 })

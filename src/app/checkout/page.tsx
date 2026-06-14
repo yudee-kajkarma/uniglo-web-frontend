@@ -2,16 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import {
-    getCart,
-    removeFromCart,
-    clearCart,
-    holdDiamond,
-    addCartItemMessage,
-    updateCartItemMessage,
-    deleteCartItemMessage,
-    markCartItemMessagesDelivered,
-} from "@/services/cartService";
-import { checkoutFromCart } from "@/services/checkoutService";
+    getCheckout,
+    removeFromCheckout,
+    clearCheckout,
+    addCheckoutItemMessage,
+    updateCheckoutItemMessage,
+    deleteCheckoutItemMessage,
+    markCheckoutItemMessagesDelivered,
+} from "@/services/checkoutService";
 import { calculateTotalPrice, CartItem, CartItemMessage } from "@/interface/diamondInterface";
 import {
     getCartLineId,
@@ -32,11 +30,9 @@ import {
     GitCompare,
     Loader2,
     AlertTriangle,
-    Clock,
     MessageSquare,
     Send,
     Pencil,
-    ShoppingBag,
 } from "lucide-react";
 import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
 import Link from "next/link";
@@ -76,7 +72,7 @@ const formatCurrency = (value: number) => {
     });
 };
 
-export default function CartPage() {
+export default function CheckoutPage() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const targetThreadId = searchParams.get("thread");
@@ -87,9 +83,6 @@ export default function CartPage() {
     const [error, setError] = useState<string | null>(null);
     const [removing, setRemoving] = useState(false);
     const [showClearDialog, setShowClearDialog] = useState(false);
-    const [holdLoading, setHoldLoading] = useState(false);
-    const [showHoldDialog, setShowHoldDialog] = useState(false);
-    const [checkingOut, setCheckingOut] = useState(false);
     const [expandedDiamondId, setExpandedDiamondId] = useState<string | null>(
         null,
     );
@@ -134,13 +127,13 @@ export default function CartPage() {
     const fetchCart = async () => {
         try {
             setLoading(true);
-            const response = await getCart();
+            const response = await getCheckout();
             if (response.success) {
                 setCartItems(response.data.cart?.items || []);
             }
         } catch (err: unknown) {
             setError(
-                err instanceof Error ? err.message : "Failed to load cart",
+                err instanceof Error ? err.message : "Failed to load checkout",
             );
         } finally {
             setLoading(false);
@@ -178,18 +171,18 @@ export default function CartPage() {
 
             try {
                 const response =
-                    await markCartItemMessagesDelivered(targetThreadId);
+                    await markCheckoutItemMessagesDelivered(targetThreadId);
                 if (response.data?.item) {
                     updateCartItemInState(response.data.item);
                 }
                 emitNotificationsRefresh();
             } catch (error) {
-                console.error("Failed to mark cart messages delivered:", error);
+                console.error("Failed to mark checkout messages delivered:", error);
             } finally {
                 document
-                    .getElementById(`cart-thread-${targetThreadId}`)
+                    .getElementById(`checkout-thread-${targetThreadId}`)
                     ?.scrollIntoView({ behavior: "smooth", block: "center" });
-                router.replace("/cart", { scroll: false });
+                router.replace("/checkout", { scroll: false });
             }
         })();
     }, [cartItems, expandedDiamondId, router, targetThreadId]);
@@ -217,16 +210,16 @@ export default function CartPage() {
             setRemoving(true);
 
             // Remove all selected items
-            await Promise.all(selectedIds.map((id) => removeFromCart(id)));
+            await Promise.all(selectedIds.map((id) => removeFromCheckout(id)));
 
-            toast.success(`${selectedIds.length} item(s) removed from cart`);
+            toast.success(`${selectedIds.length} item(s) removed from checkout`);
             setSelectedIds([]);
             await fetchCart();
         } catch (err: unknown) {
             toast.error(
                 err instanceof Error
                     ? err.message
-                    : "Failed to remove items from cart",
+                    : "Failed to remove items from checkout",
             );
         } finally {
             setRemoving(false);
@@ -236,50 +229,17 @@ export default function CartPage() {
     const handleClearCartConfirm = async () => {
         try {
             setRemoving(true);
-            await clearCart();
-            toast.success("Cart cleared successfully");
+            await clearCheckout();
+            toast.success("Checkout cleared successfully");
             setSelectedIds([]);
             await fetchCart();
             setShowClearDialog(false);
         } catch (err: unknown) {
             toast.error(
-                err instanceof Error ? err.message : "Failed to clear cart",
+                err instanceof Error ? err.message : "Failed to clear checkout",
             );
         } finally {
             setRemoving(false);
-        }
-    };
-
-    const handleCheckout = async () => {
-        if (cartItems.length === 0) {
-            toast.warning("Your cart is empty");
-            return;
-        }
-        // Selected stones only when any are selected; otherwise the whole cart.
-        const lineIds = selectedIds.length > 0 ? selectedIds : undefined;
-        try {
-            setCheckingOut(true);
-            const response = await checkoutFromCart(lineIds);
-            if (response.success) {
-                toast.success(
-                    response.message || "Items added to checkout — cart kept",
-                );
-                setSelectedIds([]);
-                // Refresh so auto-held diamonds reflect their new status.
-                await fetchCart();
-            } else {
-                toast.info(response.message || "Nothing new to checkout");
-            }
-        } catch (err: unknown) {
-            toast.error(
-                typeof err === "string"
-                    ? err
-                    : err instanceof Error
-                      ? err.message
-                      : "Failed to checkout",
-            );
-        } finally {
-            setCheckingOut(false);
         }
     };
 
@@ -302,36 +262,6 @@ export default function CartPage() {
         router.push(`/compare?ids=${queryString}`);
     };
 
-    const handleHoldSelected = async () => {
-        if (selectedIds.length === 0) return;
-
-        const selectedStockRefs = cartItems
-            .filter(
-                (item): item is Extract<CartItem, { diamond: unknown }> =>
-                    isDiamondCartItem(item) &&
-                    selectedIds.includes(getCartLineId(item)),
-            )
-            .map((item) => item.diamond.stockRef);
-
-        try {
-            setHoldLoading(true);
-            const response = await holdDiamond(selectedStockRefs);
-            toast.success(
-                response.message ||
-                    `${selectedStockRefs.length} diamond(s) held successfully`,
-            );
-            setShowHoldDialog(false);
-            setSelectedIds([]);
-            await fetchCart();
-        } catch (error: unknown) {
-            toast.error(
-                error instanceof Error ? error.message : "Failed to hold diamonds",
-            );
-        } finally {
-            setHoldLoading(false);
-        }
-    };
-
     const handleToggleMessages = (diamondId: string) => {
         setExpandedDiamondId((current) =>
             current === diamondId ? null : diamondId,
@@ -350,13 +280,13 @@ export default function CartPage() {
         }
 
         try {
-            const response = await markCartItemMessagesDelivered(threadId);
+            const response = await markCheckoutItemMessagesDelivered(threadId);
             if (response.data?.item) {
                 updateCartItemInState(response.data.item);
             }
             emitNotificationsRefresh();
         } catch (error) {
-            console.error("Failed to mark cart messages delivered:", error);
+            console.error("Failed to mark checkout messages delivered:", error);
         }
     };
 
@@ -369,7 +299,7 @@ export default function CartPage() {
         if (editingMessageId) {
             try {
                 setIsUpdatingMessage(true);
-                const response = await updateCartItemMessage(
+                const response = await updateCheckoutItemMessage(
                     getCartLineId(item),
                     editingMessageId,
                     messageText,
@@ -395,7 +325,7 @@ export default function CartPage() {
 
         try {
             setIsSendingMessage(true);
-            const response = await addCartItemMessage(
+            const response = await addCheckoutItemMessage(
                 getCartLineId(item),
                 messageText,
             );
@@ -420,7 +350,7 @@ export default function CartPage() {
     ) => {
         try {
             setDeletingMessageId(messageId);
-            const response = await deleteCartItemMessage(
+            const response = await deleteCheckoutItemMessage(
                 getCartLineId(item),
                 messageId,
             );
@@ -474,28 +404,12 @@ export default function CartPage() {
         <div className="min-h-screen bg-white px-4 pb-8 pt-24 md:px-8 md:pt-32 font-lato">
             <div className="flex justify-between items-center mb-8">
                 <h1 className="text-4xl font-cormorantGaramond font-bold text-[#26062b]">
-                    My Cart
+                    My Checkout
                 </h1>
             </div>
 
             {/* Toolbar */}
             <div className="flex flex-wrap gap-6 mb-6 text-sm text-gray-500 font-medium">
-                <button
-                    className="flex items-center gap-2 rounded-md bg-[#26062b] px-4 py-2 text-white hover:bg-[#3a0a42] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    disabled={cartItems.length === 0 || checkingOut}
-                    onClick={handleCheckout}
-                >
-                    {checkingOut ? (
-                        <Loader2 className="w-4 h-4 animate-spin" />
-                    ) : (
-                        <ShoppingBag className="w-4 h-4" />
-                    )}
-                    <span>
-                        {selectedIds.length > 0
-                            ? `Checkout selected (${selectedIds.length})`
-                            : "Checkout all"}
-                    </span>
-                </button>
                 <button
                     className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     disabled={selectedIds.length === 0 || removing}
@@ -506,7 +420,7 @@ export default function CartPage() {
                     ) : (
                         <Trash2 className="w-4 h-4" />
                     )}
-                    <span>Remove from cart</span>
+                    <span>Remove from checkout</span>
                 </button>
                 <button
                     className="flex items-center gap-2 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
@@ -528,69 +442,13 @@ export default function CartPage() {
                             cartItems
                                 .filter(isDiamondCartItem)
                                 .map((item) => item.diamond),
-                            "cart-diamonds",
+                            "checkout-diamonds",
                         )
                     }
                 >
                     <Download className="w-4 h-4" />
                     <span>Export to Excel</span>
                 </button>
-
-                <AlertDialog
-                    open={showHoldDialog}
-                    onOpenChange={setShowHoldDialog}
-                >
-                    <AlertDialogTrigger asChild>
-                        <button
-                            className="flex items-center gap-1 hover:text-[#bb923a] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                            disabled={selectedIds.length === 0 || holdLoading}
-                        >
-                            {holdLoading ? (
-                                <Loader2 className="w-4 h-4 animate-spin mr-1" />
-                            ) : (
-                                <Clock className="w-4 h-4 mr-1" />
-                            )}
-                            Hold Diamond
-                            {selectedIds.length > 0
-                                ? ` (${selectedIds.length})`
-                                : ""}
-                        </button>
-                    </AlertDialogTrigger>
-                    <AlertDialogContent>
-                        <AlertDialogHeader>
-                            <AlertDialogMedia>
-                                <Clock className="text-primary-purple" />
-                            </AlertDialogMedia>
-                            <AlertDialogTitle>
-                                Hold selected diamonds?
-                            </AlertDialogTitle>
-                            <AlertDialogDescription>
-                                This will reserve {selectedIds.length}{" "}
-                                diamond(s) for you temporarily. You can view all
-                                your held diamonds in the hold section.
-                            </AlertDialogDescription>
-                        </AlertDialogHeader>
-                        <AlertDialogFooter>
-                            <AlertDialogCancel disabled={holdLoading}>
-                                Cancel
-                            </AlertDialogCancel>
-                            <AlertDialogAction
-                                onClick={handleHoldSelected}
-                                disabled={holdLoading}
-                                className="rounded-sm"
-                            >
-                                {holdLoading ? (
-                                    <>
-                                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                        Holding...
-                                    </>
-                                ) : (
-                                    "Hold Diamond"
-                                )}
-                            </AlertDialogAction>
-                        </AlertDialogFooter>
-                    </AlertDialogContent>
-                </AlertDialog>
 
                 <AlertDialog
                     open={showClearDialog}
@@ -606,7 +464,7 @@ export default function CartPage() {
                             ) : (
                                 <Trash2 className="w-4 h-4 mr-1" />
                             )}
-                            Clear Cart
+                            Clear Checkout
                         </button>
                     </AlertDialogTrigger>
                     <AlertDialogContent>
@@ -615,11 +473,11 @@ export default function CartPage() {
                                 <AlertTriangle className="text-amber-600" />
                             </AlertDialogMedia>
                             <AlertDialogTitle>
-                                Clear entire cart?
+                                Clear entire checkout?
                             </AlertDialogTitle>
                             <AlertDialogDescription>
                                 This action will remove all items from your
-                                cart. This cannot be undone.
+                                checkout. This cannot be undone.
                             </AlertDialogDescription>
                         </AlertDialogHeader>
                         <AlertDialogFooter>
@@ -636,7 +494,7 @@ export default function CartPage() {
                                         Clearing...
                                     </>
                                 ) : (
-                                    "Clear Cart"
+                                    "Clear Checkout"
                                 )}
                             </AlertDialogAction>
                         </AlertDialogFooter>
@@ -690,7 +548,7 @@ export default function CartPage() {
                                         className="p-12 text-center text-gray-500"
                                     >
                                         <div className="flex flex-col items-center gap-2">
-                                            <p>Your cart is empty.</p>
+                                            <p>Your checkout is empty.</p>
                                             <Link
                                                 href="/inventory"
                                                 className="text-[#bb923a] underline hover:text-[#26062b]"
@@ -721,7 +579,7 @@ export default function CartPage() {
                                         return (
                                             <React.Fragment key={threadId}>
                                                 <tr
-                                                    id={`cart-thread-${threadId}`}
+                                                    id={`checkout-thread-${threadId}`}
                                                     className={`border-b font-lato border-[#e7d7b4] hover:bg-[#fffbf2] transition-colors ${
                                                         !isEven
                                                             ? "bg-[#fffbf2]/30"
@@ -841,7 +699,7 @@ export default function CartPage() {
                                     return (
                                         <React.Fragment key={threadId}>
                                         <tr
-                                            id={`cart-thread-${threadId}`}
+                                            id={`checkout-thread-${threadId}`}
                                             className={`border-b font-lato border-[#e7d7b4] hover:bg-[#fffbf2] transition-colors ${
                                                 !isEven
                                                     ? "bg-[#fffbf2]/30"

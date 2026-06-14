@@ -19,6 +19,7 @@ import {
     UserIcon,
     LogOut,
     ShoppingCart,
+    ShoppingBag,
     Users,
     FileStack,
     Shield,
@@ -141,6 +142,7 @@ const ADMIN_NAV_LINKS = [
         icon: FormInputIcon,
     },
     { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Checkout", href: "/checkout", icon: ShoppingBag },
     { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
     { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
@@ -161,6 +163,7 @@ const SUPER_ADMIN_NAV_LINKS = [
         icon: FormInputIcon,
     },
     { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Checkout", href: "/checkout", icon: ShoppingBag },
     { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
     { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
@@ -168,6 +171,7 @@ const SUPER_ADMIN_NAV_LINKS = [
 
 const USER_NAV_LINKS = [
     { name: "My Cart", href: "/cart", icon: ShoppingCart },
+    { name: "My Checkout", href: "/checkout", icon: ShoppingBag },
     { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
     { name: "My Enquiries", href: "/enquiries", icon: FileStack },
     { name: "My Profile", href: "/profile", icon: UserIcon },
