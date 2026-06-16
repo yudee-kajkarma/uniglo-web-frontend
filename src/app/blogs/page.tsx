@@ -685,6 +685,16 @@ const blogs = [
             "Learn how to match a lab-grown diamond wedding band to your engagement ring. Curved, contoured, halo-fit bands, metal colours, and ring shapes explained.",
         slug: "how-to-match-lab-grown-diamond-wedding-band-engagement-ring-2026",
     },
+    {
+    id: 70,
+    title: "Lab-Grown Diamonds in Belgium: What Buyers Should Know Before Purchasing (2026)",
+    author: "Uniglo Diamonds",
+    date: "June 16, 2026",
+    image: labd,
+    excerpt:
+        "Learn everything buyers should know about lab-grown diamonds in Belgium, including certification, pricing, Antwerp diamond buying, engagement rings, wedding bands, and how to choose with confidence.",
+    slug: "lab-grown-diamonds-belgium-buyers-guide",
+    },
 ];
 
 const page = () => {
