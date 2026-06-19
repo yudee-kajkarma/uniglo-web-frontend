@@ -49,6 +49,7 @@ import {
     MelleFilterOptions,
     MelleFilterState,
     PublicMelleDiamond,
+    shapesForMelleInventoryKind,
 } from "@/interface/melleDiamondInterface";
 import {
     Dialog,
@@ -145,6 +146,7 @@ function InventoryContent() {
     // Melee-specific filter state. Numeric ranges start at "everything" and
     // are clamped to the server-provided options once they load.
     const [melleFilterState, setMelleFilterState] = useState<MelleFilterState>({
+        inventoryKind: "round",
         shape: [],
         color: [],
         clarity: [],
@@ -155,7 +157,9 @@ function InventoryContent() {
         priceRange: [0, Number.MAX_SAFE_INTEGER],
         avgPtrRanges: [],
         caratRanges: [],
-        measurementRanges: [],
+        measurementMmRange: [0, Number.MAX_SAFE_INTEGER],
+        lengthValues: [],
+        breadthValues: [],
         sieveRanges: [],
         searchTerm: undefined,
     });
@@ -234,6 +238,18 @@ function InventoryContent() {
                 melleFilterState.priceRange,
                 melleOptions?.priceRange,
             );
+            const measurement = narrowRange(
+                melleFilterState.measurementMmRange,
+                melleOptions?.measurementRange,
+            );
+            const defaultShapes =
+                melleOptions && melleFilterState.shape.length === 0
+                    ? shapesForMelleInventoryKind(
+                          melleOptions.shapes,
+                          melleFilterState.inventoryKind,
+                      )
+                    : undefined;
+            const isRoundMelle = melleFilterState.inventoryKind === "round";
             const params = {
                 page,
                 limit: rowsPerPage,
@@ -242,7 +258,7 @@ function InventoryContent() {
                 shape:
                     melleFilterState.shape.length > 0
                         ? melleFilterState.shape
-                        : undefined,
+                        : defaultShapes,
                 color:
                     melleFilterState.color.length > 0
                         ? melleFilterState.color
@@ -275,11 +291,28 @@ function InventoryContent() {
                         ? melleFilterState.caratRanges
                         : undefined,
                 measurementRanges:
-                    melleFilterState.measurementRanges.length > 0
-                        ? melleFilterState.measurementRanges
+                    isRoundMelle &&
+                    (measurement.min !== undefined ||
+                        measurement.max !== undefined)
+                        ? ([
+                              [
+                                  measurement.min ??
+                                      melleOptions!.measurementRange.min,
+                                  measurement.max ??
+                                      melleOptions!.measurementRange.max,
+                              ],
+                          ] as [number, number][])
+                        : undefined,
+                lengthValues:
+                    !isRoundMelle && melleFilterState.lengthValues.length > 0
+                        ? melleFilterState.lengthValues
+                        : undefined,
+                breadthValues:
+                    !isRoundMelle && melleFilterState.breadthValues.length > 0
+                        ? melleFilterState.breadthValues
                         : undefined,
                 sieveRanges:
-                    melleFilterState.sieveRanges.length > 0
+                    isRoundMelle && melleFilterState.sieveRanges.length > 0
                         ? melleFilterState.sieveRanges
                         : undefined,
                 searchTerm: melleFilterState.searchTerm,
@@ -488,7 +521,9 @@ function InventoryContent() {
 
     const buildResetMelleState = (
         options: MelleFilterOptions | null,
+        inventoryKind: MelleFilterState["inventoryKind"] = "round",
     ): MelleFilterState => ({
+        inventoryKind,
         shape: [],
         color: [],
         clarity: [],
@@ -502,7 +537,12 @@ function InventoryContent() {
         ],
         avgPtrRanges: [],
         caratRanges: [],
-        measurementRanges: [],
+        measurementMmRange: [
+            options?.measurementRange.min ?? 0,
+            options?.measurementRange.max ?? Number.MAX_SAFE_INTEGER,
+        ],
+        lengthValues: [],
+        breadthValues: [],
         sieveRanges: [],
         searchTerm: undefined,
     });
@@ -577,6 +617,10 @@ function InventoryContent() {
                 return {
                     ...prev,
                     priceRange: clamp(prev.priceRange, options.priceRange),
+                    measurementMmRange: clamp(
+                        prev.measurementMmRange,
+                        options.measurementRange,
+                    ),
                 };
             });
         },

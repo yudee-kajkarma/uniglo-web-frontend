@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 import {
     Select,
     SelectContent,
@@ -52,8 +53,11 @@ type FormState = {
     avgPtr: string;
     measurementMin: string;
     measurementMax: string;
+    measurementLength: string;
+    measurementBreadth: string;
     sieveMin: string;
     sieveMax: string;
+    imageUrls: string;
     availableCarat: string;
 };
 
@@ -69,8 +73,11 @@ const emptyForm: FormState = {
     avgPtr: "",
     measurementMin: "",
     measurementMax: "",
+    measurementLength: "",
+    measurementBreadth: "",
     sieveMin: "",
     sieveMax: "",
+    imageUrls: "",
     availableCarat: "100",
 };
 
@@ -86,8 +93,11 @@ const fromDiamond = (d: MelleDiamond): FormState => ({
     avgPtr: String(d.avgPtr ?? ""),
     measurementMin: d.measurementMin ?? "",
     measurementMax: d.measurementMax ?? "",
+    measurementLength: d.measurementLength ?? "",
+    measurementBreadth: d.measurementBreadth ?? "",
     sieveMin: d.sieveMin ?? "",
     sieveMax: d.sieveMax ?? "",
+    imageUrls: (d.images ?? []).join("\n"),
     availableCarat: String(d.availableCarat ?? 100),
 });
 
@@ -117,6 +127,10 @@ export function MelleDiamondFormDialog({
     const update = <K extends keyof FormState>(key: K, value: FormState[K]) =>
         setForm((prev) => ({ ...prev, [key]: value }));
 
+    const isFancyMode = Boolean(
+        form.measurementLength.trim() || form.measurementBreadth.trim(),
+    );
+
     const validate = (): string | null => {
         if (!form.shape) return "Shape is required";
         if (!form.color) return "Color is required";
@@ -128,32 +142,51 @@ export function MelleDiamondFormDialog({
         const avgPtr = Number(form.avgPtr);
         if (!Number.isFinite(avgPtr) || avgPtr <= 0)
             return "Avg Ptr must be a positive number";
-        if (!form.measurementMin.trim() || !form.measurementMax.trim())
-            return "Measurement min and max are required";
-        if (!form.sieveMin.trim() || !form.sieveMax.trim())
-            return "Sieve min and max are required";
+        if (isFancyMode) {
+            if (!form.measurementLength.trim() || !form.measurementBreadth.trim())
+                return "Measurement length and breadth are required for fancy shapes";
+        } else {
+            if (!form.measurementMin.trim() || !form.measurementMax.trim())
+                return "Measurement min and max are required";
+            if (!form.sieveMin.trim() || !form.sieveMax.trim())
+                return "Sieve min and max are required";
+        }
         const availableCarat = Number(form.availableCarat);
         if (!Number.isFinite(availableCarat) || availableCarat < 0)
             return "Available carat must be a non-negative number";
         return null;
     };
 
-    const buildPayload = (): CreateMelleDiamondBody => ({
-        shape: form.shape,
-        color: form.color,
-        clarity: form.clarity,
-        cut: form.cut || undefined,
-        melleCategory: form.melleCategory,
-        isLab: form.isLab === "true",
-        labType: form.isLab === "true" ? form.labType || undefined : undefined,
-        price: Number(form.price),
-        avgPtr: Number(form.avgPtr),
-        measurementMin: form.measurementMin.trim(),
-        measurementMax: form.measurementMax.trim(),
-        sieveMin: form.sieveMin.trim(),
-        sieveMax: form.sieveMax.trim(),
-        availableCarat: Number(form.availableCarat),
-    });
+    const buildPayload = (): CreateMelleDiamondBody => {
+        const images = form.imageUrls
+            .split("\n")
+            .map((url) => url.trim())
+            .filter(Boolean);
+
+        return {
+            shape: form.shape,
+            color: form.color,
+            clarity: form.clarity,
+            cut: form.cut || undefined,
+            melleCategory: form.melleCategory,
+            isLab: form.isLab === "true",
+            labType: form.isLab === "true" ? form.labType || undefined : undefined,
+            price: Number(form.price),
+            avgPtr: Number(form.avgPtr),
+            measurementMin: isFancyMode ? "" : form.measurementMin.trim(),
+            measurementMax: isFancyMode ? "" : form.measurementMax.trim(),
+            measurementLength: isFancyMode
+                ? form.measurementLength.trim()
+                : undefined,
+            measurementBreadth: isFancyMode
+                ? form.measurementBreadth.trim()
+                : undefined,
+            sieveMin: isFancyMode ? "" : form.sieveMin.trim(),
+            sieveMax: isFancyMode ? "" : form.sieveMax.trim(),
+            images,
+            availableCarat: Number(form.availableCarat),
+        };
+    };
 
     const handleSubmit = async () => {
         const err = validate();
@@ -402,48 +435,110 @@ export function MelleDiamondFormDialog({
                         />
                     </div>
 
+                    <div className="space-y-1 sm:col-span-2">
+                        <Label className="text-xs text-gray-500 uppercase tracking-wide">
+                            Round / Melee measurements
+                        </Label>
+                    </div>
+
                     <div className="space-y-1">
-                        <Label>Measurement Min (mm) *</Label>
+                        <Label>
+                            Measurement Min (mm) {!isFancyMode ? "*" : ""}
+                        </Label>
                         <Input
                             value={form.measurementMin}
                             onChange={(e) =>
                                 update("measurementMin", e.target.value)
                             }
                             placeholder="e.g. 3.90"
+                            disabled={isFancyMode}
                         />
                     </div>
 
                     <div className="space-y-1">
-                        <Label>Measurement Max (mm) *</Label>
+                        <Label>
+                            Measurement Max (mm) {!isFancyMode ? "*" : ""}
+                        </Label>
                         <Input
                             value={form.measurementMax}
                             onChange={(e) =>
                                 update("measurementMax", e.target.value)
                             }
                             placeholder="e.g. 4.00"
+                            disabled={isFancyMode}
                         />
                     </div>
 
                     <div className="space-y-1">
-                        <Label>Sieve Min *</Label>
+                        <Label>Sieve Min {!isFancyMode ? "*" : ""}</Label>
                         <Input
                             value={form.sieveMin}
                             onChange={(e) =>
                                 update("sieveMin", e.target.value)
                             }
                             placeholder="e.g. 17"
+                            disabled={isFancyMode}
                         />
                     </div>
 
                     <div className="space-y-1">
-                        <Label>Sieve Max *</Label>
+                        <Label>Sieve Max {!isFancyMode ? "*" : ""}</Label>
                         <Input
                             value={form.sieveMax}
                             onChange={(e) =>
                                 update("sieveMax", e.target.value)
                             }
                             placeholder="e.g. 17.5"
+                            disabled={isFancyMode}
                         />
+                    </div>
+
+                    <div className="space-y-1 sm:col-span-2">
+                        <Label className="text-xs text-gray-500 uppercase tracking-wide">
+                            Fancy shape measurements
+                        </Label>
+                    </div>
+
+                    <div className="space-y-1">
+                        <Label>
+                            Measurement Length {isFancyMode ? "*" : ""}
+                        </Label>
+                        <Input
+                            value={form.measurementLength}
+                            onChange={(e) =>
+                                update("measurementLength", e.target.value)
+                            }
+                            placeholder="e.g. 120"
+                        />
+                    </div>
+
+                    <div className="space-y-1">
+                        <Label>
+                            Measurement Breadth {isFancyMode ? "*" : ""}
+                        </Label>
+                        <Input
+                            value={form.measurementBreadth}
+                            onChange={(e) =>
+                                update("measurementBreadth", e.target.value)
+                            }
+                            placeholder="e.g. 80"
+                        />
+                    </div>
+
+                    <div className="space-y-1 sm:col-span-2">
+                        <Label>Image URLs</Label>
+                        <Textarea
+                            value={form.imageUrls}
+                            onChange={(e) =>
+                                update("imageUrls", e.target.value)
+                            }
+                            placeholder="One image URL per line"
+                            rows={3}
+                        />
+                        <p className="text-xs text-gray-500">
+                            Paste one URL per line. Used for fancy shape
+                            previews.
+                        </p>
                     </div>
                 </div>
 

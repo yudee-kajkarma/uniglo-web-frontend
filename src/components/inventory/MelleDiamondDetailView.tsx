@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
     ArrowLeft,
     Diamond as DiamondIcon,
@@ -57,6 +58,16 @@ const formatRange = (min?: string, max?: string) => {
     if (!lo && !hi) return "-";
     if (lo && hi && lo !== hi) return `${lo} – ${hi}`;
     return lo || hi || "-";
+};
+
+const formatMeasurementDisplay = (diamond: MelleDiamond) => {
+    const len = diamond.measurementLength?.trim();
+    const breadth = diamond.measurementBreadth?.trim();
+    if (len || breadth) {
+        if (len && breadth) return `${len} × ${breadth}`;
+        return len || breadth || "-";
+    }
+    return formatRange(diamond.measurementMin, diamond.measurementMax);
 };
 
 export default function MelleDiamondDetailView({
@@ -258,9 +269,37 @@ export default function MelleDiamondDetailView({
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
                     <div className="lg:col-span-5">
-                        <div className="aspect-square rounded-lg relative flex items-center justify-center border border-gray-100 bg-gray-50">
-                            <DiamondIcon className="w-40 h-40 text-gray-200" />
+                        <div className="aspect-square rounded-lg relative flex items-center justify-center border border-gray-100 bg-gray-50 overflow-hidden">
+                            {diamond.images?.[0] ? (
+                                <Image
+                                    src={diamond.images[0]}
+                                    alt={`${diamond.shape} ${diamond.stockId}`}
+                                    fill
+                                    className="object-contain"
+                                    unoptimized
+                                />
+                            ) : (
+                                <DiamondIcon className="w-40 h-40 text-gray-200" />
+                            )}
                         </div>
+                        {diamond.images && diamond.images.length > 1 && (
+                            <div className="grid grid-cols-4 gap-2 mt-3">
+                                {diamond.images.slice(1).map((url, idx) => (
+                                    <div
+                                        key={`${url}-${idx}`}
+                                        className="relative aspect-square rounded border border-gray-200 overflow-hidden"
+                                    >
+                                        <Image
+                                            src={url}
+                                            alt={`${diamond.stockId} image ${idx + 2}`}
+                                            fill
+                                            className="object-cover"
+                                            unoptimized
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     <div className="lg:col-span-7 space-y-8">
@@ -571,11 +610,21 @@ export default function MelleDiamondDetailView({
                             },
                             {
                                 label: "Measurement (mm)",
-                                value: formatRange(
-                                    diamond.measurementMin,
-                                    diamond.measurementMax,
-                                ),
+                                value: formatMeasurementDisplay(diamond),
                             },
+                            ...(diamond.measurementLength ||
+                            diamond.measurementBreadth
+                                ? [
+                                      {
+                                          label: "Length",
+                                          value: diamond.measurementLength,
+                                      },
+                                      {
+                                          label: "Breadth",
+                                          value: diamond.measurementBreadth,
+                                      },
+                                  ]
+                                : []),
                             {
                                 label: "Added",
                                 value: diamond.createdAt
