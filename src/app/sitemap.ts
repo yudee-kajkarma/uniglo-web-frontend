@@ -35,17 +35,28 @@ const EDUCATION_PAGES: string[] = [
 ];
 
 const RESOURCES_PAGES: string[] = [
+    "are-lab-grown-diamonds-real",
+    "are-lab-grown-diamonds-worth-it",
     "bulk-loose-lab-grown-diamonds",
     "buy-lab-grown-diamonds-wholesale",
+    "gia-certified-lab-grown-diamonds",
     "guide-to-lab-grown-diamonds",
     "igi-certified-lab-grown-diamond-wholesale",
+    "igi-certified-lab-grown-diamonds",
+    "lab-grown-diamond-prices",
+    "lab-grown-diamond-supplier",
     "lab-grown-diamond-supplier-europe",
     "lab-grown-diamond-supplier-jewelers",
+    "lab-grown-diamonds",
+    "lab-grown-diamonds-vs-moissanite",
+    "lab-grown-diamonds-vs-natural-diamonds",
+    "loose-lab-grown-diamonds",
     "nivoda-lab-grown-diamond-supplier",
     "rapnet-diamond-supplier-antwerp",
     "source-lab-grown-diamonds-for-jewelers",
     "uniglo-diamonds-on-rapnet",
     "wedding-ring-engagement-ring-guide",
+    "wholesale-lab-grown-diamonds",
 ];
 
 const BLOG_SLUGS: string[] = [
