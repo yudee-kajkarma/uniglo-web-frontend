@@ -50,6 +50,10 @@ import { MelleDiamond } from "@/interface/melleDiamondInterface";
 interface MelleDiamondDetailViewProps {
     diamondId: string;
     isPublic?: boolean;
+    /** Server-fetched public melee diamond, for instant render + SEO. */
+    initialDiamond?: MelleDiamond;
+    /** Server-rendered SEO content shown at the bottom of the page. */
+    seoContent?: React.ReactNode;
 }
 
 const formatRange = (min?: string, max?: string) => {
@@ -72,12 +76,17 @@ const formatMeasurementDisplay = (diamond: MelleDiamond) => {
 
 export default function MelleDiamondDetailView({
     diamondId,
-    isPublic = false,
+    isPublic: isPublicProp,
+    initialDiamond,
+    seoContent,
 }: MelleDiamondDetailViewProps) {
     const router = useRouter();
-    const { user } = useAuth();
-    const [diamond, setDiamond] = useState<MelleDiamond | null>(null);
-    const [loading, setLoading] = useState(true);
+    const { user, isAuthenticated } = useAuth();
+    const isPublic = isPublicProp ?? !isAuthenticated;
+    const [diamond, setDiamond] = useState<MelleDiamond | null>(
+        initialDiamond ?? null,
+    );
+    const [loading, setLoading] = useState(!initialDiamond);
     const [error, setError] = useState("");
 
     const [holdLoading, setHoldLoading] = useState(false);
@@ -94,6 +103,10 @@ export default function MelleDiamondDetailView({
         user?.role === "ADMIN" || user?.role === "SUPER_ADMIN";
 
     useEffect(() => {
+        // Server already supplied public data for SEO/instant render. Only
+        // re-fetch for authenticated visitors or when no initial data exists.
+        if (initialDiamond && !isAuthenticated) return;
+
         let cancelled = false;
         (async () => {
             try {
@@ -113,7 +126,8 @@ export default function MelleDiamondDetailView({
         return () => {
             cancelled = true;
         };
-    }, [diamondId, isPublic]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [diamondId, isAuthenticated]);
 
     const handleHoldDiamondConfirm = async () => {
         if (!diamond?.stockId) {
@@ -646,6 +660,11 @@ export default function MelleDiamondDetailView({
                 </div>
             </div>
         </div>
+        {seoContent && (
+            <div className="max-w-[1400px] mx-auto px-4 md:px-8 pb-16 bg-white">
+                {seoContent}
+            </div>
+        )}
         {diamond && (
             <MelleCartCaratDialog
                 open={cartCaratDialogOpen}

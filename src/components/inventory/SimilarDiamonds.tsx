@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchDiamondById } from "@/services/diamondService";
 import { Diamond, getShapeFullName } from "@/interface/diamondInterface";
+import { buildDiamondPath } from "@/lib/seo/diamondSeo";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
@@ -72,8 +73,8 @@ export default function SimilarDiamonds({
         }
     };
 
-    const handleDiamondClick = (stockRef: string) => {
-        router.push(`/inventory?view=${encodeURIComponent(stockRef)}`);
+    const handleDiamondClick = (diamond: Diamond) => {
+        router.push(buildDiamondPath(diamond));
     };
 
     if (loading) {
@@ -133,7 +134,7 @@ export default function SimilarDiamonds({
                     {visibleDiamonds.map((diamond) => (
                         <div
                             key={diamond.stockRef}
-                            onClick={() => handleDiamondClick(diamond.stockRef)}
+                            onClick={() => handleDiamondClick(diamond)}
                             className="border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow bg-white"
                         >
                             {/* Diamond Image */}

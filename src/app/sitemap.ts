@@ -1,6 +1,22 @@
 import type { MetadataRoute } from "next";
+import {
+    getDiamondTotalCount,
+    getMelleTotalCount,
+    getDiamondSitemapPage,
+    getMelleSitemapPage,
+} from "@/lib/seo/diamondServer";
+import { buildDiamondUrl, buildMelleUrl } from "@/lib/seo/diamondSeo";
 
 const BASE_URL = "https://www.uniglodiamonds.com";
+
+// Records per dynamic sitemap shard. A sitemap may hold up to 50k URLs; we use
+// a smaller page so each upstream fetch stays light and cacheable.
+const SHARD_SIZE = 5000;
+// Safety cap so a bad upstream count can't spawn unbounded shards.
+const MAX_SHARDS_PER_TYPE = 60;
+
+// Revalidate the generated sitemaps hourly (matches the page ISR window).
+export const revalidate = 3600;
 
 const HOME: string[] = [""];
 
@@ -115,9 +131,50 @@ const BLOG_SLUGS: string[] = [
 const buildUrl = (path: string) =>
     path ? `${BASE_URL}/${path}` : `${BASE_URL}/`;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const lastModified = new Date();
+const shardCount = (total: number) =>
+    Math.min(MAX_SHARDS_PER_TYPE, Math.ceil(total / SHARD_SIZE));
 
+// Loose diamonds are sharded by origin (natural vs lab) so each emitted URL
+// carries the correct type keyword — matching the page's canonical — without a
+// per-diamond lookup.
+const planShards = async (): Promise<{
+    natural: number;
+    lab: number;
+    melle: number;
+}> => {
+    try {
+        const [naturalCount, labCount, melleCount] = await Promise.all([
+            getDiamondTotalCount(true),
+            getDiamondTotalCount(false),
+            getMelleTotalCount(),
+        ]);
+        return {
+            natural: shardCount(naturalCount),
+            lab: shardCount(labCount),
+            melle: shardCount(melleCount),
+        };
+    } catch (err) {
+        console.error("[sitemap] failed to plan shards:", err);
+        return { natural: 0, lab: 0, melle: 0 };
+    }
+};
+
+/**
+ * Shard plan:
+ *   id 0                         -> static marketing/content pages
+ *   id 1 .. N                    -> natural loose diamond pages
+ *   id N+1 .. N+L                -> lab grown loose diamond pages
+ *   id N+L+1 .. N+L+M            -> melee diamond pages
+ */
+export async function generateSitemaps(): Promise<{ id: number }[]> {
+    const { natural, lab, melle } = await planShards();
+    const ids = [{ id: 0 }];
+    for (let i = 1; i <= natural + lab + melle; i++) ids.push({ id: i });
+    return ids;
+}
+
+const staticEntries = (): MetadataRoute.Sitemap => {
+    const lastModified = new Date();
     const entry = (
         path: string,
         priority: number,
@@ -137,4 +194,52 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ...RESOURCES_PAGES.map((p) => entry(p, 0.7, "monthly")),
         ...BLOG_SLUGS.map((slug) => entry(`blogs/${slug}`, 0.64, "monthly")),
     ];
+};
+
+export default async function sitemap({
+    id,
+}: {
+    id: number;
+}): Promise<MetadataRoute.Sitemap> {
+    const shardId = Number(id);
+    if (!Number.isFinite(shardId) || shardId <= 0) return staticEntries();
+
+    try {
+        const { natural, lab } = await planShards();
+
+        const diamondEntry = (isNatural: boolean, page: number) =>
+            getDiamondSitemapPage(page, SHARD_SIZE, isNatural).then(({ items }) =>
+                items
+                    .filter((d) => d.stockRef)
+                    .map((d) => ({
+                        url: buildDiamondUrl(d, isNatural),
+                        lastModified:
+                            (d as { updatedAt?: string }).updatedAt ?? undefined,
+                        changeFrequency: "weekly" as const,
+                        priority: 0.6,
+                    })),
+            );
+
+        if (shardId <= natural) {
+            return diamondEntry(true, shardId);
+        }
+        if (shardId <= natural + lab) {
+            return diamondEntry(false, shardId - natural);
+        }
+
+        const mellePage = shardId - natural - lab;
+        if (mellePage < 1) return [];
+        const { items } = await getMelleSitemapPage(mellePage, SHARD_SIZE);
+        return items
+            .filter((m) => m._id)
+            .map((m) => ({
+                url: buildMelleUrl(m),
+                lastModified: m.updatedAt ?? undefined,
+                changeFrequency: "weekly" as const,
+                priority: 0.5,
+            }));
+    } catch (err) {
+        console.error("[sitemap] shard", id, "failed:", err);
+        return [];
+    }
 }

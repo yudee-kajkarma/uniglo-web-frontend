@@ -72,9 +72,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import ShimmerTable from "@/components/ui/shimmerTable";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import DiamondDetailView from "@/components/inventory/DiamondDetailView";
-import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
+import { useRouter } from "next/navigation";
+import { buildDiamondPath, buildMellePath } from "@/lib/seo/diamondSeo";
 import { toast } from "sonner";
 import { addToCart, addMelleToCart } from "@/services/cartService";
 import { MelleCartCaratDialog } from "@/components/dialogs/MelleCartCaratDialog";
@@ -82,13 +81,7 @@ import { useAuth } from "@/context/AuthContext";
 
 function InventoryContent() {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
     const { isAuthenticated, loading: authLoading, user } = useAuth();
-
-    // 2. Extract the View ID
-    const viewId = searchParams.get("view");
-    const viewType = searchParams.get("type");
 
     const [data, setData] = useState<(Diamond | PublicDiamond)[]>([]);
     const [melleData, setMelleData] = useState<
@@ -231,7 +224,6 @@ function InventoryContent() {
     };
 
     const loadMelleData = useCallback(async () => {
-        if (viewId) return;
         setLoading(true);
         try {
             const price = narrowRange(
@@ -345,12 +337,9 @@ function InventoryContent() {
         melleFilterState,
         melleOptions,
         isAuthenticated,
-        viewId,
     ]);
 
     const loadData = useCallback(async () => {
-        if (viewId) return;
-
         setLoading(true);
         try {
             const params = {
@@ -500,7 +489,6 @@ function InventoryContent() {
         sortOrder,
         filterState,
         isAuthenticated,
-        viewId,
     ]);
 
     // Wait for auth to load before fetching data. In melee mode we hit the
@@ -797,7 +785,9 @@ function InventoryContent() {
 
     const handleViewDetails = (diamond: Diamond | PublicDiamond) => {
         if (diamond.stockRef) {
-            router.push(`${pathname}?view=${diamond.stockRef}`);
+            // The active Natural/Lab tab tells us the origin the record itself
+            // does not carry, so the slug keyword is correct.
+            router.push(buildDiamondPath(diamond, filterState.isNatural));
         } else {
             console.error("Diamond missing stock reference");
         }
@@ -807,9 +797,7 @@ function InventoryContent() {
         diamond: MelleDiamond | PublicMelleDiamond,
     ) => {
         if (diamond._id) {
-            router.push(
-                `${pathname}?view=${encodeURIComponent(diamond._id)}&type=melle`,
-            );
+            router.push(buildMellePath(diamond));
         } else {
             console.error("Melle diamond missing _id");
         }
@@ -903,22 +891,11 @@ function InventoryContent() {
         [sortBy],
     );
 
-    // 4. CONDITIONAL RENDER: If viewId exists, show Detail View
-    if (viewId) {
-        if (viewType === "melle") {
-            return (
-                <MelleDiamondDetailView
-                    diamondId={viewId}
-                    isPublic={!isAuthenticated}
-                />
-            );
-        }
-        return (
-            <DiamondDetailView diamondId={viewId} isPublic={!isAuthenticated} />
-        );
-    }
+    // Diamond detail pages now live at their own SEO routes
+    // (/diamonds/[slug] and /diamonds/melee/[slug]); this page is the
+    // inventory list only.
 
-    // Otherwise, show the Inventory List
+    // Show the Inventory List
     return (
         <div className="p-4 space-y-2 bg-brand-gradient min-h-screen ">
             {/* 1. FILTER DASHBOARD */}

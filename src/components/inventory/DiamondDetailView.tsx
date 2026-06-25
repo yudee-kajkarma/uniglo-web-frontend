@@ -57,18 +57,29 @@ import { DiamondImage } from "../shared/DiamondMedia";
 interface DiamondDetailViewProps {
     diamondId: string;
     isPublic?: boolean;
+    /** Server-fetched public diamond, used to render instantly + for SEO. */
+    initialDiamond?: Diamond | PublicDiamond;
+    /** Server-fetched similar stock refs. */
+    initialSimilarIds?: string[];
+    /** Server-rendered SEO content shown above the Similar Diamonds section. */
+    seoContent?: React.ReactNode;
 }
 
 export default function DiamondDetailView({
     diamondId,
-    isPublic = false,
+    isPublic: isPublicProp,
+    initialDiamond,
+    initialSimilarIds,
+    seoContent,
 }: DiamondDetailViewProps) {
     const router = useRouter();
     const [diamond, setDiamond] = useState<Diamond | PublicDiamond | null>(
-        null,
+        initialDiamond ?? null,
     );
-    const [similarDiamondIds, setSimilarDiamondIds] = useState<string[]>([]);
-    const [loading, setLoading] = useState(true);
+    const [similarDiamondIds, setSimilarDiamondIds] = useState<string[]>(
+        initialSimilarIds ?? [],
+    );
+    const [loading, setLoading] = useState(!initialDiamond);
     const [error, setError] = useState("");
     const [activeTab, setActiveTab] = useState<
         "IMAGE" | "VIDEO" | "CERTIFICATE"
@@ -77,7 +88,11 @@ export default function DiamondDetailView({
     const [cartLoading, setCartLoading] = useState(false);
     const [showHoldDialog, setShowHoldDialog] = useState(false);
     const [showAdminHoldDialog, setShowAdminHoldDialog] = useState(false);
-    const { user } = useAuth(); // Get current user for role check
+    const { user, isAuthenticated } = useAuth(); // Get current user for role check
+
+    // When no explicit prop is given, public/auth status is derived from the
+    // logged-in state (the SEO route renders this without a prop).
+    const isPublic = isPublicProp ?? !isAuthenticated;
 
     // Check if user is admin or superadmin
     const isAdminOrSuperAdmin =
@@ -94,6 +109,11 @@ export default function DiamondDetailView({
     };
 
     useEffect(() => {
+        // The server already supplied public data for SEO/instant render.
+        // Only re-fetch for authenticated visitors (to load full priced data)
+        // or when no initial data was provided.
+        if (initialDiamond && !isAuthenticated) return;
+
         const loadDiamond = async () => {
             if (diamondId) {
                 try {
@@ -113,7 +133,8 @@ export default function DiamondDetailView({
             }
         };
         loadDiamond();
-    }, [diamondId, isPublic]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [diamondId, isAuthenticated]);
 
     const handleHoldDiamondConfirm = async () => {
         if (!diamond?.stockRef) {
@@ -785,6 +806,9 @@ export default function DiamondDetailView({
                         />
                     </div>
                 )}
+
+                {/* SEO content (server-rendered) sits above similar diamonds */}
+                {seoContent}
 
                 {/* Similar Diamonds Section */}
                 {similarDiamondIds.length > 0 && (
