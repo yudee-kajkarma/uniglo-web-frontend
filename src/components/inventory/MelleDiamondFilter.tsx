@@ -78,7 +78,7 @@ const MELLE_SHAPE_META: Record<string, { label: string; icon?: string }> = {
     "HALF MOON": { label: "Half Moon", icon: "/shapes/half-moon-diamond.jpg" },
     HEXAGON: { label: "Hexagon", icon: "/shapes/hexagon-diamond.jpeg" },
     KITE: { label: "Kite", icon: "/shapes/kite-diamond.jpg" },
-    "LILY CUT": { label: "Lily Cut", icon: "/shapes/lily-cut-diamond.avif" },
+    "LILY CUT": { label: "Lily Cut", icon: "/shapes/lily-cut-diamond.jpg" },
     "ROSE CUT": { label: "Rose Cut", icon: "/shapes/rose-cut-diamond.jpg" },
     SHIELD: { label: "Shield", icon: "/shapes/shield-diamond.jpg" },
     "TAP BUG": { label: "Tap Bug", icon: "/shapes/tap-bug-diamond.jpg" },
