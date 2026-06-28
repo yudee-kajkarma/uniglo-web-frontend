@@ -84,7 +84,7 @@ const MELLE_SHAPE_META: Record<string, { label: string; icon?: string }> = {
     "TAP BUG": { label: "Tap Bug", icon: "/shapes/tap-bug-diamond.jpg" },
     TRAPEZE: { label: "Trapeze", icon: "/shapes/trapeze-diamond.webp" },
     TRIANGLE: { label: "Triangle", icon: "/shapes/triangle-diamond.jpg" },
-    TRILLION: { label: "Trillion" },
+    TRILLION: { label: "Trillion", icon: "/shapes/Trillion.jpg" },
 };
 
 const resolveMelleShapeMeta = (
