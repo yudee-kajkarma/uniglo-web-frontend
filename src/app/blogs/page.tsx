@@ -685,6 +685,66 @@ const blogs = [
             "Learn how to match a lab-grown diamond wedding band to your engagement ring. Curved, contoured, halo-fit bands, metal colours, and ring shapes explained.",
         slug: "how-to-match-lab-grown-diamond-wedding-band-engagement-ring-2026",
     },
+    {
+        id: 70,
+        title: "Best Place to Buy Lab-Grown Diamonds in Antwerp (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: labd,
+        excerpt:
+            "Looking for the best place to buy lab-grown diamonds in Antwerp? Learn how to choose certified lab diamonds, compare diamond shops, avoid common mistakes, and buy with confidence.",
+        slug: "best-place-to-buy-lab-grown-diamonds-antwerp",
+    },
+    {
+        id: 71,
+        title: "Lab-Grown Diamonds in Belgium: 2026 Buyer’s Guide",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: newimage,
+        excerpt:
+            "Everything buyers should know about lab-grown diamonds in Belgium—certification, pricing, Antwerp diamond buying, engagement rings, wedding bands, and how to choose with confidence.",
+        slug: "lab-grown-diamonds-belgium-buyers-guide",
+    },
+    {
+        id: 72,
+        title: "How to Buy a Lab-Grown Diamond Ring in Antwerp (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: EngagementRingBlog1,
+        excerpt:
+            "Learn how to buy a lab-grown diamond ring in Antwerp with confidence. Compare diamond shapes, certificates, ring settings, budgets, and buying mistakes before choosing your ring.",
+        slug: "how-to-buy-lab-grown-diamond-ring-antwerp",
+    },
+    {
+        id: 73,
+        title: "Antwerp Certified Lab-Grown Diamonds: HRD Certificate Guide",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: diamondcoal,
+        excerpt:
+            "Learn what Antwerp certified lab-grown diamonds mean, how HRD Antwerp certificates work, how to check a diamond certificate, and what buyers should verify before purchasing.",
+        slug: "antwerp-certified-lab-grown-diamonds-hrd-certificate-guide",
+    },
+    {
+        id: 74,
+        title: "Cheap Diamonds in Antwerp vs Lab-Grown Diamond Value (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: BuyDiamondsOnlineBlog2,
+        excerpt:
+            "Searching for cheap diamonds in Antwerp? Learn why certified lab-grown diamonds can offer better value, what to check before buying, and how to avoid low-quality diamond deals.",
+        slug: "cheap-diamonds-antwerp-vs-lab-grown-diamond-value",
+    },
+    {
+        id: 75,
+        title: "Where to Buy Lab-Grown Diamonds Online in Belgium (2026 Guide)",
+        author: "Uniglo Diamonds",
+        date: "June 3, 2026",
+        image: NivodaBlogImage,
+        excerpt:
+            "Learn where to buy lab-grown diamonds online in Belgium, how to compare certified diamonds safely, what to check before purchase, and how Uniglo Diamonds helps buyers choose with confidence.",
+        slug: "where-to-buy-lab-grown-diamonds-online-belgium",
+    },
 ];
 
 const page = () => {
@@ -726,7 +786,7 @@ const page = () => {
 
                                     {/* Meta Info */}
                                     <p className="text-primary-purple-dark font-lora text-sm mb-4">
-                                        {blog.author} {blog.date}
+                                        {blog.author}
                                     </p>
 
                                     {/* Excerpt */}
