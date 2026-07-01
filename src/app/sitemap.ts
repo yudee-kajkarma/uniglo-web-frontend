@@ -222,9 +222,9 @@ const staticEntries = (): MetadataRoute.Sitemap => {
 export default async function sitemap({
     id,
 }: {
-    id: number;
+    id: Promise<string>;
 }): Promise<MetadataRoute.Sitemap> {
-    const shardId = Number(id);
+    const shardId = Number(await id);
     if (!Number.isFinite(shardId) || shardId <= 0) return staticEntries();
 
     try {
