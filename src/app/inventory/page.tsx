@@ -1396,6 +1396,7 @@ function InventoryContent() {
                                     <MelleDiamondGrid
                                         data={melleData}
                                         onViewDetails={handleViewMelleDetails}
+                                        getHref={(d) => buildMellePath(d)}
                                     />
                                 ) : isAuthenticated ? (
                                     <MelleDataTable
@@ -1411,6 +1412,7 @@ function InventoryContent() {
                                                       onDelete: openMelleDelete,
                                                   }
                                                 : undefined,
+                                            (d) => buildMellePath(d),
                                         )}
                                         enableSelection
                                         selected={
@@ -1428,6 +1430,7 @@ function InventoryContent() {
                                             handleSort,
                                             sortBy,
                                             sortOrder,
+                                            (d) => buildMellePath(d),
                                         )}
                                     />
                                 )
@@ -1446,6 +1449,12 @@ function InventoryContent() {
                                 <DiamondGrid
                                     data={data}
                                     onViewDetails={handleViewDetails}
+                                    getHref={(d) =>
+                                        buildDiamondPath(
+                                            d,
+                                            filterState.isNatural,
+                                        )
+                                    }
                                 />
                             ) : (
                                 <DataTable
@@ -1457,12 +1466,22 @@ function InventoryContent() {
                                                   handleSort, // Pass sort handler
                                                   sortBy,
                                                   sortOrder,
+                                                  (d) =>
+                                                      buildDiamondPath(
+                                                          d,
+                                                          filterState.isNatural,
+                                                      ),
                                               )
                                             : getPublicDiamondColumns(
                                                   handleViewDetails,
                                                   handleSort, // Pass sort handler
                                                   sortBy,
                                                   sortOrder,
+                                                  (d) =>
+                                                      buildDiamondPath(
+                                                          d,
+                                                          filterState.isNatural,
+                                                      ),
                                               )
                                     }
                                     columnStyles={{

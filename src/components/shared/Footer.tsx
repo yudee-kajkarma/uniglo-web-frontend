@@ -1,25 +1,27 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Mail, Phone, MapPin } from "lucide-react";
 import logo from "@/assets/Uniglo-Logo-Horizontal1.png";
 import diamondBg from "@/assets/footer_diamond.jpg"; // Add your diamond image here
 
 const pages = [
-    "Inventory",
-    "About",
-    "Buy Diamonds",
-    "Sell Diamonds",
-    "Education",
-    "Blog",
-    "Guide",
+    { label: "Inventory", href: "/inventory" },
+    { label: "Natural Diamonds", href: "/diamonds/natural" },
+    { label: "Lab Grown Diamonds", href: "/diamonds/lab-grown" },
+    { label: "Melee Diamonds", href: "/diamonds/melee" },
+    { label: "About", href: "/about" },
+    { label: "Sell Diamonds", href: "/sell-your-diamonds" },
+    { label: "Education", href: "/the-diamond-4cs" },
+    { label: "Blog", href: "/blogs" },
 ];
 
 const services = [
-    "Diamond Manufacturing",
-    "Free Estimations",
-    "Financing",
-    "Investment",
-    "Sealing",
-    "Partners",
+    { label: "Diamond Manufacturing", href: "/diamond-manufacturing" },
+    { label: "Free Estimations", href: "/the-best-price-for-your-diamonds" },
+    { label: "Financing", href: "/diamond-financing-options" },
+    { label: "Investment", href: "/investment-diamonds" },
+    { label: "Sealing", href: "/security-seals" },
+    { label: "Partners", href: "/partners" },
 ];
 
 export default function Footer() {
@@ -113,13 +115,13 @@ export default function Footer() {
                     </h3>
                     <ul className="space-y-4">
                         {pages.map((page) => (
-                            <li key={page}>
-                                <a
-                                    href="#"
+                            <li key={page.label}>
+                                <Link
+                                    href={page.href}
                                     className="text-white/80 font-lora hover:text-primary-yellow-1 transition"
                                 >
-                                    {page}
-                                </a>
+                                    {page.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -132,13 +134,13 @@ export default function Footer() {
                     </h3>
                     <ul className="space-y-4">
                         {services.map((service) => (
-                            <li key={service}>
-                                <a
-                                    href="#"
+                            <li key={service.label}>
+                                <Link
+                                    href={service.href}
                                     className="text-white/80 font-lora hover:text-primary-yellow-1 transition"
                                 >
-                                    {service}
-                                </a>
+                                    {service.label}
+                                </Link>
                             </li>
                         ))}
                     </ul>

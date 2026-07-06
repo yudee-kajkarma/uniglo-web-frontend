@@ -2,16 +2,22 @@ import { generateSitemaps } from "@/app/sitemap";
 
 const BASE_URL = "https://www.uniglodiamonds.com";
 
-export const revalidate = 3600;
+// Compute the index from live inventory counts on every origin hit. The
+// previous ISR setup (revalidate=3600) froze at the build-time snapshot in
+// production, so new shards never appeared. The CDN still caches the response
+// for an hour via Cache-Control below.
+export const dynamic = "force-dynamic";
 
 export async function GET() {
     const shards = await generateSitemaps();
-    const lastModified = new Date().toISOString();
 
+    // No <lastmod>: stamping new Date() on every request claims constant
+    // change, which search engines detect and then ignore. Omitting it is
+    // better than a fake value.
     const entries = shards
         .map(
             ({ id }) =>
-                `  <sitemap>\n    <loc>${BASE_URL}/sitemap/${id}.xml</loc>\n    <lastmod>${lastModified}</lastmod>\n  </sitemap>`,
+                `  <sitemap>\n    <loc>${BASE_URL}/sitemap/${id}.xml</loc>\n  </sitemap>`,
         )
         .join("\n");
 

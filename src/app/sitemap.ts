@@ -15,10 +15,20 @@ const SHARD_SIZE = 5000;
 // Safety cap so a bad upstream count can't spawn unbounded shards.
 const MAX_SHARDS_PER_TYPE = 60;
 
-// Revalidate the generated sitemaps hourly (matches the page ISR window).
-export const revalidate = 3600;
+// Serve shards from live data on every origin hit. The previous ISR setup
+// (revalidate=3600) froze at the build-time snapshot in production — the
+// shards never regenerated, so new stones were invisible and sold stones
+// lingered. The CDN still absorbs repeat fetches.
+export const dynamic = "force-dynamic";
 
 const HOME: string[] = [""];
+
+// Crawlable hub/listing pages that link to every diamond detail page.
+const HUB_PAGES: string[] = [
+    "diamonds/natural",
+    "diamonds/lab-grown",
+    "diamonds/melee",
+];
 
 const TOP_LEVEL_PAGES: string[] = [
     "about",
@@ -197,20 +207,21 @@ export async function generateSitemaps(): Promise<{ id: number }[]> {
 }
 
 const staticEntries = (): MetadataRoute.Sitemap => {
-    const lastModified = new Date();
+    // No lastModified for static pages: stamping "now" on every generation is
+    // a detectably fake signal that teaches crawlers to distrust the sitemap.
     const entry = (
         path: string,
         priority: number,
         changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
     ): MetadataRoute.Sitemap[number] => ({
         url: buildUrl(path),
-        lastModified,
         changeFrequency,
         priority,
     });
 
     return [
         ...HOME.map((p) => entry(p, 1.0, "weekly")),
+        ...HUB_PAGES.map((p) => entry(p, 0.9, "daily")),
         ...TOP_LEVEL_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...SERVICES_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...EDUCATION_PAGES.map((p) => entry(p, 0.8, "monthly")),

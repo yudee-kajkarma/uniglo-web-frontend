@@ -42,17 +42,19 @@ export interface DiamondWithSimilar {
 }
 
 const safeJson = async <T>(url: string): Promise<T | null> => {
-    try {
-        const res = await fetch(url, {
-            next: { revalidate: REVALIDATE_SECONDS },
-            headers: { Accept: "application/json" },
-        });
-        if (!res.ok) return null;
-        return (await res.json()) as T;
-    } catch (err) {
-        console.error("[seo] upstream fetch failed:", url, err);
-        return null;
+    const res = await fetch(url, {
+        next: { revalidate: REVALIDATE_SECONDS },
+        headers: { Accept: "application/json" },
+    });
+    // Only a genuine upstream 404 means "record does not exist" — callers may
+    // then render a 404 page. Any other failure (5xx, network error) throws so
+    // the page fails with a retryable 500 instead of a cacheable false 404
+    // that would drop a live diamond from the index.
+    if (res.status === 404) return null;
+    if (!res.ok) {
+        throw new Error(`[seo] upstream ${res.status} for ${url}`);
     }
+    return (await res.json()) as T;
 };
 
 // The safe record does not include a natural/lab flag, but the endpoint
