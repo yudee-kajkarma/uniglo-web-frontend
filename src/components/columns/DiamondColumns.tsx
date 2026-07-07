@@ -84,6 +84,7 @@ export const getDiamondColumns = (
     onSort: (columnKey: string) => void,
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
+    getHref?: (diamond: Diamond) => string,
 ): PrivateColumn<Diamond>[] => [
     {
         key: "stockRef",
@@ -97,14 +98,22 @@ export const getDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row: Diamond) => (
-            <div
-                className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
-                onClick={() => onViewDetails(row)}
-            >
-                {row.stockRef}
-            </div>
-        ),
+        render: (row: Diamond) =>
+            getHref ? (
+                <Link
+                    href={getHref(row)}
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                >
+                    {row.stockRef}
+                </Link>
+            ) : (
+                <div
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                    onClick={() => onViewDetails(row)}
+                >
+                    {row.stockRef}
+                </div>
+            ),
     },
     {
         key: "availability",
@@ -325,6 +334,7 @@ export const getPublicDiamondColumns = (
     onSort: (columnKey: string) => void,
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
+    getHref?: (diamond: PublicDiamond) => string,
 ): PublicColumn<PublicDiamond>[] => [
     {
         key: "stockRef",
@@ -338,14 +348,22 @@ export const getPublicDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row: PublicDiamond) => (
-            <div
-                className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
-                onClick={() => onViewDetails(row)}
-            >
-                {row.stockRef}
-            </div>
-        ),
+        render: (row: PublicDiamond) =>
+            getHref ? (
+                <Link
+                    href={getHref(row)}
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                >
+                    {row.stockRef}
+                </Link>
+            ) : (
+                <div
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                    onClick={() => onViewDetails(row)}
+                >
+                    {row.stockRef}
+                </div>
+            ),
     },
     {
         key: "availability",

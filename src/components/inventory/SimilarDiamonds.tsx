@@ -5,8 +5,7 @@ import { fetchDiamondById } from "@/services/diamondService";
 import { Diamond, getShapeFullName } from "@/interface/diamondInterface";
 import { buildDiamondPath } from "@/lib/seo/diamondSeo";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { DiamondImage } from "../shared/DiamondMedia";
 
 interface SimilarDiamondsProps {
@@ -18,7 +17,6 @@ export default function SimilarDiamonds({
     similarDiamondIds,
     isPublic = false,
 }: SimilarDiamondsProps) {
-    const router = useRouter();
     const [diamonds, setDiamonds] = useState<Diamond[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,10 +69,6 @@ export default function SimilarDiamonds({
         if (currentIndex > 0) {
             setCurrentIndex(currentIndex - 1);
         }
-    };
-
-    const handleDiamondClick = (diamond: Diamond) => {
-        router.push(buildDiamondPath(diamond));
     };
 
     if (loading) {
@@ -132,10 +126,10 @@ export default function SimilarDiamonds({
                 {/* Diamond Cards Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
                     {visibleDiamonds.map((diamond) => (
-                        <div
+                        <Link
                             key={diamond.stockRef}
-                            onClick={() => handleDiamondClick(diamond)}
-                            className="border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow bg-white"
+                            href={buildDiamondPath(diamond)}
+                            className="block border border-gray-200 rounded-lg overflow-hidden cursor-pointer hover:shadow-lg transition-shadow bg-white"
                         >
                             {/* Diamond Image */}
                             <div className="aspect-square bg-gray-50 flex items-center justify-center p-4">
@@ -169,7 +163,7 @@ export default function SimilarDiamonds({
                                     <span>{diamond.lab || "GIA"}</span>
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

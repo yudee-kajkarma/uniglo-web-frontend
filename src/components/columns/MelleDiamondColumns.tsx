@@ -79,18 +79,27 @@ export const getMelleDiamondColumns = (
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
     adminHandlers?: MelleAdminHandlers,
+    getHref?: (diamond: MelleDiamond) => string,
 ): MelleColumn<MelleDiamond>[] => [
     {
         key: "stockId",
         header: "Stock ID",
-        render: (row) => (
-            <div
-                className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
-                onClick={() => onViewDetails(row)}
-            >
-                {row.stockId}
-            </div>
-        ),
+        render: (row) =>
+            getHref ? (
+                <Link
+                    href={getHref(row)}
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                >
+                    {row.stockId}
+                </Link>
+            ) : (
+                <div
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                    onClick={() => onViewDetails(row)}
+                >
+                    {row.stockId}
+                </div>
+            ),
     },
     { key: "shape", header: "Shape" },
     {
@@ -269,18 +278,27 @@ export const getPublicMelleDiamondColumns = (
     onSort: (columnKey: string) => void,
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
+    getHref?: (diamond: PublicMelleDiamond) => string,
 ): MelleColumn<PublicMelleDiamond>[] => [
     {
         key: "stockId",
         header: "Stock ID",
-        render: (row) => (
-            <div
-                className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
-                onClick={() => onViewDetails(row)}
-            >
-                {row.stockId}
-            </div>
-        ),
+        render: (row) =>
+            getHref ? (
+                <Link
+                    href={getHref(row)}
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                >
+                    {row.stockId}
+                </Link>
+            ) : (
+                <div
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                    onClick={() => onViewDetails(row)}
+                >
+                    {row.stockId}
+                </div>
+            ),
     },
     { key: "shape", header: "Shape" },
     {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
 import MelleSeoContent from "@/components/seo/MelleSeoContent";
@@ -80,6 +81,20 @@ export default async function MeleePage({ params }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
             />
+            <nav
+                aria-label="Breadcrumb"
+                className="max-w-7xl mx-auto px-4 pt-4 text-xs text-gray-500 font-lato"
+            >
+                <Link href="/" className="hover:underline">
+                    Home
+                </Link>
+                {" / "}
+                <Link href="/diamonds/melee" className="hover:underline">
+                    Melee Diamonds
+                </Link>
+                {" / "}
+                <span className="text-gray-700">{melle.stockId}</span>
+            </nav>
             <MelleDiamondDetailView
                 diamondId={melle._id}
                 initialDiamond={melle}

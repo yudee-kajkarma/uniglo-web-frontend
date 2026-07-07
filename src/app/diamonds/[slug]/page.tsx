@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import DiamondDetailView from "@/components/inventory/DiamondDetailView";
 import DiamondSeoContent from "@/components/seo/DiamondSeoContent";
@@ -8,6 +9,7 @@ import {
     getDiamondMetaTitle,
     getDiamondMetaDescription,
     getDiamondPrimaryImage,
+    getDiamondType,
     buildDiamondUrl,
 } from "@/lib/seo/diamondSeo";
 import { buildDiamondJsonLd, jsonLdString } from "@/lib/seo/schema";
@@ -78,6 +80,9 @@ export default async function DiamondPage({ params }: PageProps) {
 
     const { diamond, similarStockRefs } = result;
     const jsonLd = buildDiamondJsonLd(diamond);
+    const isNatural = getDiamondType(diamond) === "Natural";
+    const hubPath = isNatural ? "/diamonds/natural" : "/diamonds/lab-grown";
+    const hubLabel = isNatural ? "Natural Diamonds" : "Lab Grown Diamonds";
 
     return (
         <>
@@ -85,6 +90,20 @@ export default async function DiamondPage({ params }: PageProps) {
                 type="application/ld+json"
                 dangerouslySetInnerHTML={{ __html: jsonLdString(jsonLd) }}
             />
+            <nav
+                aria-label="Breadcrumb"
+                className="max-w-7xl mx-auto px-4 pt-4 text-xs text-gray-500 font-lato"
+            >
+                <Link href="/" className="hover:underline">
+                    Home
+                </Link>
+                {" / "}
+                <Link href={hubPath} className="hover:underline">
+                    {hubLabel}
+                </Link>
+                {" / "}
+                <span className="text-gray-700">{diamond.stockRef}</span>
+            </nav>
             <DiamondDetailView
                 diamondId={diamond.stockRef}
                 initialDiamond={diamond}
