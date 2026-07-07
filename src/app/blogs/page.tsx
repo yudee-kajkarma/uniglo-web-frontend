@@ -745,6 +745,106 @@ const blogs = [
             "Learn where to buy lab-grown diamonds online in Belgium, how to compare certified diamonds safely, what to check before purchase, and how Uniglo Diamonds helps buyers choose with confidence.",
         slug: "where-to-buy-lab-grown-diamonds-online-belgium",
     },
+    {
+        id: 76,
+        title: "Oval Diamond Obsession: Why Everyone Is Choosing the Oval Cut and Who It Suits Best",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/oval-diamond-rings-why-popular-who-they-suit.png",
+        excerpt:
+            "Discover why oval diamond rings look bigger, flatter every hand, and feel modern yet romantic. Learn who oval diamonds suit best with Uniglo Jewels.",
+        slug: "oval-diamond-rings-why-popular-who-they-suit",
+    },
+    {
+        id: 77,
+        title: "The “Looks Expensive” Diamond Edit: 7 Jewelry Pieces That Instantly Upgrade Any Outfit",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/diamond-jewelry-pieces-that-look-expensive-1.png",
+        excerpt:
+            "Discover 7 diamond jewelry pieces that instantly upgrade any outfit, from diamond studs and tennis bracelets to huggies, pendants, rings, and bands.",
+        slug: "diamond-jewelry-pieces-that-look-expensive",
+    },
+    {
+        id: 78,
+        title: "Modern Heirlooms: Jewelry Designed to Be Passed Down, Not Replaced",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/modern-heirloom-jewelry-designed-to-last-1.png",
+        excerpt:
+            "Discover what makes modern heirloom jewelry meaningful, timeless, and worthy of being passed down through generations with Uniglo Jewels.",
+        slug: "modern-heirloom-jewelry-designed-to-last",
+    },
+    {
+        id: 79,
+        title: "Why Diamonds Became the Language of Forever And Why They Still Are Today",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/why-diamonds-mean-forever-1.png",
+        excerpt:
+            "Discover why diamonds became symbols of forever, love, legacy, and modern self-expression, and why diamond jewelry still carries timeless meaning today.",
+        slug: "why-diamonds-mean-forever",
+    },
+    {
+        id: 80,
+        title: "The Journey of Brilliance: From Earth-Formed to Lab-Created Diamonds",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/natural-vs-lab-created-diamonds-two-origins-one-emotion-1.png",
+        excerpt:
+            "Understand the difference between natural and lab-created diamonds in a clear, human guide. Explore how both origins can carry beauty, meaning, and emotion.",
+        slug: "natural-vs-lab-created-diamonds-two-origins-one-emotion",
+    },
+    {
+        id: 81,
+        title: "Uniglo’s 25 Years: An Evening Where Memories Wore Diamonds",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/uniglo-25th-anniversary-diamonds-memories-legacy-1.png",
+        excerpt:
+            "Uniglo’s 25th anniversary celebrated 25 years of diamonds, craftsmanship, global relationships, family values, and meaningful connections.",
+        slug: "uniglo-25th-anniversary-diamonds-memories-legacy",
+    },
+    {
+        id: 82,
+        title: "Minimal Bride, Maximum Impact: Diamond Jewellery for the Modern Wedding Aesthetic",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/minimal-bridal-diamond-jewellery-modern-wedding-1.png",
+        excerpt:
+            "Discover how minimal bridal diamond jewellery creates maximum impact with elegant rings, pendants, earrings, bracelets, and timeless wedding styling.",
+        slug: "minimal-bridal-diamond-jewellery-modern-wedding",
+    },
+    {
+        id: 83,
+        title: "Jewellery That Speaks Love This Valentine’s Day",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/valentines-day-diamond-jewellery-gifts.png",
+        excerpt:
+            "Discover meaningful Valentine’s Day diamond jewellery gifts from Uniglo Jewels, designed for romance, self-love, family bonds, and memories that last.",
+        slug: "valentines-day-diamond-jewellery-gifts",
+    },
+    {
+        id: 84,
+        title: "Little Sparks, Forever Love: A Valentine’s Day Story in Diamond and Lab-Grown Diamond",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/valentines-day-diamond-jewellery-for-children-1.png",
+        excerpt:
+            "Celebrate Valentine’s Day with meaningful diamond and lab-grown diamond jewellery for children, from tiny pendants to keepsake bracelets designed to carry love forward.",
+        slug: "valentines-day-diamond-jewellery-for-children",
+    },
+    {
+        id: 85,
+        title: "A Circle of Love: Celebrating Valentine’s Day with Diamonds for Every Heart",
+        author: "Uniglo Diamonds",
+        date: "July 7, 2026",
+        image: "/special-blogs-images/valentines-day-diamond-gifts-for-every-heart-1.png",
+        excerpt:
+            "Celebrate Valentine’s Day with diamond and lab-grown diamond jewellery for partners, parents, children, and every meaningful bond in your family.",
+        slug: "valentines-day-diamond-gifts-for-every-heart",
+    },
 ];
 
 const page = () => {
