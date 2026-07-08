@@ -54,7 +54,7 @@ type NavLink = {
 // Labels are translated at render time via t(nameKey) — nothing here is hardcoded English anymore.
 const NAV_LINKS: NavLink[] = [
     { nameKey: "nav.about", href: "/about" },
-    { nameKey: "nav.sellDiamonds", href: "/sell-your-diamonds" }, origin/prod
+    { nameKey: "nav.sellDiamonds", href: "/sell-your-diamonds" },
     {
         nameKey: "nav.services",
         href: "#",
@@ -155,7 +155,7 @@ const NAV_LINKS: NavLink[] = [
                 ],
             },
             {
-                nameKey: "nav.guideToLabGrownDiamonds", origin/prod
+                nameKey: "nav.guideToLabGrownDiamonds",
                 href: "/guide-to-lab-grown-diamonds",
             },
             {
@@ -556,7 +556,7 @@ export default function Navbar() {
                                                                         }
                                                                     </span>
                                                                 </Link>
-                                                            ), origin/prod
+                                                            ),
                                                     )}
                                                 </div>
                                             </div>
@@ -687,7 +687,7 @@ export default function Navbar() {
                                                                                     t(submenu.nameKey)
                                                                                 }
                                                                             </Link>
-                                                                        ), origin/prod
+                                                                        ),
                                                                 )}
                                                             </motion.div>
                                                         )}
