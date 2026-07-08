@@ -48,31 +48,6 @@ const blogs = [
         slug: "radiant-cut-diamond-guide",
     },
     {
-        id: 9,
-        image: BuyDiamondsOnlineBlog2,
-        slug: "oval-diamond-obsession",
-    },
-    {
-        id: 10,
-        image: NivodaBlogImage,
-        slug: "looks-expensive-diamond-edit",
-    },
-    {
-        id: 11,
-        image: BuyDiamondsOnlineBlog1,
-        slug: "jewellery-that-speaks-love-valentines-day",
-    },
-    {
-        id: 12,
-        image: tamperprofseal,
-        slug: "little-sparks-forever-love-valentines-day",
-    },
-    {
-        id: 13,
-        image: EngagementRingBlog2,
-        slug: "circle-of-love-valentines-day-diamonds",
-    },
-    {
         id: 14,
         image: EngagementRingBlog1,
         slug: "how-to-tell-if-a-diamond-is-real-at-home",
@@ -381,6 +356,56 @@ const blogs = [
         id: 75,
         image: BuyDiamondsOnlineBlog1,
         slug: "where-to-buy-lab-grown-diamonds-online-belgium",
+    },
+    {
+        id: 9,
+        image: "/special-blogs-images/oval-diamond-rings-why-popular-who-they-suit.png",
+        slug: "oval-diamond-rings-why-popular-who-they-suit",
+    },
+    {
+        id: 10,
+        image: "/special-blogs-images/diamond-jewelry-pieces-that-look-expensive-1.png",
+        slug: "diamond-jewelry-pieces-that-look-expensive",
+    },
+    {
+        id: 79,
+        image: "/special-blogs-images/modern-heirloom-jewelry-designed-to-last-1.png",
+        slug: "modern-heirloom-jewelry-designed-to-last",
+    },
+    {
+        id: 78,
+        image: "/special-blogs-images/why-diamonds-mean-forever-1.png",
+        slug: "why-diamonds-mean-forever",
+    },
+    {
+        id: 77,
+        image: "/special-blogs-images/natural-vs-lab-created-diamonds-two-origins-one-emotion-1.png",
+        slug: "natural-vs-lab-created-diamonds-two-origins-one-emotion",
+    },
+    {
+        id: 76,
+        image: "/special-blogs-images/uniglo-25th-anniversary-diamonds-memories-legacy-1.png",
+        slug: "uniglo-25th-anniversary-diamonds-memories-legacy",
+    },
+    {
+        id: 80,
+        image: "/special-blogs-images/minimal-bridal-diamond-jewellery-modern-wedding-1.png",
+        slug: "minimal-bridal-diamond-jewellery-modern-wedding",
+    },
+    {
+        id: 11,
+        image: "/special-blogs-images/valentines-day-diamond-jewellery-gifts.png",
+        slug: "valentines-day-diamond-jewellery-gifts",
+    },
+    {
+        id: 12,
+        image: "/special-blogs-images/valentines-day-diamond-jewellery-for-children-1.png",
+        slug: "valentines-day-diamond-jewellery-for-children",
+    },
+    {
+        id: 13,
+        image: "/special-blogs-images/valentines-day-diamond-gifts-for-every-heart-1.png",
+        slug: "valentines-day-diamond-gifts-for-every-heart",
     }
 ];
 const BlogPage = async ({ params }: Props) => {
