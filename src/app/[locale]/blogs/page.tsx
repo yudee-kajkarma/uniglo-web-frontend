@@ -356,6 +356,31 @@ const blogs = [
         id: 70,
         image: labd,
         slug: "lab-grown-diamonds-belgium-buyers-guide",
+    },
+    {
+        id: 71,
+        image: newimage,
+        slug: "antwerp-certified-lab-grown-diamonds-hrd-certificate-guide",
+    },
+    {
+        id: 72,
+        image: labd,
+        slug: "best-place-to-buy-lab-grown-diamonds-antwerp",
+    },
+    {
+        id: 73,
+        image: diamondcoal,
+        slug: "cheap-diamonds-antwerp-vs-lab-grown-diamond-value",
+    },
+    {
+        id: 74,
+        image: EngagementRingBlog2,
+        slug: "how-to-buy-lab-grown-diamond-ring-antwerp",
+    },
+    {
+        id: 75,
+        image: BuyDiamondsOnlineBlog1,
+        slug: "where-to-buy-lab-grown-diamonds-online-belgium",
     }
 ];
 const BlogPage = async ({ params }: Props) => {
