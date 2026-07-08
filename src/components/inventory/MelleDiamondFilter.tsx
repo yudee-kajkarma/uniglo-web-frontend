@@ -11,7 +11,10 @@ import {
 import {
     MelleFilterOptions,
     MelleFilterState,
+    MelleInventoryKind,
     MelleSieveOption,
+    isMelleRoundShape,
+    shapesForMelleInventoryKind,
 } from "@/interface/melleDiamondInterface";
 import { fetchMelleFilterOptions } from "@/services/melleDiamondService";
 import { useAuth } from "@/context/AuthContext";
@@ -40,25 +43,63 @@ const toggle = <T extends string>(list: T[], item: T): T[] =>
     list.includes(item) ? list.filter((i) => i !== item) : [...list, item];
 
 // Maps melee shape codes from the API to display label + icon. RBC is the
-// Round Brilliant Cut variant the melee API currently emits; the other
-// codes mirror the regular diamond filter so adding new ones server-side
-// "just works" visually.
-const MELLE_SHAPE_META: Record<string, { label: string; icon: string }> = {
+// Round Brilliant Cut variant the melee API emits; short codes mirror the
+// regular diamond filter. Fancy Shape Master imports use full names (OVAL,
+// BAGUETTE, …) — those are mapped here too. Shapes with no dedicated icon
+// omit `icon` and render a text label instead of the generic "Other" tile.
+const MELLE_SHAPE_META: Record<string, { label: string; icon?: string }> = {
     RBC: { label: "Round", icon: "/shapes/round-diamond.png" },
     RD: { label: "Round", icon: "/shapes/round-diamond.png" },
     PC: { label: "Princess", icon: "/shapes/princess-diamond.png" },
+    PRINCESS: { label: "Princess", icon: "/shapes/princess-diamond.png" },
     PS: { label: "Pear", icon: "/shapes/pear-diamond.png" },
+    PEAR: { label: "Pear", icon: "/shapes/pear-diamond.png" },
     OV: { label: "Oval", icon: "/shapes/Oval-Diamond.png" },
+    OVAL: { label: "Oval", icon: "/shapes/Oval-Diamond.png" },
     EM: { label: "Emerald", icon: "/shapes/emerald-diamond.png" },
+    EMERALD: { label: "Emerald", icon: "/shapes/emerald-diamond.png" },
     MQ: { label: "Marquise", icon: "/shapes/marquise-diamond.png" },
+    MARQUISE: { label: "Marquise", icon: "/shapes/marquise-diamond.png" },
     RA: { label: "Radiant", icon: "/shapes/radiant-diamond.png" },
+    RADIANT: { label: "Radiant", icon: "/shapes/radiant-diamond.png" },
     HT: { label: "Heart", icon: "/shapes/heart.png" },
+    HEART: { label: "Heart", icon: "/shapes/heart.png" },
     Asscher: { label: "Asscher", icon: "/shapes/asscher-diamond.png" },
+    ASSCHER: { label: "Asscher", icon: "/shapes/asscher-diamond.png" },
     CU: { label: "Cushion", icon: "/shapes/cushion-diamond.png" },
+    CUSHION: { label: "Cushion", icon: "/shapes/cushion-diamond.png" },
     Oeb: { label: "European", icon: "/shapes/old-european-diamond.png" },
     OMB: { label: "Old Mine", icon: "/shapes/old-mine-diamond.png" },
     SE: { label: "Square Emerald", icon: "/shapes/square-emerald.png" },
     Other: { label: "Other", icon: "/shapes/other-diamond.png" },
+    BAGUETTE: { label: "Baguette", icon: "/shapes/baguette-diamond.jpg" },
+    CADILLAC: { label: "Cadillac", icon: "/shapes/cadillac-diamond.jpg" },
+    CARRE: { label: "Carre", icon: "/shapes/carre-diamond.webp" },
+    "HALF MOON": { label: "Half Moon", icon: "/shapes/half-moon-diamond.jpg" },
+    HEXAGON: { label: "Hexagon", icon: "/shapes/hexagon-diamond.jpeg" },
+    KITE: { label: "Kite", icon: "/shapes/kite-diamond.jpg" },
+    "LILY CUT": { label: "Lily Cut", icon: "/shapes/lily-cut-diamond.jpg" },
+    "ROSE CUT": { label: "Rose Cut", icon: "/shapes/rose-cut-diamond.jpg" },
+    SHIELD: { label: "Shield", icon: "/shapes/shield-diamond.jpg" },
+    "TAP BUG": { label: "Tap Bug", icon: "/shapes/tap-bug-diamond.jpg" },
+    TRAPEZE: { label: "Trapeze", icon: "/shapes/trapeze-diamond.webp" },
+    TRIANGLE: { label: "Triangle", icon: "/shapes/triangle-diamond.jpg" },
+    TRILLION: { label: "Trillion", icon: "/shapes/Trillion.jpg" },
+};
+
+const resolveMelleShapeMeta = (
+    code: string,
+): { label: string; icon?: string } => {
+    const trimmed = code.trim();
+    const direct =
+        MELLE_SHAPE_META[trimmed] ?? MELLE_SHAPE_META[trimmed.toUpperCase()];
+    if (direct) return direct;
+
+    const label = trimmed
+        .split(/\s+/)
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+        .join(" ");
+    return { label };
 };
 
 // Display order for melee clarity grades. Anything not in this list is
@@ -174,20 +215,63 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         );
     }
 
+    const isRoundInventory = filters.inventoryKind === "round";
+    const visibleShapes = shapesForMelleInventoryKind(
+        options.shapes,
+        filters.inventoryKind,
+    );
+
+    const handleInventoryKindChange = (kind: MelleInventoryKind) => {
+        setFilters((prev) => {
+            if (prev.inventoryKind === kind) return prev;
+            return {
+                ...prev,
+                inventoryKind: kind,
+                shape:
+                    kind === "round"
+                        ? prev.shape.filter(isMelleRoundShape)
+                        : prev.shape.filter((s) => !isMelleRoundShape(s)),
+                measurementMmRange: [
+                    options.measurementRange.min,
+                    options.measurementRange.max,
+                ],
+                sieveRanges: [],
+                lengthValues: [],
+                breadthValues: [],
+            };
+        });
+    };
+
+    const inventoryKindToggle = (
+        <div className="flex flex-wrap gap-1 mb-2">
+            <ToggleButton
+                label="Round"
+                active={isRoundInventory}
+                onClick={() => handleInventoryKindChange("round")}
+                className="border border-primary-yellow-2 min-w-[56px]"
+            />
+            <ToggleButton
+                label="Fancy"
+                active={!isRoundInventory}
+                onClick={() => handleInventoryKindChange("fancy")}
+                className="border border-primary-yellow-2 min-w-[56px]"
+            />
+        </div>
+    );
+
     const shapesContent = (
         <div
             className={cn(
                 "grid gap-2",
                 variant === "sidebar"
                     ? "grid-cols-2 sm:grid-cols-4"
-                    : "grid-cols-7",
+                    : isRoundInventory
+                      ? "grid-cols-2 sm:grid-cols-4 lg:grid-cols-7"
+                      : "grid-cols-4 sm:grid-cols-5 lg:grid-cols-7",
             )}
         >
-            {options.shapes.map((code) => {
-                const meta = MELLE_SHAPE_META[code] ?? {
-                    label: code,
-                    icon: "/shapes/other-diamond.png",
-                };
+            {visibleShapes.map((code) => {
+                const meta = resolveMelleShapeMeta(code);
                 const isActive = filters.shape.includes(code);
                 return (
                     <TooltipProvider key={code}>
@@ -207,13 +291,19 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                                             : "border-primary-yellow-2",
                                     )}
                                 >
-                                    <Image
-                                        src={meta.icon}
-                                        width={54}
-                                        height={54}
-                                        alt={meta.label}
-                                        className="aspect-square object-contain"
-                                    />
+                                    {meta.icon ? (
+                                        <Image
+                                            src={meta.icon}
+                                            width={54}
+                                            height={54}
+                                            alt={meta.label}
+                                            className="aspect-square object-contain"
+                                        />
+                                    ) : (
+                                        <span className="text-[10px] sm:text-xs text-center leading-tight px-1 font-medium">
+                                            {meta.label}
+                                        </span>
+                                    )}
                                 </button>
                             </TooltipTrigger>
                             <TooltipContent>{meta.label}</TooltipContent>
@@ -369,16 +459,38 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         />
     );
 
-    const measurementDropdown = (
-        <MultiRangeSelect
-            label="Measurement"
-            min={options.measurementRange.min}
-            max={options.measurementRange.max}
-            step={0.1}
-            decimals={2}
-            selected={filters.measurementRanges ?? []}
-            onChange={(ranges) =>
-                setFilters((p) => ({ ...p, measurementRanges: ranges }))
+    const measurementInputs = (
+        <RangeSliderWithInputs
+            label="Measurement (mm)"
+            value={filters.measurementMmRange}
+            onChange={(val) =>
+                setFilters((p) => ({ ...p, measurementMmRange: val }))
+            }
+            minLimit={options.measurementRange.min}
+            maxLimit={options.measurementRange.max}
+            step={0.01}
+            variant={variant}
+        />
+    );
+
+    const lengthDropdown = (
+        <ValueMultiSelect
+            label="Length"
+            options={options.lengthOptions}
+            selected={filters.lengthValues ?? []}
+            onChange={(values) =>
+                setFilters((p) => ({ ...p, lengthValues: values }))
+            }
+        />
+    );
+
+    const breadthDropdown = (
+        <ValueMultiSelect
+            label="Breadth"
+            options={options.breadthOptions}
+            selected={filters.breadthValues ?? []}
+            onChange={(values) =>
+                setFilters((p) => ({ ...p, breadthValues: values }))
             }
         />
     );
@@ -426,6 +538,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
         return (
             <div className="w-full bg-white font-lato flex flex-col">
                 <DiamondFilterSection title="Shape" variant="sidebar">
+                    {inventoryKindToggle}
                     {shapesContent}
                 </DiamondFilterSection>
                 <DiamondFilterSection title="Color" variant="sidebar">
@@ -452,8 +565,17 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                     {sizeModeRadio}
                     {priceSlider}
                     {sizeMode === "avgPtr" ? avgPtrDropdown : caratDropdown}
-                    {measurementDropdown}
-                    {sieveDropdown}
+                    {isRoundInventory ? (
+                        <>
+                            {measurementInputs}
+                            {sieveDropdown}
+                        </>
+                    ) : (
+                        <>
+                            {lengthDropdown}
+                            {breadthDropdown}
+                        </>
+                    )}
                 </div>
             </div>
         );
@@ -465,6 +587,7 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                 {/* Col 1 — Shapes + Color */}
                 <div className="lg:col-span-4 flex flex-col gap-2">
                     <DiamondFilterSection title="Shapes">
+                        {inventoryKindToggle}
                         {shapesContent}
                     </DiamondFilterSection>
                     <DiamondFilterSection title="Color">
@@ -496,8 +619,17 @@ export const MelleDiamondFilters: React.FC<MelleDiamondFiltersProps> = ({
                 <div className="lg:col-span-4 grid grid-cols-2 gap-2 auto-rows-min content-start">
                     {sizeModeRadio}
                     {sizeMode === "avgPtr" ? avgPtrDropdown : caratDropdown}
-                    {measurementDropdown}
-                    {sieveDropdown}
+                    {isRoundInventory ? (
+                        <>
+                            <div className="col-span-2">{measurementInputs}</div>
+                            {sieveDropdown}
+                        </>
+                    ) : (
+                        <>
+                            {lengthDropdown}
+                            {breadthDropdown}
+                        </>
+                    )}
                     {/* RangeSliderWithInputs forces h-full on its wrapper.
                         Wrapping in a plain div with col-span-2 keeps it from
                         stretching to fill leftover column height. */}
@@ -667,6 +799,134 @@ const MultiRangeSelect: React.FC<MultiRangeSelectProps> = ({
                                         >
                                             {formatNum(b[0], decimals)} -{" "}
                                             {formatNum(b[1], decimals)}
+                                        </button>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
+                </PopoverContent>
+            </Popover>
+        </DiamondFilterSection>
+    );
+};
+
+interface ValueMultiSelectProps {
+    label: string;
+    options: string[];
+    selected: string[];
+    onChange: (values: string[]) => void;
+}
+
+const formatMeasureValue = (value: string): string => {
+    const n = parseFloat(value);
+    if (!Number.isFinite(n)) return value;
+    return Number.isInteger(n) ? String(n) : n.toFixed(2);
+};
+
+const ValueMultiSelect: React.FC<ValueMultiSelectProps> = ({
+    label,
+    options,
+    selected,
+    onChange,
+}) => {
+    const [open, setOpen] = useState(false);
+    const selectedSet = useMemo(() => new Set(selected), [selected]);
+
+    const toggleValue = (value: string) => {
+        if (selectedSet.has(value)) {
+            onChange(selected.filter((v) => v !== value));
+        } else {
+            onChange([...selected, value]);
+        }
+    };
+
+    const removeValue = (e: React.MouseEvent, value: string) => {
+        e.stopPropagation();
+        onChange(selected.filter((v) => v !== value));
+    };
+
+    return (
+        <DiamondFilterSection title={label} className="p-0">
+            <Popover open={open} onOpenChange={setOpen}>
+                <PopoverTrigger asChild>
+                    <button
+                        type="button"
+                        className="w-full min-h-[36px] flex items-center justify-between gap-2 px-2 py-1 bg-white border border-primary-yellow-2 rounded text-xs text-gray-700 hover:border-primary-purple2 transition-colors"
+                    >
+                        <div className="flex flex-wrap gap-1 flex-1 items-center">
+                            {selected.length === 0 ? (
+                                <span className="text-gray-400">
+                                    Select {label.toLowerCase()}…
+                                </span>
+                            ) : (
+                                selected.map((value) => (
+                                    <span
+                                        key={value}
+                                        className="inline-flex items-center gap-1 bg-gray-100 border border-gray-200 rounded px-1.5 py-0.5 text-[11px]"
+                                    >
+                                        {formatMeasureValue(value)}
+                                        <span
+                                            role="button"
+                                            tabIndex={0}
+                                            onClick={(e) =>
+                                                removeValue(e, value)
+                                            }
+                                            onKeyDown={(e) => {
+                                                if (
+                                                    e.key === "Enter" ||
+                                                    e.key === " "
+                                                ) {
+                                                    e.stopPropagation();
+                                                    onChange(
+                                                        selected.filter(
+                                                            (v) => v !== value,
+                                                        ),
+                                                    );
+                                                }
+                                            }}
+                                            className="text-gray-500 hover:text-red-500 cursor-pointer"
+                                            aria-label={`Remove ${formatMeasureValue(value)}`}
+                                        >
+                                            <X size={12} />
+                                        </span>
+                                    </span>
+                                ))
+                            )}
+                        </div>
+                        <ChevronDown
+                            size={14}
+                            className={cn(
+                                "text-gray-500 transition-transform shrink-0",
+                                open && "rotate-180",
+                            )}
+                        />
+                    </button>
+                </PopoverTrigger>
+                <PopoverContent
+                    align="start"
+                    className="w-[var(--radix-popover-trigger-width)] p-0 max-h-72 overflow-y-auto"
+                >
+                    {options.length === 0 ? (
+                        <div className="p-3 text-xs text-gray-500 text-center">
+                            No values available
+                        </div>
+                    ) : (
+                        <ul className="py-1">
+                            {options.map((value) => {
+                                const isSelected = selectedSet.has(value);
+                                return (
+                                    <li key={value}>
+                                        <button
+                                            type="button"
+                                            onClick={() => toggleValue(value)}
+                                            className={cn(
+                                                "w-full text-left px-3 py-1.5 text-xs hover:bg-blue-50 transition-colors",
+                                                isSelected &&
+                                                    "bg-blue-100 font-medium",
+                                            )}
+                                        >
+                                            {formatMeasureValue(value)}
                                         </button>
                                     </li>
                                 );

@@ -6,6 +6,16 @@ const withNextIntl = createNextIntlPlugin("./src/i18n.ts");
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     poweredByHeader: false,
+    // Next.js generateSitemaps() serves shards at /sitemap/[id].xml but does
+    // not emit a root index at /sitemap.xml — route it to our handler instead.
+    async rewrites() {
+        return [
+            {
+                source: "/sitemap.xml",
+                destination: "/api/sitemap-index",
+            },
+        ];
+    },
     images: {
         formats: ["image/avif", "image/webp"],
         remotePatterns: [

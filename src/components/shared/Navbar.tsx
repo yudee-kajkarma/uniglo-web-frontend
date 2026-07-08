@@ -14,6 +14,7 @@ import {
     Twitter,
     Instagram,
     ChevronDown,
+    ChevronRight,
     Menu,
     X,
     UserIcon,
@@ -36,11 +37,24 @@ import { useAuth } from "@/context/AuthContext";
 import NotificationBell from "./NotificationBell";
 import { useTranslations } from "next-intl";
 
+type SubmenuItem = {
+    nameKey: string;
+    href?: string;
+    subItems?: { nameKey: string; href: string }[];
+};
+
+type NavLink = {
+    nameKey: string;
+    href: string;
+    hasDropdown?: boolean;
+    submenuItems?: SubmenuItem[];
+};
+
 // NOTE: "nameKey" points at a key inside messages/en.json and messages/de.json.
 // Labels are translated at render time via t(nameKey) — nothing here is hardcoded English anymore.
-const NAV_LINKS = [
+const NAV_LINKS: NavLink[] = [
     { nameKey: "nav.about", href: "/about" },
-    { nameKey: "nav.sellDiamonds", href: "/sell-your-diamonds" },
+    { nameKey: "nav.sellDiamonds", href: "/sell-your-diamonds" }, origin/prod
     {
         nameKey: "nav.services",
         href: "#",
@@ -95,7 +109,53 @@ const NAV_LINKS = [
         hasDropdown: true,
         submenuItems: [
             {
-                nameKey: "nav.guideToLabGrownDiamonds",
+                nameKey: "nav.labGrownDiamondGuides",
+                subItems: [
+                    { nameKey: "nav.labGrownDiamonds", href: "/lab-grown-diamonds" },
+                    {
+                        nameKey: "nav.labGrownDiamondPrices",
+                        href: "/lab-grown-diamond-prices",
+                    },
+                    {
+                        nameKey: "nav.looseLabGrownDiamonds",
+                        href: "/loose-lab-grown-diamonds",
+                    },
+                    {
+                        nameKey: "nav.labGrownVsNaturalDiamonds",
+                        href: "/lab-grown-diamonds-vs-natural-diamonds",
+                    },
+                    {
+                        nameKey: "nav.labGrownDiamondsVsMoissanite",
+                        href: "/lab-grown-diamonds-vs-moissanite",
+                    },
+                    {
+                        nameKey: "nav.areLabGrownDiamondsReal",
+                        href: "/are-lab-grown-diamonds-real",
+                    },
+                    {
+                        nameKey: "nav.areLabGrownDiamondsWorthIt",
+                        href: "/are-lab-grown-diamonds-worth-it",
+                    },
+                    {
+                        nameKey: "nav.igiCertifiedLabGrownDiamonds",
+                        href: "/igi-certified-lab-grown-diamonds",
+                    },
+                    {
+                        nameKey: "nav.giaCertifiedLabGrownDiamonds",
+                        href: "/gia-certified-lab-grown-diamonds",
+                    },
+                    {
+                        nameKey: "nav.wholesaleLabGrownDiamonds",
+                        href: "/wholesale-lab-grown-diamonds",
+                    },
+                    {
+                        nameKey: "nav.labGrownDiamondSupplier",
+                        href: "/lab-grown-diamond-supplier",
+                    },
+                ],
+            },
+            {
+                nameKey: "nav.guideToLabGrownDiamonds", origin/prod
                 href: "/guide-to-lab-grown-diamonds",
             },
             {
@@ -431,23 +491,72 @@ export default function Navbar() {
                                             <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-48 bg-white border-t-2 border-[#c5a059] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl transform group-hover:translate-y-0 translate-y-2">
                                                 <div className="flex flex-col text-black font-cormorantGaramond text-base normal-case tracking-normal ">
                                                     {link.submenuItems?.map(
-                                                        (submenu) => (
-                                                            <Link
-                                                                key={
-                                                                    submenu.nameKey
-                                                                }
-                                                                href={
-                                                                    submenu.href
-                                                                }
-                                                                className="p-3 slide-down-link"
-                                                            >
-                                                                <span>
-                                                                    {
-                                                                        t(submenu.nameKey)
+                                                        (submenu) =>
+                                                            submenu.subItems ? (
+                                                                <div
+                                                                    key={
+                                                                        submenu.nameKey
                                                                     }
-                                                                </span>
-                                                            </Link>
-                                                        ),
+                                                                    className="relative group/sub"
+                                                                >
+                                                                    <button className="w-full p-3 slide-down-link flex items-center justify-between gap-2 text-left">
+                                                                        <span>
+                                                                            {
+                                                                                t(submenu.nameKey)
+                                                                            }
+                                                                        </span>
+                                                                        <ChevronRight
+                                                                            size={
+                                                                                14
+                                                                            }
+                                                                            className="shrink-0"
+                                                                        />
+                                                                    </button>
+                                                                    {/* Side flyout panel */}
+                                                                    <div className="absolute top-0 right-full w-[26rem] bg-white border-t-2 border-[#c5a059] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 shadow-xl z-50">
+                                                                        <div className="grid grid-cols-2 text-black font-cormorantGaramond text-base normal-case tracking-normal">
+                                                                            {submenu.subItems.map(
+                                                                                (
+                                                                                    item,
+                                                                                ) => (
+                                                                                    <Link
+                                                                                        key={
+                                                                                            item.nameKey
+                                                                                        }
+                                                                                        href={
+                                                                                            item.href
+                                                                                        }
+                                                                                        className="p-3 slide-down-link"
+                                                                                    >
+                                                                                        <span>
+                                                                                            {
+                                                                                                t(item.nameKey)
+                                                                                            }
+                                                                                        </span>
+                                                                                    </Link>
+                                                                                ),
+                                                                            )}
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            ) : (
+                                                                <Link
+                                                                    key={
+                                                                        submenu.nameKey
+                                                                    }
+                                                                    href={
+                                                                        submenu.href ??
+                                                                        "#"
+                                                                    }
+                                                                    className="p-3 slide-down-link"
+                                                                >
+                                                                    <span>
+                                                                        {
+                                                                            t(submenu.nameKey)
+                                                                        }
+                                                                    </span>
+                                                                </Link>
+                                                            ), origin/prod
                                                     )}
                                                 </div>
                                             </div>
@@ -515,31 +624,70 @@ export default function Navbar() {
                                                                 className="overflow-hidden bg-slate-800/50"
                                                             >
                                                                 {link.submenuItems?.map(
-                                                                    (
-                                                                        submenu,
-                                                                    ) => (
-                                                                        <Link
-                                                                            key={
-                                                                                submenu.nameKey
-                                                                            }
-                                                                            href={
-                                                                                submenu.href
-                                                                            }
-                                                                            className="block text-slate-300 text-sm py-2 px-6 font-cormorantGaramond hover:text-primary transition-colors"
-                                                                            onClick={() => {
-                                                                                setIsMobileMenuOpen(
-                                                                                    false,
-                                                                                );
-                                                                                setMobileDropdownOpen(
-                                                                                    null,
-                                                                                );
-                                                                            }}
-                                                                        >
-                                                                            {
-                                                                                t(submenu.nameKey)
-                                                                            }
-                                                                        </Link>
-                                                                    ),
+                                                                    (submenu) =>
+                                                                        submenu.subItems ? (
+                                                                            <div
+                                                                                key={
+                                                                                    submenu.nameKey
+                                                                                }
+                                                                            >
+                                                                                <p className="text-primary/70 text-xs uppercase tracking-wider py-2 px-6 font-cormorantGaramond">
+                                                                                    {
+                                                                                        t(submenu.nameKey)
+                                                                                    }
+                                                                                </p>
+                                                                                {submenu.subItems.map(
+                                                                                    (
+                                                                                        item,
+                                                                                    ) => (
+                                                                                        <Link
+                                                                                            key={
+                                                                                                item.nameKey
+                                                                                            }
+                                                                                            href={
+                                                                                                item.href
+                                                                                            }
+                                                                                            className="block text-slate-300 text-sm py-2 px-9 font-cormorantGaramond hover:text-primary transition-colors"
+                                                                                            onClick={() => {
+                                                                                                setIsMobileMenuOpen(
+                                                                                                    false,
+                                                                                                );
+                                                                                                setMobileDropdownOpen(
+                                                                                                    null,
+                                                                                                );
+                                                                                            }}
+                                                                                        >
+                                                                                            {
+                                                                                                t(item.nameKey)
+                                                                                            }
+                                                                                        </Link>
+                                                                                    ),
+                                                                                )}
+                                                                            </div>
+                                                                        ) : (
+                                                                            <Link
+                                                                                key={
+                                                                                    submenu.nameKey
+                                                                                }
+                                                                                href={
+                                                                                    submenu.href ??
+                                                                                    "#"
+                                                                                }
+                                                                                className="block text-slate-300 text-sm py-2 px-6 font-cormorantGaramond hover:text-primary transition-colors"
+                                                                                onClick={() => {
+                                                                                    setIsMobileMenuOpen(
+                                                                                        false,
+                                                                                    );
+                                                                                    setMobileDropdownOpen(
+                                                                                        null,
+                                                                                    );
+                                                                                }}
+                                                                            >
+                                                                                {
+                                                                                    t(submenu.nameKey)
+                                                                                }
+                                                                            </Link>
+                                                                        ), origin/prod
                                                                 )}
                                                             </motion.div>
                                                         )}

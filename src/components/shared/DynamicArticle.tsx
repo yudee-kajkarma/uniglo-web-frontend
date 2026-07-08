@@ -4,16 +4,21 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ArticleInlineContent, { InlinePart } from "@/components/shared/ArticleInlineContent";
+import FAQSection from "@/components/shared/FAQSection";
 
 export type { InlinePart };
 
 export type CtaButton = { label: string; href: string };
+
+export type FaqItem = { question: string; answer: string };
 
 export type ContentBlock =
     | { type: "paragraph"; text?: string; parts?: InlinePart[] }
     | { type: "bullet-list"; items: string[]; itemsParts?: InlinePart[][] }
     | { type: "numbered-list"; items: string[]; itemsParts?: InlinePart[][] }
     | { type: "cta-group"; buttons: CtaButton[] }
+    | { type: "table"; headers: string[]; rows: string[][] }
+    | { type: "faq"; title?: string; items: FaqItem[] }
     | {
           type: "image";
           src: string;
@@ -107,6 +112,56 @@ const DynamicArticle: React.FC<DynamicArticleProps> = ({ sections }) => {
                                             </Link>
                                         ))}
                                     </div>
+                                );
+                            }
+                            if (block.type === "table") {
+                                return (
+                                    <div
+                                        key={bIdx}
+                                        className="my-6 overflow-x-auto rounded-md border border-gray-200"
+                                    >
+                                        <table className="w-full border-collapse text-base font-lora">
+                                            <thead>
+                                                <tr>
+                                                    {block.headers.map((header, i) => (
+                                                        <th
+                                                            key={i}
+                                                            className="border-b border-gray-200 bg-[#f7f1e3] px-4 py-3 text-left font-cormorantGaramond text-lg font-semibold text-[#1f2732]"
+                                                        >
+                                                            {header}
+                                                        </th>
+                                                    ))}
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {block.rows.map((row, r) => (
+                                                    <tr
+                                                        key={r}
+                                                        className={r % 2 === 1 ? "bg-[#faf7f0]" : "bg-white"}
+                                                    >
+                                                        {row.map((cell, c) => (
+                                                            <td
+                                                                key={c}
+                                                                className="border-t border-gray-100 px-4 py-3 align-top text-slate-700"
+                                                            >
+                                                                {cell}
+                                                            </td>
+                                                        ))}
+                                                    </tr>
+                                                ))}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                );
+                            }
+                            if (block.type === "faq") {
+                                return (
+                                    <FAQSection
+                                        key={bIdx}
+                                        faqs={block.items}
+                                        title={block.title ?? "Frequently Asked Questions"}
+                                        className="my-8"
+                                    />
                                 );
                             }
                             if (block.type === "image") {

@@ -1,6 +1,7 @@
 // components/columns/MelleDiamondColumns.tsx
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUp, ArrowDown, ArrowUpDown, Pencil, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -57,6 +58,16 @@ const formatRange = (min?: string, max?: string) => {
     return lo || hi || "N/A";
 };
 
+const formatMeasurement = (row: MelleDiamond | PublicMelleDiamond) => {
+    const len = row.measurementLength?.trim();
+    const breadth = row.measurementBreadth?.trim();
+    if (len || breadth) {
+        if (len && breadth) return `${len} × ${breadth}`;
+        return len || breadth || "N/A";
+    }
+    return formatRange(row.measurementMin, row.measurementMax);
+};
+
 export interface MelleAdminHandlers {
     onEdit: (diamond: MelleDiamond) => void;
     onDelete: (diamond: MelleDiamond) => void;
@@ -82,6 +93,25 @@ export const getMelleDiamondColumns = (
         ),
     },
     { key: "shape", header: "Shape" },
+    {
+        key: "image",
+        header: "Image",
+        render: (row) => {
+            const url = row.images?.[0];
+            if (!url) return "—";
+            return (
+                <div className="relative w-10 h-10 rounded overflow-hidden border border-gray-200">
+                    <Image
+                        src={url}
+                        alt={`${row.shape} preview`}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                </div>
+            );
+        },
+    },
     { key: "color", header: "Color" },
     { key: "clarity", header: "Clarity" },
     { key: "cut", header: "Cut" },
@@ -150,7 +180,7 @@ export const getMelleDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row) => formatRange(row.measurementMin, row.measurementMax),
+        render: (row) => formatMeasurement(row),
     },
     // {
     //     key: "melleCategory",
@@ -253,6 +283,25 @@ export const getPublicMelleDiamondColumns = (
         ),
     },
     { key: "shape", header: "Shape" },
+    {
+        key: "image",
+        header: "Image",
+        render: (row) => {
+            const url = row.images?.[0];
+            if (!url) return "—";
+            return (
+                <div className="relative w-10 h-10 rounded overflow-hidden border border-gray-200">
+                    <Image
+                        src={url}
+                        alt={`${row.shape} preview`}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                </div>
+            );
+        },
+    },
     { key: "color", header: "Color" },
     { key: "clarity", header: "Clarity" },
     { key: "cut", header: "Cut" },
@@ -317,7 +366,7 @@ export const getPublicMelleDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row) => formatRange(row.measurementMin, row.measurementMax),
+        render: (row) => formatMeasurement(row),
     },
     // {
     //     key: "melleCategory",

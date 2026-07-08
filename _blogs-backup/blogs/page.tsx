@@ -736,7 +736,7 @@ const page = () => {
 
                                     {/* Meta Info */}
                                     <p className="text-primary-purple-dark font-lora text-sm mb-4">
-                                        {blog.author} {blog.date}
+                                        {blog.author}
                                     </p>
 
                                     {/* Excerpt */}

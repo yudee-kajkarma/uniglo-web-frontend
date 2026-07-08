@@ -49,6 +49,7 @@ import {
     MelleFilterOptions,
     MelleFilterState,
     PublicMelleDiamond,
+    shapesForMelleInventoryKind,
 } from "@/interface/melleDiamondInterface";
 import {
     Dialog,
@@ -71,9 +72,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import ShimmerTable from "@/components/ui/shimmerTable";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useRouter, useSearchParams, usePathname } from "next/navigation";
-import DiamondDetailView from "@/components/inventory/DiamondDetailView";
-import MelleDiamondDetailView from "@/components/inventory/MelleDiamondDetailView";
+import { useRouter } from "next/navigation";
+import { buildDiamondPath, buildMellePath } from "@/lib/seo/diamondSeo";
 import { toast } from "sonner";
 import { addToCart, addMelleToCart } from "@/services/cartService";
 import { MelleCartCaratDialog } from "@/components/dialogs/MelleCartCaratDialog";
@@ -81,13 +81,7 @@ import { useAuth } from "@/context/AuthContext";
 
 function InventoryPageContent() {
     const router = useRouter();
-    const searchParams = useSearchParams();
-    const pathname = usePathname();
     const { isAuthenticated, loading: authLoading, user } = useAuth();
-
-    // 2. Extract the View ID
-    const viewId = searchParams.get("view");
-    const viewType = searchParams.get("type");
 
     const [data, setData] = useState<(Diamond | PublicDiamond)[]>([]);
     const [melleData, setMelleData] = useState<
@@ -145,6 +139,7 @@ function InventoryPageContent() {
     // Melee-specific filter state. Numeric ranges start at "everything" and
     // are clamped to the server-provided options once they load.
     const [melleFilterState, setMelleFilterState] = useState<MelleFilterState>({
+        inventoryKind: "round",
         shape: [],
         color: [],
         clarity: [],
@@ -155,7 +150,9 @@ function InventoryPageContent() {
         priceRange: [0, Number.MAX_SAFE_INTEGER],
         avgPtrRanges: [],
         caratRanges: [],
-        measurementRanges: [],
+        measurementMmRange: [0, Number.MAX_SAFE_INTEGER],
+        lengthValues: [],
+        breadthValues: [],
         sieveRanges: [],
         searchTerm: undefined,
     });
@@ -227,13 +224,24 @@ function InventoryPageContent() {
     };
 
     const loadMelleData = useCallback(async () => {
-        if (viewId) return;
         setLoading(true);
         try {
             const price = narrowRange(
                 melleFilterState.priceRange,
                 melleOptions?.priceRange,
             );
+            const measurement = narrowRange(
+                melleFilterState.measurementMmRange,
+                melleOptions?.measurementRange,
+            );
+            const defaultShapes =
+                melleOptions && melleFilterState.shape.length === 0
+                    ? shapesForMelleInventoryKind(
+                          melleOptions.shapes,
+                          melleFilterState.inventoryKind,
+                      )
+                    : undefined;
+            const isRoundMelle = melleFilterState.inventoryKind === "round";
             const params = {
                 page,
                 limit: rowsPerPage,
@@ -242,7 +250,7 @@ function InventoryPageContent() {
                 shape:
                     melleFilterState.shape.length > 0
                         ? melleFilterState.shape
-                        : undefined,
+                        : defaultShapes,
                 color:
                     melleFilterState.color.length > 0
                         ? melleFilterState.color
@@ -275,11 +283,28 @@ function InventoryPageContent() {
                         ? melleFilterState.caratRanges
                         : undefined,
                 measurementRanges:
-                    melleFilterState.measurementRanges.length > 0
-                        ? melleFilterState.measurementRanges
+                    isRoundMelle &&
+                    (measurement.min !== undefined ||
+                        measurement.max !== undefined)
+                        ? ([
+                              [
+                                  measurement.min ??
+                                      melleOptions!.measurementRange.min,
+                                  measurement.max ??
+                                      melleOptions!.measurementRange.max,
+                              ],
+                          ] as [number, number][])
+                        : undefined,
+                lengthValues:
+                    !isRoundMelle && melleFilterState.lengthValues.length > 0
+                        ? melleFilterState.lengthValues
+                        : undefined,
+                breadthValues:
+                    !isRoundMelle && melleFilterState.breadthValues.length > 0
+                        ? melleFilterState.breadthValues
                         : undefined,
                 sieveRanges:
-                    melleFilterState.sieveRanges.length > 0
+                    isRoundMelle && melleFilterState.sieveRanges.length > 0
                         ? melleFilterState.sieveRanges
                         : undefined,
                 searchTerm: melleFilterState.searchTerm,
@@ -312,12 +337,9 @@ function InventoryPageContent() {
         melleFilterState,
         melleOptions,
         isAuthenticated,
-        viewId,
     ]);
 
     const loadData = useCallback(async () => {
-        if (viewId) return;
-
         setLoading(true);
         try {
             const params = {
@@ -467,7 +489,6 @@ function InventoryPageContent() {
         sortOrder,
         filterState,
         isAuthenticated,
-        viewId,
     ]);
 
     // Wait for auth to load before fetching data. In melee mode we hit the
@@ -488,7 +509,9 @@ function InventoryPageContent() {
 
     const buildResetMelleState = (
         options: MelleFilterOptions | null,
+        inventoryKind: MelleFilterState["inventoryKind"] = "round",
     ): MelleFilterState => ({
+        inventoryKind,
         shape: [],
         color: [],
         clarity: [],
@@ -502,7 +525,12 @@ function InventoryPageContent() {
         ],
         avgPtrRanges: [],
         caratRanges: [],
-        measurementRanges: [],
+        measurementMmRange: [
+            options?.measurementRange.min ?? 0,
+            options?.measurementRange.max ?? Number.MAX_SAFE_INTEGER,
+        ],
+        lengthValues: [],
+        breadthValues: [],
         sieveRanges: [],
         searchTerm: undefined,
     });
@@ -577,6 +605,10 @@ function InventoryPageContent() {
                 return {
                     ...prev,
                     priceRange: clamp(prev.priceRange, options.priceRange),
+                    measurementMmRange: clamp(
+                        prev.measurementMmRange,
+                        options.measurementRange,
+                    ),
                 };
             });
         },
@@ -753,7 +785,9 @@ function InventoryPageContent() {
 
     const handleViewDetails = (diamond: Diamond | PublicDiamond) => {
         if (diamond.stockRef) {
-            router.push(`${pathname}?view=${diamond.stockRef}`);
+            // The active Natural/Lab tab tells us the origin the record itself
+            // does not carry, so the slug keyword is correct.
+            router.push(buildDiamondPath(diamond, filterState.isNatural));
         } else {
             console.error("Diamond missing stock reference");
         }
@@ -763,9 +797,7 @@ function InventoryPageContent() {
         diamond: MelleDiamond | PublicMelleDiamond,
     ) => {
         if (diamond._id) {
-            router.push(
-                `${pathname}?view=${encodeURIComponent(diamond._id)}&type=melle`,
-            );
+            router.push(buildMellePath(diamond));
         } else {
             console.error("Melle diamond missing _id");
         }
@@ -859,22 +891,11 @@ function InventoryPageContent() {
         [sortBy],
     );
 
-    // 4. CONDITIONAL RENDER: If viewId exists, show Detail View
-    if (viewId) {
-        if (viewType === "melle") {
-            return (
-                <MelleDiamondDetailView
-                    diamondId={viewId}
-                    isPublic={!isAuthenticated}
-                />
-            );
-        }
-        return (
-            <DiamondDetailView diamondId={viewId} isPublic={!isAuthenticated} />
-        );
-    }
+    // Diamond detail pages now live at their own SEO routes
+    // (/diamonds/[slug] and /diamonds/melee/[slug]); this page is the
+    // inventory list only.
 
-    // Otherwise, show the Inventory List
+    // Show the Inventory List
     return (
         <div className="p-4 space-y-2 bg-brand-gradient min-h-screen ">
             {/* 1. FILTER DASHBOARD */}

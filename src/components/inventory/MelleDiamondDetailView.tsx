@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
     ArrowLeft,
     Diamond as DiamondIcon,
@@ -49,6 +50,10 @@ import { MelleDiamond } from "@/interface/melleDiamondInterface";
 interface MelleDiamondDetailViewProps {
     diamondId: string;
     isPublic?: boolean;
+    /** Server-fetched public melee diamond, for instant render + SEO. */
+    initialDiamond?: MelleDiamond;
+    /** Server-rendered SEO content shown at the bottom of the page. */
+    seoContent?: React.ReactNode;
 }
 
 const formatRange = (min?: string, max?: string) => {
@@ -59,14 +64,29 @@ const formatRange = (min?: string, max?: string) => {
     return lo || hi || "-";
 };
 
+const formatMeasurementDisplay = (diamond: MelleDiamond) => {
+    const len = diamond.measurementLength?.trim();
+    const breadth = diamond.measurementBreadth?.trim();
+    if (len || breadth) {
+        if (len && breadth) return `${len} × ${breadth}`;
+        return len || breadth || "-";
+    }
+    return formatRange(diamond.measurementMin, diamond.measurementMax);
+};
+
 export default function MelleDiamondDetailView({
     diamondId,
-    isPublic = false,
+    isPublic: isPublicProp,
+    initialDiamond,
+    seoContent,
 }: MelleDiamondDetailViewProps) {
     const router = useRouter();
-    const { user } = useAuth();
-    const [diamond, setDiamond] = useState<MelleDiamond | null>(null);
-    const [loading, setLoading] = useState(true);
+    const { user, isAuthenticated } = useAuth();
+    const isPublic = isPublicProp ?? !isAuthenticated;
+    const [diamond, setDiamond] = useState<MelleDiamond | null>(
+        initialDiamond ?? null,
+    );
+    const [loading, setLoading] = useState(!initialDiamond);
     const [error, setError] = useState("");
 
     const [holdLoading, setHoldLoading] = useState(false);
@@ -83,6 +103,10 @@ export default function MelleDiamondDetailView({
         user?.role === "ADMIN" || user?.role === "SUPER_ADMIN";
 
     useEffect(() => {
+        // Server already supplied public data for SEO/instant render. Only
+        // re-fetch for authenticated visitors or when no initial data exists.
+        if (initialDiamond && !isAuthenticated) return;
+
         let cancelled = false;
         (async () => {
             try {
@@ -102,7 +126,8 @@ export default function MelleDiamondDetailView({
         return () => {
             cancelled = true;
         };
-    }, [diamondId, isPublic]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [diamondId, isAuthenticated]);
 
     const handleHoldDiamondConfirm = async () => {
         if (!diamond?.stockId) {
@@ -258,9 +283,37 @@ export default function MelleDiamondDetailView({
 
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-12">
                     <div className="lg:col-span-5">
-                        <div className="aspect-square rounded-lg relative flex items-center justify-center border border-gray-100 bg-gray-50">
-                            <DiamondIcon className="w-40 h-40 text-gray-200" />
+                        <div className="aspect-square rounded-lg relative flex items-center justify-center border border-gray-100 bg-gray-50 overflow-hidden">
+                            {diamond.images?.[0] ? (
+                                <Image
+                                    src={diamond.images[0]}
+                                    alt={`${diamond.shape} ${diamond.stockId}`}
+                                    fill
+                                    className="object-contain"
+                                    unoptimized
+                                />
+                            ) : (
+                                <DiamondIcon className="w-40 h-40 text-gray-200" />
+                            )}
                         </div>
+                        {diamond.images && diamond.images.length > 1 && (
+                            <div className="grid grid-cols-4 gap-2 mt-3">
+                                {diamond.images.slice(1).map((url, idx) => (
+                                    <div
+                                        key={`${url}-${idx}`}
+                                        className="relative aspect-square rounded border border-gray-200 overflow-hidden"
+                                    >
+                                        <Image
+                                            src={url}
+                                            alt={`${diamond.stockId} image ${idx + 2}`}
+                                            fill
+                                            className="object-cover"
+                                            unoptimized
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
                     </div>
 
                     <div className="lg:col-span-7 space-y-8">
@@ -571,11 +624,21 @@ export default function MelleDiamondDetailView({
                             },
                             {
                                 label: "Measurement (mm)",
-                                value: formatRange(
-                                    diamond.measurementMin,
-                                    diamond.measurementMax,
-                                ),
+                                value: formatMeasurementDisplay(diamond),
                             },
+                            ...(diamond.measurementLength ||
+                            diamond.measurementBreadth
+                                ? [
+                                      {
+                                          label: "Length",
+                                          value: diamond.measurementLength,
+                                      },
+                                      {
+                                          label: "Breadth",
+                                          value: diamond.measurementBreadth,
+                                      },
+                                  ]
+                                : []),
                             {
                                 label: "Added",
                                 value: diamond.createdAt
@@ -597,6 +660,11 @@ export default function MelleDiamondDetailView({
                 </div>
             </div>
         </div>
+        {seoContent && (
+            <div className="max-w-[1400px] mx-auto px-4 md:px-8 pb-16 bg-white">
+                {seoContent}
+            </div>
+        )}
         {diamond && (
             <MelleCartCaratDialog
                 open={cartCaratDialogOpen}
