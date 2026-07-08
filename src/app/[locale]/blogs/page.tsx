@@ -48,6 +48,31 @@ const blogs = [
         slug: "radiant-cut-diamond-guide",
     },
     {
+        id: 9,
+        image: BuyDiamondsOnlineBlog2,
+        slug: "oval-diamond-obsession",
+    },
+    {
+        id: 10,
+        image: NivodaBlogImage,
+        slug: "looks-expensive-diamond-edit",
+    },
+    {
+        id: 11,
+        image: BuyDiamondsOnlineBlog1,
+        slug: "jewellery-that-speaks-love-valentines-day",
+    },
+    {
+        id: 12,
+        image: tamperprofseal,
+        slug: "little-sparks-forever-love-valentines-day",
+    },
+    {
+        id: 13,
+        image: EngagementRingBlog2,
+        slug: "circle-of-love-valentines-day-diamonds",
+    },
+    {
         id: 14,
         image: EngagementRingBlog1,
         slug: "how-to-tell-if-a-diamond-is-real-at-home",
