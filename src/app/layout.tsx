@@ -3,6 +3,7 @@ import { Geist, Cormorant_Garamond, Lora, Lato } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/context/AuthContext";
 import Script from "next/script";
+import { getLocale } from "next-intl/server";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -34,13 +35,14 @@ export const metadata: Metadata = {
     description: "Best Diamonds in Antwerp",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const locale = await getLocale();
     return (
-        <html lang="en">
+        <html lang={locale}>
             <Script async src="https://www.googletagmanager.com/gtag/js?id=G-KWXEHQ73V7" strategy="afterInteractive" />
             <Script id="google-analytics" strategy="afterInteractive">{`
                 window.dataLayer = window.dataLayer || [];
