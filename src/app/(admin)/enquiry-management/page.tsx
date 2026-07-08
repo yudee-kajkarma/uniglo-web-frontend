@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { Suspense, useEffect, useState } from "react";
 import {
     deleteCartItemMessage,
     getAllCarts,
@@ -1397,7 +1397,7 @@ const EnquiryRow = ({
     );
 };
 
-export default function EnquiryManagementPage() {
+function EnquiryManagementContent() {
     const router = useRouter();
     const searchParams = useSearchParams();
     const targetUserId = searchParams.get("user");
@@ -1994,5 +1994,13 @@ export default function EnquiryManagementPage() {
                 )}
             </div>
         </div>
+    );
+}
+
+export default function EnquiryManagementPage() {
+    return (
+        <Suspense fallback={<div className="p-8 text-center text-gray-500">Loading...</div>}>
+            <EnquiryManagementContent />
+        </Suspense>
     );
 }

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import {
     Carousel,
     CarouselContent,
@@ -15,18 +16,22 @@ import banner1 from "@/assets/banner1.jpg";
 import banner2 from "@/assets/banner2.jpeg";
 
 function CarouselCTA() {
+    const t = useTranslations();
+
     return (
         <Button
             className="purple-reveal-btn px-2 py-1 md:px-6 md:py-4 lg:px-10 lg:py-8 font-cormorantGaramond text-xs md:text-base lg:text-xl uppercase"
             size="lg"
             asChild
         >
-            <Link href="/inventory">Browse Inventory</Link>
+            <Link href="/inventory">{t("common.browseInventory")}</Link>
         </Button>
     );
 }
 
 export default function HeroCarousel() {
+    const t = useTranslations();
+
     return (
         <section className="w-full mt-[3px] flex items-center justify-center">
             <Carousel
@@ -41,7 +46,7 @@ export default function HeroCarousel() {
                     <CarouselItem className="p-0 m-0 w-full relative">
                         <Image
                             src={banner2}
-                            alt="Uniglo Diamonds - Antwerp Diamond Heritage"
+                            alt={t("carousel.altHeritage")}
                             className="w-full h-auto md:min-h-screen object-cover rounded-xl"
                             sizes="100vw"
                             placeholder="blur"
@@ -53,7 +58,7 @@ export default function HeroCarousel() {
                     <CarouselItem className="p-0 m-0 w-full relative">
                         <Image
                             src={banner1}
-                            alt="Uniglo Diamonds - Certified Diamond Excellence"
+                            alt={t("carousel.altExcellence")}
                             className="w-full h-auto md:min-h-screen object-cover rounded-xl"
                             sizes="100vw"
                             placeholder="blur"
@@ -65,7 +70,7 @@ export default function HeroCarousel() {
                     <CarouselItem className="p-0 m-0 w-full relative">
                         <Image
                             src={banner0}
-                            alt="Uniglo Diamonds - Premium Diamond Collection"
+                            alt={t("carousel.altCollection")}
                             className="w-full h-auto md:min-h-screen object-cover rounded-xl"
                             priority
                             sizes="100vw"

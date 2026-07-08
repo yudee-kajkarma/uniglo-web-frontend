@@ -31,153 +31,157 @@ import { Button } from "../ui/button";
 import Image from "next/image";
 import logo from "@/assets/Uniglo-Logo-Horizontal1.png";
 import logoIcon from "@/../public/logo/logo.png";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useAuth } from "@/context/AuthContext";
 import NotificationBell from "./NotificationBell";
+import { useTranslations } from "next-intl";
 
+// NOTE: "nameKey" points at a key inside messages/en.json and messages/de.json.
+// Labels are translated at render time via t(nameKey) — nothing here is hardcoded English anymore.
 const NAV_LINKS = [
-    { name: "About", href: "/about" },
-    { name: "Sell Diamonds", href: "/sell-your-diamonds" },
+    { nameKey: "nav.about", href: "/about" },
+    { nameKey: "nav.sellDiamonds", href: "/sell-your-diamonds" },
     {
-        name: "Services",
+        nameKey: "nav.services",
         href: "#",
         hasDropdown: true,
         submenuItems: [
-            { name: "Diamond Manufacturing", href: "/diamond-manufacturing" },
+            { nameKey: "nav.diamondManufacturing", href: "/diamond-manufacturing" },
             {
-                name: "Free diamond estimation",
+                nameKey: "nav.freeDiamondEstimation",
                 href: "/the-best-price-for-your-diamonds",
             },
             {
-                name: "Diamond Financing Options",
+                nameKey: "nav.diamondFinancingOptions",
                 href: "/diamond-financing-options",
             },
-            { name: "Investment Diamonds", href: "/investment-diamonds" },
-            { name: "Partners", href: "/partners" },
+            { nameKey: "nav.investmentDiamonds", href: "/investment-diamonds" },
+            { nameKey: "nav.partners", href: "/partners" },
         ],
     },
     {
-        name: "Education",
+        nameKey: "nav.education",
         href: "#",
         hasDropdown: true,
         submenuItems: [
             {
-                name: "Supply Chain Policy & Procedure",
+                nameKey: "nav.supplyChainPolicyProcedure",
                 href: "/supply-chain-policy-procedure",
             },
-            { name: "Diamond 4C's", href: "/the-diamond-4cs" },
-            { name: "Diamond Certificates", href: "/diamond-certificates" },
-            { name: "Diamond Shapes", href: "/diamond-shapes" },
-            { name: "Fancy Colored Diamond", href: "/fancy-colored-diamonds" },
-            { name: "Ethical Diamond", href: "/ethical-diamonds" },
-            { name: "Conflict Free Diamond", href: "/conflict-free-diamonds" },
-            { name: "Security Seals", href: "/security-seals" },
-            { name: "Old Cut Diamonds", href: "/old-cut-diamonds" },
+            { nameKey: "nav.diamond4Cs", href: "/the-diamond-4cs" },
+            { nameKey: "nav.diamondCertificates", href: "/diamond-certificates" },
+            { nameKey: "nav.diamondShapes", href: "/diamond-shapes" },
+            { nameKey: "nav.fancyColoredDiamond", href: "/fancy-colored-diamonds" },
+            { nameKey: "nav.ethicalDiamond", href: "/ethical-diamonds" },
+            { nameKey: "nav.conflictFreeDiamond", href: "/conflict-free-diamonds" },
+            { nameKey: "nav.securitySeals", href: "/security-seals" },
+            { nameKey: "nav.oldCutDiamonds", href: "/old-cut-diamonds" },
         ],
     },
     {
-        name: "MarketPlaces",
+        nameKey: "nav.marketplaces",
         href: "#",
         hasDropdown: true,
         submenuItems: [
             {
-                name: "Uniglo Diamonds on Rapnet",
+                nameKey: "nav.unigloDiamondsOnRapnet",
                 href: "/uniglo-diamonds-on-rapnet",
             },
         ],
     },
     {
-        name: "Resources",
+        nameKey: "nav.resources",
         href: "#",
         hasDropdown: true,
         submenuItems: [
             {
-                name: "Guide to Lab Grown Diamonds ",
+                nameKey: "nav.guideToLabGrownDiamonds",
                 href: "/guide-to-lab-grown-diamonds",
             },
             {
-                name: "Source Lab Grown Diamonds",
+                nameKey: "nav.sourceLabGrownDiamonds",
                 href: "/source-lab-grown-diamonds-for-jewelers",
             },
             {
-                name: "Lab Grown Diamond Suppliers",
+                nameKey: "nav.labGrownDiamondSuppliers",
                 href: "/lab-grown-diamond-supplier-jewelers",
             },
             {
-                name: "Best Lab Grown Diamond Supplier Europe",
+                nameKey: "nav.bestLabGrownDiamondSupplierEurope",
                 href: "/lab-grown-diamond-supplier-europe",
             },
             {
-                name: "IGI Certified Lab Grown Diamond Wholesale",
+                nameKey: "nav.igiCertifiedLabGrownDiamondWholesale",
                 href: "/igi-certified-lab-grown-diamond-wholesale",
             },
             {
-                name: "Buy Lab Grown Diamonds Wholesale",
+                nameKey: "nav.buyLabGrownDiamondsWholesale",
                 href: "/buy-lab-grown-diamonds-wholesale",
             },
             {
-                name: "Rapnet Diamond Supplier Antwerp",
+                nameKey: "nav.rapnetDiamondSupplierAntwerp",
                 href: "/rapnet-diamond-supplier-antwerp",
             },
             {
-                name: "Wedding Ring & Engagement Ring Guide",
+                nameKey: "nav.weddingRingEngagementRingGuide",
                 href: "/wedding-ring-engagement-ring-guide",
             },
         ],
     },
-    { name: "Blog", href: "/blogs" },
+    { nameKey: "nav.blog", href: "/blogs" },
 ];
 
 const ADMIN_NAV_LINKS = [
-    { name: "Members Management", href: "/members-management", icon: Users },
-    { name: "Create Customer", href: "/create-customer", icon: UserPlus },
+    { nameKey: "adminNav.membersManagement", href: "/members-management", icon: Users },
+    { nameKey: "adminNav.createCustomer", href: "/create-customer", icon: UserPlus },
     {
-        name: "Enquiry Management",
+        nameKey: "adminNav.enquiryManagement",
         href: "/enquiry-management",
         icon: FileStack,
     },
     {
-        name: "Sell Diamonds Requests",
+        nameKey: "adminNav.sellDiamondsRequests",
         href: "/sell-diamonds-requests",
         icon: FormInputIcon,
     },
-    { name: "My Cart", href: "/cart", icon: ShoppingCart },
-    { name: "My Checkout", href: "/checkout", icon: ShoppingBag },
-    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
-    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
-    { name: "My Profile", href: "/profile", icon: UserIcon },
+    { nameKey: "adminNav.myCart", href: "/cart", icon: ShoppingCart },
+    { nameKey: "adminNav.myCheckout", href: "/checkout", icon: ShoppingBag },
+    { nameKey: "adminNav.myHoldDiamonds", href: "/hold-diamonds", icon: Gem },
+    { nameKey: "adminNav.myEnquiries", href: "/enquiries", icon: FileStack },
+    { nameKey: "adminNav.myProfile", href: "/profile", icon: UserIcon },
 ];
 
 const SUPER_ADMIN_NAV_LINKS = [
-    { name: "Members Management", href: "/members-management", icon: Users },
-    { name: "Create Customer", href: "/create-customer", icon: UserPlus },
+    { nameKey: "adminNav.membersManagement", href: "/members-management", icon: Users },
+    { nameKey: "adminNav.createCustomer", href: "/create-customer", icon: UserPlus },
     {
-        name: "Enquiry Management",
+        nameKey: "adminNav.enquiryManagement",
         href: "/enquiry-management",
         icon: FileStack,
     },
-    { name: "Admin Management", href: "/admin-management", icon: Shield },
+    { nameKey: "adminNav.adminManagement", href: "/admin-management", icon: Shield },
     {
-        name: "Sell Diamonds Requests",
+        nameKey: "adminNav.sellDiamondsRequests",
         href: "/sell-diamonds-form-requests",
         icon: FormInputIcon,
     },
-    { name: "My Cart", href: "/cart", icon: ShoppingCart },
-    { name: "My Checkout", href: "/checkout", icon: ShoppingBag },
-    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
-    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
-    { name: "My Profile", href: "/profile", icon: UserIcon },
+    { nameKey: "adminNav.myCart", href: "/cart", icon: ShoppingCart },
+    { nameKey: "adminNav.myCheckout", href: "/checkout", icon: ShoppingBag },
+    { nameKey: "adminNav.myHoldDiamonds", href: "/hold-diamonds", icon: Gem },
+    { nameKey: "adminNav.myEnquiries", href: "/enquiries", icon: FileStack },
+    { nameKey: "adminNav.myProfile", href: "/profile", icon: UserIcon },
 ];
 
 const USER_NAV_LINKS = [
-    { name: "My Cart", href: "/cart", icon: ShoppingCart },
-    { name: "My Checkout", href: "/checkout", icon: ShoppingBag },
-    { name: "My Hold Diamonds", href: "/hold-diamonds", icon: Gem },
-    { name: "My Enquiries", href: "/enquiries", icon: FileStack },
-    { name: "My Profile", href: "/profile", icon: UserIcon },
+    { nameKey: "adminNav.myCart", href: "/cart", icon: ShoppingCart },
+    { nameKey: "adminNav.myCheckout", href: "/checkout", icon: ShoppingBag },
+    { nameKey: "adminNav.myHoldDiamonds", href: "/hold-diamonds", icon: Gem },
+    { nameKey: "adminNav.myEnquiries", href: "/enquiries", icon: FileStack },
+    { nameKey: "adminNav.myProfile", href: "/profile", icon: UserIcon },
 ];
 
 export default function Navbar() {
+    const t = useTranslations();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [mobileDropdownOpen, setMobileDropdownOpen] = useState<string | null>(
@@ -207,9 +211,9 @@ export default function Navbar() {
 
     const roleNavLinks = getRoleNavLinks();
 
-    const toggleMobileDropdown = (linkName: string) => {
+    const toggleMobileDropdown = (linkKey: string) => {
         setMobileDropdownOpen(
-            mobileDropdownOpen === linkName ? null : linkName,
+            mobileDropdownOpen === linkKey ? null : linkKey,
         );
     };
 
@@ -245,7 +249,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/inventory">
-                                                <span>Inventory</span>
+                                                <span>{t('nav.inventory')}</span>
                                             </Link>
                                         </Button>
                                         <Button
@@ -253,7 +257,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/contact-us">
-                                                <span>Contact</span>
+                                                <span>{t('nav.contact')}</span>
                                             </Link>
                                         </Button>
                                     </>
@@ -303,7 +307,7 @@ export default function Navbar() {
                                                             (link) => (
                                                                 <Link
                                                                     key={
-                                                                        link.name
+                                                                        link.nameKey
                                                                     }
                                                                     href={
                                                                         link.href
@@ -319,7 +323,7 @@ export default function Navbar() {
                                                                             />
                                                                         )}
                                                                         {
-                                                                            link.name
+                                                                            t(link.nameKey)
                                                                         }
                                                                     </span>
                                                                 </Link>
@@ -337,7 +341,7 @@ export default function Navbar() {
                                         >
                                             <span className="flex items-center gap-1">
                                                 <LogOut size={16} />
-                                                <span>Logout</span>
+                                                <span>{t('nav.logout')}</span>
                                             </span>
                                         </Button>
                                     </>
@@ -348,7 +352,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/login">
-                                                <span>Login</span>
+                                                <span>{t('nav.login')}</span>
                                             </Link>
                                         </Button>
                                         <Button
@@ -356,7 +360,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/register">
-                                                <span>Signup</span>
+                                                <span>{t('nav.signup')}</span>
                                             </Link>
                                         </Button>
                                     </>
@@ -406,21 +410,21 @@ export default function Navbar() {
                             <ul className="hidden md:flex items-center gap-8 text-xs font-medium tracking-widest uppercase text-slate-300">
                                 {NAV_LINKS.map((link) => (
                                     <li
-                                        key={link.name}
+                                        key={link.nameKey}
                                         className="group relative py-4 cursor-pointer"
                                     >
-                                        <a
+                                        <Link
                                             href={link.href}
                                             className="flex items-center gap-1 font-cormorantGaramond text-lg text-primary font-bold "
                                         >
-                                            {link.name}
+                                            {t(link.nameKey)}
                                             {link.hasDropdown && (
                                                 <ChevronDown
                                                     size={10}
                                                     className="group-hover:rotate-180 transition-transform duration-300"
                                                 />
                                             )}
-                                        </a>
+                                        </Link>
 
                                         {/* Desktop Dropdown */}
                                         {link.hasDropdown && (
@@ -428,9 +432,9 @@ export default function Navbar() {
                                                 <div className="flex flex-col text-black font-cormorantGaramond text-base normal-case tracking-normal ">
                                                     {link.submenuItems?.map(
                                                         (submenu) => (
-                                                            <a
+                                                            <Link
                                                                 key={
-                                                                    submenu.name
+                                                                    submenu.nameKey
                                                                 }
                                                                 href={
                                                                     submenu.href
@@ -439,10 +443,10 @@ export default function Navbar() {
                                                             >
                                                                 <span>
                                                                     {
-                                                                        submenu.name
+                                                                        t(submenu.nameKey)
                                                                     }
                                                                 </span>
-                                                            </a>
+                                                            </Link>
                                                         ),
                                                     )}
                                                 </div>
@@ -467,23 +471,23 @@ export default function Navbar() {
                                 <div className="flex flex-col p-4 gap-2">
                                     {/* Navigation Links */}
                                     {NAV_LINKS.map((link) => (
-                                        <div key={link.name}>
+                                        <div key={link.nameKey}>
                                             {link.hasDropdown ? (
                                                 <>
                                                     <button
                                                         onClick={() =>
                                                             toggleMobileDropdown(
-                                                                link.name,
+                                                                link.nameKey,
                                                             )
                                                         }
                                                         className="w-full text-left text-primary text-base uppercase tracking-wider py-3 border-b border-slate-800 font-cormorantGaramond font-bold flex justify-between items-center"
                                                     >
-                                                        {link.name}
+                                                        {t(link.nameKey)}
                                                         <ChevronDown
                                                             size={16}
                                                             className={`transition-transform duration-300 ${
                                                                 mobileDropdownOpen ===
-                                                                link.name
+                                                                link.nameKey
                                                                     ? "rotate-180"
                                                                     : ""
                                                             }`}
@@ -491,7 +495,7 @@ export default function Navbar() {
                                                     </button>
                                                     <AnimatePresence>
                                                         {mobileDropdownOpen ===
-                                                            link.name && (
+                                                            link.nameKey && (
                                                             <motion.div
                                                                 initial={{
                                                                     height: 0,
@@ -516,7 +520,7 @@ export default function Navbar() {
                                                                     ) => (
                                                                         <Link
                                                                             key={
-                                                                                submenu.name
+                                                                                submenu.nameKey
                                                                             }
                                                                             href={
                                                                                 submenu.href
@@ -532,7 +536,7 @@ export default function Navbar() {
                                                                             }}
                                                                         >
                                                                             {
-                                                                                submenu.name
+                                                                                t(submenu.nameKey)
                                                                             }
                                                                         </Link>
                                                                     ),
@@ -551,7 +555,7 @@ export default function Navbar() {
                                                         )
                                                     }
                                                 >
-                                                    {link.name}
+                                                    {t(link.nameKey)}
                                                 </Link>
                                             )}
                                         </div>
@@ -562,14 +566,14 @@ export default function Navbar() {
                                         roleNavLinks.length > 0 && (
                                             <div className="border-t border-slate-700 pt-2 mt-2">
                                                 <p className="text-primary text-xs uppercase px-2 mb-2 font-cormorantGaramond">
-                                                    My Account
+                                                    {t('nav.myAccount')}
                                                 </p>
                                                 <div className="px-2 pb-3">
                                                     <NotificationBell className="border-slate-700 bg-slate-800 hover:bg-slate-700" />
                                                 </div>
                                                 {roleNavLinks.map((link) => (
                                                     <Link
-                                                        key={link.name}
+                                                        key={link.nameKey}
                                                         href={link.href}
                                                         className="text-slate-300 text-sm uppercase tracking-wider py-2 border-b border-slate-800 font-cormorantGaramond flex items-center gap-2"
                                                         onClick={() =>
@@ -583,7 +587,7 @@ export default function Navbar() {
                                                                 size={16}
                                                             />
                                                         )}
-                                                        {link.name}
+                                                        {t(link.nameKey)}
                                                     </Link>
                                                 ))}
                                             </div>
@@ -601,7 +605,7 @@ export default function Navbar() {
                                                     setIsMobileMenuOpen(false)
                                                 }
                                             >
-                                                <span>Inventory</span>
+                                                <span>{t('nav.inventory')}</span>
                                             </Link>
                                         </Button>
                                         <Button
@@ -614,7 +618,7 @@ export default function Navbar() {
                                                     setIsMobileMenuOpen(false)
                                                 }
                                             >
-                                                <span>Contact</span>
+                                                <span>{t('nav.contact')}</span>
                                             </Link>
                                         </Button>
                                         {isAuthenticated ? (
@@ -625,7 +629,7 @@ export default function Navbar() {
                                                 }}
                                                 className="w-full py-3 border-2 border-red-500 text-white text-base font-cormorantGaramond font-bold uppercase rounded hover:bg-red-500 transition-colors"
                                             >
-                                                Logout
+                                                {t('nav.logout')}
                                             </button>
                                         ) : (
                                             <div className="flex gap-2">
@@ -641,7 +645,7 @@ export default function Navbar() {
                                                             )
                                                         }
                                                     >
-                                                        <span>Login</span>
+                                                        <span>{t('nav.login')}</span>
                                                     </Link>
                                                 </Button>
                                                 <Button
@@ -656,7 +660,7 @@ export default function Navbar() {
                                                             )
                                                         }
                                                     >
-                                                        <span>Signup</span>
+                                                        <span>{t('nav.signup')}</span>
                                                     </Link>
                                                 </Button>
                                             </div>
