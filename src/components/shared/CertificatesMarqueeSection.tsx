@@ -6,31 +6,32 @@ import partner2 from "@/assets/our-partners/gia-removebg-preview.png";
 import partner3 from "@/assets/our-partners/hrd-removebg-preview.png";
 import partner4 from "@/assets/our-partners/igi.jpg";
 import Image from "next/image";
-const partnerLogos = [
-    { src: partner2, alt: "GIA Certified Diamonds" },
-    { src: partner3, alt: "HRD Certified Diamonds" },
-    { src: partner4, alt: "IGI Certified Diamonds" },
-];
+import { useTranslations } from "next-intl";
+
 const CertificatesMarqueeSection = () => {
+    const t = useTranslations();
+
+    const partnerLogos = [
+        { src: partner2, alt: t("altText.giaCertified") },
+        { src: partner3, alt: t("altText.hrcCertified") },
+        { src: partner4, alt: t("altText.igiCertified") },
+    ];
+
     return (
         <section className="bg-white py-24 font-cormorantGaramond">
             <div className=" px-4 md:px-8">
                 <div className="max-w-5xl mx-auto text-center mb-10">
                     <span className="text-primary-yellow-1 text-lg uppercase font-lora tracking-widest">
-                        CERTIFIED DIAMOND ASSURANCE
+                        {t("certificates.tag")}
                     </span>
                     <h2 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold mt-2 mb-4">
-                        OUR PARTNERS IN CERTIFICATION
+                        {t("certificates.title")}
                     </h2>
                     <p className="text-slate-600 font-lora text-base max-w-3xl mx-auto">
-                        Assessed using internationally accepted grading criteria
+                        {t("certificates.description1")}
                     </p>
                     <p className="text-slate-600 font-lora text-base max-w-3xl mx-auto">
-                        We work with globally trusted diamond authorities like
-                        HRD, GIA and IGI to ensure every Uniglo diamond is
-                        authentically graded. Their expertise guarantees
-                        transparency, ethical sourcing, and uncompromised
-                        quality in every piece you choose.
+                        {t("certificates.description2")}
                     </p>
                 </div>
                 <div className="my-16">

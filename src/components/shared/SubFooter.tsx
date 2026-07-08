@@ -1,23 +1,13 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
-// Data objects for export
-export const subFooterInfo = {
-    address: {
-        label: "Address",
-        value: ["Hoveniersstraat 30,", "Suite 662,", "Bus 250 2018 Antwerp"],
-    },
-    hours: {
-        label: "Hours",
-        value: [
-            "Monday—Friday:",
-            "10:00 – 18:00",
-            "Saturday & Sunday:",
-            "On Appointment",
-        ],
-    },
-};
-
+// NOTE: recentPosts titles link to blog posts / education pages.
+// Blog post bodies are intentionally NOT translated (dynamic/CMS content),
+// so these titles are left in English for now. Flag to the user: should
+// these be translated even though the underlying blog post stays English?
 export const recentPosts = [
     {
         title: "Lab Grown Diamonds in Belgium",
@@ -49,17 +39,19 @@ import hrdLogo from "@/assets/our-partners/hrd-removebg-preview.png";
 import igiLogo from "@/assets/our-partners/igi.jpg";
 
 const SubFooter: React.FC = () => {
+    const t = useTranslations();
+
     return (
         <div className="w-full flex flex-col md:flex-row gap-8 justify-between items-start py-12 px-4 md:px-0 max-w-7xl mx-auto md:h-185 mb-30">
             {/* Recent Posts */}
             <div className="bg-[#f7f8fa] h-full  p-8 flex-1 md:max-w-md shadow-sm">
                 <h3 className="text-4xl font-semibold font-cormorantGaramond mb-6">
-                    Recent Posts
+                    {t("subFooter.recentPosts")}
                 </h3>
                 <div className="mb-6">
                     <Image
                         src={recentPostImg}
-                        alt="Recent Posts"
+                        alt={t("subFooter.recentPosts")}
                         width={240}
                         height={160}
                         className=" object-cover w-full h-auto aspect-3/2"
@@ -95,11 +87,10 @@ const SubFooter: React.FC = () => {
                 {/* Find Us */}
                 <div className="bg-[#f7f8fa] p-8 w-full h-full shadow-sm">
                     <h3 className="text-3xl font-cormorantGaramond mb-6 underline">
-                        Find Us
+                        {t("subFooter.findUs")}
                     </h3>
                     <div className="flex items-start gap-4 mb-4">
                         <span className="text-primary text-2xl mt-1">
-                            {/* Location Icon */}
                             <svg
                                 width="24"
                                 height="24"
@@ -112,20 +103,18 @@ const SubFooter: React.FC = () => {
                         </span>
                         <div>
                             <span className="font-bold text-xl ">
-                                {subFooterInfo.address.label}
+                                {t("contactPage.address")}
                             </span>
+                            {/* Physical address stays as-is across locales */}
                             <div className="text-slate-700 text-xl font-lora">
-                                {subFooterInfo.address.value.map(
-                                    (line, idx) => (
-                                        <div key={idx}>{line}</div>
-                                    ),
-                                )}
+                                <div>Hoveniersstraat 30,</div>
+                                <div>Suite 662,</div>
+                                <div>Bus 250 2018 Antwerp</div>
                             </div>
                         </div>
                     </div>
                     <div className="flex items-start gap-4">
                         <span className="text-primary text-2xl mt-1">
-                            {/* Clock Icon */}
                             <svg
                                 width="24"
                                 height="24"
@@ -138,12 +127,16 @@ const SubFooter: React.FC = () => {
                         </span>
                         <div>
                             <span className="font-bold text-xl">
-                                {subFooterInfo.hours.label}
+                                {t("contactPage.hours")}
                             </span>
+                            {/* NOTE: "subFooter.weekdayLabel" / "weekendLabel" /
+                                "onAppointment" are not yet in de.json - see
+                                note below this file for suggested translations */}
                             <div className="text-slate-700 text-xl font-lora">
-                                {subFooterInfo.hours.value.map((line, idx) => (
-                                    <div key={idx}>{line}</div>
-                                ))}
+                                <div>{t("subFooter.weekdayLabel")}</div>
+                                <div>10:00 – 18:00</div>
+                                <div>{t("subFooter.weekendLabel")}</div>
+                                <div>{t("subFooter.onAppointment")}</div>
                             </div>
                         </div>
                     </div>
@@ -153,19 +146,19 @@ const SubFooter: React.FC = () => {
             {/* Diamond Ad */}
             <div className="flex-1 md:max-w-[350px] w-full h-full bg-black  flex flex-col items-center justify-center py-12 px-6">
                 <div className="text-white text-center text-2xl font-cormorantGaramond mb-8">
-                    BROWSE THOUSANDS
+                    {t("subFooter.browseThousands")}
                     <br />
-                    OF LOOSE DIAMONDS
+                    {t("subFooter.ofLooseDiamonds")}
                 </div>
                 <a
-                    href="#"
+                    href="/inventory"
                     className="border border-white text-white py-3 px-8 text-lg font-bold mb-8 hover:bg-white hover:text-black transition"
                 >
-                    ONLINE INVENTORY
+                    {t("common.onlineInventory")}
                 </a>
                 <Image
                     src={diamondAdImg}
-                    alt="Diamond Ad"
+                    alt={t("subFooter.ofLooseDiamonds")}
                     width={260}
                     height={180}
                     className="object-contain"

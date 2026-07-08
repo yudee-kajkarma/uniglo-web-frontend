@@ -1,11 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Cormorant_Garamond, Lora, Lato } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/Navbar";
-import Footer from "@/components/shared/Footer";
-import { Toaster } from "@/components/ui/sonner";
 import { AuthProvider } from "@/context/AuthContext";
-import RouteGuard from "@/components/auth/RouteGuard"; // Import the new guard
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -82,16 +78,8 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${cormorantGaramond.variable} ${lora.variable} ${lato.variable} antialiased `}
             >
-                {" "}
                 <AuthProvider>
-                    <div className="md:h-41 bg-brand-gradient h-20" />
-                    <Navbar />
-                    <main className="relative z-0">
-                        {/* Wrap children with RouteGuard */}
-                        <RouteGuard>{children}</RouteGuard>
-                    </main>
-                    <Footer />
-                    <Toaster />
+                    {children}
                 </AuthProvider>
             </body>
         </html>
