@@ -48,27 +48,27 @@ const blogs = [
         slug: "radiant-cut-diamond-guide",
     },
     {
-        id: 9,
+        id: 81,
         image: BuyDiamondsOnlineBlog2,
         slug: "oval-diamond-obsession",
     },
     {
-        id: 10,
+        id: 82,
         image: NivodaBlogImage,
         slug: "looks-expensive-diamond-edit",
     },
     {
-        id: 11,
+        id: 83,
         image: BuyDiamondsOnlineBlog1,
         slug: "jewellery-that-speaks-love-valentines-day",
     },
     {
-        id: 12,
+        id: 84,
         image: tamperprofseal,
         slug: "little-sparks-forever-love-valentines-day",
     },
     {
-        id: 13,
+        id: 85,
         image: EngagementRingBlog2,
         slug: "circle-of-love-valentines-day-diamonds",
     },
