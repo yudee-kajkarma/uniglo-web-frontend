@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import logo from "@/assets/Uniglo-Logo-Horizontal1.png";
@@ -116,12 +117,12 @@ export default function Footer() {
                     <ul className="space-y-4">
                         {pages.map((page) => (
                             <li key={page.key}>
-                                <a
+                                <Link
                                     href={page.href}
                                     className="text-white/80 font-lora hover:text-primary-yellow-1 transition"
                                 >
                                     {t(`${page.ns}.${page.key}`)}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>
@@ -135,12 +136,12 @@ export default function Footer() {
                     <ul className="space-y-4">
                         {services.map((service) => (
                             <li key={service.key}>
-                                <a
+                                <Link
                                     href={service.href}
                                     className="text-white/80 font-lora hover:text-primary-yellow-1 transition"
                                 >
                                     {t(`${service.ns}.${service.key}`)}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

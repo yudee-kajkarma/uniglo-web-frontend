@@ -13,10 +13,13 @@ import bannerImage from "@/assets/banner_2.jpg";
 import contactImage1 from "@/assets/contact-us/contact-1.webp";
 import contactImage2 from "@/assets//contact-us/contact-3.png";
 import { submitGetInTouchForm } from "@/services/formServices";
+import { useTranslations } from "next-intl";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Clock } from "lucide-react";
 
 const Page = () => {
+    const t = useTranslations("contactUs");
+    const tAuth = useTranslations("auth");
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -49,12 +52,10 @@ const Page = () => {
             });
 
             setFormData({ name: "", email: "", phone: "", message: "" });
-            toast.success(
-                "Message sent successfully! We'll get back to you soon.",
-            );
+            toast.success(t("toastSuccess"));
         } catch (err) {
             const errorMessage =
-                err instanceof Error ? err.message : "An error occurred";
+                err instanceof Error ? err.message : t("toastError");
             setError(errorMessage);
             toast.error(errorMessage);
         } finally {
@@ -70,7 +71,7 @@ const Page = () => {
             {/* Banner Section */}
             <BannerSection
                 image={bannerImage}
-                text="CONTACT US"
+                text={t("bannerText")}
                 textClassName="text-xl md::text-5xl lg:text-7xl font-bold"
             />
 
@@ -81,10 +82,10 @@ const Page = () => {
                         {/* Header Section */}
                         <div className="text-left mb-1">
                             <p className="text-primary text-lg mb-2 font-cormorantGaramond">
-                                GET IN TOUCH
+                                {t("getInTouch")}
                             </p>
                             <h1 className="text-5xl md:text-6xl font-cormorantGaramond font-bold text-foreground mb-6 text-left">
-                                Contact Us
+                                {t("title")}
                             </h1>
                         </div>
 
@@ -96,11 +97,10 @@ const Page = () => {
                                     <Mail className="w-8 h-8 text-white" />
                                 </div>
                                 <h3 className="text-2xl font-cormorantGaramond font-semibold mb-3">
-                                    Email Support
+                                    {t("emailSupportTitle")}
                                 </h3>
                                 <p className="text-slate-600 mb-4 text-sm font-cormorantGaramond text-left">
-                                    Reach out to us email for any inquiries or
-                                    support. Our team responds within 24 hours.
+                                    {t("emailSupportDesc")}
                                 </p>
                             </div>
 
@@ -110,12 +110,10 @@ const Page = () => {
                                     <Phone className="w-8 h-8 text-white" />
                                 </div>
                                 <h3 className="text-2xl font-cormorantGaramond font-semibold mb-3">
-                                    Call Us
+                                    {t("callUsTitle")}
                                 </h3>
                                 <p className="text-slate-600 mb-4 text-sm font-cormorantGaramond text-left">
-                                    Contact our friendly team for phone for
-                                    immediate assistance anytime or to book an
-                                    appointment.
+                                    {t("callUsDesc")}
                                 </p>
                             </div>
                         </div>
@@ -144,14 +142,17 @@ const Page = () => {
                     {/* Get in Touch Form */}
                     <div className="bg-[#f7f8fa] p-8 lg:p-12">
                         <h2 className="text-4xl font-cormorantGaramond font-semibold mb-8">
-                            Get in Touch
+                            {t("formTitle")}
                         </h2>
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit}
+                                className="space-y-6"
+                                onInvalidCapture={(e) => (e.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity(tAuth("pleaseFillOutThisField"))}
+                                onInput={(e) => (e.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity("")}>
                             <div>
                                 <input
                                     type="text"
                                     name="name"
-                                    placeholder="Your Name"
+                                    placeholder={t("namePlaceholder")}
                                     value={formData.name}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 border border-slate-300 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-lato"
@@ -162,7 +163,7 @@ const Page = () => {
                                 <input
                                     type="email"
                                     name="email"
-                                    placeholder="Your Email"
+                                    placeholder={t("emailPlaceholder")}
                                     value={formData.email}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 border border-slate-300 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-lato"
@@ -173,7 +174,7 @@ const Page = () => {
                                 <input
                                     type="tel"
                                     name="phone"
-                                    placeholder="Your Phone"
+                                    placeholder={t("phonePlaceholder")}
                                     value={formData.phone}
                                     onChange={handleChange}
                                     className="w-full px-4 py-3 border border-slate-300 focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary font-lato"
@@ -182,7 +183,7 @@ const Page = () => {
                             <div>
                                 <textarea
                                     name="message"
-                                    placeholder="Your Message"
+                                    placeholder={t("messagePlaceholder")}
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows={5}
@@ -196,7 +197,7 @@ const Page = () => {
                                 className="gold-reveal-btn w-full py-4 text-primary font-bold text-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                             >
                                 <span>
-                                    {loading ? "SENDING..." : "SEND MESSAGE"}
+                                    {loading ? t("sendingButton") : t("sendButton")}
                                 </span>
                             </button>
                         </form>
@@ -207,7 +208,7 @@ const Page = () => {
                         {/* Contact Information Box */}
                         <div className="bg-[#f7f8fa] p-8">
                             <h3 className="text-3xl font-cormorantGaramond font-semibold mb-6 underline">
-                                Contact Information
+                                {t("infoTitle")}
                             </h3>
 
                             {/* Address */}
@@ -268,7 +269,7 @@ const Page = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-xl mb-2 font-cormorantGaramond">
-                                        Mon - Fri: 10:00 - 18:00
+                                        {t("monFri")}
                                     </h4>
                                 </div>
                             </div>
@@ -293,10 +294,10 @@ const Page = () => {
                                     <div className="w-8 h-8 bg-primary rounded-full border-4 border-white shadow-lg animate-pulse" />
                                     <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 whitespace-nowrap bg-white px-3 py-2 rounded shadow-lg border border-slate-200">
                                         <p className="font-bold text-sm font-cormorantGaramond">
-                                            Uniglo Diamonds
+                                            {t("officeLabel")}
                                         </p>
                                         <p className="text-xs text-slate-600 font-lato">
-                                            Hoveniersstraat 30
+                                            {t("officeAddress")}
                                         </p>
                                     </div>
                                 </div>

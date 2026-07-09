@@ -15,7 +15,7 @@ import {
     Download,
 } from "lucide-react";
 import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";

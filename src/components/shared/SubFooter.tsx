@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 // NOTE: recentPosts titles link to blog posts / education pages.
 // Blog post bodies are intentionally NOT translated (dynamic/CMS content),
@@ -10,23 +11,23 @@ import { useTranslations } from "next-intl";
 // these be translated even though the underlying blog post stays English?
 export const recentPosts = [
     {
-        title: "Lab Grown Diamonds in Belgium",
+        titleKey: "labGrownBelgium",
         url: "/blogs/lab-grown-diamonds-in-belgium",
     },
     {
-        title: "Diamonds Are Not Made from Coal",
+        titleKey: "diamondsNotFromCoal",
         url: "/blogs/diamonds-are-not-made-from-coal",
     },
     {
-        title: "The Diamond 4Cs",
+        titleKey: "diamond4Cs",
         url: "/the-diamond-4cs",
     },
     {
-        title: "Diamond Certificates",
+        titleKey: "diamondCertificates",
         url: "/diamond-certificates",
     },
     {
-        title: "Fancy Coloured Diamonds",
+        titleKey: "fancyColoredDiamonds",
         url: "/fancy-colored-diamonds",
     },
 ];
@@ -60,12 +61,12 @@ const SubFooter: React.FC = () => {
                 <ul className="space-y-2">
                     {recentPosts.map((post, idx) => (
                         <li key={idx}>
-                            <a
+                            <Link
                                 href={post.url}
                                 className="text-slate-700 underline hover:text-primary transition"
                             >
-                                {post.title}
-                            </a>
+                                {t(`subFooter.recentPostTitles.${post.titleKey}`)}
+                            </Link>
                         </li>
                     ))}
                 </ul>
@@ -150,12 +151,12 @@ const SubFooter: React.FC = () => {
                     <br />
                     {t("subFooter.ofLooseDiamonds")}
                 </div>
-                <a
+                <Link
                     href="/inventory"
                     className="border border-white text-white py-3 px-8 text-lg font-bold mb-8 hover:bg-white hover:text-black transition"
                 >
                     {t("common.onlineInventory")}
-                </a>
+                </Link>
                 <Image
                     src={diamondAdImg}
                     alt={t("subFooter.ofLooseDiamonds")}

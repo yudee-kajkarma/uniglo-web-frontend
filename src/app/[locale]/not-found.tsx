@@ -1,14 +1,16 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Home, ArrowLeft, Gem, Search } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import logo from "@/../public/logo/logo.png";
 
 export default function NotFound() {
     const router = useRouter();
+    const t = useTranslations("notFound");
 
     return (
         <div className="min-h-screen bg-brand-gradient from-primary-purple via-primary-purple2 to-primary-purple-dark flex items-center justify-center px-4 py-12">
@@ -34,12 +36,11 @@ export default function NotFound() {
 
                 {/* Error Message */}
                 <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4 font-lora">
-                    Page Not Found
+                    {t("pageNotFound")}
                 </h2>
 
                 <p className="text-lg text-primary-yellow-2 mb-12 max-w-md mx-auto font-lato">
-                    The diamond you're looking for seems to have slipped away.
-                    Let's help you find your way back to our collection.
+                    {t("description")}
                 </p>
 
                 {/* Action Buttons */}
@@ -51,7 +52,7 @@ export default function NotFound() {
                         className="w-full sm:w-auto bg-transparent border-2 border-primary-yellow-1 text-primary-yellow-1 hover:bg-primary-yellow-1 hover:text-primary-purple font-lato transition-all duration-300"
                     >
                         <ArrowLeft className="mr-2 h-5 w-5" />
-                        Go Back
+                        {t("goBack")}
                     </Button>
 
                     <Link href="/" className="w-full sm:w-auto">
@@ -60,7 +61,7 @@ export default function NotFound() {
                             className="w-full bg-primary-yellow-1 text-primary-purple hover:bg-primary-yellow-3 font-lato font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                         >
                             <Home className="mr-2 h-5 w-5" />
-                            Back to Home
+                            {t("backToHome")}
                         </Button>
                     </Link>
                 </div>
@@ -68,7 +69,7 @@ export default function NotFound() {
                 {/* Quick Links */}
                 <div className="mt-16 pt-8 border-t border-primary-yellow-1/30">
                     <p className="text-primary-yellow-2 text-sm mb-4 font-lato">
-                        Or explore these popular sections:
+                        {t("explorePopularSections")}
                     </p>
                     <div className="flex flex-wrap gap-3 justify-center">
                         <Link href="/inventory">
@@ -78,7 +79,7 @@ export default function NotFound() {
                                 className="text-primary-yellow-2 hover:text-primary-yellow-1 hover:bg-primary-yellow-1/10 font-lato"
                             >
                                 <Search className="mr-2 h-4 w-4" />
-                                Browse Inventory
+                                {t("browseInventory")}
                             </Button>
                         </Link>
                         <Link href="/about">
@@ -87,7 +88,7 @@ export default function NotFound() {
                                 size="sm"
                                 className="text-primary-yellow-2 hover:text-primary-yellow-1 hover:bg-primary-yellow-1/10 font-lato"
                             >
-                                About Us
+                                {t("aboutUs")}
                             </Button>
                         </Link>
                         <Link href="/blogs">
@@ -96,7 +97,7 @@ export default function NotFound() {
                                 size="sm"
                                 className="text-primary-yellow-2 hover:text-primary-yellow-1 hover:bg-primary-yellow-1/10 font-lato"
                             >
-                                Blog
+                                {t("blog")}
                             </Button>
                         </Link>
                         <Link href="/sell-your-diamonds">
@@ -105,7 +106,7 @@ export default function NotFound() {
                                 size="sm"
                                 className="text-primary-yellow-2 hover:text-primary-yellow-1 hover:bg-primary-yellow-1/10 font-lato"
                             >
-                                Sell Diamonds
+                                {t("sellDiamonds")}
                             </Button>
                         </Link>
                     </div>

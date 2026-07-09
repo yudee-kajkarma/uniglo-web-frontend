@@ -35,7 +35,7 @@ import {
     Pencil,
 } from "lucide-react";
 import { exportDiamondsToExcel } from "@/lib/exportDiamonds";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
