@@ -27,12 +27,14 @@ import {
     FormInputIcon,
     Gem,
     UserPlus,
+    Globe,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import Image from "next/image";
 import logo from "@/assets/Uniglo-Logo-Horizontal1.png";
 import logoIcon from "@/../public/logo/logo.png";
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
+import { useParams } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import NotificationBell from "./NotificationBell";
 import { useTranslations } from "next-intl";
@@ -240,6 +242,15 @@ const USER_NAV_LINKS = [
     { nameKey: "adminNav.myProfile", href: "/profile", icon: UserIcon },
 ];
 
+const LANGUAGES = [
+    { code: "en", label: "EN" },
+    { code: "nl", label: "NL" },
+    { code: "fr", label: "FR" },
+    { code: "de", label: "DE" },
+    { code: "it", label: "IT" },
+    { code: "es", label: "ES" },
+] as const;
+
 export default function Navbar() {
     const t = useTranslations();
     const [isScrolled, setIsScrolled] = useState(false);
@@ -250,6 +261,16 @@ export default function Navbar() {
     const { scrollY } = useScroll();
     const [lastScrollY, setLastScrollY] = useState(0);
     const { user, logout, isAuthenticated, loading } = useAuth();
+
+    const pathname = usePathname();
+    const router = useRouter();
+    const params = useParams();
+    const currentLocale = (params?.locale as string) || "en";
+    const currentLang = LANGUAGES.find(l => l.code === currentLocale) || LANGUAGES[0];
+
+    const switchLanguage = (code: string) => {
+        router.replace({ pathname, query: params as any }, { locale: code });
+    };
 
     // Get role-specific nav links
     const getRoleNavLinks = () => {
@@ -336,7 +357,40 @@ export default function Navbar() {
                                 </Link>
                             </div>
                             {/* Right Actions */}
-                            <div className="hidden md:flex gap-3 lg:w-1/3 max-w-1/3 justify-end">
+                            <div className="hidden md:flex gap-3 lg:w-1/3 max-w-1/3 justify-end items-center">
+                                {/* Language Selector */}
+                                <div className="relative group mr-2">
+                                    <Button className="gold-reveal-btn font-cormorantGaramond uppercase flex items-center gap-2">
+                                        <span className="flex items-center gap-1.5">
+                                            <Globe size={16} />
+                                            <span>{currentLang.label}</span>
+                                            <ChevronDown
+                                                size={14}
+                                                className="group-hover:rotate-180 transition-transform duration-300"
+                                            />
+                                        </span>
+                                    </Button>
+
+                                    {/* Dropdown Menu */}
+                                    <div className="absolute top-full right-0 mt-0 w-20 bg-white border-t-2 border-[#c5a059] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-xl transform group-hover:translate-y-0 translate-y-2 z-60">
+                                        <div className="flex flex-col text-black font-cormorantGaramond text-base normal-case tracking-normal">
+                                            {LANGUAGES.map((lang) => (
+                                                <button
+                                                    key={lang.code}
+                                                    onClick={() => switchLanguage(lang.code)}
+                                                    className={`p-3 text-center hover:bg-gray-100 transition-colors w-full cursor-pointer ${
+                                                        currentLocale === lang.code
+                                                            ? "font-bold text-[#c5a059]"
+                                                            : ""
+                                                    }`}
+                                                >
+                                                    {lang.label}
+                                                </button>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {loading ? (
                                     <>
                                         <div className="h-10 w-32 bg-gray-200/50 animate-pulse " />
@@ -813,6 +867,31 @@ export default function Navbar() {
                                                 </Button>
                                             </div>
                                         )}
+
+                                        {/* Mobile Language Selector */}
+                                        <div className="w-full mt-6 border-t border-white/10 pt-4">
+                                            <span className="text-white/60 text-xs font-lora uppercase tracking-wider block mb-2">
+                                                Language / Lingua
+                                            </span>
+                                            <div className="grid grid-cols-3 gap-2">
+                                                {LANGUAGES.map((lang) => (
+                                                    <button
+                                                        key={lang.code}
+                                                        onClick={() => {
+                                                            switchLanguage(lang.code);
+                                                            setIsMobileMenuOpen(false);
+                                                        }}
+                                                        className={`py-2 px-1 text-center text-xs font-cormorantGaramond uppercase border rounded transition-all cursor-pointer ${
+                                                            currentLocale === lang.code
+                                                                ? "border-[#c5a059] text-[#c5a059] font-bold"
+                                                                : "border-white/10 text-white/80 hover:border-white/30"
+                                                        }`}
+                                                    >
+                                                        {lang.label}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </motion.div>

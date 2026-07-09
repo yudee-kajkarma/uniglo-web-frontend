@@ -3,6 +3,7 @@ import BannerSection from "@/components/shared/BannerSection";
 import BannerImage from "@/assets/services/diamond-financing-options/banner1.png";
 import ArticleLayout from "@/components/shared/ArticleLayout";
 import FinancingImg from "@/assets/services/diamond-financing-options/image-1.png"; // Update path as needed
+import Banner3 from "@/assets/services/diamond-financing-options/banner3.png";
 import Image from "next/image";
 import SubFooter from "@/components/shared/SubFooter";
 import { Metadata } from "next";
@@ -55,7 +56,7 @@ const page = async () => {
                 </div>
                 <div className="hidden md:w-1/2 w-full h-full md:flex justify-end relative mt-10 md:mt-0">
                     <Image
-                        src={require("@/assets/services/diamond-financing-options/banner3.png")}
+                        src={Banner3}
                         alt={t("financingPage.section2ImageAlt")}
                         className="w-full md:h-120 h-full object-cover "
                     />
