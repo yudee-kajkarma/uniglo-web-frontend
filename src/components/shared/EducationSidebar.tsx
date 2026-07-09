@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { Clock1, MapPin, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 import AdImage from "@/assets/subFooter/recent-post.png";
 import GiaLogo from "@/assets/our-partners/gia-removebg-preview.png";
@@ -10,16 +11,16 @@ import HrdLogo from "@/assets/our-partners/hrd-removebg-preview.png";
 import IgiLogo from "@/assets/our-partners/igi.jpg";
 
 const educationLinks = [
-    { title: "THE DIAMOND 4CS", href: "/the-diamond-4cs" },
-    { title: "DIAMONDS CERTIFICATES", href: "/diamond-certificates" },
-    { title: "DIAMONDS SHAPES", href: "/diamond-shapes" },
-    { title: "FANCY COLOURED DIAMONDS", href: "/fancy-colored-diamonds" },
-    { title: "CONFLICT-FREE DIAMONDS", href: "/conflict-free-diamonds" },
-    { title: "ETHICAL DIAMONDS", href: "/ethical-diamonds" },
-    { title: "OLD CUT DIAMONDS", href: "/old-cut-diamonds" },
+    { href: "/the-diamond-4cs", key: "diamond4Cs" },
+    { href: "/diamond-certificates", key: "diamondCertificates" },
+    { href: "/diamond-shapes", key: "diamondShapes" },
+    { href: "/fancy-colored-diamonds", key: "fancyColoredDiamond" },
+    { href: "/conflict-free-diamonds", key: "conflictFreeDiamond" },
+    { href: "/ethical-diamonds", key: "ethicalDiamond" },
+    { href: "/old-cut-diamonds", key: "oldCutDiamonds" },
     {
-        title: "SUPPLY CHAIN POLICY & PROCEDURE",
         href: "/supply-chain-policy-procedure",
+        key: "supplyChainPolicyProcedure",
     },
 ];
 
@@ -28,6 +29,12 @@ const EducationSidebar = ({
 }: {
     className?: string;
 }) => {
+    const tNav = useTranslations("nav");
+    const tEducation = useTranslations("education");
+    const tSubFooter = useTranslations("subFooter");
+    const tCommon = useTranslations("common");
+    const tContact = useTranslations("contactPage");
+
     return (
         <div className={className}>
             {/* 
@@ -40,7 +47,7 @@ const EducationSidebar = ({
                 {/* Posts / Chapters Section matching SubFooter style on smaller screens */}
                 <div className="bg-[#f7f8fa] p-8 flex-1 h-full w-full shadow-sm rounded-sm lg:rounded-none">
                     <h3 className="text-4xl lg:text-3xl font-semibold font-cormorantGaramond mb-6 text-[#0f172a]">
-                        More Topics
+                        {tEducation("moreTopics")}
                     </h3>
                     <ul className="space-y-3 lg:space-y-6">
                         {educationLinks.map((link, idx) => (
@@ -55,7 +62,7 @@ const EducationSidebar = ({
                                     <div className="flex items-center gap-4">
                                         <span className="hidden lg:block w-2 h-2 rounded-full border border-current shrink-0 group-hover:border-[#bb923a]"></span>
                                         <span className="font-lora text-lg lg:text-sm lg:font-sans lg:font-semibold lg:tracking-wide underline lg:no-underline underline-offset-4">
-                                            {link.title}
+                                            {tNav(link.key).toUpperCase()}
                                         </span>
                                     </div>
                                     <ArrowUpRight
@@ -98,7 +105,7 @@ const EducationSidebar = ({
                     {/* Find Us */}
                     <div className="bg-[#f7f8fa] p-8 w-full shadow-sm flex-1 rounded-sm lg:rounded-none">
                         <h3 className="text-3xl lg:text-2xl font-cormorantGaramond mb-6 underline lg:no-underline lg:border-b lg:border-slate-200 lg:pb-2">
-                            Find Us
+                            {tSubFooter("findUs")}
                         </h3>
                         <div className="space-y-6 font-lora text-slate-700 text-xl lg:text-sm">
                             <div className="flex gap-3 lg:gap-3 items-start">
@@ -107,7 +114,7 @@ const EducationSidebar = ({
                                 </span>
                                 <div>
                                     <strong className="block text-black font-bold mb-1 text-xl lg:text-sm lg:font-semibold">
-                                        Address
+                                        {tContact("address")}
                                     </strong>
                                     <div className="leading-relaxed">
                                         <div>Hoveniersstraat 30,</div>
@@ -122,15 +129,15 @@ const EducationSidebar = ({
                                 </span>
                                 <div>
                                     <strong className="block text-black font-bold mb-1 text-xl lg:text-sm lg:font-semibold">
-                                        Hours
+                                        {tContact("hours")}
                                     </strong>
                                     <div className="leading-relaxed">
-                                        <div>Monday—Friday:</div>
+                                        <div>{tSubFooter("weekdayLabel")}</div>
                                         <div>10:00 – 18:00</div>
                                         <div className="mt-1">
-                                            Saturday & Sunday:
+                                            {tSubFooter("weekendLabel")}
                                         </div>
-                                        <div>On Appointment</div>
+                                        <div>{tSubFooter("onAppointment")}</div>
                                     </div>
                                 </div>
                             </div>
@@ -141,15 +148,15 @@ const EducationSidebar = ({
                 {/* Ad Section */}
                 <div className="flex-1 w-full bg-black flex flex-col items-center justify-center py-12 px-6 h-full min-h-[400px]">
                     <div className="text-white text-center text-2xl lg:text-4xl font-cormorantGaramond mb-8 leading-snug">
-                        BROWSE THOUSANDS
+                        {tSubFooter("browseThousands")}
                         <br />
-                        OF LOOSE DIAMONDS
+                        {tSubFooter("ofLooseDiamonds")}
                     </div>
                     <Button
                         asChild
                         className="border-2 lg:border border-white text-white bg-transparent hover:bg-white hover:text-black transition px-8 py-4 lg:py-3 text-lg font-bold lg:font-lora tracking-wide lg:tracking-normal rounded-none mb-8 lg:mt-2"
                     >
-                        <Link href="/inventory">ONLINE INVENTORY</Link>
+                        <Link href="/inventory">{tCommon("onlineInventory")}</Link>
                     </Button>
                     <Image
                         src={AdImage}
