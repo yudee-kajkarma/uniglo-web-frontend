@@ -15,23 +15,23 @@ export const revalidate = 3600;
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
     let title = "Lab Grown Diamonds | Certified Loose Stones | Uniglo Diamonds";
-    let description = "Browse our full inventory of certified lab grown loose diamonds. Every stone is independently graded and available for wholesale enquiry in Antwerp.";
+    let description = "Browse our full inventory of certified lab grown loose diamonds. IGI and GIA graded stones available for wholesale enquiry in Antwerp.";
     
     if (locale === "de") {
         title = "Im Labor gezüchtete Diamanten | Zertifizierte lose Steine | Uniglo Diamonds";
-        description = "Durchsuchen Sie unser vollständiges Inventar an zertifizierten im Labor gezüchteten losen Diamanten. Jeder Stein ist unabhängig graduiert.";
+        description = "Durchsuchen Sie unser vollständiges Inventar an zertifizierten im Labor gezüchteten losen Diamanten. Nach IGI und GIA graduierte Steine für Großhandelsanfragen in Antwerpen verfügbar.";
     } else if (locale === "nl") {
         title = "Laboratoriumgekweekte Diamanten | Gecertificeerde Losse Stenen | Uniglo Diamonds";
-        description = "Blader door onze volledige inventaris van gecertificeerde laboratoriumgekweekte losse diamanten.";
+        description = "Blader door onze volledige inventaris van gecertificeerde laboratoriumgekweekte losse diamanten. IGI- en GIA-gegradeerde stenen beschikbaar voor groothandelsaanvragen in Antwerpen.";
     } else if (locale === "fr") {
         title = "Diamants de Laboratoire | Pierres en Vrac Certifiées | Uniglo Diamonds";
-        description = "Parcourez notre inventaire complet de diamants de laboratoire certifiés en vrac.";
+        description = "Parcourez notre inventaire complet de diamants de laboratoire certifiés en vrac. Pierres classées par l'IGI et le GIA disponibles pour demande de vente en gros à Anvers.";
     } else if (locale === "it") {
         title = "Diamanti Coltivati in Laboratorio | Pietre Sfuse Certificate | Uniglo Diamonds";
-        description = "Sfoglia il nostro inventario completo di diamanti coltivati in laboratorio sfusi certificati.";
+        description = "Sfoglia il nostro inventario completo di diamanti coltivati in laboratorio sfusi certificati. Pietre classificate da IGI e GIA disponibili per richieste all'ingrosso ad Anversa.";
     } else if (locale === "es") {
         title = "Diamantes Cultivados en Laboratorio | Piedras Sueltas Certificadas | Uniglo Diamonds";
-        description = "Examine nuestro inventario completo di diamantes cultivados en laboratorio sueltos certificados.";
+        description = "Examine nuestro inventario completo de diamantes cultivados en laboratorio sueltos certificados. Piedras clasificadas por IGI y GIA disponibles para consultas al por mayor en Amberes.";
     }
 
     return {
@@ -56,7 +56,7 @@ export default async function LabGrownDiamondsPage({ params, searchParams }: Pag
     const translations = {
         en: {
             h1: "Lab Grown Diamonds",
-            desc: "Browse our full inventory of certified lab grown loose diamonds. Every stone is independently graded and available for wholesale enquiry in Antwerp.",
+            desc: "Browse our full inventory of certified lab grown loose diamonds. IGI and GIA graded stones available for wholesale enquiry in Antwerp.",
             stones: "stones",
             page: "page",
             of: "of",
@@ -67,7 +67,7 @@ export default async function LabGrownDiamondsPage({ params, searchParams }: Pag
         },
         de: {
             h1: "Im Labor gezüchtete Diamanten",
-            desc: "Durchsuchen Sie unser vollständiges Inventar an zertifizierten im Labor gezüchteten losen Diamanten. Jeder Stein ist unabhängig graduiert und für Großhandelsanfragen in Antwerpen verfügbar.",
+            desc: "Durchsuchen Sie unser vollständiges Inventar an zertifizierten im Labor gezüchteten losen Diamanten. Nach IGI und GIA graduierte Steine für Großhandelsanfragen in Antwerpen verfügbar.",
             stones: "Steine",
             page: "Seite",
             of: "von",
@@ -78,7 +78,7 @@ export default async function LabGrownDiamondsPage({ params, searchParams }: Pag
         },
         nl: {
             h1: "Laboratoriumgekweekte diamanten",
-            desc: "Blader door onze volledige inventaris van gecertificeerde laboratoriumgekweekte losse diamanten. Elke steen is onafhankelijk gegradeerd en beschikbaar voor groothandelsaanvragen in Antwerpen.",
+            desc: "Blader door onze volledige inventaris van gecertificeerde laboratoriumgekweekte losse diamanten. IGI- en GIA-gegradeerde stenen beschikbaar voor groothandelsaanvragen in Antwerpen.",
             stones: "stenen",
             page: "pagina",
             of: "van",
@@ -89,7 +89,7 @@ export default async function LabGrownDiamondsPage({ params, searchParams }: Pag
         },
         fr: {
             h1: "Diamants de laboratoire",
-            desc: "Parcourez notre inventaire complet de diamants de laboratoire certifiés en vrac. Chaque pierre est évaluée de manière indépendante et disponible pour demande de vente en gros à Anvers.",
+            desc: "Parcourez notre inventaire complet de diamants de laboratoire certifiés en vrac. Pierres classées par l'IGI et le GIA disponibles pour demande de vente en gros à Anvers.",
             stones: "pierres",
             page: "page",
             of: "sur",
@@ -100,7 +100,7 @@ export default async function LabGrownDiamondsPage({ params, searchParams }: Pag
         },
         it: {
             h1: "Diamanti coltivati in laboratorio",
-            desc: "Sfoglia il nostro inventario completo di diamanti coltivati in laboratorio sfusi certificati. Ogni pietra è classificata in modo indipendente e disponibile per richieste all'ingrosso ad Anversa.",
+            desc: "Sfoglia il nostro inventario completo di diamanti coltivati in laboratorio sfusi certificati. Pietre classificate da IGI e GIA disponibili per richieste all'ingrosso ad Anversa.",
             stones: "pietre",
             page: "pagina",
             of: "di",
@@ -111,7 +111,7 @@ export default async function LabGrownDiamondsPage({ params, searchParams }: Pag
         },
         es: {
             h1: "Diamantes cultivados en laboratorio",
-            desc: "Examine nuestro inventario completo de diamantes cultivados en laboratorio sueltos certificados. Cada piedra está clasificada de manera independiente y disponible para consultas al por mayor en Amberes.",
+            desc: "Examine nuestro inventario completo de diamantes cultivados en laboratorio sueltos certificados. Piedras clasificadas por IGI y GIA disponibles para consultas al por mayor en Amberes.",
             stones: "piedras",
             page: "página",
             of: "de",
