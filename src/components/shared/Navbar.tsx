@@ -571,7 +571,7 @@ export default function Navbar() {
                                                                         />
                                                                     </button>
                                                                     {/* Side flyout panel */}
-                                                                    <div className="absolute top-0 right-full w-[26rem] bg-white border-t-2 border-[#c5a059] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 shadow-xl z-50">
+                                                                    <div className="absolute top-0 right-full w-104 bg-white border-t-2 border-[#c5a059] opacity-0 ...">
                                                                         <div className="grid grid-cols-2 text-black font-cormorantGaramond text-base normal-case tracking-normal">
                                                                             {submenu.subItems.map(
                                                                                 (
