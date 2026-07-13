@@ -269,8 +269,12 @@ export default function Navbar() {
     const currentLang = LANGUAGES.find(l => l.code === currentLocale) || LANGUAGES[0];
 
     const switchLanguage = (code: string) => {
-        router.replace({ pathname, query: params as any }, { locale: code });
-    };
+    // Copy parameters, but delete "locale" so it doesn't get appended to the URL query string
+    const queryParams = { ...params };
+    delete queryParams.locale;
+
+    router.replace({ pathname, query: queryParams as any }, { locale: code });
+};
 
     // Get role-specific nav links
     const getRoleNavLinks = () => {

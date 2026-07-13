@@ -11,15 +11,11 @@ import diamondBg from "@/assets/footer_diamond.jpg";
 // across "footer" and "nav" in messages/{locale}.json)
 const pages = [
     { key: "inventory", ns: "footer.footerPages", href: "/inventory" },
-    { key: "naturalDiamonds", ns: "footer.footerPages", href: "/diamonds/natural" },
-    { key: "labGrownDiamonds", ns: "footer.footerPages", href: "/diamonds/lab-grown" },
-    { key: "meleeDiamonds", ns: "footer.footerPages", href: "/diamonds/melee" },
     { key: "about", ns: "nav", href: "/about" },
     { key: "sellDiamonds", ns: "nav", href: "/sell-your-diamonds" },
     { key: "education", ns: "footer.footerPages", href: "/the-diamond-4cs" },
     { key: "blog", ns: "nav", href: "/blogs" },
 ];
-
 const services = [
     { key: "manufacturing", ns: "footer.footerServices", href: "/diamond-manufacturing" },
     { key: "estimations", ns: "footer.footerServices", href: "/the-best-price-for-your-diamonds" },
