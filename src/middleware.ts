@@ -1,5 +1,7 @@
 import createMiddleware from "next-intl/middleware";
-import { locales } from "./i18n";
+
+// Define locales directly here so we don't import i18n.ts and balloon the middleware size
+const locales = ["en", "de", "nl", "fr", "it", "es"];
 
 export default createMiddleware({
   // A list of all locales that are supported
