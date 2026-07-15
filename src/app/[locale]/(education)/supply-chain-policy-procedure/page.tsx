@@ -8,11 +8,52 @@ import EducationSidebar from "@/components/shared/EducationSidebar";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
-export const metadata: Metadata = {
-    title: "Ethical Diamond Sourcing Policy | Uniglo Diamonds",
-    description:
-        "Learn about Uniglo Diamonds’ commitment to ethical sourcing. We follow RJC standards, Kimberley Process & OECD guidelines for conflict-free diamonds.",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Ethical Diamond Sourcing Policy | Uniglo Diamonds",
+        "description": "Learn about Uniglo Diamonds’ commitment to ethical sourcing. We follow RJC standards, Kimberley Process & OECD guidelines for conflict-free diamonds."
+    },
+    "de": {
+        "title": "Richtlinie für ethische Diamantenbeschaffung | Uniglo Diamonds",
+        "description": "Erfahren Sie mehr über das Engagement von Uniglo Diamonds für eine ethische Beschaffung. Wir befolgen RJC-Standards, den Kimberley-Prozess und OECD-Richtlinien für konfliktfreie Diamanten."
+    },
+    "nl": {
+        "title": "Ethisch inkoopbeleid voor diamanten | Uniglo Diamonds",
+        "description": "Lees meer over de inzet van Uniglo Diamonds voor ethische inkoop. Wij volgen RJC-normen, het Kimberley-Proces & OECD-richtlijnen voor conflictvrije diamanten."
+    },
+    "fr": {
+        "title": "Charte d'approvisionnement éthique en diamants | Uniglo Diamonds",
+        "description": "Découvrez l'engagement d'Uniglo Diamonds en faveur d'un approvisionnement éthique. Nous suivons les normes RJC, le processus de Kimberley et les directives de l'OCDE pour des diamants sans conflit."
+    },
+    "it": {
+        "title": "Politica di approvvigionamento etico dei diamanti | Uniglo Diamonds",
+        "description": "Scopri l'impegno di Uniglo Diamonds per un approvvigionamento etico. Rispettiamo gli standard RJC, il Processo di Kimberley e le linee guida OCSE per diamanti senza conflitto."
+    },
+    "es": {
+        "title": "Política de abastecimiento ético de diamantes | Uniglo Diamonds",
+        "description": "Conozca el compromiso de Uniglo Diamonds con el abastecimiento ético. Seguimos los estándares del RJC, el Proceso de Kimberley y las directrices de la OCDE para diamantes libres de conflicto."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}supply-chain-policy-procedure`,
+        },
+    };
+}
 
 const page = () => {
     const t = useTranslations("supplyChainPage");

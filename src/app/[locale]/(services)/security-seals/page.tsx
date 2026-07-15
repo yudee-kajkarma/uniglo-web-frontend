@@ -11,14 +11,52 @@ import FedexImage from "@/assets/services/security-seals/tamper-proff-seals1.jpe
 
 // NOTE: metadata/canonical left untouched (English only) — same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Tamper-Proof Diamond Security Seals | Uniglo Diamonds",
-    description:
-        "Protect your diamond with our tamper-proof sealing service. Secure containers link your stone to its IGI report for safety & authenticity.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/security-seals",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Tamper-Proof Diamond Security Seals | Uniglo Diamonds",
+        "description": "Protect your diamond with our tamper-proof sealing service. Secure containers link your stone to its IGI report for safety & authenticity."
     },
+    "de": {
+        "title": "Manipulationssichere Diamantensicherheitsversiegelungen | Uniglo Diamonds",
+        "description": "Schützen Sie Ihren Diamanten mit unserem manipulationssicheren Versiegelungsservice. Sichere Behälter verknüpfen Ihren Stein mit seinem IGI-Bericht für maximale Sicherheit & Echtheit."
+    },
+    "nl": {
+        "title": "Fraudebestendige diamantbeveiligingszegels | Uniglo Diamonds",
+        "description": "Bescherm uw diamant met onze fraudebestendige verzegeling. Veilige verpakkingen koppelen uw steen aan het IGI-rapport voor veiligheid & echtheid."
+    },
+    "fr": {
+        "title": "Scellés de sécurité inviolables pour diamants | Uniglo Diamonds",
+        "description": "Protégez votre diamant grâce à notre service de scellage inviolable. Des conteneurs sécurisés relient votre pierre à son rapport IGI pour plus de sécurité et d'authenticité."
+    },
+    "it": {
+        "title": "Sigilli di sicurezza antimanomissione per diamanti | Uniglo Diamonds",
+        "description": "Proteggi il tuo diamante con il nostro servizio di sigillatura antimanomissione. I contenitori sicuri collegano la tua pietra al suo rapporto IGI per sicurezza e autenticità."
+    },
+    "es": {
+        "title": "Sellos de seguridad inviolables para diamantes | Uniglo Diamonds",
+        "description": "Proteja su diamante con nuestro servicio de sellado inviolable. Envases seguros vinculan su piedra con su reporte IGI para mayor seguridad y autenticidad."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}security-seals`,
+        },
+    };
+}
 
 const Page = async () => {
     const t = await getTranslations("securitySealsPage");

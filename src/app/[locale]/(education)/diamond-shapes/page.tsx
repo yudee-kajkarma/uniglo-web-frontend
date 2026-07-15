@@ -24,14 +24,52 @@ import { Metadata } from "next";
 
 // NOTE: metadata/canonical left untouched (English only) - same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Guide to Diamond Shapes | Round, Princess, Cushion & More",
-    description:
-        "Explore popular diamond shapes—from Round Brilliant to Emerald & Heart cuts. Discover how each shape impacts sparkle, style & value.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/diamond-shapes",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Guide to Diamond Shapes | Round, Princess, Cushion & More",
+        "description": "Explore popular diamond shapes—from Round Brilliant to Emerald & Heart cuts. Discover how each shape impacts sparkle, style & value."
     },
+    "de": {
+        "title": "Leitfaden für Diamantformen | Rund, Prinzess, Kissen & mehr",
+        "description": "Entdecken Sie beliebte Diamantformen – vom Brillantschliff bis hin zu Smaragd- und Herzschliff. Erfahren Sie, wie sich jede Form auf Glanz, Stil und Wert auswirkt."
+    },
+    "nl": {
+        "title": "Gids voor diamantvormen | Rond, Princess, Cushion & meer",
+        "description": "Ontdek populaire diamantvormen – van briljant tot emerald- en hartslijpsel. Ontdek hoe elke vorm invloed heeft op schittering, stijl en waarde."
+    },
+    "fr": {
+        "title": "Guide des formes de diamants | Rond, Princesse, Coussin et plus",
+        "description": "Explorez les formes de diamants populaires, de la taille Brillant rond aux tailles Émeraude et Cœur. Découvrez l'impact de chaque forme sur l'éclat, le style et la valeur."
+    },
+    "it": {
+        "title": "Guida alle forme dei diamanti | Rotondo, Princess, Cushion e altro",
+        "description": "Esplora le forme di diamante più diffuse, dal taglio Brillante Rotondo ai tagli Smeraldo e Cuore. Scopri come ogni forma influisce su brillantezza, stile e valore."
+    },
+    "es": {
+        "title": "Guía de formas de diamantes | Redondo, Princesa, Cojín y más",
+        "description": "Explore las formas de diamantes más populares, desde el brillante redondo hasta los cortes esmeralda y corazón. Descubra cómo influye cada forma en el brillo, estilo y valor."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-shapes`,
+        },
+    };
+}
 
 type ShapeSection = {
     key: string;

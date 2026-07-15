@@ -8,15 +8,52 @@ import FAQSection from "@/components/shared/FAQSection";
 import BannerImage from "@/assets/fancy-colored-diamonds/banner.png";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Nivoda Lab Grown Diamond Supplier | Uniglo Diamonds Antwerp",
-    description:
-        "Nivoda verified supplier — Uniglo Diamonds, Antwerp. Buy IGI, GIA & HRD certified loose lab grown diamonds wholesale through Nivoda. Direct manufacturer. Find us on Nivoda today.",
-    alternates: {
-        canonical:
-            "https://www.uniglodiamonds.com/nivoda-lab-grown-diamond-supplier",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Nivoda Lab Grown Diamond Supplier | Uniglo Diamonds Antwerp",
+        "description": "Nivoda verified supplier — Uniglo Diamonds, Antwerp. Buy IGI, GIA & HRD certified loose lab grown diamonds wholesale through Nivoda. Direct manufacturer. Find us on Nivoda today."
     },
+    "de": {
+        "title": "Nivoda Labor-Diamanten Lieferant | Uniglo Diamonds Antwerpen",
+        "description": "Verifizierter Nivoda-Lieferant — Uniglo Diamonds, Antwerpen. Kaufen Sie IGI-, GIA- & HRD-zertifizierte lose, im Labor gezüchtete Diamanten im Großhandel über Nivoda. Direkter Hersteller. Finden Sie uns noch heute auf Nivoda."
+    },
+    "nl": {
+        "title": "Nivoda leverancier van lab-diamanten | Uniglo Diamonds Antwerpen",
+        "description": "Geverifieerde Nivoda-leverancier — Uniglo Diamonds, Antwerpen. Koop IGI-, GIA- & HRD-gecertificeerde losse in het lab gekweekte diamanten in de groothandel via Nivoda. Directe fabrikant. Vind ons vandaag nog op Nivoda."
+    },
+    "fr": {
+        "title": "Fournisseur de diamants de laboratoire Nivoda | Uniglo Diamonds Anvers",
+        "description": "Fournisseur vérifié Nivoda — Uniglo Diamonds, Anvers. Achetez des diamants de laboratoire certifiés IGI, GIA & HRD en gros via Nivoda. Fabricant direct. Retrouvez-nous sur Nivoda dès aujourd'hui."
+    },
+    "it": {
+        "title": "Fornitore di diamanti coltivati in laboratorio Nivoda | Uniglo Diamonds Anversa",
+        "description": "Fornitore verificato Nivoda — Uniglo Diamonds, Anversa. Acquista diamanti coltivati in laboratorio sfusi certificati IGI, GIA e HRD all'ingrosso tramite Nivoda. Produttore diretto. Trovaci su Nivoda oggi stesso."
+    },
+    "es": {
+        "title": "Proveedor de diamantes de laboratorio Nivoda | Uniglo Diamonds Amberes",
+        "description": "Proveedor verificado de Nivoda — Uniglo Diamonds, Amberes. Compre diamantes de laboratorio sueltos certificados por IGI, GIA y HRD al por mayor a través de Nivoda. Fabricante directo. Encuéntrenos en Nivoda hoy."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}nivoda-lab-grown-diamond-supplier`,
+        },
+    };
+}
 
 const articleData: ArticleSection[] = [
     {

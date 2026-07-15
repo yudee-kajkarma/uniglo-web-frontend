@@ -16,14 +16,52 @@ import ModernRoundBrilliantImage from "@/assets/old-diamonds/modern-round-brilli
 
 // NOTE: metadata/canonical left untouched (English only) — same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Old Cut Diamonds | Antique & Vintage Diamond Cuts | Uniglo",
-    description:
-        "Discover antique cut diamonds—from Rose to Old European & Old Mine cuts. Explore vintage stones with unique fire, romance & timeless elegance.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/old-cut-diamonds",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Old Cut Diamonds | Antique & Vintage Diamond Cuts | Uniglo",
+        "description": "Discover antique cut diamonds—from Rose to Old European & Old Mine cuts. Explore vintage stones with unique fire, romance & timeless elegance."
     },
+    "de": {
+        "title": "Altschliff-Diamanten | Antike & Vintage-Diamantschliffe | Uniglo",
+        "description": "Entdecken Sie Diamanten im Altschliff – vom Rosenschliff über den Altschliff (Old European) bis hin zum Minenschliff (Old Mine). Entdecken Sie Vintage-Steine mit einzigartigem Feuer, Romantik und zeitloser Eleganz."
+    },
+    "nl": {
+        "title": "Oud geslepen diamanten | Antieke & vintage diamantslijpsels | Uniglo",
+        "description": "Ontdek antiek geslepen diamanten – van roosslijpsel tot Old European & Old Mine cuts. Ontdek vintage stenen met uniek vuur, romantiek & tijdloze elegantie."
+    },
+    "fr": {
+        "title": "Diamants de taille ancienne | Tailles de diamants anciennes et vintage | Uniglo",
+        "description": "Découvrez les diamants de taille ancienne, de la taille Rose aux tailles Old European et Old Mine. Explorez des pierres vintage au feu unique, romantiques et d'une élégance intemporelle."
+    },
+    "it": {
+        "title": "Diamanti a taglio antico | Tagli di diamanti antichi e vintage | Uniglo",
+        "description": "Scopri i diamanti a taglio antico: dal taglio a rosetta all'Old European e all'Old Mine. Esplora pietre vintage dal fuoco unico, romantiche e dall'eleganza senza tempo."
+    },
+    "es": {
+        "title": "Diamantes de corte antiguo | Cortes de diamantes antigos y vintage | Uniglo",
+        "description": "Descubra diamantes de corte antiguo: desde el corte rosa hasta los cortes Old European y Old Mine. Explore piedras vintage con fuego único, romance y elegancia atemporal."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}old-cut-diamonds`,
+        },
+    };
+}
 
 const Page = async () => {
     const t = await getTranslations("oldCutDiamondsPage");

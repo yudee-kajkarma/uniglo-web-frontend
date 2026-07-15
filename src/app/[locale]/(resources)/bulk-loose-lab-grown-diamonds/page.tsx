@@ -8,15 +8,52 @@ import FAQSection from "@/components/shared/FAQSection";
 import BannerImage from "@/assets/fancy-colored-diamonds/banner.png";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Bulk Loose Lab Grown Diamonds | Wholesale Supplier Antwerp",
-    description:
-        "Buy bulk loose lab grown diamonds direct from Antwerp's certified manufacturer. IGI, GIA & HRD certified. All shapes, all carats. Wholesale pricing with no middlemen. Request pricing today.",
-    alternates: {
-        canonical:
-            "https://www.uniglodiamonds.com/bulk-loose-lab-grown-diamonds",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Bulk Loose Lab Grown Diamonds | Wholesale Supplier Antwerp",
+        "description": "Buy bulk loose lab grown diamonds direct from Antwerp's certified manufacturer. IGI, GIA & HRD certified. All shapes, all carats. Wholesale pricing with no middlemen. Request pricing today."
     },
+    "de": {
+        "title": "Lose Labor-Diamanten in großen Mengen | Großhandel Lieferant Antwerpen",
+        "description": "Kaufen Sie lose, im Labor gezüchtete Diamanten in großen Mengen direkt vom zertifizierten Hersteller in Antwerpen. IGI, GIA & HRD zertifiziert. Alle Formen, alle Karatzahlen. Großhandelspreise ohne Zwischenhändler. Fordern Sie noch heute Preise an."
+    },
+    "nl": {
+        "title": "Grote partijen losse lab-diamanten | Groothandel leverancier Antwerpen",
+        "description": "Koop grote partijen losse in het lab gekweekte diamanten rechtstreeks van een gecertificeerde fabrikant in Antwerpen. IGI, GIA & HRD gecertificeerd. Alle vormen, alle karaten. Groothandelsprijzen zonder tussenpersonen. Vraag vandaag nog een offerte aan."
+    },
+    "fr": {
+        "title": "Diamants de laboratoire en vrac | Fournisseur de gros Anvers",
+        "description": "Achetez des diamants de laboratoire en vrac directement auprès du fabricant certifié d'Anvers. Certifié IGI, GIA & HRD. Toutes formes, tous carats. Prix de gros sans intermédiaire. Demandez un devis dès aujourd'hui."
+    },
+    "it": {
+        "title": "Diamanti coltivati in laboratorio sfusi | Fornitore all'ingrosso Anversa",
+        "description": "Acquista grandi quantità di diamanti coltivati in laboratorio sfusi direttamente dal produttore certificato di Anversa. Certificati IGI, GIA e HRD. Tutte le forme, tutti i carati. Prezzi all'ingrosso senza intermediari. Richiedi un preventivo oggi stesso."
+    },
+    "es": {
+        "title": "Diamantes de laboratorio sueltos al por mayor | Proveedor mayorista Amberes",
+        "description": "Compre diamantes de laboratorio sueltos al por mayor directamente del fabricante certificado en Amberes. Certificados por IGI, GIA y HRD. Todas las formas, todos los quilates. Precios de venta al por mayor sin intermediarios. Solicite cotización hoy."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}bulk-loose-lab-grown-diamonds`,
+        },
+    };
+}
 
 const articleData: ArticleSection[] = [
     {

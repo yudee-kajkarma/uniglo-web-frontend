@@ -84,11 +84,52 @@ function ServiceCard({
         </div>
     );
 }
-export const metadata: Metadata = {
-    title: "Uniglo Diamonds – Certified Natural & Lab Grown Diamonds",
-    description:
-        "Discover certified IGI, GIA & HRD diamonds at Uniglo Diamonds. Buy, sell, trade, invest & manufacture premium natural & lab grown stones with trusted expertise.",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Uniglo Diamonds – Certified Natural & Lab Grown Diamonds",
+        "description": "Discover certified IGI, GIA & HRD diamonds at Uniglo Diamonds. Buy, sell, trade, invest & manufacture premium natural & lab grown stones with trusted expertise."
+    },
+    "de": {
+        "title": "Uniglo Diamonds – Zertifizierte natürliche & im Labor gezüchtete Diamanten",
+        "description": "Entdecken Sie zertifizierte IGI-, GIA- & HRD-Diamanten bei Uniglo Diamonds. Kaufen, verkaufen, handeln, investieren & produzieren Sie erstklassige natürliche & im Labor gezüchtete Steine mit bewährter Expertise."
+    },
+    "nl": {
+        "title": "Uniglo Diamonds – Gecertificeerde natuurlijke & in het laboratorium gekweekte diamanten",
+        "description": "Ontdek gecertificeerde IGI-, GIA- & HRD-diamanten bij Uniglo Diamonds. Koop, verkoop, handel, investeer & produceer hoogwaardige natuurlijke & in het laboratorium gekweekte stenen met vertrouwde expertise."
+    },
+    "fr": {
+        "title": "Uniglo Diamonds – Diamants naturels et de laboratoire certifiés",
+        "description": "Découvrez des diamants certifiés IGI, GIA et HRD chez Uniglo Diamonds. Achetez, vendez, échangez, investissez et fabriquez des pierres précieuses naturelles et de laboratoire de qualité supérieure avec une expertise de confiance."
+    },
+    "it": {
+        "title": "Uniglo Diamonds – Diamanti naturali e coltivati in laboratorio certificati",
+        "description": "Scopri i diamanti certificati IGI, GIA e HRD su Uniglo Diamonds. Acquista, vendi, scambia, investi e produci pietre premium naturali e coltivate in laboratorio con competenza e affidabilità."
+    },
+    "es": {
+        "title": "Uniglo Diamonds – Diamantes naturales y de laboratorio certificados",
+        "description": "Descubra diamantes certificados IGI, GIA y HRD en Uniglo Diamonds. Compre, venda, comercialice, invierta y fabrique piedras naturales y de laboratorio de primera calidad con total confianza."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}`,
+        },
+    };
+}
 
 export default async function Home() {
     const t = await getTranslations();

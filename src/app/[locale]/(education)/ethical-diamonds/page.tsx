@@ -13,14 +13,52 @@ import BannerImage from "@/assets/ethical-diamonds/bannerNewEthical.jpeg";
 
 // NOTE: metadata/canonical left untouched (English only) — same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Ethical & Conflict-Free Diamonds | Kimberley Process Certified",
-    description:
-        "Buy 100% ethically sourced, conflict-free natural diamonds from Uniglo. We follow Kimberley Process & World Diamond Council standards.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/ethical-diamonds",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Ethical & Conflict-Free Diamonds | Kimberley Process Certified",
+        "description": "Buy 100% ethically sourced, conflict-free natural diamonds from Uniglo. We follow Kimberley Process & World Diamond Council standards."
     },
+    "de": {
+        "title": "Ethische & konfliktfreie Diamanten | Kimberley-Prozess zertifiziert",
+        "description": "Kaufen Sie zu 100% ethisch einwandfreie, konfliktfreie natürliche Diamanten von Uniglo. Wir halten uns an die Standards des Kimberley-Prozesses und des World Diamond Council."
+    },
+    "nl": {
+        "title": "Ethische & conflictvrije diamanten | Kimberley-Proces gecertificeerd",
+        "description": "Koop 100% ethisch verantwoorde, conflictvrije natuurlijke diamanten van Uniglo. Wij volgen de normen van het Kimberley-Proces & de World Diamond Council."
+    },
+    "fr": {
+        "title": "Diamants éthiques et sans conflit | Certifié Processus de Kimberley",
+        "description": "Achetez des diamants naturels 100 % éthiques et sans conflit chez Uniglo. Nous respectons les normes du processus de Kimberley et du World Diamond Council."
+    },
+    "it": {
+        "title": "Diamanti etici e conflict-free | Certificati Processo di Kimberley",
+        "description": "Acquista diamanti naturali al 100% etici e conflict-free da Uniglo. Rispettiamo gli standard del Processo di Kimberley e del World Diamond Council."
+    },
+    "es": {
+        "title": "Diamantes éticos y libres de conflicto | Certificados por el Proceso de Kimberley",
+        "description": "Compre diamantes naturales 100% éticos y libres de conflicto de Uniglo. Cumplimos con los estándares del Proceso de Kimberley y del World Diamond Council."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}ethical-diamonds`,
+        },
+    };
+}
 
 const Page = async () => {
     const t = await getTranslations("ethicalDiamondsPage");

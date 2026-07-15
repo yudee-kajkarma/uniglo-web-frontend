@@ -9,11 +9,52 @@ import SubFooter from "@/components/shared/SubFooter";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-    title: "Diamond Financing Options | Buy Now Pay Later – Uniglo",
-    description:
-        "Flexible diamond financing with Uniglo. Buy now, pay later with custom instalment plans, tailored payment options, and possible no-interest schemes for diamond purchases.",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Diamond Financing Options | Buy Now Pay Later – Uniglo",
+        "description": "Flexible diamond financing with Uniglo. Buy now, pay later with custom instalment plans, tailored payment options, and possible no-interest schemes for diamond purchases."
+    },
+    "de": {
+        "title": "Optionen zur Diamantenfinanzierung | Jetzt kaufen, später bezahlen – Uniglo",
+        "description": "Flexible Diamantenfinanzierung mit Uniglo. Jetzt kaufen, später bezahlen mit individuellen Ratenplänen, maßgeschneiderten Zahlungsoptionen und möglichen zinsfreien Angeboten für Diamantenkäufe."
+    },
+    "nl": {
+        "title": "Financieringsopties voor diamanten | Buy Now Pay Later – Uniglo",
+        "description": "Flexibele diamantfinanciering met Uniglo. Koop nu, betaal later met aangepaste afbetalingsplannen, op maat gemaakte betalingsopties en mogelijke renteloze regelingen voor de aankoop van diamanten."
+    },
+    "fr": {
+        "title": "Options de financement des diamants | Acheter maintenant, payer plus tard – Uniglo",
+        "description": "Financement flexible des diamants avec Uniglo. Achetez maintenant, payez plus tard grâce à des plans de paiement personnalisés, des options de paiement adaptées et d'éventuels plans sans intérêt pour vos achats de diamants."
+    },
+    "it": {
+        "title": "Opzioni di finanziamento per diamanti | Compra ora paga dopo – Uniglo",
+        "description": "Finanziamenti flessibili per diamanti con Uniglo. Acquista ora e paga in seguito con piani rateali personalizzati, opzioni di pagamento su misura e possibili schemi a tasso zero per l'acquisto di diamanti."
+    },
+    "es": {
+        "title": "Opciones de financiación de diamantes | Compre ahora y pague después – Uniglo",
+        "description": "Financiación flexible de diamantes con Uniglo. Compre ahora y pague después con planes de pago personalizados, opciones de pago a la medida y posibles esquemas sin intereses para la compra de diamantes."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-financing-options`,
+        },
+    };
+}
 
 const page = async () => {
     const t = await getTranslations();
