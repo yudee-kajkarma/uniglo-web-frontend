@@ -12,14 +12,52 @@ import BannerImage from "@/assets/conflict-free/banner1.png";
 
 // NOTE: metadata/canonical left untouched (English only) — same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Conflict-free Diamonds & The Kimberley Process | Uniglo",
-    description:
-        "What are conflict-free diamonds? Learn about the Kimberley Process & how Uniglo ensures every stone is ethically sourced & certified.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/conflict-free-diamonds",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Conflict-free Diamonds & The Kimberley Process | Uniglo",
+        "description": "What are conflict-free diamonds? Learn about the Kimberley Process & how Uniglo ensures every stone is ethically sourced & certified."
     },
+    "de": {
+        "title": "Konfliktfreie Diamanten & Der Kimberley-Prozess | Uniglo",
+        "description": "Was sind konfliktfreie Diamanten? Erfahren Sie mehr über den Kimberley-Prozess & wie Uniglo sicherstellt, dass jeder Stein ethisch einwandfrei bezogen & zertifiziert ist."
+    },
+    "nl": {
+        "title": "Conflictvrije diamanten & Het Kimberley-Proces | Uniglo",
+        "description": "Wat zijn konfliktvrije diamanten? Leer meer over het Kimberley-Proces & hoe Uniglo ervoor zorgt dat elke steen ethisch verkregen & gecertificeerd is."
+    },
+    "fr": {
+        "title": "Diamants sans conflit et processus de Kimberley | Uniglo",
+        "description": "Que sont les diamants sans conflit ? Découvrez le processus de Kimberley et comment Uniglo garantit que chaque pierre est certifiée et de source éthique."
+    },
+    "it": {
+        "title": "Diamanti conflict-free e il Processo di Kimberley | Uniglo",
+        "description": "Cosa sono i diamanti conflict-free? Scopri il Processo di Kimberley e come Uniglo garantisce che ogni pietra sia certificata ed eticamente proveniente."
+    },
+    "es": {
+        "title": "Diamantes libres de conflicto y el Proceso de Kimberley | Uniglo",
+        "description": "¿Qué son los diamantes libres de conflicto? Conozca el Proceso de Kimberley y cómo Uniglo garantiza que cada piedra sea de origen ético y certificada."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}conflict-free-diamonds`,
+        },
+    };
+}
 
 // Local type for the per-section translation shape
 type SectionTranslation = {

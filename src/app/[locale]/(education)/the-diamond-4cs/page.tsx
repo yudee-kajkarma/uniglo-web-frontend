@@ -24,14 +24,52 @@ import { Metadata } from "next";
 // the same convention used on the supply-chain-policy page. Flag: en.json
 // has no top-level "metadata" namespace at all yet (de.json does have
 // metadata.diamond4Cs) - worth adding later if you want localized SEO tags.
-export const metadata: Metadata = {
-    title: "Understanding the 4Cs of Diamonds | Cut, Color, Clarity, Carat",
-    description:
-        "Master the 4Cs—Cut, Color, Clarity & Carat. Learn how diamond quality affects beauty and value. Buy with confidence at Uniglo Diamonds.",
-    alternates: {
-        canonical: "www.uniglodiamonds.com/the-diamond-4cs",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Understanding the 4Cs of Diamonds | Cut, Color, Clarity, Carat",
+        "description": "Master the 4Cs—Cut, Color, Clarity & Carat. Learn how diamond quality affects beauty and value. Buy with confidence at Uniglo Diamonds."
     },
+    "de": {
+        "title": "Die 4 Cs der Diamanten verstehen | Schliff, Farbe, Reinheit, Karat",
+        "description": "Meistern Sie die 4 Cs – Schliff (Cut), Farbe (Color), Reinheit (Clarity) und Karat (Carat). Erfahren Sie, wie die Diamantenqualität Schönheit und Wert beeinflusst. Kaufen Sie vertrauensvoll bei Uniglo Diamonds."
+    },
+    "nl": {
+        "title": "De 4 C's van diamanten begrijpen | Slijpvorm, Kleur, Zuiverheid, Karaat",
+        "description": "Beheers de 4 C's – Cut, Color, Clarity & Carat. Leer hoe diamantkwaliteit invloed heeft op schoonheid en waarde. Koop met vertrouwen bij Uniglo Diamonds."
+    },
+    "fr": {
+        "title": "Comprendre les 4C des diamants | Taille, Couleur, Pureté, Carat",
+        "description": "Maîtrisez les 4C : taille (Cut), couleur (Color), pureté (Clarity) et carat (Carat). Découvrez comment la qualité d'un diamant influence sa beauté et sa valeur. Achetez en toute confiance chez Uniglo Diamonds."
+    },
+    "it": {
+        "title": "Capire le 4C dei diamanti | Taglio, Colore, Purezza, Carato",
+        "description": "Scopri le 4C: Taglio, Colore, Purezza e Carato. Impara come la qualità del diamante influisce su bellezza e valore. Acquista con fiducia su Uniglo Diamonds."
+    },
+    "es": {
+        "title": "Comprender las 4C de los diamantes | Corte, Color, Claridad, Quilates",
+        "description": "Domine las 4C: corte, color, claridad y quilates. Aprenda cómo afecta la calidad del diamante a su belleza y valor. Compre con confianza en Uniglo Diamonds."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}the-diamond-4cs`,
+        },
+    };
+}
 
 const Page = async () => {
     const t = await getTranslations("diamond4CsPage");

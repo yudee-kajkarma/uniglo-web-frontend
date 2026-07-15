@@ -10,15 +10,52 @@ import FAQSection from "@/components/shared/FAQSection";
 
 // NOTE: metadata/canonical left untouched (English only) — same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Rapnet Diamond Supplier | Uniglo Diamonds Antwerp Belgium",
-    description:
-        "Rapnet verified supplier — Uniglo Diamonds, Antwerp. Buy IGI, GIA & HRD certified natural and lab grown diamonds wholesale through Rapnet. Direct Antwerp manufacturer. Find us on Rapnet today.",
-    alternates: {
-        canonical:
-            "https://www.uniglodiamonds.com/rapnet-diamond-supplier-antwerp",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Rapnet Diamond Supplier | Uniglo Diamonds Antwerp Belgium",
+        "description": "Rapnet verified supplier — Uniglo Diamonds, Antwerp. Buy IGI, GIA & HRD certified natural and lab grown diamonds wholesale through Rapnet. Direct Antwerp manufacturer. Find us on Rapnet today."
     },
+    "de": {
+        "title": "RapNet Diamantenlieferant | Uniglo Diamonds Antwerpen Belgien",
+        "description": "Verifizierter RapNet-Lieferant — Uniglo Diamonds, Antwerpen. Kaufen Sie IGI-, GIA- & HRD-zertifizierte natürliche und im Labor gezüchtete Diamanten im Großhandel über RapNet. Direkter Hersteller aus Antwerpen. Finden Sie uns noch heute auf RapNet."
+    },
+    "nl": {
+        "title": "RapNet diamantleverancier | Uniglo Diamonds Antwerpen België",
+        "description": "Geverifieerde RapNet-leverancier — Uniglo Diamonds, Antwerpen. Koop IGI-, GIA- & HRD-gecertificeerde natuurlijke en in het lab gekweekte diamanten in de groothandel via RapNet. Directe Antwerpse fabrikant. Vind ons vandaag nog op RapNet."
+    },
+    "fr": {
+        "title": "Fournisseur de diamants RapNet | Uniglo Diamonds Anvers Belgique",
+        "description": "Fournisseur vérifié RapNet — Uniglo Diamonds, Anvers. Achetez en gros des diamants naturels et de laboratoire certifiés IGI, GIA & HRD via RapNet. Fabricant direct à Anvers. Retrouvez-nous sur RapNet dès aujourd'hui."
+    },
+    "it": {
+        "title": "Fornitore di diamanti RapNet | Uniglo Diamonds Anversa Belgio",
+        "description": "Fornitore verificato RapNet — Uniglo Diamonds, Anversa. Acquista diamanti naturali e coltivati in laboratorio certificati IGI, GIA e HRD all'ingrosso tramite RapNet. Produttore diretto ad Anversa. Trovaci su RapNet oggi stesso."
+    },
+    "es": {
+        "title": "Proveedor de diamantes RapNet | Uniglo Diamonds Amberes Bélgica",
+        "description": "Proveedor verificado de RapNet — Uniglo Diamonds, Amberes. Compre diamantes naturales y de laboratorio certificados por IGI, GIA y HRD al por mayor a través de RapNet. Fabricante directo de Amberes. Encuéntrenos en RapNet hoy."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}rapnet-diamond-supplier-antwerp`,
+        },
+    };
+}
 
 // Local types for translation shapes
 type SectionWithBullets = {

@@ -11,11 +11,52 @@ import { Metadata } from "next";
 
 // NOTE: metadata/canonical left untouched (English only) - same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "GIA, IGI & HRD Diamond Certificates | Uniglo Diamonds",
-    description:
-        "Ensure quality with GIA, IGI & HRD certified diamonds from Uniglo. Internationally recognized certificates with lifetime authenticity guarantee.",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "GIA, IGI & HRD Diamond Certificates | Uniglo Diamonds",
+        "description": "Ensure quality with GIA, IGI & HRD certified diamonds from Uniglo. Internationally recognized certificates with lifetime authenticity guarantee."
+    },
+    "de": {
+        "title": "GIA-, IGI- & HRD-Diamantzertifikate | Uniglo Diamonds",
+        "description": "Sichern Sie die Qualität mit GIA-, IGI- & HRD-zertifizierten Diamanten von Uniglo. International anerkannte Zertifikate mit lebenslanger Echtheitsgarantie."
+    },
+    "nl": {
+        "title": "GIA-, IGI- & HRD-diamantcertificaten | Uniglo Diamonds",
+        "description": "Verzeker uzelf von kwaliteit met GIA-, IGI- & HRD-gecertificeerde diamanten van Uniglo. Internationaal erkende certificaten mit levenslange echtheidsgarantie."
+    },
+    "fr": {
+        "title": "Certificats de diamants GIA, IGI et HRD | Uniglo Diamonds",
+        "description": "Assurez la qualité avec les diamants certifiés GIA, IGI et HRD d'Uniglo. Des certificats internationalement reconnus avec une garantie d'authenticité à vie."
+    },
+    "it": {
+        "title": "Certificati dei diamanti GIA, IGI e HRD | Uniglo Diamonds",
+        "description": "Garantisci la qualità con i diamanti certificati GIA, IGI e HRD di Uniglo. Certificati riconosciuti a livello internazionale con garanzia di autenticità a vita."
+    },
+    "es": {
+        "title": "Certificados de diamantes GIA, IGI y HRD | Uniglo Diamonds",
+        "description": "Garantice la calidad con diamantes certificados por GIA, IGI y HRD de Uniglo. Certificados reconocidos internacionalmente con garantía de autenticidad de por vida."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-certificates`,
+        },
+    };
+}
 
 const Page = async () => {
     const t = await getTranslations("diamondCertificatesPage");

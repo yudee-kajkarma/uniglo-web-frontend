@@ -16,14 +16,52 @@ import ContactBannerImage from "@/assets/banner_2.jpg";
 
 // NOTE: metadata/canonical left untouched (English only) — same convention
 // as the other education pages already wired.
-export const metadata: Metadata = {
-    title: "Fancy Colored Diamonds | Rare Blue, Yellow & Green Diamonds",
-    description:
-        "Discover fancy colored diamonds at Uniglo. From vivid blues to canary yellow & emerald green, shop GIA-certified gems for unique collections.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/fancy-colored-diamonds",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Fancy Colored Diamonds | Rare Blue, Yellow & Green Diamonds",
+        "description": "Discover fancy colored diamonds at Uniglo. From vivid blues to canary yellow & emerald green, shop GIA-certified gems for unique collections."
     },
+    "de": {
+        "title": "Fancy Farbige Diamanten | Seltene blaue, gelbe & grüne Diamanten",
+        "description": "Entdecken Sie farbige Diamanten (Fancy Diamonds) bei Uniglo. Von leuchtendem Blau über Kanariengelb bis hin zu Smaragdgrün – kaufen Sie GIA-zertifizierte Edelsteine für einzigartige Kollektionen."
+    },
+    "nl": {
+        "title": "Fancy gekleurde diamanten | Zeldzame blauwe, gele & groene diamanten",
+        "description": "Ontdek fancy gekleurde diamanten bij Uniglo. Van diepblauw tot kanariegeel & smaragdgroen, vind GIA-gecertificeerde edelstenen voor unieke collecties."
+    },
+    "fr": {
+        "title": "Diamants de couleur fantaisie | Diamants rares bleus, jaunes et verts",
+        "description": "Découvrez des diamants de couleur fantaisie chez Uniglo. Du bleu vif au jaune canari et vert émeraude, achetez des gemmes certifiées GIA pour des collections uniques."
+    },
+    "it": {
+        "title": "Diamanti colorati Fancy | Rari diamanti blu, gialli e verdi",
+        "description": "Scopri i diamanti colorati fancy di Uniglo. Dal blu vivido al giallo canarino e verde smeraldo, acquista gemme certificate GIA per collezioni uniche."
+    },
+    "es": {
+        "title": "Diamantes de colores de fantasía | Raros diamantes azules, amarillos y verdes",
+        "description": "Descubra diamantes de colores de fantasía (fancy) en Uniglo. Desde azules intensos hasta amarillos canario y verdes esmeralda, compre gemas certificadas por GIA para colecciones exclusivas."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}fancy-colored-diamonds`,
+        },
+    };
+}
 
 const Page = async () => {
     const t = await getTranslations("fancyColoredDiamondsPage");

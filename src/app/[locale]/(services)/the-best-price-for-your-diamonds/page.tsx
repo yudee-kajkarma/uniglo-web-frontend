@@ -10,15 +10,52 @@ import SellDiamondForm from "@/components/shared/SellDiamondForm";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 
-export const metadata: Metadata = {
-    title: "Diamond Buyers Antwerp, Belgium | Get Best Value for Diamonds – Uniglo",
-    description:
-        "Looking for the best diamond price in Antwerp? Uniglo offers professional evaluation, fair market offers, and fast payment for loose diamonds and jewellery.",
-    alternates: {
-        canonical:
-            "https://www.uniglodiamonds.com/the-best-price-for-your-diamonds",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Diamond Buyers Antwerp, Belgium | Get Best Value for Diamonds – Uniglo",
+        "description": "Looking for the best diamond price in Antwerp? Uniglo offers professional evaluation, fair market offers, and fast payment for loose diamonds and jewellery."
     },
+    "de": {
+        "title": "Diamantenankauf Antwerpen, Belgien | Besten Wert für Diamanten erhalten – Uniglo",
+        "description": "Suchen Sie nach dem besten Diamantenpreis in Antwerpen? Uniglo bietet professionelle Bewertung, faire Marktangebote und schnelle Auszahlung für lose Diamanten und Schmuck."
+    },
+    "nl": {
+        "title": "Diamantinkopers Antwerpen, België | Krijg de beste waarde voor diamanten – Uniglo",
+        "description": "Op zoek naar de beste diamantprijs in Antwerpen? Uniglo biedt professionele taxatie, eerlijke marktbiedingen en snelle uitbetaling voor losse diamanten en sieraden."
+    },
+    "fr": {
+        "title": "Acheteurs de diamants Anvers, Belgique | Obtenez le meilleur prix pour vos diamants – Uniglo",
+        "description": "Vous recherchez le meilleur prix pour un diamant à Anvers ? Uniglo propose une évaluation professionnelle, des offres de marché équitables et un paiement rapide pour les diamants en vrac et les bijoux."
+    },
+    "it": {
+        "title": "Acquirenti di diamanti ad Anversa, Belgio | Ottieni il miglior valore per i tuoi diamanti – Uniglo",
+        "description": "Cerchi il miglior prezzo per i tuoi diamanti ad Anversa? Uniglo offre valutazioni professionali, offerte eque e pagamenti rapidi per diamanti sfusi e gioielli."
+    },
+    "es": {
+        "title": "Compradores de diamantes en Amberes, Bélgica | Obtenga el mejor valor por sus diamantes – Uniglo",
+        "description": "¿Busca el mejor precio para sus diamantes en Amberes? Uniglo ofrece evaluación profesional, ofertas de mercado justas y pago rápido para diamantes sueltos y joyería."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}the-best-price-for-your-diamonds`,
+        },
+    };
+}
 
 const page = async () => {
     const t = await getTranslations();

@@ -13,14 +13,52 @@ import contactUsImage from "@/assets/services/diamond-manufacturing/contact-us.j
 import Image from "next/image";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-    title: "Diamond Manufacturing in Antwerp, Belgium | Precision Cutting – Uniglo",
-    description:
-        "Leading diamond manufacturer in Antwerp, Belgium offering custom cuts, loose diamonds, and bulk diamond production. Precision craftsmanship and superior quality by Uniglo.",
-    alternates: {
-        canonical: "https://www.uniglodiamonds.com/diamond-manufacturing",
+const translations: Record<
+    string,
+    { title: string; description: string }
+> = {
+    "en": {
+        "title": "Diamond Manufacturing in Antwerp, Belgium | Precision Cutting – Uniglo",
+        "description": "Leading diamond manufacturer in Antwerp, Belgium offering custom cuts, loose diamonds, and bulk diamond production. Precision craftsmanship and superior quality by Uniglo."
     },
+    "de": {
+        "title": "Diamantenherstellung in Antwerpen, Belgien | Präzisionsschliff – Uniglo",
+        "description": "Führender Diamantenhersteller in Antwerpen, Belgien, der maßgeschneiderte Schliffe, lose Diamanten und Massenproduktion von Diamanten anbietet. Präzise Handwerkskunst und erstklassige Qualität von Uniglo."
+    },
+    "nl": {
+        "title": "Diamantproductie in Antwerpen, België | Precisieslijpen – Uniglo",
+        "description": "Toonaangevende diamantfabrikant in Antwerpen, België die op maat gemaakte slijpvormen, losse diamanten en bulkproductie van diamanten aanbiedt. Precisievakmanschap en superieure kwaliteit door Uniglo."
+    },
+    "fr": {
+        "title": "Fabrication de diamants à Anvers, Belgique | Taille de précision – Uniglo",
+        "description": "Premier fabricant de diamants à Anvers, en Belgique, proposant des tailles personnalisées, des diamants en vrac et une production de diamants en gros. Un artisanat de précision et une qualité supérieure par Uniglo."
+    },
+    "it": {
+        "title": "Produzione di diamanti ad Anversa, Belgio | Taglio di precisione – Uniglo",
+        "description": "Produttore leader di diamanti ad Anversa, in Belgio, che offre tagli personalizzati, diamanti sfusi e produzione di diamanti in grandi volumi. Artigianato di precisione e qualità superiore da Uniglo."
+    },
+    "es": {
+        "title": "Fabricación de diamantes en Amberes, Bélgica | Corte de precisión – Uniglo",
+        "description": "Fabricante líder de diamantes en Amberes, Bélgica, que ofrece cortes personalizados, diamantes sueltos y producción de diamantes al por mayor. Artesanía de precisión y calidad superior por Uniglo."
+    }
 };
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const t = translations[locale] || translations.en;
+
+    return {
+        title: t.title,
+        description: t.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-manufacturing`,
+        },
+    };
+}
 
 const page = async () => {
     const t = await getTranslations();
