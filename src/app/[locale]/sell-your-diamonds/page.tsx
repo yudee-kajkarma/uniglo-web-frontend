@@ -14,11 +14,46 @@ import SellDiamondForm from "@/components/shared/SellDiamondForm";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
 
-export const metadata: Metadata = {
-    title: "Diamond Buyers in Antwerp, Belgium | Sell Diamonds Securely – Uniglo",
-    description:
-        "Looking to sell diamonds or diamond jewellery in Antwerp, Belgium? Uniglo offers professional appraisal, recutting advice, certification, and immediate payment.",
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+    const { locale } = await params;
+
+    const seo = {
+        en: {
+            title: "Diamond Buyers in Antwerp, Belgium | Sell Diamonds Securely – Uniglo",
+            description: "Looking to sell diamonds or diamond jewellery in Antwerp, Belgium? Uniglo offers professional appraisal, recutting advice, certification, and immediate payment."
+        },
+        de: {
+            title: "Diamantenankauf in Antwerpen, Belgien | Diamanten Sicher Verkaufen – Uniglo",
+            description: "Möchten Sie Diamanten oder Diamantschmuck in Antwerpen, Belgien verkaufen? Uniglo bietet professionelle Bewertung, Beratung zum Nachschleifen, Zertifizierung und sofortige Zahlung."
+        },
+        nl: {
+            title: "Diamantinkoop in Antwerpen, België | Diamanten Veilig Verkopen – Uniglo",
+            description: "Wilt u diamanten of diamantjuwelen verkopen in Antwerpen, België? Uniglo biedt professionele taxatie, advies over herslijpen, certificering en directe betaling."
+        },
+        fr: {
+            title: "Acheteurs de Diamants à Anvers, Belgique | Vendre des Diamants en Toute Sécurité – Uniglo",
+            description: "Vous cherchez à vendre des diamants ou des bijoux en diamant à Anvers, Belgique ? Uniglo propose une évaluation professionnelle, des conseils de retaillage, une certification et un paiement immédiat."
+        },
+        it: {
+            title: "Acquirenti di Diamanti ad Anversa, Belgio | Vendi Diamanti in Sicurezza – Uniglo",
+            description: "Desideri vendere diamanti o gioielli con diamanti ad Anversa, Belgio? Uniglo offre valutazioni professionali, consulenza sul taglio, certificazione e pagamento immediato."
+        },
+        es: {
+            title: "Compradores de Diamantes en Amberes, Bélgica | Venda Diamantes de Forma Segura – Uniglo",
+            description: "¿Desea vender diamantes o joyas con diamantes en Amberes, Bélgica? Uniglo ofrece tasación profesional, asesoramiento de retallado, certificación y pago inmediato."
+        }
+    };
+
+    const currentSeo = seo[locale as keyof typeof seo] || seo.en;
+
+    return {
+        title: currentSeo.title,
+        description: currentSeo.description,
+        alternates: {
+            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}sell-your-diamonds`,
+        },
+    };
+}
 
 const Page = () => {
     const t = useTranslations("sellDiamondsPage");
