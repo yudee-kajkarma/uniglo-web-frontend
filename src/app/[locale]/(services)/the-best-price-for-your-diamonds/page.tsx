@@ -9,6 +9,7 @@ import SubFooter from "@/components/shared/SubFooter";
 import SellDiamondForm from "@/components/shared/SellDiamondForm";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 const translations: Record<
     string,
@@ -51,9 +52,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}the-best-price-for-your-diamonds`,
-        },
+        alternates: buildLocaleAlternates("the-best-price-for-your-diamonds", locale),
     };
 }
 

@@ -7,6 +7,7 @@ import SubFooter from "@/components/shared/SubFooter";
 import FAQSection from "@/components/shared/FAQSection";
 import BannerImage from "@/assets/fancy-colored-diamonds/banner.png";
 import { Metadata } from "next";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 const translations: Record<
     string,
@@ -49,9 +50,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}bulk-loose-lab-grown-diamonds`,
-        },
+        alternates: buildLocaleAlternates("bulk-loose-lab-grown-diamonds", locale),
     };
 }
 

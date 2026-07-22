@@ -4,6 +4,10 @@ import { notFound } from "next/navigation";
 export const locales = ["en", "de", "nl", "fr", "it", "es"] as const;
 export type Locale = (typeof locales)[number];
 
+// The locale served without a URL prefix (localePrefix: "as-needed"). Kept here
+// so the middleware, navigation, and SEO URL builders share one definition.
+export const defaultLocale: Locale = "en";
+
 export default getRequestConfig(async ({ requestLocale }) => {
   // requestLocale is a Promise — await it to get the actual locale from the URL
   let locale = await requestLocale;

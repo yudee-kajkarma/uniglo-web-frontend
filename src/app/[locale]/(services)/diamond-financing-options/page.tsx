@@ -8,6 +8,7 @@ import Image from "next/image";
 import SubFooter from "@/components/shared/SubFooter";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 const translations: Record<
     string,
@@ -50,9 +51,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-financing-options`,
-        },
+        alternates: buildLocaleAlternates("diamond-financing-options", locale),
     };
 }
 

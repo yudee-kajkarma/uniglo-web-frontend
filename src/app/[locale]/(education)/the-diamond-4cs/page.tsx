@@ -19,6 +19,7 @@ import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
 import { Metadata } from "next";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 // NOTE: metadata/canonical left untouched (English only) - consistent with
 // the same convention used on the supply-chain-policy page. Flag: en.json
@@ -65,9 +66,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}the-diamond-4cs`,
-        },
+        alternates: buildLocaleAlternates("the-diamond-4cs", locale),
     };
 }
 

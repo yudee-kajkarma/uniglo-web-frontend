@@ -6,6 +6,7 @@ import DynamicArticle, {
 import FAQSection from "@/components/shared/FAQSection";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 interface Props {
     params: Promise<{ locale: string }> | { locale: string };
@@ -19,9 +20,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: t("metadata.title"),
         description: t("metadata.description"),
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}blog/lab-grown-diamonds-belgium-buyers-guide`,
-        },
+        alternates: buildLocaleAlternates("blogs/lab-grown-diamonds-belgium-buyers-guide", locale),
     };
 }
 

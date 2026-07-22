@@ -3,6 +3,7 @@ import React from "react";
 import BannerImage from "@/assets/services/diamond-manufacturing/finalbanner.jpg";
 import ArticleLayout from "@/components/shared/ArticleLayout";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 // Example images (replace with your actual paths)
 import manufacturing1 from "@/assets/services/diamond-manufacturing/manufacturing1.jpeg";
@@ -54,9 +55,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-manufacturing`,
-        },
+        alternates: buildLocaleAlternates("diamond-manufacturing", locale),
     };
 }
 

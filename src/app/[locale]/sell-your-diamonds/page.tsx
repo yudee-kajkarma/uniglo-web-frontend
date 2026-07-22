@@ -13,6 +13,7 @@ import ArticleLayout from "@/components/shared/ArticleLayout";
 import SellDiamondForm from "@/components/shared/SellDiamondForm";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
     const { locale } = await params;
@@ -49,9 +50,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     return {
         title: currentSeo.title,
         description: currentSeo.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}sell-your-diamonds`,
-        },
+        alternates: buildLocaleAlternates("sell-your-diamonds", locale),
     };
 }
 

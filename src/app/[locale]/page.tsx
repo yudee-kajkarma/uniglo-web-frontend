@@ -12,6 +12,7 @@ import {
     Package,
 } from "lucide-react";
 import { Metadata } from "next";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 import sellDiamond from "@/assets/home/sell_diamonds.jpg";
 import education from "@/assets/home/Education.jpg";
@@ -125,9 +126,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}`,
-        },
+        alternates: buildLocaleAlternates("", locale),
     };
 }
 

@@ -7,6 +7,7 @@ import SubFooter from "@/components/shared/SubFooter";
 import FAQSection from "@/components/shared/FAQSection";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 interface Props {
     params: Promise<{ locale: string }> | { locale: string };
@@ -20,9 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {
         title: t("metadata.title"),
         description: t("metadata.description"),
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}rapnet-diamond-supplier-antwerp`,
-        },
+        alternates: buildLocaleAlternates("rapnet-diamond-supplier-antwerp", locale),
     };
 }
 

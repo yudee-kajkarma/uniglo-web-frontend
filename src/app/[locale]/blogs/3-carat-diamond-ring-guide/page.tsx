@@ -7,6 +7,7 @@ import DynamicArticle, {
 import FAQSection from "@/components/shared/FAQSection";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 // Localized Page Metadata
 export async function generateMetadata({
@@ -23,9 +24,7 @@ export async function generateMetadata({
     return {
         title: t("metaTitle"),
         description: t("metaDescription"),
-        alternates: {
-            canonical: "https://www.uniglodiamonds.com/3-carat-diamond-ring-guide",
-        },
+        alternates: buildLocaleAlternates("blogs/3-carat-diamond-ring-guide", locale),
     };
 }
 

@@ -8,6 +8,7 @@ import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
 import { Metadata } from "next";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 // NOTE: metadata/canonical left untouched (English only) - same convention
 // as the other education pages already wired.
@@ -52,9 +53,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-certificates`,
-        },
+        alternates: buildLocaleAlternates("diamond-certificates", locale),
     };
 }
 

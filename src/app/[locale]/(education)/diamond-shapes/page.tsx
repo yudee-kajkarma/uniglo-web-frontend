@@ -5,6 +5,7 @@ import BannerSection from "@/components/shared/BannerSection";
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import BannerImage from "@/assets/diamond-shape/banner.jpeg";
 import SubFooter from "@/components/shared/SubFooter";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
@@ -65,9 +66,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamond-shapes`,
-        },
+        alternates: buildLocaleAlternates("diamond-shapes", locale),
     };
 }
 

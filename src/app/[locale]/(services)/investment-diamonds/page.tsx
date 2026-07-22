@@ -7,6 +7,7 @@ import LoupeImage from "@/assets/services/investment/image-2.png"; // Update pat
 import SubFooter from "@/components/shared/SubFooter";
 import { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 const translations: Record<
     string,
@@ -49,9 +50,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}investment-diamonds`,
-        },
+        alternates: buildLocaleAlternates("investment-diamonds", locale),
     };
 }
 

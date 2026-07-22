@@ -7,6 +7,7 @@ import DynamicArticle, {
 import EducationSidebar from "@/components/shared/EducationSidebar";
 import { Metadata } from "next";
 import { useTranslations } from "next-intl";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 const translations: Record<
     string,
@@ -49,9 +50,7 @@ export async function generateMetadata({
     return {
         title: t.title,
         description: t.description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}supply-chain-policy-procedure`,
-        },
+        alternates: buildLocaleAlternates("supply-chain-policy-procedure", locale),
     };
 }
 

@@ -7,6 +7,7 @@ import DynamicArticle, {
 } from "@/components/shared/DynamicArticle";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 import WhyRingSizingImage from "@/assets/blogs/ringonfinger.png";
 import RingSizingMethodsImage from "@/assets/blogs/steps.png";
@@ -27,10 +28,7 @@ export async function generateMetadata({
     return {
         title: t("metaTitle"),
         description: t("metaDescription"),
-        alternates: {
-            canonical:
-                "https://www.uniglodiamonds.com/blogs/how-to-measure-ring-size-at-home",
-        },
+        alternates: buildLocaleAlternates("blogs/how-to-measure-ring-size-at-home", locale),
     };
 }
 

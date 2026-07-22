@@ -6,8 +6,22 @@ import {
     getMelleSitemapPage,
 } from "@/lib/seo/diamondServer";
 import { buildDiamondUrl, buildMelleUrl } from "@/lib/seo/diamondSeo";
+import { SITE_URL, localizedUrl } from "@/lib/seo/site";
+import { locales, defaultLocale } from "@/i18n";
 
-const BASE_URL = "https://www.uniglodiamonds.com";
+const BASE_URL = SITE_URL;
+
+// hreflang alternates for a localized static page: every locale version plus
+// x-default → the default locale. Declaring the whole cluster on one sitemap
+// entry is inherently reciprocal, so search engines treat these as one page in
+// many languages rather than separate competing pages.
+const languagesFor = (path: string): Record<string, string> => {
+    const languages: Record<string, string> = {
+        "x-default": localizedUrl(defaultLocale, path),
+    };
+    for (const l of locales) languages[l] = localizedUrl(l, path);
+    return languages;
+};
 
 // Records per dynamic sitemap shard. A sitemap may hold up to 50k URLs; we use
 // a smaller page so each upstream fetch stays light and cacheable.
@@ -227,6 +241,7 @@ const staticEntries = (): MetadataRoute.Sitemap => {
         url: buildUrl(path),
         changeFrequency,
         priority,
+        alternates: { languages: languagesFor(path) },
     });
 
     return [

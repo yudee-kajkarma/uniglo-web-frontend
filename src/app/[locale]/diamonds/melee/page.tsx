@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { getMelleSitemapPage } from "@/lib/seo/diamondServer";
 import { buildMellePath } from "@/lib/seo/diamondSeo";
 import { Link } from "@/i18n/navigation";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 type PageProps = {
     params: Promise<{ locale: string }>;
@@ -51,9 +52,7 @@ export async function generateMetadata({
     return {
         title,
         description,
-        alternates: {
-            canonical: `https://www.uniglodiamonds.com/${locale === "en" ? "" : locale + "/"}diamonds/melee`,
-        },
+        alternates: buildLocaleAlternates("diamonds/melee", locale),
     };
 }
 

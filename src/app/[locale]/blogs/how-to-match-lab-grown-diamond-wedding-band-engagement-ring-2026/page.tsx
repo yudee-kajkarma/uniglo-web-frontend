@@ -7,6 +7,7 @@ import DynamicArticle, {
 import FAQSection from "@/components/shared/FAQSection";
 import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 
 // Localized Page Metadata
 export async function generateMetadata({
@@ -23,9 +24,7 @@ export async function generateMetadata({
     return {
         title: t("metaTitle"),
         description: t("metaDescription"),
-        alternates: {
-            canonical: "https://www.uniglodiamonds.com/blogs/how-to-match-lab-grown-diamond-wedding-band-engagement-ring-2026",
-        },
+        alternates: buildLocaleAlternates("blogs/how-to-match-lab-grown-diamond-wedding-band-engagement-ring-2026", locale),
     };
 }
 

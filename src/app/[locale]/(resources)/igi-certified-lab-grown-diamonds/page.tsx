@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import EducationSidebar from "@/components/shared/EducationSidebar";
+import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 import DynamicArticle, {
     ArticleSection,
 } from "@/components/shared/DynamicArticle";
@@ -32,9 +33,7 @@ export async function generateMetadata({
     return {
         title,
         description,
-        alternates: {
-            canonical: "https://www.uniglodiamonds.com/igi-certified-lab-grown-diamonds",
-        },
+        alternates: buildLocaleAlternates("igi-certified-lab-grown-diamonds", locale),
     };
 }
 
