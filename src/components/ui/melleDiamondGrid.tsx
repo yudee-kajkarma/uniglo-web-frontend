@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Diamond as DiamondIcon, Heart } from "lucide-react";
 import {
@@ -9,6 +10,9 @@ import {
 interface MelleDiamondGridProps {
     data: (MelleDiamond | PublicMelleDiamond)[];
     onViewDetails: (diamond: MelleDiamond | PublicMelleDiamond) => void;
+    // When provided, cards navigate via real <a href> links (crawlable)
+    // instead of the onViewDetails click handler.
+    getHref?: (diamond: MelleDiamond | PublicMelleDiamond) => string;
 }
 
 const formatRange = (min?: string, max?: string) => {
@@ -22,6 +26,7 @@ const formatRange = (min?: string, max?: string) => {
 export default function MelleDiamondGrid({
     data,
     onViewDetails,
+    getHref,
 }: MelleDiamondGridProps) {
     if (data.length === 0) {
         return (
@@ -43,6 +48,7 @@ export default function MelleDiamondGrid({
                 const hasPrice =
                     (item as MelleDiamond).price !== undefined &&
                     (item as MelleDiamond).price !== null;
+                const href = getHref?.(item);
 
                 return (
                     <div
@@ -58,8 +64,20 @@ export default function MelleDiamondGrid({
 
                         <div className="px-3 pt-3 pb-2">
                             <h3 className="font-bold text-[11px] sm:text-xs text-gray-900 uppercase tracking-wide leading-tight">
-                                {item.shape} {item.color} {item.clarity}{" "}
-                                {item.cut}
+                                {href ? (
+                                    <Link
+                                        href={href}
+                                        className="hover:text-primary-yellow-1 transition-colors"
+                                    >
+                                        {item.shape} {item.color}{" "}
+                                        {item.clarity} {item.cut}
+                                    </Link>
+                                ) : (
+                                    <>
+                                        {item.shape} {item.color}{" "}
+                                        {item.clarity} {item.cut}
+                                    </>
+                                )}
                             </h3>
                         </div>
 
@@ -123,12 +141,23 @@ export default function MelleDiamondGrid({
                         )}
 
                         <div className="mt-auto px-3 pb-3">
-                            <Button
-                                onClick={() => onViewDetails(item)}
-                                className="gold-reveal-btn text-white text-[10px] sm:text-xs px-4 h-9 uppercase tracking-wider w-full shadow-sm font-semibold"
-                            >
-                                <span>View Details</span>
-                            </Button>
+                            {href ? (
+                                <Button
+                                    asChild
+                                    className="gold-reveal-btn text-white text-[10px] sm:text-xs px-4 h-9 uppercase tracking-wider w-full shadow-sm font-semibold"
+                                >
+                                    <Link href={href}>
+                                        <span>View Details</span>
+                                    </Link>
+                                </Button>
+                            ) : (
+                                <Button
+                                    onClick={() => onViewDetails(item)}
+                                    className="gold-reveal-btn text-white text-[10px] sm:text-xs px-4 h-9 uppercase tracking-wider w-full shadow-sm font-semibold"
+                                >
+                                    <span>View Details</span>
+                                </Button>
+                            )}
                         </div>
                     </div>
                 );

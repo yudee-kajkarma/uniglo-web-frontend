@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import ArticleInlineContent, { InlinePart } from "@/components/shared/ArticleInlineContent";
 import FAQSection from "@/components/shared/FAQSection";
 
