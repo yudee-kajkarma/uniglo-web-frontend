@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import FileUploader from "@/components/shared/FileUploader";
 import {
@@ -16,10 +17,15 @@ interface SellDiamondFormProps {
 }
 
 export default function SellDiamondForm({
-    title = "To proceed with a free FedEx pick up and a free appraisal, fill in our FedEx pick up request form. Upon receiving it, we will respond with a confirmation, along with further instructions.s",
-    subtitle = "",
+    title,
+    subtitle,
     onSuccess,
 }: SellDiamondFormProps) {
+    const t = useTranslations("sellDiamondForm");
+
+    const resolvedTitle = title ?? t("defaultTitle");
+    const resolvedSubtitle = subtitle ?? "";
+
     const [formData, setFormData] = useState<SellDiamondFormData>({
         name: "",
         email: "",
@@ -48,9 +54,7 @@ export default function SellDiamondForm({
 
         try {
             await submitSellDiamondForm(formData);
-            toast.success(
-                "Form submitted successfully! We will contact you soon.",
-            );
+            toast.success(t("submitSuccessToast"));
             // Reset form
             setFormData({
                 name: "",
@@ -74,32 +78,34 @@ export default function SellDiamondForm({
     return (
         <section className="mt-16 bg-brand-gradient">
             <div className="max-w-7xl mx-auto px-4 rounded-lg p-10 shadow-lg">
-                {title && (
+                {resolvedTitle && (
                     <h2 className="text-white text-center text-2xl md:text-3xl font-cormorantGaramond mb-4">
-                        {title}
+                        {resolvedTitle}
                     </h2>
                 )}
-                {subtitle && (
+                {resolvedSubtitle && (
                     <p className="text-white/80 text-center text-base font-lora mb-10 max-w-4xl mx-auto">
-                        {subtitle}
+                        {resolvedSubtitle}
                     </p>
                 )}
 
                 <form
                     onSubmit={handleSubmit}
                     className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6"
+                    onInvalidCapture={(e) => (e.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity(t("pleaseFillOutThisField"))}
+                    onInput={(e) => (e.target as HTMLInputElement | HTMLTextAreaElement).setCustomValidity("")}
                 >
                     {/* Name */}
                     <div>
                         <label className="block text-primary mb-2 font-semibold font-lora">
-                            Name <span className="text-red-400">*</span>
+                            {t("nameLabel")} <span className="text-red-400">*</span>
                         </label>
                         <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleInputChange}
-                            placeholder="John"
+                            placeholder={t("namePlaceholder")}
                             required
                             className="w-full bg-transparent border border-slate-600 rounded-md px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-primary"
                         />
@@ -108,14 +114,14 @@ export default function SellDiamondForm({
                     {/* Email */}
                     <div>
                         <label className="font-lora block text-primary mb-2 font-semibold">
-                            Email <span className="text-red-400">*</span>
+                            {t("emailLabel")} <span className="text-red-400">*</span>
                         </label>
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleInputChange}
-                            placeholder="john@gmail.com"
+                            placeholder={t("emailPlaceholder")}
                             required
                             className="w-full bg-transparent border border-slate-600 rounded-md px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-primary"
                         />
@@ -124,14 +130,14 @@ export default function SellDiamondForm({
                     {/* Address */}
                     <div>
                         <label className="block font-lora text-primary mb-2 font-semibold">
-                            Address <span className="text-red-400">*</span>
+                            {t("addressLabel")} <span className="text-red-400">*</span>
                         </label>
                         <input
                             type="text"
                             name="address"
                             value={formData.address}
                             onChange={handleInputChange}
-                            placeholder="123 Main Street"
+                            placeholder={t("addressPlaceholder")}
                             required
                             className="w-full bg-transparent border border-slate-600 rounded-md px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-primary"
                         />
@@ -140,14 +146,14 @@ export default function SellDiamondForm({
                     {/* Phone */}
                     <div>
                         <label className="block font-lora text-primary mb-2 font-semibold">
-                            Phone <span className="text-red-400">*</span>
+                            {t("phoneLabel")} <span className="text-red-400">*</span>
                         </label>
                         <input
                             type="text"
                             name="phoneNumber"
                             value={formData.phoneNumber}
                             onChange={handleInputChange}
-                            placeholder="+1 234 567 8900"
+                            placeholder={t("phonePlaceholder")}
                             required
                             className="w-full bg-transparent border border-slate-600 rounded-md px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-primary"
                         />
@@ -156,7 +162,7 @@ export default function SellDiamondForm({
                     {/* Material (Carat/Material) */}
                     <div className="md:col-span-2">
                         <label className="block font-lora text-primary mb-2 font-semibold">
-                            Carat / Material{" "}
+                            {t("materialLabel")}{" "}
                             <span className="text-red-400">*</span>
                         </label>
                         <input
@@ -164,7 +170,7 @@ export default function SellDiamondForm({
                             name="material"
                             value={formData.material}
                             onChange={handleInputChange}
-                            placeholder="e.g., 2.5 carat / Gold"
+                            placeholder={t("materialPlaceholder")}
                             required
                             className="w-full bg-transparent border border-slate-600 rounded-md px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-primary"
                         />
@@ -173,13 +179,13 @@ export default function SellDiamondForm({
                     {/* Description */}
                     <div className="md:col-span-2">
                         <label className="block font-lora text-primary mb-2 font-semibold">
-                            Description <span className="text-red-400">*</span>
+                            {t("descriptionLabel")} <span className="text-red-400">*</span>
                         </label>
                         <textarea
                             name="description"
                             value={formData.description}
                             onChange={handleInputChange}
-                            placeholder="Tell us about your diamond(s)..."
+                            placeholder={t("descriptionPlaceholder")}
                             required
                             rows={4}
                             className="w-full bg-transparent border border-slate-600 rounded-md px-4 py-3 text-white placeholder:text-slate-400 focus:outline-none focus:border-primary resize-none"
@@ -189,7 +195,7 @@ export default function SellDiamondForm({
                     {/* File Uploader */}
                     <div className="md:col-span-2">
                         <label className="block font-lora text-primary mb-2 font-semibold">
-                            Upload Images (Optional)
+                            {t("uploadImagesLabel")}
                         </label>
                         <FileUploader
                             files={formData.images || []}
@@ -205,7 +211,9 @@ export default function SellDiamondForm({
                             className="gold-reveal-btn bg-primary font-semibold px-8 py-3 text-base font-lora disabled:opacity-50"
                         >
                             <span>
-                                {isSubmitting ? "SUBMITTING..." : "SUBMIT NOW"}
+                                {isSubmitting
+                                    ? t("submittingButton")
+                                    : t("submitButton")}
                             </span>
                         </Button>
                     </div>

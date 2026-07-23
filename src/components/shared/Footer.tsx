@@ -1,30 +1,49 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useTranslations } from "next-intl";
 import logo from "@/assets/Uniglo-Logo-Horizontal1.png";
-import diamondBg from "@/assets/footer_diamond.jpg"; // Add your diamond image here
+import diamondBg from "@/assets/footer_diamond.jpg";
 
+// ns = which translation namespace the key lives in (they were split
+// across "footer" and "nav" in messages/{locale}.json)
 const pages = [
-    { label: "Inventory", href: "/inventory" },
-    { label: "Natural Diamonds", href: "/diamonds/natural" },
-    { label: "Lab Grown Diamonds", href: "/diamonds/lab-grown" },
-    { label: "Melee Diamonds", href: "/diamonds/melee" },
-    { label: "About", href: "/about" },
-    { label: "Sell Diamonds", href: "/sell-your-diamonds" },
-    { label: "Education", href: "/the-diamond-4cs" },
-    { label: "Blog", href: "/blogs" },
+    { key: "inventory", ns: "footer.footerPages", href: "/inventory" },
+    { key: "about", ns: "nav", href: "/about" },
+    { key: "sellDiamonds", ns: "nav", href: "/sell-your-diamonds" },
+    { key: "education", ns: "footer.footerPages", href: "/the-diamond-4cs" },
+    { key: "blog", ns: "nav", href: "/blogs" },
 ];
-
 const services = [
-    { label: "Diamond Manufacturing", href: "/diamond-manufacturing" },
-    { label: "Free Estimations", href: "/the-best-price-for-your-diamonds" },
-    { label: "Financing", href: "/diamond-financing-options" },
-    { label: "Investment", href: "/investment-diamonds" },
-    { label: "Sealing", href: "/security-seals" },
-    { label: "Partners", href: "/partners" },
+    {
+        key: "manufacturing",
+        ns: "footer.footerServices",
+        href: "/diamond-manufacturing",
+    },
+    {
+        key: "estimations",
+        ns: "footer.footerServices",
+        href: "/the-best-price-for-your-diamonds",
+    },
+    {
+        key: "financing",
+        ns: "footer.footerServices",
+        href: "/diamond-financing-options",
+    },
+    {
+        key: "investment",
+        ns: "footer.footerServices",
+        href: "/investment-diamonds",
+    },
+    { key: "sealing", ns: "footer.footerServices", href: "/security-seals" },
+    { key: "partners", ns: "nav", href: "/partners" },
 ];
 
 export default function Footer() {
+    const t = useTranslations();
+
     return (
         <footer className="bg-[#1a1120] pt-0 mt-50 font-cormorantGaramond relative">
             {/* Subscribe Banner */}
@@ -32,23 +51,23 @@ export default function Footer() {
                 <div className="max-w-5xl w-full flex flex-col md:flex-row items-center justify-between mx-auto px-4">
                     <div className="mb-6 md:mb-0">
                         <span className="text-white text-lg uppercase font-lora tracking-widest">
-                            SUBSCRIBE
+                            {t("footer.subscribe")}
                         </span>
                         <h2 className="text-3xl md:text-4xl font-cormorantGaramond text-white mt-2">
-                            For More Deals
+                            {t("footer.forMoreDeals")}
                         </h2>
                     </div>
                     <form className="flex items-center w-full md:w-auto gap-0">
                         <input
                             type="email"
-                            placeholder="Email Addresss"
+                            placeholder={t("footer.emailPlaceholder")}
                             className="px-6 py-4 w-full md:w-[350px] rounded-none border border-white/40 bg-transparent text-white placeholder:text-white focus:outline-none"
                         />
                         <button
                             type="submit"
                             className="bg-white px-6 py-4 text-primary-yellow-1 font-cormorantGaramond text-lg uppercase"
                         >
-                            SUBSCRIBE
+                            {t("footer.subscribe")}
                         </button>
                     </form>
                 </div>
@@ -66,18 +85,13 @@ export default function Footer() {
                             height={100}
                         />
                     </div>
+                    {/* NOTE: "footer.bio" is not yet in de.json - see note below this file */}
                     <p className="text-white/80 font-lora text-base mb-6">
-                        At Uniglo, we believe a diamond is more than a
-                        gemstone—it is a symbol of elegance, craftsmanship, and
-                        timeless value. Our journey began with a single vision:
-                        to bring ethically sourced, internationally certified
-                        diamonds to people who appreciate true quality. Every
-                        Uniglo diamond is hand-selected and graded by
-                        world-renowned institutions like HRD, GIA and IGI.
+                        {t("footer.bio")}
                     </p>
                     <div className="mt-4">
                         <span className="text-primary-yellow-1 text-lg font-cormorantGaramond mb-2 block">
-                            Follow Us:
+                            {t("footer.followUs")}
                         </span>
                         <div className="flex gap-4 mt-2">
                             <a
@@ -111,16 +125,16 @@ export default function Footer() {
                 {/* Pages */}
                 <div className="md:col-span-1 md:pl-10">
                     <h3 className="text-primary-yellow-1 text-2xl font-cormorantGaramond mb-8">
-                        Pages
+                        {t("footer.pages")}
                     </h3>
                     <ul className="space-y-4">
                         {pages.map((page) => (
-                            <li key={page.label}>
+                            <li key={page.key}>
                                 <Link
                                     href={page.href}
                                     className="text-white/80 font-lora hover:text-primary-yellow-1 transition"
                                 >
-                                    {page.label}
+                                    {t(`${page.ns}.${page.key}`)}
                                 </Link>
                             </li>
                         ))}
@@ -130,16 +144,16 @@ export default function Footer() {
                 {/* Our Services */}
                 <div className="md:col-span-1">
                     <h3 className="text-primary-yellow-1 text-2xl font-cormorantGaramond mb-8">
-                        Our Services
+                        {t("footer.ourServices")}
                     </h3>
                     <ul className="space-y-4">
                         {services.map((service) => (
-                            <li key={service.label}>
+                            <li key={service.key}>
                                 <Link
                                     href={service.href}
                                     className="text-white/80 font-lora hover:text-primary-yellow-1 transition"
                                 >
-                                    {service.label}
+                                    {t(`${service.ns}.${service.key}`)}
                                 </Link>
                             </li>
                         ))}
@@ -149,7 +163,7 @@ export default function Footer() {
                 {/* Get In Touch */}
                 <div className="md:col-span-1">
                     <h3 className="text-primary-yellow-1 text-2xl font-cormorantGaramond mb-8">
-                        Get In Touch
+                        {t("footer.getInTouch")}
                     </h3>
                     <ul className="space-y-8 text-white/80 font-lora">
                         <li className="flex items-start gap-2">
@@ -158,8 +172,11 @@ export default function Footer() {
                                 size={20}
                             />
                             <span>
-                                <span className="font-semibold">Location:</span>
+                                <span className="font-semibold">
+                                    {t("contactPage.location")}:
+                                </span>
                                 <br />
+                                {/* Physical address stays as-is across locales */}
                                 Hoveniersstraat 30, Suite 662/Bus 250
                                 <br />
                                 2018 Antwerp
@@ -171,7 +188,9 @@ export default function Footer() {
                                 size={20}
                             />
                             <span>
-                                <span className="font-semibold">Email:</span>
+                                <span className="font-semibold">
+                                    {t("contactPage.email")}:
+                                </span>
                                 <br />
                                 <a
                                     href="mailto:suraj@uniglodiamonds.com"
@@ -187,7 +206,9 @@ export default function Footer() {
                                 size={20}
                             />
                             <span>
-                                <span className="font-semibold">Phone:</span>
+                                <span className="font-semibold">
+                                    {t("contactPage.phone")}:
+                                </span>
                                 <br />
                                 <a
                                     href="tel:+32473565758"
@@ -218,8 +239,10 @@ export default function Footer() {
 
             {/* Copyright */}
             <div className="text-center py-6 text-white/70 font-lora text-base border-t border-white/40 max-w-7xl mx-auto mt-10 z-11 relative">
-                All Rights Reserved By{" "}
-                <span className="text-primary-yellow-1">Uniglo</span>
+                {t("footer.allRightsReservedBy")}{" "}
+                <span className="text-primary-yellow-1">
+                    {t("footer.uniglo")}
+                </span>
             </div>
         </footer>
     );

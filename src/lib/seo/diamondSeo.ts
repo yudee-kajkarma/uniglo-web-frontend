@@ -15,7 +15,8 @@ import type {
     PublicMelleDiamond,
 } from "@/interface/melleDiamondInterface";
 
-export const SITE_URL = "https://www.uniglodiamonds.com";
+export { SITE_URL } from "./site";
+import { SITE_URL } from "./site";
 
 export type AnyDiamond = Diamond | PublicDiamond;
 export type AnyMelle = MelleDiamond | PublicMelleDiamond;

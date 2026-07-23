@@ -2,6 +2,7 @@
 
 import React, { useRef, useState } from "react";
 import { Upload, X, FileIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface FileUploaderProps {
     files: File[];
@@ -16,8 +17,9 @@ const FileUploader: React.FC<FileUploaderProps> = ({
     onFilesChange,
     accept = "image/*,application/pdf",
     maxFiles = 10,
-    label = "Please Upload Photos And/or Certificates",
+    label,
 }) => {
+    const t = useTranslations("fileUpload");
     const [isDragging, setIsDragging] = useState(false);
     const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -94,14 +96,12 @@ const FileUploader: React.FC<FileUploaderProps> = ({
                     }`}
                     size={40}
                 />
-                <p className="text-center mb-2">{label}</p>
+                <p className="text-center mb-2">{label ?? t("title")}</p>
                 <p className="text-sm text-slate-300 text-center">
-                    {isDragging
-                        ? "Drop files here"
-                        : "Click to browse or drag and drop"}
+                    {isDragging ? t("dropHere") : t("subtitle")}
                 </p>
                 <p className="text-xs text-slate-400 mt-2">
-                    Supports images and PDF files (Max {maxFiles} files)
+                    {t("hint", { maxFiles })}
                 </p>
                 <input
                     ref={fileInputRef}
@@ -117,7 +117,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
             {files.length > 0 && (
                 <div className="mt-6">
                     <label className="block font-lora text-primary mb-3 font-semibold">
-                        Selected Files ({files.length})
+                        {t("selectedFiles", { count: files.length })}
                     </label>
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
                         {files.map((file, index) => (
@@ -162,7 +162,7 @@ const FileUploader: React.FC<FileUploaderProps> = ({
                                         removeFile(index);
                                     }}
                                     className="absolute top-1 right-1 bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-600"
-                                    title="Remove file"
+                                    title={t("removeFile")}
                                 >
                                     <X size={16} />
                                 </button>

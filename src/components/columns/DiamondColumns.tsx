@@ -7,7 +7,7 @@ import {
 } from "@/interface/diamondInterface";
 import { Badge } from "@/components/ui/badge";
 import { PublicDiamond } from "@/interface/diamondInterface";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { ArrowUpDown, ArrowUp, ArrowDown } from "lucide-react";
 
 export const DiamondAvailabilityStatusBadge = ({
