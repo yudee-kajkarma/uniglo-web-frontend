@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowUp, ArrowDown, ArrowUpDown, Pencil, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
+    formatMellePrice,
     MelleDiamond,
     PublicMelleDiamond,
 } from "@/interface/melleDiamondInterface";
@@ -218,8 +219,7 @@ export const getMelleDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row) =>
-            row.price !== undefined ? `$${row.price.toLocaleString()}` : "N/A",
+        render: (row) => formatMellePrice(row.price),
     },
     {
         key: "createdAt",

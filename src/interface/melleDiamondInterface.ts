@@ -43,6 +43,29 @@ export function shapesForMelleInventoryKind(
     return sortMelleShapesForDisplay(filtered);
 }
 
+/**
+ * Display a melee price, or "-" when there is no price to show.
+ *
+ * A price of 0 means "not priced" rather than "free" — colours we do not publish a rate
+ * for are stored as 0 — so it renders as a dash everywhere a price appears.
+ *
+ * @param price Stored price per carat in USD.
+ * @param options.withCurrency Prefix with "$" (default true).
+ * @returns Formatted price, or "-" when the price is 0, null or undefined.
+ */
+export function formatMellePrice(
+    price: number | null | undefined,
+    options: { withCurrency?: boolean } = {},
+): string {
+    const { withCurrency = true } = options;
+    if (price === null || price === undefined || price === 0) {
+        return "-";
+    }
+    return withCurrency
+        ? `$${price.toLocaleString()}`
+        : price.toLocaleString();
+}
+
 export interface MelleDiamond {
     _id: string;
     stockId: string;

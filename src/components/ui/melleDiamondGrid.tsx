@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Diamond as DiamondIcon, Heart } from "lucide-react";
 import {
+    formatMellePrice,
     MelleDiamond,
     PublicMelleDiamond,
 } from "@/interface/melleDiamondInterface";
@@ -133,10 +134,9 @@ export default function MelleDiamondGrid({
                         )}
                         {hasPrice && (
                             <div className="px-3 pb-3 text-xs font-semibold text-gray-900">
-                                $
-                                {(
-                                    item as MelleDiamond
-                                ).price?.toLocaleString()}
+                                {formatMellePrice(
+                                    (item as MelleDiamond).price,
+                                )}
                             </div>
                         )}
 

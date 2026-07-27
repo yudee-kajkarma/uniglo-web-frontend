@@ -45,7 +45,10 @@ import { fetchMelleDiamondById } from "@/services/melleDiamondService";
 import { addMelleToCart, holdDiamond } from "@/services/cartService";
 import { MelleCartCaratDialog } from "@/components/dialogs/MelleCartCaratDialog";
 import { createDiamondInquiry } from "@/services/inquiryService";
-import { MelleDiamond } from "@/interface/melleDiamondInterface";
+import {
+    formatMellePrice,
+    MelleDiamond,
+} from "@/interface/melleDiamondInterface";
 
 interface MelleDiamondDetailViewProps {
     diamondId: string;
@@ -362,7 +365,9 @@ export default function MelleDiamondDetailView({
                             {!isPublic && diamond.price !== undefined && (
                                 <div className="flex items-baseline gap-3 mt-4">
                                     <span className="text-3xl font-bold text-gray-900">
-                                        ${diamond.price.toLocaleString()} USD
+                                        {diamond.price === 0
+                                            ? "-"
+                                            : `${formatMellePrice(diamond.price)} USD`}
                                     </span>
                                 </div>
                             )}

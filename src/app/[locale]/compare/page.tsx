@@ -5,7 +5,10 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { fetchDiamondById } from "@/services/diamondService";
 import { fetchMelleDiamondById } from "@/services/melleDiamondService";
 import { Diamond } from "@/interface/diamondInterface";
-import { MelleDiamond } from "@/interface/melleDiamondInterface";
+import {
+    formatMellePrice,
+    MelleDiamond,
+} from "@/interface/melleDiamondInterface";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, X, Gem } from "lucide-react";
 import Image from "next/image";
@@ -435,8 +438,7 @@ function MelleCompareContent() {
         },
         {
             label: "Price (USD)",
-            getValue: (d) =>
-                d.price !== undefined ? `$${d.price.toLocaleString()}` : "-",
+            getValue: (d) => formatMellePrice(d.price),
         },
         {
             label: "Added",
