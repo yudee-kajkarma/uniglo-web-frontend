@@ -13,15 +13,6 @@ import {
 } from "@/lib/seo/diamondSeo";
 import { buildMelleJsonLd, jsonLdString } from "@/lib/seo/schema";
 
-// On-demand ISR: lazily generated on first request, cached, revalidated hourly.
-// Empty generateStaticParams opts into the static/ISR pipeline with nothing
-// prebuilt.
-export const revalidate = 3600;
-export const dynamicParams = true;
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-    return [];
-}
 
 type PageProps = { params: Promise<{ slug: string }> };
 

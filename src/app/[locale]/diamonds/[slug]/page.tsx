@@ -14,16 +14,6 @@ import {
 } from "@/lib/seo/diamondSeo";
 import { buildDiamondJsonLd, jsonLdString } from "@/lib/seo/schema";
 
-// On-demand ISR: nothing is prebuilt, each diamond page is generated lazily on
-// first request and cached, then revalidated hourly. Returning an empty
-// generateStaticParams opts the route into the static/ISR pipeline without
-// prebuilding any paths.
-export const revalidate = 3600;
-export const dynamicParams = true;
-
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-    return [];
-}
 
 type PageProps = { params: Promise<{ slug: string }> };
 
