@@ -9,14 +9,16 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Button } from "../ui/button";
 
 const carouselImages = [
-    "/uniglow-family/uniglo1.jpeg", // Replace with your image paths
+    "/uniglow-family/uniglo1.jpeg",
     "/uniglow-family/uniglo2.jpg",
 ];
 
 const UniglowFamilySection = () => {
+    const t = useTranslations();
     const plugin = useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
     return (
         <section className="w-full py-20 bg-white font-cormorantGaramond">
@@ -43,7 +45,7 @@ const UniglowFamilySection = () => {
                                         <div className="relative aspect-6/7 w-full h-full overflow-hidden">
                                             <Image
                                                 src={src}
-                                                alt={`Uniglo Family ${
+                                                alt={`${t("aboutPage.theUnigloFamily")} ${
                                                     index + 1
                                                 }`}
                                                 fill
@@ -62,34 +64,17 @@ const UniglowFamilySection = () => {
                         {/* Heading Group */}
                         <div>
                             <span className="text-primary text-sm uppercase  font-semibold mb-2 block">
-                                Welcome to Uniglo
+                                {t("aboutPage.welcomeToUniglo")}
                             </span>
                             <h2 className="text-4xl font-serif text-[#1f2732]">
-                                THE UNIGLO FAMILY
+                                {t("aboutPage.theUnigloFamily")}
                             </h2>
                         </div>
 
                         {/* Paragraph Text */}
                         <div className=" font-lora space-y-4 leading-relaxed  text-sm">
-                            <p>
-                                Uniglo Diamonds sell top-graded,
-                                independently-certified diamonds worldwide.
-                                Since we manufacture in our own in-house
-                                state-of-the-art facilities in Antwerp, we
-                                guarantee the best-in-market, low and attractive
-                                pricing, based on the 4C diamond criteria. You
-                                can browse through a massive inventory of small
-                                and large stones, in the best diamond cuts and
-                                quality parameters and discerningly make your
-                                selections.
-                            </p>
-                            <p>
-                                Additionally, Uniglo Diamonds also caters to B2B
-                                solutions and sells commercial stones as well as
-                                top stones. For more information on that,
-                                contact any of our experts from the Uniglo
-                                Diamonds entourage.
-                            </p>
+                            <p>{t("aboutPage.familyDescription1")}</p>
+                            <p>{t("aboutPage.familyDescription2")}</p>
                         </div>
 
                         {/* Stats Section */}
@@ -99,7 +84,7 @@ const UniglowFamilySection = () => {
                                     1000+
                                 </span>
                                 <span className="text-sm uppercase tracking-wide mt-1 block">
-                                    Clients Served
+                                    {t("aboutPage.clientsServed")}
                                 </span>
                             </div>
                             <div className="text-center lg:text-left">
@@ -107,7 +92,7 @@ const UniglowFamilySection = () => {
                                     25+
                                 </span>
                                 <span className="text-sm uppercase tracking-wide mt-1 block">
-                                    Years Experience
+                                    {t("aboutPage.yearsExperience")}
                                 </span>
                             </div>
                         </div>
@@ -118,7 +103,7 @@ const UniglowFamilySection = () => {
                                 className="purple-reveal-btn p-6 uppercase"
                                 size={"lg"}
                             >
-                                <span>About Us</span>
+                                <span>{t("aboutPage.aboutUsButton")}</span>
                             </Button>
                         </div>
                     </div>

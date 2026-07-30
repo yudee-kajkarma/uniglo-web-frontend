@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useMemo, useState } from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { usePathname } from "next/navigation";
 import { Bell, FileStack, Loader2, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";

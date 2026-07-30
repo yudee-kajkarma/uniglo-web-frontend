@@ -4,7 +4,12 @@
       "Bash(ls -la \"/d/Projects/uniglow-frontend/src/app/\\(auth\\)/\")",
       "Bash(xargs grep:*)",
       "Bash(npm install:*)",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "PowerShell(\\(Get-Content new-blogs.md | Measure-Object -Line\\).Lines)",
+      "Skill(superpowers:dispatching-parallel-agents)",
+      "PowerShell(Get-Content *)",
+      "PowerShell(& \"node_modules\\\\.bin\\\\tsc.cmd\" --noEmit; \"EXIT: $LASTEXITCODE\")",
+      "PowerShell(Select-String *)"
     ]
   }
 }

@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 
 export default function LazyVideoSection() {
+    const t = useTranslations();
     const sectionRef = useRef<HTMLDivElement>(null);
     const videoRef = useRef<HTMLVideoElement>(null);
     const [isVisible, setIsVisible] = useState(false);
@@ -49,26 +51,19 @@ export default function LazyVideoSection() {
             {/* Content */}
             <div className="relative z-10 max-w-2xl pl-5 md:pl-16">
                 <span className="text-primary-yellow-1 text-lg uppercase font-lora tracking-widest mb-6 block">
-                    A PARTNERSHIP OF VALUE
+                    {t("homePage.partnershipOfValue")}
                 </span>
                 <h2 className="text-3xl md:text-5xl font-cormorantGaramond text-white font-semibold mb-6 leading-tight">
-                    WHY SHOULD YOU BUY A<br />
-                    DIAMOND FROM UNIGLO
-                    <br />
-                    DIAMONDS
+                    {t("homePage.whyBuyDiamondTitle")}
                 </h2>
                 <p className="text-white font-lora text-xs md:text-lg mb-10">
-                    Uniglo Diamonds has been selling diamonds in Antwerp,
-                    Belgium for over three decades. We buy and sell diamonds,
-                    ensuring a seamless and memorable experience. Since we
-                    manufacture in our own facilities in Antwerp, we guarantee
-                    low, wholesale pricing,
+                    {t("homePage.whyBuyDiamondDescription")}
                 </p>
                 <Button
                     className="purple-reveal-btn px-10 py-6 text-lg font-cormorantGaramond"
                     size="lg"
                 >
-                    <span>ABOUT MORE</span>
+                    <span>{t("homePage.aboutMoreButton")}</span>
                 </Button>
             </div>
         </section>

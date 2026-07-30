@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import {
     Diamond,
     getShapeFullName,
@@ -11,6 +12,9 @@ import { DiamondImage } from "../shared/DiamondMedia";
 interface DiamondGridProps {
     data: Diamond[] | PublicDiamond[];
     onViewDetails: (diamond: Diamond | PublicDiamond) => void;
+    // When provided, cards navigate via real <a href> links (crawlable)
+    // instead of the onViewDetails click handler.
+    getHref?: (diamond: Diamond | PublicDiamond) => string;
 }
 
 // Helper function to check if diamond has full data (authenticated)
@@ -18,7 +22,11 @@ const isDiamond = (item: Diamond | PublicDiamond): item is Diamond => {
     return "_id" in item;
 };
 
-export default function DiamondGrid({ data, onViewDetails }: DiamondGridProps) {
+export default function DiamondGrid({
+    data,
+    onViewDetails,
+    getHref,
+}: DiamondGridProps) {
     if (data.length === 0) {
         return (
             <div className="text-center py-12 text-gray-500 w-full">
@@ -32,7 +40,19 @@ export default function DiamondGrid({ data, onViewDetails }: DiamondGridProps) {
 
     return (
         <div className="bg-brand-gradient grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 font-lato pb-2 w-full px-1">
-            {data.map((item) => (
+            {data.map((item) => {
+                const href = getHref?.(item);
+                const title = (
+                    <>
+                        {getShapeFullName(item.shape)} {item.weight.toFixed(2)}
+                        ct {item.color} {item.clarity}{" "}
+                        {item.cutGrade ? `${item.cutGrade} ` : ""}
+                        {item.polish && item.symmetry
+                            ? `${item.polish} ${item.symmetry}`
+                            : ""}
+                    </>
+                );
+                return (
                 <div
                     key={item.stockRef}
                     className="bg-white rounded-md shadow-sm border border-gray-200 flex flex-col relative hover:shadow-lg transition-all duration-200 group overflow-hidden"
@@ -53,13 +73,16 @@ export default function DiamondGrid({ data, onViewDetails }: DiamondGridProps) {
                     {/* Diamond Title */}
                     <div className="px-3 pt-3 pb-2">
                         <h3 className="font-bold text-[11px] sm:text-xs text-gray-900 uppercase tracking-wide leading-tight">
-                            {getShapeFullName(item.shape)}{" "}
-                            {item.weight.toFixed(2)}ct {item.color}{" "}
-                            {item.clarity}{" "}
-                            {item.cutGrade ? `${item.cutGrade} ` : ""}
-                            {item.polish && item.symmetry
-                                ? `${item.polish} ${item.symmetry}`
-                                : ""}
+                            {href ? (
+                                <Link
+                                    href={href}
+                                    className="hover:text-primary-yellow-1 transition-colors"
+                                >
+                                    {title}
+                                </Link>
+                            ) : (
+                                title
+                            )}
                         </h3>
                     </div>
 
@@ -130,15 +153,27 @@ export default function DiamondGrid({ data, onViewDetails }: DiamondGridProps) {
 
                     {/* Action Button */}
                     <div className="mt-auto px-3 pb-3">
-                        <Button
-                            onClick={() => onViewDetails(item)}
-                            className="gold-reveal-btn text-white text-[10px] sm:text-xs px-4 h-9  uppercase tracking-wider w-full shadow-sm font-semibold"
-                        >
-                            <span>View Details</span>
-                        </Button>
+                        {href ? (
+                            <Button
+                                asChild
+                                className="gold-reveal-btn text-white text-[10px] sm:text-xs px-4 h-9  uppercase tracking-wider w-full shadow-sm font-semibold"
+                            >
+                                <Link href={href}>
+                                    <span>View Details</span>
+                                </Link>
+                            </Button>
+                        ) : (
+                            <Button
+                                onClick={() => onViewDetails(item)}
+                                className="gold-reveal-btn text-white text-[10px] sm:text-xs px-4 h-9  uppercase tracking-wider w-full shadow-sm font-semibold"
+                            >
+                                <span>View Details</span>
+                            </Button>
+                        )}
                     </div>
                 </div>
-            ))}
+                );
+            })}
         </div>
     );
 }

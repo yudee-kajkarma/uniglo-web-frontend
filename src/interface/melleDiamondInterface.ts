@@ -7,6 +7,65 @@ export type MelleClarity = "I1" | "SI1" | "SI2" | "VS" | "VVS" | string;
 export type MelleCut = "Very Good" | string;
 export type MelleCategory = "BM" | string;
 
+/** Round melee (RBC) vs fancy shape master inventory. */
+export type MelleInventoryKind = "round" | "fancy";
+
+export const MELLE_ROUND_SHAPE_CODES = new Set(["RBC", "RD"]);
+
+export function isMelleRoundShape(shape: string): boolean {
+    return MELLE_ROUND_SHAPE_CODES.has(shape.trim().toUpperCase());
+}
+
+/** Round shapes first (RBC, RD), then alphabetical. */
+export function sortMelleShapesForDisplay(shapes: string[]): string[] {
+    const roundOrder = ["RBC", "RD"];
+    return [...shapes].sort((a, b) => {
+        const aRound = isMelleRoundShape(a);
+        const bRound = isMelleRoundShape(b);
+        if (aRound !== bRound) return aRound ? -1 : 1;
+        const ai = roundOrder.indexOf(a.toUpperCase());
+        const bi = roundOrder.indexOf(b.toUpperCase());
+        if (ai !== -1 && bi !== -1) return ai - bi;
+        if (ai !== -1) return -1;
+        if (bi !== -1) return 1;
+        return a.localeCompare(b);
+    });
+}
+
+export function shapesForMelleInventoryKind(
+    shapes: string[],
+    kind: MelleInventoryKind,
+): string[] {
+    const filtered =
+        kind === "round"
+            ? shapes.filter(isMelleRoundShape)
+            : shapes.filter((s) => !isMelleRoundShape(s));
+    return sortMelleShapesForDisplay(filtered);
+}
+
+/**
+ * Display a melee price, or "-" when there is no price to show.
+ *
+ * A price of 0 means "not priced" rather than "free" — colours we do not publish a rate
+ * for are stored as 0 — so it renders as a dash everywhere a price appears.
+ *
+ * @param price Stored price per carat in USD.
+ * @param options.withCurrency Prefix with "$" (default true).
+ * @returns Formatted price, or "-" when the price is 0, null or undefined.
+ */
+export function formatMellePrice(
+    price: number | null | undefined,
+    options: { withCurrency?: boolean } = {},
+): string {
+    const { withCurrency = true } = options;
+    if (price === null || price === undefined || price === 0) {
+        return "-";
+    }
+    return withCurrency
+        ? `$${price.toLocaleString()}`
+        : price.toLocaleString();
+}
+
 export interface MelleDiamond {
     _id: string;
     stockId: string;
@@ -20,6 +79,12 @@ export interface MelleDiamond {
     sieveMin: string;
     measurementMax: string;
     measurementMin: string;
+    /** Fancy-shape length (e.g. "120"); empty for round/melee rows. */
+    measurementLength?: string;
+    /** Fancy-shape breadth (e.g. "80"); empty for round/melee rows. */
+    measurementBreadth?: string;
+    /** Image URLs from Excel import or manual admin entry. */
+    images?: string[];
     carat: number;
     /** Available carat weight in stock; defaults to 100. */
     availableCarat?: number;
@@ -66,11 +131,17 @@ export interface MelleFilterOptions {
     avgPtrRange: MelleNumericRange;
     caratRange: MelleNumericRange;
     measurementRange: MelleNumericRange;
+    lengthRange: MelleNumericRange;
+    breadthRange: MelleNumericRange;
+    lengthOptions: string[];
+    breadthOptions: string[];
     sieveOptions: MelleSieveOption[];
 }
 
 // UI-side state the Melle filter component owns.
 export interface MelleFilterState {
+    /** Round (RBC/mm+sieve) vs fancy (length+breadth) inventory view. */
+    inventoryKind: MelleInventoryKind;
     shape: MelleShape[];
     color: MelleColor[];
     clarity: MelleClarity[];
@@ -81,7 +152,10 @@ export interface MelleFilterState {
     priceRange: [number, number];
     avgPtrRanges: [number, number][];
     caratRanges: [number, number][];
-    measurementRanges: [number, number][];
+    /** Round inventory: mm min/max via input boxes. */
+    measurementMmRange: [number, number];
+    lengthValues: string[];
+    breadthValues: string[];
     sieveRanges: [string, string][];
     searchTerm: string | undefined;
 }
@@ -96,6 +170,9 @@ export interface CreateMelleDiamondBody {
     avgPtr: number;
     measurementMin: string;
     measurementMax: string;
+    measurementLength?: string;
+    measurementBreadth?: string;
+    images?: string[];
     sieveMin: string;
     sieveMax: string;
     isLab: boolean;
@@ -126,6 +203,8 @@ export interface MelleDiamondParams {
     avgPtrRanges?: [number, number][];
     caratRanges?: [number, number][];
     measurementRanges?: [number, number][];
+    lengthValues?: string[];
+    breadthValues?: string[];
     sieveRanges?: [string, string][];
     searchTerm?: string;
 }

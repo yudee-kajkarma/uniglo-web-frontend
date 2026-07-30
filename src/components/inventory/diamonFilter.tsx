@@ -418,7 +418,7 @@ export const DiamondFilters: React.FC<DiamondFiltersProps> = ({
                     {SHAPES.map((shape) => (
                         <TooltipProvider key={shape.value}>
                             <Tooltip>
-                                <TooltipTrigger>
+                                <TooltipTrigger asChild>
                                     <button
                                         key={shape.value}
                                         onClick={() =>

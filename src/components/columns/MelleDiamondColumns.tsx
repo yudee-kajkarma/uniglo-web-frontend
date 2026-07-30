@@ -1,9 +1,11 @@
 // components/columns/MelleDiamondColumns.tsx
 import React from "react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { ArrowUp, ArrowDown, ArrowUpDown, Pencil, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
+    formatMellePrice,
     MelleDiamond,
     PublicMelleDiamond,
 } from "@/interface/melleDiamondInterface";
@@ -57,6 +59,16 @@ const formatRange = (min?: string, max?: string) => {
     return lo || hi || "N/A";
 };
 
+const formatMeasurement = (row: MelleDiamond | PublicMelleDiamond) => {
+    const len = row.measurementLength?.trim();
+    const breadth = row.measurementBreadth?.trim();
+    if (len || breadth) {
+        if (len && breadth) return `${len} × ${breadth}`;
+        return len || breadth || "N/A";
+    }
+    return formatRange(row.measurementMin, row.measurementMax);
+};
+
 export interface MelleAdminHandlers {
     onEdit: (diamond: MelleDiamond) => void;
     onDelete: (diamond: MelleDiamond) => void;
@@ -68,20 +80,48 @@ export const getMelleDiamondColumns = (
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
     adminHandlers?: MelleAdminHandlers,
+    getHref?: (diamond: MelleDiamond) => string,
 ): MelleColumn<MelleDiamond>[] => [
     {
         key: "stockId",
         header: "Stock ID",
-        render: (row) => (
-            <div
-                className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
-                onClick={() => onViewDetails(row)}
-            >
-                {row.stockId}
-            </div>
-        ),
+        render: (row) =>
+            getHref ? (
+                <Link
+                    href={getHref(row)}
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                >
+                    {row.stockId}
+                </Link>
+            ) : (
+                <div
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                    onClick={() => onViewDetails(row)}
+                >
+                    {row.stockId}
+                </div>
+            ),
     },
     { key: "shape", header: "Shape" },
+    {
+        key: "image",
+        header: "Image",
+        render: (row) => {
+            const url = row.images?.[0];
+            if (!url) return "—";
+            return (
+                <div className="relative w-10 h-10 rounded overflow-hidden border border-gray-200">
+                    <Image
+                        src={url}
+                        alt={`${row.shape} preview`}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                </div>
+            );
+        },
+    },
     { key: "color", header: "Color" },
     { key: "clarity", header: "Clarity" },
     { key: "cut", header: "Cut" },
@@ -150,7 +190,7 @@ export const getMelleDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row) => formatRange(row.measurementMin, row.measurementMax),
+        render: (row) => formatMeasurement(row),
     },
     // {
     //     key: "melleCategory",
@@ -179,8 +219,7 @@ export const getMelleDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row) =>
-            row.price !== undefined ? `$${row.price.toLocaleString()}` : "N/A",
+        render: (row) => formatMellePrice(row.price),
     },
     {
         key: "createdAt",
@@ -239,20 +278,48 @@ export const getPublicMelleDiamondColumns = (
     onSort: (columnKey: string) => void,
     currentSortBy: string,
     currentSortOrder: "asc" | "desc",
+    getHref?: (diamond: PublicMelleDiamond) => string,
 ): MelleColumn<PublicMelleDiamond>[] => [
     {
         key: "stockId",
         header: "Stock ID",
-        render: (row) => (
-            <div
-                className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
-                onClick={() => onViewDetails(row)}
-            >
-                {row.stockId}
-            </div>
-        ),
+        render: (row) =>
+            getHref ? (
+                <Link
+                    href={getHref(row)}
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                >
+                    {row.stockId}
+                </Link>
+            ) : (
+                <div
+                    className="flex items-center gap-2 cursor-pointer text-primary-purple hover:underline hover:text-primary-yellow-1 font-bold p-0"
+                    onClick={() => onViewDetails(row)}
+                >
+                    {row.stockId}
+                </div>
+            ),
     },
     { key: "shape", header: "Shape" },
+    {
+        key: "image",
+        header: "Image",
+        render: (row) => {
+            const url = row.images?.[0];
+            if (!url) return "—";
+            return (
+                <div className="relative w-10 h-10 rounded overflow-hidden border border-gray-200">
+                    <Image
+                        src={url}
+                        alt={`${row.shape} preview`}
+                        fill
+                        className="object-cover"
+                        unoptimized
+                    />
+                </div>
+            );
+        },
+    },
     { key: "color", header: "Color" },
     { key: "clarity", header: "Clarity" },
     { key: "cut", header: "Cut" },
@@ -317,7 +384,7 @@ export const getPublicMelleDiamondColumns = (
             />
         ),
         sortable: true,
-        render: (row) => formatRange(row.measurementMin, row.measurementMax),
+        render: (row) => formatMeasurement(row),
     },
     // {
     //     key: "melleCategory",

@@ -77,6 +77,8 @@ const buildMelleQuery = (params: MelleDiamondParams): URLSearchParams => {
     appendBucketRanges(q, "avgPtrRanges", params.avgPtrRanges);
     appendBucketRanges(q, "caratRanges", params.caratRanges);
     appendBucketRanges(q, "measurementRanges", params.measurementRanges);
+    params.lengthValues?.forEach((v) => q.append("lengthValues", v));
+    params.breadthValues?.forEach((v) => q.append("breadthValues", v));
     appendBucketRanges(q, "sieveRanges", params.sieveRanges);
 
     if (params.searchTerm) q.append("searchTerm", params.searchTerm);
@@ -267,7 +269,10 @@ export const importMelleDiamondsV2 = async (input: {
     const res = await apiClient.post<ItemResponse<ImportMelleDiamondsResult>>(
         `/melle-diamonds/import-v2`,
         formData,
-        { headers: { "Content-Type": "multipart/form-data" } },
+        {
+            headers: { "Content-Type": "multipart/form-data" },
+            timeout: 300000, // large fancy imports can take a minute+
+        },
     );
     if (!res.data.success) {
         throw new Error(

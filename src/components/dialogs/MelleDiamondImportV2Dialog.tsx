@@ -85,9 +85,10 @@ export function MelleDiamondImportV2Dialog({
                 <DialogHeader>
                     <DialogTitle>Import Melee Diamonds (v2)</DialogTitle>
                     <DialogDescription>
-                        Upload the Master Price List Excel (.xlsx). Type
-                        (Natural/Lab, HPHT/CVD) is derived from each row&apos;s
-                        TYPE column, so no extra fields are needed.
+                        Upload a Master Price List Excel (.xlsx). Supports
+                        Round/Melee Master (MM Range + Sieves) or Fancy Shape
+                        Master (Length + Breadth + Image). Type (Natural/Lab,
+                        HPHT/CVD) is derived from each row automatically.
                     </DialogDescription>
                 </DialogHeader>
 

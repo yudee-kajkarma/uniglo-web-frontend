@@ -1,8 +1,48 @@
 import type { MetadataRoute } from "next";
+import {
+    getDiamondTotalCount,
+    getMelleTotalCount,
+    getDiamondSitemapPage,
+    getMelleSitemapPage,
+} from "@/lib/seo/diamondServer";
+import { buildDiamondUrl, buildMelleUrl } from "@/lib/seo/diamondSeo";
+import { SITE_URL, localizedUrl } from "@/lib/seo/site";
+import { locales, defaultLocale } from "@/i18n";
 
-const BASE_URL = "https://www.uniglodiamonds.com";
+const BASE_URL = SITE_URL;
+
+// hreflang alternates for a localized static page: every locale version plus
+// x-default → the default locale. Declaring the whole cluster on one sitemap
+// entry is inherently reciprocal, so search engines treat these as one page in
+// many languages rather than separate competing pages.
+const languagesFor = (path: string): Record<string, string> => {
+    const languages: Record<string, string> = {
+        "x-default": localizedUrl(defaultLocale, path),
+    };
+    for (const l of locales) languages[l] = localizedUrl(l, path);
+    return languages;
+};
+
+// Records per dynamic sitemap shard. A sitemap may hold up to 50k URLs; we use
+// a smaller page so each upstream fetch stays light and cacheable.
+const SHARD_SIZE = 5000;
+// Safety cap so a bad upstream count can't spawn unbounded shards.
+const MAX_SHARDS_PER_TYPE = 60;
+
+// Serve shards from live data on every origin hit. The previous ISR setup
+// (revalidate=3600) froze at the build-time snapshot in production — the
+// shards never regenerated, so new stones were invisible and sold stones
+// lingered. The CDN still absorbs repeat fetches.
+export const dynamic = "force-dynamic";
 
 const HOME: string[] = [""];
+
+// Crawlable hub/listing pages that link to every diamond detail page.
+const HUB_PAGES: string[] = [
+    "diamonds/natural",
+    "diamonds/lab-grown",
+    "diamonds/melee",
+];
 
 const TOP_LEVEL_PAGES: string[] = [
     "about",
@@ -35,17 +75,28 @@ const EDUCATION_PAGES: string[] = [
 ];
 
 const RESOURCES_PAGES: string[] = [
+    "are-lab-grown-diamonds-real",
+    "are-lab-grown-diamonds-worth-it",
     "bulk-loose-lab-grown-diamonds",
     "buy-lab-grown-diamonds-wholesale",
+    "gia-certified-lab-grown-diamonds",
     "guide-to-lab-grown-diamonds",
     "igi-certified-lab-grown-diamond-wholesale",
+    "igi-certified-lab-grown-diamonds",
+    "lab-grown-diamond-prices",
+    "lab-grown-diamond-supplier",
     "lab-grown-diamond-supplier-europe",
     "lab-grown-diamond-supplier-jewelers",
+    "lab-grown-diamonds",
+    "lab-grown-diamonds-vs-moissanite",
+    "lab-grown-diamonds-vs-natural-diamonds",
+    "loose-lab-grown-diamonds",
     "nivoda-lab-grown-diamond-supplier",
     "rapnet-diamond-supplier-antwerp",
     "source-lab-grown-diamonds-for-jewelers",
     "uniglo-diamonds-on-rapnet",
     "wedding-ring-engagement-ring-guide",
+    "wholesale-lab-grown-diamonds",
 ];
 
 const BLOG_SLUGS: string[] = [
@@ -53,11 +104,14 @@ const BLOG_SLUGS: string[] = [
     "3-carat-lab-grown-diamond-price-2026",
     "3-carat-natural-diamond-price-2026",
     "4-carat-lab-grown-diamond-price-2026",
+    "antwerp-certified-lab-grown-diamonds-hrd-certificate-guide",
     "are-lab-grown-diamonds-ethical",
     "are-lab-grown-diamonds-real",
     "best-diamond-settings-for-engagement-rings",
     "best-diamond-shapes-for-engagement-rings",
     "best-diamond-size-for-engagement-ring",
+    "best-place-to-buy-lab-grown-diamonds-antwerp",
+    "cheap-diamonds-antwerp-vs-lab-grown-diamond-value",
     "circle-of-love-valentines-day-diamonds",
     "custom-diamond-jewelry-design-guide-2026",
     "cvd-vs-hpht-diamonds-which-is-better",
@@ -67,6 +121,7 @@ const BLOG_SLUGS: string[] = [
     "diamond-cut-vs-clarity-which-matters",
     "diamond-cut-vs-color-which-matters",
     "diamond-fluorescence-explained-good-or-bad",
+    "diamond-jewelry-pieces-that-look-expensive",
     "diamond-resale-value-guide",
     "diamonds-are-not-made-from-coal",
     "disadvantages-of-lab-grown-diamonds",
@@ -75,10 +130,12 @@ const BLOG_SLUGS: string[] = [
     "gia-certified-lab-grown-diamonds-guide",
     "how-are-lab-grown-diamonds-made-cvd-vs-hpht",
     "how-to-buy-diamond-online-safely",
+    "how-to-buy-lab-grown-diamond-ring-antwerp",
     "how-to-choose-engagement-ring-guide",
     "how-to-clean-diamond-jewelry-at-home",
     "how-to-insure-diamond-jewelry",
     "how-to-know-if-diamond-ring-is-real",
+    "how-to-match-lab-grown-diamond-wedding-band-engagement-ring-2026",
     "how-to-measure-ring-size-at-home",
     "how-to-spot-fake-diamond",
     "how-to-store-diamond-jewelry-safely",
@@ -90,51 +147,158 @@ const BLOG_SLUGS: string[] = [
     "lab-grown-diamond-resale-value-2026",
     "lab-grown-diamond-rings-buying-guide-2026",
     "lab-grown-diamond-tennis-bracelet-buying-guide",
+    "lab-grown-diamond-wedding-band-trends-2026",
+    "lab-grown-diamonds-belgium-buyers-guide",
     "lab-grown-diamonds-in-belgium",
     "lab-grown-vs-natural-diamond-price-2026",
     "lab-grown-vs-natural-diamond-resale-value",
     "little-sparks-forever-love-valentines-day",
     "looks-expensive-diamond-edit",
+    "minimal-bridal-diamond-jewellery-modern-wedding",
+    "modern-heirloom-jewelry-designed-to-last",
     "natural-diamond-necklace-buying-guide",
     "natural-diamond-rings-buying-guide-2026",
     "natural-diamond-stud-earrings-buying-guide",
     "natural-diamond-tennis-bracelet-buying-guide",
+    "natural-vs-lab-created-diamonds-two-origins-one-emotion",
     "natural-vs-lab-grown-diamonds-guide",
     "oval-diamond-obsession",
+    "oval-diamond-rings-why-popular-who-they-suit",
     "radiant-cut-diamond-guide",
     "si-vs-vs-diamonds-which-better",
+    "summer-2026-bridal-guide-engagement-rings-wedding-bands-couples",
+    "uniglo-25th-anniversary-diamonds-memories-legacy",
+    "uniglo-at-cannes-festival-2026",
+    "uniglo-jewels-cannes-2026-pink-diamonds",
+    "valentines-day-diamond-gifts-for-every-heart",
+    "valentines-day-diamond-jewellery-for-children",
+    "valentines-day-diamond-jewellery-gifts",
     "vs-vs-vvs-diamonds-difference",
     "what-are-the-4-types-of-diamonds",
     "what-does-a-real-diamond-look-like",
     "what-is-a-lab-grown-diamond-guide",
     "what-is-diamond-certification-gia-vs-igi",
+    "what-to-wear-summer-wedding-2026-fine-jewellery-guest-guide",
+    "where-to-buy-lab-grown-diamonds-online-belgium",
     "why-are-lab-grown-diamonds-cheaper-than-natural",
     "why-are-lab-grown-diamonds-so-expensive",
+    "why-diamonds-mean-forever",
 ];
 
 const buildUrl = (path: string) =>
     path ? `${BASE_URL}/${path}` : `${BASE_URL}/`;
 
-export default function sitemap(): MetadataRoute.Sitemap {
-    const lastModified = new Date();
+const shardCount = (total: number) =>
+    Math.min(MAX_SHARDS_PER_TYPE, Math.ceil(total / SHARD_SIZE));
 
+// Loose diamonds are sharded by origin (natural vs lab) so each emitted URL
+// carries the correct type keyword — matching the page's canonical — without a
+// per-diamond lookup.
+const planShards = async (): Promise<{
+    natural: number;
+    lab: number;
+    melle: number;
+}> => {
+    try {
+        const [naturalCount, labCount, melleCount] = await Promise.all([
+            getDiamondTotalCount(true),
+            getDiamondTotalCount(false),
+            getMelleTotalCount(),
+        ]);
+        return {
+            natural: shardCount(naturalCount),
+            lab: shardCount(labCount),
+            melle: shardCount(melleCount),
+        };
+    } catch (err) {
+        console.error("[sitemap] failed to plan shards:", err);
+        return { natural: 0, lab: 0, melle: 0 };
+    }
+};
+
+/**
+ * Shard plan:
+ *   id 0                         -> static marketing/content pages
+ *   id 1 .. N                    -> natural loose diamond pages
+ *   id N+1 .. N+L                -> lab grown loose diamond pages
+ *   id N+L+1 .. N+L+M            -> melee diamond pages
+ */
+export async function generateSitemaps(): Promise<{ id: number }[]> {
+    const { natural, lab, melle } = await planShards();
+    const ids = [{ id: 0 }];
+    for (let i = 1; i <= natural + lab + melle; i++) ids.push({ id: i });
+    return ids;
+}
+
+const staticEntries = (): MetadataRoute.Sitemap => {
+    // No lastModified for static pages: stamping "now" on every generation is
+    // a detectably fake signal that teaches crawlers to distrust the sitemap.
     const entry = (
         path: string,
         priority: number,
         changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"],
     ): MetadataRoute.Sitemap[number] => ({
         url: buildUrl(path),
-        lastModified,
         changeFrequency,
         priority,
+        alternates: { languages: languagesFor(path) },
     });
 
     return [
         ...HOME.map((p) => entry(p, 1.0, "weekly")),
+        ...HUB_PAGES.map((p) => entry(p, 0.9, "daily")),
         ...TOP_LEVEL_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...SERVICES_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...EDUCATION_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...RESOURCES_PAGES.map((p) => entry(p, 0.7, "monthly")),
         ...BLOG_SLUGS.map((slug) => entry(`blogs/${slug}`, 0.64, "monthly")),
     ];
+};
+
+export default async function sitemap({
+    id,
+}: {
+    id: Promise<string>;
+}): Promise<MetadataRoute.Sitemap> {
+    const shardId = Number(await id);
+    if (!Number.isFinite(shardId) || shardId <= 0) return staticEntries();
+
+    try {
+        const { natural, lab } = await planShards();
+
+        const diamondEntry = (isNatural: boolean, page: number) =>
+            getDiamondSitemapPage(page, SHARD_SIZE, isNatural).then(({ items }) =>
+                items
+                    .filter((d) => d.stockRef)
+                    .map((d) => ({
+                        url: buildDiamondUrl(d, isNatural),
+                        lastModified:
+                            (d as { updatedAt?: string }).updatedAt ?? undefined,
+                        changeFrequency: "weekly" as const,
+                        priority: 0.6,
+                    })),
+            );
+
+        if (shardId <= natural) {
+            return diamondEntry(true, shardId);
+        }
+        if (shardId <= natural + lab) {
+            return diamondEntry(false, shardId - natural);
+        }
+
+        const mellePage = shardId - natural - lab;
+        if (mellePage < 1) return [];
+        const { items } = await getMelleSitemapPage(mellePage, SHARD_SIZE);
+        return items
+            .filter((m) => m._id)
+            .map((m) => ({
+                url: buildMelleUrl(m),
+                lastModified: m.updatedAt ?? undefined,
+                changeFrequency: "weekly" as const,
+                priority: 0.5,
+            }));
+    } catch (err) {
+        console.error("[sitemap] shard", id, "failed:", err);
+        return [];
+    }
 }
