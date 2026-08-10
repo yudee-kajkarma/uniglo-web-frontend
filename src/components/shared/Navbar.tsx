@@ -62,7 +62,10 @@ const NAV_LINKS: NavLink[] = [
         href: "#",
         hasDropdown: true,
         submenuItems: [
-            { nameKey: "nav.diamondManufacturing", href: "/diamond-manufacturing" },
+            {
+                nameKey: "nav.diamondManufacturing",
+                href: "/diamond-manufacturing",
+            },
             {
                 nameKey: "nav.freeDiamondEstimation",
                 href: "/the-best-price-for-your-diamonds",
@@ -85,24 +88,22 @@ const NAV_LINKS: NavLink[] = [
                 href: "/supply-chain-policy-procedure",
             },
             { nameKey: "nav.diamond4Cs", href: "/the-diamond-4cs" },
-            { nameKey: "nav.diamondCertificates", href: "/diamond-certificates" },
+            {
+                nameKey: "nav.diamondCertificates",
+                href: "/diamond-certificates",
+            },
             { nameKey: "nav.diamondShapes", href: "/diamond-shapes" },
-            { nameKey: "nav.fancyColoredDiamond", href: "/fancy-colored-diamonds" },
+            {
+                nameKey: "nav.fancyColoredDiamond",
+                href: "/fancy-colored-diamonds",
+            },
             { nameKey: "nav.ethicalDiamond", href: "/ethical-diamonds" },
-            { nameKey: "nav.conflictFreeDiamond", href: "/conflict-free-diamonds" },
+            {
+                nameKey: "nav.conflictFreeDiamond",
+                href: "/conflict-free-diamonds",
+            },
             { nameKey: "nav.securitySeals", href: "/security-seals" },
             { nameKey: "nav.oldCutDiamonds", href: "/old-cut-diamonds" },
-        ],
-    },
-    {
-        nameKey: "nav.marketplaces",
-        href: "#",
-        hasDropdown: true,
-        submenuItems: [
-            {
-                nameKey: "nav.unigloDiamondsOnRapnet",
-                href: "/uniglo-diamonds-on-rapnet",
-            },
         ],
     },
     {
@@ -113,7 +114,10 @@ const NAV_LINKS: NavLink[] = [
             {
                 nameKey: "nav.labGrownDiamondGuides",
                 subItems: [
-                    { nameKey: "nav.labGrownDiamonds", href: "/lab-grown-diamonds" },
+                    {
+                        nameKey: "nav.labGrownDiamonds",
+                        href: "/lab-grown-diamonds",
+                    },
                     {
                         nameKey: "nav.labGrownDiamondPrices",
                         href: "/lab-grown-diamond-prices",
@@ -154,31 +158,40 @@ const NAV_LINKS: NavLink[] = [
                         nameKey: "nav.labGrownDiamondSupplier",
                         href: "/lab-grown-diamond-supplier",
                     },
+                    {
+                        nameKey: "nav.guideToLabGrownDiamonds",
+                        href: "/guide-to-lab-grown-diamonds",
+                    },
+                    {
+                        nameKey: "nav.sourceLabGrownDiamonds",
+                        href: "/source-lab-grown-diamonds-for-jewelers",
+                    },
+                    {
+                        nameKey: "nav.labGrownDiamondSuppliers",
+                        href: "/lab-grown-diamond-supplier-jewelers",
+                    },
+                    {
+                        nameKey: "nav.bestLabGrownDiamondSupplierEurope",
+                        href: "/lab-grown-diamond-supplier-europe",
+                    },
+                    {
+                        nameKey: "nav.igiCertifiedLabGrownDiamondWholesale",
+                        href: "/igi-certified-lab-grown-diamond-wholesale",
+                    },
+                    {
+                        nameKey: "nav.buyLabGrownDiamondsWholesale",
+                        href: "/buy-lab-grown-diamonds-wholesale",
+                    },
                 ],
             },
             {
-                nameKey: "nav.guideToLabGrownDiamonds",
-                href: "/guide-to-lab-grown-diamonds",
-            },
-            {
-                nameKey: "nav.sourceLabGrownDiamonds",
-                href: "/source-lab-grown-diamonds-for-jewelers",
-            },
-            {
-                nameKey: "nav.labGrownDiamondSuppliers",
-                href: "/lab-grown-diamond-supplier-jewelers",
-            },
-            {
-                nameKey: "nav.bestLabGrownDiamondSupplierEurope",
-                href: "/lab-grown-diamond-supplier-europe",
-            },
-            {
-                nameKey: "nav.igiCertifiedLabGrownDiamondWholesale",
-                href: "/igi-certified-lab-grown-diamond-wholesale",
-            },
-            {
-                nameKey: "nav.buyLabGrownDiamondsWholesale",
-                href: "/buy-lab-grown-diamonds-wholesale",
+                nameKey: "nav.marketplaces",
+                subItems: [
+                    {
+                        nameKey: "nav.unigloDiamondsOnRapnet",
+                        href: "/uniglo-diamonds-on-rapnet",
+                    },
+                ],
             },
             {
                 nameKey: "nav.rapnetDiamondSupplierAntwerp",
@@ -194,8 +207,16 @@ const NAV_LINKS: NavLink[] = [
 ];
 
 const ADMIN_NAV_LINKS = [
-    { nameKey: "adminNav.membersManagement", href: "/members-management", icon: Users },
-    { nameKey: "adminNav.createCustomer", href: "/create-customer", icon: UserPlus },
+    {
+        nameKey: "adminNav.membersManagement",
+        href: "/members-management",
+        icon: Users,
+    },
+    {
+        nameKey: "adminNav.createCustomer",
+        href: "/create-customer",
+        icon: UserPlus,
+    },
     {
         nameKey: "adminNav.enquiryManagement",
         href: "/enquiry-management",
@@ -214,14 +235,26 @@ const ADMIN_NAV_LINKS = [
 ];
 
 const SUPER_ADMIN_NAV_LINKS = [
-    { nameKey: "adminNav.membersManagement", href: "/members-management", icon: Users },
-    { nameKey: "adminNav.createCustomer", href: "/create-customer", icon: UserPlus },
+    {
+        nameKey: "adminNav.membersManagement",
+        href: "/members-management",
+        icon: Users,
+    },
+    {
+        nameKey: "adminNav.createCustomer",
+        href: "/create-customer",
+        icon: UserPlus,
+    },
     {
         nameKey: "adminNav.enquiryManagement",
         href: "/enquiry-management",
         icon: FileStack,
     },
-    { nameKey: "adminNav.adminManagement", href: "/admin-management", icon: Shield },
+    {
+        nameKey: "adminNav.adminManagement",
+        href: "/admin-management",
+        icon: Shield,
+    },
     {
         nameKey: "adminNav.sellDiamondsRequests",
         href: "/sell-diamonds-form-requests",
@@ -266,15 +299,19 @@ export default function Navbar() {
     const router = useRouter();
     const params = useParams();
     const currentLocale = (params?.locale as string) || "en";
-    const currentLang = LANGUAGES.find(l => l.code === currentLocale) || LANGUAGES[0];
+    const currentLang =
+        LANGUAGES.find((l) => l.code === currentLocale) || LANGUAGES[0];
 
     const switchLanguage = (code: string) => {
-    // Copy parameters, but delete "locale" so it doesn't get appended to the URL query string
-    const queryParams = { ...params };
-    delete queryParams.locale;
+        // Copy parameters, but delete "locale" so it doesn't get appended to the URL query string
+        const queryParams = { ...params };
+        delete queryParams.locale;
 
-    router.replace({ pathname, query: queryParams as any }, { locale: code });
-};
+        router.replace(
+            { pathname, query: queryParams as any },
+            { locale: code },
+        );
+    };
 
     // Get role-specific nav links
     const getRoleNavLinks = () => {
@@ -297,9 +334,7 @@ export default function Navbar() {
     const roleNavLinks = getRoleNavLinks();
 
     const toggleMobileDropdown = (linkKey: string) => {
-        setMobileDropdownOpen(
-            mobileDropdownOpen === linkKey ? null : linkKey,
-        );
+        setMobileDropdownOpen(mobileDropdownOpen === linkKey ? null : linkKey);
     };
 
     return (
@@ -334,7 +369,9 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/inventory">
-                                                <span>{t('nav.inventory')}</span>
+                                                <span>
+                                                    {t("nav.inventory")}
+                                                </span>
                                             </Link>
                                         </Button>
                                         <Button
@@ -342,7 +379,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/contact-us">
-                                                <span>{t('nav.contact')}</span>
+                                                <span>{t("nav.contact")}</span>
                                             </Link>
                                         </Button>
                                     </>
@@ -381,9 +418,14 @@ export default function Navbar() {
                                             {LANGUAGES.map((lang) => (
                                                 <button
                                                     key={lang.code}
-                                                    onClick={() => switchLanguage(lang.code)}
+                                                    onClick={() =>
+                                                        switchLanguage(
+                                                            lang.code,
+                                                        )
+                                                    }
                                                     className={`p-3 text-center hover:bg-gray-100 transition-colors w-full cursor-pointer ${
-                                                        currentLocale === lang.code
+                                                        currentLocale ===
+                                                        lang.code
                                                             ? "font-bold text-[#c5a059]"
                                                             : ""
                                                     }`}
@@ -440,9 +482,9 @@ export default function Navbar() {
                                                                                 }
                                                                             />
                                                                         )}
-                                                                        {
-                                                                            t(link.nameKey)
-                                                                        }
+                                                                        {t(
+                                                                            link.nameKey,
+                                                                        )}
                                                                     </span>
                                                                 </Link>
                                                             ),
@@ -459,7 +501,7 @@ export default function Navbar() {
                                         >
                                             <span className="flex items-center gap-1">
                                                 <LogOut size={16} />
-                                                <span>{t('nav.logout')}</span>
+                                                <span>{t("nav.logout")}</span>
                                             </span>
                                         </Button>
                                     </>
@@ -470,7 +512,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/login">
-                                                <span>{t('nav.login')}</span>
+                                                <span>{t("nav.login")}</span>
                                             </Link>
                                         </Button>
                                         <Button
@@ -478,7 +520,7 @@ export default function Navbar() {
                                             className="gold-reveal-btn font-cormorantGaramond uppercase"
                                         >
                                             <Link href="/register">
-                                                <span>{t('nav.signup')}</span>
+                                                <span>{t("nav.signup")}</span>
                                             </Link>
                                         </Button>
                                     </>
@@ -559,9 +601,9 @@ export default function Navbar() {
                                                                 >
                                                                     <button className="w-full p-3 slide-down-link flex items-center justify-between gap-2 text-left">
                                                                         <span>
-                                                                            {
-                                                                                t(submenu.nameKey)
-                                                                            }
+                                                                            {t(
+                                                                                submenu.nameKey,
+                                                                            )}
                                                                         </span>
                                                                         <ChevronRight
                                                                             size={
@@ -571,8 +613,26 @@ export default function Navbar() {
                                                                         />
                                                                     </button>
                                                                     {/* Side flyout panel */}
-                                                                    <div className="absolute top-0 right-full w-104 bg-white border-t-2 border-[#c5a059] opacity-0 ...">
-                                                                        <div className="grid grid-cols-2 text-black font-cormorantGaramond text-base normal-case tracking-normal">
+                                                                    <div
+                                                                        className={`absolute top-0 right-full bg-white border-t-2 border-[#c5a059] opacity-0 invisible group-hover/sub:opacity-100 group-hover/sub:visible transition-all duration-300 shadow-xl z-10 ${
+                                                                            submenu
+                                                                                .subItems
+                                                                                .length >
+                                                                            6
+                                                                                ? "w-104"
+                                                                                : "w-56"
+                                                                        }`}
+                                                                    >
+                                                                        <div
+                                                                            className={`grid text-black font-cormorantGaramond text-base normal-case tracking-normal ${
+                                                                                submenu
+                                                                                    .subItems
+                                                                                    .length >
+                                                                                6
+                                                                                    ? "grid-cols-2"
+                                                                                    : "grid-cols-1"
+                                                                            }`}
+                                                                        >
                                                                             {submenu.subItems.map(
                                                                                 (
                                                                                     item,
@@ -587,9 +647,9 @@ export default function Navbar() {
                                                                                         className="p-3 slide-down-link"
                                                                                     >
                                                                                         <span>
-                                                                                            {
-                                                                                                t(item.nameKey)
-                                                                                            }
+                                                                                            {t(
+                                                                                                item.nameKey,
+                                                                                            )}
                                                                                         </span>
                                                                                     </Link>
                                                                                 ),
@@ -609,9 +669,9 @@ export default function Navbar() {
                                                                     className="p-3 slide-down-link"
                                                                 >
                                                                     <span>
-                                                                        {
-                                                                            t(submenu.nameKey)
-                                                                        }
+                                                                        {t(
+                                                                            submenu.nameKey,
+                                                                        )}
                                                                     </span>
                                                                 </Link>
                                                             ),
@@ -682,7 +742,9 @@ export default function Navbar() {
                                                                 className="overflow-hidden bg-slate-800/50"
                                                             >
                                                                 {link.submenuItems?.map(
-                                                                    (submenu) =>
+                                                                    (
+                                                                        submenu,
+                                                                    ) =>
                                                                         submenu.subItems ? (
                                                                             <div
                                                                                 key={
@@ -690,9 +752,9 @@ export default function Navbar() {
                                                                                 }
                                                                             >
                                                                                 <p className="text-primary/70 text-xs uppercase tracking-wider py-2 px-6 font-cormorantGaramond">
-                                                                                    {
-                                                                                        t(submenu.nameKey)
-                                                                                    }
+                                                                                    {t(
+                                                                                        submenu.nameKey,
+                                                                                    )}
                                                                                 </p>
                                                                                 {submenu.subItems.map(
                                                                                     (
@@ -715,9 +777,9 @@ export default function Navbar() {
                                                                                                 );
                                                                                             }}
                                                                                         >
-                                                                                            {
-                                                                                                t(item.nameKey)
-                                                                                            }
+                                                                                            {t(
+                                                                                                item.nameKey,
+                                                                                            )}
                                                                                         </Link>
                                                                                     ),
                                                                                 )}
@@ -741,9 +803,9 @@ export default function Navbar() {
                                                                                     );
                                                                                 }}
                                                                             >
-                                                                                {
-                                                                                    t(submenu.nameKey)
-                                                                                }
+                                                                                {t(
+                                                                                    submenu.nameKey,
+                                                                                )}
                                                                             </Link>
                                                                         ),
                                                                 )}
@@ -772,7 +834,7 @@ export default function Navbar() {
                                         roleNavLinks.length > 0 && (
                                             <div className="border-t border-slate-700 pt-2 mt-2">
                                                 <p className="text-primary text-xs uppercase px-2 mb-2 font-cormorantGaramond">
-                                                    {t('nav.myAccount')}
+                                                    {t("nav.myAccount")}
                                                 </p>
                                                 <div className="px-2 pb-3">
                                                     <NotificationBell className="border-slate-700 bg-slate-800 hover:bg-slate-700" />
@@ -811,7 +873,9 @@ export default function Navbar() {
                                                     setIsMobileMenuOpen(false)
                                                 }
                                             >
-                                                <span>{t('nav.inventory')}</span>
+                                                <span>
+                                                    {t("nav.inventory")}
+                                                </span>
                                             </Link>
                                         </Button>
                                         <Button
@@ -824,7 +888,7 @@ export default function Navbar() {
                                                     setIsMobileMenuOpen(false)
                                                 }
                                             >
-                                                <span>{t('nav.contact')}</span>
+                                                <span>{t("nav.contact")}</span>
                                             </Link>
                                         </Button>
                                         {isAuthenticated ? (
@@ -835,7 +899,7 @@ export default function Navbar() {
                                                 }}
                                                 className="w-full py-3 border-2 border-red-500 text-white text-base font-cormorantGaramond font-bold uppercase rounded hover:bg-red-500 transition-colors"
                                             >
-                                                {t('nav.logout')}
+                                                {t("nav.logout")}
                                             </button>
                                         ) : (
                                             <div className="flex gap-2">
@@ -851,7 +915,9 @@ export default function Navbar() {
                                                             )
                                                         }
                                                     >
-                                                        <span>{t('nav.login')}</span>
+                                                        <span>
+                                                            {t("nav.login")}
+                                                        </span>
                                                     </Link>
                                                 </Button>
                                                 <Button
@@ -866,7 +932,9 @@ export default function Navbar() {
                                                             )
                                                         }
                                                     >
-                                                        <span>{t('nav.signup')}</span>
+                                                        <span>
+                                                            {t("nav.signup")}
+                                                        </span>
                                                     </Link>
                                                 </Button>
                                             </div>
@@ -882,11 +950,16 @@ export default function Navbar() {
                                                     <button
                                                         key={lang.code}
                                                         onClick={() => {
-                                                            switchLanguage(lang.code);
-                                                            setIsMobileMenuOpen(false);
+                                                            switchLanguage(
+                                                                lang.code,
+                                                            );
+                                                            setIsMobileMenuOpen(
+                                                                false,
+                                                            );
                                                         }}
                                                         className={`py-2 px-1 text-center text-xs font-cormorantGaramond uppercase border rounded transition-all cursor-pointer ${
-                                                            currentLocale === lang.code
+                                                            currentLocale ===
+                                                            lang.code
                                                                 ? "border-[#c5a059] text-[#c5a059] font-bold"
                                                                 : "border-white/10 text-white/80 hover:border-white/30"
                                                         }`}
