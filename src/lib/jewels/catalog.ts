@@ -40,15 +40,33 @@ export type GiftEditProduct = {
     url: string;
 };
 
+// Most products exist in both a natural and a lab-grown variant. Without a
+// ?stone_type filter the catalog picks the lab-grown one, so the two slots the
+// brief specifies as natural are pinned explicitly.
+const STONE_TYPE_FILTER = {
+    natural: "Natural Diamond DEF Color - VVS VS Clarity",
+    labGrown: "Lab-Grown Diamond DEF Color - VVS VS Clarity",
+} as const;
+
 /**
- * The six pieces named in the campaign brief. Pinned by handle so the edit
+ * The six pieces named in the campaign brief, in its stated order: an everyday
+ * natural necklace, a lab-grown solitaire necklace, classic natural studs, a
+ * fashion pair, a bracelet and a symbolic ring. Pinned by handle so the edit
  * stays curated; if a handle disappears from the catalog we fall back to the
  * newest piece in the same category rather than dropping the card.
  */
-const GIFT_EDIT: { category: JewelsCategory; handle: string }[] = [
-    { category: "necklaces", handle: "soft-heart-necklace" },
+const GIFT_EDIT: {
+    category: JewelsCategory;
+    handle: string;
+    stone?: keyof typeof STONE_TYPE_FILTER;
+}[] = [
+    { category: "necklaces", handle: "soft-heart-necklace", stone: "natural" },
     { category: "necklaces", handle: "alma-emerald-diamond-solitaire-necklace" },
-    { category: "earrings", handle: "double-delight-diamond-stud-earrings" },
+    {
+        category: "earrings",
+        handle: "double-delight-diamond-stud-earrings",
+        stone: "natural",
+    },
     {
         category: "earrings",
         handle: "peony-flower-fashion-diamond-stud-earrings",
@@ -134,9 +152,18 @@ const buildProductUrl = ({
 const fetchByHandle = async (
     category: JewelsCategory,
     handle: string,
+    stone?: keyof typeof STONE_TYPE_FILTER,
 ): Promise<CatalogProduct | null> => {
-    const url = `${API_BASE}/store/catalog?category=${category}&limit=1&search=${encodeURIComponent(handle)}`;
-    const body = await getJson<{ data?: { products?: CatalogProduct[] } }>(url);
+    const query = new URLSearchParams({
+        category,
+        limit: "1",
+        search: handle,
+    });
+    if (stone) query.set("stone_type", STONE_TYPE_FILTER[stone]);
+
+    const body = await getJson<{ data?: { products?: CatalogProduct[] } }>(
+        `${API_BASE}/store/catalog?${query.toString()}`,
+    );
     return body?.data?.products?.[0] ?? null;
 };
 
@@ -187,9 +214,9 @@ const resolveStoneOrigin = (
  */
 export const getGiftEditProducts = async (): Promise<GiftEditProduct[]> => {
     const results = await Promise.all(
-        GIFT_EDIT.map(async ({ category, handle }) => {
+        GIFT_EDIT.map(async ({ category, handle, stone }) => {
             const product =
-                (await fetchByHandle(category, handle)) ??
+                (await fetchByHandle(category, handle, stone)) ??
                 (await fetchNewest(category));
             if (!product) return null;
 
