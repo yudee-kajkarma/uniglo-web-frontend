@@ -1,5 +1,7 @@
 {
   "nav": {
+    "events": "Événements",
+    "antwerpMothersDay": "Fête des Mères à Anvers",
     "inventory": "Inventaire",
     "about": "À propos de",
     "contact": "Contacter",
@@ -38348,5 +38350,161 @@
     "aboutUs": "À propos de nous",
     "blog": "Blogue",
     "sellDiamonds": "Vendre des diamants"
+  },
+  "antwerpMothersDayPage": {
+    "metadata": {
+      "title": "Bijoux Fête des Mères à Anvers | 15 août | Uniglo",
+      "description": "Découvrez des bijoux en diamant pour la Fête des Mères à Anvers le 15 août. Explorez Uniglo Jewels ou demandez une sélection personnalisée."
+    },
+    "announcement": "À Anvers, la Fête des Mères se célèbre le 15 août · Découvrez notre sélection de bijoux en diamant",
+    "hero": {
+      "eyebrow": "Tradition anversoise · Samedi 15 août 2026",
+      "title": "Bijoux en diamant pour la Fête des Mères à Anvers",
+      "lead": "Célébrez les femmes qui ont marqué votre vie avec un bijou en diamant choisi en fonction de leur personnalité et de leur style.",
+      "para": "Découvrez les colliers, boucles d’oreilles, bracelets et bagues d’Uniglo Jewels, ou demandez à notre équipe d’Anvers de préparer une sélection personnalisée selon votre budget et la date souhaitée.",
+      "assurances": "Bijoux en diamants naturels et de laboratoire · Accompagnement personnalisé · Rendez-vous à Anvers ou à distance",
+      "primaryCta": "Découvrir les bijoux pour la Fête des Mères",
+      "secondaryCta": "Demander ma sélection personnalisée",
+      "imageAlt": "Bijou en diamant pour la Fête des Mères à Anvers"
+    },
+    "tradition": {
+      "eyebrow": "Pourquoi Anvers célèbre la Fête des Mères le 15 août",
+      "title": "Anvers a sa propre tradition de la Fête des Mères",
+      "para1": "Dans la majeure partie de la Belgique, la Fête des Mères est célébrée en mai. À Anvers, les mamans sont mises à l’honneur le 15 août, selon une tradition locale instaurée en 1913 par l’artiste et échevin anversois Frans Van Kuyck.",
+      "para2": "Cette date coïncide avec l’Assomption de Marie, patronne de la ville d’Anvers. Plus d’un siècle plus tard, la Fête des Mères anversoise continue d’être célébrée chaque année le 15 août.",
+      "para3": "En 2026, elle tombe un samedi : une belle occasion de remercier une mère, une grand-mère, une compagne ou une jeune maman avec un cadeau choisi spécialement pour elle.",
+      "imageAlt": "Une mère et sa fille célébrant la Fête des Mères à Anvers"
+    },
+    "shopByType": {
+      "eyebrow": "Choisir par type de bijou",
+      "title": "Trouvez un bijou en diamant qui lui ressemble",
+      "intro": "Il n’est pas nécessaire de tout connaître à la joaillerie pour bien choisir. Commencez simplement par observer les bijoux qu’elle aime déjà porter.",
+      "categories": [
+        {
+          "title": "Colliers en diamant",
+          "description": "Un collier solitaire, un pendentif cœur ou un modèle personnalisé constitue un cadeau élégant à porter au quotidien. C’est aussi un choix simple lorsque vous ne connaissez pas sa taille de bague.",
+          "linkLabel": "Voir les colliers en diamant"
+        },
+        {
+          "title": "Boucles d’oreilles en diamant",
+          "description": "Les puces en diamant sont discrètes, intemporelles et faciles à porter. Les créoles, motifs floraux ou boucles pendantes conviendront davantage à une femme qui aime les bijoux expressifs.",
+          "linkLabel": "Voir les boucles d’oreilles en diamant"
+        },
+        {
+          "title": "Bracelets en diamant",
+          "description": "Choisissez un bracelet fin pour un bijou facile à porter chaque jour, ou un bracelet tennis pour un cadeau plus remarquable.",
+          "linkLabel": "Voir les bracelets en diamant"
+        },
+        {
+          "title": "Bagues en diamant",
+          "description": "Une bague à plusieurs pierres ou un modèle pouvant être gravé peut symboliser les enfants, la famille ou un souvenir partagé. Vérifiez sa taille ainsi que les conditions de mise à mesure avant de commander.",
+          "linkLabel": "Voir les bagues en diamant"
+        }
+      ],
+      "footnote": "Vous hésitez entre plusieurs styles ?",
+      "footnoteCta": "Demander une sélection personnalisée",
+      "imageAlt": "Colliers, boucles d’oreilles, bracelets et bagues en diamant pour la Fête des Mères"
+    },
+    "giftEdit": {
+      "fromPrice": "À partir de",
+      "viewProduct": "Voir sur Uniglo Jewels",
+      "naturalDiamond": "Diamants naturels",
+      "labGrownDiamond": "Diamants de laboratoire",
+      "eyebrow": "Sélection de bijoux",
+      "title": "La sélection Fête des Mères d’Anvers",
+      "intro": "Découvrez six bijoux en diamant sélectionnés pour le 15 août.",
+      "placeholder": "La sélection pour le 15 août est en cours de finalisation. Contactez notre équipe d’Anvers : nous vous présenterons les bijoux actuellement disponibles."
+    },
+    "personalisation": {
+      "eyebrow": "Uniglo Jewels et personnalisation",
+      "title": "Rendez son cadeau encore plus personnel avec Uniglo Jewels",
+      "para1": "Uniglo Jewels propose des colliers, boucles d’oreilles, bracelets et bagues en diamant conçus pour être portés au quotidien comme lors des moments importants.",
+      "para2": "Découvrez des bijoux en diamants naturels et de laboratoire, puis demandez si le modèle choisi peut bénéficier d’une gravure, d’une personnalisation, d’une présentation cadeau ou d’un message personnel. Ces possibilités dépendent du bijou et du délai disponible ; elles doivent donc être confirmées avant la commande.",
+      "primaryCta": "Découvrir les bijoux pour la Fête des Mères",
+      "secondaryCta": "Demander ma sélection personnalisée",
+      "imageAlt": "Bijoux en diamant et présentation cadeau d’Uniglo Jewels"
+    },
+    "shortlist": {
+      "eyebrow": "Sélection personnalisée, rendez-vous et création sur mesure",
+      "title": "Laissez un spécialiste du diamant à Anvers vous guider",
+      "intro": "Vous ne savez pas quel bijou elle choisirait elle-même ? Parlez-nous de son style et notre équipe vous recommandera les modèles disponibles les plus adaptés.",
+      "shareLabel": "Indiquez-nous :",
+      "shareItems": [
+        "À qui le cadeau est destiné.",
+        "Les bijoux qu’elle porte habituellement.",
+        "Le métal qu’elle préfère.",
+        "Si vous souhaitez un diamant naturel, un diamant de laboratoire ou si vous n’avez pas de préférence.",
+        "Votre budget.",
+        "La date à laquelle vous souhaitez recevoir le cadeau."
+      ],
+      "primaryCta": "Demander ma sélection personnalisée",
+      "appointment": "Vous pouvez également demander un rendez-vous à Anvers ou à distance afin de comparer plusieurs créations. Les bureaux d’Uniglo Diamonds se trouvent Hoveniersstraat 30, Suite 662/Bus 250, 2018 Anvers. Contactez l’équipe avant votre visite : les rendez-vous pendant les week-ends et jours fériés, y compris le 15 août, doivent être confirmés.",
+      "bespokeTitle": "Vous préférez choisir le diamant ensemble ?",
+      "bespokePara": "Pour un futur bijou ou une création sur mesure, découvrez les diamants naturels et de laboratoire non montés proposés par Uniglo Diamonds. Comparez leurs caractéristiques, leurs rapports de certification et leurs vues à 360°, puis échangez avec notre équipe sur le sertissage ou la monture appropriée.",
+      "bespokeCta": "Découvrir les diamants certifiés",
+      "bespokeNote": "La réalisation d’un bijou sur mesure avant le 15 août ne peut pas être garantie sans vérification préalable. Confirmez le diamant, le modèle et le calendrier de production avant de commander.",
+      "imageAlt": "Un spécialiste Uniglo prépare une sélection personnalisée de bijoux en diamant à Anvers"
+    },
+    "purchaseInfo": {
+      "eyebrow": "Prix, délais et informations d’achat",
+      "title": "Les informations à connaître avant de choisir",
+      "items": [
+        {
+          "title": "Accès aux prix",
+          "body": "Les photographies, caractéristiques, types de diamants et disponibilités sont visibles publiquement. Connectez-vous pour consulter le prix actuel de chaque bijou."
+        },
+        {
+          "title": "Disponibilité et délais",
+          "body": "Contactez Uniglo afin de confirmer la disponibilité et le délai avant de choisir un cadeau pour le 15 août."
+        },
+        {
+          "title": "Retrait à Anvers et livraison",
+          "body": "Les possibilités de retrait et de livraison assurée dépendent du bijou et de la destination. Confirmez les modalités de retrait ou l’estimation de livraison avant la commande. Ne vous rendez pas dans les bureaux d’Anvers sans rendez-vous confirmé."
+        },
+        {
+          "title": "Personnalisation et présentation cadeau",
+          "body": "La gravure, les modifications sur mesure, la présentation cadeau et les messages personnels ne sont proposés que lorsqu’ils ont été confirmés pour le bijou choisi. Les articles personnalisés peuvent être soumis à des délais et à des conditions de retour différents."
+        },
+        {
+          "title": "Retours et mise à mesure",
+          "body": "Consultez les conditions applicables aux retours, aux articles personnalisés et à la mise à mesure des bagues avant de commander."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Questions fréquentes",
+      "title": "Questions sur la Fête des Mères à Anvers et les bijoux en diamant",
+      "items": [
+        {
+          "question": "Quand célèbre-t-on la Fête des Mères à Anvers en 2026 ?",
+          "answer": "À Anvers, la Fête des Mères sera célébrée le samedi 15 août 2026. Dans la majeure partie de la Belgique, elle est célébrée en mai, mais Anvers conserve sa propre tradition locale."
+        },
+        {
+          "question": "Pourquoi la Fête des Mères est-elle célébrée le 15 août à Anvers ?",
+          "answer": "La tradition a été instaurée en 1913 par l’artiste et échevin anversois Frans Van Kuyck. Le 15 août coïncide avec l’Assomption de Marie, patronne de la ville d’Anvers."
+        },
+        {
+          "question": "Quel bijou offrir lorsque je ne connais pas sa taille ?",
+          "answer": "Les colliers et les boucles d’oreilles sont généralement les choix les plus simples, car ils ne nécessitent pas de connaître une taille de bague. Pour un bracelet, il peut être utile de vérifier le tour de poignet. Une bague doit être choisie avec une taille précise ou avec la confirmation qu’une mise à mesure est possible."
+        },
+        {
+          "question": "Puis-je voir les prix sans créer de compte ?",
+          "answer": "Les photographies, caractéristiques, types de diamants et disponibilités sont accessibles publiquement. Connectez-vous pour voir le prix actuel, ou demandez à l’équipe Uniglo de vous aider à comparer les bijoux adaptés à vos critères."
+        },
+        {
+          "question": "Uniglo peut-il préparer une sélection personnalisée et organiser un retrait à Anvers ?",
+          "answer": "Oui. Indiquez-nous son style, le métal qu’elle préfère, votre préférence pour un diamant naturel ou de laboratoire, votre budget et la date souhaitée. L’équipe pourra vous recommander des bijoux disponibles. Le retrait à Anvers et les rendez-vous doivent être confirmés à l’avance, en particulier pour le 15 août."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Trouvez un cadeau de Fête des Mères vraiment personnel",
+      "para": "Découvrez la sélection de bijoux en diamant d’Uniglo Jewels, ou dites-nous simplement ce qu’elle aime porter. Notre équipe d’Anvers vous aidera à comparer les modèles disponibles pour le 15 août.",
+      "primaryCta": "Découvrir les bijoux pour la Fête des Mères",
+      "secondaryCta": "Demander ma sélection personnalisée",
+      "note": "Une question sur les délais ? Contactez Uniglo afin de confirmer la disponibilité, la personnalisation, la livraison ou le retrait à Anvers avant de choisir."
+    },
+    "breadcrumbHome": "Accueil",
+    "breadcrumbCurrent": "Bijoux pour la Fête des Mères à Anvers"
   }
 }

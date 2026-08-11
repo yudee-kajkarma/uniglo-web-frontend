@@ -17,6 +17,9 @@ interface ArticleLayoutProps {
     onButtonClick?: () => void; // Optional handler for the button
     /* --- NEW PROP --- */
     floatImages?: boolean; // Default: true. If false, uses Flexbox split layout.
+    /* Arbitrary trailing content (links, CTA rows, notes). Lets a server
+       component supply <Link> buttons without the client-only onButtonClick. */
+    actions?: React.ReactNode;
 }
 
 const ArticleLayout: React.FC<ArticleLayoutProps> = ({
@@ -29,6 +32,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
     buttonText,
     onButtonClick,
     floatImages = true, // Default to your original float behavior
+    actions,
 }) => {
     return (
         <div
@@ -111,6 +115,8 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
                         </Button>
                     </div>
                 )}
+
+                {actions && <div className="mt-8">{actions}</div>}
             </div>
         </div>
     );

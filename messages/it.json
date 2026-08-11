@@ -1,5 +1,7 @@
 {
   "nav": {
+    "events": "Eventi",
+    "antwerpMothersDay": "Festa della Mamma ad Anversa",
     "inventory": "Inventario",
     "about": "A proposito di",
     "contact": "Contatto",
@@ -38348,5 +38350,161 @@
     "aboutUs": "Chi siamo",
     "blog": "Blog",
     "sellDiamonds": "Vendi diamanti"
+  },
+  "antwerpMothersDayPage": {
+    "metadata": {
+      "title": "Gioielli Festa della Mamma ad Anversa | 15 agosto",
+      "description": "Scopri gioielli con diamanti per la Festa della Mamma ad Anversa il 15 agosto. Esplora Uniglo Jewels o richiedi una selezione personalizzata."
+    },
+    "announcement": "Ad Anversa la Festa della Mamma si celebra il 15 agosto · Scopri la nostra selezione di gioielli con diamanti",
+    "hero": {
+      "eyebrow": "Tradizione di Anversa · Sabato 15 agosto 2026",
+      "title": "Gioielli con diamanti per la Festa della Mamma ad Anversa",
+      "lead": "Celebra le donne che hanno segnato la tua vita con un gioiello con diamanti scelto in base alla loro personalità e al loro stile.",
+      "para": "Scopri collane, orecchini, bracciali e anelli di Uniglo Jewels, oppure chiedi al nostro team di Anversa di preparare una selezione personalizzata in base al tuo budget e alla data in cui desideri ricevere il regalo.",
+      "assurances": "Gioielli con diamanti naturali e di laboratorio · Assistenza personalizzata · Appuntamenti ad Anversa o da remoto",
+      "primaryCta": "Scopri i gioielli per la Festa della Mamma",
+      "secondaryCta": "Richiedi la mia selezione personalizzata",
+      "imageAlt": "Gioiello con diamanti per la Festa della Mamma ad Anversa"
+    },
+    "tradition": {
+      "eyebrow": "Perché Anversa celebra la Festa della Mamma il 15 agosto",
+      "title": "Anversa ha una propria tradizione per la Festa della Mamma",
+      "para1": "Nella maggior parte del Belgio, la Festa della Mamma si celebra a maggio. Ad Anversa, invece, le mamme vengono festeggiate il 15 agosto, secondo una tradizione locale introdotta nel 1913 dall’artista e assessore di Anversa Frans Van Kuyck.",
+      "para2": "La data coincide con l’Assunzione di Maria, patrona della città di Anversa. A più di un secolo di distanza, la Festa della Mamma di Anversa continua a essere celebrata ogni anno il 15 agosto.",
+      "para3": "Nel 2026 cadrà di sabato: un’occasione speciale per ringraziare una madre, una nonna, la propria compagna o una neomamma con un regalo scelto appositamente per lei.",
+      "imageAlt": "Madre e figlia festeggiano la Festa della Mamma ad Anversa"
+    },
+    "shopByType": {
+      "eyebrow": "Scegliere per tipo di gioiello",
+      "title": "Trova un gioiello con diamanti che rispecchi il suo stile",
+      "intro": "Non è necessario conoscere ogni dettaglio della gioielleria per fare la scelta giusta. Inizia semplicemente osservando i gioielli che ama già indossare.",
+      "categories": [
+        {
+          "title": "Collane con diamanti",
+          "description": "Una collana con solitario, un ciondolo a cuore o un modello personalizzato è un regalo elegante da indossare ogni giorno. È anche una scelta pratica quando non conosci la misura del suo anello.",
+          "linkLabel": "Scopri le collane con diamanti"
+        },
+        {
+          "title": "Orecchini con diamanti",
+          "description": "Gli orecchini a bottone con diamanti sono discreti, senza tempo e facili da indossare. Cerchi, motivi floreali o pendenti sono più adatti a una donna che ama gioielli espressivi e contemporanei.",
+          "linkLabel": "Scopri gli orecchini con diamanti"
+        },
+        {
+          "title": "Bracciali con diamanti",
+          "description": "Scegli un bracciale sottile per un gioiello facile da portare ogni giorno, oppure un bracciale tennis per un regalo più importante e distintivo.",
+          "linkLabel": "Scopri i bracciali con diamanti"
+        },
+        {
+          "title": "Anelli con diamanti",
+          "description": "Un anello con più pietre o un modello che può essere inciso può rappresentare i figli, la famiglia o un ricordo condiviso. Prima di ordinare, verifica la misura e le condizioni per un eventuale ridimensionamento.",
+          "linkLabel": "Scopri gli anelli con diamanti"
+        }
+      ],
+      "footnote": "Non sai quale stile scegliere?",
+      "footnoteCta": "Richiedi una selezione personalizzata",
+      "imageAlt": "Collane, orecchini, bracciali e anelli con diamanti per la Festa della Mamma"
+    },
+    "giftEdit": {
+      "fromPrice": "A partire da",
+      "viewProduct": "Scopri su Uniglo Jewels",
+      "naturalDiamond": "Diamanti naturali",
+      "labGrownDiamond": "Diamanti di laboratorio",
+      "eyebrow": "Selezione di gioielli",
+      "title": "La selezione per la Festa della Mamma ad Anversa",
+      "intro": "Scopri sei gioielli con diamanti selezionati per il 15 agosto.",
+      "placeholder": "La selezione per il 15 agosto è in fase di definizione. Contatta il nostro team di Anversa: ti mostreremo i gioielli attualmente disponibili."
+    },
+    "personalisation": {
+      "eyebrow": "Uniglo Jewels e personalizzazione",
+      "title": "Rendi il suo regalo ancora più personale con Uniglo Jewels",
+      "para1": "Uniglo Jewels propone collane, orecchini, bracciali e anelli con diamanti pensati per essere indossati ogni giorno e nei momenti più importanti.",
+      "para2": "Scopri gioielli con diamanti naturali e di laboratorio, poi chiedi se il modello scelto può essere inciso, personalizzato o accompagnato da una confezione regalo e da un messaggio personale. Queste opzioni dipendono dal gioiello e dal tempo disponibile e devono quindi essere confermate prima dell’ordine.",
+      "primaryCta": "Scopri i gioielli per la Festa della Mamma",
+      "secondaryCta": "Richiedi la mia selezione personalizzata",
+      "imageAlt": "Gioielli con diamanti e confezione regalo di Uniglo Jewels"
+    },
+    "shortlist": {
+      "eyebrow": "Selezione personalizzata, appuntamenti e creazioni su misura",
+      "title": "Lasciati guidare da uno specialista di diamanti ad Anversa",
+      "intro": "Non sai quale gioiello sceglierebbe per sé? Parlaci del suo stile e il nostro team ti consiglierà i modelli disponibili più adatti.",
+      "shareLabel": "Indicaci:",
+      "shareItems": [
+        "A chi è destinato il regalo.",
+        "Quali gioielli indossa abitualmente.",
+        "Quale metallo preferisce.",
+        "Se desideri un diamante naturale, un diamante di laboratorio o se non hai preferenze.",
+        "Il tuo budget.",
+        "La data entro la quale desideri ricevere il regalo."
+      ],
+      "primaryCta": "Richiedi la mia selezione personalizzata",
+      "appointment": "Puoi anche richiedere un appuntamento ad Anversa o da remoto per confrontare diverse creazioni. Gli uffici di Uniglo Diamonds si trovano in Hoveniersstraat 30, Suite 662/Bus 250, 2018 Anversa. Contatta il team prima della visita: gli appuntamenti durante i fine settimana e nei giorni festivi, compreso il 15 agosto, devono essere confermati.",
+      "bespokeTitle": "Preferisci scegliere insieme il diamante?",
+      "bespokePara": "Per un gioiello futuro o una creazione su misura, scopri i diamanti naturali e di laboratorio non montati proposti da Uniglo Diamonds. Confronta caratteristiche, certificati gemmologici e viste a 360°, quindi parla con il nostro team della montatura o dell’incastonatura più adatta.",
+      "bespokeCta": "Scopri i diamanti certificati",
+      "bespokeNote": "La realizzazione di un gioiello su misura prima del 15 agosto non può essere garantita senza una verifica preventiva. Conferma il diamante, il modello e il programma di produzione prima di ordinare.",
+      "imageAlt": "Uno specialista Uniglo prepara una selezione personalizzata di gioielli con diamanti ad Anversa"
+    },
+    "purchaseInfo": {
+      "eyebrow": "Prezzi, tempistiche e informazioni per l’acquisto",
+      "title": "Cosa sapere prima di scegliere",
+      "items": [
+        {
+          "title": "Accesso ai prezzi",
+          "body": "Fotografie, caratteristiche, tipo di diamante e disponibilità sono visibili pubblicamente. Accedi per consultare il prezzo aggiornato di ogni gioiello."
+        },
+        {
+          "title": "Disponibilità e tempistiche",
+          "body": "Contatta Uniglo per confermare disponibilità e tempi prima di scegliere un regalo per il 15 agosto."
+        },
+        {
+          "title": "Ritiro ad Anversa e consegna",
+          "body": "Le opzioni di ritiro e consegna assicurata dipendono dal gioiello e dalla destinazione. Conferma le modalità di ritiro o la data di consegna stimata prima di ordinare. Non recarti negli uffici di Anversa senza un appuntamento confermato."
+        },
+        {
+          "title": "Personalizzazione e confezione regalo",
+          "body": "Incisioni, modifiche su misura, confezioni regalo e messaggi personali sono disponibili solo se confermati per il gioiello scelto. Gli articoli personalizzati possono avere tempistiche e condizioni di reso differenti."
+        },
+        {
+          "title": "Resi e ridimensionamento",
+          "body": "Prima di ordinare, consulta le condizioni applicabili ai resi, agli articoli personalizzati e al ridimensionamento degli anelli."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Domande frequenti",
+      "title": "Domande sulla Festa della Mamma ad Anversa e sui gioielli con diamanti",
+      "items": [
+        {
+          "question": "Quando si celebra la Festa della Mamma ad Anversa nel 2026?",
+          "answer": "Ad Anversa, la Festa della Mamma si celebrerà sabato 15 agosto 2026. Nella maggior parte del Belgio si festeggia a maggio, ma Anversa conserva una propria tradizione locale."
+        },
+        {
+          "question": "Perché ad Anversa la Festa della Mamma si celebra il 15 agosto?",
+          "answer": "La tradizione fu introdotta nel 1913 dall’artista e assessore di Anversa Frans Van Kuyck. Il 15 agosto coincide con l’Assunzione di Maria, patrona della città di Anversa."
+        },
+        {
+          "question": "Quale gioiello posso regalare se non conosco la sua misura?",
+          "answer": "Collane e orecchini sono generalmente le scelte più semplici perché non richiedono di conoscere la misura dell’anello. Per un bracciale può essere utile verificare la circonferenza del polso. Un anello deve essere scelto nella misura corretta o con la conferma che sia possibile ridimensionarlo."
+        },
+        {
+          "question": "Posso vedere i prezzi senza creare un account?",
+          "answer": "Fotografie, caratteristiche, tipo di diamante e disponibilità sono accessibili pubblicamente. Accedi per vedere il prezzo aggiornato oppure chiedi al team Uniglo di aiutarti a confrontare i gioielli adatti alle tue esigenze."
+        },
+        {
+          "question": "Uniglo può preparare una selezione personalizzata e organizzare il ritiro ad Anversa?",
+          "answer": "Sì. Indicaci il suo stile, il metallo preferito, la tua preferenza per un diamante naturale o di laboratorio, il budget e la data desiderata. Il team potrà consigliarti i gioielli disponibili. Il ritiro ad Anversa e gli appuntamenti devono essere confermati in anticipo, soprattutto per il 15 agosto."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Trova un regalo per la Festa della Mamma davvero personale",
+      "para": "Scopri la selezione di gioielli con diamanti di Uniglo Jewels oppure raccontaci semplicemente cosa ama indossare. Il nostro team di Anversa ti aiuterà a confrontare i modelli disponibili per il 15 agosto.",
+      "primaryCta": "Scopri i gioielli per la Festa della Mamma",
+      "secondaryCta": "Richiedi la mia selezione personalizzata",
+      "note": "Hai domande sulle tempistiche? Contatta Uniglo per confermare disponibilità, personalizzazione, consegna o ritiro ad Anversa prima di scegliere."
+    },
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Gioielli per la Festa della Mamma ad Anversa"
   }
 }

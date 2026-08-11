@@ -1,5 +1,7 @@
 {
   "nav": {
+    "events": "Eventos",
+    "antwerpMothersDay": "Día de la Madre en Amberes",
     "inventory": "Inventario",
     "about": "Acerca de",
     "contact": "Contacto",
@@ -38348,5 +38350,161 @@
     "aboutUs": "Sobre nosotros",
     "blog": "Blog",
     "sellDiamonds": "Vender diamantes"
+  },
+  "antwerpMothersDayPage": {
+    "metadata": {
+      "title": "Joyas para el Día de la Madre en Amberes | 15 agosto",
+      "description": "Descubre joyas con diamantes para el Día de la Madre en Amberes, el 15 de agosto. Explora Uniglo Jewels o solicita una selección personalizada."
+    },
+    "announcement": "En Amberes, el Día de la Madre se celebra el 15 de agosto · Descubre nuestra selección de joyas con diamantes",
+    "hero": {
+      "eyebrow": "Tradición de Amberes · Sábado 15 de agosto de 2026",
+      "title": "Joyas con diamantes para el Día de la Madre en Amberes",
+      "lead": "Celebra a las mujeres que han marcado tu vida con una joya con diamantes elegida para reflejar su personalidad y su estilo.",
+      "para": "Descubre collares, pendientes, pulseras y anillos de Uniglo Jewels, o pide a nuestro equipo de Amberes que prepare una selección personalizada según tu presupuesto y la fecha en la que necesitas recibir el regalo.",
+      "assurances": "Joyas con diamantes naturales y de laboratorio · Asesoramiento personalizado · Citas en Amberes o por videollamada",
+      "primaryCta": "Descubre las joyas para el Día de la Madre",
+      "secondaryCta": "Solicita tu selección personalizada",
+      "imageAlt": "Joya con diamantes para el Día de la Madre en Amberes"
+    },
+    "tradition": {
+      "eyebrow": "Por qué Amberes celebra el Día de la Madre el 15 de agosto",
+      "title": "Amberes tiene su propia tradición del Día de la Madre",
+      "para1": "En la mayor parte de Bélgica, el Día de la Madre se celebra en mayo. En Amberes, en cambio, las madres reciben su homenaje el 15 de agosto, siguiendo una tradición local que el artista y concejal de Amberes Frans Van Kuyck introdujo en 1913.",
+      "para2": "La fecha coincide con la Asunción de María, patrona de la ciudad de Amberes. Más de un siglo después, el Día de la Madre de Amberes continúa celebrándose cada año el 15 de agosto.",
+      "para3": "En 2026 caerá en sábado: una ocasión especial para agradecer a una madre, una abuela, tu pareja o una madre primeriza con un regalo elegido pensando en ella.",
+      "imageAlt": "Madre e hija celebrando el Día de la Madre en Amberes"
+    },
+    "shopByType": {
+      "eyebrow": "Elegir por tipo de joya",
+      "title": "Encuentra una joya con diamantes que refleje su estilo",
+      "intro": "No necesitas conocer todos los detalles de la joyería para acertar. Empieza observando las piezas que ella ya disfruta llevando.",
+      "categories": [
+        {
+          "title": "Collares con diamantes",
+          "description": "Un collar solitario, un colgante de corazón o un diseño personalizado es un regalo elegante para llevar a diario. También es una elección práctica si no conoces su talla de anillo.",
+          "linkLabel": "Descubre los collares con diamantes"
+        },
+        {
+          "title": "Pendientes con diamantes",
+          "description": "Los pendientes de botón con diamantes son discretos, atemporales y fáciles de combinar. Los aros, diseños florales o pendientes colgantes resultan más adecuados para una mujer que prefiere joyas expresivas y contemporáneas.",
+          "linkLabel": "Descubre los pendientes con diamantes"
+        },
+        {
+          "title": "Pulseras con diamantes",
+          "description": "Elige una pulsera delicada para una joya fácil de llevar cada día, o una pulsera de tenis para un regalo más importante y distintivo.",
+          "linkLabel": "Descubre las pulseras con diamantes"
+        },
+        {
+          "title": "Anillos con diamantes",
+          "description": "Un anillo con varias piedras o un diseño que pueda grabarse puede representar a sus hijos, su familia o un recuerdo compartido. Antes de realizar el pedido, confirma la talla y las condiciones de un posible ajuste.",
+          "linkLabel": "Descubre los anillos con diamantes"
+        }
+      ],
+      "footnote": "¿No sabes qué estilo elegir?",
+      "footnoteCta": "Solicita una selección personalizada",
+      "imageAlt": "Collares, pendientes, pulseras y anillos con diamantes para el Día de la Madre"
+    },
+    "giftEdit": {
+      "fromPrice": "Desde",
+      "viewProduct": "Ver en Uniglo Jewels",
+      "naturalDiamond": "Diamantes naturales",
+      "labGrownDiamond": "Diamantes de laboratorio",
+      "eyebrow": "Selección de joyas",
+      "title": "La selección para el Día de la Madre en Amberes",
+      "intro": "Descubre seis joyas con diamantes seleccionadas para el 15 de agosto.",
+      "placeholder": "La selección para el 15 de agosto se está terminando de preparar. Contacta con nuestro equipo de Amberes y te mostraremos las piezas disponibles en este momento."
+    },
+    "personalisation": {
+      "eyebrow": "Uniglo Jewels y personalización",
+      "title": "Haz que su regalo sea aún más personal con Uniglo Jewels",
+      "para1": "Uniglo Jewels reúne collares, pendientes, pulseras y anillos con diamantes diseñados para llevarse a diario y en los momentos más importantes.",
+      "para2": "Descubre joyas con diamantes naturales y de laboratorio y pregunta después si el diseño elegido puede grabarse, personalizarse o presentarse con un envoltorio de regalo y un mensaje personal. Estas opciones dependen de la pieza y del tiempo disponible, por lo que deben confirmarse antes de realizar el pedido.",
+      "primaryCta": "Descubre las joyas para el Día de la Madre",
+      "secondaryCta": "Solicita tu selección personalizada",
+      "imageAlt": "Joyas con diamantes y presentación de regalo de Uniglo Jewels"
+    },
+    "shortlist": {
+      "eyebrow": "Selección personalizada, citas y creaciones a medida",
+      "title": "Déjate asesorar por un especialista en diamantes de Amberes",
+      "intro": "¿No sabes qué joya elegiría ella? Cuéntanos cómo es su estilo y nuestro equipo te recomendará las piezas disponibles que mejor encajen.",
+      "shareLabel": "Indícanos:",
+      "shareItems": [
+        "Para quién es el regalo.",
+        "Qué joyas suele llevar.",
+        "Qué metal prefiere.",
+        "Si buscas un diamante natural, uno de laboratorio o no tienes preferencia.",
+        "Tu presupuesto.",
+        "La fecha en la que necesitas recibir el regalo."
+      ],
+      "primaryCta": "Solicita tu selección personalizada",
+      "appointment": "También puedes pedir una cita en Amberes o por videollamada para comparar varias creaciones. Las oficinas de Uniglo Diamonds se encuentran en Hoveniersstraat 30, Suite 662/Bus 250, 2018 Amberes. Contacta con el equipo antes de acudir: las citas durante los fines de semana y días festivos, incluido el 15 de agosto, deben confirmarse.",
+      "bespokeTitle": "¿Prefieres elegir juntos el diamante?",
+      "bespokePara": "Para una joya futura o una creación a medida, descubre los diamantes naturales y de laboratorio sin montar de Uniglo Diamonds. Compara sus características, certificados gemológicos y vistas de 360°, y habla después con nuestro equipo sobre la montura o el engaste más adecuado.",
+      "bespokeCta": "Descubre los diamantes certificados",
+      "bespokeNote": "La entrega de una joya a medida antes del 15 de agosto no puede garantizarse sin una comprobación previa. Confirma el diamante, el diseño y el calendario de producción antes de realizar el pedido.",
+      "imageAlt": "Un especialista de Uniglo prepara una selección personalizada de joyas con diamantes en Amberes"
+    },
+    "purchaseInfo": {
+      "eyebrow": "Precios, plazos e información de compra",
+      "title": "Lo que debes saber antes de elegir",
+      "items": [
+        {
+          "title": "Acceso a los precios",
+          "body": "Las fotografías, las características, el tipo de diamante y la disponibilidad son visibles públicamente. Inicia sesión para consultar el precio actualizado de cada joya."
+        },
+        {
+          "title": "Disponibilidad y plazos",
+          "body": "Contacta con Uniglo para confirmar la disponibilidad y los plazos antes de elegir un regalo para el 15 de agosto."
+        },
+        {
+          "title": "Recogida en Amberes y entrega",
+          "body": "Las opciones de recogida y entrega asegurada dependen de la joya y del destino. Confirma las condiciones de recogida o la fecha estimada de entrega antes de realizar el pedido. No acudas a las oficinas de Amberes sin una cita confirmada."
+        },
+        {
+          "title": "Personalización y presentación del regalo",
+          "body": "Los grabados, las modificaciones a medida, el envoltorio de regalo y los mensajes personales solo están disponibles cuando se hayan confirmado para la joya elegida. Los artículos personalizados pueden tener plazos y condiciones de devolución diferentes."
+        },
+        {
+          "title": "Devoluciones y ajustes de talla",
+          "body": "Antes de realizar el pedido, consulta las condiciones aplicables a las devoluciones, los artículos personalizados y los ajustes de talla de los anillos."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Preguntas frecuentes",
+      "title": "Preguntas sobre el Día de la Madre en Amberes y las joyas con diamantes",
+      "items": [
+        {
+          "question": "¿Cuándo se celebra el Día de la Madre en Amberes en 2026?",
+          "answer": "En Amberes, el Día de la Madre se celebrará el sábado 15 de agosto de 2026. En la mayor parte de Bélgica se festeja en mayo, pero Amberes conserva su propia tradición local."
+        },
+        {
+          "question": "¿Por qué Amberes celebra el Día de la Madre el 15 de agosto?",
+          "answer": "El artista y concejal de Amberes Frans Van Kuyck introdujo esta tradición en 1913. El 15 de agosto coincide con la Asunción de María, patrona de la ciudad de Amberes."
+        },
+        {
+          "question": "¿Qué joya puedo regalar si no conozco su talla?",
+          "answer": "Los collares y pendientes suelen ser las opciones más sencillas porque no requieren conocer la talla de anillo. Para una pulsera, puede resultar útil comprobar el contorno de la muñeca. Un anillo debe elegirse en la talla correcta o después de confirmar que puede ajustarse."
+        },
+        {
+          "question": "¿Puedo ver los precios sin crear una cuenta?",
+          "answer": "Las fotografías, las características, el tipo de diamante y la disponibilidad son accesibles públicamente. Inicia sesión para ver el precio actualizado o pide al equipo de Uniglo que te ayude a comparar las joyas más adecuadas para tus necesidades."
+        },
+        {
+          "question": "¿Puede Uniglo preparar una selección personalizada y organizar la recogida en Amberes?",
+          "answer": "Sí. Indícanos su estilo, el metal que prefiere, si buscas un diamante natural o de laboratorio, tu presupuesto y la fecha deseada. El equipo podrá recomendarte las joyas disponibles. La recogida en Amberes y las citas deben confirmarse con antelación, especialmente para el 15 de agosto."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Encuentra un regalo para el Día de la Madre verdaderamente personal",
+      "para": "Descubre la selección de joyas con diamantes de Uniglo Jewels o cuéntanos simplemente qué le gusta llevar. Nuestro equipo de Amberes te ayudará a comparar las opciones disponibles para el 15 de agosto.",
+      "primaryCta": "Descubre las joyas para el Día de la Madre",
+      "secondaryCta": "Solicita tu selección personalizada",
+      "note": "¿Tienes dudas sobre los plazos? Contacta con Uniglo para confirmar la disponibilidad, la personalización, la entrega o la recogida en Amberes antes de elegir."
+    },
+    "breadcrumbHome": "Inicio",
+    "breadcrumbCurrent": "Joyas para el Día de la Madre en Amberes"
   }
 }

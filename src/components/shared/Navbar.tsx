@@ -107,6 +107,17 @@ const NAV_LINKS: NavLink[] = [
         ],
     },
     {
+        nameKey: "nav.events",
+        href: "#",
+        hasDropdown: true,
+        submenuItems: [
+            {
+                nameKey: "nav.antwerpMothersDay",
+                href: "/antwerp-mothers-day-diamond-gifts",
+            },
+        ],
+    },
+    {
         nameKey: "nav.resources",
         href: "#",
         hasDropdown: true,

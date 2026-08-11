@@ -1,5 +1,7 @@
 {
   "nav": {
+    "events": "Evenementen",
+    "antwerpMothersDay": "Moederdag in Antwerpen",
     "inventory": "Voorraad",
     "about": "Over",
     "contact": "Neem contact op met",
@@ -38348,5 +38350,161 @@
     "aboutUs": "Over ons",
     "blog": "Blog",
     "sellDiamonds": "Verkoop diamanten"
+  },
+  "antwerpMothersDayPage": {
+    "metadata": {
+      "title": "Moederdagjuwelen in Antwerpen | 15 augustus",
+      "description": "Ontdek diamanten juwelen voor Moederdag in Antwerpen op 15 augustus. Bekijk Uniglo Jewels of vraag een persoonlijke cadeauselectie aan."
+    },
+    "announcement": "In Antwerpen vieren we Moederdag op 15 augustus · Ontdek onze selectie diamanten juwelen",
+    "hero": {
+      "eyebrow": "Antwerpse traditie · Zaterdag 15 augustus 2026",
+      "title": "Diamanten juwelen voor Moederdag in Antwerpen",
+      "lead": "Vier de vrouwen die uw leven mee vorm hebben gegeven met een diamanten juweel dat past bij haar persoonlijkheid en stijl.",
+      "para": "Ontdek kettingen, oorbellen, armbanden en ringen van Uniglo Jewels, of laat ons Antwerpse team een persoonlijke cadeauselectie samenstellen op basis van uw budget en de datum waarop u het geschenk nodig hebt.",
+      "assurances": "Juwelen met natuurlijke en lab-grown diamanten · Persoonlijk advies · Afspraken in Antwerpen of via videogesprek",
+      "primaryCta": "Bekijk Moederdagjuwelen",
+      "secondaryCta": "Vraag uw persoonlijke cadeauselectie aan",
+      "imageAlt": "Diamanten juweel als Moederdagcadeau in Antwerpen"
+    },
+    "tradition": {
+      "eyebrow": "Waarom Antwerpen Moederdag op 15 augustus viert",
+      "title": "Antwerpen heeft zijn eigen Moederdagtraditie",
+      "para1": "In het grootste deel van België wordt Moederdag in mei gevierd. Antwerpen eert moeders op 15 augustus volgens een lokale traditie die in 1913 werd ingevoerd door de Antwerpse kunstenaar en schepen Frans Van Kuyck.",
+      "para2": "De datum valt samen met Maria-Tenhemelopneming. Maria geldt als beschermheilige van de stad Antwerpen. Meer dan een eeuw later wordt de Antwerpse Moederdag nog altijd jaarlijks op 15 augustus gevierd.",
+      "para3": "In 2026 valt Moederdag in Antwerpen op een zaterdag: een bijzondere gelegenheid om een moeder, grootmoeder, partner of kersverse mama te bedanken met een cadeau dat speciaal voor haar werd gekozen.",
+      "imageAlt": "Moeder en dochter vieren Moederdag in Antwerpen"
+    },
+    "shopByType": {
+      "eyebrow": "Kiezen volgens het type juweel",
+      "title": "Vind een diamanten juweel dat bij haar stijl past",
+      "intro": "U hoeft niet alles over juwelen te weten om een goede keuze te maken. Begin bij de stukken die zij nu al graag draagt.",
+      "categories": [
+        {
+          "title": "Diamanten kettingen",
+          "description": "Een solitaire ketting, hartvormige hanger of gepersonaliseerd ontwerp is een elegant cadeau voor elke dag. Een ketting is ook een praktische keuze wanneer u haar ringmaat niet kent.",
+          "linkLabel": "Bekijk diamanten kettingen"
+        },
+        {
+          "title": "Diamanten oorbellen",
+          "description": "Diamanten oorknopjes zijn discreet, tijdloos en gemakkelijk te combineren. Hoepels, bloemmotieven en hangende oorbellen passen beter bij iemand die houdt van opvallende of eigentijdse juwelen.",
+          "linkLabel": "Bekijk diamanten oorbellen"
+        },
+        {
+          "title": "Diamanten armbanden",
+          "description": "Kies een fijne diamanten armband voor een juweel dat ze elke dag kan dragen, of een tennisarmband voor een groter en meer uitgesproken gebaar.",
+          "linkLabel": "Bekijk diamanten armbanden"
+        },
+        {
+          "title": "Diamanten ringen",
+          "description": "Een ring met meerdere stenen of een ontwerp dat gegraveerd kan worden, kan symbool staan voor haar kinderen, haar gezin of een gedeelde herinnering. Bevestig vóór de bestelling haar ringmaat en de mogelijkheden voor een eventuele aanpassing.",
+          "linkLabel": "Bekijk diamanten ringen"
+        }
+      ],
+      "footnote": "Twijfelt u over haar stijl?",
+      "footnoteCta": "Vraag een persoonlijke cadeauselectie aan",
+      "imageAlt": "Diamanten kettingen, oorbellen, armbanden en ringen voor Moederdag"
+    },
+    "giftEdit": {
+      "fromPrice": "Vanaf",
+      "viewProduct": "Bekijk op Uniglo Jewels",
+      "naturalDiamond": "Natuurlijke diamanten",
+      "labGrownDiamond": "Lab-grown diamanten",
+      "eyebrow": "Juwelenselectie",
+      "title": "De selectie voor Moederdag in Antwerpen",
+      "intro": "Ontdek zes diamanten juwelen die voor 15 augustus werden geselecteerd.",
+      "placeholder": "De selectie voor 15 augustus wordt momenteel afgerond. Neem contact op met ons Antwerpse team en wij tonen u de juwelen die nu beschikbaar zijn."
+    },
+    "personalisation": {
+      "eyebrow": "Uniglo Jewels en personalisatie",
+      "title": "Maak haar cadeau persoonlijker met Uniglo Jewels",
+      "para1": "Uniglo Jewels brengt diamanten kettingen, oorbellen, armbanden en ringen samen die ontworpen zijn voor dagelijks gebruik en betekenisvolle momenten.",
+      "para2": "Ontdek juwelen met natuurlijke en lab-grown diamanten en vraag vervolgens of het gekozen ontwerp kan worden gegraveerd, aangepast of aangeboden in een geschenkverpakking met een persoonlijke boodschap. Deze mogelijkheden zijn afhankelijk van het juweel en de beschikbare tijd en moeten vóór de bestelling worden bevestigd.",
+      "primaryCta": "Bekijk Moederdagjuwelen",
+      "secondaryCta": "Vraag uw persoonlijke cadeauselectie aan",
+      "imageAlt": "Diamanten juwelen en geschenkverpakking van Uniglo Jewels"
+    },
+    "shortlist": {
+      "eyebrow": "Persoonlijke selectie, afspraken en maatwerk",
+      "title": "Laat u adviseren door een Antwerpse diamantspecialist",
+      "intro": "Weet u niet zeker welk juweel zij zelf zou kiezen? Vertel ons meer over haar stijl en ons team beveelt de best passende beschikbare stukken aan.",
+      "shareLabel": "Deel met ons:",
+      "shareItems": [
+        "Voor wie het cadeau bestemd is.",
+        "Welke juwelen zij gewoonlijk draagt.",
+        "Welk metaal haar voorkeur heeft.",
+        "Of u een natuurlijke diamant, een lab-grown diamant of geen specifieke voorkeur hebt.",
+        "Uw budget.",
+        "De datum waarop u het cadeau nodig hebt."
+      ],
+      "primaryCta": "Vraag uw persoonlijke cadeauselectie aan",
+      "appointment": "U kunt ook een afspraak in Antwerpen of via videogesprek aanvragen om verschillende ontwerpen te vergelijken. De kantoren van Uniglo Diamonds bevinden zich in de Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerpen. Neem vóór uw bezoek contact op met het team. Afspraken tijdens weekends en feestdagen, waaronder 15 augustus, moeten vooraf worden bevestigd.",
+      "bespokeTitle": "Kiest u de diamant liever samen?",
+      "bespokePara": "Voor een toekomstig juweel of een ontwerp op maat kunt u de natuurlijke en lab-grown losse diamanten van Uniglo Diamonds ontdekken. Vergelijk kenmerken, gemmologische certificaten en 360°-beelden en bespreek daarna met ons team welke zetting of welk ontwerp het meest geschikt is.",
+      "bespokeCta": "Bekijk gecertificeerde diamanten",
+      "bespokeNote": "De levering van een juweel op maat vóór 15 augustus kan niet zonder voorafgaande controle worden gegarandeerd. Bevestig de diamant, het ontwerp en de productieplanning vóór u bestelt.",
+      "imageAlt": "Een Uniglo-specialist stelt een persoonlijke selectie diamanten juwelen samen in Antwerpen"
+    },
+    "purchaseInfo": {
+      "eyebrow": "Prijzen, termijnen en aankoopinformatie",
+      "title": "Wat u moet weten vóór u kiest",
+      "items": [
+        {
+          "title": "Toegang tot prijzen",
+          "body": "De foto's, specificaties, het diamanttype en de beschikbaarheid zijn openbaar zichtbaar. Log in om de actuele prijs van elk juweel te bekijken."
+        },
+        {
+          "title": "Beschikbaarheid en termijnen",
+          "body": "Neem contact op met Uniglo om de beschikbaarheid en leveringstermijn te bevestigen voordat u een cadeau voor 15 augustus kiest."
+        },
+        {
+          "title": "Ophaling in Antwerpen en levering",
+          "body": "De mogelijkheden voor ophaling en verzekerde levering zijn afhankelijk van het juweel en de bestemming. Bevestig de ophaalvoorwaarden of de verwachte leverdatum vóór u bestelt. Kom niet zonder bevestigde afspraak naar de kantoren in Antwerpen."
+        },
+        {
+          "title": "Personalisatie en geschenkverpakking",
+          "body": "Gravures, aanpassingen op maat, geschenkverpakking en persoonlijke boodschappen zijn alleen beschikbaar wanneer ze voor het gekozen juweel zijn bevestigd. Voor gepersonaliseerde artikelen kunnen andere termijnen en retourvoorwaarden gelden."
+        },
+        {
+          "title": "Retourneren en maataanpassingen",
+          "body": "Controleer vóór de bestelling de voorwaarden voor retourzendingen, gepersonaliseerde artikelen en het aanpassen van ringmaten."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Veelgestelde vragen",
+      "title": "Vragen over Moederdag in Antwerpen en diamanten juwelen",
+      "items": [
+        {
+          "question": "Wanneer is het Moederdag in Antwerpen in 2026?",
+          "answer": "In Antwerpen wordt Moederdag gevierd op zaterdag 15 augustus 2026. In het grootste deel van België valt Moederdag in mei, maar Antwerpen bewaart zijn eigen lokale traditie."
+        },
+        {
+          "question": "Waarom viert Antwerpen Moederdag op 15 augustus?",
+          "answer": "De Antwerpse kunstenaar en schepen Frans Van Kuyck voerde deze traditie in 1913 in. De datum valt samen met Maria-Tenhemelopneming. Maria is de beschermheilige van de stad Antwerpen."
+        },
+        {
+          "question": "Welk juweel kan ik geven als ik haar maat niet ken?",
+          "answer": "Kettingen en oorbellen zijn doorgaans de eenvoudigste keuzes omdat u daarvoor geen ringmaat nodig hebt. Voor een armband kan het nuttig zijn haar polsomtrek te controleren. Kies een ring in de juiste maat of bevestig vooraf of de maat kan worden aangepast."
+        },
+        {
+          "question": "Kan ik de prijzen bekijken zonder een account aan te maken?",
+          "answer": "De foto's, specificaties, het diamanttype en de beschikbaarheid zijn openbaar toegankelijk. Log in om de actuele prijs te bekijken of vraag het team van Uniglo om de juwelen te vergelijken die het beste bij uw wensen passen."
+        },
+        {
+          "question": "Kan Uniglo een persoonlijke selectie voorbereiden en ophaling in Antwerpen regelen?",
+          "answer": "Ja. Vertel ons meer over haar stijl, haar favoriete metaal, uw voorkeur voor een natuurlijke of lab-grown diamant, uw budget en de gewenste datum. Het team kan vervolgens beschikbare juwelen aanbevelen. Ophaling in Antwerpen en afspraken moeten vooraf worden bevestigd, zeker voor 15 augustus."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Vind een echt persoonlijk Moederdagcadeau",
+      "para": "Ontdek de selectie diamanten juwelen van Uniglo Jewels of vertel ons eenvoudig wat zij graag draagt. Ons Antwerpse team helpt u de beschikbare mogelijkheden voor 15 augustus te vergelijken.",
+      "primaryCta": "Bekijk Moederdagjuwelen",
+      "secondaryCta": "Vraag uw persoonlijke cadeauselectie aan",
+      "note": "Vragen over de timing? Neem contact op met Uniglo om de beschikbaarheid, personalisatie, levering of ophaling in Antwerpen te bevestigen voordat u kiest."
+    },
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Moederdagjuwelen in Antwerpen"
   }
 }

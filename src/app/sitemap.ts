@@ -54,6 +54,9 @@ const TOP_LEVEL_PAGES: string[] = [
     "blogs",
 ];
 
+// Seasonal campaign landing pages.
+const CAMPAIGN_PAGES: string[] = ["antwerp-mothers-day-diamond-gifts"];
+
 const SERVICES_PAGES: string[] = [
     "diamond-manufacturing",
     "the-best-price-for-your-diamonds",
@@ -248,6 +251,7 @@ const staticEntries = (): MetadataRoute.Sitemap => {
         ...HOME.map((p) => entry(p, 1.0, "weekly")),
         ...HUB_PAGES.map((p) => entry(p, 0.9, "daily")),
         ...TOP_LEVEL_PAGES.map((p) => entry(p, 0.8, "monthly")),
+        ...CAMPAIGN_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...SERVICES_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...EDUCATION_PAGES.map((p) => entry(p, 0.8, "monthly")),
         ...RESOURCES_PAGES.map((p) => entry(p, 0.7, "monthly")),

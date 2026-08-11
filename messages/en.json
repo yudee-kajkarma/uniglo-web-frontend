@@ -1,5 +1,7 @@
 {
   "nav": {
+    "events": "Events",
+    "antwerpMothersDay": "Antwerp Mother’s Day",
     "inventory": "Inventory",
     "about": "About",
     "contact": "Contact",
@@ -38373,5 +38375,161 @@
     "aboutUs": "About Us",
     "blog": "Blog",
     "sellDiamonds": "Sell Diamonds"
+  },
+  "antwerpMothersDayPage": {
+    "metadata": {
+      "title": "Antwerp Mother’s Day Diamond Gifts | 15 August | Uniglo",
+      "description": "Shop diamond jewellery gifts for Antwerp Mother’s Day on 15 August. Explore Uniglo Jewels or request a personal shortlist from our Antwerp team."
+    },
+    "announcement": "Antwerp celebrates Mother’s Day on 15 August · Discover selected diamond jewellery gifts",
+    "hero": {
+      "eyebrow": "Antwerp tradition · Saturday, 15 August 2026",
+      "title": "Diamond Jewellery Gifts for Antwerp Mother’s Day",
+      "lead": "Celebrate the women who have shaped your life with a diamond gift chosen for her individual style.",
+      "para": "Explore necklaces, earrings, bracelets and rings from Uniglo Jewels, or ask our Antwerp team to prepare a personal gift shortlist for your budget and required date.",
+      "assurances": "Natural and lab-grown diamond jewellery · Personal assistance · Antwerp and virtual appointments",
+      "primaryCta": "Explore Mother’s Day Jewellery",
+      "secondaryCta": "Request a Personal Gift Shortlist",
+      "imageAlt": "Diamond jewellery gift for Antwerp Mother’s Day"
+    },
+    "tradition": {
+      "eyebrow": "Why Antwerp Celebrates on 15 August",
+      "title": "Antwerp Has Its Own Mother’s Day Tradition",
+      "para1": "Most of Belgium celebrates Mother’s Day in May. Antwerp honours mothers on 15 August, a local tradition introduced in 1913 by Antwerp artist and alderman Frans Van Kuyck.",
+      "para2": "The date coincides with the Assumption of Mary, Antwerp’s patroness. More than a century later, the city continues to celebrate its own Mother’s Day on 15 August.",
+      "para3": "In 2026, Antwerp Mother’s Day falls on Saturday, making it an ideal moment to thank a mother, grandmother, partner or new mother with a gift chosen especially for her.",
+      "imageAlt": "Mother and daughter celebrating Mother’s Day in Antwerp"
+    },
+    "shopByType": {
+      "eyebrow": "Shop by Jewellery Type",
+      "title": "Find a Diamond Gift That Feels Like Her",
+      "intro": "You do not need to understand every jewellery detail before you begin. Start with what she already enjoys wearing.",
+      "categories": [
+        {
+          "title": "Diamond Necklaces",
+          "description": "A solitaire, heart or personalised necklace is an elegant everyday gift and does not require sizing.",
+          "linkLabel": "View Diamond Necklaces"
+        },
+        {
+          "title": "Diamond Earrings",
+          "description": "Classic diamond studs are easy to wear, while hoops and floral designs create a more expressive gift.",
+          "linkLabel": "View Diamond Earrings"
+        },
+        {
+          "title": "Diamond Bracelets",
+          "description": "Choose a delicate diamond bracelet for everyday wear or a tennis bracelet for a more distinctive statement.",
+          "linkLabel": "View Diamond Bracelets"
+        },
+        {
+          "title": "Diamond Rings",
+          "description": "A multi-stone or engravable ring can represent family, children or a shared memory. Confirm her ring size and any resizing conditions before ordering.",
+          "linkLabel": "View Diamond Rings"
+        }
+      ],
+      "footnote": "Not sure which style would suit her?",
+      "footnoteCta": "Request a Personal Gift Shortlist",
+      "imageAlt": "Diamond necklaces, earrings, bracelets and rings for Mother’s Day"
+    },
+    "giftEdit": {
+      "fromPrice": "From",
+      "viewProduct": "View on Uniglo Jewels",
+      "naturalDiamond": "Natural diamonds",
+      "labGrownDiamond": "Lab-grown diamonds",
+      "eyebrow": "Featured Product Collection",
+      "title": "The Antwerp Mother’s Day Gift Edit",
+      "intro": "Explore six diamond jewellery gifts selected for 15 August.",
+      "placeholder": "The selection for 15 August is being finalised. Contact our Antwerp team and we will share the pieces that are currently available."
+    },
+    "personalisation": {
+      "eyebrow": "Uniglo Jewels and Personalisation",
+      "title": "Make the Gift More Personal with Uniglo Jewels",
+      "para1": "Uniglo Jewels offers ready-to-wear diamond necklaces, earrings, bracelets and rings for everyday wear and meaningful occasions.",
+      "para2": "Explore natural and lab-grown diamond jewellery, then ask whether the selected design is eligible for engraving, bespoke customisation, gift presentation or a personal note. These services depend on the product and the time available, so they must be confirmed before ordering.",
+      "primaryCta": "Explore Mother’s Day Jewellery",
+      "secondaryCta": "Request a Personal Gift Shortlist",
+      "imageAlt": "Diamond jewellery and gift presentation from Uniglo Jewels"
+    },
+    "shortlist": {
+      "eyebrow": "Personal Shortlist, Appointment and Bespoke Option",
+      "title": "Let an Antwerp Diamond Specialist Narrow the Choice",
+      "intro": "Unsure which jewellery she would choose for herself? Tell us a little about her style and our team will recommend suitable available pieces.",
+      "shareLabel": "Share:",
+      "shareItems": [
+        "Who the gift is for.",
+        "The jewellery she usually wears.",
+        "Her preferred metal.",
+        "Natural diamonds, lab-grown diamonds or no preference.",
+        "Your preferred budget range.",
+        "When you need the gift."
+      ],
+      "primaryCta": "Request a Personal Gift Shortlist",
+      "appointment": "You can also request an Antwerp or virtual appointment to compare selected designs. The Uniglo Diamonds office is at Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerp. Contact the team before visiting; holiday and weekend appointments, including 15 August, require confirmation.",
+      "bespokeTitle": "Prefer to Choose the Diamond Together?",
+      "bespokePara": "For a future or bespoke piece, explore natural and lab-grown loose diamonds from Uniglo Diamonds, compare grading details and 360-degree views, and discuss a suitable setting with the team.",
+      "bespokeCta": "Browse Certified Loose Diamonds",
+      "bespokeNote": "Bespoke completion before 15 August cannot be assumed. Confirm the selected diamond, design and production schedule before ordering.",
+      "imageAlt": "Uniglo specialist preparing a personal diamond jewellery shortlist in Antwerp"
+    },
+    "purchaseInfo": {
+      "eyebrow": "Price, Timing and Purchase Information",
+      "title": "Know the Important Details Before You Choose",
+      "items": [
+        {
+          "title": "Price Access",
+          "body": "Product photographs, specifications, diamond type and availability are visible publicly. Log in to view the current price for an individual piece."
+        },
+        {
+          "title": "Availability and Timing",
+          "body": "Contact Uniglo to confirm availability and completion timing before choosing a gift for 15 August."
+        },
+        {
+          "title": "Antwerp Collection and Delivery",
+          "body": "Collection and insured-delivery options depend on the selected item and destination. Confirm the collection arrangement or delivery estimate before ordering. Do not travel to the Antwerp office without a confirmed appointment."
+        },
+        {
+          "title": "Personalisation and Gift Presentation",
+          "body": "Engraving, bespoke changes, gift presentation and personal notes are available only where confirmed for the selected item. Personalised products may have different completion and return conditions."
+        },
+        {
+          "title": "Returns and Resizing",
+          "body": "Review the applicable returns, personalised-item and resizing terms before ordering."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently Asked Questions",
+      "title": "Questions About Antwerp Mother’s Day and Diamond Gifts",
+      "items": [
+        {
+          "question": "When is Mother’s Day in Antwerp in 2026?",
+          "answer": "Antwerp celebrates Mother’s Day on Saturday, 15 August 2026. Most of Belgium celebrates in May, but Antwerp preserves its own local tradition."
+        },
+        {
+          "question": "Why does Antwerp celebrate Mother’s Day on 15 August?",
+          "answer": "The tradition was introduced in 1913 by Antwerp artist and alderman Frans Van Kuyck. The date coincides with the Assumption of Mary, Antwerp’s patroness."
+        },
+        {
+          "question": "What jewellery is easiest to give without knowing her size?",
+          "answer": "Necklaces and earrings are usually the easiest choices because they do not require ring sizing. Bracelets may require wrist-size guidance, while rings should be selected with an accurate size or a confirmed resizing plan."
+        },
+        {
+          "question": "Can I see prices without creating an account?",
+          "answer": "Product photographs, specifications, diamond type and availability are visible publicly. Log in to view the current price or ask the Uniglo team for help comparing suitable pieces."
+        },
+        {
+          "question": "Can Uniglo prepare a personal shortlist and arrange Antwerp collection?",
+          "answer": "Yes. Share her style, preferred metal, diamond preference, budget and required date, and the team can recommend suitable available pieces. Antwerp collection and appointments must be confirmed in advance, especially for 15 August."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Find a Mother’s Day Gift That Feels Personal",
+      "para": "Explore selected diamond jewellery from Uniglo Jewels, or tell us what she loves to wear. Our Antwerp team will help you narrow the available choices for 15 August.",
+      "primaryCta": "Explore Mother’s Day Jewellery",
+      "secondaryCta": "Request a Personal Gift Shortlist",
+      "note": "Need help with timing? Contact Uniglo to confirm availability, personalisation, delivery or Antwerp collection before choosing."
+    },
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Antwerp Mother’s Day Diamond Gifts"
   }
 }

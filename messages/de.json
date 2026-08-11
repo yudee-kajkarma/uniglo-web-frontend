@@ -1,5 +1,7 @@
 {
   "nav": {
+    "events": "Veranstaltungen",
+    "antwerpMothersDay": "Muttertag in Antwerpen",
     "inventory": "Inventar",
     "about": "Über uns",
     "contact": "Kontakt",
@@ -38384,5 +38386,161 @@
     "aboutUs": "Über uns",
     "blog": "Blog",
     "sellDiamonds": "Diamanten verkaufen"
+  },
+  "antwerpMothersDayPage": {
+    "metadata": {
+      "title": "Diamantschmuck zum Muttertag in Antwerpen | 15. August",
+      "description": "Entdecken Sie Diamantschmuck zum Muttertag in Antwerpen am 15. August. Wählen Sie Uniglo Jewels oder fordern Sie eine persönliche Auswahl an."
+    },
+    "announcement": "In Antwerpen wird der Muttertag am 15. August gefeiert · Entdecken Sie unsere Auswahl an Diamantschmuck",
+    "hero": {
+      "eyebrow": "Antwerpener Tradition · Samstag, 15. August 2026",
+      "title": "Diamantschmuck zum Muttertag in Antwerpen",
+      "lead": "Feiern Sie die Frauen, die Ihr Leben geprägt haben, mit einem Schmuckstück, das ihre Persönlichkeit und ihren Stil widerspiegelt.",
+      "para": "Entdecken Sie Halsketten, Ohrringe, Armbänder und Ringe von Uniglo Jewels. Oder lassen Sie unser Antwerpener Team eine persönliche Auswahl zusammenstellen, die zu Ihrem Budget und Ihrem gewünschten Termin passt.",
+      "assurances": "Schmuck mit natürlichen Diamanten und Labordiamanten · Persönliche Beratung · Termine in Antwerpen oder per Video",
+      "primaryCta": "Schmuck zum Muttertag entdecken",
+      "secondaryCta": "Persönliche Auswahl anfordern",
+      "imageAlt": "Diamantschmuck als Muttertagsgeschenk in Antwerpen"
+    },
+    "tradition": {
+      "eyebrow": "Warum Antwerpen den Muttertag am 15. August feiert",
+      "title": "Antwerpen hat seine eigene Muttertagstradition",
+      "para1": "In weiten Teilen Belgiens wird der Muttertag im Mai gefeiert. In Antwerpen werden Mütter dagegen am 15. August geehrt. Diese lokale Tradition wurde 1913 vom Antwerpener Künstler und Stadtrat Frans Van Kuyck eingeführt.",
+      "para2": "Das Datum fällt mit Mariä Himmelfahrt zusammen. Maria gilt als Schutzpatronin der Stadt Antwerpen. Mehr als ein Jahrhundert später wird der Antwerpener Muttertag noch immer jedes Jahr am 15. August gefeiert.",
+      "para3": "2026 fällt dieser Tag auf einen Samstag – eine besondere Gelegenheit, einer Mutter, Großmutter, Partnerin oder frischgebackenen Mutter mit einem bewusst ausgewählten Geschenk Danke zu sagen.",
+      "imageAlt": "Mutter und Tochter feiern den Muttertag in Antwerpen"
+    },
+    "shopByType": {
+      "eyebrow": "Nach Schmuckart auswählen",
+      "title": "Finden Sie ein Schmuckstück, das zu ihrem Stil passt",
+      "intro": "Sie müssen nicht jedes Detail über Schmuck kennen, um eine gute Wahl zu treffen. Beginnen Sie mit den Schmuckstücken, die sie bereits gerne trägt.",
+      "categories": [
+        {
+          "title": "Diamanthalsketten",
+          "description": "Eine Solitär-Halskette, ein Herzanhänger oder ein personalisiertes Design ist ein elegantes Geschenk für jeden Tag. Eine Halskette ist außerdem eine praktische Wahl, wenn Sie ihre Ringgröße nicht kennen.",
+          "linkLabel": "Diamanthalsketten entdecken"
+        },
+        {
+          "title": "Diamantohrringe",
+          "description": "Diamant-Ohrstecker sind dezent, zeitlos und vielseitig kombinierbar. Creolen, florale Designs oder Ohrhänger passen besonders gut zu Frauen, die ausdrucksstarken und modernen Schmuck bevorzugen.",
+          "linkLabel": "Diamantohrringe entdecken"
+        },
+        {
+          "title": "Diamantarmbänder",
+          "description": "Wählen Sie ein feines Armband für ein Schmuckstück, das sich täglich tragen lässt, oder ein Tennisarmband für ein besonders wertvolles und markantes Geschenk.",
+          "linkLabel": "Diamantarmbänder entdecken"
+        },
+        {
+          "title": "Diamantringe",
+          "description": "Ein Ring mit mehreren Steinen oder ein gravierbares Design kann für ihre Kinder, ihre Familie oder eine gemeinsame Erinnerung stehen. Klären Sie vor der Bestellung die Ringgröße und die Möglichkeiten einer späteren Größenanpassung.",
+          "linkLabel": "Diamantringe entdecken"
+        }
+      ],
+      "footnote": "Sie sind nicht sicher, welcher Stil zu ihr passt?",
+      "footnoteCta": "Persönliche Auswahl anfordern",
+      "imageAlt": "Diamanthalsketten, Ohrringe, Armbänder und Ringe zum Muttertag"
+    },
+    "giftEdit": {
+      "fromPrice": "Ab",
+      "viewProduct": "Bei Uniglo Jewels ansehen",
+      "naturalDiamond": "Natürliche Diamanten",
+      "labGrownDiamond": "Labordiamanten",
+      "eyebrow": "Schmuckauswahl",
+      "title": "Die Schmuckauswahl zum Antwerpener Muttertag",
+      "intro": "Entdecken Sie sechs ausgewählte Schmuckstücke mit Diamanten für den 15. August.",
+      "placeholder": "Die Auswahl für den 15. August wird derzeit fertiggestellt. Kontaktieren Sie unser Antwerpener Team – wir zeigen Ihnen die aktuell verfügbaren Schmuckstücke."
+    },
+    "personalisation": {
+      "eyebrow": "Uniglo Jewels und Personalisierung",
+      "title": "Machen Sie ihr Geschenk mit Uniglo Jewels noch persönlicher",
+      "para1": "Uniglo Jewels vereint Halsketten, Ohrringe, Armbänder und Ringe mit Diamanten, die für den Alltag und für besondere Momente entworfen wurden.",
+      "para2": "Entdecken Sie Schmuck mit natürlichen Diamanten und Labordiamanten. Fragen Sie anschließend, ob das gewählte Design graviert, individuell angepasst oder mit einer Geschenkverpackung und einer persönlichen Nachricht überreicht werden kann. Diese Möglichkeiten hängen vom jeweiligen Schmuckstück und von der verfügbaren Zeit ab und müssen vor der Bestellung bestätigt werden.",
+      "primaryCta": "Schmuck zum Muttertag entdecken",
+      "secondaryCta": "Persönliche Auswahl anfordern",
+      "imageAlt": "Diamantschmuck und Geschenkverpackung von Uniglo Jewels"
+    },
+    "shortlist": {
+      "eyebrow": "Persönliche Auswahl, Termine und Maßanfertigungen",
+      "title": "Lassen Sie sich von einem Antwerpener Diamantspezialisten beraten",
+      "intro": "Sie wissen nicht, welches Schmuckstück sie selbst wählen würde? Erzählen Sie uns etwas über ihren Stil, und unser Team empfiehlt Ihnen passende verfügbare Stücke.",
+      "shareLabel": "Teilen Sie uns Folgendes mit:",
+      "shareItems": [
+        "Für wen das Geschenk bestimmt ist.",
+        "Welche Schmuckstücke sie normalerweise trägt.",
+        "Welches Metall sie bevorzugt.",
+        "Ob Sie einen natürlichen Diamanten, einen Labordiamanten oder keine bestimmte Variante bevorzugen.",
+        "Ihr Budget.",
+        "Bis wann Sie das Geschenk benötigen."
+      ],
+      "primaryCta": "Persönliche Auswahl anfordern",
+      "appointment": "Sie können auch einen Termin in Antwerpen oder per Video vereinbaren, um mehrere Schmuckstücke zu vergleichen. Die Geschäftsräume von Uniglo Diamonds befinden sich in der Hoveniersstraat 30, Suite 662/Bus 250, 2018 Antwerpen. Kontaktieren Sie das Team, bevor Sie uns besuchen: Termine an Wochenenden und Feiertagen, einschließlich des 15. August, müssen bestätigt werden.",
+      "bespokeTitle": "Möchten Sie den Diamanten lieber gemeinsam auswählen?",
+      "bespokePara": "Für ein zukünftiges Schmuckstück oder eine Maßanfertigung können Sie die losen natürlichen Diamanten und Labordiamanten von Uniglo Diamonds entdecken. Vergleichen Sie Merkmale, gemmologische Zertifikate und 360°-Ansichten und besprechen Sie anschließend mit unserem Team die passende Fassung.",
+      "bespokeCta": "Zertifizierte Diamanten entdecken",
+      "bespokeNote": "Die Fertigstellung eines maßgefertigten Schmuckstücks vor dem 15. August kann ohne vorherige Prüfung nicht garantiert werden. Bestätigen Sie den Diamanten, das Design und den Produktionszeitplan, bevor Sie bestellen.",
+      "imageAlt": "Ein Uniglo-Spezialist stellt in Antwerpen eine persönliche Auswahl an Diamantschmuck zusammen"
+    },
+    "purchaseInfo": {
+      "eyebrow": "Preise, Fristen und Kaufinformationen",
+      "title": "Was Sie vor Ihrer Auswahl wissen sollten",
+      "items": [
+        {
+          "title": "Preiszugang",
+          "body": "Produktfotos, Merkmale, Diamantart und Verfügbarkeit sind öffentlich sichtbar. Melden Sie sich an, um den aktuellen Preis des jeweiligen Schmuckstücks zu sehen."
+        },
+        {
+          "title": "Verfügbarkeit und Fristen",
+          "body": "Kontaktieren Sie Uniglo, um Verfügbarkeit und Fristen zu bestätigen, bevor Sie ein Geschenk für den 15. August auswählen."
+        },
+        {
+          "title": "Abholung in Antwerpen und Lieferung",
+          "body": "Die Möglichkeiten für eine Abholung oder versicherte Lieferung hängen vom Schmuckstück und vom Bestimmungsort ab. Bestätigen Sie die Abholbedingungen oder den voraussichtlichen Liefertermin vor der Bestellung. Besuchen Sie die Geschäftsräume in Antwerpen nur mit einem bestätigten Termin."
+        },
+        {
+          "title": "Personalisierung und Geschenkverpackung",
+          "body": "Gravuren, individuelle Änderungen, Geschenkverpackungen und persönliche Nachrichten sind nur verfügbar, wenn sie für das gewählte Schmuckstück bestätigt wurden. Für personalisierte Artikel können andere Bearbeitungszeiten und Rückgabebedingungen gelten."
+        },
+        {
+          "title": "Rückgabe und Größenanpassung",
+          "body": "Prüfen Sie vor der Bestellung die Bedingungen für Rückgaben, personalisierte Artikel und Größenanpassungen bei Ringen."
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "Häufig gestellte Fragen",
+      "title": "Fragen zum Muttertag in Antwerpen und zu Diamantschmuck",
+      "items": [
+        {
+          "question": "Wann wird der Muttertag 2026 in Antwerpen gefeiert?",
+          "answer": "In Antwerpen wird der Muttertag 2026 am Samstag, dem 15. August, gefeiert. In weiten Teilen Belgiens findet er im Mai statt, doch Antwerpen bewahrt seine eigene lokale Tradition."
+        },
+        {
+          "question": "Warum feiert Antwerpen den Muttertag am 15. August?",
+          "answer": "Der Antwerpener Künstler und Stadtrat Frans Van Kuyck führte diese Tradition 1913 ein. Der 15. August fällt mit Mariä Himmelfahrt zusammen; Maria gilt als Schutzpatronin der Stadt Antwerpen."
+        },
+        {
+          "question": "Welches Schmuckstück kann ich schenken, wenn ich ihre Größe nicht kenne?",
+          "answer": "Halsketten und Ohrringe sind meist die einfachsten Möglichkeiten, weil Sie dafür keine Ringgröße benötigen. Bei einem Armband kann es hilfreich sein, den Umfang ihres Handgelenks zu kennen. Ein Ring sollte in der richtigen Größe ausgewählt werden oder nachdem die Möglichkeit einer Größenanpassung bestätigt wurde."
+        },
+        {
+          "question": "Kann ich die Preise sehen, ohne ein Konto zu erstellen?",
+          "answer": "Produktfotos, Merkmale, Diamantart und Verfügbarkeit sind öffentlich zugänglich. Melden Sie sich an, um den aktuellen Preis zu sehen, oder bitten Sie das Uniglo-Team, passende Schmuckstücke für Ihre Wünsche zu vergleichen."
+        },
+        {
+          "question": "Kann Uniglo eine persönliche Auswahl zusammenstellen und eine Abholung in Antwerpen organisieren?",
+          "answer": "Ja. Teilen Sie uns ihren Stil, ihr bevorzugtes Metall, Ihre Präferenz für natürliche Diamanten oder Labordiamanten, Ihr Budget und den gewünschten Termin mit. Das Team kann Ihnen verfügbare Schmuckstücke empfehlen. Eine Abholung in Antwerpen und Termine müssen im Voraus bestätigt werden, insbesondere für den 15. August."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Finden Sie ein wirklich persönliches Muttertagsgeschenk",
+      "para": "Entdecken Sie die Auswahl an Diamantschmuck von Uniglo Jewels oder erzählen Sie uns einfach, was sie gerne trägt. Unser Antwerpener Team hilft Ihnen, die verfügbaren Möglichkeiten für den 15. August zu vergleichen.",
+      "primaryCta": "Schmuck zum Muttertag entdecken",
+      "secondaryCta": "Persönliche Auswahl anfordern",
+      "note": "Sie haben Fragen zu den Fristen? Kontaktieren Sie Uniglo, um Verfügbarkeit, Personalisierung, Lieferung oder Abholung in Antwerpen zu bestätigen, bevor Sie Ihre Wahl treffen."
+    },
+    "breadcrumbHome": "Startseite",
+    "breadcrumbCurrent": "Diamantschmuck zum Muttertag in Antwerpen"
   }
 }
