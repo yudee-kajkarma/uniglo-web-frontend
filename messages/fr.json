@@ -40206,60 +40206,11 @@
         ]
       },
       {
-        "heading": "Qu’est-ce qui est réellement disponible avant le 15 août ?",
-        "content": [
-          {
-            "type": "paragraph",
-            "text": "Les pièces ci-dessous sont des modèles réels du catalogue de la sélection Fête des Mères anversoise. Lister un modèle n’équivaut pas à confirmer une pièce finie : pour chacune, la disponibilité, l’heure de retrait et la livraison doivent être vérifiées individuellement auprès de l’équipe avant tout paiement."
-          },
-          {
-            "type": "table",
-            "headers": [
-              "Produit et variante exacts",
-              "Détails produit publics",
-              "À confirmer avant réservation"
-            ],
-            "rows": [
-              [
-                "[Soft Heart Necklace](https://www.uniglojewels.com/ready-to-wear/view-product/necklaces/soft-heart-necklace-with-14k-white-gold-metal-NKVL002W14N?cat=necklaces&urlCatSlug=necklaces&vid=85984) — NKVL002W14N",
-                "Or blanc 14 carats ; diamants naturels ; taille ronde ; 0,4924 ct au total ; 44 pierres",
-                "Qu’une pièce finie est physiquement détenue à Anvers, l’heure limite de retrait et la possibilité d’une livraison assurée avant le 15 août."
-              ],
-              [
-                "[Alma Emerald Diamond Solitaire Necklace](https://www.uniglojewels.com/ready-to-wear/view-product/necklaces/alma-emerald-diamond-solitaire-necklace-with-14k-white-gold-metal-N00052W14L?cat=necklaces&urlCatSlug=necklaces&vid=63812) — N00052W14L",
-                "Or blanc 14 carats ; diamant de laboratoire taille émeraude ; 0,50 ct ; une pierre",
-                "Pièce détenue à Anvers, longueur de chaîne et fermoir, heure limite de retrait, éligibilité à la livraison."
-              ],
-              [
-                "[Double Delight Diamond Stud Earrings](https://www.uniglojewels.com/ready-to-wear/view-product/earrings/double-delight-diamond-stud-earrings-with-14k-rose-gold-metal-ER00050R14N?cat=earrings&urlCatSlug=earrings&vid=82103) — ER00050R14N",
-                "Or rose 14 carats ; diamants naturels tailles émeraude et poire ; 2,00 ct au total ; quatre pierres",
-                "Que la paire est complète et physiquement détenue, ainsi que l’heure de retrait et l’éligibilité à la livraison."
-              ],
-              [
-                "[Peony Flower Fashion Diamond Stud Earrings](https://www.uniglojewels.com/ready-to-wear/view-product/earrings/peony-flower-fashion-diamond-stud-earrings-with-14k-white-gold-metal-ER00010W14L?cat=earrings&urlCatSlug=earrings&vid=80507) — ER00010W14L",
-                "Or blanc 14 carats ; diamants de laboratoire taille ronde ; 1,774 ct au total ; 22 pierres",
-                "Que la paire est complète et physiquement détenue, ainsi que l’heure de retrait et l’éligibilité à la livraison."
-              ],
-              [
-                "[Millie Five Stone Round Fashion Bracelet](https://www.uniglojewels.com/ready-to-wear/view-product/bracelets/millie-five-stone-round-fashion-bracelet-with-14k-white-gold-metal-BR00010W14L?cat=bracelets&urlCatSlug=bracelets&vid=71945) — BR00010W14L",
-                "Or blanc 14 carats ; cinq diamants de laboratoire taille ronde ; 2,412 ct au total",
-                "La longueur finie, le caractère ajustable ou non, le fonctionnement du fermoir et l’heure de retrait."
-              ],
-              [
-                "[Violeta Two Stone Oval and Pear Toi Et Moi Ring](https://www.uniglojewels.com/ready-to-wear/view-product/rings/violeta-two-stone-oval-and-pear-toi-et-moi-grown-diamond-ring-with-14k-white-gold-metal-R00066W14L?cat=rings&urlCatSlug=rings&vid=64718) — R00066W14L",
-                "Or blanc 14 carats ; diamants de laboratoire tailles ovale et poire ; 1,45 ct au total ; deux pierres",
-                "Les tailles exactes physiquement présentes à Anvers, la possibilité d’une mise à taille avant l’échéance et la date limite de gravure."
-              ]
-            ]
-          }
-        ]
-      },
-      {
         "heading": "Pourquoi la date d’expédition affichée compte cette semaine",
         "content": [
           {
             "type": "paragraph",
-            "text": "Lors d’un audit du 11 août 2026, les six pages produit ci-dessus indiquaient le vendredi 21 août comme date d’expédition estimée, soit six jours après la Fête des Mères anversoise. La configuration en ligne classique ne respecte donc pas l’échéance du 15 août. Une pièce ne devrait être proposée dans cette campagne que si Uniglo confirme séparément qu’une pièce déjà finie est physiquement disponible à Anvers, ou qu’elle peut être livrée dans le cadre d’une exception écrite précise."
+            "text": "Lors d’un audit du 11 août 2026, les six pages produit exactes de la campagne indiquaient le vendredi 21 août comme date d’expédition estimée, soit six jours après la Fête des Mères anversoise. La configuration en ligne classique ne respecte donc pas l’échéance du 15 août. Une pièce ne devrait être proposée dans cette campagne que si Uniglo confirme séparément qu’une pièce déjà finie est physiquement disponible à Anvers, ou qu’elle peut être livrée dans le cadre d’une exception écrite précise."
           },
           {
             "type": "paragraph",
