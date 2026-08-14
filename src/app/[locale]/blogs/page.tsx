@@ -431,6 +431,41 @@ const blogs = [
         id: 13,
         image: "/special-blogs-images/valentines-day-diamond-gifts-for-every-heart-1.png",
         slug: "valentines-day-diamond-gifts-for-every-heart",
+    },
+    {
+        id: 86,
+        image: "/mothers-day/blogs/why-antwerp-celebrates-mothers-day-15-august.webp",
+        slug: "why-antwerp-celebrates-mothers-day-15-august",
+    },
+    {
+        id: 87,
+        image: "/mothers-day/blogs/antwerp-mothers-day-15-august-practical-guide.webp",
+        slug: "antwerp-mothers-day-15-august-practical-guide",
+    },
+    {
+        id: 88,
+        image: "/mothers-day/blogs/last-minute-mothers-day-gift-antwerp.webp",
+        slug: "last-minute-mothers-day-gift-antwerp",
+    },
+    {
+        id: 89,
+        image: "/mothers-day/blogs/how-to-choose-jewellery-gift-for-mum.webp",
+        slug: "how-to-choose-jewellery-gift-for-mum",
+    },
+    {
+        id: 90,
+        image: "/mothers-day/blogs/jewellery-gift-without-knowing-ring-size.webp",
+        slug: "jewellery-gift-without-knowing-ring-size",
+    },
+    {
+        id: 91,
+        image: "/mothers-day/blogs/mothers-day-natural-vs-lab-grown-diamond-gift.webp",
+        slug: "mothers-day-natural-vs-lab-grown-diamond-gift",
+    },
+    {
+        id: 92,
+        image: "/mothers-day/blogs/should-jewellery-be-a-surprise-gift-mothers-day.webp",
+        slug: "should-jewellery-be-a-surprise-gift-mothers-day",
     }
 ];
 const BlogPage = async ({ params }: Props) => {
