@@ -482,7 +482,7 @@ const BlogPage = async ({ params }: Props) => {
                         {t("title")}
                     </h2>
                     {/* Blogs Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[...blogs].reverse().map((blog) => {
                             return (
                                 <div
@@ -490,11 +490,12 @@ const BlogPage = async ({ params }: Props) => {
                                     className="flex flex-col h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group"
                                 >
                                     {/* Blog Image */}
-                                    <div className="relative w-full h-64 md:h-72 overflow-hidden rounded-sm mb-6 ">
+                                    <div className="relative w-full aspect-square overflow-hidden rounded-sm mb-6 ">
                                         <Image
                                             src={blog.image}
                                             alt={t(`posts.${blog.id}.title`)}
                                             fill
+                                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                                             className="object-cover hover:scale-105 transition-transform duration-300"
                                             unoptimized={typeof blog.image === "string"}
                                         />
