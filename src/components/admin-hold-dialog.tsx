@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { Loader2, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,16 +25,16 @@ interface AdminHoldDialogProps {
 }
 
 const DURATION_OPTIONS = [
-    { value: "24", label: "24 Hours", hours: 24 },
-    { value: "48", label: "2 Days", hours: 48 },
-    { value: "72", label: "3 Days", hours: 72 },
+    { value: "24", labelKey: "hours24", hours: 24 },
+    { value: "48", labelKey: "days2", hours: 48 },
+    { value: "72", labelKey: "days3", hours: 72 },
     // { value: "96", label: "4 Days", hours: 96 },
-    { value: "120", label: "5 Days", hours: 120 },
+    { value: "120", labelKey: "days5", hours: 120 },
     // { value: "144", label: "6 Days", hours: 144 },
-    { value: "168", label: "7 Days", hours: 168 },
+    { value: "168", labelKey: "days7", hours: 168 },
     // { value: "192", label: "8 Days", hours: 192 },
     // { value: "216", label: "9 Days", hours: 216 },
-    { value: "240", label: "10 Days", hours: 240 },
+    { value: "240", labelKey: "days10", hours: 240 },
 ];
 
 export function AdminHoldDialog({
@@ -41,18 +42,19 @@ export function AdminHoldDialog({
     onOpenChange,
     stockRef,
 }: AdminHoldDialogProps) {
+    const t = useTranslations("diamondDetail");
     const [selectedUserId, setSelectedUserId] = React.useState("");
     const [selectedDuration, setSelectedDuration] = React.useState("24");
     const [loading, setLoading] = React.useState(false);
 
     const handleSubmit = async () => {
         if (!selectedUserId) {
-            toast.error("Please select a user");
+            toast.error(t("ui.selectUserError"));
             return;
         }
 
         if (!selectedDuration) {
-            toast.error("Please select a duration");
+            toast.error(t("ui.selectDurationError"));
             return;
         }
 
@@ -68,14 +70,16 @@ export function AdminHoldDialog({
 
             toast.success(
                 response.message ||
-                    `Diamond held for ${hours} hours successfully`,
+                    t("ui.heldForHours").replace("[hours]", String(hours)),
             );
             onOpenChange(false);
             // Reset form
             setSelectedUserId("");
             setSelectedDuration("24");
-        } catch (error: any) {
-            toast.error(error.message || "Failed to hold diamond");
+        } catch (error: unknown) {
+            toast.error(
+                error instanceof Error ? error.message : t("ui.holdFailed"),
+            );
         } finally {
             setLoading(false);
         }
@@ -87,18 +91,22 @@ export function AdminHoldDialog({
                 <DialogHeader>
                     <div className="flex items-center gap-2 mb-2">
                         <Clock className="h-5 w-5 text-primary" />
-                        <DialogTitle>Hold Diamond for User</DialogTitle>
+                        <DialogTitle>{t("ui.adminHoldTitle")}</DialogTitle>
                     </div>
                     <DialogDescription>
-                        Select a user and duration to hold this diamond. Stock
-                        Ref: <span className="font-semibold">{stockRef}</span>
+                        {t("ui.adminHoldDescription").replace(
+                            "[stock_number]",
+                            stockRef,
+                        )}
                     </DialogDescription>
                 </DialogHeader>
 
                 <div className="space-y-6 py-4">
                     {/* User Selection */}
                     <div className="space-y-2">
-                        <Label htmlFor="user-select">Select User</Label>
+                        <Label htmlFor="user-select">
+                            {t("ui.selectUser")}
+                        </Label>
                         <UsersDropdown
                             value={selectedUserId}
                             onValueChange={setSelectedUserId}
@@ -107,7 +115,7 @@ export function AdminHoldDialog({
 
                     {/* Duration Selection */}
                     <div className="space-y-3">
-                        <Label>Hold Duration</Label>
+                        <Label>{t("ui.holdDuration")}</Label>
                         <RadioGroup
                             value={selectedDuration}
                             onValueChange={setSelectedDuration}
@@ -126,7 +134,7 @@ export function AdminHoldDialog({
                                         htmlFor={`duration-${option.value}`}
                                         className="font-normal cursor-pointer"
                                     >
-                                        {option.label}
+                                        {t(`ui.${option.labelKey}`)}
                                     </Label>
                                 </div>
                             ))}
@@ -144,7 +152,7 @@ export function AdminHoldDialog({
                         }}
                         disabled={loading}
                     >
-                        Cancel
+                        {t("ui.cancel")}
                     </Button>
                     <Button
                         onClick={handleSubmit}
@@ -154,10 +162,10 @@ export function AdminHoldDialog({
                         {loading ? (
                             <>
                                 <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                Holding...
+                                {t("ui.holding")}
                             </>
                         ) : (
-                            "Hold Diamond"
+                            t("ui.holdDiamond")
                         )}
                     </Button>
                 </DialogFooter>
