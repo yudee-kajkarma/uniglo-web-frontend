@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { Check, ChevronsUpDown, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ interface UsersDropdownProps {
 }
 
 export function UsersDropdown({ value, onValueChange }: UsersDropdownProps) {
+    const t = useTranslations("diamondDetail");
     const [open, setOpen] = React.useState(false);
     const [users, setUsers] = React.useState<User[]>([]);
     const [loading, setLoading] = React.useState(false);
@@ -65,23 +67,23 @@ export function UsersDropdown({ value, onValueChange }: UsersDropdownProps) {
                     {loading ? (
                         <span className="flex items-center gap-2">
                             <Loader2 className="h-4 w-4 animate-spin" />
-                            Loading users...
+                            {t("ui.loadingUsers")}
                         </span>
                     ) : selectedUser ? (
                         <span className="truncate">
                             {selectedUser.username} ({selectedUser.email})
                         </span>
                     ) : (
-                        "Select user..."
+                        t("ui.selectUserPlaceholder")
                     )}
                     <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                 </Button>
             </PopoverTrigger>
             <PopoverContent className="w-full p-0">
                 <Command>
-                    <CommandInput placeholder="Search user..." />
+                    <CommandInput placeholder={t("ui.searchUser")} />
                     <CommandList>
-                        <CommandEmpty>No user found.</CommandEmpty>
+                        <CommandEmpty>{t("ui.noUserFound")}</CommandEmpty>
                         <CommandGroup>
                             {users.map((user) => (
                                 <CommandItem

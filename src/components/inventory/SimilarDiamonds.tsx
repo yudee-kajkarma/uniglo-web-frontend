@@ -1,12 +1,17 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { fetchDiamondById } from "@/services/diamondService";
-import { Diamond, getShapeFullName } from "@/interface/diamondInterface";
+import { Diamond } from "@/interface/diamondInterface";
 import { buildDiamondPath } from "@/lib/seo/diamondSeo";
 import { ChevronLeft, ChevronRight, Loader2 } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { DiamondImage } from "../shared/DiamondMedia";
+import {
+    type DiamondValueMessages,
+    getLocalizedShapeName,
+} from "@/lib/i18n/diamondDetail";
 
 interface SimilarDiamondsProps {
     similarDiamondIds: string[];
@@ -17,6 +22,18 @@ export default function SimilarDiamonds({
     similarDiamondIds,
     isPublic = false,
 }: SimilarDiamondsProps) {
+    const t = useTranslations("diamondDetail");
+    const valueMessages = t.raw("values") as DiamondValueMessages;
+    const mediaLabels = {
+        videoTitle: t("media.videoTitle"),
+        noVideo: t("media.noVideo"),
+        previousImage: t("media.previousImage"),
+        nextImage: t("media.nextImage"),
+        goToImage: t("media.goToImage"),
+        noImage: t("media.noImage"),
+        imageAlt: t("media.imageAlt"),
+        diamondAlt: t("media.diamondAlt"),
+    };
     const [diamonds, setDiamonds] = useState<Diamond[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -75,7 +92,7 @@ export default function SimilarDiamonds({
         return (
             <div className="py-8">
                 <h2 className="text-2xl font-cormorantGaramond font-semibold text-gray-900 mb-6">
-                    Similar Diamonds
+                    {t("ui.similarDiamonds")}
                 </h2>
                 <div className="flex items-center justify-center h-48">
                     <Loader2 className="w-8 h-8 animate-spin text-primary-yellow-1" />
@@ -98,7 +115,7 @@ export default function SimilarDiamonds({
     return (
         <div className="py-8 font-lato">
             <h2 className="text-2xl font-cormorantGaramond font-semibold text-gray-900 mb-6">
-                Similar Diamonds
+                {t("ui.similarDiamonds")}
             </h2>
 
             <div className="relative">
@@ -107,7 +124,7 @@ export default function SimilarDiamonds({
                     <button
                         onClick={handlePrev}
                         className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
-                        aria-label="Previous diamonds"
+                        aria-label={t("ui.previousDiamonds")}
                     >
                         <ChevronLeft className="w-5 h-5 text-gray-700" />
                     </button>
@@ -117,7 +134,7 @@ export default function SimilarDiamonds({
                     <button
                         onClick={handleNext}
                         className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-gray-200 flex items-center justify-center hover:bg-gray-50 transition-colors"
-                        aria-label="Next diamonds"
+                        aria-label={t("ui.nextDiamonds")}
                     >
                         <ChevronRight className="w-5 h-5 text-gray-700" />
                     </button>
@@ -136,14 +153,16 @@ export default function SimilarDiamonds({
                                 <DiamondImage
                                     diamond={diamond}
                                     showdefault={false}
+                                    labels={mediaLabels}
                                 />
                             </div>
 
                             {/* Diamond Details */}
                             <div className="p-3 space-y-1 text-center border-t border-gray-100">
                                 <div className="text-xs font-semibold text-gray-900">
-                                    {getShapeFullName(
-                                        diamond.shape,
+                                    {getLocalizedShapeName(
+                                        diamond,
+                                        valueMessages,
                                     ).toUpperCase()}{" "}
                                     {diamond.weight}
                                 </div>

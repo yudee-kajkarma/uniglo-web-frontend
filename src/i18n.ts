@@ -1,5 +1,4 @@
 import { getRequestConfig } from "next-intl/server";
-import { notFound } from "next/navigation";
 
 export const locales = ["en", "de", "nl", "fr", "it", "es"] as const;
 export type Locale = (typeof locales)[number];
@@ -17,9 +16,17 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = "en";
   }
 
+  const [baseMessages, diamondDetailMessages] = await Promise.all([
+    import(`../messages/${locale}.json`),
+    import(`../messages/diamond-details/${locale}.json`),
+  ]);
+
   return {
     locale,
-    messages: (await import(`../messages/${locale}.json`)).default,
+    messages: {
+      ...baseMessages.default,
+      diamondDetail: diamondDetailMessages.default,
+    },
 
     onError(error) {
       if (error.code === "MISSING_MESSAGE") {

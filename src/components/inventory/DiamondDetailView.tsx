@@ -1,19 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { fetchDiamondById } from "@/services/diamondService";
 import {
     Diamond,
     PublicDiamond,
     calculateTotalPrice,
-    getShapeFullName,
 } from "@/interface/diamondInterface";
 import { Button } from "@/components/ui/button";
 import {
     ArrowLeft,
-    ChevronLeft,
-    ChevronRight,
     Diamond as DiamondIcon,
     Scale,
     Palette,
@@ -23,6 +20,7 @@ import {
     MessageSquare,
     GemIcon,
 } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { addToCart, holdDiamond } from "@/services/cartService";
 import { createDiamondInquiry } from "@/services/inquiryService";
 import { toast } from "sonner";
@@ -48,11 +46,17 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog";
 import { Textarea } from "@/components/ui/textarea";
-import { Link } from "@/i18n/navigation";
+import { Link, useRouter } from "@/i18n/navigation";
 import SimilarDiamonds from "./SimilarDiamonds";
 import { AdminHoldDialog } from "@/components/admin-hold-dialog";
 import { useAuth } from "@/context/AuthContext";
 import { DiamondImage } from "../shared/DiamondMedia";
+import {
+    type DiamondValueMessages,
+    fillDiamondTemplate,
+    getDiamondTemplateValues,
+    getLocalizedShapeName,
+} from "@/lib/i18n/diamondDetail";
 
 interface DiamondDetailViewProps {
     diamondId: string;
@@ -72,7 +76,20 @@ export default function DiamondDetailView({
     initialSimilarIds,
     seoContent,
 }: DiamondDetailViewProps) {
+    const t = useTranslations("diamondDetail");
+    const locale = useLocale();
     const router = useRouter();
+    const valueMessages = t.raw("values") as DiamondValueMessages;
+    const mediaLabels = {
+        videoTitle: t("media.videoTitle"),
+        noVideo: t("media.noVideo"),
+        previousImage: t("media.previousImage"),
+        nextImage: t("media.nextImage"),
+        goToImage: t("media.goToImage"),
+        noImage: t("media.noImage"),
+        imageAlt: t("media.imageAlt"),
+        diamondAlt: t("media.diamondAlt"),
+    };
     const [diamond, setDiamond] = useState<Diamond | PublicDiamond | null>(
         initialDiamond ?? null,
     );
@@ -124,7 +141,7 @@ export default function DiamondDetailView({
                     setSimilarDiamondIds(response.similarDiamonds || []);
                 } catch (err) {
                     setError(
-                        "Failed to load diamond details. Please try again.",
+                        t("ui.loadError"),
                     );
                     console.error(err);
                 } finally {
@@ -138,17 +155,19 @@ export default function DiamondDetailView({
 
     const handleHoldDiamondConfirm = async () => {
         if (!diamond?.stockRef) {
-            toast.error("Stock reference not available");
+            toast.error(t("ui.stockReferenceUnavailable"));
             return;
         }
 
         try {
             setHoldLoading(true);
             const response = await holdDiamond([diamond.stockRef]);
-            toast.success(response.message || "Diamond held successfully");
+            toast.success(response.message || t("ui.heldSuccessfully"));
             setShowHoldDialog(false);
-        } catch (error: any) {
-            toast.error(error || "Failed to hold diamond");
+        } catch (error: unknown) {
+            toast.error(
+                error instanceof Error ? error.message : t("ui.holdFailed"),
+            );
         } finally {
             setHoldLoading(false);
         }
@@ -156,13 +175,13 @@ export default function DiamondDetailView({
 
     const handleAddToCart = async () => {
         if (!isDiamond(diamond!)) {
-            toast.error("Please login to add items to cart");
+            toast.error(t("ui.loginToAddCart"));
             router.push("/login");
             return;
         }
 
         if (!diamond._id) {
-            toast.error("Diamond ID not available");
+            toast.error(t("ui.diamondIdUnavailable"));
             return;
         }
 
@@ -170,8 +189,10 @@ export default function DiamondDetailView({
             setCartLoading(true);
             const response = await addToCart([diamond._id]);
             toast.success(response.message);
-        } catch (error: any) {
-            toast.error(error || "Failed to add diamond to cart");
+        } catch (error: unknown) {
+            toast.error(
+                error instanceof Error ? error.message : t("ui.addCartFailed"),
+            );
         } finally {
             setCartLoading(false);
         }
@@ -179,12 +200,12 @@ export default function DiamondDetailView({
 
     const handleSubmitInquiry = async () => {
         if (!diamond?.stockRef) {
-            toast.error("Stock reference not available");
+            toast.error(t("ui.stockReferenceUnavailable"));
             return;
         }
 
         if (!inquiryText.trim()) {
-            toast.error("Please enter your inquiry");
+            toast.error(t("ui.enterInquiry"));
             return;
         }
 
@@ -194,11 +215,13 @@ export default function DiamondDetailView({
                 stockRef: diamond.stockRef,
                 query: inquiryText,
             });
-            toast.success(response.message || "Inquiry submitted successfully");
+            toast.success(response.message || t("ui.inquirySubmitted"));
             setShowInquiryDialog(false);
             setInquiryText("");
-        } catch (error: any) {
-            toast.error(error || "Failed to submit inquiry");
+        } catch (error: unknown) {
+            toast.error(
+                error instanceof Error ? error.message : t("ui.inquiryFailed"),
+            );
         } finally {
             setInquiryLoading(false);
         }
@@ -227,7 +250,7 @@ export default function DiamondDetailView({
                 <div className="animate-pulse flex flex-col items-center">
                     <DiamondIcon className="h-12 w-12 text-[#49214c] animate-bounce" />
                     <p className="mt-4 text-gray-600">
-                        Loading Diamond Details...
+                        {t("ui.loadingDetails")}
                     </p>
                 </div>
             </div>
@@ -238,16 +261,24 @@ export default function DiamondDetailView({
         return (
             <div className="min-h-screen flex flex-col items-center justify-center bg-white gap-4">
                 <p className="text-red-500 text-lg">
-                    {error || "Diamond not found"}
+                    {error || t("ui.notFound")}
                 </p>
                 <Button onClick={() => router.back()} variant="outline">
-                    Go Back
+                    {t("ui.goBack")}
                 </Button>
             </div>
         );
     }
 
-    const shapeName = getShapeFullName(diamond.shape);
+    const shapeName = getLocalizedShapeName(diamond, valueMessages);
+    const templateValues = getDiamondTemplateValues(diamond, valueMessages);
+    const templateUi = (copy: string) =>
+        fillDiamondTemplate(copy, templateValues);
+    const tabs = [
+        { id: "IMAGE", label: t("ui.image") },
+        { id: "VIDEO", label: t("ui.video") },
+        { id: "CERTIFICATE", label: t("ui.certificate") },
+    ] as const;
 
     // Helper for the 3-column tables
     const TableSection = ({
@@ -302,7 +333,7 @@ export default function DiamondDetailView({
         subtitle,
         desc,
     }: {
-        icon: any;
+        icon: LucideIcon;
         title: string;
         subtitle: string;
         desc: string;
@@ -325,21 +356,22 @@ export default function DiamondDetailView({
                         onClick={() => router.back()}
                     >
                         <span className="flex items-center">
-                            <ArrowLeft className="w-4 h-4 mr-2" /> Back
+                            <ArrowLeft className="w-4 h-4 mr-2" />
+                            {t("ui.back")}
                         </span>
                     </Button>
                     <div className="flex gap-2">
-                        {["IMAGE", "VIDEO", "CERTIFICATE"].map((tab) => (
+                        {tabs.map((tab) => (
                             <button
-                                key={tab}
-                                onClick={() => setActiveTab(tab as any)}
+                                key={tab.id}
+                                onClick={() => setActiveTab(tab.id)}
                                 className={`px-6 py-2 text-sm font-medium border transition-colors uppercase shadow-lg ${
-                                    activeTab === tab
+                                    activeTab === tab.id
                                         ? "bg-primary-yellow-2 border-0 text-gray-900"
                                         : "bg-gray-50 border-transparent text-gray-500 hover:bg-gray-100"
                                 }`}
                             >
-                                {tab}
+                                {tab.label}
                             </button>
                         ))}
                     </div>
@@ -354,21 +386,26 @@ export default function DiamondDetailView({
                                     <DiamondImage
                                         diamond={diamond}
                                         showCarousel
+                                        labels={mediaLabels}
                                     />
                                 ) : (
                                     <DiamondIcon className="w-48 h-48 text-gray-200" />
                                 ))}
                             {activeTab === "VIDEO" &&
                                 (diamond ? (
-                                    <DiamondImage diamond={diamond} showVideo />
+                                    <DiamondImage
+                                        diamond={diamond}
+                                        showVideo
+                                        labels={mediaLabels}
+                                    />
                                 ) : (
                                     <div className="text-gray-400">
-                                        No Video Available
+                                        {t("ui.noVideoAvailable")}
                                     </div>
                                 ))}
                             {activeTab === "CERTIFICATE" && (
                                 <div className="text-gray-400">
-                                    Certificate View
+                                    {t("ui.certificateView")}
                                 </div>
                             )}
                         </div>
@@ -383,14 +420,14 @@ export default function DiamondDetailView({
                                         {shapeName} {diamond.weight}ct{" "}
                                         {diamond.color} {diamond.clarity}{" "}
                                         {isDiamond(diamond)
-                                            ? diamond.cutGrade
+                                            ? templateValues.cut
                                             : ""}{" "}
                                         {isDiamond(diamond)
-                                            ? diamond.polish
+                                            ? templateValues.polish
                                             : ""}
                                     </p>
                                     <h1 className="text-md font-cormorantGaramond font-medium text-gray-900 mb-2 flex items-center gap-2">
-                                        Stock ID:{" "}
+                                        {t("ui.stockId")}:{" "}
                                         <span className="font-bold">
                                             {diamond.stockRef}
                                         </span>
@@ -398,7 +435,9 @@ export default function DiamondDetailView({
                                     <div className="flex items-center gap-2 text-sm text-gray-600">
                                         {isDiamond(diamond) ? (
                                             <>
-                                                <span>Report #:</span>
+                                                <span>
+                                                    {t("ui.reportNumber")}:
+                                                </span>
                                                 {getCertificateLink(
                                                     diamond.lab,
                                                     diamond.certiNo,
@@ -423,10 +462,14 @@ export default function DiamondDetailView({
                                                 )}
                                             </>
                                         ) : (
-                                            <span>Report #: -</span>
+                                            <span>
+                                                {t("ui.reportNumber")}: -
+                                            </span>
                                         )}
                                         <span>•</span>
-                                        <span>Lab: {diamond.lab}</span>
+                                        <span>
+                                            {t("ui.lab")}: {diamond.lab}
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -436,16 +479,16 @@ export default function DiamondDetailView({
                                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mt-4">
                                     <p className="text-sm text-yellow-800">
                                         <span className="font-semibold">
-                                            Login required:
+                                            {t("ui.loginRequired")}
                                         </span>{" "}
-                                        Please{" "}
+                                        {t("ui.please")}{" "}
                                         <Link
                                             href="/login"
                                             className="underline hover:text-yellow-900"
                                         >
-                                            login
+                                            {t("ui.login")}
                                         </Link>{" "}
-                                        to view pricing information.
+                                        {t("ui.toViewPricing")}
                                     </p>
                                 </div>
                             )}
@@ -458,7 +501,8 @@ export default function DiamondDetailView({
                                         {calculateTotalPrice(
                                             diamond.weight,
                                             diamond.pricePerCts,
-                                        )?.toLocaleString() || "N/A"}{" "}
+                                        )?.toLocaleString(locale) ||
+                                            t("ui.notAvailable")}{" "}
                                     </span>
                                 </div>
                             )}
@@ -466,30 +510,30 @@ export default function DiamondDetailView({
 
                         <div>
                             <h3 className="font-bold text-gray-900 mb-4 text-lg">
-                                Diamond Specifications
+                                {t("ui.diamondSpecifications")}
                             </h3>
                             <div className="grid grid-cols-2 md:grid-cols-2 gap-4">
                                 <InfoCard
                                     icon={GemIcon}
-                                    title="Shape"
+                                    title={t("ui.shape")}
                                     subtitle={shapeName}
                                     desc=""
                                 />
                                 <InfoCard
                                     icon={Scale}
-                                    title="Carat"
+                                    title={t("ui.carat")}
                                     subtitle={`${diamond.weight} ct`}
                                     desc=""
                                 />
                                 <InfoCard
                                     icon={Palette}
-                                    title="Color"
+                                    title={t("ui.color")}
                                     subtitle={diamond.color}
                                     desc=""
                                 />
                                 <InfoCard
                                     icon={Eye}
-                                    title="Clarity"
+                                    title={t("ui.clarity")}
                                     subtitle={diamond.clarity}
                                     desc=""
                                 />
@@ -507,24 +551,26 @@ export default function DiamondDetailView({
                                         <Button className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond disabled:opacity-50">
                                             <span className="flex items-center gap-2">
                                                 <MessageSquare className="w-4 h-4" />
-                                                Enquiry
+                                                {t("ui.enquiry")}
                                             </span>
                                         </Button>
                                     </DialogTrigger>
                                     <DialogContent>
                                         <DialogHeader>
                                             <DialogTitle>
-                                                Diamond Inquiry
+                                                {t("ui.diamondInquiry")}
                                             </DialogTitle>
                                             <DialogDescription>
-                                                Submit your inquiry about this
-                                                diamond. Stock Ref:{" "}
-                                                {diamond.stockRef}
+                                                {templateUi(
+                                                    t("ui.inquiryDescription"),
+                                                )}
                                             </DialogDescription>
                                         </DialogHeader>
                                         <div className="py-4">
                                             <Textarea
-                                                placeholder="Type your inquiry here... (e.g., Is this diamond available for immediate purchase?)"
+                                                placeholder={t(
+                                                    "ui.inquiryPlaceholder",
+                                                )}
                                                 value={inquiryText}
                                                 onChange={(e) =>
                                                     setInquiryText(
@@ -544,7 +590,7 @@ export default function DiamondDetailView({
                                                 }}
                                                 disabled={inquiryLoading}
                                             >
-                                                Cancel
+                                                {t("ui.cancel")}
                                             </Button>
                                             <Button
                                                 onClick={handleSubmitInquiry}
@@ -557,10 +603,10 @@ export default function DiamondDetailView({
                                                 {inquiryLoading ? (
                                                     <>
                                                         <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                                        Sending...
+                                                        {t("ui.sending")}
                                                     </>
                                                 ) : (
-                                                    "Send Enquiry"
+                                                    t("ui.sendEnquiry")
                                                 )}
                                             </Button>
                                         </DialogFooter>
@@ -580,7 +626,7 @@ export default function DiamondDetailView({
                                         >
                                             <span className="flex items-center gap-2">
                                                 <Clock className="w-4 h-4" />
-                                                Hold for User
+                                                {t("ui.holdForUser")}
                                             </span>
                                         </Button>
                                         <AdminHoldDialog
@@ -608,7 +654,7 @@ export default function DiamondDetailView({
                                                 {holdLoading ? (
                                                     <Loader2 className="w-4 h-4 animate-spin" />
                                                 ) : (
-                                                    "Hold Diamond"
+                                                    t("ui.holdDiamond")
                                                 )}
                                             </span>
                                         </Button>
@@ -619,20 +665,17 @@ export default function DiamondDetailView({
                                                 <Clock className="text-primary-purple" />
                                             </AlertDialogMedia>
                                             <AlertDialogTitle>
-                                                Hold this diamond?
+                                                {t("ui.holdQuestion")}
                                             </AlertDialogTitle>
                                             <AlertDialogDescription>
-                                                This will reserve the diamond
-                                                for you temporarily. You can
-                                                view all your held diamonds in
-                                                the enquiry section.
+                                                {t("ui.holdDescription")}
                                             </AlertDialogDescription>
                                         </AlertDialogHeader>
                                         <AlertDialogFooter>
                                             <AlertDialogCancel
                                                 disabled={holdLoading}
                                             >
-                                                Cancel
+                                                {t("ui.cancel")}
                                             </AlertDialogCancel>
                                             <AlertDialogAction
                                                 onClick={
@@ -644,10 +687,10 @@ export default function DiamondDetailView({
                                                 {holdLoading ? (
                                                     <>
                                                         <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                                                        Holding...
+                                                        {t("ui.holding")}
                                                     </>
                                                 ) : (
-                                                    "Hold Diamond"
+                                                    t("ui.holdDiamond")
                                                 )}
                                             </AlertDialogAction>
                                         </AlertDialogFooter>
@@ -666,7 +709,7 @@ export default function DiamondDetailView({
                                         {cartLoading && (
                                             <Loader2 className="w-4 h-4 animate-spin" />
                                         )}
-                                        Add to Cart
+                                        {t("ui.addToCart")}
                                     </span>
                                 </Button>
                             )}
@@ -677,7 +720,7 @@ export default function DiamondDetailView({
                                     className="flex-1 h-12 text-white font-semibold uppercase border-none gold-reveal-btn font-cormorantGaramond"
                                     onClick={() => router.push("/login")}
                                 >
-                                    <span>Login to Purchase</span>
+                                    <span>{t("ui.loginToPurchase")}</span>
                                 </Button>
                             )}
                         </div>
@@ -687,48 +730,66 @@ export default function DiamondDetailView({
                 {/* Bottom Section: Detailed Tables - Show limited info for public */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 mb-3">
                     <TableSection
-                        title="Details"
+                        title={t("ui.details")}
                         rows={[
-                            { label: "Stock Ref", value: diamond.stockRef },
-                            { label: "Lab", value: diamond.lab },
-                            { label: "Shape", value: shapeName },
-                            { label: "Carat", value: diamond.weight },
-                            { label: "Color", value: diamond.color },
-                            { label: "Clarity", value: diamond.clarity },
-                            { label: "Shade", value: diamond.shade },
-                            { label: "Cut", value: diamond.cutGrade },
-                            { label: "Polish", value: diamond.polish },
-                            { label: "Symmetry", value: diamond.symmetry },
                             {
-                                label: "Fluorescence",
-                                value: diamond.fluorescenceIntensity,
+                                label: t("ui.stockRef"),
+                                value: diamond.stockRef,
+                            },
+                            { label: t("ui.lab"), value: diamond.lab },
+                            { label: t("ui.shape"), value: shapeName },
+                            { label: t("ui.carat"), value: diamond.weight },
+                            { label: t("ui.color"), value: diamond.color },
+                            { label: t("ui.clarity"), value: diamond.clarity },
+                            { label: t("ui.shade"), value: diamond.shade },
+                            {
+                                label: t("ui.cut"),
+                                value: diamond.cutGrade
+                                    ? templateValues.cut
+                                    : undefined,
                             },
                             {
-                                label: "Fluor Color",
+                                label: t("ui.polish"),
+                                value: diamond.polish
+                                    ? templateValues.polish
+                                    : undefined,
+                            },
+                            {
+                                label: t("ui.symmetry"),
+                                value: diamond.symmetry
+                                    ? templateValues.symmetry
+                                    : undefined,
+                            },
+                            {
+                                label: t("ui.fluorescence"),
+                                value: templateValues.fluorescence,
+                            },
+                            {
+                                label: t("ui.fluorColor"),
                                 value: diamond.fluorescenceColor,
                             },
                         ]}
                     />
                     <TableSection
-                        title="Measurements"
+                        title={t("ui.measurements")}
                         rows={[
                             {
-                                label: "Measurement",
+                                label: t("ui.measurement"),
                                 value: diamond.measurements,
                             },
                             {
-                                label: "Table%",
+                                label: t("ui.tablePercent"),
                                 value: diamond.tablePerc?.toFixed(2),
                             },
                             {
-                                label: "Depth%",
+                                label: t("ui.depthPercent"),
                                 value: diamond.depthPerc?.toFixed(2),
                             },
-                            { label: "Length", value: diamond.length },
-                            { label: "Width", value: diamond.width },
-                            { label: "Height", value: diamond.height },
+                            { label: t("ui.length"), value: diamond.length },
+                            { label: t("ui.width"), value: diamond.width },
+                            { label: t("ui.height"), value: diamond.height },
                             {
-                                label: "Ratio",
+                                label: t("ui.ratio"),
                                 value:
                                     diamond.length && diamond.width
                                         ? (
@@ -737,53 +798,56 @@ export default function DiamondDetailView({
                                         : "-",
                             },
                             {
-                                label: "Crown Angle",
+                                label: t("ui.crownAngle"),
                                 value: diamond.crownAngle?.toFixed(2),
                             },
                             {
-                                label: "Crown Height",
+                                label: t("ui.crownHeight"),
                                 value: diamond.crownHeight?.toFixed(2),
                             },
                             {
-                                label: "Pav Angle",
+                                label: t("ui.pavilionAngle"),
                                 value: diamond.pavalionAngle?.toFixed(2),
                             },
                             {
-                                label: "Pav Height",
+                                label: t("ui.pavilionHeight"),
                                 value: diamond.pavalionDepth?.toFixed(2),
                             },
-                            { label: "Girdle", value: diamond.girdle },
-                            { label: "Culet", value: diamond.culetSize },
+                            { label: t("ui.girdle"), value: diamond.girdle },
+                            { label: t("ui.culet"), value: diamond.culetSize },
                         ]}
                     />
                     <TableSection
-                        title="Additional Info"
+                        title={t("ui.additionalInfo")}
                         rows={[
                             {
-                                label: "Laser Ins.",
+                                label: t("ui.laserInscription"),
                                 value: diamond.laserInscription,
                             },
                             {
-                                label: "Cert Issue Date",
+                                label: t("ui.certificateIssueDate"),
                                 value: diamond.certIssueDate
                                     ? new Date(
                                           diamond.certIssueDate,
-                                      ).toLocaleDateString()
+                                      ).toLocaleDateString(locale)
                                     : "-",
                             },
-                            { label: "Origin", value: diamond.origin },
-                            { label: "Country", value: diamond.country },
-                            { label: "Milky", value: diamond.milky },
+                            { label: t("ui.origin"), value: diamond.origin },
+                            { label: t("ui.country"), value: diamond.country },
+                            { label: t("ui.milky"), value: diamond.milky },
                             {
-                                label: "Black Inclusion",
+                                label: t("ui.blackInclusion"),
                                 value: diamond.blackinclusion,
                             },
-                            { label: "Eye Clean", value: diamond.eyeClean },
                             {
-                                label: "Key to Symbols",
+                                label: t("ui.eyeClean"),
+                                value: diamond.eyeClean,
+                            },
+                            {
+                                label: t("ui.keyToSymbols"),
                                 value: diamond.keyToSymbols?.length
-                                    ? "Yes"
-                                    : "No",
+                                    ? t("ui.yes")
+                                    : t("ui.no"),
                             },
                         ]}
                     />
@@ -793,15 +857,15 @@ export default function DiamondDetailView({
                 {isDiamond(diamond) && (
                     <div className="border border-[#e7d7b4] rounded-sm overflow-hidden mb-12">
                         <FullWidthRow
-                            label="Key to Symbols"
+                            label={t("ui.keyToSymbols")}
                             value={diamond.keyToSymbols?.join(", ")}
                         />
                         <FullWidthRow
-                            label="Report Comments"
+                            label={t("ui.reportComments")}
                             value={diamond.certComment}
                         />
                         <FullWidthRow
-                            label="HRC Comments"
+                            label={t("ui.hrcComments")}
                             value={diamond.memberComment}
                         />
                     </div>
