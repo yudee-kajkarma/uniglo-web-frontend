@@ -220,6 +220,8 @@
     "browseLargeCollection": "Durchsuchen Sie eine große Sammlung von IGI-, HRD- und GIA-zertifizierten Diamanten",
     "unigloDiamondApp": "Uniglo Diamant-App",
     "discoverUnigloDiamondsApp": "Entdecken Sie die UNIGLO DIAMONDS APP",
+    "downloadOnThe": "Laden im",
+    "getItOn": "Jetzt bei",
     "diamondSearch": "Diamantensuche",
     "easyFiltering": "Einfache Filterung",
     "enquire": "Anfragen",
@@ -46239,6 +46241,11 @@
           "answer": "Ja. Eine Buchung im Voraus wird empfohlen, insbesondere wenn Sie eine bestimmte Diamantspezifikation, Schmuckkategorie oder Beschaffungsanforderung haben."
         }
       ]
+    },
+    "eventBlogs": {
+      "eyebrow": "Messe-Guides",
+      "title": "Lesen Sie vor Ihrem Besuch",
+      "subtitle": "Sieben Leitfäden, die Ihnen helfen, Ihren Besuch der Jewellery Show London 2026 zu planen und das Beste aus Ihrer Zeit auf der Messe herauszuholen."
     },
     "finalCta": {
       "title": "Treffen Sie Uniglo in London",

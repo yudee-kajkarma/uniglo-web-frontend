@@ -21,6 +21,7 @@ import mobileAppMockup from "@/assets/mobile-app.png";
 
 // Client components — only the interactive parts
 import HeroCarousel from "@/components/shared/HeroCarousel";
+import AppStoreButtons from "@/components/shared/AppStoreButtons";
 
 // Dynamic imports for below-fold heavy components (code-split)
 const CertificatesMarqueeSection = dynamic(
@@ -379,6 +380,9 @@ export default async function Home() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Store download buttons */}
+                    <AppStoreButtons className="mt-4 mb-16 px-4" />
                 </div>
             </section>
 

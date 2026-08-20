@@ -220,6 +220,8 @@
     "browseLargeCollection": "Sfoglia una vasta collezione di diamanti certificati IGI, HRD e GIA",
     "unigloDiamondApp": "Applicazione Uniglo Diamond",
     "discoverUnigloDiamondsApp": "Scopri l'APP UNIGLO DIAMONDS",
+    "downloadOnThe": "Scaricala su",
+    "getItOn": "Disponibile su",
     "diamondSearch": "Ricerca diamanti",
     "easyFiltering": "Filtraggio facile",
     "enquire": "Chiedi",
@@ -46203,6 +46205,11 @@
           "answer": "Sì. Prenotare in anticipo è consigliabile, soprattutto se avete una specifica di diamante, una categoria di gioielleria o un’esigenza di approvvigionamento precisa."
         }
       ]
+    },
+    "eventBlogs": {
+      "eyebrow": "Guide alla fiera",
+      "title": "Da leggere prima della visita",
+      "subtitle": "Sette guide per pianificare la vostra visita a The Jewellery Show London 2026 e sfruttare al meglio il tempo trascorso in fiera."
     },
     "finalCta": {
       "title": "Incontrate Uniglo a Londra",

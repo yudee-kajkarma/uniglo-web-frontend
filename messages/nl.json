@@ -220,6 +220,8 @@
     "browseLargeCollection": "Blader door een grote collectie IGI-, HRD- en GIA-gecertificeerde diamanten",
     "unigloDiamondApp": "Uniglo Diamond-app",
     "discoverUnigloDiamondsApp": "Ontdek de UNIGLO DIAMONDS APP",
+    "downloadOnThe": "Download in de",
+    "getItOn": "Ontdek het op",
     "diamondSearch": "Diamant zoeken",
     "easyFiltering": "Eenvoudig filteren",
     "enquire": "Informeer",
@@ -46203,6 +46205,11 @@
           "answer": "Ja. Vooraf boeken wordt aanbevolen, zeker wanneer u een specifieke diamantspecificatie, juwelencategorie of inkoopbehoefte heeft."
         }
       ]
+    },
+    "eventBlogs": {
+      "eyebrow": "Beursgidsen",
+      "title": "Lezen voor uw bezoek",
+      "subtitle": "Zeven gidsen die u helpen uw bezoek aan The Jewellery Show London 2026 te plannen en het meeste uit uw tijd op de beursvloer te halen."
     },
     "finalCta": {
       "title": "Ontmoet Uniglo in Londen",

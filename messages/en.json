@@ -220,6 +220,8 @@
     "browseLargeCollection": "Browse a large collection of IGI, HRD and GIA certified diamonds",
     "unigloDiamondApp": "Uniglo Diamond App",
     "discoverUnigloDiamondsApp": "Discover the UNIGLO DIAMONDS APP",
+    "downloadOnThe": "Download on the",
+    "getItOn": "Get it on",
     "diamondSearch": "Diamond Search",
     "easyFiltering": "Easy Filtering",
     "enquire": "Enquire",
@@ -46228,6 +46230,11 @@
           "answer": "Yes. Booking in advance is recommended, particularly if you have a particular diamond specification, jewellery category or sourcing requirement."
         }
       ]
+    },
+    "eventBlogs": {
+      "eyebrow": "Show Guides",
+      "title": "Read Before You Visit",
+      "subtitle": "Seven guides to help you plan your visit to The Jewellery Show London 2026 and get the most out of your time on the trade floor."
     },
     "finalCta": {
       "title": "Meet Uniglo in London",

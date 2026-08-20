@@ -5,6 +5,7 @@ import { getTranslations } from "next-intl/server";
 
 import ArticleLayout from "@/components/shared/ArticleLayout";
 import FAQSection from "@/components/shared/FAQSection";
+import EventBlogsCarousel from "@/components/shared/EventBlogsCarousel";
 import { Link } from "@/i18n/navigation";
 import { buildLocaleAlternates } from "@/lib/seo/localeAlternates";
 import { SITE_URL, localizedUrl } from "@/lib/seo/site";
@@ -46,6 +47,19 @@ const JEWELS_HOME = "https://www.uniglojewels.com";
 const APPOINTMENT_HREF = "/contact-us";
 const INVENTORY_HREF = "/inventory";
 const DIAMONDS_HREF = "/diamonds/natural";
+
+// The seven show articles, in reading order. `id` keys the card copy already
+// carried by the BlogsPage namespace for the /blogs listing, so the titles,
+// excerpts and dates stay in one place for all six locales.
+const EVENT_BLOGS = [
+    { id: 93, slug: "jewellery-show-london-2026-visitor-guide" },
+    { id: 94, slug: "jewellery-show-london-2026-exhibitors" },
+    { id: 95, slug: "jewellery-show-london-2026-programme" },
+    { id: 96, slug: "jewellery-trade-show-buyer-checklist" },
+    { id: 97, slug: "uk-jewellery-trends-2026" },
+    { id: 98, slug: "jewellery-assortment-planning" },
+    { id: 99, slug: "how-to-choose-natural-diamond-supplier" },
+];
 
 const IMAGES = {
     hero: "/jewellery-show-london/stand-b41-diamond-tray.webp",
@@ -144,6 +158,15 @@ const JewelleryShowLondonPage = async ({ params }: Props) => {
         value: string;
     }[];
     const finalFacts = t.raw("finalCta.facts") as string[];
+
+    const tBlogs = await getTranslations({ locale, namespace: "BlogsPage" });
+    const eventBlogs = EVENT_BLOGS.map(({ id, slug }) => ({
+        slug,
+        image: `/jewellery-show-london/blogs/${slug}.webp`,
+        title: tBlogs(`posts.${id}.title`),
+        meta: `${tBlogs(`posts.${id}.author`)} ${tBlogs(`posts.${id}.date`)}`,
+        excerpt: tBlogs(`posts.${id}.excerpt`),
+    }));
     const faqItems = t.raw("faq.items") as {
         question: string;
         answer: string;
@@ -552,6 +575,26 @@ const JewelleryShowLondonPage = async ({ params }: Props) => {
                             {t("finalCta.secondaryCta")}
                         </Link>
                     </div>
+                </div>
+            </section>
+
+            {/* Section 9 — supporting show articles */}
+            <section className="w-full bg-[#faf7f2] px-4 py-20">
+                <div className="max-w-7xl mx-auto">
+                    <p className="font-lato text-xs uppercase tracking-[0.3em] text-[#bb923a] mb-4">
+                        {t("eventBlogs.eyebrow")}
+                    </p>
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond font-semibold text-primary-purple-dark mb-4 leading-tight">
+                        {t("eventBlogs.title")}
+                    </h2>
+                    <p className="font-lora text-lg text-slate-600 max-w-3xl mb-12">
+                        {t("eventBlogs.subtitle")}
+                    </p>
+
+                    <EventBlogsCarousel
+                        posts={eventBlogs}
+                        readMoreLabel={tBlogs("readMore")}
+                    />
                 </div>
             </section>
         </div>
