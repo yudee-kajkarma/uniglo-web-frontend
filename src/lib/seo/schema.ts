@@ -84,9 +84,19 @@ const breadcrumbList = (
 /** Product + BreadcrumbList graph for a loose diamond. */
 export const buildDiamondJsonLd = (
     diamond: AnyDiamond,
+    localized?: {
+        url: string;
+        title: string;
+        description: string;
+        productName: string;
+        homeLabel?: string;
+        inventoryLabel?: string;
+    },
 ): Record<string, unknown> => {
-    const url = buildDiamondUrl(diamond);
-    const title = getDiamondMetaTitle(diamond);
+    const url = localized?.url ?? buildDiamondUrl(diamond);
+    const title = localized?.title ?? getDiamondMetaTitle(diamond);
+    const description =
+        localized?.description ?? getDiamondMetaDescription(diamond);
     const image = getDiamondPrimaryImage(diamond);
     const type = getDiamondType(diamond);
     const shape = getShapeFullName(diamond.shape);
@@ -110,8 +120,10 @@ export const buildDiamondJsonLd = (
     const product: Record<string, unknown> = {
         "@type": "Product",
         "@id": `${url}#product`,
-        name: `${formatCarat(diamond.weight)} Carat ${shape} ${type} Diamond`,
-        description: getDiamondMetaDescription(diamond),
+        name:
+            localized?.productName ??
+            `${formatCarat(diamond.weight)} Carat ${shape} ${type} Diamond`,
+        description,
         sku: diamond.stockRef,
         mpn: diamond.stockRef,
         category: `${type} Loose Diamonds`,
@@ -130,7 +142,32 @@ export const buildDiamondJsonLd = (
 
     return {
         "@context": "https://schema.org",
-        "@graph": [product, breadcrumbList(title, url)],
+        "@graph": [
+            product,
+            {
+                ...breadcrumbList(title, url),
+                itemListElement: [
+                    {
+                        "@type": "ListItem",
+                        position: 1,
+                        name: localized?.homeLabel ?? "Home",
+                        item: `${SITE_URL}/`,
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 2,
+                        name: localized?.inventoryLabel ?? "Inventory",
+                        item: `${SITE_URL}/inventory`,
+                    },
+                    {
+                        "@type": "ListItem",
+                        position: 3,
+                        name: title,
+                        item: url,
+                    },
+                ],
+            },
+        ],
     };
 };
 
