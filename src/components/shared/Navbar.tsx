@@ -115,6 +115,10 @@ const NAV_LINKS: NavLink[] = [
                 nameKey: "nav.antwerpMothersDay",
                 href: "/antwerp-mothers-day-diamond-gifts",
             },
+            {
+                nameKey: "nav.jewelleryShowLondon",
+                href: "/jewellery-show-london-2026",
+            },
         ],
     },
     {

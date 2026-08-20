@@ -54,8 +54,11 @@ const TOP_LEVEL_PAGES: string[] = [
     "blogs",
 ];
 
-// Seasonal campaign landing pages.
-const CAMPAIGN_PAGES: string[] = ["antwerp-mothers-day-diamond-gifts"];
+// Seasonal campaign and trade-event landing pages.
+const CAMPAIGN_PAGES: string[] = [
+    "antwerp-mothers-day-diamond-gifts",
+    "jewellery-show-london-2026",
+];
 
 const SERVICES_PAGES: string[] = [
     "diamond-manufacturing",
@@ -137,6 +140,7 @@ const BLOG_SLUGS: string[] = [
     "how-to-buy-lab-grown-diamond-ring-antwerp",
     "how-to-choose-engagement-ring-guide",
     "how-to-choose-jewellery-gift-for-mum",
+    "how-to-choose-natural-diamond-supplier",
     "how-to-clean-diamond-jewelry-at-home",
     "how-to-insure-diamond-jewelry",
     "how-to-know-if-diamond-ring-is-real",
@@ -145,8 +149,13 @@ const BLOG_SLUGS: string[] = [
     "how-to-spot-fake-diamond",
     "how-to-store-diamond-jewelry-safely",
     "how-to-tell-if-a-diamond-is-real-at-home",
+    "jewellery-assortment-planning",
     "jewellery-gift-without-knowing-ring-size",
+    "jewellery-show-london-2026-exhibitors",
+    "jewellery-show-london-2026-programme",
+    "jewellery-show-london-2026-visitor-guide",
     "jewellery-that-speaks-love-valentines-day",
+    "jewellery-trade-show-buyer-checklist",
     "lab-grown-diamond-earrings-buying-guide",
     "lab-grown-diamond-engagement-rings",
     "lab-grown-diamond-necklace-buying-guide",
@@ -173,9 +182,10 @@ const BLOG_SLUGS: string[] = [
     "oval-diamond-obsession",
     "oval-diamond-rings-why-popular-who-they-suit",
     "radiant-cut-diamond-guide",
-    "si-vs-vs-diamonds-which-better",
     "should-jewellery-be-a-surprise-gift-mothers-day",
+    "si-vs-vs-diamonds-which-better",
     "summer-2026-bridal-guide-engagement-rings-wedding-bands-couples",
+    "uk-jewellery-trends-2026",
     "uniglo-25th-anniversary-diamonds-memories-legacy",
     "uniglo-at-cannes-festival-2026",
     "uniglo-jewels-cannes-2026-pink-diamonds",

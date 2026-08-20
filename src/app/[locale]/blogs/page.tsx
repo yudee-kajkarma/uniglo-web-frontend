@@ -466,6 +466,41 @@ const blogs = [
         id: 92,
         image: "/mothers-day/blogs/should-jewellery-be-a-surprise-gift-mothers-day.webp",
         slug: "should-jewellery-be-a-surprise-gift-mothers-day",
+    },
+    {
+        id: 93,
+        image: "/jewellery-show-london/blogs/jewellery-show-london-2026-visitor-guide.webp",
+        slug: "jewellery-show-london-2026-visitor-guide",
+    },
+    {
+        id: 94,
+        image: "/jewellery-show-london/blogs/jewellery-show-london-2026-exhibitors.webp",
+        slug: "jewellery-show-london-2026-exhibitors",
+    },
+    {
+        id: 95,
+        image: "/jewellery-show-london/blogs/jewellery-show-london-2026-programme.webp",
+        slug: "jewellery-show-london-2026-programme",
+    },
+    {
+        id: 96,
+        image: "/jewellery-show-london/blogs/jewellery-trade-show-buyer-checklist.webp",
+        slug: "jewellery-trade-show-buyer-checklist",
+    },
+    {
+        id: 97,
+        image: "/jewellery-show-london/blogs/uk-jewellery-trends-2026.webp",
+        slug: "uk-jewellery-trends-2026",
+    },
+    {
+        id: 98,
+        image: "/jewellery-show-london/blogs/jewellery-assortment-planning.webp",
+        slug: "jewellery-assortment-planning",
+    },
+    {
+        id: 99,
+        image: "/jewellery-show-london/blogs/how-to-choose-natural-diamond-supplier.webp",
+        slug: "how-to-choose-natural-diamond-supplier",
     }
 ];
 const BlogPage = async ({ params }: Props) => {
