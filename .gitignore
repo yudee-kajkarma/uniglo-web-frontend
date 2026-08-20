@@ -42,3 +42,6 @@ next-env.d.ts
 
 # claude settings
 .claude
+
+# i18n translation staging (intermediate machine-translation output)
+scripts/i18n/staging/
