@@ -38,7 +38,7 @@ const SHOW = {
 
 // TODO: confirm the official Jewellery Show registration URL with the events
 // team before this page goes live — every "register" CTA resolves from here.
-const SHOW_WEBSITE = "https://www.jewellerylondon.com/";
+const SHOW_WEBSITE = "https://www.thejewelleryshow.co.uk/";
 
 // TODO: replace with the confirmed live Uniglo Jewels URL, matching the
 // placeholder already carried by the Antwerp campaign page.
