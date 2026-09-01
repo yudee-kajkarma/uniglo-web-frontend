@@ -16,9 +16,14 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = "en";
   }
 
-  const [baseMessages, diamondDetailMessages] = await Promise.all([
+  const [baseMessages, diamondDetailMessages, vicenzaoroMessages, jgtdDubaiMessages, inhorgentaMessages, jckLasVegasMessages, hkDiamondGemPearlMessages] = await Promise.all([
     import(`../messages/${locale}.json`),
     import(`../messages/diamond-details/${locale}.json`),
+    import(`../messages/vicenzaoro-september-2026/${locale}.json`),
+    import(`../messages/jgtd-dubai-2026/${locale}.json`),
+    import(`../messages/inhorgenta-munich-2027/${locale}.json`),
+    import(`../messages/jck-las-vegas-2027/${locale}.json`),
+    import(`../messages/hong-kong-diamond-gem-pearl-show-2027/${locale}.json`),
   ]);
 
   return {
@@ -26,6 +31,11 @@ export default getRequestConfig(async ({ requestLocale }) => {
     messages: {
       ...baseMessages.default,
       diamondDetail: diamondDetailMessages.default,
+      vicenzaoroSeptemberPage: vicenzaoroMessages.default,
+      jgtdDubaiPage: jgtdDubaiMessages.default,
+      inhorgentaMunichPage: inhorgentaMessages.default,
+      jckLasVegasPage: jckLasVegasMessages.default,
+      hkDiamondGemPearlPage: hkDiamondGemPearlMessages.default,
     },
 
     onError(error) {

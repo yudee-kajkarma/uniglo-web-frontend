@@ -2,6 +2,12 @@
   "nav": {
     "events": "Eventi",
     "antwerpMothersDay": "Festa della Mamma ad Anversa",
+    "jgwHongKong": "JGW Hong Kong",
+    "vicenzaoroSeptember": "Vicenzaoro Settembre",
+    "jgtdDubai": "JGTD Dubai",
+    "inhorgentaMunich": "INHORGENTA Monaco 2027",
+    "jckLasVegas": "JCK Las Vegas 2027",
+    "hkDiamondGemPearl": "HK Diamond, Gem & Pearl Show 2027",
     "jewelleryShowLondon": "The Jewellery Show London",
     "inventory": "Inventario",
     "about": "A proposito di",
@@ -46220,8 +46226,222 @@
         "National Hall, Olympia London",
         "Stand B41"
       ],
-      "primaryCta": "Prenota un appuntamento professionale",
-      "secondaryCta": "Sfoglia l’inventario diamanti"
+      "primaryCta": "Prenota un incontro professionale JGW",
+      "secondaryCta": "Esplora l'inventario di diamanti naturali"
+    }
+  },
+  "jgwHongKongPage": {
+    "metadata": {
+      "title": "Jewellery & Gem WORLD Hong Kong 2026 | Uniglo",
+      "description": "Incontra Uniglo Diamonds al JGW Hong Kong 2026. Scopri le date, le sedi e le opportunita di approvvigionamento di diamanti naturali con il nostro team di Anversa."
+    },
+    "announcement": "Jewellery & Gem WORLD Hong Kong 2026 · 14-18 set AsiaWorld-Expo · 16-20 set HKCEC · Incontra Uniglo Diamonds",
+    "breadcrumbHome": "Home",
+    "breadcrumbCurrent": "Jewellery & Gem WORLD Hong Kong 2026",
+    "hero": {
+      "eyebrow": "Fiera professionale · Settembre 2026 · Hong Kong",
+      "title": "Jewellery & Gem WORLD Hong Kong 2026: Incontra Uniglo Diamonds",
+      "lead": "Incontra Uniglo Diamonds al JGW Hong Kong 2026",
+      "para1": "Il Jewellery & Gem WORLD Hong Kong 2026 si svolgera in due sedi a Hong Kong a settembre. La sezione materiali per gioielleria si terra ad AsiaWorld-Expo dal 14 al 18 settembre 2026, mentre la sezione gioielleria finita si terra al Hong Kong Convention and Exhibition Centre dal 16 al 20 settembre 2026.",
+      "para2": "Uniglo Diamonds si unira alla comunita internazionale del diamante e della gioielleria a Hong Kong per presentare diamanti naturali ed esperienza di approvvigionamento basata ad Anversa a rivenditori, grossisti, produttori, marchi, designer e team di acquisto. I visitatori devono confermare la sede finale e il numero dello stand prima di viaggiare.",
+      "primaryCta": "Prenota un incontro professionale JGW",
+      "secondaryCta": "Esplora l'inventario di diamanti naturali",
+      "imageAlt": "Uniglo Diamonds al Jewellery and Gem WORLD Hong Kong 2026"
+    },
+    "eventDetails": {
+      "eyebrow": "Informazioni sull'evento",
+      "title": "Jewellery & Gem WORLD Hong Kong 2026 - Dettagli",
+      "colLabel": "Dettaglio",
+      "colValue": "Informazione confermata",
+      "rows": [
+        { "label": "Evento", "value": "Jewellery & Gem WORLD Hong Kong 2026" },
+        { "label": "Abbreviazione", "value": "JGW Hong Kong 2026" },
+        { "label": "Organizzatore", "value": "Informa Markets Jewellery" },
+        { "label": "Date AsiaWorld-Expo", "value": "14-18 settembre 2026" },
+        { "label": "Orari AsiaWorld-Expo", "value": "10:00-18:00 (14-17 set); 10:00-17:00 (18 set)" },
+        { "label": "Date HKCEC", "value": "16-20 settembre 2026" },
+        { "label": "Orari HKCEC", "value": "10:00-18:00 (16-19 set); 10:00-17:00 (20 set)" },
+        { "label": "Indirizzo AsiaWorld-Expo", "value": "1 Airport Expo Boulevard, Chek Lap Kok, Hong Kong" },
+        { "label": "Indirizzo HKCEC", "value": "1 Expo Drive, Wan Chai, Hong Kong" },
+        { "label": "Ammissione", "value": "Professionisti della gioielleria e visitatori invitati di 16 anni e oltre" },
+        { "label": "Scadenza preregistrazione", "value": "6 settembre 2026" },
+        { "label": "Stand Uniglo Diamonds", "value": "Da confermare" }
+      ]
+    },
+    "whatIsJGW": {
+      "eyebrow": "Informazioni sull'evento",
+      "title": "Cos'e Jewellery & Gem WORLD Hong Kong?",
+      "para1": "Jewellery & Gem WORLD Hong Kong e un evento internazionale di approvvigionamento B2B al servizio dei settori del diamante, delle pietre preziose, delle perle, della produzione di gioielli, del commercio all'ingrosso e al dettaglio.",
+      "para2": "L'organizzatore descrive JGW come una delle principali destinazioni mondiali di approvvigionamento di gioielli. Il suo formato separa i materiali per gioielleria dai prodotti finiti, aiutando gli acquirenti professionali a individuare i fornitori piu rilevanti.",
+      "para3": "JGW e progettato per i membri qualificati del commercio di gioielleria, inclusi acquirenti di diamanti, rivenditori, grossisti, importatori, marchi di gioielleria, produttori, designer, uffici acquisti e professionisti dell'approvvigionamento.",
+      "imageAlt": "JGW Hong Kong 2026 date e due sedi espositive"
+    },
+    "venues": {
+      "aweEyebrow": "AsiaWorld-Expo · 14-18 settembre",
+      "aweTitle": "Diamanti, Pietre Preziose, Perle e Materiali per Gioielleria",
+      "awePara": "L'AsiaWorld-Expo ospita la parte materiali per gioielleria di JGW dal 14 al 18 settembre 2026. Questa sede e la destinazione principale per gli acquirenti che si approvvigionano di diamanti bianchi sfusi, diamanti colorati, pietre preziose, perle e materiali correlati.",
+      "aweCategories": [
+        "Diamanti bianchi sfusi",
+        "Diamanti colorati",
+        "Pietre preziose naturali e sintetiche",
+        "Rubini, smeraldi e zaffiri",
+        "Gemme pregiate e perle",
+        "Minerali pregiati e coralli",
+        "Componenti e accessori per gioielleria"
+      ],
+      "hkcecEyebrow": "HKCEC · 16-20 settembre",
+      "hkcecTitle": "Gioielleria Finita e Tecnologia",
+      "hkcecPara": "L'Hong Kong Convention and Exhibition Centre ospita la sezione gioielleria finita dal 16 al 20 settembre 2026. Visitare l'HKCEC aiuta gli acquirenti a capire come le forme e le qualita dei diamanti vengono utilizzate nella gioielleria finita.",
+      "hkcecCategories": [
+        "Gioielli con diamanti fini e finiti",
+        "Gioielli da sposa e nuziali",
+        "Gioielli in oro e platino",
+        "Gioielli con pietre preziose",
+        "Gioielli da uomo e collezioni di designer",
+        "Soluzioni di packaging e display",
+        "Attrezzature e utensili per gioielleria"
+      ]
+    },
+    "meet": {
+      "eyebrow": "Incontra Uniglo Diamonds",
+      "title": "Incontra Uniglo Diamonds al JGW Hong Kong 2026",
+      "para1": "Per gli acquirenti che confrontano i fornitori di diamanti naturali al JGW Hong Kong 2026, incontrare Uniglo Diamonds offre l'opportunita di discutere i requisiti di approvvigionamento specifici direttamente con un team esperto.",
+      "para2": "Uniglo Diamonds lavora con diamanti naturali in diverse forme, pesi in carati, misure, gamme di colori e gradi di purezza. Il background anversano colloca l'azienda in uno dei centri di commercio del diamante piu consolidati al mondo.",
+      "para3": "Gli acquirenti possono discutere di brillanti rotondi nonche di forme ovale, pera, smeraldo, principessa, cuscino, radiante, marquise, cuore e Asscher.",
+      "cta": "Prenota un incontro professionale JGW",
+      "imageAlt": "Fornitore di diamanti naturali al JGW Hong Kong 2026"
+    },
+    "shapes": {
+      "eyebrow": "Forme, Dimensioni e Specifiche dei Diamanti",
+      "title": "Discutere Forme, Dimensioni e Specifiche dei Diamanti",
+      "para1": "L'approvvigionamento di diamanti diventa piu efficiente quando gli acquirenti possono definire chiaramente le specifiche richieste. Il peso in carati e importante, ma non e l'unico fattore determinante.",
+      "para2": "Due diamanti con lo stesso peso in carati possono avere dimensioni notevolmente diverse. Cio e particolarmente rilevante per forme allungate, pietre laterali abbinate o pietre calibrate.",
+      "para3": "Gli acquirenti possono discutere i requisiti in base a gamme di peso in carati, misure, proporzioni, combinazioni di colore e purezza, certificazione e montatura prevista.",
+      "items": [
+        "Brillante Rotondo",
+        "Ovale",
+        "Smeraldo",
+        "Pera",
+        "Principessa",
+        "Cuscino",
+        "Radiante",
+        "Marquise",
+        "Cuore",
+        "Asscher"
+      ],
+      "cta": "Sfoglia l'inventario di diamanti naturali",
+      "imageAlt": "Forme di diamanti naturali per l'approvvigionamento al JGW Hong Kong 2026"
+    },
+    "matching": {
+      "eyebrow": "Corrispondenza e Coerenza",
+      "title": "Corrispondenza e Coerenza per la Produzione di Gioielli",
+      "para1": "La corrispondenza e particolarmente importante quando i diamanti verranno utilizzati insieme nello stesso design di gioielli. Orecchini, anelli, fasce infinite, braccialetti tennis e gioielli con piu pietre richiedono tutti un alto livello di coerenza.",
+      "para2": "Gli acquirenti devono spiegare se hanno bisogno di coppie abbinate, pietre laterali, diamanti calibrati, layout per gioielli tennis, diamanti per fasce infinite o specifiche di produzione ripetibili.",
+      "items": [
+        "Coppie abbinate",
+        "Pietre laterali abbinate",
+        "Selezioni di diamanti calibrati",
+        "Layout per gioielli tennis",
+        "Diamanti per fasce infinite",
+        "Specifiche di produzione ripetibili",
+        "Combinazioni di forme miste",
+        "Pietre centrali con diamanti di accompagnamento coordinati"
+      ],
+      "imageAlt": "Diamanti naturali per la produzione di gioielli da sposa e fini"
+    },
+    "antwerp": {
+      "eyebrow": "Competenza di Anversa",
+      "title": "Esperienza di Approvvigionamento di Diamanti Basata ad Anversa",
+      "para1": "Anversa ha svolto un ruolo centrale nel commercio internazionale del diamante per generazioni. Lavorare da questo consolidato ambiente commerciale da a Uniglo Diamonds accesso a un'ampia rete professionale.",
+      "para2": "Tuttavia, la sola posizione non crea un rapporto di fornitura di successo. Gli acquirenti hanno anche bisogno di comunicazione chiara, specifiche accurate, aspettative realistiche e follow-up costante.",
+      "para3": "Uniglo Diamonds combina il suo background anversano con un approccio pratico all'approvvigionamento di diamanti. L'obiettivo e capire cosa un acquirente vuole produrre, stoccare o vendere prima di raccomandare una selezione particolare."
+    },
+    "documentation": {
+      "eyebrow": "Requisiti di Documentazione",
+      "title": "Documentazione dei Diamanti e Requisiti degli Acquirenti",
+      "para1": "I requisiti di documentazione possono differire a seconda delle dimensioni, del valore, del mercato previsto e delle aspettative dei clienti. Alcuni acquirenti richiedono rapporti di gradazione individuali per le pietre centrali, mentre altri necessitano di documentazione commerciale per diamanti calibrati o piu piccoli.",
+      "imageAlt": "Esperienza di approvvigionamento di diamanti di Anversa al JGW Hong Kong 2026"
+    },
+    "whoShouldMeet": {
+      "eyebrow": "Chi dovrebbe partecipare",
+      "title": "Chi Dovrebbe Incontrare Uniglo Diamonds al JGW Hong Kong?",
+      "types": [
+        { "title": "Rivenditori di Gioielli", "body": "I rivenditori possono discutere di diamanti naturali per anelli di fidanzamento, gioielli da sposa, regali, anniversari e altre categorie di gioielleria fine." },
+        { "title": "Grossisti e Distributori di Diamanti", "body": "Gli acquirenti all'ingrosso possono discutere selezioni commercialmente rilevanti, mercati target, requisiti ripetuti, documentazione e aspettative di fornitura." },
+        { "title": "Produttori di Gioielli", "body": "I produttori possono esplorare diamanti naturali in base alle forme richieste, alle misure, alle dimensioni calibrate, agli standard di corrispondenza e alle montature previste." },
+        { "title": "Marchi e Designer di Gioielli", "body": "I marchi e i designer possono discutere l'approvvigionamento per nuove collezioni, forme di diamanti distintive e design che richiedono una particolare direzione visiva." },
+        { "title": "Uffici Acquisti e Team di Sourcing", "body": "I team professionali possono valutare le capacita di Uniglo Diamonds mentre discutono documentazione, coerenza, quantita e calendari di produzione." },
+        { "title": "Gioiellieri Indipendenti", "body": "I gioiellieri indipendenti possono esplorare pietre centrali individuali, selezioni abbinate e requisiti di diamanti per clienti che cercano un servizio piu personalizzato." }
+      ]
+    },
+    "whyAttend": {
+      "eyebrow": "Perche partecipare a JGW",
+      "title": "Perche gli Acquirenti di Diamanti Partecipano a JGW Hong Kong",
+      "para": "JGW offre agli acquirenti la possibilita di esaminare diamanti e materiali per gioielleria di persona. Le misure, le proporzioni, il contorno e l'aspetto visivo complessivo di un diamante possono essere valutati piu efficacemente durante una visione fisica.",
+      "items": [
+        "Scoprire potenziali fornitori",
+        "Esaminare la direzione attuale del mercato",
+        "Confrontare forme e specifiche dei diamanti",
+        "Identificare lacune nell'assortimento o nell'inventario",
+        "Preparare le collezioni di fine anno e future",
+        "Discutere i requisiti di produzione",
+        "Sviluppare relazioni commerciali internazionali",
+        "Valutare diamanti per nuovi design di gioielli",
+        "Pianificare conversazioni di approvvigionamento di follow-up"
+      ]
+    },
+    "prepare": {
+      "eyebrow": "Preparazione all'Incontro",
+      "title": "Come Prepararsi per un Incontro con Uniglo Diamonds",
+      "para": "Prima di incontrare il team Uniglo Diamonds, gli acquirenti devono identificare le specifiche e le applicazioni di prodotto piu importanti. Preparare le forme preferite, le gamme di peso in carati, le misure, i requisiti di colore e purezza e le aspettative di documentazione.",
+      "items": [
+        "Mercato di vendita principale",
+        "Profilo cliente tipico",
+        "Forme di diamanti preferite",
+        "Gamme di peso in carati target",
+        "Combinazioni di colore e purezza accettabili",
+        "Documentazione di gradazione richiesta",
+        "Applicazioni gioiellerie previste",
+        "Quantita di ordine previste",
+        "Requisiti di corrispondenza o calibrazione",
+        "Mercati di consegna richiesti",
+        "Punti di forza e lacune dell'inventario esistente",
+        "Date di collezione o produzione imminenti"
+      ],
+      "cta": "Prenota un incontro professionale JGW"
+    },
+    "faq": {
+      "title": "Domande Frequenti",
+      "items": [
+        { "question": "Quando si tiene Jewellery & Gem WORLD Hong Kong 2026?", "answer": "La sezione AsiaWorld-Expo si svolgera dal 14 al 18 settembre 2026. La sezione HKCEC si svolgera dal 16 al 20 settembre 2026." },
+        { "question": "Le date di JGW Hong Kong 2026 sono cambiate?", "answer": "Si. Alcune pagine piu vecchie potrebbero visualizzare date precedenti. Il programma attuale conferma il 14-18 settembre per AsiaWorld-Expo e il 16-20 settembre per HKCEC." },
+        { "question": "Dove si tiene JGW Hong Kong 2026?", "answer": "L'evento si tiene ad AsiaWorld-Expo vicino all'aeroporto internazionale di Hong Kong e all'Hong Kong Convention and Exhibition Centre a Wan Chai." },
+        { "question": "Cosa viene esposto ad AsiaWorld-Expo?", "answer": "AsiaWorld-Expo presenta principalmente materiali per gioielleria, inclusi diamanti sfusi, pietre preziose colorate, perle, gemme pregiate e materiali correlati." },
+        { "question": "Cosa viene esposto all'HKCEC?", "answer": "L'HKCEC si concentra su gioielli fini e finiti, gioielli da sposa, gioielli in oro e platino, packaging, attrezzature e tecnologia dell'industria gioielliera." },
+        { "question": "JGW Hong Kong e aperta al pubblico?", "answer": "No. JGW e un evento focalizzato sul commercio per i professionisti della gioielleria e i visitatori invitati di 16 anni e oltre." },
+        { "question": "Come ci si registra per JGW Hong Kong 2026?", "answer": "I visitatori devono completare il processo di registrazione online dell'organizzatore. La scadenza per la preregistrazione e il 6 settembre 2026." },
+        { "question": "Quale identificazione e richiesta?", "answer": "I visitatori devono presentare un documento d'identita valido con foto. Potrebbero essere richieste anche credenziali commerciali o un biglietto da visita del settore gioielliero." },
+        { "question": "JGW e uguale alla Hong Kong International Jewellery Show?", "answer": "No. Jewellery & Gem WORLD Hong Kong e un evento Informa Markets Jewellery che si tiene a settembre. La HKTDC Hong Kong International Jewellery Show e un evento separato che si tiene prima nell'anno." },
+        { "question": "Quale sede JGW dovrebbero visitare gli acquirenti di diamanti?", "answer": "Gli acquirenti principalmente interessati a diamanti sfusi dovrebbero dare priorita alla sezione diamanti e materiali per gioielleria ad AsiaWorld-Expo." },
+        { "question": "Uniglo Diamonds sara presente a JGW Hong Kong 2026?", "answer": "Uniglo Diamonds si sta preparando per partecipare a JGW Hong Kong 2026. Gli acquirenti devono confermare la sede finale e il numero dello stand prima di visitare." },
+        { "question": "Cosa possono approvvigionare gli acquirenti da Uniglo Diamonds?", "answer": "Gli acquirenti possono discutere di diamanti naturali in brillanti rotondi e numerose forme fantasia, con requisiti basati su peso in carati, misure, colore, purezza, documentazione, corrispondenza e applicazione gioielleria prevista." },
+        { "question": "Gli acquirenti possono discutere di diamanti abbinati o calibrati?", "answer": "Si. Gli acquirenti possono fornire requisiti per coppie abbinate, pietre laterali, diamanti calibrati, fasce infinite, gioielli tennis e altri design con piu pietre." },
+        { "question": "I produttori possono discutere i requisiti di fornitura ripetuta?", "answer": "Si. I produttori di gioielli e gli acquirenti all'ingrosso devono spiegare le quantita previste, le misure, le gamme di qualita e i calendari di produzione." },
+        { "question": "Gli acquirenti possono organizzare un incontro con Uniglo Diamonds prima dell'evento?", "answer": "Si. Gli acquirenti devono organizzare gli incontri in anticipo e fornire i loro requisiti di approvvigionamento in modo che il team Uniglo Diamonds possa preparare una selezione piu rilevante." }
+      ]
+    },
+    "finalCta": {
+      "title": "Incontra Uniglo Diamonds a Hong Kong",
+      "para": "Incontra Uniglo Diamonds durante Jewellery & Gem WORLD Hong Kong 2026 per esplorare diamanti naturali ed esperienza di approvvigionamento basata ad Anversa. Prepara le forme di diamanti preferite, le misure, le gamme di colore e purezza e i requisiti di documentazione prima dell'incontro.",
+      "factEvent": "Evento",
+      "factEventValue": "JGW Hong Kong 2026",
+      "factDates": "Date",
+      "factDatesValue": "14-18 set (AWE) · 16-20 set (HKCEC)",
+      "factStand": "Stand Uniglo",
+      "factStandValue": "Da confermare",
+      "primaryCta": "Prenota un incontro professionale JGW con Uniglo Diamonds",
+      "secondaryCta": "Esplora l'inventario di diamanti naturali di Uniglo",
+      "note": "Conferma la sede finale e il numero dello stand prima di viaggiare. I dettagli dello stand verranno pubblicati non appena l'assegnazione degli espositori 2026 dell'organizzatore sara confermata."
     }
   }
 }
