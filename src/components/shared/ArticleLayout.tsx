@@ -8,7 +8,7 @@ interface ArticleLayoutProps {
     subtitle: string;
     paragraphs: string[];
     bulletPoints?: string[];
-    image: {
+    image?: {
         src: string;
         alt?: string; // Optional, can fallback to title
     };
@@ -39,12 +39,13 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
             className={`mb-20 last:mb-0 group ${
                 floatImages
                     ? "block after:clear-both after:block" // Float Container Styles
-                    : `flex flex-col gap-10 md:items-center ${
+                    : `flex flex-col gap-10 md:items-start ${
                           reverse ? "md:flex-row-reverse" : "md:flex-row"
                       }` // Flex Container Styles
             }`}
         >
             {/* 1. IMAGE SECTION */}
+            {image && (
             <div
                 className={`relative h-auto ${
                     floatImages
@@ -64,11 +65,12 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
                     className="w-full h-auto object-cover shadow-sm transition-transform duration-700 group-hover:scale-[1.02]"
                 />
             </div>
+            )}
 
             {/* 2. TEXT CONTENT */}
             <div
                 className={`text-content ${
-                    floatImages ? "" : "w-full md:w-1/2" // In flex mode, take up remaining half
+                    floatImages ? "" : image ? "w-full md:w-1/2" : "w-full" // In flex mode, full width if no image
                 }`}
             >
                 {/* Subtitle with separator line */}

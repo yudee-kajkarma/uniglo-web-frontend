@@ -119,6 +119,30 @@ const NAV_LINKS: NavLink[] = [
                 nameKey: "nav.jewelleryShowLondon",
                 href: "/jewellery-show-london-2026",
             },
+            {
+                nameKey: "nav.jgwHongKong",
+                href: "/jewellery-gem-world-hong-kong-2026",
+            },
+            {
+                nameKey: "nav.vicenzaoroSeptember",
+                href: "/vicenzaoro-september-2026",
+            },
+            {
+                nameKey: "nav.jgtdDubai",
+                href: "/jgtd-dubai-2026",
+            },
+            {
+                nameKey: "nav.inhorgentaMunich",
+                href: "/inhorgenta-munich-2027",
+            },
+            {
+                nameKey: "nav.jckLasVegas",
+                href: "/jck-las-vegas-2027",
+            },
+            {
+                nameKey: "nav.hkDiamondGemPearl",
+                href: "/hong-kong-international-diamond-gem-pearl-show-2027",
+            },
         ],
     },
     {
