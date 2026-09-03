@@ -46233,278 +46233,435 @@
   "jgwHongKongPage": {
     "metadata": {
       "title": "Jewellery & Gem WORLD Hong Kong 2026 | Uniglo",
-      "description": "Ontmoet Uniglo Diamonds op JGW Hong Kong 2026. Ontdek evenementdata, locaties en inkoopmogelijkheden voor natuurlijke diamanten met ons Antwerps team."
+      "description": "Ontmoet Uniglo Diamonds op Jewellery & Gem WORLD Hong Kong 2026 voor inkoop van natuurlijke diamanten. Bekijk de data, locaties en boek een handelsbijeenkomst."
     },
     "announcement": "Jewellery & Gem WORLD Hong Kong 2026 · 14–18 sep in AsiaWorld-Expo · 16–20 sep in HKCEC · Ontmoet Uniglo Diamonds",
     "breadcrumbHome": "Home",
     "breadcrumbCurrent": "Jewellery & Gem WORLD Hong Kong 2026",
     "hero": {
-      "eyebrow": "Vakbeurs · September 2026 · Hongkong",
-      "title": "Jewellery & Gem WORLD Hong Kong 2026: Ontmoet Uniglo Diamonds",
-      "lead": "Ontmoet Uniglo Diamonds op JGW Hong Kong 2026",
-      "para1": "Jewellery & Gem WORLD Hong Kong 2026 vindt in september plaats op twee locaties in Hongkong. Het gedeelte sieradenanmaterialen loopt van 14 tot 18 september 2026 in AsiaWorld-Expo, terwijl het gedeelte afgewerkte sieraden plaatsvindt in het Hong Kong Convention and Exhibition Centre van 16 tot 20 september 2026.",
-      "para2": "Uniglo Diamonds sluit zich aan bij de internationale diamant- en sieradengemeenschap in Hongkong om natuurlijke diamanten en Antwerps inkoopexpertise te presenteren aan retailers, groothandelaren, fabrikanten, sieradenmerken, ontwerpers en professionele inkoopteams. Bezoekers die Uniglo Diamonds willen ontmoeten, dienen de definitieve locatie en standnummer te bevestigen voor vertrek.",
-      "primaryCta": "JGW-vakgesprek boeken",
-      "secondaryCta": "Inventaris natuurlijke diamanten verkennen",
-      "imageAlt": "Uniglo Diamonds op Jewellery and Gem WORLD Hongkong 2026"
+      "eyebrow": "Handelsbeurs · September 2026 · Hongkong",
+      "title": "Jewellery & Gem WORLD Hong Kong 2026 – Ontmoet Uniglo Diamonds",
+      "lead": "Jewellery & Gem WORLD Hong Kong 2026 – Ontmoet Uniglo Diamonds",
+      "para1": "De Jewellery & Gem WORLD Hong Kong 2026, ook bekend als JGW Hong Kong 2026, brengt internationale sieradenkopers en -leveranciers samen op twee locaties in Hongkong in september. De beurzen voor diamanten, edelstenen, parels en sieradenmaterialen vinden plaats in AsiaWorld-Expo van 14 tot 18 september 2026, terwijl afgewerkte sieraden, design, verpakkingen en technologie worden gepresenteerd in het Hong Kong Convention and Exhibition Centre van 16 tot 20 september 2026.",
+      "para2": "Uniglo Diamonds ontmoet detailhandelaren, groothandelaren, fabrikanten, sieradenmerken, ontwerpers en professionele inkoopteams om te praten over natuurlijke diamanten, bijpassende selecties en commerciële inkoopvereisten. Kopers kunnen van tevoren een afspraak maken en hun voorkeursvormen, maten, kwaliteitsranges, documentatiebehoeften en beoogde sieradentoepassingen doorgeven.",
+      "primaryCta": "Boek een afspraak op JGW Hong Kong 2026",
+      "secondaryCta": "Verken het inventaris van natuurlijke diamanten",
+      "imageAlt": "Uniglo Diamonds op de Jewellery and Gem WORLD Hong Kong 2026"
     },
     "eventDetails": {
-      "eyebrow": "Evenementinformatie",
-      "title": "Jewellery & Gem WORLD Hong Kong 2026 – Evenementdetails",
-      "colLabel": "Detail",
-      "colValue": "Bevestigde informatie",
+      "eyebrow": "Snelle evenementinformatie",
+      "title": "Evenementdetails Jewellery & Gem WORLD Hong Kong 2026",
+      "colLabel": "Evenementinformatie",
+      "colValue": "Bevestigde details",
       "rows": [
         { "label": "Evenement", "value": "Jewellery & Gem WORLD Hong Kong 2026" },
-        { "label": "Afkorting", "value": "JGW Hong Kong 2026" },
+        { "label": "Gangbare naam", "value": "JGW Hong Kong 2026" },
         { "label": "Organisator", "value": "Informa Markets Jewellery" },
-        { "label": "AsiaWorld-Expo datums", "value": "14–18 september 2026" },
-        { "label": "AsiaWorld-Expo openingstijden", "value": "10:00–18:00 (14–17 sep); 10:00–17:00 (18 sep)" },
-        { "label": "HKCEC datums", "value": "16–20 september 2026" },
-        { "label": "HKCEC openingstijden", "value": "10:00–18:00 (16–19 sep); 10:00–17:00 (20 sep)" },
-        { "label": "AsiaWorld-Expo adres", "value": "1 Airport Expo Boulevard, Chek Lap Kok, Hongkong" },
-        { "label": "HKCEC adres", "value": "1 Expo Drive, Wan Chai, Hongkong" },
-        { "label": "Toelating", "value": "Vakprofessionals sieraden en uitgenodigde bezoekers van 16 jaar en ouder" },
-        { "label": "Deadline voorregistratie", "value": "6 september 2026" },
-        { "label": "Uniglo Diamonds stand", "value": "Nog te bevestigen" }
+        { "label": "Data AsiaWorld-Expo", "value": "14–18 september 2026" },
+        { "label": "Openingstijden AsiaWorld-Expo", "value": "10:00–18:00 van 14–17 september; 10:00–17:00 op 18 september" },
+        { "label": "Data HKCEC", "value": "16–20 september 2026" },
+        { "label": "Openingstijden HKCEC", "value": "10:00–18:00 van 16–19 september; 10:00–17:00 op 20 september" },
+        { "label": "Adres AsiaWorld-Expo", "value": "1 Airport Expo Boulevard, Chek Lap Kok, Hongkong" },
+        { "label": "Adres HKCEC", "value": "1 Expo Drive, Wan Chai, Hongkong" },
+        { "label": "Toelating", "value": "Uitsluitend voor gekwalificeerde sieradenprofessionals en uitgenodigde bezoekers" },
+        { "label": "Doelgroep", "value": "Detailhandelaren, groothandelaren, fabrikanten, ontwerpers, sieradenmerken en professionele inkoopteams" },
+        { "label": "Stand Uniglo Diamonds", "value": "Wordt bevestigd" },
+        { "label": "Afspraak", "value": "Boek een handelsafspraak met Uniglo Diamonds voor het evenement" }
       ]
     },
     "whatIsJGW": {
       "eyebrow": "Over het evenement",
-      "title": "Wat is Jewellery & Gem WORLD Hong Kong?",
-      "para1": "Jewellery & Gem WORLD Hong Kong is een internationaal B2B-inkoopsevenement voor de diamant-, edelsteen-, parel-, sieradenproductie-, groothandels- en detailhandelssector.",
-      "para2": "De organisator beschrijft JGW als een van de toonaangevende bestemmingen voor sieradeninkoop ter wereld. Het formaat scheidt sieradenanmaterialen van afgewerkte producten, wat professionele inkopers helpt de meest relevante leveranciers te vinden.",
-      "para3": "JGW is geen consumentenjeweliersverkoop. Het richt zich op gekwalificeerde leden van de sieradenhandel, waaronder diamantkopers, retailers, groothandelaren, importeurs, sieradenmerken, fabrikanten, ontwerpers, inkoopkantoren en inkopersprofessionals.",
-      "imageAlt": "JGW Hongkong 2026 datums en twee beurslocaties"
+      "title": "JGW Hong Kong 2026 – Data en locaties",
+      "para1": "JGW Hong Kong werkt met een gespecialiseerd twee-locatieformaat. In plaats van elke productcategorie in één beurshal te plaatsen, verdeelt de organisator het evenement in zes gespecialiseerde beurzen die edele materialen, afgewerkte sieraden, design, verpakkingen, apparatuur en sectortechnologie beslaan.",
+      "para2": "AsiaWorld-Expo herbergt de secties diamanten, fijne edelstenen, gekleurde edelstenen en parels van 14 tot 18 september. Het HKCEC herbergt de sieradenbeurzen Hong Kong, International en Fine Design van 16 tot 20 september.",
+      "para3": "De overlappende data van 16 tot 18 september stellen professionele bezoekers in staat beide locaties tijdens hetzelfde inkoopbezoek te bezoeken. Kopers moeten hun schema's echter zorgvuldig plannen, omdat AsiaWorld-Expo en het HKCEC in verschillende delen van Hongkong liggen.",
+      "imageAlt": "JGW Hong Kong 2026 data en twee beurslocaties"
     },
     "venues": {
       "aweEyebrow": "AsiaWorld-Expo · 14–18 september",
-      "aweTitle": "Diamanten, Edelstenen, Parels en Sieradenanmaterialen",
-      "awePara": "AsiaWorld-Expo herbergt het sieradenanmateriaaldeel van JGW van 14 tot 18 september 2026. Deze locatie is de belangrijkste bestemming voor inkopers die losse witte diamanten, gekleurde diamanten, edelstenen, parels en verwante materialen inkopen.",
+      "aweTitle": "AsiaWorld-Expo: Diamanten, fijne edelstenen, gekleurde edelstenen en parels",
+      "awePara": "AsiaWorld-Expo is de belangrijkste bestemming voor kopers die losse diamanten en andere sieradenmaterialen inkopen. De locatie herbergt drie gespecialiseerde beurzen: JGW September: Gemstones; JGW September: Diamonds & Fine Gems; en JGW September: Pearls+. Professionele kopers wier hoofddoel het ontmoeten van diamantleveranciers is, moeten prioriteit geven aan AsiaWorld-Expo.",
       "aweCategories": [
-        "Losse witte diamanten",
-        "Gekleurde diamanten",
-        "Natuurlijke en synthetische edelstenen",
-        "Robijnen, smaragden en saffieren",
-        "Fijne edelstenen en parels",
+        "Witte diamanten en gekleurde diamanten",
+        "Fijne edelstenen en gekleurde edelstenen",
+        "Parels en sieradenmaterialen",
         "Fijne mineralen en koralen",
-        "Sieradencomponenten en accessoires"
+        "Sieraden accessoires"
       ],
       "hkcecEyebrow": "HKCEC · 16–20 september",
-      "hkcecTitle": "Afgewerkte Sieraden en Technologie",
-      "hkcecPara": "Het Hong Kong Convention and Exhibition Centre herbergt het afgewerkte-sieradendeel van 16 tot 20 september 2026. Het bezoeken van HKCEC helpt inkopers te begrijpen hoe diamantvormen en -kwaliteiten worden gebruikt in afgewerkte sieraden.",
+      "hkcecTitle": "Hong Kong Convention and Exhibition Centre: Afgewerkte sieraden en technologie",
+      "hkcecPara": "Het HKCEC herbergt drie beurzen voor afgewerkte sieraden en design. Kopers van losse diamanten kunnen ook profiteren van een bezoek aan het HKCEC om te zien hoe verschillende diamantvormen, -maten en -kwaliteiten worden gebruikt in huidige collecties afgewerkte sieraden.",
       "hkcecCategories": [
-        "Fijne en afgewerkte diamanten sieraden",
-        "Bruids- en huwelijkssieraden",
-        "Gouden en platina sieraden",
-        "Edelsteensieraden",
-        "Herensieraden en ontwerperscollecties",
-        "Verpakkings- en displayoplossingen",
-        "Sieradenuitrusting en gereedschap"
+        "Fijne en afgewerkte diamantsieraden",
+        "Bruids- en trouwsieraden",
+        "Zilversieraden en herensieraden",
+        "Antieke, vintage- en designercollecties",
+        "Sieraden accessoires en verpakkingen",
+        "Presentatie- en verpakkingsoplossingen",
+        "Productietools en sectortechnologie"
       ]
     },
     "meet": {
       "eyebrow": "Ontmoet Uniglo Diamonds",
       "title": "Ontmoet Uniglo Diamonds op JGW Hong Kong 2026",
-      "para1": "Voor inkopers die leveranciers van natuurlijke diamanten vergelijken op JGW Hong Kong 2026 biedt een ontmoeting met Uniglo Diamonds de mogelijkheid om specifieke inkoopvereisten direct te bespreken met een ervaren diamantteam.",
-      "para2": "Uniglo Diamonds werkt met natuurlijke diamanten in verschillende vormen, karaatgewichten, afmetingen, kleurbereiken en zuiverheidsgraden. De Antwerpse achtergrond plaatst het bedrijf in een van de meest gevestigde diamanthandelcentra ter wereld.",
-      "para3": "Inkopers kunnen ronde briljanten bespreken, evenals ovale, peervormige, smaragd-, prinses-, kussen-, radiant-, marquise-, hart- en Asscher-vormen.",
-      "cta": "JGW-vakgesprek boeken",
-      "imageAlt": "Leverancier natuurlijke diamanten op JGW Hong Kong 2026"
+      "para1": "Een afspraak met Uniglo Diamonds biedt professionele kopers de gelegenheid om hun diamantvereisten te bespreken met een team gevestigd in Antwerpen voordat ze inkoopbeslissingen nemen.",
+      "para2": "Kopers kunnen natuurlijke diamanten bespreken in een reeks vormen, karaatgewichten, afmetingen, kleur- en zuiverheidscombinaties. Vereisten kunnen bestaan uit individuele centrale stenen, bijpassende paren, gekalibreerde diamanten, composities voor meerstenen sieraden of herhaalbare specificaties voor productie.",
+      "para3": "De definitieve locatie en het standnummer van Uniglo Diamonds worden gepubliceerd zodra deze zijn bevestigd. Kopers dienen van tevoren een afspraak te boeken in plaats van uitsluitend te vertrouwen op een ongeplande bezoek.",
+      "cta": "Boek een afspraak op JGW Hong Kong 2026",
+      "imageAlt": "Leverancier van natuurlijke diamanten op JGW Hong Kong 2026"
     },
     "shapes": {
-      "eyebrow": "Diamantvormen, Afmetingen en Specificaties",
-      "title": "Bespreek Diamantvormen, Afmetingen en Specificaties",
-      "para1": "Het inkopen van diamanten wordt efficiënter wanneer inkopers de vereiste specificaties duidelijk kunnen definiëren. Karaatgewicht is belangrijk, maar het is niet de enige factor die bepaalt of een diamant geschikt is voor een bepaald ontwerp.",
-      "para2": "Twee diamanten met hetzelfde karaatgewicht kunnen merkbaar verschillende afmetingen hebben. Dit is vooral relevant bij het inkopen van langwerpige vormen, bijpassende zijstenen of gekalibreerde stenen.",
-      "para3": "Inkopers kunnen vereisten bespreken op basis van karaatgewichtsbereiken, minimum- en maximumafmetingen, lengte-breedteverhoudingen, kleur- en zuiverheidscombinaties, slijp- en proportieverwachtingen, matchingvereisten, certificering en beoogde sieradenvatting.",
+      "eyebrow": "Diamantvormen, maten en specificaties",
+      "title": "Bespreek diamantvormen, maten en specificaties",
+      "para1": "Karaatgewicht alleen bepaalt niet of een diamant geschikt is voor een bepaald sieraad. Ook afmetingen, proporties, contour, kleur, zuiverheid en de algehele visuele prestaties moeten worden overwogen.",
+      "para2": "Twee diamanten met hetzelfde aangegeven karaatgewicht kunnen verschillende afmetingen en bovenaanzichten hebben. Dit is met name belangrijk bij de inkoop van langwerpige vormen, bijpassende oorbellen, gecoördineerde zijstenen of gekalibreerde diamanten voor herhaalde productie.",
+      "para3": "Duidelijke specificaties helpen ongeschikte opties te verminderen en maken het inkoopgesprek commercieel nuttiger.",
       "items": [
-        "Ronde Briljant",
+        "Ronde briljant",
         "Ovaal",
         "Smaragd",
         "Peer",
-        "Prinses",
+        "Princess",
         "Kussen",
         "Radiant",
-        "Marquise",
+        "Markies",
         "Hart",
         "Asscher"
       ],
-      "cta": "Inventaris natuurlijke diamanten doorbladeren",
+      "cta": "Blader door het inventaris van natuurlijke diamanten",
       "imageAlt": "Natuurlijke diamantvormen voor inkoop op JGW Hong Kong 2026"
     },
     "matching": {
-      "eyebrow": "Matching en Consistentie",
-      "title": "Matching en Consistentie voor Sieradenproductie",
-      "para1": "Matching is bijzonder belangrijk wanneer diamanten samen in hetzelfde sieradenontwerp worden gebruikt. Diamanten oorbellen, driestenenringen, eeuwigheidsbanden, tennisarmbanden en meersteensieraden vereisen een hoog niveau van consistentie.",
-      "para2": "Inkopers dienen uit te leggen of ze passende paren, zijstenen, gekalibreerde diamantselecties, lay-outs voor tennissieraden, diamanten voor eeuwigheidsbanden, herhaalbare productiespecificaties of centrale stenen met gecoördineerde begeleidende diamanten nodig hebben.",
+      "eyebrow": "Afstemming en consistentie",
+      "title": "Bijpassende en gekalibreerde diamanten voor sieradenproductie",
+      "para1": "Afstemming wordt bijzonder belangrijk wanneer meerdere diamanten in hetzelfde sieraad zullen verschijnen. Diamanten oorbellen, driesteenringen, eeuwigheidsbanden, tennisarmbanden, tennishalskettingen en andere meerstenenontwerpen kunnen diamanten vereisen die zijn gecoördineerd op vorm, afmetingen, kleur, zuiverheid en visueel uiterlijk.",
+      "para2": "Fabrikanten kunnen ook consistente afmetingen nodig hebben om de zettingsefficiëntie te verbeteren en herhaalbare productie te ondersteunen. Deze vereisten moeten worden verbonden aan het definitieve sieradenontwerp in plaats van er los van te worden beschouwd.",
       "items": [
-        "Passende paren",
-        "Bijpassende zijstenen",
+        "Bijpassende diamantparen",
+        "Gecoördineerde zijstenen",
         "Gekalibreerde diamantselecties",
-        "Lay-outs voor tennissieraden",
-        "Diamanten voor eeuwigheidsbanden",
+        "Composities voor eeuwigheidsbanden",
+        "Composities voor tennisarmbanden en -kettingen",
         "Herhaalbare productiespecificaties",
-        "Gecombineerde vormcombinaties",
-        "Centrale stenen met gecoördineerde bijbehorende diamanten"
+        "Combinaties van gemengde vormen",
+        "Centrale stenen met ondersteunende diamanten"
       ],
       "imageAlt": "Natuurlijke diamanten voor bruids- en fijne sieradenproductie"
     },
     "antwerp": {
-      "eyebrow": "Antwerpse Expertise",
-      "title": "Antwerpse Diamantinkoop-Expertise",
-      "para1": "Antwerpen speelt al generaties een centrale rol in de internationale diamanthandel. Werken vanuit deze gevestigde handelsomgeving geeft Uniglo Diamonds toegang tot een breed professioneel netwerk.",
-      "para2": "Locatie alleen schept echter geen succesvolle leveranciersrelatie. Inkopers hebben ook duidelijke communicatie, nauwkeurige specificaties, realistische verwachtingen en consistent follow-up nodig.",
-      "para3": "Uniglo Diamonds combineert zijn Antwerpse achtergrond met een praktische benadering van diamantinkoop. Het doel is te begrijpen wat een inkoper wil fabriceren, opslaan of verkopen voordat een bepaalde diamantselectie wordt aanbevolen."
+      "eyebrow": "Antwerpse expertise",
+      "title": "Diamantinkoop-expertise vanuit Antwerpen",
+      "para1": "Antwerpen is al generaties lang een belangrijk centrum van de internationale diamanthandel. Uniglo Diamonds combineert deze achtergrond met een praktische, kopergerichte aanpak voor de inkoop van natuurlijke diamanten.",
+      "para2": "Een succesvolle leveranciersrelatie vereist meer dan alleen toegang tot voorraad. Het hangt af van nauwkeurige specificaties, duidelijke communicatie, passende documentatie, realistische verwachtingen over levering en consistente opvolging.",
+      "para3": "Het Uniglo Diamonds team probeert eerst te begrijpen wat een koper van plan is te produceren, op voorraad te houden of te verkopen. Deze aanpak kan detailhandelaren ondersteunen bij het inkopen van centrale stenen, fabrikanten die herhaalde collecties voorbereiden, groothandelaren die meerdere markten bedienen en ontwerpers die gespecialiseerde op diamant gerichte assortimenten ontwikkelen."
     },
     "documentation": {
       "eyebrow": "Documentatievereisten",
-      "title": "Diamantdocumentatie en Inkoopvereisten",
-      "para1": "Documentatievereisten kunnen variëren afhankelijk van de grootte, waarde, beoogde markt en klantverwachtingen van een diamant. Sommige inkopers vereisen individuele gradatierapporten voor centrale stenen, terwijl anderen commerciële documentatie nodig hebben voor gekalibreerde of kleinere diamanten. Inkopers dienen voor het ontmoeten van Uniglo Diamonds te identificeren of individuele gradatierapporten vereist zijn, welke laboratoria worden geaccepteerd en wat de import-/exportdocumentatievereisten zijn.",
+      "title": "Diamantdocumentatie en kopervereisten",
+      "para1": "Documentatievereisten kunnen variëren afhankelijk van de grootte, waarde, beoogde markt en klantverwachtingen van een diamant. Sommige kopers vereisen individuele certificaten voor centrale stenen. Anderen hebben commerciële documentatie nodig die geschikt is voor gekalibreerde diamanten, bijpassende selecties of kleinere stenen. Voor de afspraak moeten kopers bepalen of individuele certificaten vereist zijn, welke certificeerlaboratoria worden geaccepteerd, import- of exportdocumentatievereisten, marktspecifieke openbaarmakingsverplichtingen en documentatievereisten voor partijen, paren of composities.",
       "imageAlt": "Antwerpse diamantinkoop-expertise op JGW Hong Kong 2026"
     },
     "whoShouldMeet": {
-      "eyebrow": "Wie zou moeten deelnemen",
-      "title": "Wie Moet Uniglo Diamonds Ontmoeten op JGW Hong Kong?",
+      "eyebrow": "Wie moet deelnemen",
+      "title": "Wie moet Uniglo Diamonds ontmoeten op JGW Hong Kong?",
       "types": [
         {
-          "title": "Sieraden-Retailers",
-          "body": "Retailers kunnen natuurlijke diamanten bespreken voor verlovingsringen, bruidsieraden, geschenken, jubilea en andere fijne sieradencategorieën."
+          "title": "Sieradendetailhandelaren",
+          "body": "Natuurlijke diamanten voor verlovingsringen, bruidscollecties, geschenken en fijne sieraden."
         },
         {
-          "title": "Diamant-Groothandelaren en -Distributeurs",
-          "body": "Groothandelsinkopers kunnen commercieel relevante selecties, doelmarkten, herhalingsvereisten, documentatie en leveringsverwachtingen bespreken."
+          "title": "Diamantgroothandelaren en distributeurs",
+          "body": "Commerciële selecties, documentatie, doelmarkten en herhaalde bestellingen."
         },
         {
           "title": "Sieradenfabrikanten",
-          "body": "Fabrikanten kunnen natuurlijke diamanten verkennen op basis van vereiste vormen, afmetingen, gekalibreerde maten, matchingstandaarden en beoogde vattingen."
+          "body": "Vormen, gekalibreerde maten, afmetingen, afstemmingsnormen en productieschema's."
         },
         {
-          "title": "Sieradenmerken en Ontwerpers",
-          "body": "Merken en ontwerpers kunnen inkopen bespreken voor nieuwe collecties, kenmerkende diamantvormen en ontwerpen die een bepaalde visuele richting vereisen."
+          "title": "Sieradenmerken en ontwerpers",
+          "body": "Diamanten voor nieuwe collecties, bijzondere vormen en specifieke ontwerprichtingen."
         },
         {
-          "title": "Inkoopkantoren en Sourcing-Teams",
-          "body": "Professionele sourcing-teams kunnen de mogelijkheden van Uniglo Diamonds evalueren terwijl ze documentatie, consistentie, hoeveelheden en productieschema's bespreken."
+          "title": "Inkoopkantoren en sourcingteams",
+          "body": "Hoeveelheden, consistentie, documentatie, levering en leverancierscapaciteiten."
         },
         {
-          "title": "Onafhankelijke Juweliers",
-          "body": "Onafhankelijke juweliers kunnen individuele centrale stenen, passende selecties en diamantvereisten voor klanten die een meer gepersonaliseerde service zoeken, verkennen."
+          "title": "Zelfstandige juweliers",
+          "body": "Individuele centrale stenen, bijpassende selecties en klantspecifieke vereisten."
         }
       ]
     },
     "whyAttend": {
       "eyebrow": "Waarom JGW bezoeken",
-      "title": "Waarom Diamantinkopers JGW Hong Kong Bezoeken",
-      "para": "JGW geeft inkopers de mogelijkheid om diamanten en sieradenanmaterialen persoonlijk te onderzoeken in plaats van uitsluitend te vertrouwen op foto's, video's of digitale inventarislijsten. Afmetingen, proporties, omtrek en algehele visuele verschijning van een diamant kunnen effectiever worden beoordeeld tijdens een fysieke bezichtiging.",
+      "title": "Waarom diamantkopers JGW Hong Kong bezoeken",
+      "para": "Een grote sieradenbeurs stelt kopers in staat diamanten en materialen persoonlijk te onderzoeken in plaats van volledig te vertrouwen op foto's, video's of digitale voorraadlijsten. Afmetingen, proporties, contouren en visueel uiterlijk kunnen worden vergeleken tijdens een persoonlijk bezoek.",
       "items": [
-        "Potentiële leveranciers ontdekken",
-        "Huidige marktrichting beoordelen",
-        "Diamantvormen en -specificaties vergelijken",
-        "Assortiments- of voorraadlacunes identificeren",
-        "Jaareinds- en toekomstige collecties voorbereiden",
+        "Relevante internationale leveranciers ontdekken",
+        "Vormen en specificaties vergelijken",
+        "Markt- en productrichting beoordelen",
+        "Jaareinde- en toekomstige collecties voorbereiden",
         "Productievereisten bespreken",
-        "Internationale zakelijke relaties ontwikkelen",
+        "Professionele sourcingrelaties ontwikkelen",
         "Diamanten evalueren voor nieuwe sieradenontwerpen",
-        "Follow-up inkoopgesprekken regelen"
+        "Gerichte vervolgconversaties plannen"
       ]
     },
     "prepare": {
-      "eyebrow": "Vergadervoorbereiding",
-      "title": "Hoe u zich voorbereidt op een ontmoeting met Uniglo Diamonds",
-      "para": "Voordat u het Uniglo Diamonds-team ontmoet, dienen inkopers de specificaties en producttoepassingen te identificeren die het belangrijkst zijn voor hun bedrijf. Bereid voorkeurs diamantvormen, karaatgewichtsbereiken, afmetingen, kleur- en zuiverheidsvereisten en documentatieverwachtingen voor.",
+      "eyebrow": "Voorbereiding op de afspraak",
+      "title": "Hoe u zich voorbereidt op een afspraak met Uniglo Diamonds",
+      "para": "Bereid voor het aanvragen van een afspraak uw voorkeursvormen, afmetingen, karaatgewichtsbereiken, kleur- en zuiverheidscombinaties, documentatievereisten, hoeveelheden en beoogde sieradentoepassingen voor.",
       "items": [
-        "Primaire verkoopmarkt",
-        "Typisch klantprofiel",
-        "Voorkeurs diamantvormen",
-        "Doel karaatgewichtsbereiken",
-        "Aanvaardbare kleur- en zuiverheidscombinaties",
-        "Vereiste gradatiedocumentatie",
+        "Voorkeursvormen van diamanten",
+        "Vereiste karaatgewichten en afmetingen",
+        "Doelkleur- en zuiverheidsbereiken",
+        "Individuele stenen of herhaalde levering",
+        "Vereisten voor afstemming of kalibrering",
+        "Behoeften aan certificaten en documentatie",
         "Beoogde sieradentoepassingen",
-        "Verwachte bestelhoeveelheden",
-        "Matching- of kalibratievereisten",
-        "Vereiste leveringsmarkten",
-        "Bestaande inventarissterken en -lacunes",
-        "Aankomende collectie- of productiedatums"
+        "Doelmarkten voor detail- of groothandel",
+        "Verwachte hoeveelheden en leveringsschema's",
+        "Commerciële prijspositionering"
       ],
-      "cta": "JGW-vakgesprek boeken"
+      "cta": "Boek een afspraak op JGW Hong Kong 2026"
     },
     "faq": {
-      "title": "Veelgestelde Vragen",
+      "title": "Veelgestelde vragen",
       "items": [
         {
-          "question": "Wanneer is Jewellery & Gem WORLD Hong Kong 2026?",
-          "answer": "Het AsiaWorld-Expo-gedeelte loopt van 14 tot 18 september 2026. Het HKCEC-gedeelte loopt van 16 tot 20 september 2026."
+          "question": "Wanneer is de Jewellery & Gem WORLD Hong Kong 2026?",
+          "answer": "De beurzen van AsiaWorld-Expo lopen van 14 tot 18 september 2026. De beurzen van het HKCEC lopen van 16 tot 20 september 2026."
         },
         {
-          "question": "Zijn de JGW Hong Kong 2026-datums gewijzigd?",
-          "answer": "Ja. Sommige oudere pagina's kunnen vroegere datums weergeven. Het huidige schema van de organisator bevestigt 14–18 september voor AsiaWorld-Expo en 16–20 september voor HKCEC."
+          "question": "Zijn de data van JGW Hong Kong 2026 gewijzigd?",
+          "answer": "Ja. Bezoekers kunnen oudere informatie tegenkomen met andere data. Het huidige schema van de organisator bevestigt 14–18 september voor AsiaWorld-Expo en 16–20 september voor het HKCEC."
         },
         {
-          "question": "Waar vindt JGW Hong Kong 2026 plaats?",
+          "question": "Waar wordt JGW Hong Kong 2026 gehouden?",
           "answer": "Het evenement vindt plaats in AsiaWorld-Expo nabij de internationale luchthaven van Hongkong en het Hong Kong Convention and Exhibition Centre in Wan Chai."
         },
         {
-          "question": "Wat wordt er tentoongesteld in AsiaWorld-Expo?",
-          "answer": "AsiaWorld-Expo presenteert voornamelijk sieradenanmaterialen, waaronder losse diamanten, gekleurde edelstenen, parels, fijne edelstenen en verwante materialen."
+          "question": "Welke JGW-locatie moeten diamantkopers bezoeken?",
+          "answer": "Kopers die voornamelijk losse diamanten inkopen, moeten prioriteit geven aan AsiaWorld-Expo. Het HKCEC is relevanter voor afgewerkte sieraden, design, verpakkingen, tools en technologie."
         },
         {
-          "question": "Wat wordt er tentoongesteld in HKCEC?",
-          "answer": "HKCEC richt zich op fijne en afgewerkte sieraden, bruidsieraden, gouden en platina sieraden, verpakking, uitrusting en sieradenbranchetechnologie."
+          "question": "Is de Jewellery & Gem WORLD Hong Kong open voor het publiek?",
+          "answer": "Nee. JGW Hong Kong is een handelsmarkt die uitsluitend bestemd is voor sieradenprofessionals en uitgenodigde bezoekers."
         },
         {
-          "question": "Is Jewellery & Gem WORLD Hong Kong toegankelijk voor het publiek?",
-          "answer": "Nee. JGW is een vakgericht evenement voor sieradenprofessionals en uitgenodigde bezoekers van 16 jaar en ouder."
+          "question": "Hoe registreer ik me voor JGW Hong Kong 2026?",
+          "answer": "Bezoekers dienen gebruik te maken van het officiële registratiesysteem van de organisator. De momenteel vermelde deadline voor voorregistratie is 6 september 2026, hoewel registratie ter plaatse ook mogelijk is."
         },
         {
-          "question": "Hoe registreer ik mij voor JGW Hong Kong 2026?",
-          "answer": "Bezoekers dienen het online registratieproces van de organisator te voltooien. De momenteel gepubliceerde deadline voor voorregistratie is 6 september 2026."
-        },
-        {
-          "question": "Welk identiteitsbewijs is vereist?",
-          "answer": "Bezoekers moeten een geldig identiteitsbewijs met foto tonen. Handelsvergunningen, een uitnodiging of een visitekaartje uit de sieradenbranche kunnen ook worden gevraagd."
+          "question": "Welk legitimatiebewijs is vereist?",
+          "answer": "Bezoekers moeten een geldig identiteitsbewijs met foto overleggen. Voor registratie ter plaatse kan ook een uitnodiging of een persoonlijk visitekaartje uit de sieradenbranche vereist zijn."
         },
         {
           "question": "Is JGW hetzelfde als de Hong Kong International Jewellery Show?",
-          "answer": "Nee. Jewellery & Gem WORLD Hong Kong is een Informa Markets Jewellery-evenement dat in september plaatsvindt. De HKTDC Hong Kong International Jewellery Show is een apart evenement dat eerder in het jaar plaatsvindt."
-        },
-        {
-          "question": "Welke JGW-locatie moeten diamantinkopers bezoeken?",
-          "answer": "Inkopers die voornamelijk losse diamanten inkopen, dienen prioriteit te geven aan het gedeelte diamanten, edelstenen en sieradenanmaterialen in AsiaWorld-Expo."
+          "answer": "Nee. De Jewellery & Gem WORLD Hong Kong wordt georganiseerd door Informa Markets Jewellery en vindt plaats in september. De HKTDC Hong Kong International Jewellery Show is een apart evenement dat eerder in het jaar plaatsvindt."
         },
         {
           "question": "Is Uniglo Diamonds aanwezig op JGW Hong Kong 2026?",
-          "answer": "Uniglo Diamonds bereidt deelname aan JGW Hong Kong 2026 voor. Inkopers dienen de definitieve locatie en standnummer te bevestigen voor hun bezoek."
+          "answer": "Uniglo Diamonds is van plan professionele kopers te ontmoeten tijdens het evenement. De definitieve locatie en het standnummer van Uniglo worden gepubliceerd zodra deze zijn bevestigd."
         },
         {
-          "question": "Wat kunnen inkopers sourcen bij Uniglo Diamonds?",
-          "answer": "Inkopers kunnen natuurlijke diamanten bespreken in ronde briljanten en talrijke fancy-vormen, met vereisten gebaseerd op karaatgewicht, afmetingen, kleur, zuiverheid, documentatie, matching en beoogde sieradentoepassing."
+          "question": "Wat kunnen kopers bespreken met Uniglo Diamonds?",
+          "answer": "Kopers kunnen natuurlijke diamanten bespreken op basis van vorm, karaatgewicht, afmetingen, kleur, zuiverheid, documentatie, afstemming, hoeveelheid en beoogde sieradentoepassing."
         },
         {
-          "question": "Kunnen inkopers bijpassende of gekalibreerde diamanten bespreken?",
-          "answer": "Ja. Inkopers kunnen vereisten opgeven voor passende paren, zijstenen, gekalibreerde diamanten, eeuwigheidsbanden, tennissieraden en andere meersteenontwerpen."
+          "question": "Kunnen kopers bijpassende of gekalibreerde diamanten bespreken?",
+          "answer": "Ja. Vereisten kunnen bestaan uit bijpassende paren, zijstenen, gekalibreerde selecties, composities voor eeuwigheidsbanden, composities voor tennissieraden en andere meerstenen toepassingen."
         },
         {
-          "question": "Kunnen fabrikanten herhalingsleververeisten bespreken?",
-          "answer": "Ja. Sieradenfabrikanten en groothandelsinkopers dienen hun verwachte hoeveelheden, afmetingen, kwaliteitsbereiken en productieschema's uit te leggen bij het bespreken van herhalingsleververeisten."
+          "question": "Kunnen fabrikanten herhaalde leveringsvereisten bespreken?",
+          "answer": "Ja. Fabrikanten dienen hun verwachte hoeveelheden, afmetingen, kwaliteitsranges, afstemmingsvereisten en productieschema's door te geven."
         },
         {
-          "question": "Kunnen inkopers voor het evenement een vergadering met Uniglo Diamonds regelen?",
-          "answer": "Ja. Inkopers dienen vergaderingen van tevoren te regelen en hun inkoopvereisten te verstrekken zodat het Uniglo Diamonds-team een meer relevante selectie kan voorbereiden."
+          "question": "Kunnen kopers een afspraak maken vóór het evenement?",
+          "answer": "Ja. Kopers worden aangemoedigd een afspraak te maken en hun inkoopvereisten voor het evenement in te dienen, zodat de discussie van tevoren kan worden voorbereid."
+        }
+      ]
+    },
+    "whatCanSource": {
+      "eyebrow": "Wat kopers kunnen inkopen",
+      "title": "Wat kopers kunnen inkopen op Jewellery & Gem WORLD Hong Kong",
+      "para1": "Het evenement omvat een breed scala aan producten en diensten in de internationale sieradenbevoorradingsketen. Afhankelijk van de locatie en de gespecialiseerde beurs kunnen kopers het volgende verkennen:",
+      "items": [
+        "Losse witte en gekleurde diamanten",
+        "Fijne edelstenen en gekleurde edelstenen",
+        "Parels en sieradenmaterialen",
+        "Afgewerkte diamantsieraden",
+        "Bruids- en trouwsieraden",
+        "Fijne en designer sieraden",
+        "Sieradencomponenten en accessoires",
+        "Verpakkings- en expositieoplossingen",
+        "Productietools en -apparatuur",
+        "Technologie en diensten voor de sieradenbranche"
+      ],
+      "para2": "Voor klanten van Uniglo Diamonds betreft de belangrijkste inkoopkans natuurlijke diamanten voor de detail- en groothandel, sieradenproductie en toekomstige collectieontwikkeling."
+    },
+    "naturalDiamondSourcing": {
+      "eyebrow": "Inkoop van natuurlijke diamanten",
+      "title": "Inkoop van natuurlijke diamanten voor internationale kopers",
+      "para1": "De vereisten voor natuurlijke diamanten variëren aanzienlijk tussen sieradenbedrijven en markten. Een detailhandelaar in bruidsmode kan prioriteit geven aan individueel gedocumenteerde centrale stenen in commercieel erkende vormen en kwaliteitsranges. Een fabrikant heeft mogelijk gekalibreerde diamanten nodig met gecontroleerde afmetingen voor herhaalde productie. Een ontwerper zoekt mogelijk ongewone proporties, onderscheidende bijzondere vormen of gecoördineerde combinaties.",
+      "para2": "Uniglo Diamonds benadert een inkoopverzoek op basis van het beoogde product van de diamant, de klant, de markt en de prijspositie.",
+      "para3": "Ronde briljante diamanten blijven belangrijk voor verlovingsringen, solitaires, oorbellen en tennissieraden. Ovale, peer-, markies- en smaragdvormen kunnen langwerpige proporties en een onderscheidend bovenaanzicht bieden. Kussen-, radiant- en princessvormen bieden verschillende combinaties van schittering en contour, terwijl smaragd- en Asscher-slijpingen een meer architectonisch trapsgewijs uiterlijk creëren.",
+      "para4": "De beschikbaarheid varieert, dus kopers moeten hun voorkeurs- en acceptabele specificaties verstrekken voordat ze een selectie aanvragen.",
+      "imageAlt": "Leverancier van natuurlijke diamanten op JGW Hong Kong 2026"
+    },
+    "bridal": {
+      "eyebrow": "Bruids- en fijne sieraden",
+      "title": "Natuurlijke diamanten voor bruids- en fijne sieradenproductie",
+      "para1": "Bruidsmode blijft een van de meest significante toepassingen voor geslepen natuurlijke diamanten.",
+      "para2": "Een ontwerp voor een verlovingsring kan één centrale steen vereisen, een centrale diamant met bijpassende zijstenen of een gecoördineerde compositie voor een halo- of meerstenenvatting. Trouw-, eeuwigheids- en jubileumringen vereisen vaak gekalibreerde diamanten om consistente tussenruimte en uiterlijk te behouden.",
+      "para3": "Een individuele centrale steen kan worden geselecteerd vanwege zijn bijzondere visuele karakter, terwijl diamanten voor herhaalde productie een nauwere dimensionale consistentie kunnen vereisen.",
+      "items": [
+        "Solitaire verlovingsringen",
+        "Halo- en driesteenringen",
+        "Trouwringen en eeuwigheidsbanden",
+        "Diamanten oorstekers",
+        "Solitaire kettingen en hangers",
+        "Tennisarmbanden en -kettingen",
+        "Meerstenen oorbellen",
+        "Hedendaagse fijne sieradencollecties"
+      ],
+      "imageAlt": "Natuurlijke diamanten voor bruids- en fijne sieradenproductie"
+    },
+    "planVisit": {
+      "eyebrow": "Uw bezoek plannen",
+      "title": "Uw bezoek aan JGW Hong Kong plannen",
+      "para1": "Kopers die voornamelijk geïnteresseerd zijn in losse diamanten, fijne edelstenen, gekleurde edelstenen en parels, moeten het grootste deel van hun inkooptijd aan AsiaWorld-Expo besteden. Bezoekers die afgewerkte sieraden, verpakkingen, design of sectortechnologie onderzoeken, moeten het HKCEC in hun schema opnemen.",
+      "para2": "De locaties bevinden zich in verschillende delen van Hongkong, dus de reistijd moet zorgvuldig worden gepland. De overlap van 16 tot 18 september maakt een bezoek aan twee locaties mogelijk, maar kopers mogen niet proberen beide locaties te bezoeken zonder een gestructureerd reisschema."
+    },
+    "registration": {
+      "eyebrow": "Registratie en toelating",
+      "title": "Registratie en toelating",
+      "para1": "De Jewellery & Gem WORLD Hong Kong is een uitsluitend vakbeurs en is niet open als algemene consumentenexpositie.",
+      "para2": "De organisator vraagt bezoekers momenteel om de voorregistratie te voltooien vóór 6 september 2026. Bezoekers die zich ter plaatse registreren, moeten een geldig identiteitsbewijs met foto overleggen samen met een uitnodiging of een persoonlijk visitekaartje uit de sieradenbranche. De registratiebalie sluit 30 minuten voor het einde van de expositie.",
+      "para3": "De belangrijkste bezoekersinformatie van de organisator vermeldt momenteel dat de beurs open is voor sieradenprofessionals en uitgenodigde bezoekers van 16 jaar en ouder. Omdat de toelatingsvereisten kunnen worden bijgewerkt, moeten bezoekers de officiële registratiepagina raadplegen vóór hun reis."
+    },
+    "afterJGW": {
+      "eyebrow": "Na de beurs",
+      "title": "Diamantinkoop-relaties opbouwen na JGW",
+      "para1": "Een ontmoeting op een vakbeurs is meestal het begin van het inkoopproces en niet de laatste fase ervan.",
+      "para2": "Voordat ze een vergadering verlaten, moeten kopers de besproken specificaties vastleggen en de volgende actie overeenkomen. Dat kan het doornemen van certificaten, het verfijnen van afmetingen, het aanvragen van een geschikte selectie, het voorbereiden van een bijpassend paar of compositie, het bevestigen van hoeveelheden of het plannen van een ander gesprek omvatten.",
+      "para3": "Langetermijn-inkooprelaties zijn afhankelijk van consistente communicatie, realistische verwachtingen, passende documentatie en duidelijkheid over kwaliteit, hoeveelheden en leveringsvereisten."
+    },
+    "guides": {
+      "eyebrow": "JGW Hong Kong 2026 Gidsen",
+      "title": "Jewellery & Gem WORLD Hong Kong 2026 Gidsen",
+      "items": [
+        {
+          "title": "Bezoekersgids Jewellery & Gem WORLD Hong Kong 2026",
+          "body": "Praktische informatie over registratie, toelating, openingstijden, identificatievereisten, reizen en voorbereiding op het evenement."
+        },
+        {
+          "title": "Gids voor exposanten en diamantinkoop JGW Hong Kong 2026",
+          "body": "Begrijp de belangrijkste inkoopkategorieën, hoe potentiële leveranciers te beoordelen en wat diamantkopers moeten voorbereiden voordat ze exposanten vergelijken."
+        },
+        {
+          "title": "AsiaWorld-Expo vs HKCEC: Locatiegids JGW Hong Kong 2026",
+          "body": "Vergelijk de twee locaties, hun productcategorieën, evenementdata en de meest geschikte locatie voor verschillende inkoopprioriteiten."
+        }
+      ]
+    },
+    "whatCanSource": {
+      "eyebrow": "Wat kopers kunnen inkopen",
+      "title": "Wat kopers kunnen inkopen op Jewellery & Gem WORLD Hong Kong",
+      "para1": "Het evenement omvat een breed scala aan producten en diensten in de internationale sieradenbevoorradingsketen. Afhankelijk van de locatie en de gespecialiseerde beurs kunnen kopers het volgende verkennen:",
+      "items": [
+        "Losse witte en gekleurde diamanten",
+        "Fijne edelstenen en gekleurde edelstenen",
+        "Parels en sieradenmaterialen",
+        "Afgewerkte diamantsieraden",
+        "Bruids- en trouwsieraden",
+        "Fijne en designer sieraden",
+        "Sieradencomponenten en accessoires",
+        "Verpakkings- en expositieoplossingen",
+        "Productietools en -apparatuur",
+        "Technologie en diensten voor de sieradenbranche"
+      ],
+      "para2": "Voor klanten van Uniglo Diamonds betreft de belangrijkste inkoopkans natuurlijke diamanten voor de detail- en groothandel, sieradenproductie en toekomstige collectieontwikkeling."
+    },
+    "naturalDiamondSourcing": {
+      "eyebrow": "Inkoop van natuurlijke diamanten",
+      "title": "Inkoop van natuurlijke diamanten voor internationale kopers",
+      "para1": "De vereisten voor natuurlijke diamanten variëren aanzienlijk tussen sieradenbedrijven en markten. Een detailhandelaar in bruidsmode kan prioriteit geven aan individueel gedocumenteerde centrale stenen in commercieel erkende vormen en kwaliteitsranges. Een fabrikant heeft mogelijk gekalibreerde diamanten nodig met gecontroleerde afmetingen voor herhaalde productie. Een ontwerper zoekt mogelijk ongewone proporties, onderscheidende bijzondere vormen of gecoördineerde combinaties.",
+      "para2": "Uniglo Diamonds benadert een inkoopverzoek op basis van het beoogde product van de diamant, de klant, de markt en de prijspositie.",
+      "para3": "Ronde briljante diamanten blijven belangrijk voor verlovingsringen, solitaires, oorbellen en tennissieraden. Ovale, peer-, markies- en smaragdvormen kunnen langwerpige proporties en een onderscheidend bovenaanzicht bieden. Kussen-, radiant- en princessvormen bieden verschillende combinaties van schittering en contour, terwijl smaragd- en Asscher-slijpingen een meer architectonisch trapsgewijs uiterlijk creëren.",
+      "para4": "De beschikbaarheid varieert, dus kopers moeten hun voorkeurs- en acceptabele specificaties verstrekken voordat ze een selectie aanvragen.",
+      "imageAlt": "Leverancier van natuurlijke diamanten op JGW Hong Kong 2026"
+    },
+    "bridal": {
+      "eyebrow": "Bruids- en fijne sieraden",
+      "title": "Natuurlijke diamanten voor bruids- en fijne sieradenproductie",
+      "para1": "Bruidsmode blijft een van de meest significante toepassingen voor geslepen natuurlijke diamanten.",
+      "para2": "Een ontwerp voor een verlovingsring kan één centrale steen vereisen, een centrale diamant met bijpassende zijstenen of een gecoördineerde compositie voor een halo- of meerstenenvatting. Trouw-, eeuwigheids- en jubileumringen vereisen vaak gekalibreerde diamanten om consistente tussenruimte en uiterlijk te behouden.",
+      "para3": "Een individuele centrale steen kan worden geselecteerd vanwege zijn bijzondere visuele karakter, terwijl diamanten voor herhaalde productie een nauwere dimensionale consistentie kunnen vereisen.",
+      "items": [
+        "Solitaire verlovingsringen",
+        "Halo- en driesteenringen",
+        "Trouwringen en eeuwigheidsbanden",
+        "Diamanten oorstekers",
+        "Solitaire kettingen en hangers",
+        "Tennisarmbanden en -kettingen",
+        "Meerstenen oorbellen",
+        "Hedendaagse fijne sieradencollecties"
+      ],
+      "imageAlt": "Natuurlijke diamanten voor bruids- en fijne sieradenproductie"
+    },
+    "planVisit": {
+      "eyebrow": "Uw bezoek plannen",
+      "title": "Uw bezoek aan JGW Hong Kong plannen",
+      "para1": "Kopers die voornamelijk geïnteresseerd zijn in losse diamanten, fijne edelstenen, gekleurde edelstenen en parels, moeten het grootste deel van hun inkooptijd aan AsiaWorld-Expo besteden. Bezoekers die afgewerkte sieraden, verpakkingen, design of sectortechnologie onderzoeken, moeten het HKCEC in hun schema opnemen.",
+      "para2": "De locaties bevinden zich in verschillende delen van Hongkong, dus de reistijd moet zorgvuldig worden gepland. De overlap van 16 tot 18 september maakt een bezoek aan twee locaties mogelijk, maar kopers mogen niet proberen beide locaties te bezoeken zonder een gestructureerd reisschema."
+    },
+    "registration": {
+      "eyebrow": "Registratie en toelating",
+      "title": "Registratie en toelating",
+      "para1": "De Jewellery & Gem WORLD Hong Kong is een uitsluitend vakbeurs en is niet open als algemene consumentenexpositie.",
+      "para2": "De organisator vraagt bezoekers momenteel om de voorregistratie te voltooien vóór 6 september 2026. Bezoekers die zich ter plaatse registreren, moeten een geldig identiteitsbewijs met foto overleggen samen met een uitnodiging of een persoonlijk visitekaartje uit de sieradenbranche. De registratiebalie sluit 30 minuten voor het einde van de expositie.",
+      "para3": "De belangrijkste bezoekersinformatie van de organisator vermeldt momenteel dat de beurs open is voor sieradenprofessionals en uitgenodigde bezoekers van 16 jaar en ouder. Omdat de toelatingsvereisten kunnen worden bijgewerkt, moeten bezoekers de officiële registratiepagina raadplegen vóór hun reis."
+    },
+    "afterJGW": {
+      "eyebrow": "Na de beurs",
+      "title": "Diamantinkoop-relaties opbouwen na JGW",
+      "para1": "Een ontmoeting op een vakbeurs is meestal het begin van het inkoopproces en niet de laatste fase ervan.",
+      "para2": "Voordat ze een vergadering verlaten, moeten kopers de besproken specificaties vastleggen en de volgende actie overeenkomen. Dat kan het doornemen van certificaten, het verfijnen van afmetingen, het aanvragen van een geschikte selectie, het voorbereiden van een bijpassend paar of compositie, het bevestigen van hoeveelheden of het plannen van een ander gesprek omvatten.",
+      "para3": "Langetermijn-inkooprelaties zijn afhankelijk van consistente communicatie, realistische verwachtingen, passende documentatie en duidelijkheid over kwaliteit, hoeveelheden en leveringsvereisten."
+    },
+    "guides": {
+      "eyebrow": "JGW Hong Kong 2026 Gidsen",
+      "title": "Jewellery & Gem WORLD Hong Kong 2026 Gidsen",
+      "items": [
+        {
+          "title": "Bezoekersgids Jewellery & Gem WORLD Hong Kong 2026",
+          "body": "Praktische informatie over registratie, toelating, openingstijden, identificatievereisten, reizen en voorbereiding op het evenement."
+        },
+        {
+          "title": "Gids voor exposanten en diamantinkoop JGW Hong Kong 2026",
+          "body": "Begrijp de belangrijkste inkoopkategorieën, hoe potentiële leveranciers te beoordelen en wat diamantkopers moeten voorbereiden voordat ze exposanten vergelijken."
+        },
+        {
+          "title": "AsiaWorld-Expo vs HKCEC: Locatiegids JGW Hong Kong 2026",
+          "body": "Vergelijk de twee locaties, hun productcategorieën, evenementdata en de meest geschikte locatie voor verschillende inkoopprioriteiten."
         }
       ]
     },
     "finalCta": {
-      "title": "Ontmoet Uniglo Diamonds in Hongkong",
-      "para": "Ontmoet Uniglo Diamonds tijdens Jewellery & Gem WORLD Hong Kong 2026 om natuurlijke diamanten en Antwerpse inkoopexpertise te verkennen. Bereid uw voorkeurs diamantvormen, afmetingen, kleur- en zuiverheidsbereiken en documentatievereisten voor de vergadering voor.",
+      "title": "Boek een afspraak met Uniglo Diamonds op JGW Hong Kong 2026",
+      "para": "Ontmoet Uniglo Diamonds tijdens de Jewellery & Gem WORLD Hong Kong 2026 om te praten over natuurlijke diamanten en inkoop-expertise vanuit Antwerpen. Bereid voor het aanvragen van een afspraak uw voorkeursvormen, afmetingen, karaatgewichtsbereiken, kleur- en zuiverheidscombinaties, documentatievereisten, hoeveelheden en beoogde sieradentoepassingen voor.",
       "factEvent": "Evenement",
-      "factEventValue": "JGW Hong Kong 2026",
-      "factDates": "Datums",
-      "factDatesValue": "14–18 sep (AWE) · 16–20 sep (HKCEC)",
-      "factStand": "Uniglo Stand",
-      "factStandValue": "Nog te bevestigen",
-      "primaryCta": "JGW-vakgesprek boeken met Uniglo Diamonds",
-      "secondaryCta": "Uniglo's Inventaris Natuurlijke Diamanten Verkennen",
-      "note": "Bevestig de definitieve locatie en standnummer voor vertrek. Standdetails worden gepubliceerd zodra de uitstellerindeling van de organisator voor 2026 is bevestigd."
+      "factEventValue": "Jewellery & Gem WORLD Hong Kong 2026",
+      "factDates": "Data AsiaWorld-Expo",
+      "factDatesValue": "14–18 september 2026",
+      "factDates2": "Data HKCEC",
+      "factDates2Value": "16–20 september 2026",
+      "factStand": "Stand Uniglo Diamonds",
+      "factStandValue": "Wordt bevestigd",
+      "primaryCta": "Boek een afspraak op JGW Hong Kong 2026",
+      "secondaryCta": "Verken het inventaris van natuurlijke diamanten van Uniglo",
+      "note": "De definitieve locatie en het standnummer van Uniglo Diamonds worden gepubliceerd zodra deze zijn bevestigd."
     }
+
   }
 }

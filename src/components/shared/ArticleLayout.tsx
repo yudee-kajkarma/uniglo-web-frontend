@@ -39,7 +39,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
             className={`mb-20 last:mb-0 group ${
                 floatImages
                     ? "block after:clear-both after:block" // Float Container Styles
-                    : `flex flex-col gap-10 md:items-start ${
+                    : `flex flex-col gap-10 md:items-center ${
                           reverse ? "md:flex-row-reverse" : "md:flex-row"
                       }` // Flex Container Styles
             }`}

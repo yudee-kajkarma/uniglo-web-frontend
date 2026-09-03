@@ -1,316 +1,403 @@
 {
   "metadata": {
-    "title": "JCK Las Vegas 2027 | Uniglo",
-    "description": "Ontmoet Uniglo Diamonds op JCK Las Vegas 2027, 4–7 juni. Evenementdetails, registratie en informatie over het inkopen van natuurlijke diamanten."
+    "title": "JCK Las Vegas 2027 | Uniglo Diamonds",
+    "description": "Ontmoet Uniglo Diamonds op JCK Las Vegas 2027, 4–7 juni in The Venetian Expo. Verken natuurlijke diamanten en boek een handels-sourcingsbijeenkomst."
   },
   "announcement": "JCK Las Vegas 2027 · 4–7 juni · The Venetian Expo · Ontmoet Uniglo Diamonds",
   "breadcrumbHome": "Home",
   "breadcrumbCurrent": "JCK Las Vegas 2027",
   "hero": {
-    "eyebrow": "Vakbeurs · 4–7 juni 2027 · Las Vegas, Nevada",
-    "title": "Uniglo Diamonds op JCK Las Vegas 2027",
-    "lead": "JCK Las Vegas 2027 vindt plaats van 4 tot 7 juni 2027 in The Venetian Expo in Las Vegas, Nevada.",
-    "para1": "De business-to-business sierradenbeurs brengt gekwalificeerde retailers, inkopers, ontwerpers, fabrikanten, diamantleveranciers en andere professionals uit de internationale sieradenbranche samen. Uniglo Diamonds bereidt zich voor om terug te keren als leverancier van natuurlijke diamanten op JCK Las Vegas 2027.",
-    "para2": "Inkopers kunnen het Uniglo Diamonds-team ontmoeten, losse natuurlijke diamanten bekijken en vereisten bespreken voor bruidsieraden, geschenken, alledaagse sieraden en serieproductie. Het standnummer van Uniglo Diamonds voor 2027 en de definitieve openingstijden worden toegevoegd zodra deze officieel zijn bevestigd.",
-    "primaryCta": "JCK-handelsgesprek boeken",
-    "secondaryCta": "Natuurlijke diamantenvoorraad verkennen",
+    "eyebrow": "Handelsbeurs · 4–7 juni 2027 · Las Vegas, Nevada",
+    "title": "JCK Las Vegas 2027 – Ontmoet Uniglo Diamonds",
+    "lead": "JCK Las Vegas 2027 – Ontmoet Uniglo Diamonds",
+    "para1": "JCK Las Vegas 2027 vindt plaats van 4 tot 7 juni in The Venetian Expo in Las Vegas, Nevada. De B2B-sieradenbeurs brengt gekwalificeerde detailhandelaren, diamantkopers, ontwerpers, fabrikanten, groothandelaren en andere brancheprofessionals samen voor vier dagen van sourcing, opleiding en networking.",
+    "para2": "Uniglo Diamonds bereidt zich voor om terug te keren naar JCK als leverancier van natuurlijke diamanten. Kopers kunnen het team ontmoeten om losse natuurlijke diamanten te bekijken en te praten over individueel geclassificeerde centrale stenen, fancy-vormen, bijpassende paren, gekalibreerde selecties en herhaalde productievereisten.",
+    "para3": "Het standnummer van Uniglo Diamonds en de definitieve beursuren van 2027 zijn nog niet officieel bevestigd. Beide worden aan deze pagina toegevoegd zodra de huidige informatie beschikbaar is.",
+    "primaryCta": "Boek een JCK handelsbijeenkomst",
+    "secondaryCta": "Verken het inventaris van natuurlijke diamanten",
     "imageAlt": "Uniglo Diamonds op JCK Las Vegas 2027"
   },
   "eventDetails": {
-    "eyebrow": "Evenementinformatie",
-    "title": "JCK Las Vegas 2027 – Data, locatie en registratie",
+    "eyebrow": "Snelle evenementinformatie",
+    "title": "Evenementdetails JCK Las Vegas 2027",
     "colLabel": "Detail",
     "colValue": "Informatie",
     "rows": [
       { "label": "Evenement", "value": "JCK Las Vegas 2027" },
-      { "label": "Hoofdbeursdata", "value": "4–7 juni 2027" },
+      { "label": "Data hoofdbeurs", "value": "4–7 juni 2027" },
       { "label": "Locatie", "value": "The Venetian Expo" },
       { "label": "Adres", "value": "201 Sands Avenue, Las Vegas, Nevada 89169" },
       { "label": "Organisator", "value": "RX" },
-      { "label": "Type evenement", "value": "B2B sieraden- en horlogevakbeurs" },
-      { "label": "Registratie", "value": "Beschikbaar voor gekwalificeerde brancheprofessionals, onder voorbehoud van goedkeuring" },
-      { "label": "Beursopeningsuren", "value": "Definitieve bevestiging in afwachting" },
-      { "label": "Uniglo Diamonds-stand", "value": "Definitieve bevestiging in afwachting" }
+      { "label": "Type evenement", "value": "B2B sieraden- en horloge-handelsbeurs" },
+      { "label": "Registratie", "value": "Verplicht en onderhevig aan professionele kwalificatie" },
+      { "label": "Geselecteerde vroege openingen", "value": "3 juni 2027" },
+      { "label": "Openingstijden hoofdbeurs", "value": "Wacht op definitieve bevestiging" },
+      { "label": "Uniglo Diamonds stand", "value": "Wacht op definitieve bevestiging" },
+      { "label": "Afspraak", "value": "Vooraf boeken aanbevolen" }
     ],
-    "note1": "Hoewel de hoofdbeurs begint op vrijdag 4 juni, openen geselecteerde gebieden en programma's een dag eerder. AGTA en GEMS, het Hongkong-paviljoen, het Lifestyle-paviljoen en geselecteerde JCK Talks-sessies zijn gepland voor donderdag 3 juni.",
-    "note2": "Luxury loopt van 2 tot 7 juni, waarbij 2 en 3 juni werken als uitsluitend-op-uitnodiging-dagen voor goedgekeurde high-end sieradenretailers. Bezoekers dienen hun registratie en pas-machtigingen te controleren voordat ze plannen welke gebieden ze willen bezoeken."
+    "note": "Hoewel de hoofdbeurs van JCK begint op vrijdag 4 juni, openen geselecteerde gebieden op 3 juni en lopen de uitsluitend op uitnodiging-dagen van Luxury van 2–3 juni. Bezoekers moeten hun badgetoegang bevestigen voor ze plannen welke gebieden te bezoeken."
   },
-  "whyAttend": {
-    "eyebrow": "Waarom JCK Las Vegas bezoeken",
-    "title": "Waarom sieradeninkoper JCK Las Vegas bezoeken",
-    "para1": "JCK Las Vegas is een belangrijk inkoop-, sourcings- en netwerkevenement voor de sieradenhandel. Retailers nemen deel om nieuwe producten te ontdekken, leveranciers te vergelijken, bestellingen te plaatsen en hun assortimenten voor te bereiden voor komende retailseizoenen.",
-    "para2": "De beurs beslaat meerdere sieraden- en zakelijke categorieën. Bezoekers kunnen losse diamanten, gekleurde edelstenen, fijne sieraden, bruidscollecties, horloges, verpakkingen, retailtechnologie, beveiligingsdiensten, productiewerktuigen en andere professionele oplossingen op één locatie verkennen.",
-    "para3": "Voor diamantinkopers biedt dit een praktisch voordeel. In plaats van leveranciers alleen te beoordelen via foto's en digitale voorraden, kunnen zij stenen direct inspecteren, gedetailleerde vragen stellen en opties vergelijken tijdens dezelfde reis.",
-    "para4": "JCK biedt ook educatieve en netwerkmogelijkheden. JCK Talks en andere professionele programma's onderzoeken kwesties die de branche aangaan, waaronder consumentengedrag, marketing, technologie, bedrijfsmanagement, beveiliging en veranderende producttrends.",
-    "para5": "Deze inzichten helpen inkopers te evalueren welke diamanten zij willen sourcen en waarom bepaalde vormen, kwaliteiten en prijsposities relevant kunnen zijn voor hun klanten."
+  "datesVenue": {
+    "eyebrow": "Data en locatie",
+    "title": "JCK Las Vegas 2027 – Data en locatie",
+    "para1": "De hoofdbeurs van JCK opent op vrijdag 4 juni en loopt tot maandag 7 juni 2027, in The Venetian Expo.",
+    "para2": "Geselecteerde gebieden en programma's zijn gepland om op donderdag 3 juni te openen. Dit omvat AGTA en GEMS, het Hong Kong Pavilion, het Lifestyle Pavilion en geselecteerde JCK Talks-sessies. Bezoekers die geïnteresseerd zijn in deze gebieden moeten bevestigen dat hun badge de nodige toegang biedt.",
+    "para3": "De uitsluitend op uitnodiging-dagen van Luxury zijn gepland voor woensdag 2 juni en donderdag 3 juni. Toegang is beperkt tot goedgekeurde Luxury-deelnemers en mag niet worden aangenomen als inbegrepen bij elke JCK-registratie.",
+    "para4": "De definitieve openingstijden voor de beursvloer van 2027 zijn nog niet duidelijk genoeg gepubliceerd om als bevestigde informatie te gebruiken. Tijden van vorige jaren mogen niet op deze pagina worden gekopieerd.",
+    "imageAlt": "Professionele bezoekers die aankomen bij The Venetian Expo voor JCK"
+  },
+  "registration": {
+    "eyebrow": "Registratie en toelating",
+    "title": "JCK Las Vegas 2027 – Registratie en toelating",
+    "para1": "JCK is een uitsluitend voor professionals bestemd evenement en is niet open voor het grote publiek. Registratie is bedoeld voor gekwalificeerde professionals verbonden aan de sieraden- en horlogebranche, en elke aanvraag is onderhevig aan goedkeuring.",
+    "para2": "Voor elke editie van de beurs is een nieuwe registratie vereist. Deelname aan JCK in een vorig jaar geeft niet automatisch toelating tot het evenement van 2027.",
+    "para3": "Aanvragers moeten mogelijk documentatie verstrekken die zowel de verbinding van hun bedrijf met de sieradenbranche als hun arbeids- of eigendomsrelatie met dat bedrijf bevestigt. Vereisten variëren per badgecategorie.",
+    "admissionLabel": "Belangrijke toelatingspunten zijn:",
+    "admissionPoints": [
+      "Eerdere JCK-badges kunnen niet opnieuw worden gebruikt",
+      "Visitekaartjes worden niet geaccepteerd als kwalificatiedocumenten",
+      "Bedrijfs- en tewerkstellingsdocumenten kunnen vereist zijn",
+      "Ingediende bedrijfsgegevens moeten overeenkomen met de registratie",
+      "Een huidig officieel identiteitsbewijs met foto is vereist voor het ophalen van de badge",
+      "Fotokopieën en telefoonafbeeldingen van identificatie worden niet geaccepteerd",
+      "Elke deelnemer kan alleen de badge ophalen die verbonden is aan zijn eigen ID",
+      "Kinderen onder de 14 jaar zijn over het algemeen niet toegestaan",
+      "Baby's in goedgekeurde draagzakken kunnen worden toegelaten met goedkeuring van de beursleiding",
+      "Kinderwagens zijn niet toegestaan op de beursvloer"
+    ],
+    "para4": "Bezoekers moeten de registratie voltooien en goedkeuring ontvangen voordat ze niet-restitueerbare reizen boeken."
+  },
+  "whatIs": {
+    "eyebrow": "Over de beurs",
+    "title": "Wat is JCK Las Vegas?",
+    "para1": "JCK is een belangrijk internationaal koop-, sourcing- en networkingevenement voor de sieraden- en horlogehandel. Al meer dan 30 jaar verbindt de tentoonstelling detailhandelaren, fabrikanten, ontwerpers, leveranciers en professionele dienstverleners in Las Vegas.",
+    "para2": "De organisator meldt dat het evenement jaarlijks ongeveer 17.500 deelnemers en meer dan 1.800 exposanten trekt. De beurs omvat losse diamanten, gekleurde edelstenen, fijne sieraden, bruidscollecties, horloges, verpakkingen, technologie, beveiliging, productieapparatuur en andere commerciële diensten.",
+    "para3": "JCK is gestructureerd rond meerdere beursvloerbuurten en productcategorieën. Dit helpt kopers zich te concentreren op relevante gebieden in plaats van te proberen de hele tentoonstelling zonder plan te bekijken.",
+    "para4": "Het evenement omvat ook JCK Talks, networkingprogramma's en andere professionele sessies over onderwerpen als retailstrategie, consumentengedrag, technologie, beveiliging, marketing en branchetrends.",
+    "para5": "Voor sieradenbedrijven komt de commerciële waarde van het combineren van productontwikkeling, leveranciersevaluatie, opleiding en relatieopbouw binnen dezelfde reis."
+  },
+  "exhibitors": {
+    "eyebrow": "Exposanten",
+    "title": "Exposanten JCK Las Vegas 2027",
+    "para1": "De definitieve expositeursgids van 2027 moet worden behandeld als de primaire bron voor deelnemende bedrijven en standlocaties. Kopers moeten controleren of de gids de editie van 2027 weergeeft voordat ze die gebruiken om afspraken te plannen.",
+    "para2": "JCK-exposanten vertegenwoordigen over het algemeen een breed scala aan product- en servicecategorieën.",
+    "para3": "Kopers moeten een shortlist samenstellen op basis van commerciële vereisten in plaats van exposanten te selecteren alleen omdat ze een groot inventaris presenteren.",
+    "exhibitorItems": [
+      "Losse natuurlijke diamanten",
+      "Laboratoriumgekweekte diamanten",
+      "Gekleurde edelstenen",
+      "Fijne en haute joaillerie",
+      "Bruids- en verlovingssieraden",
+      "Modesieraden",
+      "Horloges en uurwerken",
+      "Zettingen, sluitingen en componenten",
+      "Verpakkings- en presentatieoplossingen",
+      "Productietools en -apparatuur",
+      "Retailtechnologie en -software",
+      "Beveiligings- en verzekeringsdiensten",
+      "Brancheverenigingen en laboratoria"
+    ]
+  },
+  "supplierQuestions": {
+    "eyebrow": "Diamantleveranciers op JCK",
+    "title": "Diamantleveranciers op JCK Las Vegas 2027",
+    "para1": "JCK geeft detailhandelaren en fabrikanten de mogelijkheid om diamantleveranciers persoonlijk te vergelijken. Kopers moeten echter meer beoordelen dan het aantal stenen dat wordt getoond.",
+    "para2": "Een geschikte diamantleverancier moet kunnen begrijpen hoe de diamanten zullen worden gebruikt, welke specificaties commercieel belangrijk zijn en of vergelijkbare vereisten na de tentoonstelling kunnen worden ondersteund.",
+    "questionLabel": "Vragen aan potentiële leveranciers zijn:",
+    "questions": [
+      "Bent u gespecialiseerd in natuurlijke, laboratoriumgekweekte of beide diamantcategorieën?",
+      "Welke vormen en karaatbereiken zijn normaal beschikbaar?",
+      "Kunnen diamanten worden gesourcet binnen gedefinieerde maatbereiken?",
+      "Welke graderingscertificaten en documentatie zijn beschikbaar?",
+      "Kunt u bijpassende paren of gekalibreerde selecties voorbereiden?",
+      "Kunt u werken vanuit bestaande zettingsafmetingen?",
+      "Welke informatie is nodig voor herhaalde bestellingen?",
+      "Hoe worden beschikbaarheid en leveringsverwachtingen gecommuniceerd?",
+      "Kan de leverancier de doelmarkt en prijspositie van de koper ondersteunen?",
+      "Wat gebeurt er na de handelsbeursafspraak?"
+    ]
+  },
+  "whatCanSource": {
+    "eyebrow": "Wat kopers kunnen sourcen",
+    "title": "Wat diamantkopers kunnen sourcen op JCK",
+    "para1": "JCK brengt leveranciers samen die verschillende gebieden van de diamant- en sieradenmarkt bedienen. De beurs kan daarom meerdere sourcingdoelstellingen tijdens hetzelfde bezoek ondersteunen.",
+    "items": [
+      {
+        "title": "Individueel geclassificeerde centrale stenen",
+        "body": "Detailhandelaren en op maat gemaakte juweliers kunnen gedocumenteerde natuurlijke diamanten vergelijken voor verlovingsringen, jubileumjuwelen en individuele klantopdrachten. Relevante vereisten kunnen vorm, karaatbereik, afmetingen, kleur, zuiverheid, graderingslaboratorium en doelprijs omvatten."
+      },
+      {
+        "title": "Fancy-geslepen natuurlijke diamanten",
+        "body": "Ovale, peer-, smaragd-, kussen-, radiant-, markies-, princess-, Asscher- en hartvormige diamanten kunnen verschillende bruids-, cadeau- en ontwerpvereisten ondersteunen. Kopers moeten contour en proporties beoordelen naast de graderingsinformatie."
+      },
+      {
+        "title": "Bijpassende diamantparen",
+        "body": "Diamanten oorbellen en symmetrische ontwerpen vereisen stenen met compatibele afmetingen, contour, kleur, zuiverheid en visueel karakter."
+      },
+      {
+        "title": "Gekalibreerde diamanten",
+        "body": "Fabrikanten kunnen diamanten nodig hebben binnen gecontroleerde afmetingen en kwaliteitsbereiken voor eeuwigheidsringen, tennissieraden, meerstenenontwerpen en herhaalbare collecties."
+      },
+      {
+        "title": "Diamanten voor bestaande zettingen",
+        "body": "Wanneer een steen in een bestaande ring of component moet passen, zijn nauwkeurige minimale en maximale afmetingen essentieel. Kopers moeten de zettingsafmetingen of een gedetailleerde technische specificatie meenemen."
+      },
+      {
+        "title": "Herhaalde productievereisten",
+        "body": "Fabrikanten en groothandelaren kunnen praten over hoeveelheden, acceptabele toleranties, productieschema's, leveringsverwachtingen en potentiële beschikbaarheid voor herhaalde leveringen."
+      }
+    ]
   },
   "meet": {
     "eyebrow": "Ontmoet Uniglo Diamonds",
-    "title": "Een leverancier van natuurlijke diamanten ontmoeten op JCK Las Vegas 2027",
-    "para1": "De deelname van Uniglo Diamonds aan JCK biedt sieradenretailers, fabrikanten, groothandelaren en ontwerpers de mogelijkheid om vereisten voor natuurlijke diamanten rechtstreeks met een ervaren leverancier te bespreken.",
-    "para2": "Elke inkoper heeft verschillende prioriteiten. Een retailer heeft mogelijk gedocumenteerde middelstenen nodig voor bruidsieraden, terwijl een ander afgestemde diamanten voor oorbellen of consistente stenen voor een seriecollectie nodig heeft.",
-    "para3": "Op JCK Las Vegas 2027 is Uniglo Diamonds van plan een zorgvuldig geselecteerd assortiment natuurlijke diamanten te presenteren in verschillende vormen, karaatgewichten, kleuren, zuiverheden en maten. De beschikbaarheid is afhankelijk van de voor de tentoonstelling voorbereide voorraad.",
-    "shapesLabel": "Het assortiment kan omvatten:",
-    "shapes": [
-      "Rond Briljant", "Ovaal", "Smaragd", "Peer", "Kussen",
-      "Prinses", "Radiant", "Marquise", "Hart", "Asscher",
+    "title": "Ontmoet Uniglo Diamonds op JCK Las Vegas 2027",
+    "para1": "Uniglo Diamonds plant een geselecteerd assortiment natuurlijke diamanten te presenteren voor detailhandelaren, groothandelaren, fabrikanten en ontwerpers. De definitieve beurselectie hangt af van de beschikbaarheid dichter bij de tentoonstelling.",
+    "para2": "Het doel van een bijeenkomst is niet simpelweg het bekijken van een groot aantal stenen. Het Uniglo-team probeert eerst de beoogde sieradentoepassing, het klantprofiel, de vereiste specificaties en het commerciële doel te begrijpen.",
+    "para3": "Kopers met gedefinieerde vereisten moeten deze voor de tentoonstelling verstrekken zodat relevante opties kunnen worden overwogen waar de beschikbaarheid het toelaat.",
+    "meetingLabel": "Kopers kunnen zich voorbereiden om vereisten te bespreken over:",
+    "meetingItems": [
+      "Ronde Briljant diamanten",
+      "Ovale diamanten",
+      "Smaragdgeslepen diamanten",
+      "Peervormige diamanten",
+      "Kussengeslepen diamanten",
+      "Radiant geslepen diamanten",
+      "Princess geslepen diamanten",
+      "Markies diamanten",
+      "Asscher geslepen diamanten",
+      "Hartvormige diamanten",
       "Andere fancy-geslepen natuurlijke diamanten"
     ],
-    "para4": "Door het Uniglo Diamonds-team te ontmoeten, kunnen inkopers deze stenen direct bekijken en bespreken hoe elke optie kan passen bij een bepaald ontwerp, klant of retailprijspunt.",
-    "cta": "JCK-handelsgesprek boeken",
-    "imageAlt": "Natuurlijke diamanten gepresenteerd door Uniglo Diamonds op JCK Las Vegas"
+    "cta": "Boek een JCK handelsbijeenkomst",
+    "imageAlt": "Sieradenkoper die natuurlijke diamanten bekijkt met Uniglo Diamonds"
   },
-  "sourcing": {
-    "eyebrow": "Sourcing van natuurlijke diamanten",
-    "title": "Sourcing van natuurlijke diamanten voor retailers en sieradeninkoper",
-    "para1": "Diamantsourcing mag niet alleen gebaseerd zijn op karaatgewicht of een certificaatkop. Slijpsel, kleur, zuiverheid, proporties, fluorescentie, symmetrie, polijsting en het algehele visuele uiterlijk kunnen allemaal de geschiktheid van een diamant voor een sieraad beïnvloeden.",
-    "para2": "Het beoogde gebruik van de diamant speelt ook een rol. Een middelsteen voor een verlovingsring vereist mogelijk een andere specificatiebalans dan diamanten die worden afgestemd voor oorbellen, een tennisarmband of een eeuwigheidsband.",
-    "discussLabel": "Op JCK kunnen inkopers vragen bespreken zoals:",
-    "discussItems": [
-      "Welke diamantspecificaties passen bij een bepaalde retailprijs?",
-      "Welke vormen zijn relevant voor een specifieke bruidsmarkt?",
-      "Wat moet worden gecontroleerd op een certificaat?",
-      "Hoe moeten diamanten worden afgestemd voor oorbellen?",
-      "Welke kwaliteiten zijn geschikt voor meerstenen sieraden?",
-      "Kan vergelijkbare kwaliteit worden geleverd voor herhalingsbestellingen?",
-      "Hoe beïnvloeden proporties het uiterlijk van verschillende vormen?",
-      "Welke diamanten bieden de juiste balans van uiterlijk, kwaliteit en budget?"
-    ],
-    "outro": "Deze aanpak helpt inkopers diamanten te sourcen op basis van hun commercieel doel in plaats van elke steen als een geïsoleerde aankoop te behandelen."
+  "usMarket": {
+    "eyebrow": "Natuurlijke diamanten voor de VS-markt",
+    "title": "Natuurlijke diamanten voor US sieradendetailhandelaren en -fabrikanten",
+    "para1": "De Amerikaanse sieradenmarkt omvat nationale detailhandelaren, onafhankelijke juweliers, bruidsspecialisten, maatwerpondwerpers, groothandelaren en fabrikanten. Elk type bedrijf kan een andere balans vereisen van uiterlijk, gradering, prijs, hoeveelheden en herhaalbaarheid.",
+    "para2": "Twee diamanten met vergelijkbare graderingsbeschrijvingen kunnen verschillende visuele kenmerken hebben. Proporties, contour, plaatsing van inclusies en bovenaanzichtafmetingen kunnen beïnvloeden hoe een diamant eruitziet en hoe effectief het werkt in een bepaald ontwerp.",
+    "considerLabel": "Natuurlijke diamanten moeten worden beoordeeld door de volledige combinatie van kenmerken die relevant zijn voor het afgewerkte stuk:",
+    "considerItems": [
+      "Vorm en slijpstijl",
+      "Karaatgewicht",
+      "Kleur en zuiverheid",
+      "Slijpkwaliteit",
+      "Polijsting en symmetrie",
+      "Fluorescentie",
+      "Bovenaanzichtafmetingen",
+      "Proporties en contour",
+      "Lengte-breedteverhouding",
+      "Graderingsdocumentatie",
+      "Afstemming en kalibrering",
+      "Beoogde vatting"
+    ]
   },
   "bridal": {
-    "eyebrow": "Bruidsieraden",
-    "title": "Natuurlijke diamanten voor bruidsieraden",
-    "para1": "Bruidsieraden blijft een van de belangrijkste commerciële toepassingen voor geslepen diamanten. Een retailer heeft mogelijk gedocumenteerde middelstenen nodig in populaire vormen, karaatgewichten en kwaliteitscombinaties.",
-    "para2": "Maatwerk-juweliers hebben mogelijk in plaats daarvan een individuele natuurlijke diamant nodig die is geselecteerd op basis van de zetting, het budget en de visuele voorkeuren van een klant.",
-    "discussLabel": "Inkopers kunnen diamanten bespreken voor:",
+    "eyebrow": "Bruidsmode",
+    "title": "Natuurlijke diamanten voor bruidsmode",
+    "para1": "Bruidsmode blijft een belangrijke categorie voor Amerikaanse detailhandelaren en fabrikanten. Vereisten kunnen variëren van individueel geclassificeerde solitairediamanten tot gecoördineerde centrale en zijstenen voor herhaalbare verlovingsringontwerpen.",
+    "para2": "Detailhandelaren moeten voor de beurs hiaten in hun huidige assortiment identificeren. Dit kan een ontbrekende vorm, karaatbereik, kwaliteitscombinatie of commerciële prijspositie zijn.",
+    "discussLabel": "Kopers kunnen praten over diamanten voor:",
     "discussItems": [
       "Solitaire verlovingsringen",
       "Halo verlovingsringen",
-      "Drie-stenen ringen",
+      "Driesteenontwerpen",
       "Verlovingsringen met zijstenen",
       "Diamanten trouwringen",
       "Eeuwigheids- en jubileumringen",
       "Bruidsoorbellen en -kettingen",
-      "Maatwerk verlovingsringopdrachten"
-    ],
-    "para3": "Een commercieel nuttige bruidsvoorraad heeft vaak een balans nodig tussen vertrouwde opties en onderscheidende diamanten voor klanten die iets persoonlijkers zoeken."
+      "Op maat gemaakte verlovingsringopdrachten"
+    ]
   },
   "gifting": {
-    "eyebrow": "Geschenken en alledaagse sieraden",
-    "title": "Natuurlijke diamanten voor geschenken en alledaagse sieraden",
-    "para1": "Niet elke diamantaankoop is verbonden met een verloving of huwelijk. Diamanten oorbellen, hangers, kettingen, armbanden en ringen ondersteunen ook verjaardagen, jubilea, diploma-uitreikingen, persoonlijke prestaties, zelfaankoop en alledaagse luxe.",
-    "para2": "Verschillende toepassingen creëren verschillende sourcingvereisten. Diamanten oorbellen vereisen zorgvuldige afstemming, terwijl tennisarmbanden en -kettingen consistentie vereisen over een veel groter aantal stenen.",
-    "discussLabel": "Uniglo Diamonds kan natuurlijke diamanten bespreken voor:",
+    "eyebrow": "Cadeau- en alledaagse sieraden",
+    "title": "Natuurlijke diamanten voor cadeau- en alledaagse sieraden",
+    "para1": "Natuurlijke diamanten worden ook gebruikt in sieraden voor verjaardagen, jubilea, afstuderen, persoonlijke prestaties, zelfaankoop en dagelijks gebruik.",
+    "para2": "De meest geschikte specificaties zijn afhankelijk van het ontwerp, het retailpubliek en de beoogde prijspositie. Één algemene kwaliteitsstandaard zal waarschijnlijk niet voor elke sieradencategorie geschikt zijn.",
+    "discussLabel": "Mogelijke toepassingen zijn:",
     "discussItems": [
       "Diamanten oorstekers",
       "Solitaire hangers",
       "Diamanten kettingen",
       "Tennisarmbanden",
-      "Tenniskettingen",
+      "Tennishalskettingen",
       "Eeuwigheidsringen",
       "Jubileumringen",
       "Meerstenen ringen",
-      "Alledaagse diamantsieraden",
-      "Gepersonaliseerde sieraadenopdrachten"
-    ],
-    "outro": "Het doel is diamanten te selecteren op basis van hoe zij gezet, gepresenteerd en verkocht zullen worden in plaats van één algemene kwaliteitsstandaard voor elke productcategorie te hanteren."
+      "Gepersonaliseerde sieraden",
+      "Alledaagse diamantcollecties"
+    ]
   },
   "matching": {
     "eyebrow": "Afstemming en kalibrering",
     "title": "Afstemming en kalibrering voor sieradenproductie",
-    "para1": "Afstemming wordt essentieel wanneer meerdere diamanten in hetzelfde sieraad worden gebruikt. Diamanten oorbellen, drie-stenen ringen, eeuwigheidsbanden, tennisarmbanden, tenniskettingen en andere meerstenen ontwerpen vereisen consistentie over relevante kenmerken.",
-    "para2": "Voor fabrikanten kan nauwkeurige kalibrering ook de vatefficiëntie en productieherhaling verbeteren. Diamanten die aanzienlijk variëren in grootte of proporties kunnen aanpassingen vereisen tijdens het vaten.",
-    "discussLabel": "Op JCK kunnen inkopers vereisten bespreken voor:",
+    "para1": "Afstemming wordt belangrijk wanneer meerdere diamanten in hetzelfde stuk zullen verschijnen. Oorbellen, driesteenringen, eeuwigheidsbanden, tennisarmbanden en andere meerstenenontwerpen vereisen consistentie in de kenmerken die zichtbaar zijn in de afgewerkte sieraden.",
+    "para2": "Afmetingen, acceptabele toleranties, hoeveelheden en beoogde vattingen moeten aan het begin van het sourcingsproces worden verstrekt.",
+    "discussLabel": "Fabrikanten kunnen bespreken:",
     "discussItems": [
-      "Afgestemde diamantenparen",
-      "Gecoördineerde zijstenen",
-      "Gekalibreerde diamantenselecties",
-      "Eeuwigheidsband-indelingen",
-      "Tennisarmband-indelingen",
-      "Tennisketting-indelingen",
+      "Bijpassende diamantparen",
+      "Gecoördineerde centrale en zijstenen",
+      "Gekalibreerde selecties",
+      "Composities voor eeuwigheidsbanden",
+      "Composities voor tennisarmbanden",
+      "Composities voor tennishalskettingen",
       "Meerstenen sieraden",
       "Vervangende diamanten",
-      "Specificaties voor serieproductie"
+      "Herhaalde productiespecificaties"
     ],
-    "para3": "Deze vereisten dienen aan het begin van het sourcingproces te worden uitgelegd zodat de voorgestelde selectie de uiteindelijke sieradentoepassing weerspiegelt.",
-    "imageAlt": "Afgestemde en gekalibreerde natuurlijke diamanten van Uniglo Diamonds"
+    "imageAlt": "Bijpassende paren en gekalibreerde natuurlijke diamanten voor sieradenproductie"
   },
   "measurements": {
-    "eyebrow": "Maten en proporties",
-    "title": "Diamantmaten, proporties en visueel uiterlijk",
-    "para1": "Karaatgewicht is een essentiële meting, maar geeft geen volledig beeld van hoe een geslepen diamant er zal uitzien. Twee diamanten met hetzelfde karaatgewicht kunnen verschillende afmetingen, proporties en face-up uiterlijken hebben.",
-    "para2": "Een fabrikant heeft mogelijk precieze afmetingen nodig voor een bestaande zetting. Een retailer geeft mogelijk de voorkeur aan een ovale of smaragd-diamant met een bepaalde lengte-breedteverhouding.",
-    "considerLabel": "Voordat inkopers Uniglo Diamonds ontmoeten, dienen zij te overwegen of zij nodig hebben:",
+    "eyebrow": "Afmetingen en proporties",
+    "title": "Afmetingen en proporties",
+    "para1": "Karaatgewicht geeft geen volledig beeld van de grootte of het uiterlijk van een geslepen diamant. Twee diamanten met hetzelfde karaatgewicht kunnen verschillende afmetingen en bovenaanzichtaanwezigheid hebben.",
+    "para2": "Afmetingen zijn bijzonder belangrijk voor fancy-vormen. De lengte-breedteverhouding kan beïnvloeden of een Ovaal slank of breed lijkt, of een Smaragdvorm het gewenste contour heeft en of een Peervorm bij de beoogde vatting past.",
+    "considerLabel": "Voor een afspraak moeten kopers identificeren:",
     "considerItems": [
-      "Minimale en maximale maten",
+      "Minimale en maximale afmetingen",
       "Gewenste lengte-breedteverhoudingen",
-      "Minimale face-up afmetingen",
-      "Specifieke contourkenmerken",
-      "Bestaande zettingen die moeten worden geaccommodeerd",
-      "Specifieke slijpsel- of proportieverwachtingen",
-      "Afstemming over meerdere stenen",
-      "Visuele kwaliteiten die niet volledig worden weergegeven door een certificaat"
+      "Minimale bovenaanzichtafmetingen",
+      "Vereiste contourkenmerken",
+      "Bestaande zettingsafmetingen",
+      "Acceptabele productietoleranties",
+      "Afstemmingsvereisten",
+      "Visuele voorkeuren die niet volledig worden weergegeven door een graderingscertificaat"
     ]
   },
   "certification": {
     "eyebrow": "Certificering en documentatie",
-    "title": "Vereisten voor certificering en certificaatrapporten",
-    "para1": "Documentatievereisten variëren afhankelijk van de grootte, waarde, beoogde markt en klantverwachtingen van de diamant. Sommige inkopers vereisen individuele certificaatrapporten voor middelstenen.",
-    "considerLabel": "Inkopers dienen te identificeren:",
+    "title": "Certificering en documentatie",
+    "para1": "Documentatievereisten kunnen variëren afhankelijk van de grootte, waarde, beoogde markt en sieradentoepassing van de diamant.",
+    "para2": "Sommige kopers vereisen individuele graderingscertificaten voor centrale stenen. Kleinere of gekalibreerde diamanten kunnen verschillende commerciële documentatie gebruiken. Interne inventaris-, verzekerings-, verzend- en importprocedures kunnen ook beïnvloeden welke informatie vereist is.",
+    "para3": "Documentatie moet worden besproken voordat een selectie wordt voorbereid.",
+    "considerLabel": "Kopers moeten aangeven:",
     "considerItems": [
-      "Of individuele certificaatrapporten vereist zijn",
-      "Gewenste of geaccepteerde certificeerlaboratoria",
-      "Informatie benodigd voor voorraadsystemen",
-      "Import- of exportdocumentatievereisten",
-      "Marktspecifieke retailoffenbaringsverplichtingen",
-      "Verwachtingen voor sourcing- of traceerbaarheids­informatie",
-      "Of documentatie elke steen moet vergezellen",
-      "Vereisten voor afgestemde paren of meerstenen-indelingen"
-    ],
-    "para2": "Documentatie dient aan het begin van het sourcingproces te worden besproken in plaats van nadat een diamantenselectie al is voorbereid."
-  },
-  "whatToDDiscuss": {
-    "eyebrow": "Wat te bespreken",
-    "title": "Wat inkopers kunnen bespreken met Uniglo Diamonds op JCK",
-    "para1": "Een productief vakbeursgesprek dient verder te gaan dan het bekijken van beschikbare stenen. Het dient beide partijen te helpen bepalen of er een geschikte basis voor samenwerking is.",
-    "discussLabel": "Inkopers die Uniglo Diamonds ontmoeten, kunnen het volgende bespreken:",
-    "discussItems": [
-      "Gedocumenteerde vereisten voor natuurlijke diamanten",
-      "Gewenste diamantvormen en karaatgewichtsbereiken",
-      "Maten en lengte-breedte­voorkeuren",
-      "Kleur- en zuiverheidscombinaties",
-      "Bruids- en verlovingsringvereisten",
-      "Afgestemde en gekalibreerde diamanten",
-      "Doel­retail- of groothandelsprijzen",
-      "Hoeveelheden en herhalingsvereisten",
-      "Bestaande of geplande sieradencollecties",
-      "Leveringsverwachtingen",
-      "Langetermijn­sourcingbehoeften"
-    ],
-    "note": "Inkopers met specifieke vereisten dienen deze waar mogelijk vóór de vergadering te delen. Dit geeft het Uniglo Diamonds-team de mogelijkheid om relevante opties voor te bereiden."
+      "Of individuele graderingscertificaten vereist zijn",
+      "Voorkeurs- of geaccepteerde graderingslaboratoria",
+      "Informatie vereist voor interne inventarissystemen",
+      "Documentatie nodig voor import of verzending",
+      "Verwachtingen voor sourcing- of traceerbaarheidsinformatie",
+      "Of documenten elke diamant moeten vergezellen",
+      "Vereisten voor bijpassende paren of gekalibreerde composities"
+    ]
   },
   "inPerson": {
     "eyebrow": "Persoonlijke beoordeling",
     "title": "Waarom natuurlijke diamanten persoonlijk bekijken?",
-    "para1": "Digitale sourcing maakt het gemakkelijker om producten te ontdekken, voorraad te bekijken en gesprekken met leveranciers te beginnen. Natuurlijke diamanten profiteren echter nog steeds van een directe beoordeling. Een certificaatrapport biedt belangrijke technische informatie, maar kan niet elk aspect communiceren van hoe een diamant er in verschillende belichting uitziet.",
-    "assessLabel": "Een persoonlijke beoordeling kan inkopers helpen het volgende te onderzoeken:",
+    "para1": "Digitale inventaristools maken het gemakkelijker om op afstand te beginnen met sourcen, maar een persoonlijke beoordeling kan aanvullend commercieel inzicht bieden.",
+    "para2": "Een graderingscertificaat communiceert technische informatie, maar kan niet elk aspect van het uiterlijk van een diamant in verschillende lichtomstandigheden tonen of demonstreren hoe meerdere diamanten naast elkaar worden vergeleken.",
+    "assessLabel": "Op JCK kunnen kopers beoordelen:",
     "assessItems": [
       "Vormcontour",
-      "Face-up afmetingen",
+      "Bovenaanzichtgrootte",
+      "Proporties",
       "Lengte-breedteverhouding",
-      "Schittering en lichtprestatie",
-      "Trappatroonvorming",
+      "Schittering en visuele prestaties",
+      "Trapsgewijs slijppatroon",
       "Kleuruiterlijk",
-      "Zichtbaarheid van insluitingen",
+      "Zichtbaarheid van inclusies",
       "Afstemming tussen meerdere diamanten",
-      "Algehele visuele balans",
-      "Geschiktheid voor de beoogde zetting"
+      "Geschiktheid voor een bepaalde vatting"
     ],
-    "para2": "Het bekijken van diamanten op JCK maakt het mogelijk deze factoren te overwegen voordat een grotere of langetermijn­sourcingbeslissing wordt genomen.",
-    "imageAlt": "Sourcinggesprek voor natuurlijke diamanten met Uniglo Diamonds op JCK"
-  },
-  "antwerp": {
-    "eyebrow": "Antwerpse diamantexpertise",
-    "title": "Antwerpen-gebaseerde diamantsourcingexpertise",
-    "para1": "Antwerpen heeft generaties lang een centrale rol gespeeld in de internationale diamanthandel. De Antwerpse achtergrond van Uniglo Diamonds verbindt het bedrijf met een van 's werelds meest gevestigde diamanthandelscentra.",
-    "para2": "Locatie alleen creëert echter geen succesvolle leveranciersrelatie. Inkopers vereisen ook duidelijke communicatie, correct begrepen specificaties, realistische leveringsverwachtingen en consequente opvolging.",
-    "para3": "Uniglo Diamonds benadert sourcing door eerst het beoogde product, de markt en de klant van de inkoper te begrijpen. Dit stelt het team in staat te beoordelen welke vormen, maten, kwaliteitscombinaties en leveringsregelingen het meest geschikt kunnen zijn.",
-    "para4": "Deze aanpak kan een retailer ondersteunen die individuele middelstenen inkoopt, een fabrikant die een seriecollectie voorbereidt, een groothandelaar die meerdere markten bedient of een ontwerper die een gespecialiseerd diamantgericht assortiment ontwikkelt."
-  },
-  "registration": {
-    "eyebrow": "Registratie en pasvereisten",
-    "title": "JCK Las Vegas 2027 – Registratie en pasvereisten",
-    "para1": "JCK Las Vegas is niet toegankelijk voor het grote publiek. Registratie is bedoeld voor gekwalificeerde professionals verbonden aan de sieraden- en horlogebranche.",
-    "para2": "Elke editie vereist een nieuwe registratie. Bezoekers die JCK eerder hebben bezocht, moeten zich opnieuw registreren voor de editie van 2027 omdat passen van eerdere edities niet geldig blijven.",
-    "para3": "Aanvragers kunnen worden gevraagd documenten te verstrekken die de relatie van hun bedrijf met de sieradenbranche aantonen en bewijs van hun dienstverband bij dat bedrijf. De bedrijfsnaam en het adres op ingediende documenten dienen overeen te komen met de informatie die bij registratie is gebruikt.",
-    "para4": "Visitekaartjes worden niet langer geaccepteerd als voldoende kwalificatiedocumenten.",
-    "para5": "Een geldig overheidsidentiteitsbewijs met foto is vereist om een pas op te halen. Fotokopieën en foto's op een telefoon worden niet geaccepteerd.",
-    "para6": "Kinderen onder de 14 jaar zijn niet toegestaan. Baby's in goedgekeurde dragers kunnen worden toegelaten met goedkeuring van beursmanagement, maar kinderwagens zijn niet toegestaan op de beursvloer.",
-    "para7": "Bezoekers dienen registratie en goedkeuring van inloggegevens te voltooien voordat zij niet-restitueerbare reizen boeken."
+    "para3": "Deze directe vergelijking kan bijzonder waardevol zijn voor een grotere aankoop of herhaalde leveringsafspraak.",
+    "imageAlt": "Sourcingsbijeenkomst voor natuurlijke diamanten op JCK Las Vegas"
   },
   "prepare": {
-    "eyebrow": "Hoe voor te bereiden",
-    "title": "Voorbereiding op JCK Las Vegas 2027",
-    "para": "JCK is een omvangrijke internationale tentoonstelling. Inkopers die deelnemen zonder plan kunnen het moeilijk vinden om de voor hun bedrijf meest relevante leveranciers, productcategorieën en programma's te prioriteren. Vóór het reizen dienen bezoekers:",
-    "items": [
-      "Hun registratie voor 2027 te voltooien",
-      "Vereiste kwalificatiedocumenten in te dienen",
-      "Te bevestigen dat registratie is goedgekeurd",
-      "De definitieve beursdatum en openingstijden te controleren",
-      "De officiële tentoonstellers­gids 2027 te bekijken",
-      "De meest recente plattegrond te downloaden of te bekijken",
-      "Het standnummer van Uniglo Diamonds voor 2027 te bevestigen",
-      "Prioritaire diamantsourcingcategorieën te identificeren",
-      "Vormen, maten en kwaliteitsbereiken voor te bereiden",
-      "Doelprijzen en geschatte hoeveelheden vast te stellen",
-      "Belangrijke leveranciersgesprekken vooraf te regelen",
-      "JCK Talks en netwerkmogelijkheden te bekijken",
-      "Te controleren welke gebieden op 3 juni openen"
+    "eyebrow": "Hoe te bereiden",
+    "title": "Hoe kopers zich moeten voorbereiden op JCK Las Vegas",
+    "para1": "JCK is een grote internationale beurs met talrijke exposanten, buurten en professionele programma's. Kopers die zonder een duidelijk plan deelnemen, kunnen het moeilijk vinden om de meest relevante kansen te prioriteren.",
+    "para2": "Afspraken mogen niet te dicht op elkaar worden gepland. Het verplaatsen tussen verdiepingen en beursvloergebieden in The Venetian Expo kan tijdens drukke perioden langer duren dan verwacht.",
+    "prepLabel": "Voor vertrek moeten bezoekers:",
+    "prepItems": [
+      "De afzonderlijke registratie van 2027 voltooien",
+      "De vereiste kwalificatiedocumenten indienen",
+      "Bevestigen dat de aanvraag is goedgekeurd",
+      "De officiële expositeursgids van 2027 raadplegen",
+      "De laatste beursvloerplattegrond downloaden",
+      "Controleren welke gebieden op 3 juni openen",
+      "De definitieve beursuren bevestigen",
+      "Het standnummer van Uniglo Diamonds verifiëren",
+      "Prioritaire sourcingcategorieën identificeren",
+      "Diamantspecificaties en afmetingen voorbereiden",
+      "Geschatte hoeveelheden en prijsparameters vastleggen",
+      "Belangrijke leveranciersbijeenkomsten boeken",
+      "Relevante JCK Talks en networkingsessies bekijken",
+      "Reistijd tussen afspraken inplannen"
     ],
-    "note": "Inkopers dienen ook voldoende tijd tussen afspraken in te plannen. De omvang van The Venetian Expo en het aantal tentoonstellingsgebieden kunnen het verplaatsen tussen vergaderingen langer laten duren dan verwacht."
+    "transport": "Hoe The Venetian Expo te bereiken",
+    "transportPara1": "The Venetian Expo is gelegen op 201 Sands Avenue, Las Vegas, Nevada 89169. Het is verbonden met het The Venetian en The Palazzo resortcomplex.",
+    "transportPara2": "Bezoekers die op het terrein verblijven kunnen borden volgen door het resort en de congresgebieden. Degenen die elders verblijven moeten dichter bij het evenement de officiële JCK-reisinformatie raadplegen voor aanbevolen transport-, hotel- en shuttle-arrangementen.",
+    "transportPara3": "Kopers die waardevolle goederen, monsters of gevoelige documentatie bij zich dragen moeten ook de huidige veiligheids- en beveiligingsgidsen van JCK raadplegen voor deelname."
+  },
+  "guides": {
+    "eyebrow": "JCK Las Vegas 2027 Gidsen",
+    "title": "JCK Las Vegas 2027 Gidsen",
+    "items": [
+      {
+        "title": "JCK Las Vegas 2027 Bezoekersgids: Data, registratie, locatie en beursuren",
+        "body": "Een praktische bezoekersplanningsresource die toelating, kwalificatiedocumenten, badges, identificatie, vroege openingen, locatienavigatie en bevestigde beursuren behandelt."
+      },
+      {
+        "title": "Exposanten JCK Las Vegas 2027: Een gids voor sieradenkopers",
+        "body": "Een gedetailleerde gids voor het onderzoeken van de expositeursgids, het begrijpen van de beursvloerbuurten en het samenstellen van een efficiënte leverancierslijst."
+      },
+      {
+        "title": "Diamantleveranciers JCK Las Vegas 2027: Een sourcingsgids voor kopers",
+        "body": "Een gespecialiseerde bron die uitlegt hoe diamantleveranciers te vergelijken, specificaties voor te bereiden, documentatie te evalueren en sourcingsbijeenkomsten te plannen."
+      }
+    ]
   },
   "partnerships": {
     "eyebrow": "Voorbij de beurs",
     "title": "Leveranciersrelaties opbouwen voorbij de beurs",
-    "para1": "De waarde van JCK wordt niet alleen gemeten door tijdens de tentoonstelling geplaatste bestellingen. Het komt ook voort uit de relaties en gesprekken die voortgaan nadat de beurs sluit.",
-    "para2": "Voor Uniglo Diamonds is terugkeren naar JCK een kans om bestaande partners opnieuw te ontmoeten en tegelijkertijd retailers, groothandelaren, fabrikanten en ontwerpers te leren kennen die het bedrijf voor de eerste keer ontdekken.",
-    "nextStepsLabel": "Na de tentoonstelling wil een inkoper mogelijk:",
+    "para1": "De waarde van JCK wordt niet alleen gemeten door orders die tijdens de tentoonstelling worden geschreven. Het komt ook van de relaties en gesprekken die doorgaan nadat de beurs sluit.",
+    "para2": "Na de tentoonstelling kan een koper een gerichte selectie willen aanvragen, specifieke graderingscertificaten bekijken, vereisten verfijnen of productieschema's bevestigen.",
+    "para3": "Langetermijn-sourcingrelaties worden opgebouwd door consistente kwaliteit, transparante communicatie, betrouwbare service en een duidelijk begrip van de commerciële doelstellingen van de koper.",
+    "nextStepsLabel": "Na de tentoonstelling kan een koper willen:",
     "nextSteps": [
-      "Een gerichte diamantenselectie aanvragen",
-      "Specifieke certificaatrapporten bekijken",
+      "Een gerichte diamantselectie aanvragen",
+      "Specifieke graderingscertificaten bekijken",
       "Maat- of kwaliteitsvereisten verfijnen",
-      "Afgestemde paren of gecoördineerde zijstenen voorbereiden",
-      "Een gekalibreerde meerstenen-indeling regelen",
+      "Bijpassende paren of gecoördineerde zijstenen voorbereiden",
+      "Een gekalibreerde meerstenencompositie regelen",
       "Hoeveelheden of productieschema's bevestigen",
       "Toekomstige beschikbaarheid bespreken",
-      "Een andere bezichtiging of sourcinggesprek inplannen"
+      "Een andere bezichtiging of sourcingsdiscussie plannen"
     ],
-    "para3": "Langetermijn­sourcingrelaties worden opgebouwd door consistente kwaliteit, transparante communicatie, betrouwbare service en een duidelijk begrip van de zakelijke doelstellingen van de inkoper."
-  },
-  "lookingAhead": {
-    "eyebrow": "Vooruitkijken",
-    "title": "Ontmoet Uniglo Diamonds op JCK Las Vegas 2027",
-    "para1": "Van 4 tot 7 juni 2027 brengt JCK de internationale sieradenhandel samen in The Venetian Expo in Las Vegas.",
-    "para2": "Uniglo Diamonds kijkt er naar uit natuurlijke diamanten te presenteren en retailers, inkopers, ontwerpers, fabrikanten, groothandelaren en andere gekwalificeerde brancheprofessionals te ontmoeten.",
-    "para3": "Of u nu een individuele middelsteen inkoopt, een bruidsvoorraad versterkt, afgestemde diamanten regelt of op zoek bent naar een betrouwbare langetermijnleverancier, wij nodigen u uit het Uniglo Diamonds-team te ontmoeten op JCK Las Vegas 2027.",
-    "note": "Het bevestigde standnummer, de definitieve openingstijden en vergaderinformatie worden op deze pagina gepubliceerd wanneer beschikbaar."
+    "imageAlt": "Sourcingsbijeenkomst voor natuurlijke diamanten met Uniglo Diamonds op JCK"
   },
   "faq": {
-    "title": "Veelgestelde vragen over JCK Las Vegas 2027",
+    "title": "Veelgestelde vragen",
     "items": [
-      { "question": "Wanneer is JCK Las Vegas 2027?", "answer": "De hoofdtentoonstelling van JCK Las Vegas 2027 vindt plaats van vrijdag 4 juni tot maandag 7 juni 2027." },
-      { "question": "Waar wordt JCK Las Vegas 2027 gehouden?", "answer": "JCK 2027 wordt gehouden in The Venetian Expo in Las Vegas, Nevada." },
-      { "question": "Wat zijn de openingstijden van JCK Las Vegas 2027?", "answer": "De definitieve beursopeningsuren voor 2027 zijn nog niet officieel bevestigd door de organisator. Deze pagina wordt bijgewerkt wanneer het officiële schema wordt gepubliceerd." },
-      { "question": "Openen delen van JCK vóór 4 juni?", "answer": "Ja. AGTA en GEMS, het Hongkong-paviljoen, het Lifestyle-paviljoen en geselecteerde JCK Talks-sessies zijn gepland voor donderdag 3 juni 2027." },
-      { "question": "Wie kan JCK Las Vegas bezoeken?", "answer": "JCK is bedoeld voor gekwalificeerde sieraden- en horlogeprofessionals, waaronder retailers, inkopers, ontwerpers, groothandelaren, fabrikanten, diamant- en edelsteenprofessionals, dienstverleners en goedgekeurde branchepers." },
-      { "question": "Is JCK Las Vegas open voor het publiek?", "answer": "Nee. JCK is een business-to-business vakbeurs. Aanvragen worden beoordeeld en bezoekers moeten mogelijk zakelijke en arbeidsbewijzen overleggen die hun band met de sieradenbranche aantonen." },
-      { "question": "Is registratie vereist voor JCK 2027?", "answer": "Ja. Elke bezoeker moet zich registreren voor de editie van 2027. Een pas van een eerder JCK-evenement geeft geen automatische toegang." },
-      { "question": "Welke identificatie is vereist?", "answer": "Een geldig overheidsidentiteitsbewijs met foto is vereist om een pas op te halen. Fotokopieën en foto's van een identiteitsbewijs worden niet geaccepteerd." },
-      { "question": "Kan een visitekaartje worden gebruikt als branchebewijs?", "answer": "Nee. JCK stelt dat visitekaartjes niet langer worden geaccepteerd als kwalificatiedocumenten." },
-      { "question": "Zijn kinderen toegestaan op JCK?", "answer": "Kinderen onder de 14 jaar zijn niet toegestaan. Baby's in dragers kunnen worden toegelaten met goedkeuring van beursmanagement, maar kinderwagens zijn niet toegestaan op de beursvloer." },
-      { "question": "Wat is het verschil tussen JCK en Luxury?", "answer": "JCK is de belangrijkste internationale sieradenvakbeurs van 4 tot 7 juni. Luxury loopt van 2 tot 7 juni, waarbij 2 en 3 juni werken als uitsluitend-op-uitnodiging-dagen voor goedgekeurde high-end sieradenretailers." },
-      { "question": "Wat is het standnummer van Uniglo Diamonds op JCK 2027?", "answer": "Het standnummer van Uniglo Diamonds voor 2027 is nog niet officieel bevestigd. Het wordt aan deze pagina toegevoegd wanneer de huidige tentoonstellers­gids en plattegrond worden gepubliceerd." },
-      { "question": "Wat kunnen inkopers sourcen van Uniglo Diamonds op JCK?", "answer": "Inkopers kunnen losse natuurlijke diamanten bespreken in verschillende vormen, karaatgewichten, maten, kleuren en zuiverheden. Vereisten kunnen individuele middelstenen, afgestemde paren, gekalibreerde diamanten, bruidsourcing en herhalingslevering omvatten." },
-      { "question": "Welke vormen van natuurlijke diamanten kunnen inkopers bespreken?", "answer": "Inkopers kunnen Rond Briljant, Ovaal, Smaragd, Peer, Kussen, Prinses, Radiant, Marquise, Hart en Asscher diamanten bespreken, onder voorbehoud van beschikbaarheid en de vereiste specificaties van de inkoper." },
-      { "question": "Kunnen inkopers afgestemde of gekalibreerde diamanten bespreken?", "answer": "Ja. Inkopers kunnen afgestemde paren, gekalibreerde selecties, gecoördineerde zijstenen en indelingen voor meerstenen sieraden bespreken." },
-      { "question": "Kunnen fabrikanten vereisten voor herhalingslevering bespreken?", "answer": "Ja. Fabrikanten dienen hun vereiste vormen, maten, kwaliteitsbereiken, hoeveelheden en productieschema's te verstrekken bij het bespreken van herhalingslevering." },
-      { "question": "Dienen inkopers een afspraak te maken met Uniglo Diamonds?", "answer": "Een afspraak wordt aanbevolen voor inkopers met specifieke diamantkwaliteiten, vormen, maten, hoeveelheden of doelprijzen. Boekinformatie wordt verstrekt zodra het standnummer en de vergaderregelingen van Uniglo Diamonds voor 2027 zijn bevestigd." }
+      { "question": "Wanneer is JCK Las Vegas 2027?", "answer": "De hoofdtentoonstelling vindt plaats van vrijdag 4 juni tot maandag 7 juni 2027." },
+      { "question": "Waar wordt JCK Las Vegas 2027 gehouden?", "answer": "De beurs wordt gehouden in The Venetian Expo, 201 Sands Avenue, Las Vegas, Nevada 89169." },
+      { "question": "Wat zijn de beursuren van 2027?", "answer": "De definitieve JCK-beursuren zijn nog niet duidelijk genoeg bevestigd voor publicatie. Deze pagina wordt bijgewerkt wanneer de organisator het volledige schema van 2027 publiceert." },
+      { "question": "Openen sommige JCK-gebieden voor 4 juni?", "answer": "Ja. AGTA en GEMS, het Hong Kong Pavilion, het Lifestyle Pavilion en geselecteerde JCK Talks-sessies zijn gepland om op donderdag 3 juni 2027 te openen. Bezoekers moeten hun badgetoegang en het definitieve tijdschema bevestigen." },
+      { "question": "Wat zijn de uitsluitend op uitnodiging-dagen van Luxury?", "answer": "De uitsluitend op uitnodiging-dagen van Luxury zijn gepland voor 2 en 3 juni 2027. Deelname vereist de juiste goedkeuring en registratie." },
+      { "question": "Is JCK Las Vegas open voor het publiek?", "answer": "Nee. JCK is een B2B sieraden- en horlogehandelsbeurs. Registratie wordt beoordeeld en aanvragers moeten mogelijk documenten verstrekken die hun verbinding met de branche bewijzen." },
+      { "question": "Is een nieuwe registratie vereist voor 2027?", "answer": "Ja. Elke editie vereist een nieuwe registratie. Een badge van een vorig JCK-evenement geeft geen toelating tot de beurs van 2027." },
+      { "question": "Kan een visitekaartje worden gebruikt als kwalificatiedocument?", "answer": "Nee. JCK stelt dat visitekaartjes niet worden geaccepteerd als kwalificatiedocumenten." },
+      { "question": "Welke identificatie is nodig om een badge op te halen?", "answer": "Een huidig officieel identiteitsbewijs met foto is vereist. Fotokopieën en foto's opgeslagen op een telefoon worden niet geaccepteerd." },
+      { "question": "Zijn kinderen toegestaan op JCK?", "answer": "Kinderen onder de 14 jaar zijn over het algemeen niet toegestaan. Baby's in draagzakken kunnen worden toegelaten met goedkeuring van de beursleiding, maar kinderwagens zijn niet toegestaan op de beursvloer." },
+      { "question": "Waar kunnen kopers de expositeurlijst van 2027 vinden?", "answer": "Kopers moeten de officiële JCK-expositeursgids gebruiken. Ze moeten bevestigen dat de gids de editie van 2027 weergeeft voordat ze vertrouwen op standinformatie." },
+      { "question": "Wat is het JCK-standnummer van Uniglo Diamonds?", "answer": "Het standnummer van 2027 is nog niet officieel bevestigd. Het wordt aan deze pagina toegevoegd wanneer de huidige expositeursgids en beursvloerplattegrond beschikbaar zijn." },
+      { "question": "Wat kunnen kopers bespreken met Uniglo Diamonds?", "answer": "Kopers kunnen praten over natuurlijke diamanten voor centrale stenen, bruidsmode, bijpassende paren, gekalibreerde composities, bestaande zettingen, meerstenen sieraden en herhaalde productievereisten." },
+      { "question": "Moeten kopers een afspraak boeken?", "answer": "Vooraf boeken wordt aanbevolen voor kopers met specifieke vereisten. Het verstrekken van de gewenste vormen, karaatbereiken, afmetingen, kleuren, zuiverheidsgraden, hoeveelheden en documentatievereisten helpt een meer gerichte bijeenkomst te creëren." }
     ]
   },
   "finalCta": {
-    "title": "Ontmoet Uniglo Diamonds op JCK Las Vegas 2027",
-    "para": "Ontmoet Uniglo Diamonds op JCK Las Vegas 2027 om natuurlijke diamanten en Antwerpen-gebaseerde sourcingmogelijkheden te verkennen. Bereid uw gewenste vormen, maten, kwaliteitsbereiken, documentatievereisten en beoogde sieradentoepassingen voor zodat het team een relevantere discussie kan plannen.",
+    "title": "Boek een afspraak met Uniglo op JCK Las Vegas",
+    "para": "Ontmoet Uniglo Diamonds op JCK om te praten over natuurlijke diamanten geselecteerd op basis van uw retail-, productie-, groothandels- of ontwerpvereisten. Vermeld bij het aanvragen van een afspraak uw gewenste vormen, karaatbereiken, afmetingen, kleur- en zuiverheidscombinaties, graderingscertificaatvereisten, hoeveelheden, beoogde sieradentoepassingen en geschatte commerciële parameters.",
     "factEvent": "Evenement",
     "factEventValue": "JCK Las Vegas 2027",
     "factDates": "Data",
     "factDatesValue": "4–7 juni 2027",
     "factVenue": "Locatie",
     "factVenueValue": "The Venetian Expo",
-    "factBooth": "Uniglo-stand",
-    "factBoothValue": "Bevestiging in afwachting",
-    "primaryCta": "JCK-handelsgesprek boeken met Uniglo Diamonds",
-    "secondaryCta": "Uniglo's natuurlijke diamantenvoorraad verkennen",
-    "note": "Bevestigd standnummer en definitieve openingstijden worden gepubliceerd wanneer beschikbaar. Registratie moet vooraf worden voltooid."
+    "factBooth": "Uniglo Stand",
+    "factBoothValue": "Wacht op bevestiging",
+    "primaryCta": "Boek een JCK handelsbijeenkomst met Uniglo Diamonds",
+    "secondaryCta": "Verken het inventaris van natuurlijke diamanten van Uniglo",
+    "note": "Het bevestigde standnummer en de definitieve afspraakinfo worden gepubliceerd wanneer officieel beschikbaar."
   }
 }

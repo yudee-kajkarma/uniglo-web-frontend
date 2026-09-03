@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -27,12 +27,12 @@ const INVENTORY_HREF = "/inventory";
 
 const IMAGES = {
     banner: "/jewellery-show-london/stand-b41-diamond-tray.webp",
-    hero: "/event-page-images/Jewellery & Gem WORLD Hong Kong 2026/1.png",
-    venues: "/event-page-images/Jewellery & Gem WORLD Hong Kong 2026/1.png",
-    trade: "/event-page-images/Jewellery & Gem WORLD Hong Kong 2026/3.png",
-    diamonds: "/event-page-images/Jewellery & Gem WORLD Hong Kong 2026/2.png",
-    bridal: "/event-page-images/Jewellery & Gem WORLD Hong Kong 2026/4.png",
-    antwerp: "/event-page-images/Jewellery & Gem WORLD Hong Kong 2026/4.png",
+    hero: "/event-page-images/jewellery-gem-world-hong-kong-2026/1.png",
+    venues: "/event-page-images/jewellery-gem-world-hong-kong-2026/1.png",
+    trade: "/event-page-images/jewellery-gem-world-hong-kong-2026/3.png",
+    diamonds: "/event-page-images/jewellery-gem-world-hong-kong-2026/2.png",
+    bridal: "/event-page-images/jewellery-gem-world-hong-kong-2026/4.png",
+    antwerp: "/event-page-images/jewellery-gem-world-hong-kong-2026/4.png",
 };
 
 interface Props {
@@ -113,11 +113,13 @@ const JGWHongKongPage = async ({ params }: Props) => {
     const eventDetails = t.raw("eventDetails.rows") as { label: string; value: string }[];
     const aweCategories = t.raw("venues.aweCategories") as string[];
     const hkcecCategories = t.raw("venues.hkcecCategories") as string[];
+    const whatCanSourceItems = t.raw("whatCanSource.items") as string[];
     const shapesItems = t.raw("shapes.items") as string[];
     const matchingItems = t.raw("matching.items") as string[];
+    const bridalItems = t.raw("bridal.items") as string[];
     const buyerTypes = t.raw("whoShouldMeet.types") as { title: string; body: string }[];
     const whyAttendItems = t.raw("whyAttend.items") as string[];
-    const prepareItems = t.raw("prepare.items") as string[];
+    const guidesItems = t.raw("guides.items") as { title: string; body: string }[];
     const faqItems = t.raw("faq.items") as { question: string; answer: string }[];
 
     const pageUrl = localizedUrl(locale, PATH);
@@ -237,24 +239,41 @@ const JGWHongKongPage = async ({ params }: Props) => {
 
             {/* ── Section 1: Hero intro ─────────────────────────────────────── */}
             <section className="max-w-7xl mx-auto px-4 py-20">
-                <ArticleLayout
-                    title={t("hero.lead")}
-                    subtitle={t("hero.eyebrow")}
-                    paragraphs={[t("hero.para1"), t("hero.para2")]}
-                    image={{ src: IMAGES.hero, alt: t("hero.imageAlt") }}
-                    reverse={false}
-                    floatImages={false}
-                    actions={
-                        <div className="flex flex-wrap gap-4">
-                            <PrimaryCta href={APPOINTMENT_HREF}>
-                                {t("hero.primaryCta")}
-                            </PrimaryCta>
-                            <SecondaryCta href={INVENTORY_HREF}>
-                                {t("hero.secondaryCta")}
-                            </SecondaryCta>
+                <div className="flex flex-col gap-10 md:flex-row md:items-start mb-10">
+                    {/* Image — left, aligned to top */}
+                    <div className="w-full md:w-1/2">
+                        <Image
+                            src={IMAGES.hero}
+                            alt={t("hero.imageAlt")}
+                            width={1100}
+                            height={1100}
+                            sizes="(min-width: 768px) 50vw, 100vw"
+                            className="w-full h-auto object-cover shadow-sm"
+                        />
+                    </div>
+                    {/* Text — right */}
+                    <div className="w-full md:w-1/2">
+                        <div className="flex items-center gap-3 mb-4">
+                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                                {t("hero.eyebrow")}
+                            </h4>
+                            <span className="w-12 h-px bg-primary" />
                         </div>
-                    }
-                />
+                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                            {t("hero.lead")}
+                        </h2>
+                        <div className="space-y-6 text-slate-600 text-lg leading-relaxed font-lora text-justify">
+                            <p>{t("hero.para1")}</p>
+                            <p>{t("hero.para2")}</p>
+                        </div>
+                    </div>
+                </div>
+                {/* Button — centered below both columns */}
+                <div className="flex justify-center">
+                    <PrimaryCta href={APPOINTMENT_HREF}>
+                        {t("hero.primaryCta")}
+                    </PrimaryCta>
+                </div>
             </section>
 
             {/* ── Section 2: Event details table ────────────────────────────── */}
@@ -388,6 +407,35 @@ const JGWHongKongPage = async ({ params }: Props) => {
                 </div>
             </section>
 
+            {/* ── Section 3b: What Buyers Can Source ───────────────────────── */}
+            <section className="w-full bg-[#faf7f2] py-20">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="flex items-center gap-3 mb-4">
+                        <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                            {t("whatCanSource.eyebrow")}
+                        </h4>
+                        <span className="w-12 h-px bg-primary" />
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1] max-w-3xl">
+                        {t("whatCanSource.title")}
+                    </h2>
+                    <p className="font-lora text-slate-600 leading-relaxed mb-8 text-lg">
+                        {t("whatCanSource.para1")}
+                    </p>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 mb-8">
+                        {whatCanSourceItems.map((item, i) => (
+                            <div key={i} className="flex items-center gap-3 bg-white border border-[#e8ddd0] px-4 py-3">
+                                <span className="w-1.5 h-1.5 bg-[#bb923a] rotate-45 shrink-0" />
+                                <span className="font-lora text-sm text-[#1f2732] leading-snug">{item}</span>
+                            </div>
+                        ))}
+                    </div>
+                    <p className="font-lora text-slate-600 leading-relaxed">
+                        {t("whatCanSource.para2")}
+                    </p>
+                </div>
+            </section>
+
             {/* ── Section 4: Meet Uniglo at JGW ────────────────────────────── */}
             <section className="w-full bg-[#faf7f2] py-20">
                 <div className="max-w-7xl mx-auto px-4 flex flex-col gap-12 md:flex-row md:items-start">
@@ -427,8 +475,42 @@ const JGWHongKongPage = async ({ params }: Props) => {
                 </div>
             </section>
 
-            {/* ── Section 5: Diamond shapes & specifications ────────────────── */}
+            {/* ── Section 5: Natural Diamond Sourcing ──────────────────────── */}
             <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="flex flex-col gap-10 md:flex-row md:items-start">
+                    <div className="w-full md:w-1/2">
+                        <div className="flex items-center gap-3 mb-4">
+                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                                {t("naturalDiamondSourcing.eyebrow")}
+                            </h4>
+                            <span className="w-12 h-px bg-primary" />
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                            {t("naturalDiamondSourcing.title")}
+                        </h2>
+                        <div className="space-y-4 font-lora text-slate-600 leading-relaxed">
+                            <p>{t("naturalDiamondSourcing.para1")}</p>
+                            <p>{t("naturalDiamondSourcing.para2")}</p>
+                            <p>{t("naturalDiamondSourcing.para3")}</p>
+                            <p>{t("naturalDiamondSourcing.para4")}</p>
+                        </div>
+                    </div>
+                    <div className="w-full md:w-1/2">
+                        <Image
+                            src={IMAGES.diamonds}
+                            alt={t("naturalDiamondSourcing.imageAlt")}
+                            width={1100}
+                            height={1100}
+                            sizes="(min-width: 768px) 50vw, 100vw"
+                            className="w-full h-auto object-cover shadow-sm"
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Section 6: Diamond shapes & specifications ────────────────── */}
+            <section className="w-full bg-[#faf7f2] py-20">
+                <div className="max-w-7xl mx-auto px-4">
                 <ArticleLayout
                     title={t("shapes.title")}
                     subtitle={t("shapes.eyebrow")}
@@ -447,9 +529,6 @@ const JGWHongKongPage = async ({ params }: Props) => {
                                     </li>
                                 ))}
                             </ul>
-                            <SecondaryCta href={INVENTORY_HREF}>
-                                {t("shapes.cta")}
-                            </SecondaryCta>
                         </div>
                     }
                 />
@@ -464,6 +543,49 @@ const JGWHongKongPage = async ({ params }: Props) => {
                     reverse={true}
                     floatImages={false}
                 />
+                </div>
+            </section>
+
+            {/* ── Section 6b: Bridal & fine-jewellery manufacturing ─────────── */}
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="flex flex-col gap-10 md:flex-row-reverse md:items-start mb-8">
+                    <div className="w-full md:w-1/2">
+                        <div className="flex items-center gap-3 mb-4">
+                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                                {t("bridal.eyebrow")}
+                            </h4>
+                            <span className="w-12 h-px bg-primary" />
+                        </div>
+                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                            {t("bridal.title")}
+                        </h2>
+                        <div className="space-y-4 font-lora text-slate-600 leading-relaxed mb-6">
+                            <p>{t("bridal.para1")}</p>
+                            <p>{t("bridal.para2")}</p>
+                        </div>
+                        <ul className="space-y-2 font-lora text-slate-600">
+                            {bridalItems.map((item, i) => (
+                                <li key={i} className="flex items-start gap-3">
+                                    <span className="mt-2.5 w-1.5 h-1.5 bg-[#bb923a] shrink-0 rotate-45" />
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div className="w-full md:w-1/2">
+                        <Image
+                            src={IMAGES.bridal}
+                            alt={t("bridal.imageAlt")}
+                            width={1100}
+                            height={1100}
+                            sizes="(min-width: 768px) 50vw, 100vw"
+                            className="w-full h-auto object-cover shadow-sm"
+                        />
+                    </div>
+                </div>
+                <p className="w-full font-lora text-slate-600 leading-relaxed">
+                    {t("bridal.para3")}
+                </p>
             </section>
 
             {/* ── Section 6: Antwerp expertise + documentation ──────────────── */}
@@ -537,59 +659,109 @@ const JGWHongKongPage = async ({ params }: Props) => {
             </section>
 
             {/* ── Section 8: Why attend + prepare ──────────────────────────── */}
-            <section className="w-full bg-[#faf7f2] py-20">
-                <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16">
-                    {/* Why attend */}
-                    <div>
-                        <div className="flex items-center gap-3 mb-4">
-                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
-                                {t("whyAttend.eyebrow")}
-                            </h4>
-                            <span className="w-12 h-px bg-primary" />
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
-                            {t("whyAttend.title")}
-                        </h2>
-                        <p className="font-lora text-slate-600 leading-relaxed mb-6">
-                            {t("whyAttend.para")}
-                        </p>
-                        <ul className="space-y-2 font-lora text-slate-600">
-                            {whyAttendItems.map((item, i) => (
-                                <li key={i} className="flex items-start gap-3">
-                                    <span className="mt-2.5 w-1.5 h-1.5 bg-[#bb923a] shrink-0 rotate-45" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
 
-                    {/* How to prepare */}
-                    <div>
-                        <div className="flex items-center gap-3 mb-4">
-                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
-                                {t("prepare.eyebrow")}
-                            </h4>
-                            <span className="w-12 h-px bg-primary" />
+            {/* Why Attend — white bg */}
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="mb-4">
+                    <div className="flex items-center gap-3 mb-4">
+                        <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">{t("whyAttend.eyebrow")}</h4>
+                        <span className="w-12 h-px bg-primary" />
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] leading-[1.1]">
+                        {t("whyAttend.title")}
+                    </h2>
+                </div>
+                <p className="w-full font-lora text-slate-600 leading-relaxed mb-10">{t("whyAttend.para")}</p>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                    {whyAttendItems.map((item, i) => (
+                        <div key={i} className="flex items-center gap-3 bg-[#faf7f2] border border-[#e8ddd0] px-4 py-3">
+                            <span className="w-1.5 h-1.5 bg-[#bb923a] rotate-45 shrink-0" />
+                            <span className="font-lora text-sm text-[#1f2732] leading-snug">{item}</span>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
-                            {t("prepare.title")}
-                        </h2>
-                        <p className="font-lora text-slate-600 leading-relaxed mb-6">
-                            {t("prepare.para")}
-                        </p>
-                        <ul className="space-y-2 font-lora text-slate-600">
-                            {prepareItems.map((item, i) => (
-                                <li key={i} className="flex items-start gap-3">
-                                    <span className="mt-2.5 w-1.5 h-1.5 bg-[#bb923a] shrink-0 rotate-45" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
-                        <div className="mt-8">
-                            <PrimaryCta href={APPOINTMENT_HREF}>
-                                {t("prepare.cta")}
-                            </PrimaryCta>
+                    ))}
+                </div>
+            </section>
+
+            {/* ── Section 8b: Plan Visit ────────────────────────────────────── */}
+            <section className="w-full bg-[#faf7f2] py-20">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+                        <div>
+                            <div className="flex items-center gap-3 mb-4">
+                                <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                                    {t("planVisit.eyebrow")}
+                                </h4>
+                                <span className="w-12 h-px bg-primary" />
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                                {t("planVisit.title")}
+                            </h2>
+                            <div className="space-y-4 font-lora text-slate-600 leading-relaxed">
+                                <p>{t("planVisit.para1")}</p>
+                                <p>{t("planVisit.para2")}</p>
+                            </div>
                         </div>
+                        <div>
+                            <div className="flex items-center gap-3 mb-4">
+                                <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                                    {t("registration.eyebrow")}
+                                </h4>
+                                <span className="w-12 h-px bg-primary" />
+                            </div>
+                            <h2 className="text-3xl md:text-4xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                                {t("registration.title")}
+                            </h2>
+                            <div className="space-y-4 font-lora text-slate-600 leading-relaxed">
+                                <p>{t("registration.para1")}</p>
+                                <p>{t("registration.para2")}</p>
+                                <p>{t("registration.para3")}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Section 8c: After JGW ─────────────────────────────────────── */}
+            <section className="max-w-7xl mx-auto px-4 py-20">
+                <div className="flex items-center gap-3 mb-4">
+                    <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                        {t("afterJGW.eyebrow")}
+                    </h4>
+                    <span className="w-12 h-px bg-primary" />
+                </div>
+                <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-8 leading-[1.1] w-full">
+                    {t("afterJGW.title")}
+                </h2>
+                <div className="space-y-4 font-lora text-slate-600 leading-relaxed w-full">
+                    <p>{t("afterJGW.para1")}</p>
+                    <p>{t("afterJGW.para2")}</p>
+                    <p>{t("afterJGW.para3")}</p>
+                </div>
+            </section>
+
+            {/* ── Section 8d: Guides ────────────────────────────────────────── */}
+            <section className="w-full bg-[#faf7f2] py-20">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="flex items-center gap-3 mb-4">
+                        <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                            {t("guides.eyebrow")}
+                        </h4>
+                        <span className="w-12 h-px bg-primary" />
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-10 leading-[1.1] max-w-3xl">
+                        {t("guides.title")}
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                        {guidesItems.map((guide, i) => (
+                            <div key={i} className="border-t-2 border-[#bb923a] pt-6">
+                                <h3 className="font-cormorantGaramond text-2xl text-[#1f2732] mb-3 leading-snug">
+                                    {guide.title}
+                                </h3>
+                                <p className="font-lora text-slate-600 leading-relaxed text-sm">
+                                    {guide.body}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -610,7 +782,7 @@ const JGWHongKongPage = async ({ params }: Props) => {
                     </p>
 
                     {/* Event summary facts */}
-                    <dl className="my-10 inline-grid grid-cols-1 sm:grid-cols-3 gap-6 text-left border border-white/15 px-8 py-6">
+                    <dl className="my-10 inline-grid grid-cols-1 sm:grid-cols-4 gap-6 text-left border border-white/15 px-8 py-6">
                         <div>
                             <dt className="font-lato text-[0.65rem] uppercase tracking-[0.2em] text-white/50 mb-1">
                                 {t("finalCta.factEvent")}
@@ -625,6 +797,14 @@ const JGWHongKongPage = async ({ params }: Props) => {
                             </dt>
                             <dd className="font-cormorantGaramond text-lg text-primary-yellow-1">
                                 {t("finalCta.factDatesValue")}
+                            </dd>
+                        </div>
+                        <div>
+                            <dt className="font-lato text-[0.65rem] uppercase tracking-[0.2em] text-white/50 mb-1">
+                                {t("finalCta.factDates2")}
+                            </dt>
+                            <dd className="font-cormorantGaramond text-lg text-primary-yellow-1">
+                                {t("finalCta.factDates2Value")}
                             </dd>
                         </div>
                         <div>

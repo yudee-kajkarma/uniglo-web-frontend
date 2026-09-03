@@ -1,295 +1,371 @@
 {
   "metadata": {
-    "title": "Hong Kong Diamond, Gem & Pearl Show 2027 | Uniglo",
-    "description": "Conoce a Uniglo Diamonds en la Hong Kong Diamond, Gem & Pearl Show 2027, 2–6 de marzo. Descubre diamantes naturales e información de abastecimiento."
+    "title": "HK Diamond, Gem & Pearl Show 2027 | Uniglo Diamonds",
+    "description": "Conozca a Uniglo Diamonds en la Hong Kong Diamond, Gem & Pearl Show 2027, del 2 al 6 de marzo. Explore diamantes naturales y reserve una reunión de aprovisionamiento."
   },
-  "announcement": "Hong Kong Diamond, Gem & Pearl Show 2027 · 2–6 de marzo · AsiaWorld-Expo · Conoce a Uniglo Diamonds",
+  "announcement": "Hong Kong Diamond, Gem & Pearl Show 2027 · 2–6 de marzo · AsiaWorld-Expo · Conozca a Uniglo Diamonds",
   "breadcrumbHome": "Inicio",
   "breadcrumbCurrent": "Hong Kong Diamond, Gem & Pearl Show 2027",
   "hero": {
-    "eyebrow": "Feria profesional · 2–6 de marzo de 2027 · Hong Kong",
-    "title": "Uniglo Diamonds en la Hong Kong International Diamond, Gem & Pearl Show 2027",
-    "lead": "La Hong Kong International Diamond, Gem & Pearl Show 2027 tendrá lugar del 2 al 6 de marzo de 2027 en AsiaWorld-Expo en Hong Kong.",
-    "para1": "Organizado por el Consejo de Desarrollo del Comercio de Hong Kong, el evento internacional de abastecimiento reúne a proveedores de diamantes sueltos, piedras preciosas de color, perlas y materiales para la fabricación de joyería con compradores, fabricantes, mayoristas y otros profesionales del sector. Uniglo Diamonds se prepara para regresar a la feria con un portafolio cuidadosamente seleccionado de diamantes naturales.",
-    "para2": "Los compradores podrán examinar diferentes formas y especificaciones, discutir sus requisitos de abastecimiento y entender cómo diamantes individuales, pares combinados y selecciones calibradas podrían apoyar las colecciones nupciales, de base y de joyería fina. El número de pabellón y stand de Uniglo Diamonds para 2027 se añadirá a esta página una vez confirmado oficialmente.",
+    "eyebrow": "Feria comercial · 2–6 de marzo de 2027 · Hong Kong",
+    "title": "Hong Kong International Diamond, Gem & Pearl Show 2027 – Conozca a Uniglo Diamonds",
+    "lead": "Hong Kong International Diamond, Gem & Pearl Show 2027 – Conozca a Uniglo Diamonds",
+    "para1": "La Hong Kong International Diamond, Gem & Pearl Show 2027 se celebra del 2 al 6 de marzo en AsiaWorld-Expo en Hong Kong. Organizada por el Hong Kong Trade Development Council, la exposición internacional de aprovisionamiento conecta a proveedores de diamantes sueltos, piedras preciosas de color, perlas y materiales de joyería con compradores profesionales de todo el mundo.",
+    "para2": "Uniglo Diamonds se está preparando para regresar con un portafolio seleccionado de diamantes naturales. Los compradores pueden reunirse con el equipo para examinar las piedras disponibles y hablar sobre diamantes clasificados individualmente, formas especiales, pares coordinados, selecciones calibradas y requisitos de fabricación repetida.",
+    "para3": "El pabellón y el número de stand de Uniglo Diamonds para 2027 aún no han sido confirmados oficialmente. La ubicación se añadirá a esta página cuando la información actualizada del expositor esté disponible.",
     "primaryCta": "Reservar una reunión comercial en Hong Kong",
     "secondaryCta": "Explorar el inventario de diamantes naturales",
     "imageAlt": "Uniglo Diamonds en la Hong Kong Diamond Gem and Pearl Show 2027"
   },
   "eventDetails": {
-    "eyebrow": "Información del evento",
-    "title": "Hong Kong Diamond, Gem & Pearl Show 2027 – Detalles del evento",
+    "eyebrow": "Información rápida del evento",
+    "title": "Detalles del evento Hong Kong Diamond, Gem & Pearl Show 2027",
     "colLabel": "Detalle",
     "colValue": "Información",
     "rows": [
       { "label": "Evento", "value": "HKTDC Hong Kong International Diamond, Gem & Pearl Show 2027" },
       { "label": "Fechas de la feria física", "value": "2–6 de marzo de 2027" },
       { "label": "Sede", "value": "AsiaWorld-Expo" },
-      { "label": "Dirección", "value": "1 Airport Expo Boulevard, Chek Lap Kok, Isla Lantau, Hong Kong" },
-      { "label": "Organizador", "value": "Consejo de Desarrollo del Comercio de Hong Kong" },
-      { "label": "Enfoque del evento", "value": "Diamantes sueltos, gemas, perlas y materiales de joyería" },
-      { "label": "Período Click2Match en línea", "value": "23 de febrero–13 de marzo de 2027" },
-      { "label": "Extensión de abastecimiento HKTDC", "value": "2 de febrero–1 de abril de 2027" },
-      { "label": "Stand de Uniglo Diamonds", "value": "Confirmación oficial pendiente" }
+      { "label": "Dirección", "value": "1 Airport Expo Boulevard, Chek Lap Kok, Lantau Island, Hong Kong" },
+      { "label": "Organizador", "value": "Hong Kong Trade Development Council" },
+      { "label": "Enfoque del evento", "value": "Diamantes sueltos, piedras preciosas, perlas y materiales de joyería" },
+      { "label": "Click2Match", "value": "23 de febrero–13 de marzo de 2027" },
+      { "label": "Período de sourcing online de HKTDC", "value": "2 de febrero–1 de abril de 2027" },
+      { "label": "Stand de Uniglo Diamonds", "value": "Pendiente de confirmación oficial" },
+      { "label": "Reunión", "value": "Se recomienda reservar con anticipación" }
     ],
     "hoursTitle": "Horarios de apertura publicados para visitantes",
     "hours": [
-      { "date": "Martes 2 de marzo", "time": "10:30–18:30" },
-      { "date": "Miércoles 3 de marzo", "time": "10:00–18:30" },
-      { "date": "Jueves 4 de marzo", "time": "10:00–18:30" },
-      { "date": "Viernes 5 de marzo", "time": "10:00–18:30" },
-      { "date": "Sábado 6 de marzo", "time": "10:00–17:30" }
+      { "date": "Martes, 2 de marzo", "time": "10:30–18:30" },
+      { "date": "Miércoles, 3 de marzo", "time": "10:00–18:30" },
+      { "date": "Jueves, 4 de marzo", "time": "10:00–18:30" },
+      { "date": "Viernes, 5 de marzo", "time": "10:00–18:30" },
+      { "date": "Sábado, 6 de marzo", "time": "10:00–17:30" }
     ],
-    "note": "Los visitantes deben verificar el programa definitivo, las normas de admisión y los requisitos de acreditación con HKTDC antes de viajar."
+    "note": "Los visitantes deben verificar el calendario final, las condiciones de admisión y los requisitos de acreditación a través de HKTDC antes de reservar viajes no reembolsables.",
+    "imageAlt": "Visitantes profesionales llegando a AsiaWorld-Expo para la feria de diamantes de Hong Kong"
   },
-  "foundations": {
-    "eyebrow": "Los fundamentos del abastecimiento",
-    "title": "Donde se abastecen los fundamentos de la joyería fina",
-    "para1": "Cada pieza de joyería fina terminada comienza con sus materiales. Antes de que se pueda crear un anillo, colgante, collar o pulsera, un comprador o fabricante debe seleccionar diamantes y piedras preciosas adecuados al diseño previsto.",
-    "para2": "La Hong Kong International Diamond, Gem & Pearl Show se concentra en esta fase temprana y comercialmente importante de la cadena de suministro joyera. Sus áreas especializadas incluyen tradicionalmente el Hall of Fine Diamonds, Treasures of Nature y Treasures of Ocean.",
-    "compareLabel": "Estas áreas permiten a los compradores comparar:",
-    "compareItems": [
-      "Diamantes naturales y cultivados en laboratorio sueltos",
+  "whatIs": {
+    "eyebrow": "Sobre la feria",
+    "title": "¿Qué es la Hong Kong International Diamond, Gem & Pearl Show?",
+    "para1": "Esta exposición de HKTDC se concentra en materiales sueltos utilizados para crear joyería fina. Está diseñada para compradores profesionales que investigan diamantes, piedras preciosas de color, perlas y materiales de joyería relacionados.",
+    "para2": "Este enfoque distingue el evento de una exposición centrada principalmente en joyería terminada. Fabricantes, mayoristas, diseñadores y minoristas pueden comparar materiales antes de decidir cómo se utilizarán en colecciones nupciales, de joyería fina y comerciales.",
+    "para3": "La feria opera bajo el modelo EXHIBITION+ de HKTDC, combinando la exposición física con períodos de sourcing online y de coincidencia de negocios antes y después del evento.",
+    "areasLabel": "Las áreas especializadas de la feria incluyen tradicionalmente:",
+    "areas": [
+      "Hall of Fine Diamonds",
+      "Treasures of Nature",
+      "Treasures of Ocean",
+      "Áreas de aprovisionamiento comercial y de piedras sueltas",
+      "Pabellones internacionales de expositores y grupos",
+      "Proveedores de materiales de joyería y servicios relacionados"
+    ]
+  },
+  "whatCanSource": {
+    "eyebrow": "Qué pueden adquirir los compradores",
+    "title": "Qué pueden adquirir los compradores en la feria de 2027",
+    "para1": "La exposición reúne a proveedores que sirven a diferentes partes del mercado de diamantes, piedras preciosas y perlas. Una visita productiva debe comenzar con un objetivo claro de aprovisionamiento.",
+    "para2": "Un minorista nupcial puede necesitar piedras centrales documentadas, mientras que un fabricante puede requerir diamantes calibrados para una producción repetible. Un mayorista podría comparar partidas comerciales, y un diseñador puede buscar una forma o proporción individual.",
+    "sourceItems": [
+      "Diamantes naturales sueltos",
+      "Diamantes cultivados en laboratorio",
       "Piedras preciosas de color",
       "Perlas naturales y cultivadas",
-      "Diferentes tallas, calidades y tamaños",
-      "Lotes comerciales y piedras individuales",
-      "Materiales de joyería y servicios de abastecimiento relacionados"
+      "Piedras documentadas individualmente",
+      "Partidas comerciales",
+      "Pares coordinados",
+      "Selecciones calibradas",
+      "Diamantes y piedras de formas especiales",
+      "Materiales de joyería",
+      "Aprovisionamiento y servicios profesionales relacionados"
     ],
-    "para3": "Este enfoque distingue el evento de una exposición de joyería terminada. Es especialmente relevante para fabricantes, diseñadores, mayoristas y minoristas que desean mayor control sobre los materiales utilizados en sus colecciones.",
-    "imageAlt": "HKTDC Hong Kong International Diamond Gem and Pearl Show 2027"
+    "prepLabel": "Antes de asistir, los compradores deben preparar:",
+    "prepItems": [
+      "Categoría de producto requerida",
+      "Formas y estilos de corte preferidos",
+      "Rangos de quilates o tamaños",
+      "Requisitos de color y claridad",
+      "Medidas mínimas y máximas",
+      "Cantidades objetivo",
+      "Requisitos de documentación",
+      "Aplicaciones de joyería previstas",
+      "Parámetros de precio comercial",
+      "Expectativas de entrega o producción"
+    ]
   },
   "twinShows": {
     "eyebrow": "HKTDC Twin Jewellery Shows",
-    "title": "Entendiendo las Twin Jewellery Shows de Hong Kong",
-    "para1": "La Hong Kong International Diamond, Gem & Pearl Show y la Hong Kong International Jewellery Show se presentan como las HKTDC Twin Jewellery Shows. Sin embargo, son exposiciones separadas que se celebran en diferentes sedes.",
-    "para2": "La Hong Kong International Diamond, Gem & Pearl Show tiene lugar del 2 al 6 de marzo de 2027 en AsiaWorld-Expo, centrándose principalmente en diamantes sueltos, gemas, perlas y materiales de joyería.",
-    "para3": "La Hong Kong International Jewellery Show tiene lugar del 4 al 8 de marzo de 2027 en el Hong Kong Convention and Exhibition Centre, mostrando principalmente joyería terminada, colecciones de marca y diseños completados.",
-    "para4": "Las exposiciones se solapan del 4 al 6 de marzo, permitiendo a los compradores cualificados planificar un programa de abastecimiento que cubra tanto materias primas como joyería terminada.",
-    "para5": "Dado que las sedes están en diferentes partes de Hong Kong, los visitantes deben prever tiempo de desplazamiento suficiente entre reuniones.",
-    "imageAlt": "Fechas y sedes de las Twin Jewellery Shows de Hong Kong para 2027"
-  },
-  "meetUniglo": {
-    "eyebrow": "Conocer a Uniglo Diamonds",
-    "title": "Conocer a un proveedor de diamantes naturales en la feria de Hong Kong",
-    "para1": "En la Hong Kong International Diamond, Gem & Pearl Show 2027, Uniglo Diamonds tiene previsto presentar diamantes naturales para diferentes requisitos al por menor, de fabricación y comerciales.",
-    "para2": "La selección puede incluir diamantes Brillante redondo, Oval, Esmeralda, Pera, Cojín, Princesa, Radiante, Marquesa, Corazón, Asscher y otras formas fancy en diferentes quilates, medidas, colores y purezas.",
-    "para3": "Un informe de certificación proporciona información esencial, pero los compradores deben considerar aún cómo se ve un diamante y cómo se comportará en su montura prevista.",
-    "discussLabel": "Reunirse con el equipo de Uniglo Diamonds permite a los compradores comparar piedras directamente y discutir preguntas como:",
-    "discussItems": [
-      "¿Qué especificaciones se ajustan a un precio minorista particular?",
-      "¿Qué formas son adecuadas para la joyería nupcial?",
-      "¿Cómo deben los compradores comparar la extensión face-up y el peso en quilates?",
-      "¿Qué debe comprobarse en un informe de certificación?",
-      "¿Qué diamantes pueden combinarse para pendientes?",
-      "¿Qué consistencia se necesita para diseños con múltiples piedras?",
-      "¿Qué calidades son adecuadas para colecciones comerciales?",
-      "¿Se pueden satisfacer requisitos similares en pedidos repetidos?"
+    "title": "Hong Kong International Jewellery Show y Twin Shows",
+    "para1": "La Hong Kong International Diamond, Gem & Pearl Show y la Hong Kong International Jewellery Show se presentan juntas como las HKTDC Twin Jewellery Shows. Sin embargo, son exposiciones separadas en diferentes sedes.",
+    "para2": "Las dos exposiciones se superponen del 4 al 6 de marzo. Los compradores calificados pueden, por tanto, planificar un viaje que cubra materiales en bruto en AsiaWorld-Expo y joyería terminada en el HKCEC.",
+    "para3": "Los visitantes no deben asumir que ambas exposiciones están ubicadas en el mismo complejo. Las citas en las dos sedes no deben programarse cerca unas de otras.",
+    "tableHeaders": ["Exposición", "Fechas", "Sede", "Enfoque principal"],
+    "tableRows": [
+      ["Hong Kong International Diamond, Gem & Pearl Show", "2–6 de marzo de 2027", "AsiaWorld-Expo", "Diamantes sueltos, piedras preciosas, perlas y materiales de joyería"],
+      ["Hong Kong International Jewellery Show", "4–8 de marzo de 2027", "Hong Kong Convention and Exhibition Centre", "Joyería terminada, colecciones de marca, relojes y diseños completos"]
     ],
-    "outro": "Estas conversaciones ayudan a los compradores a abastecer diamantes según las necesidades de sus clientes y colecciones.",
+    "venueTitle": "AsiaWorld-Expo vs HKCEC",
+    "venuePara1": "AsiaWorld-Expo está ubicada cerca del Aeropuerto Internacional de Hong Kong en la Isla Lantau. Alberga la Diamond, Gem & Pearl Show y es la sede correcta para compradores que principalmente buscan diamantes sueltos, piedras preciosas de color, perlas y materiales de joyería.",
+    "venuePara2": "El Hong Kong Convention and Exhibition Centre está ubicado en 1 Expo Drive en Wan Chai. Alberga la Hong Kong International Jewellery Show y se centra más en joyería terminada y colecciones completas.",
+    "tipsLabel": "Los compradores que asistan a ambas ferias deben:",
+    "tips": [
+      "Mantener juntas las reuniones en la misma sede",
+      "Evitar cambiar de sede repetidamente durante un día",
+      "Reservar tiempo sustancial de viaje y control de seguridad",
+      "Confirmar los arreglos de transporte antes de partir",
+      "Verificar qué acreditación o registro se necesita para cada exposición",
+      "Llevar la identificación especificada por HKTDC"
+    ],
+    "imageAlt": "Hong Kong Twin Jewellery Shows 2027 fechas y sedes separadas"
+  },
+  "meet": {
+    "eyebrow": "Conozca a Uniglo Diamonds",
+    "title": "Conozca a Uniglo Diamonds en Hong Kong",
+    "para1": "Uniglo Diamonds planea presentar diamantes naturales para minoristas, fabricantes, mayoristas y diseñadores. La selección final de la exposición dependerá de la disponibilidad más cerca de la feria.",
+    "para2": "Una reunión debe comenzar con la aplicación de joyería prevista y el objetivo comercial. Un comprador puede necesitar una piedra central documentada para un encargo de cliente, mientras que otro puede requerir pendientes coordinados, diamantes calibrados o especificaciones de fabricación repetibles.",
+    "para3": "Los compradores con requisitos específicos deben compartirlos antes de la feria. Esto permite al equipo considerar opciones más relevantes donde la disponibilidad lo permita.",
+    "shapesLabel": "Los compradores pueden prepararse para hablar sobre:",
+    "shapes": [
+      "Diamantes Brillante Redondo",
+      "Diamantes Ovalados",
+      "Diamantes talla Esmeralda",
+      "Diamantes en forma de Pera",
+      "Diamantes talla Cojín",
+      "Diamantes talla Radiante",
+      "Diamantes talla Princesa",
+      "Diamantes Marquesa",
+      "Diamantes talla Asscher",
+      "Diamantes en forma de Corazón",
+      "Otros diamantes naturales de formas especiales"
+    ],
+    "discussLabel": "Uniglo Diamonds puede hablar sobre:",
+    "discussItems": [
+      "Diamantes naturales clasificados individualmente",
+      "Diamantes para joyería nupcial",
+      "Pares de diamantes naturales coordinados",
+      "Piedras centrales y laterales coordinadas",
+      "Selecciones calibradas de varias piedras",
+      "Diamantes para monturas existentes",
+      "Requisitos comerciales y de alto valor",
+      "Informes de clasificación y documentación",
+      "Cantidades y aprovisionamiento repetido",
+      "Seguimiento después de la exposición"
+    ],
     "cta": "Reservar una reunión comercial en Hong Kong",
     "imageAlt": "Diamantes naturales presentados por Uniglo Diamonds en Hong Kong"
   },
-  "bridalFine": {
+  "sourcing": {
+    "eyebrow": "Aprovisionamiento de diamantes naturales",
+    "title": "Aprovisionamiento de diamantes naturales en la feria de Hong Kong",
+    "para1": "El aprovisionamiento de diamantes debe considerar más que el quilataje, el color y la claridad como datos principales. Las medidas, proporciones, estilo de corte, contorno y apariencia visual general pueden afectar la eficacia con que un diamante funciona en la joyería prevista.",
+    "para2": "Dos diamantes con información de clasificación similar pueden diferir en dimensiones vistas desde arriba o en carácter visual. Esto es especialmente importante con diamantes de formas especiales, donde la relación longitud-anchura y el contorno pueden influir fuertemente en la apariencia."
+  },
+  "bridal": {
     "eyebrow": "Joyería nupcial y fina",
-    "title": "Diamantes naturales para colecciones nupciales y de joyería fina",
-    "para1": "El uso previsto de un diamante debe influir en cómo se selecciona. Una piedra central para un anillo de compromiso puede considerarse individualmente, con especial atención a sus proporciones visuales, contorno y carácter.",
-    "para2": "Los compradores también pueden tener diferentes prioridades según su mercado. Algunas empresas se centran en piedras centrales documentadas de mayor valor, mientras que otras necesitan tamaños comerciales, pares combinados o combinaciones de calidad repetibles.",
-    "discussLabel": "Uniglo Diamonds puede discutir diamantes naturales para:",
+    "title": "Diamantes para joyería nupcial y fina",
+    "para1": "Los minoristas deben identificar las lagunas en su inventario existente antes de la exposición. Estas podrían incluir una forma, rango de quilataje, combinación de calidad o punto de precio comercial que falta.",
+    "para2": "Los fabricantes deben proporcionar las dimensiones de las monturas existentes y especificar las tolerancias requeridas para la producción repetible.",
+    "discussLabel": "Los compradores pueden hablar sobre diamantes naturales para:",
     "discussItems": [
-      "Anillos de compromiso solitarios", "Anillos de compromiso halo", "Anillos de tres piedras",
-      "Alianzas de boda en diamante", "Alianzas de eternidad y aniversario",
-      "Pendientes solitarios de diamante", "Colgantes solitarios",
-      "Pulseras de tenis", "Collares de tenis",
-      "Joyería fina con múltiples piedras", "Encargos de joyería a medida"
-    ],
-    "para3": "Los compradores pueden evaluar opciones en función de la forma, el tamaño, las medidas, el aspecto, la documentación, la montura prevista y el precio objetivo. El objetivo no es simplemente presentar un inventario extenso, sino ayudar a cada comprador a identificar diamantes que tengan sentido comercial y técnico para su negocio."
-  },
-  "shapes": {
-    "eyebrow": "Formas de diamantes",
-    "title": "Formas de diamantes para diferentes mercados",
-    "para1": "Las preferencias de forma varían entre países, minoristas y grupos de clientes. Los diamantes Brillante redondo siguen siendo importantes para anillos de compromiso, solitarios, pendientes y diseños clásicos.",
-    "para2": "Los diamantes Oval, Pera y Marquesa ofrecen proporciones alargadas. Los diamantes Esmeralda y Asscher tienen un aspecto más arquitectónico.",
-    "para3": "Los diamantes Cojín y Radiante combinan contornos distintivos con brillantez viva, mientras que los Princesa siguen siendo relevantes para la joyería geométrica.",
-    "para4": "En lugar de tratar cada forma como adecuada para cada comprador, Uniglo Diamonds trabaja para entender cómo se engastará, posicionará y venderá el diamante.",
-    "imageAlt": "Formas de diamantes naturales presentadas por Uniglo Diamonds"
-  },
-  "application": {
-    "eyebrow": "De la selección a la aplicación",
-    "title": "De la selección del diamante a la aplicación comercial",
-    "para1": "La relación entre un diamante y su montura afecta el equilibrio, el aspecto y la portabilidad de la pieza terminada.",
-    "para2": "Un fabricante que trabaje con una montura existente puede necesitar dimensiones muy específicas. Un minorista que prepare un inventario nupcial puede necesitar una gama de piedras centrales.",
-    "discussLabel": "Los compradores pueden discutir cómo pueden utilizarse los diamantes naturales para:",
-    "discussItems": [
-      "Anillos de compromiso y nupciales", "Alianzas de boda y eternidad",
-      "Pendientes de diamante", "Collares y colgantes solitarios",
-      "Pulseras y collares de tenis", "Joyería de aniversario",
-      "Joyería con múltiples piedras", "Diseños a medida",
-      "Colecciones comerciales repetibles"
-    ],
-    "outro": "Centrarse en la aplicación final ayuda al proceso de abastecimiento a ir más allá de una lista de calidades hacia diamantes apropiados para el producto terminado."
+      "Anillos de compromiso solitarios",
+      "Anillos halo y con piedras laterales",
+      "Anillos de compromiso de tres piedras",
+      "Alianzas de diamantes",
+      "Anillos de eternidad y aniversario",
+      "Pendientes de diamantes",
+      "Colgantes solitarios",
+      "Pulseras y collares de tenis",
+      "Joyería fina de varias piedras",
+      "Encargos de joyería a medida"
+    ]
   },
   "matching": {
-    "eyebrow": "Combinación y calibración",
-    "title": "Combinación y calibración para la producción de joyería",
-    "para1": "La combinación se vuelve especialmente importante cuando se utilizarán varios diamantes juntos. Los pendientes, anillos de tres piedras, alianzas de eternidad y otros diseños con múltiples piedras requieren consistencia.",
-    "para2": "Para los fabricantes, la calibración también puede afectar la eficiencia del engaste y la repetibilidad de la producción.",
-    "discussLabel": "Los compradores que se reúnan con Uniglo Diamonds pueden discutir requisitos para:",
+    "eyebrow": "Coordinación y calibración",
+    "title": "Coordinación y calibración",
+    "para1": "La coordinación es esencial cuando se utilizarán varios diamantes juntos. Los pendientes, las alianzas de eternidad, la joyería de tenis y los diseños de varias piedras pueden requerir consistencia en medidas, forma, color, claridad y apariencia general.",
+    "para2": "Las medidas requeridas, las tolerancias aceptables, las cantidades y los engastes previstos deben proporcionarse al comienzo de la discusión de aprovisionamiento.",
+    "discussLabel": "Los compradores pueden hablar sobre:",
     "discussItems": [
-      "Pares de diamantes combinados", "Piedras laterales coordinadas",
-      "Selecciones de diamantes calibrados", "Composiciones de alianzas de eternidad",
-      "Composiciones de pulseras de tenis", "Composiciones de collares de tenis",
-      "Joyería con múltiples piedras", "Diamantes de reemplazo",
-      "Especificaciones para fabricación en serie"
+      "Pares de diamantes coordinados",
+      "Piedras centrales y laterales coordinadas",
+      "Selecciones de diamantes calibrados",
+      "Composiciones para alianzas de eternidad",
+      "Composiciones para pulseras de tenis",
+      "Composiciones para collares de tenis",
+      "Joyería de varias piedras",
+      "Diamantes de reemplazo",
+      "Especificaciones de producción repetida"
     ],
-    "para3": "Estos requisitos deben explicarse al principio del proceso de abastecimiento.",
-    "imageAlt": "Diamantes naturales combinados y calibrados de Uniglo Diamonds en Hong Kong"
+    "imageAlt": "Diamantes naturales coordinados y calibrados de Uniglo Diamonds en Hong Kong"
   },
   "measurements": {
     "eyebrow": "Medidas y proporciones",
-    "title": "Medidas, proporciones y aspecto face-up",
-    "para1": "El peso en quilates es esencial, pero no proporciona una imagen completa de cómo se verá un diamante pulido. Dos diamantes del mismo peso en quilates pueden tener dimensiones, proporciones y tamaños face-up diferentes.",
-    "para2": "Un fabricante puede necesitar dimensiones precisas para una montura existente. Un minorista puede preferir un ovalo o esmeralda con una relación longitud-anchura particular.",
-    "considerLabel": "Los compradores deben considerar si necesitan:",
+    "title": "Medidas y proporciones",
+    "para1": "El quilataje no proporciona una descripción completa del tamaño de un diamante pulido. Dos piedras con el mismo quilataje pueden tener diferentes dimensiones y presencia vista desde arriba.",
+    "considerLabel": "Antes de una cita, los compradores deben identificar:",
     "considerItems": [
-      "Medidas mínimas y máximas", "Relaciones longitud-anchura preferidas",
-      "Dimensiones face-up mínimas", "Preferencias de contorno específicas",
-      "Monturas existentes que deben acomodarse",
-      "Expectativas de talla o proporción",
-      "Combinación entre múltiples piedras",
-      "Características visuales no representadas completamente por un informe"
+      "Medidas mínimas y máximas",
+      "Relaciones longitud-anchura preferidas",
+      "Dimensiones mínimas vistas desde arriba",
+      "Preferencias de contorno",
+      "Dimensiones de monturas existentes",
+      "Expectativas de corte o proporción",
+      "Requisitos de coordinación",
+      "Preferencias visuales no representadas completamente por un informe"
     ]
   },
   "certification": {
-    "eyebrow": "Certificación y documentación",
-    "title": "Requisitos de certificación y documentación",
-    "para1": "Los requisitos de documentación pueden variar según el tamaño, el valor, el mercado previsto y las expectativas de los clientes del diamante.",
-    "considerLabel": "Antes de reunirse con Uniglo Diamonds, los compradores deben identificar:",
+    "eyebrow": "Informes de clasificación y documentación",
+    "title": "Informes de clasificación y documentación",
+    "para1": "Las necesidades de documentación pueden variar según el tamaño, valor, mercado previsto y aplicación de joyería del diamante.",
+    "para2": "La documentación debe acordarse antes de que se prepare una selección.",
+    "considerLabel": "Los compradores deben explicar:",
     "considerItems": [
-      "Si se requieren informes de graduación individuales",
-      "Laboratorios de graduación preferidos o aceptados",
+      "Si se requieren informes de clasificación individuales",
+      "Laboratorios de clasificación preferidos o aceptados",
       "Información necesaria para los sistemas de inventario",
-      "Requisitos de documentación de importación o exportación",
-      "Obligaciones de divulgación al por menor específicas del mercado",
-      "Expectativas de trazabilidad",
-      "Si la documentación debe acompañar a cada piedra",
-      "Requisitos para pares combinados o composiciones"
-    ],
-    "para2": "La documentación debe discutirse al principio del proceso de abastecimiento."
+      "Requisitos de documentación de importación o envío",
+      "Expectativas de aprovisionamiento o trazabilidad",
+      "Si los documentos deben acompañar a cada piedra",
+      "Requisitos para pares coordinados o composiciones calibradas"
+    ]
   },
   "inPerson": {
-    "eyebrow": "Examen en persona",
-    "title": "¿Por qué examinar los diamantes en persona?",
-    "para1": "Los inventarios en línea facilitan la investigación de diamantes, pero el examen directo sigue siendo valioso para el abastecimiento profesional. En persona, un comprador puede evaluar el contorno, las proporciones, el brillo, el patrón y el carácter visual general de un diamante.",
-    "understandLabel": "Reunirse con un proveedor también da a los compradores la oportunidad de entender:",
-    "understandItems": [
-      "Cómo se seleccionan y evalúan los diamantes disponibles",
-      "Qué laboratorios de graduación acompañan a piedras específicas",
-      "Si pueden suministrarse pares combinados o composiciones",
-      "Cómo se gestionan los requisitos repetidos",
-      "Qué tamaños y calidades están disponibles actualmente",
-      "Cómo difieren los requisitos comerciales y de mayor valor",
-      "Qué documentación acompaña a una compra",
-      "Cómo se gestionarán las futuras conversaciones de abastecimiento"
+    "eyebrow": "Por qué examinar en persona",
+    "title": "¿Por qué examinar diamantes naturales en persona?",
+    "para1": "La información del inventario en línea ayuda a los compradores a iniciar su investigación, pero el examen directo puede revelar características que son difíciles de juzgar a partir de datos o fotografías estándar.",
+    "para2": "Una discusión en persona también puede ayudar a los compradores a entender cómo un proveedor comunica, evalúa especificaciones y maneja los requisitos de seguimiento.",
+    "assessLabel": "En la exposición, los compradores pueden comparar:",
+    "assessItems": [
+      "Forma y contorno",
+      "Dimensiones vistas desde arriba",
+      "Relación longitud-anchura",
+      "Brillantez y rendimiento visual",
+      "Patrones de facetado escalonado",
+      "Apariencia del color",
+      "Visibilidad de inclusiones",
+      "Coordinación entre múltiples diamantes",
+      "Idoneidad para el engaste previsto"
     ],
-    "outro": "Una reunión de abastecimiento productiva debe proporcionar claridad sobre la piedra y el proveedor.",
-    "imageAlt": "Abastecimiento híbrido de diamantes naturales en la feria de Hong Kong"
-  },
-  "antwerp": {
-    "eyebrow": "Experiencia diamantífera de Amberes",
-    "title": "Experiencia diamantífera de Amberes en un mercado internacional",
-    "para1": "Hong Kong es uno de los destinos de abastecimiento internacional más importantes del sector joyero, mientras que Amberes ha desempeñado un papel central en el comercio mundial de diamantes durante generaciones.",
-    "para2": "El origen antuerpense de Uniglo Diamonds conecta la empresa con uno de los centros de comercio de diamantes más consolidados del mundo. Sin embargo, la ubicación por sí sola no crea una relación exitosa con el proveedor.",
-    "para3": "Los compradores también requieren comunicación clara, especificaciones correctamente comprendidas, expectativas de entrega realistas y seguimiento fiable.",
-    "para4": "Uniglo Diamonds aborda el abastecimiento comprendiendo primero el producto, el mercado y el cliente previstos por el comprador — para apoyar a un minorista, fabricante, mayorista o diseñador."
+    "imageAlt": "Aprovisionamiento híbrido de diamantes naturales en la feria de Hong Kong"
   },
   "hybrid": {
-    "eyebrow": "Experiencia de abastecimiento híbrida",
-    "title": "Una experiencia de abastecimiento híbrida más allá del pabellón de exposición",
-    "para1": "La Hong Kong International Diamond, Gem & Pearl Show opera a través del formato EXHIBITION+ de HKTDC, extendiendo el evento más allá de la exposición física.",
-    "para2": "La plataforma Click2Match está prevista del 23 de febrero al 13 de marzo de 2027. La extensión de abastecimiento HKTDC más amplia está listada del 2 de febrero al 1 de abril de 2027.",
-    "benefitsLabel": "Estos períodos en línea pueden ayudar a los compradores a:",
+    "eyebrow": "Click2Match y sourcing online",
+    "title": "Click2Match y sourcing online",
+    "para1": "La exposición física está respaldada por el formato EXHIBITION+ de HKTDC. Esto extiende la actividad de aprovisionamiento más allá de los cinco días en AsiaWorld-Expo.",
+    "para2": "La plataforma en línea apoya el evento físico en lugar de reemplazarlo. Los diamantes naturales y las piedras preciosas aún pueden beneficiarse del examen directo antes de una decisión importante de compra o suministro.",
+    "para3": "Los compradores que utilicen inventarios digitales deben registrar las referencias de stock, los números de informe de clasificación y los requisitos que desean examinar durante una cita.",
+    "tableHeaders": ["Servicio digital", "Fechas"],
+    "tableRows": [
+      ["Coincidencia de negocios Click2Match", "23 de febrero–13 de marzo de 2027"],
+      ["Período de sourcing online más amplio de HKTDC", "2 de febrero–1 de abril de 2027"]
+    ],
+    "benefitsLabel": "Click2Match puede ayudar a los compradores a:",
     "benefits": [
-      "Revisar a los proveedores participantes antes de viajar",
-      "Identificar categorías de productos relevantes",
-      "Concertar reuniones con antelación",
-      "Continuar conversaciones después de la exposición física",
-      "Dar seguimiento a los requisitos de abastecimiento de diamantes",
-      "Conectarse con proveedores a los que no pudieron conocer in situ"
-    ],
-    "para3": "La plataforma en línea apoya la feria física en lugar de reemplazarla. Los diamantes a menudo aún se benefician del examen directo.",
-    "imageAlt": "Abastecimiento híbrido de diamantes naturales en la feria de Hong Kong"
+      "Investigar a los proveedores participantes antes de viajar",
+      "Revisar las categorías de productos",
+      "Solicitar coincidencias de negocios en línea",
+      "Organizar reuniones antes de la exposición física",
+      "Continuar conversaciones después de la feria",
+      "Contactar a proveedores con los que no pudieron reunirse en persona",
+      "Dar seguimiento a especificaciones y documentación"
+    ]
   },
-  "registration": {
-    "eyebrow": "Registro y preparación",
-    "title": "Registro y preparación de visitantes",
-    "para1": "La Hong Kong International Diamond, Gem & Pearl Show es un evento de abastecimiento centrado en el sector. Los visitantes deben completar el registro de compradores HKTDC y revisar las normas de admisión actuales antes de viajar.",
-    "para2": "HKTDC ha requerido tradicionalmente la validación del badge con un pasaporte original o tarjeta de identidad de Hong Kong.",
-    "prepareLabel": "Para prepararse eficazmente, los compradores deben:",
-    "prepareItems": [
-      "Completar el registro antes de viajar",
-      "Revisar los requisitos actuales de admisión e identidad",
-      "Comprobar si su acreditación cubre ambas Twin Jewellery Shows",
-      "Revisar el directorio de expositores de 2027 una vez publicado",
-      "Confirmar el número de pabellón y stand de Uniglo Diamonds",
-      "Organizar con antelación reuniones de abastecimiento importantes",
-      "Preparar formas, tamaños, calidades y cantidades preferidas",
-      "Establecer los requisitos de documentación",
-      "Prever tiempo de desplazamiento entre AsiaWorld-Expo y HKCEC",
-      "Revisar la información final sobre transporte y lanzaderas",
-      "Utilizar Click2Match para preparar y dar seguimiento a las reuniones"
+  "planning": {
+    "eyebrow": "Planificación de la visita",
+    "title": "Planificación de la visita",
+    "para1": "La exposición está destinada a compradores profesionales y participantes de la industria joyera. Los visitantes deben completar el registro de comprador de HKTDC correspondiente y revisar las condiciones de admisión actuales antes de viajar.",
+    "para2": "HKTDC ofrece registro digital e instalaciones de acreditación electrónica para compradores. Los visitantes deben seguir las instrucciones actuales para la verificación de cuenta, envío de documentos, activación de acreditación y controles de identidad.",
+    "planLabel": "Antes de asistir:",
+    "planItems": [
+      "Completar el registro correcto de comprador 2027",
+      "Confirmar que el registro ha sido aprobado",
+      "Revisar los requisitos actuales de acreditación electrónica e identificación",
+      "Verificar si se necesita registro separado para ambas ferias",
+      "Revisar el directorio actual de expositores",
+      "Confirmar el número de stand de Uniglo Diamonds",
+      "Organizar reuniones prioritarias",
+      "Preparar especificaciones y cantidades de diamantes",
+      "Revisar el plano final de pabellones",
+      "Planificar el viaje entre AsiaWorld-Expo y HKCEC",
+      "Consultar la información actual de transporte y lanzaderas",
+      "Utilizar Click2Match antes y después de la feria física"
     ],
-    "note": "Los compradores con requisitos específicos de diamantes naturales deben compartirlos con Uniglo Diamonds antes del evento siempre que sea posible."
+    "briefTitle": "Preparación para una reunión con Uniglo Diamonds",
+    "briefLabel": "Un resumen de aprovisionamiento útil debe incluir:",
+    "briefItems": [
+      "Formas de diamantes preferidas",
+      "Rangos de quilates o medidas",
+      "Requisitos de color y claridad",
+      "Preferencias de relación longitud-anchura",
+      "Cantidades requeridas",
+      "Requisitos de informes de clasificación",
+      "Dimensiones de monturas existentes",
+      "Aplicaciones de joyería previstas",
+      "Posición comercial objetivo",
+      "Expectativas de entrega o producción"
+    ]
+  },
+  "guides": {
+    "eyebrow": "Guías de la HK Diamond Show 2027",
+    "title": "Guías de la Hong Kong Diamond, Gem & Pearl Show 2027",
+    "items": [
+      {
+        "title": "Guía para visitantes de la Hong Kong Diamond, Gem & Pearl Show 2027",
+        "body": "Una guía práctica sobre fechas, horarios de apertura, registro, admisión, transporte, AsiaWorld-Expo y planificación de una visita profesional."
+      },
+      {
+        "title": "Guía de expositores y aprovisionamiento de la Hong Kong Diamond, Gem & Pearl Show 2027",
+        "body": "Un recurso detallado sobre investigación de expositores, áreas de productos, zonas especializadas y creación de una lista corta de aprovisionamiento."
+      },
+      {
+        "title": "Hong Kong Twin Jewellery Shows 2027: AsiaWorld-Expo vs HKCEC",
+        "body": "Una comparación de las dos exposiciones de HKTDC, sus fechas, enfoque de productos, sedes, superposición y planificación del viaje."
+      }
+    ]
   },
   "partnerships": {
     "eyebrow": "Más allá de la exposición",
-    "title": "Relaciones construidas a través de un abastecimiento informado",
-    "para1": "Las exposiciones internacionales crean oportunidades para conocer a nuevos proveedores, pero las relaciones de abastecimiento sólidas requieren más que una presentación inicial.",
-    "para2": "Para Uniglo Diamonds, regresar a Hong Kong es una oportunidad para reconectarse con socios establecidos y conocer a minoristas, mayoristas y fabricantes que descubren la empresa por primera vez.",
+    "title": "Relaciones construidas a través de un aprovisionamiento informado",
+    "para1": "Las exposiciones internacionales crean oportunidades para conocer a nuevos proveedores, pero las relaciones de aprovisionamiento sólidas requieren más que una introducción inicial. La consistencia, la transparencia, la comunicación y el servicio fiable se vuelven importantes una vez que la exposición termina.",
+    "para2": "Después de reunirse con Uniglo Diamonds, los compradores pueden desear solicitar una selección enfocada, revisar informes de clasificación, refinar requisitos o confirmar calendarios de producción.",
+    "para3": "Estas conversaciones ayudan a Uniglo Diamonds a entender cómo difiere la demanda entre los mercados mientras continúa apoyando a los compradores con diamantes naturales seleccionados para requisitos comerciales reales.",
     "nextStepsLabel": "Después de reunirse con Uniglo Diamonds, los compradores pueden desear:",
     "nextSteps": [
-      "Solicitar una selección de diamantes más específica",
-      "Revisar informes de certificación concretos",
+      "Solicitar una selección de diamantes más enfocada",
+      "Revisar informes de clasificación particulares",
       "Refinar los requisitos de medidas o calidad",
-      "Preparar pares combinados",
+      "Preparar pares coordinados",
       "Organizar composiciones calibradas",
       "Confirmar cantidades o calendarios de producción",
-      "Discutir la disponibilidad futura",
-      "Planificar otra sesión de visualización o discusión"
+      "Hablar sobre disponibilidad de pedidos repetidos",
+      "Programar otra visita o conversación de aprovisionamiento"
     ],
-    "para3": "Estas conversaciones ayudan a Uniglo Diamonds a entender cómo difiere la demanda entre mercados."
-  },
-  "lookingAhead": {
-    "eyebrow": "Mirando hacia adelante",
-    "title": "Mirando hacia adelante a Hong Kong 2027",
-    "para1": "Del 2 al 6 de marzo de 2027, la Hong Kong International Diamond, Gem & Pearl Show reunirá a la comunidad internacional de abastecimiento en AsiaWorld-Expo.",
-    "para2": "Uniglo Diamonds tiene la ilusión de presentar un portafolio de diamantes naturales cuidadosamente seleccionado y conocer a compradores, fabricantes, mayoristas, minoristas, diseñadores y otros profesionales de la joyería.",
-    "para3": "Ya sea que estés buscando un diamante documentado individual, piedras combinadas, diamantes calibrados o diamantes naturales para una colección de joyería planificada, te invitamos a conocer al equipo de Uniglo Diamonds en Hong Kong.",
-    "note": "El número de stand confirmado de Uniglo Diamonds y la información de citas se publicarán en esta página una vez disponibles."
+    "imageAlt": "Conversación de aprovisionamiento de diamantes naturales con Uniglo Diamonds en Hong Kong"
   },
   "faq": {
     "title": "Preguntas frecuentes",
     "items": [
-      { "question": "¿Cuándo se celebra la Hong Kong International Diamond, Gem & Pearl Show 2027?", "answer": "La exposición física tendrá lugar del martes 2 de marzo al sábado 6 de marzo de 2027." },
-      { "question": "¿Dónde se celebrará la feria?", "answer": "La Hong Kong International Diamond, Gem & Pearl Show 2027 se celebrará en AsiaWorld-Expo, cerca del Aeropuerto Internacional de Hong Kong." },
-      { "question": "¿Cuáles son los horarios de apertura?", "answer": "El programa publicado indica 10:30–18:30 el 2 de marzo, 10:00–18:30 del 3 al 5 de marzo y 10:00–17:30 el 6 de marzo." },
-      { "question": "¿Qué pueden abastecer los compradores en la exposición?", "answer": "La feria se centra en diamantes sueltos, piedras de color, perlas, diamantes cultivados en laboratorio y materiales de fabricación de joyería." },
-      { "question": "¿Es lo mismo que la Hong Kong International Jewellery Show?", "answer": "No. La Diamond, Gem & Pearl Show tiene lugar en AsiaWorld-Expo del 2 al 6 de marzo. La Jewellery Show tiene lugar en HKCEC del 4 al 8 de marzo." },
-      { "question": "¿Qué son las HKTDC Twin Jewellery Shows?", "answer": "Las Twin Jewellery Shows cubren juntas materiales sueltos y joyería terminada en dos sedes." },
-      { "question": "¿Se solapan las dos exposiciones?", "answer": "Sí, del 4 al 6 de marzo de 2027. Los compradores que planeen asistir a ambas deben tener en cuenta el tiempo de desplazamiento." },
-      { "question": "¿Está la exposición abierta al público?", "answer": "La Diamond, Gem & Pearl Show está posicionada como un evento de abastecimiento centrado en el sector. La elegibilidad debe verificarse a través de la información oficial de registro de 2027." },
-      { "question": "¿Qué identificación se requiere?", "answer": "HKTDC ha requerido tradicionalmente que los compradores validen sus acreditaciones en persona con un pasaporte original o tarjeta de identidad de Hong Kong." },
-      { "question": "¿Cuándo está disponible Click2Match?", "answer": "El programa publicado de 2027 indica Click2Match del 23 de febrero al 13 de marzo de 2027." },
-      { "question": "¿Cuál es el número de stand de Uniglo Diamonds?", "answer": "El número de pabellón y stand de Uniglo Diamonds para 2027 aún no ha sido confirmado públicamente." },
-      { "question": "¿Qué diamantes naturales pueden discutir los compradores con Uniglo Diamonds?", "answer": "Los compradores pueden discutir diamantes naturales Brillante redondo y formas fancy en diferentes tamaños, medidas, colores y purezas." },
-      { "question": "¿Pueden los compradores discutir diamantes combinados o calibrados?", "answer": "Sí. Los compradores pueden discutir pares combinados, piedras laterales coordinadas, selecciones calibradas y composiciones." },
-      { "question": "¿Pueden los fabricantes discutir requisitos de suministro repetido?", "answer": "Sí. Los fabricantes deben proporcionar sus formas, medidas, rangos de calidad, cantidades y calendarios de producción." },
-      { "question": "¿Deben los compradores concertar una cita con Uniglo Diamonds?", "answer": "Se recomienda una cita para compradores con requisitos específicos de forma, calidad, medidas, cantidades o precios." }
+      { "question": "¿Cuándo es la Hong Kong International Diamond, Gem & Pearl Show 2027?", "answer": "La exposición física se celebrará del martes 2 de marzo al sábado 6 de marzo de 2027." },
+      { "question": "¿Dónde se celebrará la feria?", "answer": "Se celebrará en AsiaWorld-Expo, 1 Airport Expo Boulevard, Chek Lap Kok, Isla Lantau, Hong Kong." },
+      { "question": "¿Cuáles son los horarios de apertura para visitantes?", "answer": "El calendario publicado actualmente indica 10:30–18:30 el 2 de marzo, 10:00–18:30 del 3 al 5 de marzo y 10:00–17:30 el 6 de marzo. Los visitantes deben consultar si hay actualizaciones antes de viajar." },
+      { "question": "¿Qué pueden adquirir los compradores en la exposición?", "answer": "La feria se centra en diamantes sueltos, piedras preciosas de color, perlas, diamantes cultivados en laboratorio y otros materiales de joyería." },
+      { "question": "¿Es lo mismo que la Hong Kong International Jewellery Show?", "answer": "No. La Diamond, Gem & Pearl Show se celebra en AsiaWorld-Expo del 2 al 6 de marzo y se centra principalmente en materiales sueltos. La International Jewellery Show se celebra en el HKCEC del 4 al 8 de marzo y se centra principalmente en joyería terminada." },
+      { "question": "¿Qué son las HKTDC Twin Jewellery Shows?", "answer": "El nombre se refiere colectivamente a la Hong Kong International Diamond, Gem & Pearl Show y la Hong Kong International Jewellery Show. Las exposiciones se celebran en sedes separadas." },
+      { "question": "¿Se superponen las dos exposiciones de HKTDC?", "answer": "Sí. Ambas ferias físicas se realizan del 4 al 6 de marzo de 2027. Los compradores que asistan a ambas deben reservar tiempo de viaje suficiente entre AsiaWorld-Expo y HKCEC." },
+      { "question": "¿Es lo mismo que Jewellery & Gem WORLD Hong Kong?", "answer": "No. Jewellery & Gem WORLD Hong Kong es un evento separado de Informa Markets que normalmente se celebra en septiembre. Esta página cubre la Diamond, Gem & Pearl Show de HKTDC celebrada en marzo." },
+      { "question": "¿Está la exposición abierta al público en general?", "answer": "Es una exposición de aprovisionamiento enfocada en el comercio. Los visitantes deben revisar los requisitos actuales de elegibilidad de compradores y registro de HKTDC antes de hacer arreglos de viaje." },
+      { "question": "¿Qué identificación se requiere?", "answer": "Los visitantes deben seguir las instrucciones de identidad y acreditación electrónica proporcionadas con su registro 2027. La identificación original requerida debe llevarse al asistir." },
+      { "question": "¿Cuándo está disponible Click2Match?", "answer": "El período de Click2Match publicado actualmente va del 23 de febrero al 13 de marzo de 2027." },
+      { "question": "¿Cuál es el período de sourcing online más amplio?", "answer": "HKTDC actualmente indica la extensión de sourcing online del 2 de febrero al 1 de abril de 2027." },
+      { "question": "¿Cuál es el número de stand de Uniglo Diamonds?", "answer": "El pabellón y número de stand de Uniglo Diamonds para 2027 aún no han sido confirmados oficialmente. Esta página se actualizará cuando la información esté disponible." },
+      { "question": "¿Qué diamantes naturales pueden hablar los compradores con Uniglo Diamonds?", "answer": "Los compradores pueden hablar sobre diamantes naturales de brillante redondo y formas especiales en diferentes tamaños, medidas, colores y claridades. Los requisitos pueden incluir piedras documentadas individualmente, pares coordinados, selecciones calibradas y diamantes para producción repetida." },
+      { "question": "¿Deben los compradores organizar una reunión con anticipación?", "answer": "Se recomienda la reserva anticipada para compradores con requisitos específicos. Proporcionar formas, medidas, rangos de calidad, cantidades y expectativas de documentación ayudará al equipo a planificar una discusión más relevante." }
     ]
   },
   "finalCta": {
-    "title": "Conoce a Uniglo Diamonds en Hong Kong",
-    "para": "Conoce a Uniglo Diamonds en la Hong Kong International Diamond, Gem & Pearl Show 2027 para explorar diamantes naturales y posibilidades de abastecimiento con base en Amberes. Prepara tus formas, medidas, rangos de calidad y requisitos de documentación preferidos.",
+    "title": "Reserve una reunión con Uniglo Diamonds",
+    "para": "Reúnase con Uniglo Diamonds en la Hong Kong International Diamond, Gem & Pearl Show para explorar diamantes naturales y posibilidades de aprovisionamiento desde Amberes para su negocio. Al solicitar una cita, proporcione sus formas preferidas, rangos de quilates o medidas, colores, claridades, cantidades, requisitos de informes de clasificación y aplicaciones de joyería previstas.",
     "factEvent": "Evento",
     "factEventValue": "HK Diamond, Gem & Pearl Show",
     "factDates": "Fechas",
@@ -300,6 +376,6 @@
     "factStandValue": "Por confirmar",
     "primaryCta": "Reservar una reunión comercial en Hong Kong con Uniglo Diamonds",
     "secondaryCta": "Explorar el inventario de diamantes naturales de Uniglo",
-    "note": "El número de stand confirmado y la información de citas se publicarán cuando estén disponibles."
+    "note": "El número de stand confirmado y la información de citas se publicarán cuando estén disponibles oficialmente."
   }
 }

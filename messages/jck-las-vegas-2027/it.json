@@ -1,306 +1,393 @@
 {
   "metadata": {
-    "title": "JCK Las Vegas 2027 | Uniglo",
-    "description": "Incontra Uniglo Diamonds al JCK Las Vegas 2027, 4–7 giugno. Dettagli dell'evento, registrazione e informazioni sull'approvvigionamento di diamanti naturali."
+    "title": "JCK Las Vegas 2027 | Uniglo Diamonds",
+    "description": "Incontra Uniglo Diamonds a JCK Las Vegas 2027, dal 4 al 7 giugno al Venetian Expo. Esplora i diamanti naturali e prenota un incontro commerciale."
   },
   "announcement": "JCK Las Vegas 2027 · 4–7 giugno · The Venetian Expo · Incontra Uniglo Diamonds",
   "breadcrumbHome": "Home",
   "breadcrumbCurrent": "JCK Las Vegas 2027",
   "hero": {
-    "eyebrow": "Fiera professionale · 4–7 giugno 2027 · Las Vegas, Nevada",
-    "title": "Uniglo Diamonds al JCK Las Vegas 2027",
-    "lead": "Il JCK Las Vegas 2027 si terrà dal 4 al 7 giugno 2027 presso The Venetian Expo a Las Vegas, Nevada.",
-    "para1": "La fiera business-to-business riunisce rivenditori qualificati, acquirenti, designer, produttori, fornitori di diamanti e altri professionisti del settore gioielliero internazionale. Uniglo Diamonds si prepara a tornare come fornitore di diamanti naturali al JCK Las Vegas 2027.",
-    "para2": "Gli acquirenti potranno incontrare il team di Uniglo Diamonds, esaminare diamanti naturali sciolti e discutere i requisiti per gioielli da sposa, regali, gioielli quotidiani e produzione seriale. Il numero di stand di Uniglo Diamonds per il 2027 e gli orari definitivi della fiera saranno aggiunti una volta confermati ufficialmente.",
+    "eyebrow": "Fiera commerciale · 4–7 giugno 2027 · Las Vegas, Nevada",
+    "title": "JCK Las Vegas 2027 – Incontra Uniglo Diamonds",
+    "lead": "JCK Las Vegas 2027 – Incontra Uniglo Diamonds",
+    "para1": "JCK Las Vegas 2027 si svolge dal 4 al 7 giugno al Venetian Expo di Las Vegas, Nevada. Il salone B2B di gioielleria riunisce dettaglianti qualificati, acquirenti di diamanti, designer, produttori, grossisti e altri professionisti del settore per quattro giorni di approvvigionamento, formazione e networking.",
+    "para2": "Uniglo Diamonds si sta preparando a tornare a JCK come fornitore di diamanti naturali. I compratori possono incontrare il team per esaminare diamanti naturali sciolti e discutere di pietre centrali classificate individualmente, forme speciali, coppie abbinate, selezioni calibrate e requisiti di produzione ripetuta.",
+    "para3": "Il numero di stand di Uniglo Diamonds e gli orari definitivi del salone 2027 non sono ancora stati confermati ufficialmente. Entrambi saranno aggiunti a questa pagina quando le informazioni attuali saranno disponibili.",
     "primaryCta": "Prenota un incontro commerciale JCK",
     "secondaryCta": "Esplora l'inventario di diamanti naturali",
-    "imageAlt": "Uniglo Diamonds al JCK Las Vegas 2027"
+    "imageAlt": "Uniglo Diamonds a JCK Las Vegas 2027"
   },
   "eventDetails": {
-    "eyebrow": "Informazioni sull'evento",
-    "title": "JCK Las Vegas 2027 – Date, sede e registrazione",
+    "eyebrow": "Informazioni rapide sull'evento",
+    "title": "Dettagli dell'evento JCK Las Vegas 2027",
     "colLabel": "Dettaglio",
     "colValue": "Informazione",
     "rows": [
       { "label": "Evento", "value": "JCK Las Vegas 2027" },
-      { "label": "Date principali della fiera", "value": "4–7 giugno 2027" },
+      { "label": "Date del salone principale", "value": "4–7 giugno 2027" },
       { "label": "Sede", "value": "The Venetian Expo" },
       { "label": "Indirizzo", "value": "201 Sands Avenue, Las Vegas, Nevada 89169" },
       { "label": "Organizzatore", "value": "RX" },
       { "label": "Tipo di evento", "value": "Fiera B2B di gioielleria e orologeria" },
-      { "label": "Registrazione", "value": "Disponibile per professionisti qualificati del settore, soggetta ad approvazione" },
-      { "label": "Orari della fiera", "value": "Conferma definitiva in attesa" },
-      { "label": "Stand Uniglo Diamonds", "value": "Conferma definitiva in attesa" }
+      { "label": "Registrazione", "value": "Obbligatoria e soggetta a qualifica professionale" },
+      { "label": "Aperture anticipate selezionate", "value": "3 giugno 2027" },
+      { "label": "Orari del salone principale", "value": "In attesa di conferma definitiva" },
+      { "label": "Stand Uniglo Diamonds", "value": "In attesa di conferma definitiva" },
+      { "label": "Incontro", "value": "Prenotazione anticipata consigliata" }
     ],
-    "note1": "Sebbene la fiera JCK principale inizi venerdì 4 giugno, alcune aree e programmi apriranno un giorno prima. AGTA e GEMS, il Padiglione di Hong Kong, il Padiglione Lifestyle e alcune sessioni JCK Talks sono previsti per giovedì 3 giugno.",
-    "note2": "Luxury si svolgerà dal 2 al 7 giugno, con il 2 e il 3 giugno come giorni solo su invito per i rivenditori di alta gioielleria approvati. I visitatori devono verificare la propria registrazione e i permessi del badge prima di pianificare quali aree visitare."
+    "note": "Sebbene il salone principale JCK inizi venerdi 4 giugno, alcune aree aprono il 3 giugno e le giornate solo su invito di Luxury si svolgono il 2–3 giugno. I visitatori dovrebbero confermare l'accesso del proprio badge prima di pianificare quali aree visitare."
   },
-  "whyAttend": {
-    "eyebrow": "Perché visitare JCK Las Vegas",
-    "title": "Perché gli acquirenti di gioielli visitano JCK Las Vegas",
-    "para1": "JCK Las Vegas è un importante evento di acquisto, approvvigionamento e networking per il commercio gioielliero. I rivenditori partecipano per scoprire nuovi prodotti, confrontare fornitori, effettuare ordini e preparare i loro assortimenti per le prossime stagioni di vendita.",
-    "para2": "La fiera copre molteplici categorie di gioielleria e business. I visitatori possono esplorare diamanti sciolti, pietre preziose colorate, gioielleria fine, collezioni da sposa, orologi, packaging, tecnologia retail, servizi di sicurezza, strumenti di produzione e altre soluzioni professionali in un'unica sede.",
-    "para3": "Per gli acquirenti di diamanti, ciò offre un vantaggio pratico. Invece di valutare i fornitori solo attraverso fotografie e inventari digitali, possono ispezionare le pietre direttamente, porre domande dettagliate e confrontare le opzioni durante lo stesso viaggio.",
-    "para4": "JCK offre anche opportunità educative e di networking. JCK Talks e altri programmi professionali esaminano le questioni che interessano il settore, tra cui il comportamento dei consumatori, il marketing, la tecnologia, la gestione aziendale, la sicurezza e le tendenze di prodotto in evoluzione.",
-    "para5": "Queste informazioni aiutano gli acquirenti a valutare non solo quali diamanti vogliono approvvigionare, ma perché determinate forme, qualità e posizionamenti di prezzo possono essere rilevanti per i loro clienti."
+  "datesVenue": {
+    "eyebrow": "Date e sede",
+    "title": "JCK Las Vegas 2027 – Date e sede",
+    "para1": "Il salone principale JCK apre venerdi 4 giugno e prosegue fino a lunedi 7 giugno 2027, al Venetian Expo.",
+    "para2": "Alcune aree e programmi sono programmati per aprire giovedi 3 giugno. Questi includono AGTA e GEMS, il Padiglione di Hong Kong, il Padiglione Lifestyle e sessioni selezionate di JCK Talks. I visitatori interessati a queste aree dovrebbero confermare che il proprio badge fornisce l'accesso necessario.",
+    "para3": "Le giornate solo su invito di Luxury sono programmate per mercoledi 2 giugno e giovedi 3 giugno. L'accesso e limitato ai partecipanti Luxury approvati e non dovrebbe essere presupposto come incluso in ogni registrazione JCK.",
+    "para4": "Gli orari definitivi del salone 2027 non sono stati ancora pubblicati con sufficiente chiarezza per essere utilizzati come informazioni confermate. Gli orari degli anni precedenti non dovrebbero essere copiati su questa pagina.",
+    "imageAlt": "Visitatori professionali che arrivano al Venetian Expo per JCK"
+  },
+  "registration": {
+    "eyebrow": "Registrazione e ammissione",
+    "title": "JCK Las Vegas 2027 – Registrazione e ammissione",
+    "para1": "JCK e un evento esclusivamente per professionisti e non e aperto al pubblico in generale. La registrazione e destinata a professionisti qualificati collegati ai settori della gioielleria e dell'orologeria, e ogni candidatura e soggetta ad approvazione.",
+    "para2": "E richiesta una nuova registrazione per ogni edizione del salone. Aver partecipato a JCK in un anno precedente non fornisce automaticamente l'ammissione all'evento del 2027.",
+    "para3": "I candidati potrebbero dover fornire documentazione che confermi sia il legame della loro azienda con il settore orafo sia il loro rapporto di lavoro o proprieta con tale azienda. I requisiti variano in base alla categoria del badge.",
+    "admissionLabel": "I punti importanti di ammissione includono:",
+    "admissionPoints": [
+      "I badge JCK precedenti non possono essere riutilizzati",
+      "I biglietti da visita non sono accettati come documenti di qualifica",
+      "Potrebbero essere richiesti documenti aziendali e di impiego",
+      "I dettagli aziendali inviati devono corrispondere alla registrazione",
+      "E richiesto un documento di identita ufficiale con foto per il ritiro del badge",
+      "Fotocopie e foto del telefono del documento di identita non sono accettate",
+      "Ogni partecipante puo ritirare solo il badge collegato al proprio ID",
+      "I bambini sotto i 14 anni generalmente non sono ammessi",
+      "I bebè in portabebe approvati possono essere ammessi con l'approvazione della direzione del salone",
+      "I passeggini non sono consentiti sul piano espositivo"
+    ],
+    "para4": "I visitatori dovrebbero completare la registrazione e ricevere l'approvazione prima di prenotare viaggi non rimborsabili."
+  },
+  "whatIs": {
+    "eyebrow": "Informazioni sul salone",
+    "title": "Cos'e JCK Las Vegas?",
+    "para1": "JCK e un importante evento internazionale di acquisto, approvvigionamento e networking per il commercio della gioielleria e dell'orologeria. Da piu di 30 anni, la fiera connette dettaglianti, produttori, designer, fornitori e fornitori di servizi professionali a Las Vegas.",
+    "para2": "L'organizzatore riporta che l'evento attira circa 17.500 partecipanti e piu di 1.800 espositori ogni anno. Il salone copre diamanti sciolti, pietre colorate, gioielleria fine, collezioni nuziali, orologi, imballaggi, tecnologia, sicurezza, attrezzature di produzione e altri servizi commerciali.",
+    "para3": "JCK e strutturato intorno a molteplici quartieri del piano espositivo e categorie di prodotti. Questo aiuta i compratori a concentrarsi sulle aree rilevanti invece di cercare di esaminare l'intera fiera senza un piano.",
+    "para4": "L'evento include anche JCK Talks, programmi di networking e altre sessioni professionali su argomenti come la strategia di vendita al dettaglio, il comportamento dei consumatori, la tecnologia, la sicurezza, il marketing e le tendenze del settore.",
+    "para5": "Per le aziende orafe, il valore commerciale deriva dalla combinazione di scoperta di prodotti, valutazione dei fornitori, formazione e costruzione di relazioni nello stesso viaggio."
+  },
+  "exhibitors": {
+    "eyebrow": "Espositori",
+    "title": "Espositori JCK Las Vegas 2027",
+    "para1": "La directory definitiva degli espositori 2027 dovrebbe essere trattata come la fonte primaria per le aziende partecipanti e le posizioni degli stand. I compratori dovrebbero verificare che la directory mostri l'edizione 2027 prima di utilizzarla per pianificare appuntamenti.",
+    "para2": "Gli espositori JCK rappresentano generalmente un'ampia gamma di categorie di prodotti e servizi.",
+    "para3": "I compratori dovrebbero costruire una lista ristretta basata sui requisiti commerciali invece di selezionare espositori solo perche presentano un grande inventario.",
+    "exhibitorItems": [
+      "Diamanti naturali sciolti",
+      "Diamanti coltivati in laboratorio",
+      "Pietre colorate",
+      "Gioielleria fine e alta gioielleria",
+      "Gioielleria nuziale e di fidanzamento",
+      "Gioielleria fashion",
+      "Orologi e strumenti di misura del tempo",
+      "Montature, chiusure e componenti",
+      "Soluzioni di imballaggio ed esposizione",
+      "Strumenti e attrezzature di produzione",
+      "Tecnologia e software per la vendita al dettaglio",
+      "Servizi di sicurezza e assicurazione",
+      "Associazioni di settore e laboratori"
+    ]
+  },
+  "supplierQuestions": {
+    "eyebrow": "Fornitori di diamanti a JCK",
+    "title": "Fornitori di diamanti a JCK Las Vegas 2027",
+    "para1": "JCK da a dettaglianti e produttori l'opportunita di confrontare i fornitori di diamanti di persona. Tuttavia, i compratori dovrebbero valutare piu del numero di pietre esposte.",
+    "para2": "Un fornitore di diamanti adatto dovrebbe essere in grado di capire come verranno utilizzati i diamanti, quali specifiche sono commercialmente importanti e se requisiti simili possono essere supportati dopo la fiera.",
+    "questionLabel": "Le domande da fare ai potenziali fornitori includono:",
+    "questions": [
+      "Sei specializzato in diamanti naturali, da laboratorio o in entrambe le categorie?",
+      "Quali forme e fasce di carati sono normalmente disponibili?",
+      "I diamanti possono essere approvvigionati entro range di misure definiti?",
+      "Quali certificati e documentazione sono disponibili?",
+      "Puoi preparare coppie abbinate o selezioni calibrate?",
+      "Puoi lavorare partendo dalle dimensioni di montature esistenti?",
+      "Quali informazioni sono necessarie per gli ordini ripetuti?",
+      "Come vengono comunicati la disponibilita e le aspettative di consegna?",
+      "Il fornitore puo supportare il mercato target e la posizione di prezzo del compratore?",
+      "Cosa succede dopo l'appuntamento alla fiera commerciale?"
+    ]
+  },
+  "whatCanSource": {
+    "eyebrow": "Cosa possono approvvigionare i compratori",
+    "title": "Cosa possono approvvigionare i compratori di diamanti a JCK",
+    "para1": "JCK riunisce fornitori che servono diverse aree del mercato dei diamanti e della gioielleria. Il salone puo quindi supportare diversi obiettivi di approvvigionamento durante la stessa visita.",
+    "items": [
+      {
+        "title": "Pietre centrali classificate individualmente",
+        "body": "I dettaglianti e i gioiellieri su misura possono confrontare diamanti naturali documentati per anelli di fidanzamento, gioielleria di anniversario e commissioni individuali di clienti. I requisiti rilevanti possono includere la forma, la fascia di carati, le misure, il colore, la purezza, il laboratorio di classificazione e il prezzo target."
+      },
+      {
+        "title": "Diamanti naturali a forma fantasiosa",
+        "body": "I diamanti ovali, a pera, smeraldo, cuscino, radiante, marquise, princess, Asscher e a forma di cuore possono supportare diversi requisiti nuziali, di regalo e di design. I compratori dovrebbero valutare il contorno e le proporzioni insieme alle informazioni di classificazione."
+      },
+      {
+        "title": "Coppie di diamanti abbinate",
+        "body": "Gli orecchini con diamanti e i design simmetrici richiedono pietre con misure, contorno, colore, purezza e carattere visivo compatibili."
+      },
+      {
+        "title": "Diamanti calibrati",
+        "body": "I produttori potrebbero richiedere diamanti entro dimensioni e range di qualita controllati per anelli di eternita, gioielleria tennis, design multi-pietra e collezioni ripetibili."
+      },
+      {
+        "title": "Diamanti per montature esistenti",
+        "body": "Quando una pietra deve adattarsi a un anello o componente esistente, le dimensioni minime e massime precise sono essenziali. I compratori dovrebbero portare le dimensioni della montatura o una specifica tecnica dettagliata."
+      },
+      {
+        "title": "Requisiti di produzione ripetuta",
+        "body": "Produttori e grossisti possono discutere di quantita, tolleranze accettabili, calendari di produzione, aspettative di consegna e disponibilita potenziale di forniture ripetute."
+      }
+    ]
   },
   "meet": {
     "eyebrow": "Incontra Uniglo Diamonds",
-    "title": "Incontrare un fornitore di diamanti naturali al JCK Las Vegas 2027",
-    "para1": "La partecipazione di Uniglo Diamonds al JCK offre ai rivenditori di gioielli, produttori, grossisti e designer la possibilità di discutere i requisiti per i diamanti naturali direttamente con un fornitore esperto.",
-    "para2": "Ogni acquirente ha priorità diverse. Un rivenditore potrebbe aver bisogno di pietre centrali documentate per gioielli da sposa, mentre un altro potrebbe aver bisogno di diamanti abbinati per orecchini o pietre coerenti per una collezione seriale. Un designer potrebbe cercare una particolare forma fancy, e un produttore potrebbe aver bisogno di diamanti che soddisfino specifici intervalli di misura e qualità.",
-    "para3": "Al JCK Las Vegas 2027, Uniglo Diamonds prevede di presentare una selezione accurata di diamanti naturali in diverse forme, carati, colori, purezza e misure. La disponibilità dipenderà dall'inventario preparato per l'esposizione.",
-    "shapesLabel": "La selezione può includere:",
-    "shapes": [
-      "Brillante rotondo", "Ovale", "Smeraldo", "Pera", "Cuscino",
-      "Principessa", "Radiant", "Marquise", "Cuore", "Asscher",
-      "Altre forme fancy naturali"
+    "title": "Incontra Uniglo Diamonds a JCK Las Vegas 2027",
+    "para1": "Uniglo Diamonds prevede di presentare una gamma selezionata di diamanti naturali per dettaglianti, grossisti, produttori e designer. La selezione finale del salone dipenders dalla disponibilita piu vicino alla fiera.",
+    "para2": "Lo scopo di un incontro non e semplicemente esaminare un gran numero di pietre. Il team Uniglo cerca prima di capire l'applicazione gioielleria prevista, il profilo del cliente, le specifiche richieste e l'obiettivo commerciale.",
+    "para3": "I compratori con requisiti definiti dovrebbero fornirli prima della fiera in modo che le opzioni pertinenti possano essere considerate dove la disponibilita lo permette.",
+    "meetingLabel": "I compratori possono prepararsi a discutere requisiti riguardanti:",
+    "meetingItems": [
+      "Diamanti Brillante Rotondo",
+      "Diamanti Ovali",
+      "Diamanti taglio Smeraldo",
+      "Diamanti a forma di Pera",
+      "Diamanti taglio Cuscino",
+      "Diamanti taglio Radiante",
+      "Diamanti taglio Princess",
+      "Diamanti Marquise",
+      "Diamanti taglio Asscher",
+      "Diamanti a forma di Cuore",
+      "Altri diamanti naturali a forma fantasiosa"
     ],
-    "para4": "Incontrare il team di Uniglo Diamonds consente agli acquirenti di esaminare direttamente queste pietre e discutere come ogni opzione possa adattarsi a un particolare design, cliente o fascia di prezzo al dettaglio.",
     "cta": "Prenota un incontro commerciale JCK",
-    "imageAlt": "Diamanti naturali presentati da Uniglo Diamonds al JCK Las Vegas"
+    "imageAlt": "Acquirente di gioielleria che esamina diamanti naturali con Uniglo Diamonds"
   },
-  "sourcing": {
-    "eyebrow": "Approvvigionamento di diamanti naturali",
-    "title": "Approvvigionamento di diamanti naturali per rivenditori e acquirenti di gioielli",
-    "para1": "L'approvvigionamento di diamanti non dovrebbe basarsi solo sul peso in carati o sul titolo di un rapporto di certificazione. Taglio, colore, purezza, proporzioni, fluorescenza, simmetria, lucidatura e aspetto visivo complessivo possono tutti influenzare l'idoneità di un diamante per un gioiello.",
-    "para2": "Anche l'uso previsto del diamante è importante. Una pietra centrale per un anello di fidanzamento potrebbe richiedere un diverso equilibrio di specifiche rispetto ai diamanti abbinati per orecchini, un bracciale tennis o un'eternity band.",
-    "discussLabel": "Al JCK, gli acquirenti possono discutere domande come:",
-    "discussItems": [
-      "Quali specifiche di diamante si adattano a un particolare prezzo al dettaglio?",
-      "Quali forme sono rilevanti per uno specifico mercato nuziale?",
-      "Cosa controllare su un rapporto di certificazione?",
-      "Come abbinare diamanti per orecchini?",
-      "Quali qualità sono adatte per gioielli con più pietre?",
-      "Può essere fornita qualità simile per ordini ripetuti?",
-      "Come influenzano le proporzioni l'aspetto delle diverse forme?",
-      "Quali diamanti offrono il giusto equilibrio tra aspetto, qualità e budget?"
-    ],
-    "outro": "Questo approccio aiuta gli acquirenti ad approvvigionare diamanti in base al loro scopo commerciale invece di trattare ogni pietra come un acquisto isolato."
+  "usMarket": {
+    "eyebrow": "Diamanti naturali per il mercato USA",
+    "title": "Diamanti naturali per dettaglianti e produttori di gioielleria USA",
+    "para1": "Il mercato gioielleria USA comprende dettaglianti nazionali, gioiellieri indipendenti, specialisti nuziali, designer su misura, grossisti e produttori. Ogni tipo di azienda puo richiedere un equilibrio diverso di aspetto, classificazione, prezzo, quantita e ripetibilita.",
+    "para2": "Due diamanti con descrizioni di classificazione simili possono avere caratteristiche visive diverse. Le proporzioni, il contorno, il posizionamento delle inclusioni e le dimensioni viste dall'alto possono influenzare l'aspetto di un diamante e la sua efficacia in un design particolare.",
+    "considerLabel": "I diamanti naturali dovrebbero essere valutati attraverso la combinazione completa di caratteristiche rilevanti per il pezzo finito:",
+    "considerItems": [
+      "Forma e stile di taglio",
+      "Peso in carati",
+      "Colore e purezza",
+      "Qualita del taglio",
+      "Lucidatura e simmetria",
+      "Fluorescenza",
+      "Dimensioni viste dall'alto",
+      "Proporzioni e contorno",
+      "Rapporto lunghezza-larghezza",
+      "Documentazione di classificazione",
+      "Abbinamento e calibrazione",
+      "Incastonatura prevista"
+    ]
   },
   "bridal": {
     "eyebrow": "Gioielleria nuziale",
     "title": "Diamanti naturali per gioielleria nuziale",
-    "para1": "La gioielleria nuziale rimane una delle applicazioni commerciali più importanti per i diamanti lucidati. Un rivenditore potrebbe aver bisogno di pietre centrali documentate nelle forme popolari, nei pesi in carati e nelle combinazioni di qualità.",
-    "para2": "I gioiellieri su misura potrebbero invece aver bisogno di un singolo diamante naturale selezionato in base all'incastonatura, al budget e alle preferenze visive di un cliente.",
-    "discussLabel": "Gli acquirenti possono discutere diamanti per:",
+    "para1": "La gioielleria nuziale rimane una categoria importante per i dettaglianti e produttori USA. I requisiti possono spaziare da diamanti solitari classificati individualmente a pietre centrali e laterali coordinate per design di anelli di fidanzamento ripetibili.",
+    "para2": "I dettaglianti dovrebbero identificare le lacune nel loro assortimento attuale prima del salone. Queste potrebbero riguardare una forma mancante, una fascia di carati, una combinazione di qualita o una posizione di prezzo commerciale.",
+    "discussLabel": "I compratori possono discutere di diamanti per:",
     "discussItems": [
       "Anelli di fidanzamento solitari",
       "Anelli di fidanzamento halo",
-      "Anelli tre pietre",
+      "Design a tre pietre",
       "Anelli di fidanzamento con pietre laterali",
-      "Fedi nuziali in diamante",
-      "Eternity band e fasce anniversario",
+      "Fedi nuziali con diamanti",
+      "Fedi dell'eternita e di anniversario",
       "Orecchini e collane nuziali",
       "Commissioni di anelli di fidanzamento su misura"
-    ],
-    "para3": "Un inventario nuziale commercialmente utile spesso richiede un equilibrio tra opzioni familiari e diamanti distintivi per i clienti che cercano qualcosa di più personale."
+    ]
   },
   "gifting": {
-    "eyebrow": "Regali e gioielleria quotidiana",
-    "title": "Diamanti naturali per regali e gioielleria quotidiana",
-    "para1": "Non ogni acquisto di diamanti è collegato a un fidanzamento o a un matrimonio. Orecchini, pendenti, collane, bracciali e anelli con diamanti supportano anche compleanni, anniversari, lauree, traguardi personali, acquisti personali e lusso quotidiano.",
-    "para2": "Diverse applicazioni creano diversi requisiti di approvvigionamento. Gli orecchini con diamanti richiedono un abbinamento attento, mentre i bracciali e le collane tennis richiedono coerenza su un numero molto maggiore di pietre.",
-    "discussLabel": "Uniglo Diamonds può discutere diamanti naturali per:",
+    "eyebrow": "Gioielleria regalo e quotidiana",
+    "title": "Diamanti naturali per gioielleria regalo e quotidiana",
+    "para1": "I diamanti naturali vengono anche utilizzati in gioielleria per compleanni, anniversari, lauree, traguardi personali, auto-acquisto e uso quotidiano.",
+    "para2": "Le specifiche piu adatte dipenderanno dal design, dal pubblico di vendita al dettaglio e dalla posizione di prezzo prevista. Uno standard di qualita generale difficilmente si adatta a tutte le categorie di gioielleria.",
+    "discussLabel": "Le possibili applicazioni includono:",
     "discussItems": [
-      "Orecchini punto luce in diamante",
+      "Orecchini con diamanti",
       "Pendenti solitari",
-      "Collane in diamante",
+      "Collane con diamanti",
       "Bracciali tennis",
       "Collane tennis",
-      "Eternity ring",
-      "Fasce anniversario",
-      "Anelli con più pietre",
-      "Gioielleria quotidiana in diamante",
-      "Commissioni di gioielleria personalizzata"
-    ],
-    "outro": "L'obiettivo è selezionare diamanti in base a come verranno montati, presentati e venduti piuttosto che affidarsi a uno standard di qualità generale per ogni categoria di prodotto."
+      "Anelli dell'eternita",
+      "Anelli di anniversario",
+      "Anelli multi-pietra",
+      "Gioielleria personalizzata",
+      "Collezioni di diamanti quotidiani"
+    ]
   },
   "matching": {
     "eyebrow": "Abbinamento e calibrazione",
     "title": "Abbinamento e calibrazione per la produzione di gioielleria",
-    "para1": "L'abbinamento diventa essenziale quando più diamanti verranno utilizzati nello stesso gioiello. Orecchini in diamante, anelli tre pietre, eternity band, bracciali tennis, collane tennis e altri design con più pietre richiedono coerenza nelle caratteristiche rilevanti.",
-    "para2": "Per i produttori, una calibrazione accurata può anche migliorare l'efficienza dell'incastonatura e la ripetibilità della produzione. I diamanti che variano significativamente in dimensione o proporzioni possono richiedere aggiustamenti durante l'incastonatura.",
-    "discussLabel": "Al JCK, gli acquirenti possono discutere i requisiti per:",
+    "para1": "L'abbinamento diventa importante ogni volta che piu diamanti appariranno nello stesso pezzo. Orecchini, anelli a tre pietre, fedi dell'eternita, bracciali tennis e altri design multi-pietra richiedono coerenza nelle caratteristiche visibili nella gioielleria finita.",
+    "para2": "Le misure, le tolleranze accettabili, le quantita e le incastonature previste dovrebbero essere fornite all'inizio del processo di approvvigionamento.",
+    "discussLabel": "I produttori possono discutere di:",
     "discussItems": [
-      "Coppie di diamanti abbinati",
-      "Pietre laterali coordinate",
-      "Selezioni di diamanti calibrati",
-      "Layout di eternity band",
-      "Layout di bracciali tennis",
-      "Layout di collane tennis",
-      "Gioielleria con più pietre",
+      "Coppie di diamanti abbinate",
+      "Pietre centrali e laterali coordinate",
+      "Selezioni calibrate",
+      "Composizioni per fedi dell'eternita",
+      "Composizioni per bracciali tennis",
+      "Composizioni per collane tennis",
+      "Gioielleria multi-pietra",
       "Diamanti sostitutivi",
-      "Specifiche per la produzione seriale"
+      "Specifiche di produzione ripetuta"
     ],
-    "para3": "Questi requisiti devono essere spiegati all'inizio del processo di approvvigionamento in modo che la selezione proposta rifletta l'applicazione finale del gioiello.",
-    "imageAlt": "Diamanti naturali abbinati e calibrati da Uniglo Diamonds"
+    "imageAlt": "Coppie abbinate e diamanti naturali calibrati per la produzione di gioielleria"
   },
   "measurements": {
     "eyebrow": "Misure e proporzioni",
-    "title": "Misure, proporzioni e aspetto visivo dei diamanti",
-    "para1": "Il peso in carati è una misura essenziale, ma non fornisce un quadro completo di come apparirà un diamante lucidato. Due diamanti dello stesso peso in carati possono avere dimensioni, proporzioni e aspetti face-up diversi. Ciò è particolarmente rilevante per i diamanti di forma fancy, dove il profilo e il rapporto lunghezza-larghezza possono influenzare significativamente il carattere del diamante.",
-    "para2": "Un produttore potrebbe aver bisogno di dimensioni precise per adattarsi a un'incastonatura esistente. Un rivenditore potrebbe preferire un diamante ovale o smeraldo con un particolare rapporto lunghezza-larghezza.",
-    "considerLabel": "Prima di incontrare Uniglo Diamonds, gli acquirenti dovrebbero considerare se richiedono:",
+    "title": "Misure e proporzioni",
+    "para1": "Il peso in carati non fornisce un quadro completo delle dimensioni o dell'aspetto di un diamante lucidato. Due diamanti con lo stesso peso in carati possono avere dimensioni e presenza viste dall'alto diverse.",
+    "para2": "Le misure sono particolarmente importanti per le forme speciali. Il rapporto lunghezza-larghezza puo influenzare se un Ovale appare snello o largo, se un taglio Smeraldo ha il contorno desiderato e se una forma a Pera si adatta all'incastonatura prevista.",
+    "considerLabel": "Prima di un appuntamento, i compratori dovrebbero identificare:",
     "considerItems": [
       "Misure minime e massime",
       "Rapporti lunghezza-larghezza preferiti",
-      "Dimensioni face-up minime",
-      "Caratteristiche di profilo specifiche",
-      "Incastonature esistenti da accomodare",
-      "Aspettative specifiche di taglio o proporzioni",
-      "Abbinamento su più pietre",
-      "Qualità visive non completamente rappresentate da un rapporto di certificazione"
+      "Dimensioni minime viste dall'alto",
+      "Caratteristiche di contorno richieste",
+      "Dimensioni di montature esistenti",
+      "Tolleranze di produzione accettabili",
+      "Requisiti di abbinamento",
+      "Preferenze visive non rappresentate completamente da un certificato"
     ]
   },
   "certification": {
     "eyebrow": "Certificazione e documentazione",
-    "title": "Requisiti di certificazione e rapporti di gradazione",
-    "para1": "I requisiti di documentazione variano in base alle dimensioni, al valore, al mercato di destinazione e alle aspettative dei clienti del diamante. Alcuni acquirenti richiedono rapporti di gradazione individuali per le pietre centrali.",
-    "considerLabel": "Gli acquirenti dovrebbero identificare:",
+    "title": "Certificazione e documentazione",
+    "para1": "I requisiti di documentazione possono variare in base alle dimensioni, al valore, al mercato previsto e all'applicazione gioielleria del diamante.",
+    "para2": "Alcuni compratori richiedono certificati individuali per le pietre centrali. I diamanti piu piccoli o calibrati possono utilizzare diversa documentazione commerciale. Le procedure interne di inventario, assicurazione, spedizione e importazione possono influenzare anche le informazioni richieste.",
+    "para3": "La documentazione dovrebbe essere discussa prima di preparare una selezione.",
+    "considerLabel": "I compratori dovrebbero indicare:",
     "considerItems": [
-      "Se sono necessari rapporti di gradazione individuali",
-      "Laboratori di gradazione preferiti o accettati",
-      "Informazioni necessarie per i sistemi di inventario",
-      "Requisiti di documentazione di importazione o esportazione",
-      "Obblighi di divulgazione al dettaglio specifici del mercato",
-      "Aspettative di informazioni sull'approvvigionamento o sulla tracciabilità",
-      "Se la documentazione deve accompagnare ogni pietra",
-      "Requisiti per coppie abbinate o layout multi-pietra"
-    ],
-    "para2": "La documentazione dovrebbe essere discussa all'inizio del processo di approvvigionamento piuttosto che dopo che una selezione di diamanti è già stata preparata."
-  },
-  "whatToDDiscuss": {
-    "eyebrow": "Cosa discutere",
-    "title": "Cosa possono discutere gli acquirenti con Uniglo Diamonds al JCK",
-    "para1": "Un incontro produttivo in una fiera professionale dovrebbe andare oltre la semplice visualizzazione delle pietre disponibili. Dovrebbe aiutare entrambe le parti a determinare se esiste una base adeguata per lavorare insieme.",
-    "discussLabel": "Gli acquirenti che incontrano Uniglo Diamonds possono discutere:",
-    "discussItems": [
-      "Requisiti documentati di diamanti naturali",
-      "Forme di diamanti preferite e intervalli di peso in carati",
-      "Misure e preferenze di rapporto lunghezza-larghezza",
-      "Combinazioni di colore e purezza",
-      "Requisiti nuziali e per anelli di fidanzamento",
-      "Diamanti abbinati e calibrati",
-      "Prezzi target al dettaglio o all'ingrosso",
-      "Quantità e requisiti ripetuti",
-      "Collezioni di gioielleria esistenti o pianificate",
-      "Aspettative di consegna",
-      "Esigenze di approvvigionamento a lungo termine"
-    ],
-    "note": "Gli acquirenti con requisiti specifici dovrebbero condividerli prima dell'incontro quando possibile. Questo dà al team di Uniglo Diamonds l'opportunità di preparare opzioni rilevanti."
+      "Se sono richiesti certificati individuali",
+      "Laboratori di classificazione preferiti o accettati",
+      "Informazioni richieste per i sistemi di inventario interno",
+      "Documentazione necessaria per l'importazione o la spedizione",
+      "Aspettative di informazioni sull'approvvigionamento o la tracciabilita",
+      "Se i documenti devono accompagnare ogni diamante",
+      "Requisiti per coppie abbinate o composizioni calibrate"
+    ]
   },
   "inPerson": {
     "eyebrow": "Valutazione di persona",
-    "title": "Perché esaminare i diamanti naturali di persona?",
-    "para1": "L'approvvigionamento digitale facilita la scoperta di prodotti, la revisione degli inventari e l'avvio di conversazioni con i fornitori. Tuttavia, i diamanti naturali possono ancora beneficiare di un esame diretto. Un rapporto di gradazione fornisce informazioni tecniche importanti, ma non può comunicare ogni aspetto di come appare un diamante in diverse condizioni di illuminazione.",
-    "assessLabel": "Una valutazione di persona può aiutare gli acquirenti a esaminare:",
+    "title": "Perche esaminare i diamanti naturali di persona?",
+    "para1": "Gli strumenti di inventario digitale rendono piu facile iniziare l'approvvigionamento da remoto, ma una valutazione di persona puo fornire ulteriore intuizione commerciale.",
+    "para2": "Un certificato comunica informazioni tecniche, ma non puo mostrare ogni aspetto dell'aspetto di un diamante in diverse condizioni di illuminazione ne dimostrare come piu diamanti si confrontano uno accanto all'altro.",
+    "assessLabel": "A JCK, i compratori possono valutare:",
     "assessItems": [
-      "Profilo della forma",
-      "Dimensioni face-up",
+      "Contorno della forma",
+      "Dimensione vista dall'alto",
+      "Proporzioni",
       "Rapporto lunghezza-larghezza",
-      "Brillantezza e prestazioni luminose",
-      "Modello di taglio a gradini",
+      "Brillantezza e performance visiva",
+      "Schemi di sfaccettatura a gradino",
       "Aspetto del colore",
-      "Visibilità delle inclusioni",
-      "Abbinamento tra più diamanti",
-      "Equilibrio visivo complessivo",
-      "Idoneità per l'incastonatura prevista"
+      "Visibilita delle inclusioni",
+      "Abbinamento tra piu diamanti",
+      "Idoneita per una particolare incastonatura"
     ],
-    "para2": "Esaminare i diamanti al JCK consente di considerare questi fattori prima di prendere una decisione di approvvigionamento più grande o a lungo termine.",
-    "imageAlt": "Incontro di approvvigionamento di diamanti naturali con Uniglo Diamonds al JCK"
-  },
-  "antwerp": {
-    "eyebrow": "Competenza diamantifera di Anversa",
-    "title": "Competenza di approvvigionamento di diamanti basata ad Anversa",
-    "para1": "Anversa ha svolto un ruolo centrale nel commercio internazionale dei diamanti per generazioni. Il background anversese di Uniglo Diamonds collega la società a uno dei centri di commercio di diamanti più consolidati al mondo.",
-    "para2": "Tuttavia, la sola posizione non crea una relazione fornitore di successo. Gli acquirenti richiedono anche comunicazione chiara, specifiche correttamente comprese, aspettative di consegna realistiche e follow-up costante.",
-    "para3": "Uniglo Diamonds si avvicina all'approvvigionamento comprendendo prima il prodotto, il mercato e il cliente previsti dall'acquirente. Ciò consente al team di valutare quali forme, misure, combinazioni di qualità e accordi di fornitura possono essere più appropriati.",
-    "para4": "Questo approccio può supportare un rivenditore che approvvigiona pietre centrali individuali, un produttore che prepara una collezione seriale, un grossista che serve diversi mercati o un designer che sviluppa una gamma specializzata incentrata sui diamanti."
-  },
-  "registration": {
-    "eyebrow": "Registrazione e requisiti del badge",
-    "title": "JCK Las Vegas 2027 – Registrazione e requisiti del badge",
-    "para1": "JCK Las Vegas non è aperta al grande pubblico. La registrazione è destinata ai professionisti qualificati legati alle industrie della gioielleria e degli orologi.",
-    "para2": "Ogni edizione richiede una nuova registrazione. I partecipanti che hanno già visitato JCK devono registrarsi nuovamente per l'evento del 2027 poiché i badge delle edizioni precedenti non rimangono validi.",
-    "para3": "Ai candidati potrebbe essere richiesto di fornire documenti che dimostrino la relazione della loro azienda con il settore gioielliero e la prova del loro impiego presso quella società. Il nome e l'indirizzo dell'azienda sui documenti presentati devono corrispondere alle informazioni utilizzate durante la registrazione.",
-    "para4": "I biglietti da visita non sono più accettati come documenti di qualificazione sufficienti.",
-    "para5": "Un documento d'identità ufficiale con foto attualmente valido è richiesto per ritirare un badge. Fotocopie e fotografie memorizzate su un telefono non sono accettate.",
-    "para6": "I bambini sotto i 14 anni non sono ammessi. I neonati trasportati in marsupi approvati possono essere ammessi con l'approvazione della direzione della fiera, ma i passeggini non sono ammessi in fiera.",
-    "para7": "I visitatori dovrebbero completare la registrazione e l'approvazione delle credenziali prima di organizzare viaggi non rimborsabili."
+    "para3": "Questo confronto diretto puo essere particolarmente utile prima di un acquisto piu grande o di un accordo di fornitura ripetuta.",
+    "imageAlt": "Incontro di approvvigionamento di diamanti naturali a JCK Las Vegas"
   },
   "prepare": {
     "eyebrow": "Come prepararsi",
-    "title": "Come prepararsi per JCK Las Vegas 2027",
-    "para": "JCK è una importante mostra internazionale. Gli acquirenti che partecipano senza un piano potrebbero avere difficoltà a dare priorità ai fornitori, alle categorie di prodotti e ai programmi più rilevanti per la loro attività. Prima di viaggiare, i visitatori dovrebbero:",
-    "items": [
-      "Completare la propria registrazione per il 2027",
-      "Inviare i documenti di qualificazione richiesti",
-      "Confermare che la registrazione è stata approvata",
-      "Controllare le date e gli orari definitivi della fiera",
+    "title": "Come i compratori dovrebbero prepararsi per JCK Las Vegas",
+    "para1": "JCK e un grande salone internazionale con numerosi espositori, quartieri e programmi professionali. I compratori che partecipano senza un piano chiaro potrebbero trovare difficile dare priorita alle opportunita piu rilevanti.",
+    "para2": "Gli appuntamenti non dovrebbero essere programmati troppo ravvicinati. Spostarsi tra piani e aree del piano espositivo al Venetian Expo puo richiedere piu tempo del previsto durante i periodi di punta.",
+    "prepLabel": "Prima di viaggiare, i visitatori dovrebbero:",
+    "prepItems": [
+      "Completare la registrazione separata 2027",
+      "Inviare i documenti di qualifica richiesti",
+      "Confermare che la candidatura e stata approvata",
       "Consultare la directory ufficiale degli espositori 2027",
-      "Scaricare o esaminare l'ultimo piano della fiera",
-      "Confermare il numero di stand di Uniglo Diamonds per il 2027",
-      "Identificare le categorie prioritarie di approvvigionamento di diamanti",
-      "Preparare forme, misure e intervalli di qualità",
-      "Stabilire prezzi target e quantità approssimative",
-      "Organizzare in anticipo i principali incontri con i fornitori",
-      "Esaminare JCK Talks e opportunità di networking",
-      "Verificare quali aree aprono il 3 giugno"
+      "Scaricare l'ultimo planimetria del salone",
+      "Verificare quali aree aprono il 3 giugno",
+      "Confermare gli orari definitivi del salone",
+      "Verificare il numero di stand di Uniglo Diamonds",
+      "Identificare le categorie di approvvigionamento prioritarie",
+      "Preparare specifiche e misure dei diamanti",
+      "Stabilire quantita approssimative e parametri di prezzo",
+      "Prenotare incontri importanti con i fornitori",
+      "Consultare le sessioni JCK Talks e di networking rilevanti",
+      "Prevedere tempo di spostamento tra gli appuntamenti"
     ],
-    "note": "Gli acquirenti dovrebbero anche prevedere abbastanza tempo tra gli appuntamenti. L'estensione di The Venetian Expo e il numero di aree espositive possono rendere gli spostamenti tra gli incontri più lunghi del previsto."
+    "transport": "Come raggiungere The Venetian Expo",
+    "transportPara1": "Il Venetian Expo si trova al 201 Sands Avenue, Las Vegas, Nevada 89169. E collegato al complesso resort The Venetian e The Palazzo.",
+    "transportPara2": "I visitatori che soggiornano nella struttura possono seguire i cartelli attraverso le aree del resort e dei congressi. Chi soggiorna altrove dovrebbe consultare le informazioni ufficiali di viaggio JCK piu vicino all'evento per i trasporti, hotel e navette consigliati.",
+    "transportPara3": "I compratori che portano oggetti di valore, campioni o documentazione sensibile dovrebbero anche consultare le attuali linee guida sulla sicurezza di JCK prima di partecipare."
+  },
+  "guides": {
+    "eyebrow": "Guide JCK Las Vegas 2027",
+    "title": "Guide JCK Las Vegas 2027",
+    "items": [
+      {
+        "title": "Guida per visitatori JCK Las Vegas 2027: Date, registrazione, sede e orari",
+        "body": "Una risorsa pratica di pianificazione che copre ammissione, documenti di qualifica, badge, identificazione, aperture anticipate, navigazione nel luogo e orari confermati."
+      },
+      {
+        "title": "Espositori JCK Las Vegas 2027: Guida del compratore di gioielleria",
+        "body": "Una guida dettagliata per ricercare la directory degli espositori, comprendere i quartieri del piano espositivo e creare una lista ristretta efficiente di fornitori."
+      },
+      {
+        "title": "Fornitori di diamanti JCK Las Vegas 2027: Guida all'approvvigionamento del compratore",
+        "body": "Una risorsa specializzata che spiega come confrontare i fornitori di diamanti, preparare le specifiche, valutare la documentazione e pianificare gli incontri di approvvigionamento."
+      }
+    ]
   },
   "partnerships": {
-    "eyebrow": "Oltre la fiera",
-    "title": "Costruire relazioni con i fornitori oltre la fiera",
-    "para1": "Il valore del JCK non si misura solo dagli ordini effettuati durante la mostra. Proviene anche dalle relazioni e dalle conversazioni che continuano dopo la chiusura della fiera.",
-    "para2": "Per Uniglo Diamonds, tornare al JCK è un'opportunità per riconnettersi con partner consolidati mentre si incontrano rivenditori, grossisti, produttori e designer che scoprono la società per la prima volta.",
-    "nextStepsLabel": "Dopo la mostra, un acquirente potrebbe voler:",
+    "eyebrow": "Oltre il salone",
+    "title": "Costruire relazioni con i fornitori oltre il salone",
+    "para1": "Il valore di JCK non si misura solo dagli ordini scritti durante la fiera. Viene anche dalle relazioni e dalle conversazioni che continuano dopo la chiusura del salone.",
+    "para2": "Dopo la fiera, un compratore potrebbe desiderare di richiedere una selezione mirata, esaminare certificati specifici, perfezionare i requisiti o confermare i calendari di produzione.",
+    "para3": "Le relazioni di approvvigionamento a lungo termine si costruiscono attraverso la qualita costante, la comunicazione trasparente, il servizio affidabile e una chiara comprensione degli obiettivi commerciali del compratore.",
+    "nextStepsLabel": "Dopo la fiera, un compratore potrebbe desiderare:",
     "nextSteps": [
       "Richiedere una selezione di diamanti mirata",
-      "Esaminare specifici rapporti di gradazione",
-      "Affinare i requisiti di misura o qualità",
+      "Esaminare certificati specifici",
+      "Perfezionare i requisiti di misura o qualita",
       "Preparare coppie abbinate o pietre laterali coordinate",
-      "Organizzare un layout multi-pietra calibrato",
-      "Confermare quantità o programmi di produzione",
-      "Discutere la disponibilità futura",
-      "Programmare un'altra sessione di visione o discussione sull'approvvigionamento"
+      "Organizzare una composizione calibrata multi-pietra",
+      "Confermare quantita o calendari di produzione",
+      "Discutere la disponibilita futura",
+      "Pianificare un'altra visione o discussione di approvvigionamento"
     ],
-    "para3": "Le relazioni di approvvigionamento a lungo termine si costruiscono attraverso qualità costante, comunicazione trasparente, servizio affidabile e una chiara comprensione degli obiettivi commerciali dell'acquirente."
-  },
-  "lookingAhead": {
-    "eyebrow": "Guardando avanti",
-    "title": "Incontra Uniglo Diamonds al JCK Las Vegas 2027",
-    "para1": "Dal 4 al 7 giugno 2027, JCK riunirà il commercio internazionale di gioielleria presso The Venetian Expo a Las Vegas.",
-    "para2": "Uniglo Diamonds non vede l'ora di presentare diamanti naturali e incontrare rivenditori, acquirenti, designer, produttori, grossisti e altri professionisti qualificati del settore.",
-    "para3": "Che tu stia approvvigionando una singola pietra centrale, rafforzando un inventario nuziale, organizzando diamanti abbinati o cercando un fornitore affidabile a lungo termine, ti invitiamo a incontrare il team di Uniglo Diamonds al JCK Las Vegas 2027.",
-    "note": "Il numero di stand confermato, gli orari definitivi della fiera e le informazioni sugli incontri saranno pubblicati su questa pagina quando disponibili."
+    "imageAlt": "Incontro di approvvigionamento di diamanti naturali con Uniglo Diamonds a JCK"
   },
   "faq": {
-    "title": "Domande frequenti su JCK Las Vegas 2027",
+    "title": "Domande frequenti",
     "items": [
-      { "question": "Quando si tiene JCK Las Vegas 2027?", "answer": "La mostra principale di JCK Las Vegas 2027 si terrà da venerdì 4 giugno a lunedì 7 giugno 2027." },
-      { "question": "Dove si terrà JCK Las Vegas 2027?", "answer": "JCK 2027 si terrà presso The Venetian Expo a Las Vegas, Nevada." },
-      { "question": "Quali sono gli orari di JCK Las Vegas 2027?", "answer": "Gli orari definitivi della fiera 2027 non sono ancora stati confermati ufficialmente dall'organizzatore. Questa pagina verrà aggiornata quando verrà pubblicato il programma ufficiale." },
-      { "question": "Alcune parti di JCK aprono prima del 4 giugno?", "answer": "Sì. AGTA e GEMS, il Padiglione di Hong Kong, il Padiglione Lifestyle e alcune sessioni JCK Talks sono previsti per giovedì 3 giugno 2027." },
-      { "question": "Chi può partecipare a JCK Las Vegas?", "answer": "JCK è destinato ai professionisti qualificati del settore gioielliero e orologiero, inclusi rivenditori, acquirenti, designer, grossisti, produttori, professionisti di diamanti e pietre preziose, fornitori di servizi e media professionali approvati." },
-      { "question": "JCK Las Vegas è aperta al pubblico?", "answer": "No. JCK è una fiera business-to-business. Le candidature vengono esaminate e i partecipanti potrebbero dover fornire documenti aziendali e di impiego che dimostrino il loro legame con il settore gioielliero." },
-      { "question": "La registrazione è obbligatoria per JCK 2027?", "answer": "Sì. Ogni partecipante deve completare la registrazione per l'edizione 2027. Un badge di un precedente evento JCK non garantisce l'ingresso automatico." },
-      { "question": "Quale identificazione è richiesta?", "answer": "Un documento d'identità ufficiale con foto attualmente valido è richiesto per ritirare un badge. Fotocopie e fotografie di un documento d'identità non sono accettate." },
-      { "question": "Un biglietto da visita può essere usato come credenziale di settore?", "answer": "No. JCK afferma che i biglietti da visita non sono più accettati come documenti di qualificazione." },
-      { "question": "I bambini sono ammessi a JCK?", "answer": "I bambini sotto i 14 anni non sono ammessi. I neonati in marsupi possono essere ammessi con l'approvazione della direzione della fiera, ma i passeggini non sono ammessi in fiera." },
-      { "question": "Qual è la differenza tra JCK e Luxury?", "answer": "JCK è la principale fiera internazionale di gioielleria dal 4 al 7 giugno. Luxury si svolge dal 2 al 7 giugno, con il 2 e il 3 giugno come giorni solo su invito per i rivenditori di alta gioielleria approvati." },
-      { "question": "Qual è il numero di stand di Uniglo Diamonds a JCK 2027?", "answer": "Il numero di stand di Uniglo Diamonds per il 2027 non è ancora stato confermato ufficialmente. Verrà aggiunto a questa pagina quando verranno pubblicati la directory aggiornata degli espositori e il piano della fiera." },
-      { "question": "Cosa possono approvvigionare gli acquirenti da Uniglo Diamonds a JCK?", "answer": "Gli acquirenti possono discutere diamanti naturali sciolti in diverse forme, pesi in carati, misure, colori e purezze. I requisiti possono includere pietre centrali individuali, coppie abbinate, diamanti calibrati, approvvigionamento nuziale e fornitura ripetuta." },
-      { "question": "Quali forme di diamanti naturali possono discutere gli acquirenti?", "answer": "Gli acquirenti possono discutere diamanti Brillante rotondo, Ovale, Smeraldo, Pera, Cuscino, Principessa, Radiant, Marquise, Cuore e Asscher, in base alla disponibilità e alle specifiche richieste dall'acquirente." },
-      { "question": "Gli acquirenti possono discutere diamanti abbinati o calibrati?", "answer": "Sì. Gli acquirenti possono discutere coppie abbinate, selezioni calibrate, pietre laterali coordinate e layout per gioielleria con più pietre." },
-      { "question": "I produttori possono discutere i requisiti di fornitura ripetuta?", "answer": "Sì. I produttori devono fornire le forme richieste, le misure, gli intervalli di qualità, le quantità e i programmi di produzione quando discutono la fornitura ripetuta." },
-      { "question": "Gli acquirenti dovrebbero prendere un appuntamento con Uniglo Diamonds?", "answer": "Un appuntamento è consigliato per gli acquirenti con specifici gradi di diamante, forme, misure, quantità o prezzi target. Le informazioni di prenotazione verranno fornite una volta confermati il numero di stand e le modalità di incontro di Uniglo Diamonds per il 2027." }
+      { "question": "Quando si tiene JCK Las Vegas 2027?", "answer": "La principale esposizione si svolgera da venerdi 4 giugno a lunedi 7 giugno 2027." },
+      { "question": "Dove si terra JCK Las Vegas 2027?", "answer": "Il salone si terra al Venetian Expo, 201 Sands Avenue, Las Vegas, Nevada 89169." },
+      { "question": "Quali sono gli orari del salone 2027?", "answer": "Gli orari definitivi del salone JCK non sono ancora stati confermati con sufficiente chiarezza per la pubblicazione. Questa pagina verra aggiornata quando l'organizzatore pubblichera il calendario completo 2027." },
+      { "question": "Alcune aree di JCK aprono prima del 4 giugno?", "answer": "Si. AGTA e GEMS, il Padiglione di Hong Kong, il Padiglione Lifestyle e sessioni selezionate di JCK Talks sono programmati per aprire giovedi 3 giugno 2027. I visitatori dovrebbero confermare l'accesso del badge e il calendario definitivo." },
+      { "question": "Quali sono le date solo su invito di Luxury?", "answer": "Le giornate solo su invito di Luxury sono programmate per il 2 e 3 giugno 2027. La partecipazione richiede l'approvazione e la registrazione appropriate." },
+      { "question": "JCK Las Vegas e aperto al pubblico?", "answer": "No. JCK e un salone B2B di gioielleria e orologeria. La registrazione viene esaminata e i candidati potrebbero dover fornire documenti che provino il loro legame con il settore." },
+      { "question": "E richiesta una nuova registrazione per il 2027?", "answer": "Si. Ogni edizione richiede una nuova registrazione. Un badge da un evento JCK precedente non fornisce l'ammissione al salone del 2027." },
+      { "question": "Un biglietto da visita puo essere utilizzato come documento di qualifica?", "answer": "No. JCK afferma che i biglietti da visita non sono accettati come documenti di qualifica." },
+      { "question": "Quale identificazione e necessaria per ritirare un badge?", "answer": "E richiesto un documento di identita ufficiale con foto valido. Fotocopie e foto memorizzate su un telefono non sono accettate." },
+      { "question": "I bambini sono ammessi a JCK?", "answer": "I bambini sotto i 14 anni generalmente non sono ammessi. I bebe in portabebe possono essere ammessi con l'approvazione della direzione del salone, ma i passeggini non sono consentiti sul piano espositivo." },
+      { "question": "Dove possono trovare i compratori la lista degli espositori 2027?", "answer": "I compratori dovrebbero utilizzare la directory ufficiale degli espositori JCK. Dovrebbero confermare che la directory mostra l'edizione 2027 prima di affidarsi alle informazioni sullo stand." },
+      { "question": "Qual e il numero di stand JCK di Uniglo Diamonds?", "answer": "Il numero di stand 2027 non e ancora stato confermato ufficialmente. Verra aggiunto a questa pagina quando la directory attuale e la planimetria del salone saranno disponibili." },
+      { "question": "Di cosa possono discutere i compratori con Uniglo Diamonds?", "answer": "I compratori possono discutere di diamanti naturali per pietre centrali, gioielleria nuziale, coppie abbinate, composizioni calibrate, montature esistenti, gioielleria multi-pietra e requisiti di produzione ripetuta." },
+      { "question": "I compratori dovrebbero prenotare un appuntamento?", "answer": "La prenotazione anticipata e consigliata per i compratori con requisiti specifici. Fornire le forme preferite, le fasce di carati, le misure, i colori, le purezze, le quantita e i requisiti di documentazione aiutera a creare un incontro piu mirato." }
     ]
   },
   "finalCta": {
-    "title": "Incontra Uniglo Diamonds al JCK Las Vegas 2027",
-    "para": "Incontra Uniglo Diamonds al JCK Las Vegas 2027 per esplorare diamanti naturali e possibilità di approvvigionamento basate ad Anversa. Prepara le forme preferite, le misure, gli intervalli di qualità, i requisiti di documentazione e le applicazioni gioielliere previste in modo che il team possa pianificare una discussione più pertinente.",
+    "title": "Prenota un incontro con Uniglo a JCK Las Vegas",
+    "para": "Incontra Uniglo Diamonds a JCK per discutere di diamanti naturali selezionati in base ai tuoi requisiti di vendita al dettaglio, produzione, all'ingrosso o design. Quando si richiede un appuntamento, fornisci le forme preferite, le fasce di carati, le misure, le combinazioni di colore e purezza, i requisiti dei certificati, le quantita, le applicazioni di gioielleria previste e i parametri commerciali approssimativi.",
     "factEvent": "Evento",
     "factEventValue": "JCK Las Vegas 2027",
     "factDates": "Date",
@@ -308,9 +395,9 @@
     "factVenue": "Sede",
     "factVenueValue": "The Venetian Expo",
     "factBooth": "Stand Uniglo",
-    "factBoothValue": "Conferma in attesa",
+    "factBoothValue": "In attesa di conferma",
     "primaryCta": "Prenota un incontro commerciale JCK con Uniglo Diamonds",
     "secondaryCta": "Esplora l'inventario di diamanti naturali di Uniglo",
-    "note": "Il numero di stand confermato e gli orari definitivi della fiera saranno pubblicati quando disponibili. La registrazione deve essere completata in anticipo."
+    "note": "Il numero di stand confermato e le informazioni finali sull'appuntamento saranno pubblicati quando disponibili ufficialmente."
   }
 }

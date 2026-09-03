@@ -1,321 +1,402 @@
 {
   "metadata": {
-    "title": "JGTD Dubai 2026 | Uniglo am Stand SJ23",
-    "description": "Treffen Sie Uniglo Diamonds am Stand SJ23 auf der JGTD Dubai 2026. Bestätigte Termine, Veranstaltungsort, Registrierung und Naturdiamant-Sourcing-Informationen."
+    "title": "JGTD Dubai 2026 | Uniglo Diamonds Stand SJ23",
+    "description": "Treffen Sie Uniglo Diamonds an Stand SJ23 auf der JGTD Dubai 2026, 27.–29. Oktober in Expo City. Besprechen Sie Naturdiamanten-Sourcing und buchen Sie ein Meeting."
   },
   "announcement": "JGTD Dubai 2026 · 27.–29. Oktober · Stand SJ23 · Dubai Exhibition Centre, Expo City Dubai",
   "breadcrumbHome": "Startseite",
   "breadcrumbCurrent": "JGTD Dubai 2026",
   "hero": {
     "eyebrow": "Fachmesse · 27.–29. Oktober 2026 · Dubai",
-    "title": "JGTD Dubai 2026: Treffen Sie Uniglo Diamonds am Stand SJ23",
-    "lead": "Die Jewellery, Gem & Technology in Dubai 2026 findet vom 27. bis 29. Oktober im Dubai Exhibition Centre in Expo City Dubai statt. Uniglo NV aus Belgien stellt am Stand SJ23 aus.",
-    "para1": "Die reine Fachmesse ist täglich von 10:00 bis 18:00 Uhr geöffnet. Besucher können das Uniglo Diamonds Team treffen, um Naturdiamant-Sourcing, individuelle Mittelsteine, passende Paare, kalibrierte Diamanten und Dauerlieferanforderungen zu besprechen.",
-    "para2": "Die Messe bietet Einzelhändlern, Großhändlern, Herstellern, Designern und anderen Schmuckfachleuten die Möglichkeit, Diamanten persönlich zu bewerten und Beziehungen zu Lieferanten aufzubauen, die internationale Märkte bedienen.",
-    "primaryCta": "JGTD-Fachgespräch buchen",
-    "secondaryCta": "Naturdiamant-Inventar erkunden",
+    "title": "JGTD Dubai 2026 – Treffen Sie Uniglo Diamonds an Stand SJ23",
+    "lead": "JGTD Dubai 2026 – Treffen Sie Uniglo Diamonds an Stand SJ23",
+    "para1": "Die JGTD Dubai 2026, offiziell Jewellery, Gem & Technology in Dubai 2026, findet vom 27. bis 29. Oktober im Dubai Exhibition Centre in Expo City Dubai statt. Die internationale Fachmesse ist täglich von 10:00 bis 18:00 Uhr in den Nordhallen N21 und N23 geöffnet.",
+    "para2": "Treffen Sie Uniglo Diamonds an Stand SJ23, um Naturdiamanten für den Einzel- und Großhandel, Brautschmuck, Maßanfertigungen und Schmuckfertigungsanforderungen zu besprechen. Käufer können einzelne Mittelsteine, abgestimmte Paare, kalibrierte Selektionen und Wiederholungsanforderungen basierend auf spezifischen Formen, Maßen, Farb- und Reinheitskombinationen erkunden.",
+    "para3": "Professionelle Besucher können vor der Messe einen Termin buchen und ihr Sourcing-Brief im Voraus einreichen, damit das Uniglo Diamonds-Team ein fokussierteres kommerzielles Gespräch vorbereiten kann.",
+    "primaryCta": "Treffen an Stand SJ23 buchen",
     "imageAlt": "Uniglo Diamonds auf der JGTD Dubai 2026 Stand SJ23"
   },
   "eventDetails": {
-    "eyebrow": "Veranstaltungsinformationen",
-    "title": "JGTD Dubai 2026 – Termine, Veranstaltungsort und Öffnungszeiten",
-    "colLabel": "Detail",
-    "colValue": "Bestätigte Information",
+    "eyebrow": "Kurzübersicht Veranstaltung",
+    "title": "JGTD Dubai 2026 Veranstaltungsdetails",
+    "colLabel": "Veranstaltungsinfo",
+    "colValue": "Bestätigte Details",
     "rows": [
       { "label": "Veranstaltung", "value": "Jewellery, Gem & Technology in Dubai 2026" },
       { "label": "Kurzname", "value": "JGTD Dubai 2026" },
       { "label": "Termine", "value": "27.–29. Oktober 2026" },
-      { "label": "Öffnungszeiten", "value": "10:00–18:00 täglich" },
-      { "label": "Veranstaltungsort", "value": "Dubai Exhibition Centre, Expo City Dubai" },
+      { "label": "Öffnungszeiten", "value": "10:00–18:00 Uhr täglich" },
+      { "label": "Messehalle", "value": "Dubai Exhibition Centre, Expo City Dubai" },
       { "label": "Hallen", "value": "Nordhallen N21 und N23" },
       { "label": "Adresse", "value": "Exhibition Boulevard, Expo City, Dubai, VAE" },
-      { "label": "Eintritt", "value": "Kostenlos für registrierte Fachbesucher" },
+      { "label": "Zulassung", "value": "Kostenlos für registrierte Branchenprofis" },
       { "label": "Mindestalter", "value": "16 Jahre" },
       { "label": "Registrierung", "value": "Pflicht" },
-      { "label": "Erforderliche Dokumente", "value": "Gedrucktes Badge und Reisepass oder Emirates-Ausweis" },
+      { "label": "Heim-Druck-Badge-Frist", "value": "Online-Registrierung bis 16. Oktober 2026" },
+      { "label": "Erforderliche Dokumente", "value": "Gedruckter Eintrittsbadge und Emirates ID oder nationaler Reisepass" },
       { "label": "Offizieller Aussteller", "value": "Uniglo NV, Belgien" },
       { "label": "Uniglo Diamonds Stand", "value": "SJ23" },
-      { "label": "Veranstalter", "value": "Informa Markets Jewellery und Italian Exhibition Group" }
+      { "label": "Veranstalter", "value": "Informa Markets Jewellery und Italian Exhibition Group" },
+      { "label": "Dubai Diamond Week", "value": "26.–29. Oktober 2026" },
+      { "label": "Treffen", "value": "Buchen Sie ein Diamanten-Sourcing-Meeting an Stand SJ23" }
     ],
-    "note": "Registrierungsschalter schließen 30 Minuten vor Messeschluss. Die Veranstaltungsinformationen wurden am 21. August 2026 überprüft; Besucher sollten ihre Registrierung und alle endgültigen Veranstalter-Updates vor der Reise prüfen."
+    "note": "Die Registrierungsschalter schließen 30 Minuten vor Messeende. Veranstaltungsinformationen wurden zuletzt am 1. September 2026 geprüft; Besucher sollten ihre Registrierung und eventuelle Aktualisierungen des Veranstalters vor der Anreise überprüfen."
   },
   "whatIs": {
-    "eyebrow": "Über die Messe",
-    "title": "Was ist Jewellery, Gem & Technology in Dubai?",
-    "para1": "Jewellery, Gem & Technology in Dubai ist eine internationale B2B-Sourcing-Messe für die Schmuck-, Diamant-, Edelstein- und verwandte Technologiebranchen. Die Veranstaltung verbindet globale Lieferanten mit Käufern aus dem Nahen Osten und anderen wichtigen Schmuckmärkten.",
-    "para2": "JGTD ist für kommerzielle Aktivitäten konzipiert, nicht für allgemeines Verbrauchereinkaufen. Besucher nehmen teil, um Lieferanten zu vergleichen, Produkte zu prüfen, Fertigungs- oder Sourcing-Anforderungen zu besprechen und neue Möglichkeiten für ihre Unternehmen zu identifizieren.",
-    "areasLabel": "Die Messe bringt mehrere wichtige Teile der Schmuck-Lieferkette zusammen:",
+    "eyebrow": "Über die Ausstellung",
+    "title": "JGTD Dubai 2026 – Termine und Messehalle",
+    "para1": "Die JGTD läuft von Dienstag, 27. Oktober bis Donnerstag, 29. Oktober 2026. Die Ausstellung ist an allen drei Tagen von 10:00 bis 18:00 Uhr geöffnet.",
+    "para2": "Die Ausgabe 2026 findet in den Nordhallen N21 und N23 des Dubai Exhibition Centre in Expo City Dubai statt. Dies ist nicht das Dubai World Trade Centre an der Sheikh Zayed Road – Besucher sollten ihre Transport- und Unterkunftspläne sorgfältig prüfen.",
+    "para3": "Die Registrierungsschalter schließen 30 Minuten vor Messeende. Käufer mit mehreren Lieferantenterminen sollten zusätzliche Zeit für die Badge-Abholung, Sicherheitskontrollen und den Weg zwischen Ausstellungsbereichen einplanen.",
+    "whatIsTitle": "Was ist Jewellery, Gem & Technology in Dubai?",
+    "whatIsPara1": "Jewellery, Gem & Technology in Dubai ist eine internationale B2B-Ausstellung, die Schmucklieferanten mit professionellen Käufern aus dem Nahen Osten und anderen globalen Märkten verbindet.",
+    "whatIsPara2": "JGTD ist für Sourcing, Lieferantenbewertung, kommerzielle Meetings und Geschäftsentwicklung gedacht. Es ist keine Verbraucher-Schmuckeinkaufsveranstaltung.",
+    "areasLabel": "Die Ausstellung vereint mehrere wichtige Teile der Schmucklieferkette in einem kommerziellen Umfeld:",
     "areas": [
-      "Fertiger feiner, silberner, Hochzeits- und Herrenschmuck",
-      "Natürliche und synthetische Diamanten",
+      "Natur- und synthetische Diamanten",
       "Farbige Edelsteine und Perlen",
-      "Schmuckfassungen und Zubehör",
+      "Fertige Feinschmuckstücke",
+      "Hochzeits- und Herrenschmuck",
+      "Halbfertiger Schmuck und Fassungen",
+      "Schmuckkomponenten und Zubehör",
       "Fertigungswerkzeuge und -ausrüstung",
       "Labor- und Prüftechnologie",
       "Display- und Verpackungslösungen",
-      "Digitale und Produktionstechnologien"
+      "Digital- und Produktionstechnologien"
     ],
-    "imageAlt": "JGTD Dubai 2026 Messe im Dubai Exhibition Centre"
+    "imageAlt": "JGTD Dubai 2026 Ausstellung im Dubai Exhibition Centre"
   },
   "whyMatters": {
     "eyebrow": "Warum JGTD wichtig ist",
-    "title": "Warum JGTD für internationale Diamantkäufer wichtig ist",
-    "para1": "Die Diamant- und Schmuckbranche agiert über Grenzen hinweg. Diamanten können in einem Markt gesourcet oder gehandelt werden, Schmuck in einem anderen hergestellt und fertige Kollektionen an Kunden in mehreren Regionen verkauft werden.",
-    "para2": "JGTD schafft einen Treffpunkt, an dem diese Unternehmen Anforderungen direkt besprechen können. Ein Einzelhändler kann Diamanten für sein Brautsortiment vergleichen, ein Hersteller kann Steine für etablierte Schmuckdesigns sourcen, und ein Designer kann Lieferanten erkunden.",
-    "para3": "Das dreitägige Format bietet Käufern ein fokussiertes Umfeld zur Bewertung potenzieller Partner. Anstatt sich ausschließlich auf Fotos, Spezifikationen und Fernkommunikation zu verlassen, können Besucher Diamanten persönlich prüfen und detaillierte Fragen stellen.",
-    "considerLabel": "Diese Gespräche können die kommerziellen Überlegungen ansprechen, die bestimmen, ob ein Diamant wirklich geeignet ist:",
+    "title": "Warum JGTD für internationale Diamantenkäufer wichtig ist",
+    "para1": "Dubai ist ein wichtiger Treffpunkt für Diamanten- und Schmuckunternehmen, die regionale und internationale Märkte bedienen. JGTD gibt diesen Unternehmen drei fokussierte Tage, um Produkte zu vergleichen, Lieferanten zu bewerten und kommerzielle Anforderungen persönlich zu besprechen.",
+    "para2": "Ein Einzelhändler kann die Messe nutzen, um Diamanten für ein Brautsortiment zu identifizieren. Ein Hersteller benötigt möglicherweise kalibrierte Steine, die zu einem etablierten Design passen. Ein Großhändler beschafft möglicherweise kommerziell relevante Spezifikationen für Kunden auf mehreren Märkten.",
+    "para3": "Die persönliche Besichtigung ermöglicht es Käufern auch, Umrisse, Aufsichtsbild und visuelle Gesamteigenschaften zu vergleichen, bevor sie entscheiden, ob ein Diamant für seine beabsichtigte Anwendung geeignet ist.",
+    "considerLabel": "Ein persönliches Gespräch kann Faktoren ansprechen, die schwer durch Bestandslisten allein zu klären sind:",
     "considerItems": [
-      "Beabsichtigter Markt und Kunde",
-      "Form, Karatgewicht und Maße",
+      "Beabsichtigter Kunde und Markt",
+      "Diamantform und Karatgewichtsbereich",
+      "Maße und Proportionen",
       "Farb- und Reinheitsanforderungen",
-      "Zielpreislage",
       "Einzel- oder Wiederholungsmengen",
-      "Schmuckanwendung",
+      "Abstimmung und Kalibrierung",
+      "Beabsichtigte Schmuckanwendung",
       "Dokumentationsanforderungen",
-      "Matching und Kalibrierung",
-      "Zukünftige Verfügbarkeit",
-      "Liefererwartungen",
-      "Langfristige Lieferantenunterstützung"
+      "Produktions- und Lieferpläne",
+      "Zukünftige Verfügbarkeit"
     ]
   },
   "meet": {
     "eyebrow": "Treffen Sie Uniglo Diamonds",
     "title": "Treffen Sie Uniglo Diamonds auf der JGTD Dubai 2026",
-    "para1": "Der offizielle JGTD-Ausstellerkatalog führt Uniglo NV aus Belgien am Stand SJ23 auf. Uniglos Präsenz gibt professionellen Käufern die Möglichkeit, Naturdiamanten in verschiedenen Formen, Karatgewichten, Maßen, Farben und Reinheitsgraden zu besprechen.",
-    "para2": "Besucher können den beabsichtigten Verwendungszweck eines Diamanten erläutern, mögliche Spezifikationen vergleichen und Sourcing-Optionen erkunden, die für ihren Markt und ihre Produktanforderungen geeignet sind.",
-    "para3": "Für Käufer, die internationale Diamantenlieferanten vergleichen, ist das Treffen auch eine Gelegenheit, mehr über den Antwerpener Sourcing-Hintergrund von Uniglo Diamonds und den Ansatz zum Verständnis realer kommerzieller Anforderungen zu erfahren.",
-    "cta": "JGTD-Fachgespräch buchen",
+    "para1": "Das offizielle Ausstellerverzeichnis listet Uniglo NV aus Belgien an Stand SJ23.",
+    "para2": "Professionelle Käufer können das Uniglo Diamonds-Team treffen, um Naturdiamanten in verschiedenen Formen, Gewichten, Maßen, Farben und Reinheitsstufen zu besprechen. Anforderungen können einen einzelnen Diamanten, abgestimmte Steine, kalibrierte Selektionen oder Wiederholungslieferungen für ein etabliertes Schmuckdesign umfassen.",
+    "para3": "Käufer sollten ihre wichtigsten Spezifikationen wann immer möglich vor der Ausstellung einreichen.",
+    "meetingItems": [
+      "Mittelsteine für Verlobungsringe",
+      "Fancy-geschliffene Naturdiamanten",
+      "Abgestimmte Diamanten für Ohrringe",
+      "Koordinierte Mittel- und Seitensteine",
+      "Kalibrierte Diamanten für Mehrstein-Schmuck",
+      "Diamanten für Tennisarmbänder und -ketten",
+      "Anforderungen für Braut- und Jubiläumsschmuck",
+      "Diamanten für Maßanfertigungen",
+      "Kommerzielle Sortimente für Großhändler",
+      "Wiederholungsanforderungen für Hersteller",
+      "Gutachten- und Dokumentationspräferenzen",
+      "Liefer- und Produktionserwartungen"
+    ],
+    "cta": "JGTD-Meeting an Stand SJ23 buchen",
     "imageAlt": "Naturdiamanten präsentiert von Uniglo Diamonds auf der JGTD Dubai"
   },
-  "applications": {
-    "eyebrow": "Diamanten für Schmuckanwendungen",
-    "title": "Naturdiamanten für verschiedene Schmuckanwendungen",
-    "para1": "Die Auswahl eines Diamanten für ein fertiges Stück erfordert mehr als die Wahl eines Karatgewichts, einer Farbe und eines Reinheitsgrades. Ein Mittelstein für einen Verlobungsring muss mit der beabsichtigten Fassung und den visuellen Proportionen funktionieren.",
-    "shapesLabel": "Uniglo Diamonds kann Naturdiamant-Anforderungen für beliebte Formen besprechen, darunter:",
+  "whatCanSource": {
+    "eyebrow": "Was Diamantenkäufer beschaffen können",
+    "title": "Was Diamantenkäufer auf der JGTD Dubai beschaffen können",
+    "para1": "JGTD präsentiert lose Diamanten neben farbigen Edelsteinen, Perlen, fertigem Schmuck, Fassungen, Komponenten und Fertigungstechnologie.",
+    "para2": "Diamantenkäufer können Produkte antreffen, die von einzelnen dokumentierten Steinen bis hin zu abgestimmten Paaren, Layouts und kommerziellen Selektionen reichen. Verfügbarkeit und Spezifikationen unterscheiden sich jedoch zwischen Ausstellern.",
+    "para3": "Bei Uniglo Diamonds konzentriert sich das Gespräch auf Naturdiamanten, die nach dem beabsichtigten Produkt, Markt und den kommerziellen Anforderungen des Käufers ausgewählt wurden."
+  },
+  "naturalDiamondSourcing": {
+    "eyebrow": "Naturdiamanten-Sourcing in Dubai",
+    "title": "Naturdiamanten-Sourcing in Dubai",
+    "para1": "Eine erfolgreiche Sourcing-Entscheidung beginnt mit dem Zweck des Diamanten, nicht nur mit den auf einem Bericht verzeichneten Graden.",
+    "para2": "Ein Mittelstein für einen Solitärring kann anders bewertet werden als Diamanten, die für Ohrringe, ein Ewigkeitsband oder ein Tennisarmband benötigt werden. Maße, Proportionen, Abstimmung, visuelles Erscheinungsbild, Dokumentation und Wiederholungsverfügbarkeit können alle die kommerzielle Eignung beeinflussen.",
+    "para3": "Die Verfügbarkeit ändert sich, daher sollte das Meeting sowohl mit bevorzugten Spezifikationen als auch mit akzeptablen Alternativen beginnen. Dies ermöglicht dem Team zu bestimmen, wo geeignete Sourcing-Möglichkeiten bestehen können.",
     "shapes": [
-      "Runder Brillant", "Oval", "Smaragd", "Birne", "Prinzessin",
-      "Kissen", "Radiant", "Marquise", "Herz", "Asscher"
+      "Brillantschliff (rund)",
+      "Oval",
+      "Smaragdschliff",
+      "Birnenform",
+      "Prinzessschliff",
+      "Kissenform",
+      "Radiantschliff",
+      "Marquise",
+      "Herzform",
+      "Asscher-Schliff"
     ],
-    "para2": "Die Form ist nur der Anfang. Käufer müssen möglicherweise auch Maße, Proportionen, Face-up-Erscheinung, Längen-Breiten-Verhältnis, Matching, Gradierungsdokumentation und die Verfügbarkeit zukünftiger Ersatzsteine oder Wiederholungslieferungen berücksichtigen."
+    "imageAlt": "Naturdiamanten präsentiert von Uniglo Diamonds auf der JGTD Dubai"
   },
   "retailersManufacturers": {
-    "eyebrow": "Einzelhändler und Hersteller",
-    "title": "Naturdiamant-Sourcing für Einzelhändler und Hersteller",
-    "para1": "Einzelhändler und Hersteller gehen das Diamant-Sourcing oft unterschiedlich an. Ein Einzelhändler benötigt möglicherweise einen markanten Mittelstein für einen einzelnen Kunden, während ein Hersteller eine Wiederholungslieferung innerhalb sorgfältig definierter Toleranzen benötigt.",
-    "discussLabel": "Am Stand SJ23 können Besucher folgende Anforderungen besprechen:",
+    "eyebrow": "Händler und Hersteller",
+    "title": "Naturdiamanten für Händler und Hersteller",
+    "para1": "Händler, Hersteller und Großhändler gehen das Diamanten-Sourcing häufig mit unterschiedlichen Prioritäten an.",
+    "para2": "Ein Händler benötigt möglicherweise einen markanten Mittelstein für einen einzelnen Kunden oder eine Auswahl kommerziell erkennbarer Optionen für eine Brautkollektion. Ein Hersteller benötigt möglicherweise Wiederholungslieferungen innerhalb definierter Maße und Fertigungstoleranzen. Ein Großhändler baut möglicherweise Sortimente für mehrere Kundengruppen und Preispositionen auf.",
+    "para3": "Die Verknüpfung dieser Spezifikationen mit dem beabsichtigten Schmuck hilft sicherzustellen, dass die Diamanten im richtigen Kontext bewertet werden.",
+    "discussLabel": "Kommerzielle Anforderungen können umfassen:",
     "discussItems": [
-      "Naturdiamanten für Verlobungsringe",
-      "Fancy-förmige Mittelsteine",
-      "Passende Diamanten für Ohrringe",
-      "Kalibrierte Diamanten für Mehrstein-Schmuck",
-      "Diamanten für Brautkollektionen",
-      "Steine für Tennisarmbänder und -halsketten",
-      "Zertifizierungs- oder Dokumentationspräferenzen",
-      "Spezifische Maß- oder visuelle Anforderungen",
-      "Wiederholungslieferung für etablierte Designs",
-      "Einzelne Diamanten für Maßanfertigungen"
-    ],
-    "outro": "Das Ziel ist zu verstehen, was Käufer mit den Diamanten erreichen müssen, sobald sie in Schmuck eingearbeitet sind."
+      "Einzelne Naturdiamanten",
+      "Definierte Form- und Karatbereiche",
+      "Spezifische Maßtoleranzen",
+      "Abgestimmte oder kalibrierte Steine",
+      "Kern-Brautspezifikationen",
+      "Markante Fancy-Formen",
+      "Wiederholungsmengen",
+      "Ersatzsteine",
+      "Marktspezifische Qualitätskombinationen",
+      "Definierte Lieferpläne"
+    ]
   },
   "shapes": {
     "eyebrow": "Diamantformen",
     "title": "Diamantformen für verschiedene Märkte",
-    "para1": "Diamantpräferenzen können zwischen Ländern, Einzelhändlern und Kundengruppen erheblich variieren. Runde Brillanten sind weiterhin wichtig für Verlobungsringe, Solitäre, Ohrringe, Tennisschmuck und klassische Diamantdesigns.",
-    "para2": "Ovale, birnen- und marquise-förmige Diamanten bieten längliche Proportionen und können eine größere visuelle Abdeckung schaffen. Smaragd- und Asscher-Schliff-Diamanten bieten ein architektonischeres Erscheinungsbild.",
-    "para3": "Kissen- und Radiant-Diamanten kombinieren markante Umrisse mit lebendigem Glanz, während Prinzessschliff-Diamanten für quadratische und geometrische Designs relevant bleiben.",
-    "para4": "Anstatt jede Diamantform als gleichermaßen geeignet für jeden Markt zu behandeln, arbeitet Uniglo Diamonds daran zu verstehen, wie jeder Stein positioniert, gefasst und verkauft wird."
+    "para1": "Die Nachfrage nach Diamantformen kann zwischen Ländern, Händlern, Kunden und Schmuckkategorien variieren.",
+    "para2": "Runde Brillantdiamanten bleiben wichtig für Verlobungsringe, Ohrringe, Tennisschmuck und klassische Designs. Oval-, Birnen- und Marquise-Diamanten bieten längliche Umrisse und eine andere visuelle Ausbreitung.",
+    "para3": "Smaragd- und Asscher-Schliffe bieten Treppenflächenschliff und breitere Lichtblitze. Kissen- und Radiant-Diamanten kombinieren markante Umrisse mit lebhafter Brillanz, während Prinzessschliff-Diamanten für quadratische und geometrische Designs geeignet sein können. Herzförmige Diamanten können romantischen und hochpersonalisierten Schmuck unterstützen.",
+    "para4": "Keine Form ist automatisch für jeden Markt geeignet. Käufer sollten die beabsichtigte Fassung, den Kunden, die Preisposition und die Kollektionsidentität berücksichtigen, bevor sie eine Entscheidung treffen."
   },
   "measurements": {
     "eyebrow": "Maße und Proportionen",
-    "title": "Maße, Proportionen und Face-up-Erscheinung",
-    "para1": "Das Karatgewicht sagt Käufern nicht alles darüber, wie ein polierter Diamant aussehen wird. Zwei Diamanten mit demselben Karatgewicht können unterschiedliche Maße, Proportionen und Face-up-Erscheinungen haben.",
-    "para2": "Ein Schmuckhersteller benötigt möglicherweise genaue Maße für eine vorhandene Fassung. Ein Einzelhändler bevorzugt möglicherweise einen ovalen oder smaragdgeschliffenen Diamanten mit einem bestimmten Längen-Breiten-Verhältnis.",
-    "considerLabel": "Käufer sollten prüfen, ob ihre Anforderungen Folgendes umfassen:",
+    "title": "Maße, Proportionen und Aufsichtsbild",
+    "para1": "Zwei Diamanten mit demselben Karatgewicht können deutlich unterschiedliche Maße, Proportionen und Aufsichtsbilder haben.",
+    "para2": "Diese Unterschiede sind besonders relevant für fancy-geschliffene Diamanten. Das Längen-zu-Breiten-Verhältnis, der Umriss und die Gewichtsverteilung können beeinflussen, wie ein Oval-, Birnen-, Smaragd-, Kissen- oder Radiant-Diamant nach dem Fassen aussieht.",
+    "para3": "Ein Hersteller benötigt möglicherweise genaue Abmessungen für eine vorhandene Fassung. Ein Händler bevorzugt möglicherweise ein definiertes Verhältnis oder eine Aufsichtsgröße. Ein Designer benötigt möglicherweise Proportionen, die eine bestimmte kreative Richtung unterstützen.",
+    "para4": "Klare Maßanforderungen machen das Gespräch effizienter und reduzieren ungeeignete Optionen.",
+    "considerLabel": "Käufer sollten identifizieren, ob ihre Anforderungen umfassen:",
     "considerItems": [
-      "Mindest- oder Höchstmaße",
-      "Bevorzugte Längen-Breiten-Verhältnisse",
-      "Face-up-Größenerwartungen",
-      "Spezifische Umrisspräferenzen",
-      "Bestehende Fassungen, die berücksichtigt werden müssen",
-      "Schliff- oder Proportionserwartungen",
-      "Matching-Anforderungen",
-      "Visuelle Eigenschaften, die nicht vollständig durch einen Gradierungsbericht beschrieben werden"
+      "Mindest- und Höchstmaße",
+      "Bevorzugte Längen-zu-Breiten-Verhältnisse",
+      "Definierte Aufsichtsmaße",
+      "Besondere Umrisseigenschaften",
+      "Kompatibilität mit einer vorhandenen Fassung",
+      "Schliff- oder Proportionspräferenzen",
+      "Abstimmung mit anderen Steinen",
+      "Visuelle Eigenschaften jenseits des Gutachtens"
     ]
   },
   "matching": {
-    "eyebrow": "Passende und kalibrierte Diamanten",
-    "title": "Passende und kalibrierte Naturdiamanten",
-    "para1": "Matching ist besonders wichtig, wenn mehrere Diamanten im gleichen Schmuckstück verwendet werden. Diamant-Ohrringe, Drei-Stein-Ringe, Eternity-Bänder, Tennisarmbänder und Mehrstein-Designs erfordern ein hohes Maß an Konsistenz.",
-    "para2": "Für Hersteller kann die Kalibrierung auch die Setteffizienz und Produktionswiederholbarkeit beeinflussen. Diamanten, die erheblich in Größe oder Proportion variieren, können Änderungen beim Setzen erfordern.",
-    "discussLabel": "Käufer, die Uniglo Diamonds treffen, können folgendes besprechen:",
+    "eyebrow": "Abgestimmte und kalibrierte Diamanten",
+    "title": "Abgestimmte und kalibrierte Naturdiamanten",
+    "para1": "Abgestimmte und kalibrierte Diamanten sind besonders wichtig, wenn mehrere Steine zusammen verwendet werden.",
+    "para2": "Diamantohrringe, Drei-Stein-Ringe, Ewigkeitsbänder, Tennisarmbänder, Tennisketten und anderer Mehrstein-Schmuck können Koordination über Maße, Form, Farbe, Reinheit und visuelles Erscheinungsbild hinweg erfordern.",
+    "para3": "Bei Herstellern kann Konsistenz auch die Fassungseffizienz und Produktionswiederholbarkeit beeinflussen. Erhebliche Abweichungen können beim Fassen Anpassungen erfordern und ein ungleichmäßiges fertiges Ergebnis erzeugen.",
+    "para4": "Das beabsichtigte Design, die Fassungsmethode und die Produktionsmenge sollten am Anfang des Sourcing-Prozesses erklärt werden.",
+    "discussLabel": "Käufer können besprechen:",
     "discussItems": [
-      "Passende Diamantpaare",
+      "Abgestimmte Diamantpaare",
       "Koordinierte Seitensteine",
-      "Kalibrierte Diamantauswahlen",
-      "Eternity-Band-Layouts",
+      "Kalibrierte Diamantselektionen",
+      "Drei-Stein-Layouts",
+      "Ewigkeitsband-Layouts",
       "Tennisarmband-Layouts",
-      "Tennishalsketten-Layouts",
-      "Mehrstein-Schmuck",
+      "Tennisketten-Layouts",
       "Ersatzdiamanten",
-      "Wiederholte Fertigungsanforderungen"
+      "Wiederholungsfertigungsspezifikationen"
     ],
-    "imageAlt": "Passende und kalibrierte Naturdiamanten von Uniglo Diamonds"
+    "imageAlt": "Abgestimmte und kalibrierte Naturdiamanten von Uniglo Diamonds"
   },
   "bridal": {
     "eyebrow": "Brautschmuck",
     "title": "Naturdiamanten für Brautschmuck",
-    "para1": "Brautschmuck ist weiterhin eine der wichtigsten kommerziellen Anwendungen für polierte Diamanten. Ein Verlobungsring-Einzelhändler benötigt möglicherweise dokumentierte Mittelsteine in verschiedenen beliebten Formen, Karatgewichten und Qualitätskombinationen.",
-    "para2": "Maßschneider benötigen möglicherweise stattdessen einen individuellen Naturdiamanten, der auf die Präferenzen, das Budget und die beabsichtigte Fassung eines Kunden ausgewählt wird.",
+    "para1": "Brautschmuck bleibt eine der wichtigsten Verwendungen von polierten Naturdiamanten.",
+    "para2": "Händler benötigen möglicherweise dokumentierte Mittelsteine in mehreren Formen, Gewichten und Preispositionen. Hersteller benötigen möglicherweise Mitteldiamanten und abgestimmte Seitensteine für wiederholbare Verlobungsringdesigns. Maßschneider benötigen möglicherweise einen bestimmten Diamanten, der um einen einzelnen Kunden ausgewählt wurde.",
+    "para3": "Ein nützliches Brautsortiment kann etablierte Kernoptionen mit ausgewählten Fancy-Formen für Kunden kombinieren, die etwas Individuelleres suchen.",
     "discussLabel": "Käufer können Diamanten für folgende Anwendungen besprechen:",
     "discussItems": [
       "Solitär-Verlobungsringe",
       "Halo-Verlobungsringe",
       "Drei-Stein-Ringe",
-      "Seitenstein-Verlobungsringe",
-      "Diamant-Hochzeitsbänder",
-      "Eternity- und Jubiläumsbänder",
-      "Braut-Ohrringe und -Halsketten",
-      "Maßgefertigte Verlobungsringe"
-    ],
-    "para3": "Ein kommerziell nützliches Brautinventar benötigt oft sowohl zuverlässige Kernoptionen als auch markante Diamanten für Kunden, die etwas Individuelleres suchen."
+      "Verlobungsringe mit Seitensteinen",
+      "Trauringe",
+      "Ewigkeits- und Jubiläumsringe",
+      "Braut-Ohrringe und -Ketten",
+      "Maßanfertigungsaufträge"
+    ]
   },
   "certification": {
     "eyebrow": "Zertifizierung und Dokumentation",
     "title": "Zertifizierungs- und Dokumentationsanforderungen",
-    "para1": "Diamantdokumentationsanforderungen können je nach Größe, Wert, Zielmarkt und Kundenerwartungen des Steins variieren. Einige Käufer benötigen individuelle Gradierungsberichte für Mittelsteine.",
-    "considerLabel": "Vor dem Treffen mit Uniglo Diamonds sollten Käufer Folgendes identifizieren:",
+    "para1": "Dokumentationsanforderungen hängen von der Größe, dem Wert, dem beabsichtigten Markt, der Anwendung und den Kundenerwartungen des Diamanten ab.",
+    "para2": "Einige Käufer benötigen individuelle Gutachten für Mittelsteine. Andere Anwendungen können Handelsdokumentation verwenden, die für kleinere oder kalibrierte Diamanten geeignet ist. Import-, Export-, Versicherungs- und Bestandsverfahren können weitere Anforderungen schaffen.",
+    "para3": "Die Dokumentation sollte besprochen werden, bevor eine endgültige Selektion vorbereitet wird.",
+    "considerLabel": "Käufer sollten folgendes klären:",
     "considerItems": [
-      "Ob individuelle Gradierungsberichte erforderlich sind",
-      "Bevorzugte oder akzeptierte Gradierungslabore",
-      "Informationen für interne Inventarsysteme",
-      "Länderspezifische Offenlegungspflichten im Einzelhandel",
-      "Import- oder Exportdokumentationsanforderungen",
-      "Erwartungen an Sourcing- oder Rückverfolgbarkeitsinformationen",
-      "Ob Dokumentation jeden Diamanten begleiten muss",
-      "Anforderungen für Partien, Paare oder Layouts"
-    ],
-    "para2": "Die Besprechung der Dokumentation zu Beginn hilft, Missverständnisse zu vermeiden, nachdem eine Auswahl vorbereitet wurde."
+      "Ob individuelle Gutachten erforderlich sind",
+      "Welche Gutachtenlaboratorien akzeptiert werden",
+      "Für Bestandssysteme benötigte Informationen",
+      "Für jeden Diamanten erforderliche Dokumentation",
+      "Anforderungen für Partien, Paare oder Layouts",
+      "Import- oder Exportdokumentationsbedarf",
+      "Marktspezifische Offenlegungserwartungen",
+      "Rückverfolgbarkeits- oder Sourcing-Informationsanforderungen"
+    ]
   },
   "antwerp": {
-    "eyebrow": "Antwerpener Diamantexpertise",
-    "title": "Antwerpener Diamantexpertise für internationale Käufer",
-    "para1": "Antwerpen hat seit Generationen eine zentrale Rolle im internationalen Diamanthandel gespielt. Der Antwerpener Hintergrund von Uniglo Diamonds verbindet das Unternehmen mit einem der etabliertesten Diamanthandelszentren der Welt.",
-    "para2": "Allein der Standort schafft jedoch keine zuverlässige Lieferantenbeziehung. Käufer benötigen auch genaue Kommunikation, klar definierte Spezifikationen, realistische Liefererwartungen und konsequentes Follow-up.",
-    "para3": "Uniglo Diamonds beginnt damit zu verstehen, was der Käufer herzustellen, zu lagern oder zu verkaufen versucht. Dies ermöglicht es, zu beurteilen, welche Formen, Maße, Qualitätskombinationen und Liefervereinbarungen am relevantesten sind.",
-    "para4": "Dieser Ansatz kann einen Einzelhändler unterstützen, der Mittelsteine sourcet, einen Hersteller, der eine Wiederholkollektion vorbereitet, einen Großhändler, der mehrere Märkte bedient, oder einen Designer, der eine spezialisierte Linie entwickelt."
+    "eyebrow": "Antwerpener Diamanten-Expertise",
+    "title": "Antwerpener Diamanten-Expertise für Dubais internationalen Markt",
+    "para1": "JGTD verbindet internationale Diamantenlieferanten mit Unternehmen, die Dubai, den weiteren Nahen Osten und andere globale Schmuckmärkte bedienen.",
+    "para2": "Uniglo Diamonds bringt einen Antwerpener Sourcing-Hintergrund in dieses kommerzielle Umfeld. Das Team beginnt damit, zu verstehen, was der Käufer herstellen, auf Lager haben oder verkaufen möchte, bevor es potenziell geeignete Spezifikationen bespricht.",
+    "para3": "Eine produktive Lieferbeziehung hängt von klarer Kommunikation, genauen Spezifikationen, geeigneter Dokumentation und realistischen Erwartungen ab – nicht allein vom Standort.",
+    "supportLabel": "Dieser Ansatz kann unterstützen:",
+    "supportItems": [
+      "Händler beim Beschaffen von Verlobungsring-Mittelsteinen",
+      "Hersteller beim Vorbereiten von Wiederholkollektionen",
+      "Großhändler, die mehrere regionale Märkte bedienen",
+      "Designer, die diamantbasierte Kollektionen entwickeln",
+      "Maßschneider beim Beschaffen für individuelle Kunden",
+      "Einkaufsteams beim Vergleichen internationaler Lieferanten"
+    ]
   },
   "whoShouldMeet": {
     "eyebrow": "Wer sollte teilnehmen",
-    "title": "Wer sollte Uniglo Diamonds am Stand SJ23 treffen?",
+    "title": "Wer sollte Uniglo auf der JGTD 2026 treffen?",
     "types": [
-      { "title": "Schmuck-Einzelhändler", "body": "Einzelhändler, die Diamantbestände auffrischen, für Brautkollektionen sourcen oder einen zuverlässigen Langzeitlieferanten suchen." },
-      { "title": "Diamant-Großhändler", "body": "Großhandelskäufer, die Sortimente für regionale Kunden mit unterschiedlichen Präferenzen und Preiserwartungen aufbauen." },
-      { "title": "Schmuckhersteller", "body": "Hersteller, die Naturdiamanten nach definierten Formen, Maßen, kalibrierten Spezifikationen und Mengen benötigen." },
-      { "title": "Brautspezialisten", "body": "Brautspezialisten, die Verlobungs- und Hochzeitskollektionen in verschiedenen Formen, Qualitäten und Preislagen entwickeln." },
-      { "title": "Designer und Marken", "body": "Designer, die für neue Kollektionen, besondere Mittelsteine oder Designs mit einer spezifischen visuellen Richtung sourcen." },
-      { "title": "Einkaufsbüros", "body": "Professionelle Sourcing-Teams, die internationale Lieferanten vergleichen und Fähigkeiten und Dokumentation bewerten." },
-      { "title": "Maßschneider", "body": "Maßschneider, die einzelne Diamanten auf die genauen Präferenzen und Auftragsanforderungen eines Kunden ausgewählt sourcen." },
-      { "title": "Unternehmen mit Wiederholungsbedarf", "body": "Unternehmen, die konsistente Wiederholungslieferungen für etablierte Schmuckdesigns und Produktionspläne benötigen." }
+      { "title": "Schmuckhändler", "body": "Brautdiamanten, Sortimentslücken und kommerzielle Form- oder Qualitätskombinationen." },
+      { "title": "Diamantgroßhändler", "body": "Regionale Nachfrage, Mengen, Dokumentation und Wiederholungsanforderungen." },
+      { "title": "Schmuckhersteller", "body": "Maße, Kalibrierung, Abstimmung und Produktionspläne." },
+      { "title": "Brautspezialist", "body": "Mittelsteine, Seitensteine, Trauringe und Ewigkeitsschmuckanforderungen." },
+      { "title": "Designer und Schmuckmarken", "body": "Fancy-Formen und Diamanten für geplante Kollektionen." },
+      { "title": "Einkaufsbüros", "body": "Lieferantenkapazitäten, Dokumentation, Mengen und Liefererwartungen." },
+      { "title": "Maßschneider", "body": "Individuelle Diamanten für kundenspezifische Aufträge." }
     ]
   },
   "prepare": {
-    "eyebrow": "Gesprächsvorbereitung",
-    "title": "Wie Sie sich auf ein Diamant-Sourcing-Gespräch vorbereiten",
-    "para": "JGTD bringt viele Lieferanten und Produktkategorien in eine konzentrierte dreitägige Messe. Die Vorbereitung im Voraus hilft Käufern, diese Zeit effektiv zu nutzen. Vor dem Treffen mit Uniglo Diamonds sollten Sie Folgendes mitbringen:",
+    "eyebrow": "Vorbereitung auf das Treffen",
+    "title": "Vorbereitung auf ein Meeting an Stand SJ23",
+    "para": "Käufer können die dreitägige Ausstellung besser nutzen, indem sie vor der Ankunft ein prägnantes Sourcing-Brief vorbereiten.",
     "items": [
       "Bevorzugte Diamantformen",
       "Erforderliche Karatgewichtsbereiche",
-      "Farb- und Reinheitserwartungen",
-      "Maß- oder Matching-Anforderungen",
-      "Zielmarkt und Kundenprofil",
-      "Beabsichtigte Schmuckanwendung",
+      "Farb- und Reinheitskombinationen",
+      "Mindest- und Höchstmaße",
+      "Abstimmungs- oder Kalibrierungsanforderungen",
+      "Beabsichtigte Schmuckanwendungen",
+      "Zielkunde und -markt",
       "Ungefähre Mengen",
-      "Zielpreislage",
-      "Zertifizierungspräferenzen",
-      "Lieferanforderungen",
-      "Bilder bestehender Designs oder Sortimentslücken",
-      "Fragen zur Wiederholungslieferung und zukünftigen Verfügbarkeit"
+      "Angestrebte kommerzielle Position",
+      "Gutachtenpräferenzen",
+      "Lieferziel",
+      "Produktionsfristen",
+      "Bilder aktueller Designs",
+      "Fragen zur Wiederholungsverfügbarkeit"
     ],
-    "note": "Ein spezifischer Brief ermöglicht es dem Gespräch, über eine allgemeine Produktpräsentation hinaus zu gehen und sich auf relevante Sourcing-Möglichkeiten zu konzentrieren.",
-    "cta": "JGTD-Fachgespräch buchen"
+    "note": "Käufer müssen nicht mit einer abgeschlossenen Bestellung ankommen. Eine klare Sortimentslücke, ein Produktionsbedarf oder eine Kundenanfrage kann einen produktiven Ausgangspunkt bieten.",
+    "cta": "JGTD-Meeting an Stand SJ23 buchen"
   },
   "diamondWeek": {
     "eyebrow": "Dubai Diamond Week 2026",
-    "title": "JGTD Dubai und Dubai Diamond Week 2026",
-    "para1": "Die JGTD Dubai 2026 ist Teil eines breiteren Zeitraums von Diamantenbranchenaktivitäten in der Stadt. Die Dubai Diamond Week findet vom 26. bis 29. Oktober 2026 statt und bringt Regierungsvertreter, Produzenten, Hersteller, Einzelhändler, Händler, Investoren und Technologieunternehmen für Branchendiskussionen zusammen.",
-    "para2": "Das Programm umfasst die Dubai Diamond Conference und JGTD. Die Konferenz bietet ein Forum für strategische Diskussionen, während JGTD ein kommerzielles Umfeld für Sourcing, Lieferantengespräche und Geschäftsentwicklung schafft.",
-    "para3": "Für Naturdiamantfachleute, die nach Dubai reisen, bietet die Kombination die Möglichkeit, sowohl die breitere Richtung der Branche als auch ihre unmittelbaren kommerziellen Anforderungen zu berücksichtigen."
+    "title": "JGTD und die Dubai Diamond Week 2026",
+    "para1": "JGTD ist die kommerzielle Sourcing-Komponente der Dubai Diamond Week, die vom 26. bis 29. Oktober 2026 stattfindet.",
+    "para2": "Die Dubai Diamond Conference eröffnet die Woche am 26. Oktober, gefolgt von Branchentreffen und -aktivitäten. JGTD läuft dann vom 27. bis 29. Oktober im Dubai Exhibition Centre und bietet einen Marktplatz für Sourcing, Lieferantentreffen und Geschäftsentwicklung.",
+    "para3": "Für Diamantenprofis bietet die Kombination Möglichkeiten, während derselben Reise sowohl die weitere Branchenrichtung als auch die unmittelbaren kommerziellen Sourcing-Anforderungen zu berücksichtigen."
   },
   "registration": {
-    "eyebrow": "Registrierung und Einlass",
-    "title": "Registrierungs- und Einlassanforderungen",
-    "para1": "Die JGTD Dubai 2026 ist ausschließlich für Schmuckbranchenfachleute ab 16 Jahren reserviert. Die Registrierung ist Pflicht, aber der Eintritt ist für zugelassene Fachbesucher kostenlos. Nach der Registrierung sollten Teilnehmer ihre Eintrittsbadges ausdrucken, bevor sie zum Veranstaltungsort reisen.",
-    "requireLabel": "Besucher müssen Folgendes mitführen:",
+    "eyebrow": "Registrierung und Zulassung",
+    "title": "JGTD Dubai – Registrierung und Zulassung",
+    "para1": "JGTD ist eine reine Fachmesse für Schmuckbranchenprofis ab 16 Jahren. Die Registrierung ist Pflicht, und der Eintritt ist kostenlos.",
+    "para2": "Besucher, die sich bis zum 16. Oktober 2026 online registrieren, können einen Heim-Druck-Badge für schnelleren Einlass erhalten. Nach dem 16. Oktober müssen Badges an den Registrierungsschaltern vor Ort abgeholt werden.",
+    "para3": "Badge- und Identitätsdaten können vor dem Einlass geprüft werden. Besucher sollten die aktuellen Anforderungen des Veranstalters vor der Anreise überprüfen.",
+    "requireLabel": "Besucher sollten mitbringen:",
     "requireItems": [
-      "Ein gedrucktes Eintrittsbadge",
-      "Einen Reisepass oder Emirates-Ausweis"
-    ],
-    "para2": "Ein Lichtbildausweis kann überprüft werden, um sicherzustellen, dass die eintretende Person mit dem registrierten Badge-Inhaber übereinstimmt. Taschen können auch einer Sicherheitsüberprüfung unterzogen werden.",
-    "para3": "Der Veranstalter kann die Zulassung verweigern oder stornieren, wenn Registrierungs-, Identifikations- oder Sicherheitsanforderungen nicht erfüllt sind."
+      "Ihren gedruckten Eintrittsbadge",
+      "Eine Emirates ID oder einen nationalen Reisepass"
+    ]
   },
   "venue": {
     "eyebrow": "Anreise",
     "title": "Anreise zum Dubai Exhibition Centre",
-    "para1": "Das Dubai Exhibition Centre befindet sich am Exhibition Boulevard in Expo City Dubai in Dubai South. Besucher, die mit öffentlichen Verkehrsmitteln reisen, können die Dubai Metro Red Line zur Expo 2020 Station nehmen. Die Station liegt innerhalb von Expo City und bietet Zugang zum Veranstaltungsort.",
-    "para2": "Das Ausstellungszentrum ist auch mit Taxi oder Auto erreichbar. Fahrer sollten den aktuellen Expo City-Schildern und Parkhinweisen folgen, da Routen und Parkbereiche je nach Veranstaltung variieren können.",
-    "para3": "Internationale Besucher reisen häufig über den Dubai International Airport oder den Al Maktoum International Airport an. Die Reisezeit hängt vom Flughafen, dem Verkehr und der gewählten Transportmethode ab.",
-    "newVenueTitle": "Warum der neue Veranstaltungsort wichtig ist",
-    "newVenuePara": "Die Ausgabe 2026 findet in den Nordhallen des Dubai Exhibition Centre in Expo City statt. Die Lage platziert die Veranstaltung in Dubai South, einem Gebiet, das mit wichtiger Transportinfrastruktur verbunden ist. Käufer sollten den endgültigen Grundriss vor der Anreise prüfen."
+    "para1": "Das Dubai Exhibition Centre befindet sich am Exhibition Boulevard in Expo City Dubai.",
+    "metroTitle": "Mit der U-Bahn",
+    "metroPara": "Der Veranstalter empfiehlt die Dubai Metro als bequemen Weg zum Veranstaltungsort. Die Red Line bedient die Expo City Metro-Station und bietet Zugang zum Expo City-Bereich und zum Dubai Exhibition Centre.",
+    "carTitle": "Mit dem Auto oder Taxi",
+    "carPara": "Das Gelände ist auch mit dem Auto oder Taxi erreichbar. In der Nähe des Ausstellungszentrums sind ausgewiesene Parkplätze vorhanden, und der Veranstalter bietet möglicherweise Verbindungen zwischen öffentlichen Parkbereichen und dem Veranstaltungsort an. Fahrer sollten der aktuellen Expo City-Beschilderung und den Parkhinweisen für den Veranstaltungstag folgen.",
+    "airportTitle": "Vom Flughafen",
+    "airportPara": "Das Dubai Exhibition Centre liegt bei geeigneten Verkehrsbedingungen etwa 35 Minuten vom Dubai International Airport entfernt. Die tatsächliche Reisezeit variiert je nach Verkehr, Ankunftsterminal und Transportmittel.",
+    "newVenueTitle": "Warum der Expo City und Nordhallen-Standort wichtig ist",
+    "newVenuePara": "JGTD 2026 wird die Nordhallen N21 und N23 im Dubai Exhibition Centre belegen. Der Expo City-Standort bietet Metro-Zugang und zweckgebaute Ausstellungseinrichtungen. Käufer können Lieferanten aus den Bereichen Diamanten, Edelsteine, fertiger Schmuck und Branchentechnologie in einem professionellen Sourcing-Umfeld treffen. Besucher sollten den endgültigen Grundriss vor der Anreise prüfen und ausreichend Zeit einplanen, um zwischen Ausstellungsbereichen und geplanten Terminen zu wechseln."
+  },
+  "guides": {
+    "eyebrow": "JGTD Dubai 2026 Leitfäden",
+    "title": "JGTD Dubai 2026 Leitfäden",
+    "items": [
+      {
+        "title": "JGTD Dubai 2026 Besucherleitfaden",
+        "body": "Detaillierte Informationen zu Registrierung, Badges, Zulassung, Öffnungszeiten, Transport, Messezugang und Vorbereitung auf die Ausstellung."
+      },
+      {
+        "title": "JGTD Dubai 2026 Aussteller & Diamanten-Sourcing-Leitfaden",
+        "body": "Recherchieren Sie die Produktbereiche der Messe, verstehen Sie, wie Sie Aussteller bewerten, und bereiten Sie nützliche Fragen vor dem Vergleich potenzieller Lieferanten vor."
+      },
+      {
+        "title": "Dubai Diamond Week 2026: Ein Leitfaden für internationale Diamantenkäufer",
+        "body": "Verstehen Sie, wie die Dubai Diamond Conference, JGTD und damit verbundene Branchenaktivitäten vom 26. bis 29. Oktober zusammenwirken."
+      }
+    ]
   },
   "partnerships": {
-    "eyebrow": "Jenseits der Messe",
-    "title": "Partnerschaften, die nach der Messe fortbestehen",
-    "para1": "Der Wert eines Messgesprächs beschränkt sich nicht auf die bei der Veranstaltung geprüften Diamanten. Ein erstes Gespräch kann einem Lieferanten helfen, den Markt, den bevorzugten Qualitätsbereich, die kommerziellen Ziele und zukünftigen Anforderungen des Käufers zu verstehen.",
-    "para2": "Für Uniglo Diamonds bietet JGTD die Möglichkeit, bestehende Partner wiederzusehen und gleichzeitig Unternehmen zu treffen, die das Unternehmen zum ersten Mal entdecken.",
-    "nextStepsLabel": "Nach dem Treffen mit Uniglo Diamonds kann ein Käufer Folgendes wünschen:",
+    "eyebrow": "Nach der Ausstellung",
+    "title": "Partnerschaften, die nach der Ausstellung weitergehen",
+    "para1": "Ein Meeting auf der JGTD kann eine Sourcing-Beziehung beginnen, die nach der Messe fortgesetzt wird.",
+    "para2": "Nach einem Gespräch an Stand SJ23 möchte ein Käufer möglicherweise:",
+    "para3": "Das Ziel ist es, ein klares Verständnis des Marktes, der beabsichtigten Produkte, Spezifikationen und zukünftigen Anforderungen des Käufers zu entwickeln.",
+    "nextStepsLabel": "Nach dem Meeting können Käufer:",
     "nextSteps": [
-      "Eine fokussierte Diamantauswahl anfordern",
-      "Bestimmte Gradierungsberichte prüfen",
-      "Maßanforderungen verfeinern",
-      "Ein passendes Paar oder kalibriertes Layout vorbereiten",
-      "Mengen oder Produktionspläne bestätigen",
+      "Eine fokussiertere Diamantselektion anfragen",
+      "Spezifische Gutachten prüfen",
+      "Maß- oder Qualitätsanforderungen verfeinern",
+      "Ein abgestimmtes Paar oder kalibriertes Layout vorbereiten",
+      "Mengen und Produktionspläne bestätigen",
       "Wiederholungsverfügbarkeit besprechen",
       "Eine weitere Besichtigung vereinbaren",
       "Ein Sourcing-Gespräch nach der Veranstaltung planen"
     ],
-    "imageAlt": "Diamantkäufer trifft Uniglo Diamonds am Stand SJ23 auf der JGTD Dubai"
+    "imageAlt": "Diamantenkäufer trifft Uniglo Diamonds an Stand SJ23 auf der JGTD Dubai"
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
     "items": [
-      { "question": "Wann findet die JGTD Dubai 2026 statt?", "answer": "Die JGTD Dubai 2026 findet vom Dienstag, 27. Oktober bis Donnerstag, 29. Oktober 2026 statt." },
-      { "question": "Wo findet die JGTD Dubai 2026 statt?", "answer": "Die Messe findet in den Nordhallen N21 und N23 des Dubai Exhibition Centre in Expo City Dubai statt." },
-      { "question": "Was sind die Öffnungszeiten der JGTD Dubai 2026?", "answer": "Die Messe ist an allen drei Tagen von 10:00 bis 18:00 Uhr geöffnet. Registrierungsschalter schließen 30 Minuten vor Messeschluss." },
-      { "question": "Findet die JGTD Dubai im Dubai World Trade Centre statt?", "answer": "Nein. Der bestätigte Veranstaltungsort 2026 ist das Dubai Exhibition Centre in Expo City Dubai, nicht das Dubai World Trade Centre an der Sheikh Zayed Road." },
-      { "question": "Was ist die Standnummer von Uniglo Diamonds auf der JGTD Dubai 2026?", "answer": "Der offizielle Ausstellerkatalog führt Uniglo NV aus Belgien am Stand SJ23 auf." },
-      { "question": "Ist die JGTD Dubai für die Öffentlichkeit zugänglich?", "answer": "Nein. JGTD ist eine reine Fachmesse, die anerkannten Schmuckbranchenfachleuten vorbehalten ist." },
-      { "question": "Gibt es eine Altersanforderung?", "answer": "Ja. Besucher müssen mindestens 16 Jahre alt sein." },
-      { "question": "Ist der Eintritt zur JGTD Dubai kostenlos?", "answer": "Ja. Der Eintritt ist für zugelassene Schmuckbranchenfachleute kostenlos, aber die Registrierung ist Pflicht." },
-      { "question": "Welche Dokumente benötigen Besucher?", "answer": "Besucher benötigen ein gedrucktes Eintrittsbadge und entweder einen Reisepass oder einen Emirates-Ausweis." },
-      { "question": "Kann Uniglo Diamonds Brautanforderungen unterstützen?", "answer": "Käufer können Mittelsteine, passende Seitensteine und kalibrierte Diamanten für Verlobungsringe, Hochzeitsbänder, Eternity-Ringe und andere Brautdesigns besprechen." },
-      { "question": "Können Hersteller Dauerlieferanforderungen besprechen?", "answer": "Ja. Hersteller sollten ihre erforderlichen Formen, Maße, Qualitätsbereiche, Mengen und Produktionspläne angeben." },
-      { "question": "Können Käufer vor der Veranstaltung ein Treffen buchen?", "answer": "Ja. Das Vorausbuchung eines Treffens wird für Käufer empfohlen, die dedizierte Zeit für bestimmte Diamanten oder Sourcing-Anforderungen wünschen." },
-      { "question": "Ist JGTD Teil der Dubai Diamond Week 2026?", "answer": "Ja. JGTD findet während der Dubai Diamond Week statt, die vom 26. bis 29. Oktober 2026 läuft und auch die Dubai Diamond Conference umfasst." }
+      { "question": "Wann findet JGTD Dubai 2026 statt?", "answer": "JGTD Dubai 2026 findet von Dienstag, 27. Oktober bis Donnerstag, 29. Oktober 2026 statt." },
+      { "question": "Wo findet JGTD Dubai 2026 statt?", "answer": "Die Messe findet in den Nordhallen N21 und N23 des Dubai Exhibition Centre in Expo City Dubai statt." },
+      { "question": "Wie sind die Öffnungszeiten?", "answer": "JGTD ist an allen drei Tagen von 10:00 bis 18:00 Uhr geöffnet. Die Registrierungsschalter schließen 30 Minuten vor Messeende." },
+      { "question": "Findet JGTD im Dubai World Trade Centre statt?", "answer": "Nein. Der bestätigte Veranstaltungsort ist das Dubai Exhibition Centre in Expo City Dubai, nicht das Dubai World Trade Centre an der Sheikh Zayed Road." },
+      { "question": "Wie lautet die Standnummer von Uniglo Diamonds?", "answer": "Uniglo Diamonds ist an Stand SJ23 vertreten." },
+      { "question": "Ist JGTD für die Öffentlichkeit zugänglich?", "answer": "Nein. JGTD ist eine reine Fachmesse für anerkannte Schmuckbranchenprofis." },
+      { "question": "Gibt es ein Mindestalter?", "answer": "Ja. Besucher müssen mindestens 16 Jahre alt sein." },
+      { "question": "Ist die Registrierung kostenlos?", "answer": "Der Eintritt ist kostenlos, aber die Registrierung ist Pflicht. Registrieren Sie sich bis zum 16. Oktober 2026 online, um einen Heim-Druck-Badge zu erhalten; spätere Badges müssen vor Ort abgeholt werden." },
+      { "question": "Welche Dokumente sollten Besucher mitbringen?", "answer": "Besucher sollten einen gedruckten Eintrittsbadge und entweder eine Emirates ID oder einen nationalen Reisepass mitbringen." },
+      { "question": "Welche Produkte werden auf der JGTD ausgestellt?", "answer": "Die Messe umfasst Diamanten, farbige Edelsteine, Perlen, fertigen und halbfertigen Schmuck, Fassungen, Werkzeuge, Maschinen, Labortechnologie, Displays und Verpackungen." },
+      { "question": "Was können Käufer mit Uniglo Diamonds besprechen?", "answer": "Käufer können Naturdiamanten nach Form, Karatgewicht, Maßen, Farbe, Reinheit, Dokumentation, Abstimmung, Mengen und beabsichtigter Schmuckanwendung besprechen." },
+      { "question": "Können Käufer abgestimmte oder kalibrierte Diamanten besprechen?", "answer": "Ja. Käufer können abgestimmte Paare, koordinierte Seitensteine, kalibrierte Selektionen und Layouts für Mehrstein-Schmuck besprechen." },
+      { "question": "Kann Uniglo Diamonds Brautanforderungen unterstützen?", "answer": "Käufer können Mittelsteine, Seitensteine und kalibrierte Diamanten für Verlobungsringe, Trauringe, Ewigkeitsringe und andere Brautdesigns besprechen." },
+      { "question": "Wie können Besucher JGTD mit der U-Bahn erreichen?", "answer": "Nehmen Sie die Dubai Metro Red Line zur Expo City Metro-Station und folgen Sie den aktuellen Hinweisschildern zum Dubai Exhibition Centre." },
+      { "question": "Ist JGTD Teil der Dubai Diamond Week?", "answer": "Ja. JGTD läuft vom 27. bis 29. Oktober als kommerzielle Sourcing-Komponente der Dubai Diamond Week, die am 26. Oktober beginnt." },
+      { "question": "Können Käufer vor der Messe ein Meeting vereinbaren?", "answer": "Ja. Käufer sollten im Voraus buchen und ihre Anforderungen einreichen, damit Uniglo Diamonds ein relevantes Gespräch vorbereiten kann." }
     ]
   },
   "finalCta": {
-    "title": "Treffen Sie Uniglo Diamonds auf der JGTD Dubai 2026",
-    "para": "Treffen Sie Uniglo Diamonds am Stand SJ23 vom 27. bis 29. Oktober 2026, um Naturdiamanten zu erkunden und Sourcing-Möglichkeiten zu identifizieren, die für Ihr Unternehmen geeignet sind. Ob Sie einen bestimmten Mittelstein, passende Diamanten, Unterstützung für eine wiederholbare Schmuckkollektion oder einen potenziellen Langzeitdiamantlieferanten benötigen – das Uniglo Diamonds Team freut sich darauf, Sie im Dubai Exhibition Centre zu treffen.",
+    "title": "Buchen Sie Ihr Meeting an Stand SJ23",
+    "para": "Treffen Sie Uniglo Diamonds an Stand SJ23 während der JGTD Dubai 2026. Bereiten Sie Ihre bevorzugten Formen, Maße, Karatgewichtsbereiche, Farb- und Reinheitskombinationen, Dokumentationsanforderungen, Mengen und beabsichtigten Schmuckanwendungen vor der Terminanfrage vor.",
     "factEvent": "Veranstaltung",
     "factEventValue": "JGTD Dubai 2026",
     "factDates": "Termine",
     "factDatesValue": "27.–29. Oktober 2026",
-    "factVenue": "Veranstaltungsort",
-    "factVenueValue": "Dubai Exhibition Centre",
-    "factStand": "Uniglo Stand",
+    "factVenue": "Messehalle",
+    "factVenueValue": "Dubai Exhibition Centre, Expo City Dubai",
+    "factHalls": "Hallen",
+    "factHallsValue": "Nordhallen N21 und N23",
+    "factStand": "Uniglo Diamonds Stand",
     "factStandValue": "SJ23",
-    "primaryCta": "JGTD-Fachgespräch mit Uniglo Diamonds buchen",
+    "primaryCta": "Treffen an Stand SJ23 buchen",
     "secondaryCta": "Uniglos Naturdiamant-Inventar erkunden",
-    "note": "Besucher benötigen ein gedrucktes Eintrittsbadge und einen Reisepass oder Emirates-Ausweis. Registrierungsschalter schließen 30 Minuten vor Messeschluss."
+    "note": "Besucher benötigen einen gedruckten Eintrittsbadge und einen Reisepass oder eine Emirates ID. Die Registrierungsschalter schließen 30 Minuten vor Messeende."
   }
 }

@@ -1,23 +1,24 @@
 {
   "metadata": {
-    "title": "INHORGENTA Munich 2027 | Uniglo",
-    "description": "Meet Uniglo Diamonds at INHORGENTA Munich 2027, 19–22 February. Find event details, tickets and natural-diamond sourcing information."
+    "title": "INHORGENTA Munich 2027 | Uniglo Diamonds",
+    "description": "Meet Uniglo Diamonds at INHORGENTA Munich 2027, 19–22 February at Messe München. Explore natural diamonds and book a trade meeting in Munich."
   },
   "announcement": "INHORGENTA Munich 2027 · 19–22 February · Trade Fair Center Messe München · Meet Uniglo Diamonds",
   "breadcrumbHome": "Home",
   "breadcrumbCurrent": "INHORGENTA Munich 2027",
   "hero": {
     "eyebrow": "Trade exhibition · 19–22 February 2027 · Munich, Germany",
-    "title": "Uniglo Diamonds at INHORGENTA Munich 2027",
-    "lead": "INHORGENTA Munich 2027 will take place from 19–22 February 2027 at the Trade Fair Center Messe München in Munich, Germany.",
-    "para1": "The international trade exhibition brings together jewellery retailers, diamond buyers, manufacturers, designers, gemstone specialists, watch professionals and industry service providers from markets around the world. Uniglo Diamonds is preparing to return to INHORGENTA Munich 2027 with a carefully selected presentation of natural diamonds for different retail, wholesale, manufacturing and jewellery-design requirements.",
-    "para2": "Visitors will be able to explore diamond options, compare specifications and discuss individual stones, matched pairs, calibrated diamonds and repeat-supply requirements directly with the Uniglo Diamonds team. The Uniglo Diamonds hall and stand number will be added once officially confirmed.",
+    "title": "INHORGENTA Munich 2027 – Meet Uniglo Diamonds",
+    "lead": "INHORGENTA Munich 2027 – Meet Uniglo Diamonds",
+    "para1": "INHORGENTA Munich 2027 takes place from 19 to 22 February at the Trade Fair Center Messe München in Germany. The international trade exhibition brings together jewellery retailers, manufacturers, designers, diamond buyers, gemstone specialists, watch professionals and industry service providers.",
+    "para2": "Uniglo Diamonds is preparing to meet European and international jewellery professionals in Munich with a selected natural-diamond presentation. Buyers can discuss individually graded centre stones, fancy-shaped diamonds, matched pairs, calibrated selections and repeat-supply requirements.",
+    "para3": "Uniglo Diamonds' hall and stand number have not yet been confirmed for the 2027 exhibition. The location will be added to this page as soon as it is officially available.",
     "primaryCta": "Book an INHORGENTA Trade Meeting",
     "secondaryCta": "Explore Natural Diamond Inventory",
     "imageAlt": "Uniglo Diamonds at INHORGENTA Munich 2027"
   },
   "eventDetails": {
-    "eyebrow": "Event Information",
+    "eyebrow": "Quick Event Information",
     "title": "INHORGENTA Munich 2027 Event Details",
     "colLabel": "Detail",
     "colValue": "Information",
@@ -30,172 +31,213 @@
       { "label": "Hours, 22 February", "value": "09:30–17:00" },
       { "label": "Admission", "value": "Approved jewellery, watch, gemstone, design and technology trade professionals" },
       { "label": "Ticket shop opens", "value": "5 December 2026" },
-      { "label": "Uniglo Diamonds stand", "value": "To be officially confirmed" }
+      { "label": "Uniglo Diamonds stand", "value": "To be officially confirmed" },
+      { "label": "Meeting", "value": "Advance booking recommended" }
     ],
     "note": "Visitors should verify the latest event, ticket and admission information before making travel arrangements."
   },
-  "industry": {
-    "eyebrow": "February Planning Period",
-    "title": "Where the International Jewellery Industry Looks Ahead",
-    "para1": "February is an important planning period for jewellery businesses. Retailers are reviewing the previous year, adjusting their inventories and identifying the products that will shape bridal, gifting and everyday jewellery sales during the months ahead.",
-    "para2": "Manufacturers are preparing new production schedules, while designers and jewellery brands are developing collections for future launches. Diamond wholesalers and sourcing teams may also be reviewing suppliers, quality combinations and repeat-availability requirements.",
-    "para3": "INHORGENTA provides an opportunity to complete this research within one professional environment. Buyers can examine diamonds, gemstones and jewellery closely, compare suppliers, discuss sourcing requirements and gain a clearer understanding of the trends influencing international markets.",
-    "para4": "The exhibition represents different parts of the jewellery, watch and gemstone value chain across six halls. Its areas cover fine jewellery, watches, gemstones, wedding and design collections, lifestyle jewellery, technology, packaging and other industry services.",
-    "para5": "INHORGENTA's latest published success figures report 1,334 brands from 38 countries and approximately 25,000 trade visitors from around 100 countries.",
-    "imageAlt": "INHORGENTA Munich international jewellery trade exhibition"
+  "datesVenue": {
+    "eyebrow": "Dates and Venue",
+    "title": "INHORGENTA Munich 2027 Dates & Venue",
+    "para1": "The exhibition opens on Friday, 19 February and continues until Monday, 22 February 2027. It will be held at the Trade Fair Center Messe München, one of Germany's principal international exhibition venues.",
+    "para2": "Visitor hours are scheduled for 09:30–18:30 from Friday through Sunday and 09:30–17:00 on Monday. Because event information can be updated, visitors should confirm the latest timetable, admission conditions and hall plan before finalising travel arrangements.",
+    "imageAlt": "Trade visitors entering Messe München for INHORGENTA"
   },
-  "discover": {
-    "eyebrow": "Discover Uniglo Diamonds",
-    "title": "Discover Uniglo Diamonds at INHORGENTA Munich 2027",
-    "para1": "Every diamond buyer has a different audience and commercial requirement. Some retailers need dependable centre stones for bridal jewellery. Others may be looking for distinctive fancy-shaped diamonds, matched stones for earrings or calibrated diamonds for repeatable jewellery collections.",
-    "para2": "Manufacturers may require tightly controlled measurements across a production run, while bespoke jewellers may need an individual diamond selected around a client's specific request.",
-    "para3": "At INHORGENTA Munich 2027, Uniglo Diamonds plans to present natural diamonds suited to these different requirements. The final exhibition selection will be confirmed closer to the event, but buyers can prepare to discuss requirements across multiple shapes, carat weights, colours, clarities, measurements and jewellery applications.",
-    "para4": "The objective is not simply to display a large diamond inventory. It is to understand what the buyer is trying to manufacture, stock or sell and identify diamonds that correspond with those commercial requirements.",
+  "whatIs": {
+    "eyebrow": "About the Exhibition",
+    "title": "What Is INHORGENTA Munich?",
+    "para1": "INHORGENTA is an international business platform for jewellery, watches and gemstones. Its exhibition areas cover fine jewellery, timepieces, gemstones, wedding and design collections, lifestyle jewellery, technology, packaging and other professional services.",
+    "para2": "The organiser currently reports approximately 1,200 brands from 38 countries, around 25,000 trade visitors from approximately 100 countries and six halls covering more than 64,000 square metres.",
+    "para3": "For jewellery businesses, this range creates an opportunity to compare products, examine developing trends, meet suppliers and make sourcing decisions within one professional environment. Supporting programmes such as TRENDFACTORY MUNICH and the INHORGENTA AWARD also place commercial buying decisions within the wider context of design, craftsmanship, retail and innovation."
+  },
+  "exhibitors": {
+    "eyebrow": "Exhibitors & Sourcing",
+    "title": "INHORGENTA Munich 2027 Exhibitors & Sourcing Opportunities",
+    "para1": "Exhibitors represent different parts of the jewellery, gemstone and watch value chain. Visitors can explore finished jewellery, loose gemstones, natural diamonds, bridal collections, contemporary design, tools, packaging and retail technology.",
+    "para2": "Diamond buyers should approach the exhibition with a defined commercial objective. A retailer may be reviewing gaps in its bridal inventory, while a manufacturer may need repeatable measurements for an upcoming collection. Bespoke jewellers may be searching for an individual centre stone, and wholesalers may want to assess consistent supply across several specifications.",
+    "para3": "Preparing requirements in advance makes it easier to compare suitable suppliers without allowing the scale of the exhibition to dilute the purpose of the visit.",
+    "prepLabel": "Useful information to prepare includes:",
+    "prepItems": [
+      "Required diamond shapes and carat ranges",
+      "Preferred colour and clarity combinations",
+      "Minimum and maximum measurements",
+      "Target length-to-width ratios",
+      "Certification or documentation requirements",
+      "Required quantities and delivery schedules",
+      "Intended jewellery applications",
+      "Commercial price parameters"
+    ]
+  },
+  "meet": {
+    "eyebrow": "Meet Uniglo Diamonds",
+    "title": "Meet Uniglo Diamonds at INHORGENTA Munich",
+    "para1": "Uniglo Diamonds plans to present natural diamonds for retail, wholesale, manufacturing and bespoke-jewellery requirements. The final exhibition selection will depend on availability closer to the event.",
+    "para2": "Instead of treating every enquiry as a request for the same inventory, the Uniglo team begins with the intended jewellery application, customer profile and commercial objective. This helps narrow the discussion to diamonds that are more relevant to the buyer.",
+    "meetingLabel": "Visitors can arrange a meeting to discuss:",
+    "meetingItems": [
+      "Individually graded natural diamonds",
+      "Round Brilliant and fancy-shaped diamonds",
+      "Centre stones for engagement jewellery",
+      "Matched natural-diamond pairs",
+      "Coordinated centre and side stones",
+      "Calibrated selections for production",
+      "Replacement diamonds for existing jewellery",
+      "Repeat-supply requirements",
+      "Grading reports and supporting documentation"
+    ],
+    "para3": "Buyers with detailed requirements should book in advance and provide their preferred specifications. This allows the team to prepare a more focused selection where availability permits.",
     "cta": "Book an INHORGENTA Trade Meeting",
     "imageAlt": "Natural-diamond buyer meeting Uniglo Diamonds at INHORGENTA"
   },
-  "precision": {
-    "eyebrow": "Natural Diamonds Selected With Precision",
-    "title": "Natural Diamonds Selected With Precision",
-    "para1": "Every successful diamond jewellery collection begins with an informed choice of stones. At Uniglo Diamonds, natural diamonds are considered across their complete combination of shape, colour, clarity, carat weight, cut quality, measurements, proportions and documentation.",
-    "para2": "These factors must be evaluated together because two diamonds with the same carat weight can differ noticeably in face-up size, visual appearance and suitability for a particular design.",
-    "shapesLabel": "The planned selection for INHORGENTA Munich 2027 may include:",
-    "shapes": [
-      "Round Brilliant", "Oval", "Emerald", "Pear", "Cushion",
-      "Princess", "Radiant", "Marquise", "Heart", "Asscher"
-    ],
-    "shapesNote": "The final diamond selection will depend on availability at the time of the exhibition.",
-    "discussLabel": "Meeting the Uniglo Diamonds team gives buyers an opportunity to discuss:",
-    "discussItems": [
-      "Diamond specifications for different retail price points",
-      "Shapes suited to bridal and everyday jewellery",
-      "Certification and grading-report information",
-      "Measurements and length-to-width preferences",
-      "Diamond matching for earrings and multi-stone designs",
-      "Quality consistency for repeat requirements",
-      "Stones suited to existing mountings",
-      "Diamonds for planned jewellery collections"
+  "european": {
+    "eyebrow": "Natural Diamonds for European Businesses",
+    "title": "Natural Diamonds for European Jewellery Businesses",
+    "para1": "European jewellery businesses serve varied markets, from independent bridal retailers and bespoke goldsmiths to international manufacturers and wholesalers. Their diamond requirements can differ considerably in size, documentation, price position and repeatability.",
+    "para2": "Retailers may need centre stones that complement existing engagement-ring mountings or fill clear gaps in their current assortment. Bespoke jewellers may prioritise an individual diamond's outline and face-up appearance, while manufacturers often require tighter control over measurements and consistency.",
+    "para3": "Two diamonds with the same shape and carat weight can have noticeably different measurements and visual characteristics. Reviewing these factors together helps buyers make decisions based on the finished jewellery rather than a grading description alone.",
+    "considerLabel": "Uniglo Diamonds can help buyers assess natural diamonds according to the combination of characteristics that matters to the finished piece:",
+    "considerItems": [
+      "Shape and cutting style",
+      "Carat weight",
+      "Colour and clarity",
+      "Cut quality",
+      "Face-up dimensions",
+      "Proportions and outline",
+      "Length-to-width ratio",
+      "Grading documentation",
+      "Matching and calibration",
+      "Intended setting and jewellery category"
     ]
   },
-  "shapes": {
-    "eyebrow": "Diamond Shapes",
-    "title": "Diamond Shapes for Different Jewellery Markets",
-    "para1": "Diamond-shape preferences differ across markets, customer groups and jewellery categories. Round Brilliant diamonds remain important for engagement rings, solitaire jewellery, earrings, tennis designs and other classic diamond pieces.",
-    "para2": "Oval, Pear and Marquise diamonds provide elongated proportions and may create greater visual coverage. Emerald and Asscher-cut diamonds have a more architectural appearance defined by their step-cut faceting and broad flashes of light.",
-    "para3": "Cushion and Radiant diamonds combine distinctive outlines with lively brilliance, while Princess-cut diamonds remain relevant for square and geometric designs. Heart-shaped diamonds may suit romantic, gifting or personalised jewellery.",
-    "para4": "Rather than treating every diamond shape as equally appropriate for every business, Uniglo Diamonds considers how the stone will be positioned, set and sold. This helps buyers select diamonds that correspond more closely to the preferences of their customers and the structure of their existing inventories."
-  },
   "bridal": {
-    "eyebrow": "Bridal and Engagement Jewellery",
-    "title": "Diamonds for Bridal and Engagement Jewellery",
-    "para1": "Bridal jewellery remains one of the most commercially important applications for polished diamonds. Retailers may require documented centre stones across several popular shapes, carat weights and quality combinations. Manufacturers may need centre diamonds with coordinated side stones for repeatable engagement-ring designs.",
-    "para2": "Bespoke jewellers may instead require one individual natural diamond selected around a client's setting, budget and visual preferences.",
-    "discussLabel": "At INHORGENTA Munich 2027, buyers can discuss diamonds for:",
+    "eyebrow": "Bridal Jewellery",
+    "title": "Natural Diamonds for Bridal Jewellery",
+    "para1": "Bridal jewellery remains an important sourcing category for many European retailers and manufacturers. Depending on the business, requirements may include documented solitaire stones, fancy-shaped centre diamonds, coordinated side stones or calibrated diamonds for repeatable ring designs.",
+    "para2": "Before attending, retailers should identify which shapes, sizes and commercial price positions are missing from their bridal assortment. Manufacturers should also provide mounting dimensions when diamonds need to fit an existing design.",
+    "discussLabel": "Buyers can discuss natural diamonds for:",
     "discussItems": [
       "Solitaire engagement rings",
-      "Halo engagement rings",
-      "Three-stone rings",
-      "Side-stone engagement rings",
+      "Halo and side-stone rings",
+      "Three-stone designs",
       "Diamond wedding bands",
-      "Eternity and anniversary bands",
+      "Eternity and anniversary rings",
       "Bridal earrings and necklaces",
       "Bespoke engagement-ring commissions"
-    ],
-    "para3": "A commercially useful bridal inventory often requires a balance between familiar centre-stone options and more distinctive diamonds for customers seeking something individual. Buyers should consider which shapes, sizes, price positions or quality combinations are currently missing from their bridal assortments before attending."
+    ]
+  },
+  "whatCanSource": {
+    "eyebrow": "What Buyers Should Source",
+    "title": "What Buyers Should Source at INHORGENTA",
+    "para1": "A productive sourcing appointment should concentrate on a defined inventory or manufacturing need. Attempting to review every available shape and grade can make comparisons less useful.",
+    "items": [
+      {
+        "title": "Individually Graded Centre Stones",
+        "body": "Retailers and bespoke jewellers can discuss documented natural diamonds for engagement rings, anniversary jewellery and individual customer commissions. Relevant requirements may include a preferred laboratory, measurements, budget range and setting style."
+      },
+      {
+        "title": "Fancy-Shaped Natural Diamonds",
+        "body": "Oval, Pear, Emerald, Cushion, Radiant, Marquise, Princess, Asscher and Heart-shaped diamonds can support different design and retail objectives. Outline, symmetry and length-to-width ratio should be assessed alongside conventional grading information."
+      },
+      {
+        "title": "Diamonds for Existing Mountings",
+        "body": "When a diamond must fit an existing ring or jewellery component, accurate minimum and maximum dimensions are essential. Buyers should bring the mounting measurements or a detailed technical specification."
+      },
+      {
+        "title": "Repeatable Diamond Selections",
+        "body": "Manufacturers may need diamonds that can be supplied within controlled measurement and quality ranges. Required tolerances, quantities, production stages and delivery expectations should be explained at the beginning of the discussion."
+      },
+      {
+        "title": "Matching and Calibration for Jewellery Production",
+        "body": "Matched earrings, three-stone rings, eternity bands, tennis bracelets and other multi-stone pieces require visual consistency. Shape, measurements, colour, clarity and overall appearance may all need to be coordinated."
+      }
+    ]
   },
   "matching": {
     "eyebrow": "Matching and Calibration",
     "title": "Matching and Calibration for Jewellery Production",
-    "para1": "Matching is particularly important when several diamonds will be used together within the same jewellery design. Diamond earrings, three-stone rings, eternity bands, tennis bracelets, tennis necklaces and other multi-stone pieces require consistency across relevant characteristics.",
-    "para2": "For jewellery manufacturers, accurate calibration can also support setting efficiency and production repeatability. Diamonds that vary significantly in size or proportion may require adjustments during setting and can create an uneven finished appearance.",
-    "discussLabel": "Buyers can discuss requirements for:",
+    "para1": "Matching is particularly important when several diamonds will be used together within the same jewellery design.",
+    "para2": "Diamond earrings, three-stone rings, eternity bands, tennis bracelets, tennis necklaces and other multi-stone pieces require consistency across relevant characteristics.",
+    "para3": "For jewellery manufacturers, accurate calibration can also support setting efficiency and production repeatability. Diamonds that vary significantly in size or proportion may require adjustments during setting and can create an uneven finished appearance.",
+    "discussLabel": "Buyers can discuss:",
     "discussItems": [
-      "Matched diamond pairs",
-      "Coordinated side stones",
+      "Matched natural-diamond pairs",
+      "Coordinated centre and side stones",
       "Calibrated diamond selections",
       "Eternity-band layouts",
-      "Tennis-bracelet layouts",
-      "Tennis-necklace layouts",
-      "Multi-stone jewellery",
+      "Tennis-bracelet and necklace layouts",
+      "Multi-stone jewellery designs",
       "Replacement diamonds",
       "Repeat manufacturing specifications"
     ],
-    "para3": "These requirements should be explained at the beginning of the sourcing process so the proposed diamond selection reflects the final jewellery application.",
-    "imageAlt": "Matched and calibrated natural diamonds from Uniglo Diamonds"
-  },
-  "measurements": {
-    "eyebrow": "Measurements and Proportions",
-    "title": "Understanding Measurements and Proportions",
-    "para1": "Carat weight is an essential diamond measurement, but it does not provide a complete picture of how a polished diamond will appear. Two diamonds with the same carat weight may have different dimensions, proportions and face-up appearances. This is especially relevant for fancy-shaped diamonds, where outline and length-to-width ratio can significantly affect the character of the stone.",
-    "para2": "A manufacturer may require precise dimensions to fit an existing mounting. A retailer may prefer an Oval or Emerald diamond with a specific length-to-width ratio. A designer may need stones with proportions that support a particular creative direction.",
-    "considerLabel": "Before meeting Uniglo Diamonds, buyers should consider whether they require:",
-    "considerItems": [
-      "Minimum and maximum measurements",
-      "Preferred length-to-width ratios",
-      "Particular outline characteristics",
-      "Minimum face-up dimensions",
-      "Existing mountings that must be accommodated",
-      "Specific cut or proportion expectations",
-      "Matching across multiple diamonds",
-      "Visual qualities not fully described by a grading report"
-    ]
-  },
-  "certification": {
-    "eyebrow": "Certification and Documentation",
-    "title": "Diamond Certification and Documentation",
-    "para1": "Certification and documentation requirements can vary depending on a diamond's size, value, intended market and customer expectations. Some buyers require individual grading reports for centre stones. Other applications may use commercial documentation appropriate to smaller or calibrated diamonds.",
-    "considerLabel": "Before meeting the Uniglo Diamonds team, buyers should identify:",
-    "considerItems": [
-      "Whether individual grading reports are required",
-      "Preferred or accepted grading laboratories",
-      "Information needed for inventory systems",
-      "Country-specific retail disclosure obligations",
-      "Import or export documentation requirements",
-      "Sourcing or traceability information expectations",
-      "Whether documents must accompany each stone",
-      "Requirements for matched pairs or calibrated layouts"
-    ],
-    "para2": "Documentation should be discussed at the beginning of the sourcing process rather than after a selection has already been prepared."
-  },
-  "meetingPlace": {
-    "eyebrow": "Sourcing, Knowledge and Innovation",
-    "title": "A Meeting Place for Sourcing, Knowledge and Innovation",
-    "para1": "INHORGENTA is more than an exhibition of finished products. Its different halls and supporting programmes help professionals understand how the wider industry is changing. Visitors can examine fine and high jewellery, watches, diamonds, gemstones, contemporary design, bridal collections, packaging and technology.",
-    "para2": "For buyers, this combination helps place individual sourcing decisions within a wider commercial context. A diamond may be attractive on its own, but retailers must also consider how it fits current customer preferences, existing inventory, target price ranges and future jewellery collections.",
-    "para3": "For Uniglo Diamonds, participating in this environment provides an opportunity to listen as well as present. Conversations with retailers, wholesalers, designers and manufacturers help the team understand how diamond preferences are developing across European and international markets."
+    "para4": "Providing precise measurements and acceptable tolerances helps the proposed selection reflect the finished jewellery application.",
+    "imageAlt": "Matched pairs and calibrated natural diamonds for jewellery production"
   },
   "whyMeet": {
     "eyebrow": "Why Meet Uniglo Diamonds",
     "title": "Why Meet Uniglo Diamonds at the Exhibition?",
-    "para1": "Digital inventories and virtual meetings make initial diamond sourcing more efficient, but diamonds often benefit from an in-person assessment. Viewing a diamond directly can reveal aspects of its outline, proportions, face-up size and overall visual character that may not be completely communicated through a grading report or standard photograph.",
-    "benefitsLabel": "A meeting with Uniglo Diamonds at INHORGENTA Munich 2027 can help visitors:",
+    "para1": "Digital inventories and grading reports are useful during initial research, but an in-person viewing can reveal characteristics that standard data and photography do not communicate completely.",
+    "para2": "Buyers can compare outline, face-up dimensions, proportions and overall visual appearance while discussing how each diamond will be positioned, set and sold.",
+    "para3": "Uniglo Diamonds' Antwerp base also provides a connection to one of the world's established diamond-trading centres. The value of that background is supported by clear communication, properly understood specifications and consistent follow-up before and after the exhibition.",
+    "benefitsLabel": "An appointment with Uniglo Diamonds can help visitors:",
     "benefits": [
-      "Examine natural diamonds in person",
-      "Compare different shapes and quality combinations",
-      "Discuss target customers and price positions",
-      "Evaluate measurements and proportions",
-      "Review certification and documentation requirements",
-      "Discuss matched and calibrated selections",
-      "Plan bridal or core diamond inventories",
-      "Discuss repeat sourcing",
-      "Build a direct relationship with the Uniglo Diamonds team"
+      "Examine available natural diamonds in person",
+      "Compare shapes and quality combinations",
+      "Review measurements and proportions",
+      "Discuss grading reports and documentation",
+      "Assess matched or calibrated selections",
+      "Plan bridal and core diamond inventory",
+      "Discuss manufacturing requirements",
+      "Explore repeat-supply possibilities",
+      "Establish a direct sourcing relationship"
     ],
-    "note": "Buyers with specific requirements should prepare their preferred shapes, carat ranges, measurements, colours, clarities, quantities and approximate target prices before the meeting.",
-    "imageAlt": "Diamond-sourcing meeting with Uniglo Diamonds at INHORGENTA Munich"
+    "imageAlt": "Natural-diamond sourcing discussion with Uniglo Diamonds at INHORGENTA"
   },
-  "antwerp": {
-    "eyebrow": "Antwerp Diamond Expertise",
-    "title": "Antwerp-Based Diamond Sourcing Expertise",
-    "para1": "Antwerp has played an important role in the international diamond trade for generations. Uniglo Diamonds' Antwerp background connects the business with one of the world's most established diamond-trading centres.",
-    "para2": "However, location alone does not create a successful sourcing relationship. Buyers also require clear communication, correctly understood specifications, realistic delivery expectations and consistent follow-up. A diamond supplier must understand not only which grades have been requested but also how the diamonds will be used and sold.",
-    "para3": "Uniglo Diamonds approaches sourcing by first understanding the buyer's intended product, market and customer. This allows the team to assess which shapes, measurements, quality combinations and supply arrangements may be most appropriate.",
-    "para4": "This approach can support a retailer sourcing individual centre stones, a manufacturer preparing a repeat collection, a wholesaler serving several markets or a designer developing a specialised diamond-led range."
+  "planning": {
+    "eyebrow": "Planning Your Visit",
+    "title": "Planning Your Visit to Messe München",
+    "para1": "INHORGENTA is intended exclusively for approved trade visitors. Visitors may be asked to provide trade accreditation, evidence of professional qualifications or relevant student documentation. A business card alone may not be accepted as proof of eligibility.",
+    "para2": "The ticket shop is scheduled to open on 5 December 2026. Ticket prices have not yet been published. Tickets should be purchased online where possible because the organiser advises that admission purchased at the venue may cost more and involve longer waiting times.",
+    "confirmLabel": "Before travelling, confirm:",
+    "confirmItems": [
+      "Trade-visitor eligibility and required evidence",
+      "Current ticket prices",
+      "Final opening hours",
+      "The latest exhibitor directory and hall plan",
+      "Uniglo Diamonds' confirmed hall and stand number",
+      "Travel and accommodation arrangements",
+      "Your meeting time",
+      "The diamond specifications you want to discuss"
+    ],
+    "transport": "Getting to the Exhibition Centre",
+    "transportPara1": "Messe München is connected to central Munich by the U2 underground line. The Messestadt West and Messestadt Ost stations serve the exhibition grounds, with the most appropriate entrance depending on the final hall plan.",
+    "transportPara2": "The journey from Munich Central Station takes approximately 20 minutes without changing trains. An INHORGENTA admission ticket does not include travel on MVG, MVV or Deutsche Bahn services, so visitors must purchase the appropriate public-transport ticket separately.",
+    "note": "INHORGENTA tickets do not include local public transport, so visitors should plan their journey to Messe München separately."
+  },
+  "guides": {
+    "eyebrow": "INHORGENTA Munich 2027 Guides",
+    "title": "INHORGENTA Munich 2027 Guides",
+    "intro": "The following supporting resources will help visitors plan different parts of their trip without duplicating the purpose of this event landing page:",
+    "items": [
+      {
+        "title": "INHORGENTA Munich 2027 Visitor Guide",
+        "body": "Practical information covering registration, trade accreditation, opening hours, transport, accommodation and daily visit planning."
+      },
+      {
+        "title": "INHORGENTA Munich 2027 Exhibitors & Jewellery Sourcing Guide",
+        "body": "A guide to the exhibition sectors, halls, exhibitor research and building an efficient supplier shortlist."
+      },
+      {
+        "title": "Diamond Sourcing at INHORGENTA Munich 2027: A Buyer's Guide",
+        "body": "A preparation guide for professional diamond buyers covering specifications, measurements, matching, documentation and meeting planning."
+      }
+    ]
   },
   "partnerships": {
-    "eyebrow": "Partnerships Beyond Munich",
+    "eyebrow": "Beyond the Exhibition",
     "title": "Partnerships That Continue Beyond Munich",
     "para1": "The most valuable exhibition conversations are not always those that lead to an immediate order. Some begin with a specific diamond requirement, while others start with a wider discussion about a future collection, an inventory gap or a market opportunity.",
-    "para2": "INHORGENTA gives Uniglo Diamonds an opportunity to reconnect with established partners while meeting buyers discovering the company for the first time.",
+    "para2": "After the exhibition, buyers may wish to request a more focused selection, review grading reports, refine measurement requirements or confirm quantities and production schedules.",
+    "para3": "Long-term diamond-sourcing relationships depend on more than the initial presentation. They are built through transparent communication, consistent quality, dependable service and an understanding of the buyer's commercial objectives.",
     "nextStepsLabel": "After the exhibition, buyers may wish to:",
     "nextSteps": [
       "Request a more focused diamond selection",
@@ -207,56 +249,26 @@
       "Discuss repeat availability",
       "Schedule another viewing or sourcing conversation"
     ],
-    "para3": "Long-term diamond-sourcing relationships depend on more than the initial presentation. They are built through transparent communication, consistent quality, dependable service and an understanding of the buyer's commercial objectives."
-  },
-  "planning": {
-    "eyebrow": "Planning Your Visit",
-    "title": "Planning Your Visit",
-    "para1": "INHORGENTA Munich 2027 is exclusively intended for approved trade visitors. New visitors may need to provide evidence of their professional involvement, qualifications or relevant study before purchasing a ticket.",
-    "para2": "The 2027 ticket shop is scheduled to open on 5 December 2026. Visitors may also be able to register at the venue, but the organiser advises that advance registration can save time and may cost less than purchasing admission on site.",
-    "confirmLabel": "Before attending, visitors should confirm:",
-    "confirmItems": [
-      "Their eligibility as a trade visitor",
-      "Documentation required for accreditation",
-      "Current ticket prices",
-      "Daily opening hours",
-      "The latest hall and exhibition map",
-      "Uniglo Diamonds' confirmed hall and stand number",
-      "Travel and accommodation arrangements",
-      "The diamond specifications they want to discuss"
-    ],
-    "note": "INHORGENTA tickets do not include local public transport, so visitors should plan their journey to Messe München separately."
-  },
-  "lookingAhead": {
-    "eyebrow": "Looking Ahead",
-    "title": "Looking Ahead to INHORGENTA Munich 2027",
-    "para1": "From 19–22 February 2027, INHORGENTA will bring the international jewellery, watch, diamond and gemstone community together at Messe München.",
-    "para2": "Uniglo Diamonds looks forward to presenting a selected natural-diamond portfolio while meeting retailers, wholesalers, manufacturers, designers and other industry professionals.",
-    "para3": "Whether you are searching for an individually documented centre stone, matched natural diamonds, calibrated stones for jewellery production or a dependable long-term sourcing relationship, we invite you to meet the Uniglo Diamonds team in Munich.",
-    "note": "The confirmed Uniglo Diamonds hall and stand number will be published on this page as soon as it becomes available."
+    "imageAlt": "Diamond-sourcing meeting with Uniglo Diamonds at INHORGENTA Munich"
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "items": [
-      { "question": "When is INHORGENTA Munich 2027?", "answer": "INHORGENTA Munich 2027 will take place from Friday, 19 February to Monday, 22 February 2027." },
-      { "question": "Where is INHORGENTA Munich 2027 being held?", "answer": "The exhibition will take place at the Trade Fair Center Messe München, Am Messesee 2, 81829 Munich, Germany." },
-      { "question": "What are the opening hours?", "answer": "Visitor opening hours are 09:30–18:30 from Friday, 19 February through Sunday, 21 February. The exhibition will be open from 09:30–17:00 on Monday, 22 February." },
-      { "question": "Who can attend INHORGENTA?", "answer": "INHORGENTA is exclusively intended for approved professionals from the jewellery, watch, gemstone, pearl, design and related technology industries. Trade credentials, professional qualifications or relevant student documentation may be required." },
-      { "question": "When can visitors purchase tickets?", "answer": "The INHORGENTA 2027 ticket shop is scheduled to open on 5 December 2026. Ticket prices will be published closer to the opening of the ticket shop." },
-      { "question": "Can tickets be purchased at the venue?", "answer": "The organiser states that tickets may be purchased at the exhibition. However, on-site tickets can cost more, and visitors may experience longer waiting times. First-time visitors should bring suitable trade accreditation." },
-      { "question": "Does an INHORGENTA ticket include public transport?", "answer": "No. The admission ticket does not include travel on Munich's local public transport system." },
-      { "question": "What is Uniglo Diamonds' stand number at INHORGENTA Munich 2027?", "answer": "The Uniglo Diamonds hall and stand number have not yet been publicly confirmed. The information will be added to this page when available." },
-      { "question": "What will Uniglo Diamonds present at INHORGENTA Munich 2027?", "answer": "Uniglo Diamonds plans to present natural diamonds across different shapes, carat weights, measurements, colours and clarities. The final exhibition selection will be confirmed closer to the event." },
-      { "question": "Which diamond shapes can buyers discuss with Uniglo Diamonds?", "answer": "Buyers can discuss Round Brilliant, Oval, Emerald, Pear, Cushion, Princess, Radiant, Marquise, Heart and Asscher diamonds, subject to availability and their required specifications." },
-      { "question": "Can buyers discuss matched or calibrated diamonds?", "answer": "Yes. Buyers can discuss matched pairs, calibrated diamond selections, coordinated side stones and layouts for multi-stone jewellery." },
-      { "question": "Can manufacturers discuss repeat-supply requirements?", "answer": "Yes. Manufacturers should provide their required shapes, measurements, quality ranges, quantities and production schedules when discussing repeat supply." },
-      { "question": "Can buyers discuss certified natural diamonds?", "answer": "Yes. Buyers should provide their certification and grading-report requirements when arranging their meeting." },
-      { "question": "Should buyers arrange a meeting with Uniglo Diamonds?", "answer": "Arranging a meeting is recommended for buyers with detailed diamond requirements. Meeting-booking information will be added once Uniglo Diamonds' stand and appointment arrangements are confirmed." }
+      { "question": "When is INHORGENTA Munich 2027?", "answer": "The exhibition will take place from Friday, 19 February to Monday, 22 February 2027." },
+      { "question": "Where will the exhibition be held?", "answer": "It will be held at the Trade Fair Center Messe München, Am Messesee 2, 81829 Munich, Germany." },
+      { "question": "What are the visitor opening hours?", "answer": "Visitor hours are scheduled for 09:30–18:30 from 19 to 21 February and 09:30–17:00 on 22 February. Visitors should check the organiser's website for any changes before travelling." },
+      { "question": "Who can attend INHORGENTA?", "answer": "The exhibition is intended for approved professionals and eligible students connected with the jewellery, watch, gemstone, pearl, design and technology industries. Proof of eligibility may be required." },
+      { "question": "When does the ticket shop open?", "answer": "The 2027 ticket shop is scheduled to become available on 5 December 2026. Ticket prices will be published by the organiser." },
+      { "question": "Can visitors buy tickets at the venue?", "answer": "The organiser states that tickets can also be purchased at the exhibition. However, on-site admission may cost more and involve longer waiting times. Visitors registering at the venue must bring suitable trade accreditation." },
+      { "question": "Does admission include Munich public transport?", "answer": "No. An INHORGENTA ticket does not include travel on MVG, MVV or Deutsche Bahn services." },
+      { "question": "What is Uniglo Diamonds' stand number?", "answer": "Uniglo Diamonds' hall and stand number for the 2027 exhibition have not yet been officially confirmed. The information will be added to this page when available." },
+      { "question": "What can buyers discuss with Uniglo Diamonds?", "answer": "Buyers can discuss natural diamonds for individual centre stones, bridal jewellery, matched pairs, calibrated layouts, existing mountings, manufacturing programmes and repeat-supply requirements." },
+      { "question": "Should buyers arrange a meeting in advance?", "answer": "Advance booking is recommended for buyers with specific diamond requirements. Providing shapes, carat ranges, measurements, quality preferences, quantities and documentation requirements will help the team prepare for the appointment." }
     ]
   },
   "finalCta": {
-    "title": "Meet Uniglo Diamonds in Munich",
-    "para": "Meet Uniglo Diamonds at INHORGENTA Munich 2027 to explore natural diamonds and Antwerp-based sourcing possibilities created around the requirements of your business. Prepare your preferred shapes, measurements, quality ranges, documentation requirements and intended jewellery applications so the team can plan a more relevant discussion.",
+    "title": "Book a Meeting with Uniglo Diamonds",
+    "para": "Meet Uniglo Diamonds in Munich to discuss natural diamonds selected around your retail, manufacturing, wholesale or bespoke-jewellery requirements. When requesting an appointment, include your preferred shapes, carat ranges, measurements, colours, clarities, quantities, grading-report requirements and intended jewellery applications.",
     "factEvent": "Event",
     "factEventValue": "INHORGENTA Munich 2027",
     "factDates": "Dates",
@@ -265,8 +277,8 @@
     "factVenueValue": "Messe München",
     "factStand": "Uniglo Stand",
     "factStandValue": "To be confirmed",
-    "primaryCta": "Book an INHORGENTA Trade Meeting with Uniglo Diamonds",
+    "primaryCta": "Book an INHORGENTA Trade Meeting",
     "secondaryCta": "Explore Uniglo's Natural Diamond Inventory",
-    "note": "The confirmed hall and stand number will be published as soon as it becomes available. Ticket shop opens 5 December 2026."
+    "note": "The confirmed hall and stand number will be published as soon as it becomes officially available. Ticket shop opens 5 December 2026."
   }
 }
