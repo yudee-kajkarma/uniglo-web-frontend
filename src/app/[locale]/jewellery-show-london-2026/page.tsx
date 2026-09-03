@@ -281,11 +281,11 @@ const JewelleryShowLondonPage = async ({ params }: Props) => {
             />
 
             {/* Announcement bar */}
-            <div className="w-full bg-primary-purple-dark px-4 py-3 text-center">
+            {/* <div className="w-full bg-primary-purple-dark px-4 py-3 text-center">
                 <p className="font-lato text-xs md:text-sm tracking-wide text-primary-yellow-1">
                     {t("announcement")}
                 </p>
-            </div>
+            </div> */}
 
             {/* Section 1 — hero. The show assets are square, so this uses a
                 split hero instead of the site's wide BannerSection. */}
@@ -387,7 +387,6 @@ const JewelleryShowLondonPage = async ({ params }: Props) => {
                         t("diamonds.para1"),
                         t("diamonds.para2"),
                         t("diamonds.para3"),
-                        t("diamonds.para4"),
                     ]}
                     image={{
                         src: IMAGES.diamonds,
@@ -395,26 +394,19 @@ const JewelleryShowLondonPage = async ({ params }: Props) => {
                     }}
                     reverse={false}
                     floatImages={false}
-                    actions={
-                        <div>
-                            {/* The shapes on offer, echoing the shape chart in
-                                the section image. */}
-                            <ul className="flex flex-wrap gap-2 mb-8">
-                                {shapes.map((shape) => (
-                                    <li
-                                        key={shape}
-                                        className="border border-[#bb923a]/40 px-4 py-2 font-lato text-[0.7rem] uppercase tracking-[0.15em] text-[#bb923a]"
-                                    >
-                                        {shape}
-                                    </li>
-                                ))}
-                            </ul>
-                            <PrimaryCta href={DIAMONDS_HREF}>
-                                {t("diamonds.cta")}
-                            </PrimaryCta>
-                        </div>
-                    }
                 />
+                {/* para4 + shapes + cta full width */}
+                <p className="w-full font-lora text-lg text-slate-600 leading-relaxed mt-8 mb-6">{t("diamonds.para4")}</p>
+                <ul className="flex flex-wrap gap-2 mb-8">
+                    {shapes.map((shape) => (
+                        <li key={shape} className="border border-[#bb923a]/40 px-4 py-2 font-lato text-[0.7rem] uppercase tracking-[0.15em] text-[#bb923a]">
+                            {shape}
+                        </li>
+                    ))}
+                </ul>
+                <div className="flex justify-center mb-20">
+                    <PrimaryCta href={DIAMONDS_HREF}>{t("diamonds.cta")}</PrimaryCta>
+                </div>
 
                 <ArticleLayout
                     title={t("antwerp.title")}

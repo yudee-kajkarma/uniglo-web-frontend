@@ -1,26 +1,26 @@
 {
   "metadata": {
-    "title": "JGTD Dubai 2026 | Uniglo at Stand SJ23",
-    "description": "Meet Uniglo Diamonds at stand SJ23 during JGTD Dubai 2026. Find confirmed dates, venue, registration and natural-diamond sourcing details."
+    "title": "JGTD Dubai 2026 | Uniglo Diamonds Stand SJ23",
+    "description": "Meet Uniglo Diamonds at Stand SJ23 during JGTD Dubai 2026, 27–29 October at Expo City. Discuss natural-diamond sourcing and book a meeting."
   },
   "announcement": "JGTD Dubai 2026 · 27–29 October · Stand SJ23 · Dubai Exhibition Centre, Expo City Dubai",
   "breadcrumbHome": "Home",
   "breadcrumbCurrent": "JGTD Dubai 2026",
   "hero": {
     "eyebrow": "Trade exhibition · 27–29 October 2026 · Dubai",
-    "title": "JGTD Dubai 2026: Meet Uniglo Diamonds at Stand SJ23",
-    "lead": "Jewellery, Gem & Technology in Dubai 2026 will take place from 27–29 October at the Dubai Exhibition Centre in Expo City Dubai. Uniglo NV of Belgium will be exhibiting at stand SJ23.",
-    "para1": "The trade-only exhibition will be open daily from 10:00 to 18:00. Visitors can meet the Uniglo Diamonds team to discuss natural-diamond sourcing, individual centre stones, matched pairs, calibrated diamonds and repeat-supply requirements.",
-    "para2": "The exhibition provides retailers, wholesalers, manufacturers, designers and other jewellery professionals with an opportunity to evaluate diamonds in person and build relationships with suppliers serving international markets.",
-    "primaryCta": "Book a JGTD Trade Meeting",
-    "secondaryCta": "Explore Natural Diamond Inventory",
+    "title": "JGTD Dubai 2026 – Meet Uniglo Diamonds at Stand SJ23",
+    "lead": "JGTD Dubai 2026 – Meet Uniglo Diamonds at Stand SJ23",
+    "para1": "JGTD Dubai 2026, formally Jewellery, Gem & Technology in Dubai 2026, will take place from 27–29 October at Dubai Exhibition Centre in Expo City Dubai. The international trade exhibition will be open daily from 10:00 to 18:00 in North Halls N21 and N23.",
+    "para2": "Meet Uniglo Diamonds at Stand SJ23 to discuss natural diamonds for retail, wholesale, bridal, bespoke and jewellery-manufacturing requirements. Buyers can explore individual centre stones, matched pairs, calibrated selections and repeat requirements based on specific shapes, measurements, colour and clarity combinations.",
+    "para3": "Professional visitors can book an appointment before the show and provide their sourcing brief in advance, allowing the Uniglo Diamonds team to prepare a more focused commercial discussion.",
+    "primaryCta": "Book a Meeting at Stand SJ23",
     "imageAlt": "Uniglo Diamonds at JGTD Dubai 2026 stand SJ23"
   },
   "eventDetails": {
-    "eyebrow": "Event Information",
-    "title": "JGTD Dubai 2026 Dates, Venue and Opening Hours",
-    "colLabel": "Detail",
-    "colValue": "Confirmed Information",
+    "eyebrow": "Quick Event Information",
+    "title": "JGTD Dubai 2026 Event Details",
+    "colLabel": "Event information",
+    "colValue": "Confirmed details",
     "rows": [
       { "label": "Event", "value": "Jewellery, Gem & Technology in Dubai 2026" },
       { "label": "Common name", "value": "JGTD Dubai 2026" },
@@ -32,24 +32,33 @@
       { "label": "Admission", "value": "Free for registered industry professionals" },
       { "label": "Minimum age", "value": "16 years" },
       { "label": "Registration", "value": "Mandatory" },
-      { "label": "Required documents", "value": "Printed badge and passport or Emirates ID" },
+      { "label": "Home-print badge deadline", "value": "Register online by 16 October 2026" },
+      { "label": "Required documents", "value": "Printed entrance badge and Emirates ID or national passport" },
       { "label": "Official exhibitor", "value": "Uniglo NV, Belgium" },
       { "label": "Uniglo Diamonds stand", "value": "SJ23" },
-      { "label": "Organisers", "value": "Informa Markets Jewellery and Italian Exhibition Group" }
+      { "label": "Organisers", "value": "Informa Markets Jewellery and Italian Exhibition Group" },
+      { "label": "Dubai Diamond Week", "value": "26–29 October 2026" },
+      { "label": "Meeting", "value": "Book a diamond-sourcing meeting at Stand SJ23" }
     ],
-    "note": "Visitor registration counters close 30 minutes before the exhibition ends. Event information was checked on 21 August 2026; visitors should review their registration and any final organiser updates before travelling."
+    "note": "Registration counters close 30 minutes before the show ends. Event information was last checked on 1 September 2026; visitors should review their registration and any final organiser updates before travelling."
   },
   "whatIs": {
     "eyebrow": "About the Exhibition",
-    "title": "What Is Jewellery, Gem & Technology in Dubai?",
-    "para1": "Jewellery, Gem & Technology in Dubai is an international B2B sourcing exhibition for the jewellery, diamond, gemstone and related technology industries. The event connects global suppliers with buyers from the Middle East and other major jewellery markets.",
-    "para2": "JGTD is designed for commercial activity rather than general consumer shopping. Visitors attend to compare suppliers, examine products, discuss manufacturing or sourcing requirements and identify new opportunities for their businesses.",
-    "areasLabel": "The exhibition brings several important parts of the jewellery supply chain together:",
+    "title": "JGTD Dubai 2026 Dates and Venue",
+    "para1": "JGTD will run from Tuesday 27 October through Thursday 29 October 2026. The exhibition is open from 10:00 to 18:00 on all three days.",
+    "para2": "The 2026 event will be held in North Halls N21 and N23 of Dubai Exhibition Centre at Expo City Dubai. This is not the Dubai World Trade Centre on Sheikh Zayed Road, so visitors should check their transport and accommodation plans carefully.",
+    "para3": "Registration counters close 30 minutes before the show ends. Buyers with several supplier appointments should allow additional time for badge collection, security and movement between exhibition sectors.",
+    "whatIsTitle": "What Is Jewellery, Gem & Technology in Dubai?",
+    "whatIsPara1": "Jewellery, Gem & Technology in Dubai is an international B2B exhibition connecting jewellery suppliers with professional buyers from the Middle East and other global markets.",
+    "whatIsPara2": "JGTD is intended for sourcing, supplier evaluation, commercial meetings and business development. It is not a consumer jewellery-shopping event.",
+    "areasLabel": "The exhibition combines several parts of the jewellery supply chain within one commercial environment:",
     "areas": [
-      "Finished fine, silver, wedding and men's jewellery",
       "Natural and lab-grown diamonds",
       "Coloured gemstones and pearls",
-      "Jewellery mountings and accessories",
+      "Finished fine jewellery",
+      "Wedding and men's jewellery",
+      "Semi-finished jewellery and mountings",
+      "Jewellery components and accessories",
       "Manufacturing tools and equipment",
       "Laboratory and testing technology",
       "Display and packaging solutions",
@@ -60,227 +69,294 @@
   "whyMatters": {
     "eyebrow": "Why JGTD Matters",
     "title": "Why JGTD Matters to International Diamond Buyers",
-    "para1": "The diamond and jewellery industries operate across borders. Diamonds may be sourced or traded through one market, jewellery manufactured in another and finished collections sold to customers across several regions.",
-    "para2": "JGTD creates a meeting point where these businesses can discuss requirements directly. A retailer can compare diamonds for its bridal inventory, a manufacturer can source stones for established jewellery designs, and a designer can explore suppliers capable of supporting future collections.",
-    "para3": "The three-day format gives buyers a focused environment for evaluating potential partners. Instead of relying entirely on photographs, specifications and remote communication, visitors can examine diamonds and ask detailed questions in person.",
-    "considerLabel": "These meetings can address the commercial considerations that determine whether a diamond is genuinely suitable:",
+    "para1": "Dubai provides an important meeting point for diamond and jewellery businesses serving regional and international markets. JGTD gives these businesses three focused days to compare products, evaluate suppliers and discuss commercial requirements in person.",
+    "para2": "A retailer may use the show to identify diamonds for a bridal assortment. A manufacturer may need calibrated stones compatible with an established design. A wholesaler may be sourcing commercially relevant specifications for customers across several markets.",
+    "para3": "Physical viewing also allows buyers to compare outlines, face-up appearance and overall visual characteristics before deciding whether a diamond suits its intended application.",
+    "considerLabel": "An in-person discussion can address factors that are difficult to resolve through inventory listings alone:",
     "considerItems": [
-      "Intended market and customer",
-      "Shape, carat weight and measurements",
+      "Intended customer and market",
+      "Diamond shape and carat-weight range",
+      "Measurements and proportions",
       "Colour and clarity requirements",
-      "Target price position",
       "Individual or repeat quantities",
-      "Jewellery application",
-      "Documentation requirements",
       "Matching and calibration",
-      "Future availability",
-      "Delivery expectations",
-      "Long-term supply support"
+      "Intended jewellery application",
+      "Documentation requirements",
+      "Production and delivery schedules",
+      "Future availability"
     ]
   },
   "meet": {
     "eyebrow": "Meet Uniglo Diamonds",
     "title": "Meet Uniglo Diamonds at JGTD Dubai 2026",
-    "para1": "The official JGTD exhibitor catalogue lists Uniglo NV of Belgium at stand SJ23. Uniglo's presence gives professional buyers an opportunity to discuss natural diamonds across different shapes, carat weights, measurements, colours and clarities.",
-    "para2": "Visitors can explain the intended use of a diamond, compare possible specifications and explore sourcing options suited to their market and product requirements. The conversation may begin with an individual centre stone, a matched pair, a calibrated diamond selection or a wider requirement for bridal, everyday or multi-stone jewellery.",
-    "para3": "For buyers comparing international diamond suppliers, the meeting is also an opportunity to learn more about Uniglo Diamonds' Antwerp-based sourcing background and approach to understanding real commercial requirements.",
-    "cta": "Book a JGTD Trade Meeting",
+    "para1": "The official exhibitor information lists Uniglo NV of Belgium at Stand SJ23.",
+    "para2": "Professional buyers can meet the Uniglo Diamonds team to discuss natural diamonds across different shapes, weights, measurements, colours and clarities. Requirements may involve one individual diamond, matched stones, calibrated selections or repeat supply for an established jewellery design.",
+    "para3": "Buyers should submit their most important specifications before the exhibition whenever possible.",
+    "meetingItems": [
+      "Centre stones for engagement rings",
+      "Fancy-shaped natural diamonds",
+      "Matched diamonds for earrings",
+      "Coordinated centre and side stones",
+      "Calibrated diamonds for multi-stone jewellery",
+      "Diamonds for tennis bracelets and necklaces",
+      "Bridal and anniversary-jewellery requirements",
+      "Diamonds for bespoke commissions",
+      "Commercial assortments for wholesalers",
+      "Repeat requirements for manufacturers",
+      "Grading-report and documentation preferences",
+      "Delivery and production expectations"
+    ],
+    "cta": "Book a JGTD Meeting at Stand SJ23",
     "imageAlt": "Natural diamonds presented by Uniglo Diamonds at JGTD Dubai"
   },
-  "applications": {
-    "eyebrow": "Diamonds for Jewellery Applications",
-    "title": "Natural Diamonds for Different Jewellery Applications",
-    "para1": "Selecting a diamond for a finished piece requires more than choosing a carat weight, colour and clarity grade. A centre stone for an engagement ring must work with the intended setting and visual proportions. Diamonds for earrings need to complement one another, while stones for tennis bracelets, tennis necklaces and eternity bands require consistency across a much larger group.",
-    "shapesLabel": "Uniglo Diamonds can discuss natural-diamond requirements across popular shapes including:",
+  "whatCanSource": {
+    "eyebrow": "What Diamond Buyers Can Source",
+    "title": "What Diamond Buyers Can Source at JGTD Dubai",
+    "para1": "JGTD presents loose diamonds alongside coloured gemstones, pearls, finished jewellery, mountings, components and manufacturing technology.",
+    "para2": "Diamond buyers may encounter products ranging from individual documented stones to matched pairs, layouts and commercial selections. However, availability and specifications will differ between exhibitors.",
+    "para3": "At Uniglo Diamonds, the discussion focuses on natural diamonds selected around the buyer's intended product, market and commercial requirements."
+  },
+  "naturalDiamondSourcing": {
+    "eyebrow": "Natural Diamond Sourcing in Dubai",
+    "title": "Natural Diamond Sourcing in Dubai",
+    "para1": "A successful sourcing decision begins with the purpose of the diamond, not only the grades recorded on a report.",
+    "para2": "A centre stone for a solitaire ring may be assessed differently from diamonds required for earrings, an eternity band or a tennis bracelet. Measurements, proportions, matching, visual appearance, documentation and repeat availability can all affect commercial suitability.",
+    "para3": "Availability changes, so the meeting should begin with both preferred specifications and acceptable alternatives. This allows the team to determine where suitable sourcing possibilities may exist.",
     "shapes": [
-      "Round Brilliant", "Oval", "Emerald", "Pear", "Princess",
-      "Cushion", "Radiant", "Marquise", "Heart", "Asscher"
+      "Round Brilliant",
+      "Oval",
+      "Emerald",
+      "Pear",
+      "Princess",
+      "Cushion",
+      "Radiant",
+      "Marquise",
+      "Heart",
+      "Asscher"
     ],
-    "para2": "Shape is only the beginning. Buyers may also need to consider measurements, proportions, face-up appearance, length-to-width ratio, matching, grading documentation and the availability of future replacements or repeat supply. Understanding the jewellery's intended purpose allows the sourcing conversation to focus on diamonds that are both technically and commercially suitable."
+    "imageAlt": "Natural diamonds presented by Uniglo Diamonds at JGTD Dubai"
   },
   "retailersManufacturers": {
     "eyebrow": "Retailers and Manufacturers",
-    "title": "Natural-Diamond Sourcing for Retailers and Manufacturers",
-    "para1": "Retailers and manufacturers often approach diamond sourcing differently. A retailer may require a distinctive centre stone for an individual customer, while a manufacturer may need repeat supply within carefully defined tolerances. A wholesaler may be preparing an assortment for several regional markets, each with different preferences and price expectations.",
-    "discussLabel": "At stand SJ23, visitors can discuss requirements such as:",
+    "title": "Natural Diamonds for Retailers and Manufacturers",
+    "para1": "Retailers, manufacturers and wholesalers frequently approach sourcing with different priorities.",
+    "para2": "A retailer may require a distinctive centre stone for an individual customer or a selection of commercially recognisable options for a bridal range. A manufacturer may require repeat supply within defined measurements and production tolerances. A wholesaler may be building assortments for several customer groups and price positions.",
+    "para3": "Connecting these specifications to the intended jewellery helps ensure that the diamonds are evaluated in the correct context.",
+    "discussLabel": "Commercial requirements may include:",
     "discussItems": [
-      "Natural diamonds for engagement rings",
-      "Fancy-shaped centre stones",
-      "Matched diamonds for earrings",
-      "Calibrated diamonds for multi-stone jewellery",
-      "Diamonds for bridal collections",
-      "Stones for tennis bracelets and necklaces",
-      "Certification or documentation preferences",
-      "Specific measurements or visual requirements",
-      "Repeat supply for established designs",
-      "Individual diamonds for bespoke commissions"
-    ],
-    "outro": "The objective is to understand what buyers need the diamonds to accomplish once they are placed into jewellery."
+      "Individual natural diamonds",
+      "Defined shape and carat ranges",
+      "Specific measurement tolerances",
+      "Matched or calibrated stones",
+      "Core bridal specifications",
+      "Distinctive fancy shapes",
+      "Repeat quantities",
+      "Replacement stones",
+      "Market-specific quality combinations",
+      "Defined delivery schedules"
+    ]
   },
   "shapes": {
     "eyebrow": "Diamond Shapes",
     "title": "Diamond Shapes for Different Markets",
-    "para1": "Diamond preferences can vary significantly between countries, retailers and customer groups. Round Brilliant diamonds remain important for engagement rings, solitaires, earrings, tennis jewellery and classic diamond designs.",
-    "para2": "Oval, Pear and Marquise diamonds provide elongated proportions and can create greater visual coverage. Emerald and Asscher-cut diamonds offer a more architectural appearance defined by step-cut faceting and broad flashes of light.",
-    "para3": "Cushion and Radiant diamonds combine distinctive outlines with lively brilliance, while Princess-cut diamonds remain relevant for square and geometric designs. Heart-shaped diamonds may suit romantic, gifting or highly personalised jewellery.",
-    "para4": "Rather than treating every diamond shape as equally appropriate for every market, Uniglo Diamonds works to understand how each stone will be positioned, set and sold."
+    "para1": "Diamond-shape demand can vary between countries, retailers, customers and jewellery categories.",
+    "para2": "Round Brilliant diamonds remain important for engagement rings, earrings, tennis jewellery and classic designs. Oval, Pear and Marquise diamonds offer elongated outlines and a different visual spread.",
+    "para3": "Emerald and Asscher cuts provide step-cut faceting and broader flashes of light. Cushion and Radiant diamonds combine distinctive outlines with lively brilliance, while Princess-cut diamonds may suit square and geometric designs. Heart-shaped diamonds can support romantic and highly personalised jewellery.",
+    "para4": "No shape is automatically suitable for every market. Buyers should consider the intended setting, customer, price position and collection identity before making a decision."
   },
   "measurements": {
     "eyebrow": "Measurements and Proportions",
     "title": "Measurements, Proportions and Face-Up Appearance",
-    "para1": "Carat weight does not tell buyers everything about how a polished diamond will look. Two diamonds with the same carat weight can have different measurements, proportions and face-up appearances. This is especially important for fancy shapes, where outline and length-to-width ratio can significantly affect the character of the diamond.",
-    "para2": "A jewellery manufacturer may require exact measurements to fit an existing mounting. A retailer may prefer an Oval or Emerald diamond with a specific length-to-width ratio. A designer may require stones with proportions that support a particular creative direction.",
-    "considerLabel": "Buyers should consider whether their requirements include:",
+    "para1": "Two diamonds with the same carat weight can have noticeably different measurements, proportions and face-up appearances.",
+    "para2": "These differences are particularly relevant for fancy-shaped diamonds. Length-to-width ratio, outline and weight distribution can influence how an Oval, Pear, Emerald, Cushion or Radiant diamond looks when set.",
+    "para3": "A manufacturer may require precise dimensions for an existing mounting. A retailer may prefer a defined ratio or face-up size. A designer may need proportions that support a specific creative direction.",
+    "para4": "Clear measurement requirements make the discussion more efficient and reduce unsuitable options.",
+    "considerLabel": "Buyers should identify whether they require:",
     "considerItems": [
-      "Minimum or maximum measurements",
+      "Minimum and maximum measurements",
       "Preferred length-to-width ratios",
-      "Face-up size expectations",
-      "Specific outline preferences",
-      "Existing mountings that must be accommodated",
-      "Cut or proportion expectations",
-      "Matching requirements",
-      "Visual characteristics not fully described by a grading report"
+      "Defined face-up dimensions",
+      "Particular outline characteristics",
+      "Compatibility with an existing setting",
+      "Cut or proportion preferences",
+      "Matching with other stones",
+      "Visual characteristics beyond the grading report"
     ]
   },
   "matching": {
     "eyebrow": "Matched and Calibrated Diamonds",
     "title": "Matched and Calibrated Natural Diamonds",
-    "para1": "Matching is particularly important when multiple diamonds will be used in the same piece of jewellery. Diamond earrings, three-stone rings, eternity bands, tennis bracelets, tennis necklaces and multi-stone designs require a considered level of consistency.",
-    "para2": "For manufacturers, calibration can also affect setting efficiency and production repeatability. Diamonds that vary significantly in size or proportion may require changes during setting and can create an uneven finished appearance.",
-    "discussLabel": "Buyers meeting Uniglo Diamonds can discuss:",
+    "para1": "Matched and calibrated diamonds are especially important when several stones will be used together.",
+    "para2": "Diamond earrings, three-stone rings, eternity bands, tennis bracelets, tennis necklaces and other multi-stone jewellery may require coordination across measurements, shape, colour, clarity and visual appearance.",
+    "para3": "For manufacturers, consistency can also affect setting efficiency and production repeatability. Significant variations may require adjustments during setting and can produce an uneven finished result.",
+    "para4": "The intended design, setting method and production quantity should be explained at the beginning of the sourcing process.",
+    "discussLabel": "Buyers can discuss:",
     "discussItems": [
       "Matched diamond pairs",
       "Coordinated side stones",
       "Calibrated diamond selections",
+      "Three-stone layouts",
       "Eternity-band layouts",
       "Tennis-bracelet layouts",
       "Tennis-necklace layouts",
-      "Multi-stone jewellery",
       "Replacement diamonds",
-      "Repeat manufacturing requirements"
+      "Repeat manufacturing specifications"
     ],
     "imageAlt": "Matched and calibrated natural diamonds from Uniglo Diamonds"
   },
   "bridal": {
     "eyebrow": "Bridal Jewellery",
     "title": "Natural Diamonds for Bridal Jewellery",
-    "para1": "Bridal jewellery remains one of the most important commercial applications for polished diamonds. An engagement-ring retailer may require documented centre stones across several popular shapes, carat weights and quality combinations. A manufacturer may need centre diamonds and matching side stones for repeatable engagement-ring designs.",
-    "para2": "Bespoke jewellers may instead require an individual natural diamond selected around a client's preferences, budget and intended setting.",
+    "para1": "Bridal jewellery remains one of the most important uses of polished natural diamonds.",
+    "para2": "Retailers may require documented centre stones covering several shapes, weights and price positions. Manufacturers may need centre diamonds and matched side stones for repeatable engagement-ring designs. Bespoke jewellers may require one particular diamond selected around an individual client.",
+    "para3": "A useful bridal assortment can combine established core options with selected fancy-shaped diamonds for customers seeking something more individual.",
     "discussLabel": "Buyers can discuss diamonds for:",
     "discussItems": [
       "Solitaire engagement rings",
       "Halo engagement rings",
       "Three-stone rings",
       "Side-stone engagement rings",
-      "Diamond wedding bands",
-      "Eternity and anniversary bands",
+      "Wedding bands",
+      "Eternity and anniversary rings",
       "Bridal earrings and necklaces",
-      "Bespoke engagement-ring commissions"
-    ],
-    "para3": "A commercially useful bridal inventory often needs both dependable core options and distinctive diamonds for customers seeking something more individual."
+      "Bespoke commissions"
+    ]
   },
   "certification": {
     "eyebrow": "Certification and Documentation",
     "title": "Certification and Documentation Requirements",
-    "para1": "Diamond documentation requirements can differ depending on the stone's size, value, intended market and customer expectations. Some buyers require individual grading reports for centre stones. Other applications may use commercial documentation appropriate to smaller or calibrated diamonds.",
-    "considerLabel": "Before meeting Uniglo Diamonds, buyers should identify:",
+    "para1": "Documentation requirements depend on the diamond's size, value, intended market, application and customer expectations.",
+    "para2": "Some buyers require individual grading reports for centre stones. Other applications may use commercial documentation appropriate to smaller or calibrated diamonds. Import, export, insurance and inventory procedures may create further requirements.",
+    "para3": "Documentation should be discussed before a final selection is prepared.",
+    "considerLabel": "Buyers should establish:",
     "considerItems": [
       "Whether individual grading reports are required",
-      "Preferred or accepted grading laboratories",
-      "Information needed for internal inventory systems",
-      "Country-specific retail disclosure obligations",
-      "Import or export documentation requirements",
-      "Sourcing or traceability information expectations",
-      "Whether documentation must accompany each diamond",
-      "Requirements for parcels, pairs or layouts"
-    ],
-    "para2": "Discussing documentation at the beginning helps prevent misunderstandings after a selection has been prepared."
+      "Which grading laboratories are accepted",
+      "Information needed by inventory systems",
+      "Documentation required for each diamond",
+      "Requirements for parcels, pairs or layouts",
+      "Import or export documentation needs",
+      "Market-specific disclosure expectations",
+      "Traceability or sourcing-information requirements"
+    ]
   },
   "antwerp": {
     "eyebrow": "Antwerp Diamond Expertise",
-    "title": "Antwerp Diamond Expertise for International Buyers",
-    "para1": "Antwerp has played a central role in the international diamond trade for generations. Uniglo Diamonds' Antwerp background connects the business with one of the world's most established diamond-trading centres.",
-    "para2": "However, location alone does not create a dependable supplier relationship. Buyers also require accurate communication, clearly defined specifications, realistic delivery expectations and consistent follow-up.",
-    "para3": "Uniglo Diamonds begins by understanding what the buyer is trying to manufacture, stock or sell. This makes it possible to assess which shapes, measurements, quality combinations and supply arrangements are most relevant.",
-    "para4": "This approach can support a retailer sourcing centre stones, a manufacturer preparing a repeat collection, a wholesaler serving several markets or a designer developing a specialised diamond-led range."
+    "title": "Antwerp Diamond Expertise for Dubai's International Market",
+    "para1": "JGTD connects international diamond suppliers with businesses serving Dubai, the wider Middle East and other global jewellery markets.",
+    "para2": "Uniglo Diamonds brings an Antwerp-based sourcing background to this commercial environment. The team begins by understanding what the buyer plans to manufacture, stock or sell before discussing potentially suitable specifications.",
+    "para3": "A productive supply relationship depends on clear communication, accurate specifications, suitable documentation and realistic expectations — not location alone.",
+    "supportLabel": "This approach may support:",
+    "supportItems": [
+      "Retailers sourcing engagement-ring centre stones",
+      "Manufacturers preparing repeat collections",
+      "Wholesalers serving several regional markets",
+      "Designers developing diamond-led ranges",
+      "Bespoke jewellers sourcing for individual clients",
+      "Buying teams comparing international suppliers"
+    ]
   },
   "whoShouldMeet": {
     "eyebrow": "Who Should Attend",
-    "title": "Who Should Meet Uniglo Diamonds at Stand SJ23?",
+    "title": "Who Should Meet Uniglo at JGTD 2026?",
     "types": [
-      { "title": "Jewellery Retailers", "body": "Retailers refreshing diamond inventories, sourcing for bridal ranges or seeking a dependable long-term supplier." },
-      { "title": "Diamond Wholesalers", "body": "Wholesale buyers building assortments for regional customers with different preferences and price expectations." },
-      { "title": "Jewellery Manufacturers", "body": "Manufacturers requiring natural diamonds to defined shapes, measurements, calibrated specifications and quantities." },
-      { "title": "Bridal Specialists", "body": "Bridal specialists developing engagement and wedding collections across different shapes, qualities and price positions." },
-      { "title": "Designers and Brands", "body": "Designers sourcing for new collections, particular centre stones or designs requiring a specific visual direction." },
-      { "title": "Buying Offices", "body": "Professional sourcing teams comparing international suppliers, evaluating capabilities and documentation." },
-      { "title": "Bespoke Jewellers", "body": "Bespoke jewellers sourcing individual diamonds around a client's precise preferences and commission requirements." },
-      { "title": "Businesses Seeking Repeat Supply", "body": "Companies requiring consistent repeat supply for established jewellery designs and production schedules." }
+      { "title": "Jewellery Retailers", "body": "Bridal diamonds, inventory gaps and commercial shape or quality combinations." },
+      { "title": "Diamond Wholesalers", "body": "Regional demand, quantities, documentation and repeat requirements." },
+      { "title": "Jewellery Manufacturers", "body": "Measurements, calibration, matching and production schedules." },
+      { "title": "Bridal Specialists", "body": "Centre stones, side stones, wedding bands and eternity-jewellery requirements." },
+      { "title": "Designers and Jewellery Brands", "body": "Fancy shapes and diamonds for planned collections." },
+      { "title": "Buying Offices", "body": "Supplier capabilities, documentation, quantities and delivery expectations." },
+      { "title": "Bespoke Jewellers", "body": "Individual diamonds for client-specific commissions." }
     ]
   },
   "prepare": {
     "eyebrow": "Preparing for the Meeting",
-    "title": "How to Prepare for a Diamond-Sourcing Meeting",
-    "para": "JGTD brings many suppliers and product categories into a concentrated three-day exhibition. Preparing in advance helps buyers use that time effectively. Before meeting Uniglo Diamonds, consider bringing:",
+    "title": "Preparing for a Meeting at Stand SJ23",
+    "para": "Buyers can make better use of the three-day exhibition by preparing a concise sourcing brief before arriving.",
     "items": [
       "Preferred diamond shapes",
       "Required carat-weight ranges",
-      "Colour and clarity expectations",
-      "Measurement or matching requirements",
-      "Target market and customer profile",
-      "Intended jewellery application",
+      "Colour and clarity combinations",
+      "Minimum and maximum measurements",
+      "Matching or calibration requirements",
+      "Intended jewellery applications",
+      "Target customer and market",
       "Approximate quantities",
-      "Target price position",
-      "Certification preferences",
-      "Delivery requirements",
-      "Images of existing designs or assortment gaps",
-      "Questions about repeat supply and future availability"
+      "Target commercial position",
+      "Grading-report preferences",
+      "Delivery destination",
+      "Production deadlines",
+      "Images of current designs",
+      "Questions about repeat availability"
     ],
-    "note": "A specific brief allows the conversation to move beyond a general product presentation and focus on relevant sourcing possibilities.",
-    "cta": "Book a JGTD Trade Meeting"
+    "note": "Buyers do not need to arrive with a completed order. A clear collection gap, production requirement or customer request can provide a productive starting point.",
+    "cta": "Book a JGTD Meeting at Stand SJ23"
   },
   "diamondWeek": {
     "eyebrow": "Dubai Diamond Week 2026",
-    "title": "JGTD Dubai and Dubai Diamond Week 2026",
-    "para1": "JGTD Dubai 2026 forms part of a wider period of diamond-industry activity in the city. Dubai Diamond Week will take place from 26–29 October 2026, bringing government representatives, producers, manufacturers, retailers, traders, investors and technology businesses together for industry discussion and commercial engagement.",
-    "para2": "The programme includes the Dubai Diamond Conference and JGTD. The conference provides a forum for strategic discussion, while JGTD creates a commercial environment for sourcing, supplier meetings and business development.",
-    "para3": "For natural-diamond professionals travelling to Dubai, the combination provides an opportunity to consider both the wider direction of the industry and their immediate commercial requirements."
+    "title": "JGTD and Dubai Diamond Week 2026",
+    "para1": "JGTD is the commercial sourcing component of Dubai Diamond Week, which runs from 26–29 October 2026.",
+    "para2": "The Dubai Diamond Conference opens the week on 26 October, followed by industry meetings and activities. JGTD then runs from 27–29 October at Dubai Exhibition Centre, providing a marketplace for sourcing, supplier meetings and business development.",
+    "para3": "For diamond professionals, the combination creates opportunities to consider wider industry strategy and immediate commercial sourcing during the same trip."
   },
   "registration": {
-    "eyebrow": "Registration and Entry",
-    "title": "Registration and Entry Requirements",
-    "para1": "JGTD Dubai 2026 is reserved exclusively for jewellery-industry professionals aged 16 or above. Registration is mandatory, but admission is free for approved professional visitors. Once registered, attendees should print their entrance badges before travelling to the venue.",
-    "requireLabel": "Visitors must carry:",
+    "eyebrow": "Registration and Admission",
+    "title": "JGTD Dubai Registration and Admission",
+    "para1": "JGTD is a trade-only exhibition for jewellery-industry professionals aged 16 or above. Registration is mandatory, and admission is free.",
+    "para2": "Visitors who register online by 16 October 2026 can receive a home-print badge for faster entry. After 16 October, badges must be collected from the registration counters onsite.",
+    "para3": "Badge and identity details may be checked before entry. Visitors should review the organiser's current requirements before travelling.",
+    "requireLabel": "Visitors should bring:",
     "requireItems": [
-      "A printed entrance badge",
-      "A passport or Emirates ID"
-    ],
-    "para2": "Photo identification may be checked to confirm that the person entering matches the registered badge holder. Bags may also be subject to security screening, including X-ray or metal-detector checks.",
-    "para3": "The organiser may refuse or cancel admission where registration, identification or security requirements are not met."
+      "Their printed entrance badge",
+      "An Emirates ID or national passport"
+    ]
   },
   "venue": {
     "eyebrow": "Getting There",
-    "title": "How to Reach Dubai Exhibition Centre",
-    "para1": "Dubai Exhibition Centre is located on Exhibition Boulevard at Expo City Dubai in Dubai South. Visitors travelling by public transport can use the Dubai Metro Red Line to Expo 2020 Station. The station is situated within Expo City and provides access to the venue area.",
-    "para2": "The exhibition centre can also be reached by taxi or car. Drivers should follow current Expo City signs and parking guidance because routes and designated parking areas may vary according to the event.",
-    "para3": "International visitors commonly arrive through Dubai International Airport or Al Maktoum International Airport. Travel time will depend on the airport, traffic and chosen transport method.",
-    "newVenueTitle": "Why the New Venue Matters",
-    "newVenuePara": "The 2026 edition will take place in the North Halls of Dubai Exhibition Centre at Expo City. The location places the event within Dubai South, an area connected to major transport infrastructure and a growing international business community. Buyers should check the final floor plan before travelling and allow sufficient time to move between different product sectors."
+    "title": "Getting to Dubai Exhibition Centre",
+    "para1": "Dubai Exhibition Centre is located on Exhibition Boulevard at Expo City Dubai.",
+    "metroTitle": "By Metro",
+    "metroPara": "The organiser recommends the Dubai Metro as a convenient way to reach the venue. The Red Line serves Expo City Metro station, providing access to the Expo City area and Dubai Exhibition Centre.",
+    "carTitle": "By Car or Taxi",
+    "carPara": "The venue can also be reached by car or taxi. Designated parking is located near the exhibition centre, and the organiser may operate connections between public parking areas and the venue. Drivers should follow current Expo City signage and event-day parking guidance.",
+    "airportTitle": "From the Airport",
+    "airportPara": "Dubai Exhibition Centre is approximately 35 minutes from Dubai International Airport under suitable traffic conditions. Actual travel time will vary according to traffic, arrival terminal and transport method.",
+    "newVenueTitle": "Why the Expo City and North Halls Location Matters",
+    "newVenuePara": "JGTD 2026 will occupy North Halls N21 and N23 at Dubai Exhibition Centre. The Expo City location provides metro access and purpose-built exhibition facilities. Buyers can meet suppliers across diamonds, gemstones, finished jewellery and industry technology within one professional sourcing environment. Visitors should review the final floor plan before arriving and leave sufficient time to move between exhibition sectors and scheduled appointments."
+  },
+  "guides": {
+    "eyebrow": "JGTD Dubai 2026 Guides",
+    "title": "JGTD Dubai 2026 Guides",
+    "items": [
+      {
+        "title": "JGTD Dubai 2026 Visitor Guide",
+        "body": "Find detailed information about registration, badges, admission, opening hours, transport, venue access and preparing for the exhibition."
+      },
+      {
+        "title": "JGTD Dubai 2026 Exhibitors & Diamond Sourcing Guide",
+        "body": "Research the show's product sectors, understand how to assess exhibitors and prepare useful questions before comparing potential suppliers."
+      },
+      {
+        "title": "Dubai Diamond Week 2026: A Guide for International Diamond Buyers",
+        "body": "Understand how the Dubai Diamond Conference, JGTD and related industry activities fit together from 26–29 October."
+      }
+    ]
   },
   "partnerships": {
     "eyebrow": "Beyond the Exhibition",
     "title": "Partnerships That Continue After the Exhibition",
-    "para1": "The value of a trade-show meeting is not limited to the diamonds examined during the event. A first discussion can help a supplier understand the buyer's market, preferred quality range, commercial objectives and future requirements.",
-    "para2": "For Uniglo Diamonds, JGTD provides an opportunity to reconnect with existing partners while meeting businesses discovering the company for the first time. The most valuable conversations are those that develop into professional relationships based on clear communication, consistent expectations and dependable follow-through.",
-    "nextStepsLabel": "After meeting Uniglo Diamonds, a buyer may wish to:",
+    "para1": "A meeting at JGTD can begin a sourcing relationship that continues after the show.",
+    "para2": "Following a discussion at Stand SJ23, a buyer may wish to:",
+    "para3": "The objective is to develop a clear understanding of the buyer's market, intended products, specifications and future requirements.",
+    "nextStepsLabel": "After the meeting, buyers may:",
     "nextSteps": [
-      "Request a focused diamond selection",
-      "Review particular grading reports",
-      "Refine measurement requirements",
+      "Request a more focused diamond selection",
+      "Review specific grading reports",
+      "Refine measurements or quality requirements",
       "Prepare a matched pair or calibrated layout",
-      "Confirm quantities or production schedules",
+      "Confirm quantities and production schedules",
       "Discuss repeat availability",
-      "Arrange a further viewing",
+      "Arrange another viewing",
       "Schedule a post-event sourcing conversation"
     ],
     "imageAlt": "Diamond buyer meeting Uniglo Diamonds at stand SJ23 during JGTD Dubai"
@@ -288,38 +364,38 @@
   "faq": {
     "title": "Frequently Asked Questions",
     "items": [
-      { "question": "When is JGTD Dubai 2026?", "answer": "JGTD Dubai 2026 will take place from Tuesday 27 October to Thursday 29 October 2026." },
-      { "question": "Where is JGTD Dubai 2026 being held?", "answer": "The exhibition will be held in North Halls N21 and N23 of Dubai Exhibition Centre at Expo City Dubai." },
-      { "question": "What are the JGTD Dubai 2026 opening hours?", "answer": "The show will be open from 10:00 to 18:00 on all three days. Registration counters close 30 minutes before the exhibition ends." },
-      { "question": "Is JGTD Dubai being held at Dubai World Trade Centre?", "answer": "No. The confirmed 2026 venue is Dubai Exhibition Centre at Expo City Dubai, not Dubai World Trade Centre on Sheikh Zayed Road." },
-      { "question": "What is Uniglo Diamonds' stand number at JGTD Dubai 2026?", "answer": "The official exhibitor catalogue lists Uniglo NV of Belgium at stand SJ23." },
-      { "question": "Is JGTD Dubai open to the public?", "answer": "No. JGTD is a trade-only exhibition reserved for recognised jewellery-industry professionals." },
-      { "question": "Is there an age requirement?", "answer": "Yes. Visitors must be at least 16 years old." },
-      { "question": "Is admission to JGTD Dubai free?", "answer": "Yes. Admission is free for approved jewellery-industry professionals, but registration is mandatory." },
-      { "question": "What documents do visitors need?", "answer": "Visitors need a printed entrance badge and either a passport or Emirates ID. Additional identity or security checks may be conducted at the venue." },
-      { "question": "What products are exhibited at JGTD Dubai?", "answer": "The exhibition covers diamonds, coloured gemstones, pearls, finished jewellery, semi-finished jewellery, mountings, tools, equipment, laboratory technology, displays and packaging." },
-      { "question": "What can buyers discuss with Uniglo Diamonds?", "answer": "Buyers can discuss natural diamonds across different shapes and specifications, matched or calibrated requirements, bridal sourcing, documentation and repeat supply." },
-      { "question": "Which natural-diamond shapes can buyers source?", "answer": "Relevant shapes include Round, Oval, Emerald, Pear, Princess, Cushion, Radiant, Marquise, Heart and Asscher." },
-      { "question": "Can buyers discuss matched or calibrated diamonds?", "answer": "Yes. Buyers can discuss matched pairs, calibrated diamonds, coordinated side stones and layouts for multi-stone jewellery." },
-      { "question": "Can Uniglo Diamonds support bridal requirements?", "answer": "Buyers can discuss centre stones, matching side stones and calibrated diamonds for engagement rings, wedding bands, eternity rings and other bridal designs." },
-      { "question": "Can manufacturers discuss repeat-supply requirements?", "answer": "Yes. Manufacturers should provide their required shapes, measurements, quality ranges, quantities and production schedules when discussing repeat supply." },
-      { "question": "Can buyers book a meeting with Uniglo Diamonds before the event?", "answer": "Yes. Booking in advance is recommended for buyers who want dedicated time to discuss particular diamonds or sourcing requirements." },
-      { "question": "How can visitors reach JGTD by metro?", "answer": "Visitors can take the Dubai Metro Red Line to Expo 2020 Station, located within Expo City Dubai." },
-      { "question": "Is JGTD part of Dubai Diamond Week 2026?", "answer": "Yes. JGTD takes place during Dubai Diamond Week, which runs from 26–29 October 2026 and also includes the Dubai Diamond Conference and related industry activity." }
+      { "question": "When is JGTD Dubai 2026?", "answer": "JGTD Dubai 2026 takes place from Tuesday 27 October to Thursday 29 October 2026." },
+      { "question": "Where is JGTD Dubai 2026 being held?", "answer": "The show is being held in North Halls N21 and N23 of Dubai Exhibition Centre at Expo City Dubai." },
+      { "question": "What are the opening hours?", "answer": "JGTD is open from 10:00 to 18:00 on all three days. Registration counters close 30 minutes before the show ends." },
+      { "question": "Is JGTD being held at Dubai World Trade Centre?", "answer": "No. The confirmed venue is Dubai Exhibition Centre at Expo City Dubai, not Dubai World Trade Centre on Sheikh Zayed Road." },
+      { "question": "What is Uniglo Diamonds' stand number?", "answer": "Uniglo Diamonds will exhibit at Stand SJ23." },
+      { "question": "Is JGTD open to the public?", "answer": "No. JGTD is a trade-only exhibition for recognised jewellery-industry professionals." },
+      { "question": "Is there a minimum age?", "answer": "Yes. Visitors must be at least 16 years old." },
+      { "question": "Is registration free?", "answer": "Admission is free, but registration is mandatory. Register online by 16 October 2026 to receive a home-print badge; later badges must be collected onsite." },
+      { "question": "What documents should visitors bring?", "answer": "Visitors should bring a printed entrance badge and either an Emirates ID or national passport." },
+      { "question": "What products are exhibited at JGTD?", "answer": "The show covers diamonds, coloured gemstones, pearls, finished and semi-finished jewellery, mountings, tools, machinery, laboratory technology, displays and packaging." },
+      { "question": "What can buyers discuss with Uniglo Diamonds?", "answer": "Buyers can discuss natural diamonds based on shape, carat weight, measurements, colour, clarity, documentation, matching, quantities and intended jewellery application." },
+      { "question": "Can buyers discuss matched or calibrated diamonds?", "answer": "Yes. Buyers can discuss matched pairs, coordinated side stones, calibrated selections and layouts for multi-stone jewellery." },
+      { "question": "Can Uniglo Diamonds support bridal requirements?", "answer": "Buyers can discuss centre stones, side stones and calibrated diamonds for engagement rings, wedding bands, eternity rings and other bridal designs." },
+      { "question": "How can visitors reach JGTD by metro?", "answer": "Use the Dubai Metro Red Line to Expo City Metro station and follow current venue directions for Dubai Exhibition Centre." },
+      { "question": "Is JGTD part of Dubai Diamond Week?", "answer": "Yes. JGTD runs from 27–29 October as the commercial sourcing component of Dubai Diamond Week, which begins on 26 October." },
+      { "question": "Can buyers arrange a meeting before the show?", "answer": "Yes. Buyers should book in advance and submit their requirements so Uniglo Diamonds can prepare a relevant discussion." }
     ]
   },
   "finalCta": {
-    "title": "Meet Uniglo Diamonds at JGTD Dubai 2026",
-    "para": "Meet Uniglo Diamonds at stand SJ23 from 27–29 October 2026 to explore natural diamonds and identify sourcing possibilities suited to your business. Whether you need a particular centre stone, matched diamonds, support for a repeatable jewellery collection or a potential long-term diamond supplier, the Uniglo Diamonds team looks forward to meeting you at Dubai Exhibition Centre.",
+    "title": "Book Your Meeting at Stand SJ23",
+    "para": "Meet Uniglo Diamonds at Stand SJ23 during JGTD Dubai 2026. Prepare your preferred shapes, measurements, carat-weight ranges, colour and clarity combinations, documentation requirements, quantities and intended jewellery applications before requesting an appointment.",
     "factEvent": "Event",
     "factEventValue": "JGTD Dubai 2026",
     "factDates": "Dates",
     "factDatesValue": "27–29 October 2026",
     "factVenue": "Venue",
-    "factVenueValue": "Dubai Exhibition Centre",
-    "factStand": "Uniglo Stand",
+    "factVenueValue": "Dubai Exhibition Centre, Expo City Dubai",
+    "factHalls": "Halls",
+    "factHallsValue": "North Halls N21 and N23",
+    "factStand": "Uniglo Diamonds stand",
     "factStandValue": "SJ23",
-    "primaryCta": "Book a JGTD Trade Meeting with Uniglo Diamonds",
+    "primaryCta": "Book a Meeting at Stand SJ23",
     "secondaryCta": "Explore Uniglo's Natural Diamond Inventory",
     "note": "Visitors need a printed entrance badge and a passport or Emirates ID. Registration counters close 30 minutes before the exhibition ends."
   }

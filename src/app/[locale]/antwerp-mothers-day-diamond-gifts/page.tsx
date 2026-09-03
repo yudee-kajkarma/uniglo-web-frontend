@@ -224,11 +224,11 @@ const AntwerpMothersDayPage = async ({ params }: Props) => {
             />
 
             {/* Announcement bar */}
-            <div className="w-full bg-primary-purple-dark px-4 py-3 text-center">
+            {/* <div className="w-full bg-primary-purple-dark px-4 py-3 text-center">
                 <p className="font-lato text-xs md:text-sm tracking-wide text-primary-yellow-1">
                     {t("announcement")}
                 </p>
-            </div>
+            </div> */}
 
             <BannerSection
                 image={IMAGES.banner}

@@ -1,327 +1,362 @@
 {
   "metadata": {
-    "title": "Vicenzaoro Settembre 2026 | Uniglo",
-    "description": "Incontra Uniglo Diamonds a Vicenzaoro Settembre 2026. Trova date, orari, registrazione e informazioni sull'approvvigionamento di diamanti naturali."
+    "title": "Vicenzaoro Settembre 2026 | Uniglo Diamonds",
+    "description": "Incontra Uniglo Diamonds a Vicenzaoro Settembre 2026 a Vicenza. Visita il Padiglione 3, Stand 136 per l'approvvigionamento di diamanti naturali o prenota un incontro."
   },
-  "announcement": "Vicenzaoro Settembre 2026 · 4–8 settembre · Fiera di Vicenza · Incontra Uniglo Diamonds",
+  "announcement": "Vicenzaoro Settembre 2026 · 4–8 settembre · Padiglione 3, Stand 136 · Incontra Uniglo Diamonds",
   "breadcrumbHome": "Home",
   "breadcrumbCurrent": "Vicenzaoro Settembre 2026",
   "hero": {
-    "eyebrow": "Fiera professionale · 4–8 settembre 2026 · Vicenza, Italia",
-    "title": "Vicenzaoro Settembre 2026: Incontra Uniglo Diamonds",
-    "lead": "Uniglo Diamonds si sta preparando per incontrare acquirenti internazionali e presentare diamanti naturali selezionati in base a diversi requisiti di vendita al dettaglio, all'ingrosso, produzione e design di gioielli.",
-    "para1": "Vicenzaoro Settembre 2026 si svolgera dal 4 all'8 settembre 2026 presso la Fiera di Vicenza a Vicenza, Italia. La fiera B2B internazionale riunisce marchi di gioielleria, rivenditori, produttori, grossisti, fornitori di diamanti e altri professionisti del settore prima dell'importante stagione di acquisti di fine anno.",
-    "para2": "I visitatori possono esplorare potenziali aggiunte ai loro inventari di diamanti, discutere specifiche di approvvigionamento dettagliate e avviare conversazioni su relazioni di fornitura a lungo termine supportate dall'esperienza diamantaria anversana di Uniglo.",
-    "primaryCta": "Prenota un incontro professionale Vicenzaoro",
-    "secondaryCta": "Esplora l'inventario di diamanti naturali",
+    "eyebrow": "Fiera commerciale · 4–8 settembre 2026 · Vicenza, Italia",
+    "title": "Vicenzaoro Settembre 2026 – Incontra Uniglo Diamonds a Vicenza",
+    "lead": "Vicenzaoro Settembre 2026 – Incontra Uniglo Diamonds a Vicenza",
+    "para1": "Vicenzaoro Settembre 2026 si terra dal 4 all'8 settembre presso la Fiera di Vicenza a Vicenza, Italia. Questa esposizione internazionale B2B riunisce la filiera dell'oro, della gioielleria, dell'orologeria e della manifattura mentre le aziende europee preparano nuove collezioni e piani di acquisto di fine anno.",
+    "para2": "Incontra Uniglo Diamonds al Padiglione 3, Stand 136 per discutere di diamanti naturali per vendita al dettaglio, all'ingrosso, gioielleria nuziale, commissioni su misura e requisiti di produzione gioielleria. I compratori possono esaminare le forme e le specifiche disponibili, discutere selezioni abbinate o calibrate ed esplorare i requisiti di approvvigionamento in base al mercato, prodotto e programma di produzione previsti.",
+    "para3": "Dettaglianti, produttori, grossisti, designer e team di acquisto professionali possono prenotare un incontro prima della fiera e inviare i propri requisiti di diamanti in anticipo.",
+    "primaryCta": "Prenota un incontro al Padiglione 3, Stand 136",
     "imageAlt": "Uniglo Diamonds a Vicenzaoro Settembre 2026"
   },
   "eventDetails": {
-    "eyebrow": "Informazioni sull'evento",
-    "title": "Vicenzaoro Settembre 2026 – Date, Sede e Orari",
-    "colLabel": "Dettaglio",
-    "colValue": "Informazione",
+    "eyebrow": "Informazioni rapide sull'evento",
+    "title": "Dettagli dell'evento Vicenzaoro Settembre 2026",
+    "colLabel": "Informazioni sull'evento",
+    "colValue": "Dettagli confermati",
     "rows": [
       { "label": "Evento", "value": "Vicenzaoro Settembre 2026" },
       { "label": "Date", "value": "4–8 settembre 2026" },
       { "label": "Sede", "value": "Fiera di Vicenza" },
       { "label": "Indirizzo", "value": "Via dell'Oreficeria 16, 36100 Vicenza, Italia" },
-      { "label": "Venerdi–lunedi", "value": "10:00–18:30" },
-      { "label": "Martedi", "value": "10:00–17:00" },
-      { "label": "Ammissione", "value": "Gratuita per i professionisti del settore gioielliero registrati" },
-      { "label": "Registrazione", "value": "Obbligatoria prima di entrare nella fiera" },
+      { "label": "Orari ven.–lun.", "value": "10:00–18:30" },
+      { "label": "Orari mar.", "value": "10:00–17:00" },
+      { "label": "Ammissione", "value": "Gratuita per professionisti del settore orafo registrati" },
+      { "label": "Registrazione", "value": "Obbligatoria prima di entrare in fiera" },
       { "label": "Organizzatore", "value": "Italian Exhibition Group" },
-      { "label": "Stand Uniglo Diamonds", "value": "Da confermare" },
-      { "label": "Eventi concomitanti", "value": "T.Gold: 4–8 settembre; VO Vintage: 4–7 settembre" }
+      { "label": "Pubblico di riferimento", "value": "Dettaglianti, grossisti, produttori, designer, team di acquisto e altri professionisti del settore orafo" },
+      { "label": "Posizione Uniglo Diamonds", "value": "Padiglione 3, Stand 136" },
+      { "label": "T.Gold", "value": "4–8 settembre 2026" },
+      { "label": "VO Vintage", "value": "4–7 settembre 2026" },
+      { "label": "Incontro", "value": "Prenota un incontro commerciale con Uniglo Diamonds allo Stand 136" }
     ],
-    "note": "Le informazioni sull'evento sono state verificate l'ultima volta il 21 agosto 2026. I visitatori devono confermare i loro badge, le disposizioni di viaggio e gli aggiornamenti finali del programma con l'organizzatore prima di partire."
+    "note": "Le informazioni sull'evento sono state verificate l'ultima volta il 1 settembre 2026. I visitatori devono confermare i propri badge, piani di viaggio e aggiornamenti del programma finale con l'organizzatore prima di partire."
+  },
+  "datesAndVenue": {
+    "eyebrow": "Date e sede",
+    "title": "Date e sede di Vicenzaoro Settembre 2026",
+    "para1": "Vicenzaoro Settembre si tiene da venerdì 4 settembre a martedì 8 settembre 2026 presso la Fiera di Vicenza.",
+    "para2": "La fiera è aperta dalle 10:00 alle 18:30 da venerdì a lunedì. Martedì, ultimo giorno, chiude alle 17:00. I visitatori che organizzano diversi incontri con i fornitori dovrebbero evitare di fissare appuntamenti importanti il martedì a causa dell'orario di chiusura anticipato.",
+    "para3": "Vicenzaoro e T.Gold condividono le stesse date dal 4 all'8 settembre. VO Vintage, l'evento organizzato separatamente per orologi e gioielli d'epoca, si svolge dal 4 al 7 settembre."
   },
   "whatIs": {
     "eyebrow": "Informazioni sulla fiera",
     "title": "Cos'e Vicenzaoro Settembre?",
-    "para1": "Vicenzaoro e una fiera B2B internazionale che copre la catena di approvvigionamento dell'oro, della gioielleria e degli orologi. La sua edizione di settembre e particolarmente rilevante per le aziende che preparano collezioni, scorte e strategie di approvvigionamento per gli ultimi mesi di vendita al dettaglio dell'anno.",
-    "para2": "La fiera riunisce piu di 1.300 espositori e professionisti da 145 paesi. I visitatori possono confrontare fornitori, vedere in anteprima le collezioni future, esaminare diamanti, pietre preziose, materiali e prodotti finiti, partecipare a discussioni di settore e incontrare potenziali partner commerciali di persona.",
-    "para3": "A differenza di una fiera di gioielleria per consumatori, Vicenzaoro e progettata principalmente per l'attivita commerciale. I rivenditori possono valutare i prodotti per i loro negozi, i produttori possono studiare componenti e tecnologia, i designer possono approvvigionare diamanti, e i distributori possono identificare fornitori adatti ai loro mercati.",
-    "para4": "Per gli acquirenti di diamanti, la fiera offre l'opportunita di confrontare pietre, discutere specifiche e valutare potenziali fornitori in un unico ambiente di approvvigionamento internazionale.",
-    "imageAlt": "Fiera Vicenzaoro Settembre 2026 alla Fiera di Vicenza"
+    "para1": "Vicenzaoro e una fiera professionale che serve le industrie internazionali dell'oro, della gioielleria e dell'orologeria. La sua edizione di settembre segna il riavvio del calendario orafo europeo dopo il periodo estivo e offre agli acquirenti l'opportunita di rinnovare le collezioni, pianificare gli acquisti e prepararsi per la stagione festiva.",
+    "para2": "L'organizzatore presenta piu di 1.300 espositori nella filiera della gioielleria. La fiera copre gioielleria di alta gamma e contemporanea, produzione senza marchio, diamanti e pietre colorate, montature, componenti semilavorati, imballaggio, visual merchandising, orologi e tecnologia manifatturiera.",
+    "para3": "La sua posizione a Vicenza conferisce all'evento un forte legame con l'oreficeria e la produzione gioielleria italiana. Gli acquirenti internazionali possono esaminare collezioni finite mentre incontrano anche aziende coinvolte nei materiali, componenti e tecnologie utilizzati per produrle.",
+    "imageAlt": "Fiera Vicenzaoro Settembre 2026 presso la Fiera di Vicenza"
   },
   "whatCanBuyers": {
     "eyebrow": "Cosa approvvigionare",
-    "title": "Cosa possono approvvigionare gli acquirenti a Vicenzaoro Settembre 2026?",
-    "intro": "Vicenzaoro divide la fiera in community che rappresentano diverse parti dell'industria della gioielleria e degli orologi. Le principali aree espositive comprendono:",
+    "title": "Cosa possono approvvigionare i compratori di gioielleria a Vicenzaoro 2026?",
+    "intro": "Vicenzaoro divide la sua offerta in community specializzate e aree espositive selezionate. Questo aiuta i visitatori professionali a concentrarsi sui prodotti e fornitori rilevanti per le loro attivita. Le principali categorie di approvvigionamento includono:",
     "areas": [
-      "Gioielleria di marca di fascia alta",
-      "Produzione orafa",
+      "Gioielleria di marca di alta gamma",
+      "Produzione orafa italiana e internazionale",
       "Montature e componenti semilavorati",
-      "Gioielleria contemporanea",
+      "Gioielleria contemporanea e trend",
+      "Diamanti, pietre colorate, coralli e perle",
+      "Gioielleria nuziale e fine",
       "Orologi",
-      "Diamanti, pietre preziose, coralli e perle",
       "Imballaggio e visual merchandising",
-      "Macchinari e tecnologia per la produzione di gioielli",
-      "Gioielli e componenti pronti all'acquisto"
+      "Macchinari e tecnologia per gioielleria",
+      "Gioielleria e componenti pronti all'acquisto"
     ],
-    "outro": "Per gli acquirenti di diamanti, i produttori di gioielli e i rivenditori, la fiera offre l'opportunita di confrontare prodotti di diversi fornitori esaminando di persona qualita, forma, misure, adeguatezza commerciale e potenziali accordi di fornitura."
-  },
-  "whySeptember": {
-    "eyebrow": "Perche settembre e importante",
-    "title": "Perche l'edizione di settembre e importante per gli acquirenti di diamanti",
-    "para1": "Settembre e un importante periodo di approvvigionamento per i rivenditori che si preparano per proposte di matrimonio, matrimoni, regali natalizi, celebrazioni del Capodanno e altre occasioni di acquisto di fine anno. Le decisioni prese in questo periodo possono influenzare quali prodotti appaiono nelle vetrine durante alcuni dei mesi di vendita al dettaglio piu affollati.",
-    "para2": "Una pianificazione efficace dell'assortimento di diamanti comporta piu che acquistare le forme o qualita che stanno attirando attenzione. Gli acquirenti devono considerare le preferenze locali dei clienti, i punti di prezzo pratici, la ripetibilita, le possibilita di rifornimento e l'equilibrio tra inventario di base e diamanti piu distintivi.",
-    "para3": "I produttori potrebbero anche preparare calendari di produzione per le collezioni di gioielli di fine anno. Assicurarsi diamanti adeguati in anticipo puo ridurre il rischio di ritardi.",
-    "discussLabel": "Vicenzaoro Settembre permette agli acquirenti di discutere argomenti quali:",
-    "discussItems": [
-      "Forme di diamanti e gamme di peso in carati",
-      "Combinazioni di colore e purezza",
-      "Requisiti di certificazione",
-      "Corrispondenza e calibratura",
-      "Applicazioni gioiellerie",
-      "Quantita di produzione",
-      "Disponibilita ripetuta",
-      "Aspettative di consegna",
-      "Posizionamento dei prezzi specifico del mercato",
-      "Supporto del fornitore a lungo termine"
-    ]
+    "outro": "L'area ESSENCE Gems, Diamonds, Corals & Pearls e particolarmente rilevante per i compratori di diamanti e pietre preziose. I produttori possono anche beneficiare di una visita a CREATION Montature e Semilavorati e alla mostra tecnologica T.Gold integrata."
   },
   "meet": {
     "eyebrow": "Incontra Uniglo Diamonds",
     "title": "Incontra Uniglo Diamonds a Vicenzaoro Settembre 2026",
-    "para1": "Uniglo Diamonds presentera diamanti naturali per rivenditori, grossisti, produttori, designer e aziende di gioielleria che cercano supporto esperto nell'approvvigionamento.",
-    "para2": "Il portafoglio disponibile comprende diversi pesi in carati, colori, gradi di purezza, misure e stili di taglio. Gli acquirenti possono discutere di brillanti rotondi insieme a forme fantasia popolari come Ovale, Smeraldo, Pera, Principessa, Cuscino, Radiante, Marquise, Cuore e Asscher.",
-    "para3": "Le diverse aziende spesso richiedono assortimenti di diamanti molto diversi. Un rivenditore puo aver bisogno di diamanti per una gamma da sposa di base, mentre un altro puo essere alla ricerca di una particolare pietra centrale per un cliente individuale. Un produttore puo richiedere specifiche coerenti su una serie di produzione.",
-    "para4": "Incontrare il team di Uniglo Diamonds permette agli acquirenti di spiegare direttamente questi requisiti ed esaminare le possibilita di approvvigionamento in base ai loro prodotti, mercati e clienti previsti.",
-    "cta": "Prenota un incontro professionale Vicenzaoro",
-    "imageAlt": "Diamanti naturali presentati da Uniglo Diamonds a Vicenzaoro"
-  },
-  "naturalDiamonds": {
-    "eyebrow": "Diamanti naturali per le reali esigenze aziendali",
-    "title": "Diamanti naturali selezionati in base alle reali esigenze aziendali",
-    "para1": "L'approvvigionamento di diamanti dovrebbe iniziare con lo scopo della pietra piuttosto che con un voto isolato su un rapporto. Un diamante destinato a un anello di fidanzamento solitario puo essere valutato diversamente dai diamanti selezionati per orecchini, una fascia infinita o un braccialetto tennis.",
-    "para2": "La corrispondenza, le dimensioni, le proporzioni, l'aspetto face-up, la disponibilita e la coerenza di sostituzione possono tutte influenzare se un diamante o un gruppo di diamanti e commercialmente adeguato.",
-    "discussLabel": "A Vicenzaoro, gli acquirenti possono discutere di:",
-    "discussItems": [
-      "Forme e dimensioni di diamanti richieste",
-      "Gamme di peso in carati preferite",
+    "para1": "I compratori professionali possono incontrare Uniglo Diamonds al Padiglione 3, Stand 136 per discutere direttamente con il team di Anversa i requisiti di approvvigionamento di diamanti naturali.",
+    "para2": "La discussione puo iniziare con una pietra centrale individuale, una coppia abbinata, diamanti calibrati per la produzione o un requisito piu ampio per un assortimento al dettaglio o all'ingrosso.",
+    "meetingItems": [
+      "Forma del diamante",
+      "Fascia di carati",
       "Misure minime e massime",
       "Combinazioni di colore e purezza",
-      "Requisiti certificati e non certificati",
-      "Requisiti di corrispondenza per orecchini e gioielli con piu pietre",
-      "Diamanti per collezioni da sposa e di fidanzamento",
-      "Fornitura ripetuta per design di gioielli consolidati",
-      "Diamanti individuali per commissioni su misura",
-      "Aspettative di prezzo e qualita specifiche del mercato"
-    ]
+      "Preferenze di taglio e proporzione",
+      "Requisiti del certificato",
+      "Abbinamento o calibrazione",
+      "Applicazione gioielleria prevista",
+      "Quantita richieste",
+      "Cliente e mercato target",
+      "Programma di produzione",
+      "Aspettative di consegna"
+    ],
+    "para3": "L'invio di queste informazioni prima della fiera da al team il tempo di comprendere il requisito e preparare un incontro piu pertinente.",
+    "cta": "Prenota un incontro Vicenzaoro allo Stand 136",
+    "imageAlt": "Diamanti naturali presentati da Uniglo Diamonds a Vicenzaoro"
+  },
+  "europeanBusinesses": {
+    "eyebrow": "Approvvigionamento di diamanti per aziende europee",
+    "title": "Approvvigionamento di diamanti per aziende orafe europee",
+    "para1": "Le aziende orafe europee spesso richiedono diamanti per gamme di prodotti consolidate, incastonature prodotte in Italia, collezioni private label, linee nuziali e commissioni su misura. Ogni utilizzo crea diversi requisiti commerciali e tecnici.",
+    "para2": "Un dettagliante che prepara una linea nuziale puo aver bisogno di pietre centrali documentate individualmente in piu forme riconoscibili e posizioni di prezzo. Un produttore puo richiedere diamanti calibrati con misure compatibili con una montatura esistente. Un grossista puo aver bisogno di specifiche commercialmente rilevanti per clienti che operano su piu mercati europei.",
+    "para3": "Uniglo Diamonds valuta una richiesta di approvvigionamento in base a come il diamante verra incastonato, prodotto, posizionato e venduto, non solo in base ai gradi stampati su un certificato.",
+    "considerLabel": "Le decisioni di approvvigionamento possono richiedere di considerare:",
+    "considerItems": [
+      "Compatibilita con montature esistenti",
+      "Misure metriche e tolleranze di produzione",
+      "Consistenza nella gioielleria abbinata o multi-pietra",
+      "Disponibilita per la produzione ripetuta",
+      "Documentazione richiesta dal mercato previsto",
+      "Posizioni di prezzo al dettaglio e all'ingrosso target",
+      "Calendari di consegna per la manifattura europea",
+      "Equilibrio tra forme di diamanti di base e distintive",
+      "Requisiti di sostituzione per design continuativi"
+    ],
+    "para4": "Il periodo di settembre e particolarmente rilevante per le aziende che finalizzano produzione e inventario per Natale, Capodanno e la successiva stagione nuziale."
   },
   "shapes": {
     "eyebrow": "Forme di diamanti",
-    "title": "Forme di diamanti naturali per diversi mercati",
-    "para1": "Le preferenze per la forma del diamante variano tra paesi, rivenditori e gruppi di clienti. I brillanti rotondi rimangono essenziali per anelli di fidanzamento, gioielli solitari, orecchini con diamanti, gioielli tennis e altri design classici.",
-    "para2": "I diamanti Ovale, Pera e Marquise offrono proporzioni allungate e possono creare una maggiore copertura visiva. I diamanti taglio Smeraldo e Asscher offrono un aspetto piu architettonico.",
-    "para3": "I diamanti Cuscino e Radiante combinano contorni distintivi con forte brillantezza, mentre i diamanti taglio Principessa rimangono rilevanti per design quadrati. I diamanti a forma di Cuore possono essere selezionati per pezzi romantici, regalo o altamente personalizzati.",
-    "para4": "Piuttosto che presentare ogni forma come adatta a ogni mercato, Uniglo Diamonds lavora per capire come una pietra sara posizionata, incastonata e venduta.",
+    "title": "Forme di diamanti naturali per i mercati europei",
+    "para1": "Le preferenze di forma dei diamanti variano tra paesi, dettaglianti, categorie di prezzo e gruppi di clienti.",
+    "para2": "I diamanti brillanti rotondi rimangono importanti per gli anelli di fidanzamento, gli orecchini di diamanti, la gioielleria tennis e i design classici di gioielleria fine. I diamanti ovali, a pera e marquise offrono contorni allungati e possono creare un aspetto diverso visto dall'alto.",
+    "para3": "I tagli smeraldo e Asscher offrono una sfaccettatura a gradino e un carattere piu architettonico. I diamanti cuscino e radiante combinano contorni distintivi con una maggiore brillantezza, mentre i diamanti taglio princess possono adattarsi a design di gioielleria quadrati e geometrici. I diamanti a forma di cuore possono supportare pezzi romantici, da regalo e altamente personalizzati.",
+    "para4": "Invece di considerare ogni forma adatta a ogni mercato, i compratori dovrebbero considerare come il diamante si integrera con la montatura, l'identita della collezione, la preferenza del cliente e la posizione di prezzo prevista.",
+    "para5": "La disponibilita varia, quindi i compratori dovrebbero fornire sia le specifiche preferite che le alternative accettabili.",
     "items": [
-      "Brillante Rotondo", "Ovale", "Smeraldo", "Pera", "Principessa",
+      "Brillante rotondo", "Ovale", "Smeraldo", "Pera", "Princess",
       "Cuscino", "Radiante", "Marquise", "Cuore", "Asscher"
     ]
   },
   "measurements": {
     "eyebrow": "Misure e proporzioni",
     "title": "Misure, proporzioni e aspetto dei diamanti",
-    "para1": "Il peso in carati e importante, ma non fornisce un quadro completo di un diamante levigato. Due diamanti con lo stesso peso in carati possono avere misure, proporzioni e aspetti face-up diversi.",
-    "para2": "Un produttore di gioielli puo richiedere misure precise per una montatura esistente. Un rivenditore puo preferire un diamante Ovale o Smeraldo con un particolare rapporto lunghezza/larghezza.",
-    "considerLabel": "Prima di incontrare Uniglo Diamonds, gli acquirenti dovrebbero considerare se i loro requisiti includono:",
+    "para1": "Il peso in carati e importante, ma non fornisce un quadro completo di un diamante lucidato.",
+    "para2": "Due diamanti con lo stesso peso dichiarato possono avere misure, contorni e aspetti visti dall'alto diversi. Questo e particolarmente rilevante per i diamanti a forma fantasiosa, dove il rapporto lunghezza-larghezza e le proporzioni complessive possono influenzare l'aspetto di una pietra in un design finito.",
+    "para3": "Un produttore europeo puo aver bisogno di misure precise per una montatura esistente. Un dettagliante puo preferire un diamante ovale o smeraldo entro un rapporto definito. Un designer puo aver bisogno di proporzioni che supportino una particolare direzione creativa.",
+    "considerLabel": "I compratori dovrebbero considerare se i loro requisiti includono:",
     "considerItems": [
       "Misure specifiche di lunghezza, larghezza o profondita",
-      "Rapporti lunghezza/larghezza preferiti",
-      "Dimensioni minime face-up",
-      "Preferenze di contorno particolari",
-      "Aspettative di taglio o proporzione",
-      "Montature esistenti che devono essere accommodate",
-      "Requisiti di corrispondenza per piu di una pietra",
-      "Caratteristiche visive che non possono essere definite solo dal grado di qualita"
+      "Rapporti lunghezza-larghezza preferiti",
+      "Dimensioni minime viste dall'alto",
+      "Preferenze di contorno",
+      "Aspettative di taglio e proporzione",
+      "Compatibilita con montature esistenti",
+      "Requisiti di abbinamento",
+      "Caratteristiche visive non spiegate dal solo grado"
     ]
   },
   "bridal": {
-    "eyebrow": "Gioielleria da sposa e di fidanzamento",
-    "title": "Diamanti per la gioielleria da sposa e di fidanzamento",
-    "para1": "La gioielleria da sposa rimane una delle applicazioni commerciali piu importanti per i diamanti levigati. Un rivenditore di gioielleria da sposa puo richiedere pietre centrali documentate in diversi pesi in carati e combinazioni di qualita popolari.",
-    "discussLabel": "Gli acquirenti possono discutere di diamanti naturali per:",
+    "eyebrow": "Gioielleria nuziale e fine",
+    "title": "Diamanti naturali per gioielleria nuziale e produzione di gioielleria fine",
+    "para1": "La gioielleria nuziale rimane una delle applicazioni commercialmente piu importanti per i diamanti naturali lucidati.",
+    "para2": "I dettaglianti possono aver bisogno di pietre centrali documentate in piu forme, dimensioni e combinazioni di qualita. I produttori possono aver bisogno di diamanti centrali e pietre laterali abbinate per design di anelli di fidanzamento ripetibili. I gioiellieri su misura possono invece richiedere un particolare diamante selezionato attorno alle preferenze individuali di un cliente.",
+    "discussLabel": "I compratori possono discutere di diamanti per:",
     "discussItems": [
       "Anelli di fidanzamento solitari",
       "Anelli di fidanzamento halo",
-      "Anelli con tre pietre",
+      "Anelli a tre pietre",
       "Anelli di fidanzamento con pietre laterali",
-      "Fedi nuziali con diamanti",
-      "Fasce infinite e anniversario",
-      "Orecchini e collane da sposa",
-      "Commissioni di anelli di fidanzamento su misura"
+      "Fedi nuziali e fedi dell'eternita",
+      "Gioielleria per anniversario",
+      "Orecchini di diamanti",
+      "Collane e pendenti solitari",
+      "Commissioni nuziali su misura"
     ],
-    "para2": "Un inventario da sposa solido spesso include sia opzioni di base affidabili che diamanti distintivi per clienti che cercano qualcosa di piu individuale."
+    "para3": "Un assortimento nuziale equilibrato puo combinare opzioni di base riconoscibili con diamanti a forma fantasiosa selezionati per clienti che cercano un design piu individuale."
   },
   "matching": {
-    "eyebrow": "Corrispondenza e calibratura",
-    "title": "Corrispondenza e calibratura per la produzione di gioielli",
-    "para1": "La corrispondenza e particolarmente importante quando diversi diamanti saranno utilizzati nello stesso gioiello. Orecchini con diamanti, anelli con tre pietre, fasce infinite, braccialetti tennis e altri design con piu pietre richiedono coerenza.",
-    "para2": "Per i produttori, una calibratura coerente puo anche migliorare l'efficienza di incastonatura e la ripetibilita. Le pietre che variano significativamente in dimensione o proporzione possono richiedere aggiustamenti durante la produzione.",
-    "discussLabel": "Gli acquirenti che incontrano Uniglo Diamonds possono discutere di requisiti per:",
+    "eyebrow": "Abbinamento e calibrazione",
+    "title": "Abbinamento e calibrazione per la produzione di gioielleria",
+    "para1": "L'abbinamento diventa particolarmente importante quando piu diamanti verranno utilizzati in un unico pezzo di gioielleria.",
+    "para2": "Orecchini con diamanti, anelli a tre pietre, fedi dell'eternita, bracciali tennis, collane tennis e altri design multi-pietra possono richiedere consistenza in misure, forma, colore, purezza e aspetto visivo.",
+    "para3": "Per i produttori, la calibrazione puo anche influenzare l'efficienza dell'incastonatura e la ripetibilita della produzione. Le pietre che variano sostanzialmente in dimensioni o proporzioni possono richiedere aggiustamenti e possono produrre un aspetto finale irregolare.",
+    "discussLabel": "I compratori possono discutere i requisiti per:",
     "discussItems": [
       "Coppie di diamanti abbinate",
       "Pietre laterali coordinate",
       "Selezioni di diamanti calibrati",
-      "Layout per fasce infinite",
-      "Layout per braccialetti e collane tennis",
-      "Gioielli con piu pietre",
-      "Specifiche di produzione ripetute",
-      "Pietre di sostituzione per design esistenti"
+      "Composizioni per fedi dell'eternita",
+      "Composizioni per bracciali e collane tennis",
+      "Gioielleria multi-pietra",
+      "Specifiche di produzione ripetibili",
+      "Pietre di sostituzione per design consolidati"
     ],
     "imageAlt": "Diamanti naturali abbinati e calibrati da Uniglo Diamonds"
   },
   "certification": {
     "eyebrow": "Certificazione e documentazione",
-    "title": "Requisiti di certificazione e documentazione",
-    "para1": "I requisiti di documentazione possono variare in base alle dimensioni, al valore, al mercato previsto e alle aspettative dei clienti del diamante. Alcuni acquirenti richiedono rapporti di gradazione individuali per le pietre centrali.",
-    "considerLabel": "Prima dell'incontro, gli acquirenti devono identificare:",
+    "title": "Requisiti di certificazione e documentazione dei diamanti",
+    "para1": "I requisiti di documentazione possono variare in base alle dimensioni, al valore, alla destinazione, al mercato previsto e alle aspettative dei clienti del diamante.",
+    "para2": "Alcuni compratori richiedono certificati individuali per le pietre centrali. Altri possono richiedere documentazione commerciale appropriata per diamanti piu piccoli, selezioni calibrate o composizioni multi-pietra. Le procedure di importazione, esportazione, assicurazione e inventario interno possono creare requisiti aggiuntivi.",
+    "considerLabel": "Prima di incontrare Uniglo Diamonds, i compratori devono identificare:",
     "considerItems": [
-      "Se sono richiesti rapporti di gradazione individuali",
-      "Laboratori di gradazione preferiti o accettati",
-      "Informazioni necessarie per i sistemi di inventario interni",
-      "Requisiti di documentazione per importazione o esportazione",
-      "Obblighi di divulgazione specifici del paese",
-      "Aspettative di informazioni di sourcing o tracciabilita",
-      "Se la documentazione deve accompagnare ogni diamante",
-      "Requisiti per lotti, coppie o layout"
+      "Se sono richiesti certificati individuali",
+      "Quali laboratori di certificazione sono accettati",
+      "Informazioni richieste dai sistemi di inventario",
+      "Documentazione richiesta per ogni diamante",
+      "Requisiti per partite, coppie o composizioni",
+      "Necessita di documentazione per importazione o esportazione",
+      "Aspettative di divulgazione specifiche del mercato",
+      "Requisiti di informazioni di tracciabilita o provenienza"
     ],
-    "para2": "Discutere la documentazione all'inizio del processo di approvvigionamento aiuta a evitare malintesi dopo che e stata preparata una selezione di diamanti."
+    "para3": "Queste questioni devono essere discusse prima che venga preparata una selezione finale."
   },
   "antwerp": {
-    "eyebrow": "Esperienza diamantaria di Anversa",
-    "title": "Esperienza diamantaria basata ad Anversa",
-    "para1": "Anversa e da generazioni uno dei centri di commercio di diamanti piu consolidati al mondo. Il background anversano di Uniglo Diamonds offre all'azienda una forte connessione con il commercio internazionale di diamanti.",
-    "para2": "Tuttavia, una relazione fornitore di successo dipende da piu della sola localita. Gli acquirenti richiedono anche comunicazione accurata, specifiche chiaramente definite, aspettative di consegna realistiche e follow-up coerente.",
-    "para3": "Uniglo Diamonds si avvicina all'approvvigionamento capendo prima cosa l'acquirente sta cercando di produrre, stoccare o vendere. Questo aiuta il team a valutare quali forme, qualita, misure e accordi di fornitura possono essere piu rilevanti.",
-    "para4": "L'approccio puo supportare un rivenditore che approvvigiona pietre centrali per anelli di fidanzamento, un produttore che prepara una collezione ripetuta, un grossista che serve diversi mercati, o un designer che sviluppa una linea specializzata."
+    "eyebrow": "Competenza di Anversa",
+    "title": "Competenza di Anversa per la produzione orafa italiana ed europea",
+    "para1": "Vicenzaoro collega la competenza manifatturiera italiana con fornitori e acquirenti dei mercati internazionali. Uniglo Diamonds porta una prospettiva basata ad Anversa in questo ambiente.",
+    "para2": "L'infrastruttura commerciale del diamante di Anversa da a Uniglo Diamonds esperienza nel lavorare con diverse forme, specifiche e requisiti commerciali. Il valore di tale esperienza dipende da quanto bene supporta il prodotto e il mercato reale del compratore.",
+    "para3": "Uniglo Diamonds inizia quindi comprendendo cosa il compratore intende produrre, stoccare o vendere. Cio puo coinvolgere un dettagliante che approvvigiona pietre centrali per anelli di fidanzamento, un produttore italiano che prepara una collezione ripetuta, un grossista che serve piu mercati europei o un designer che sviluppa una gamma specializzata incentrata sul diamante.",
+    "para4": "Comunicazione chiara, specifiche accurate, documentazione adeguata e follow-up costante rimangono essenziali durante tutta la relazione."
   },
   "whoShouldMeet": {
     "eyebrow": "Chi dovrebbe partecipare",
     "title": "Chi dovrebbe incontrare Uniglo Diamonds a Vicenzaoro?",
     "types": [
-      { "title": "Rivenditori di gioielli", "body": "Rivenditori che rinnovano i loro inventari di diamanti o approvvigionano pietre per nuove collezioni e range da sposa." },
-      { "title": "Gioiellieri indipendenti", "body": "Gioiellieri indipendenti che cercano una relazione di approvvigionamento a lungo termine per anelli di fidanzamento, regali e commissioni su misura." },
-      { "title": "Grossisti di diamanti", "body": "Acquirenti all'ingrosso che costruiscono assortimenti per clienti regionali, richiedendo selezioni commercialmente rilevanti e fornitura ripetuta." },
-      { "title": "Produttori di gioielli", "body": "Produttori che richiedono diamanti naturali in base a misure definite, specifiche calibrate e quantita di produzione." },
-      { "title": "Designer e marchi", "body": "Designer che approvvigionano pietre per nuove collezioni, forme distintive e design che richiedono una particolare direzione visiva." },
-      { "title": "Specialisti da sposa", "body": "Specialisti che sviluppano range di fidanzamento e matrimonio in diversi pesi in carati, qualita e posizioni di prezzo." },
-      { "title": "Uffici acquisti", "body": "Team di sourcing professionali che confrontano fornitori internazionali, valutando capacita, documentazione e coerenza." },
-      { "title": "Gioiellieri su misura", "body": "Gioiellieri su misura che approvvigionano diamanti individuali selezionati in base alle precise preferenze di un cliente." }
+      { "title": "Dettaglianti di gioielleria", "body": "Diamanti naturali per gioielleria nuziale, regali, gioielleria fine e sviluppo dell'assortimento." },
+      { "title": "Produttori italiani ed europei", "body": "Diamanti calibrati, misure, abbinamento, montature e calendari di produzione." },
+      { "title": "Grossisti di diamanti", "body": "Assortimenti commerciali, domanda regionale, quantita e requisiti ripetuti." },
+      { "title": "Specialisti nuziali", "body": "Pietre centrali, pietre laterali, fedi nuziali e requisiti di gioielleria dell'eternita." },
+      { "title": "Brand e designer di gioielleria", "body": "Forme speciali e diamanti per collezioni nuove o distintive." },
+      { "title": "Uffici acquisti", "body": "Capacita del fornitore, documentazione, quantita e aspettative di consegna." },
+      { "title": "Gioiellieri indipendenti e su misura", "body": "Pietre centrali individuali e brief di approvvigionamento specifici del cliente." }
     ]
   },
   "prepare": {
     "eyebrow": "Preparazione all'incontro",
-    "title": "Come prepararsi per un incontro con Uniglo Diamonds",
-    "para": "Vicenzaoro e una grande fiera, e gli acquirenti possono fare un uso migliore del loro tempo arrivando con un briefing di approvvigionamento chiaro. Prima di incontrare il team di Uniglo Diamonds, considera di preparare:",
+    "title": "Cosa dovrebbero preparare i compratori prima di Vicenzaoro",
+    "para": "Vicenzaoro e una grande fiera. I compratori possono sfruttare meglio il proprio tempo preparando un brief di approvvigionamento conciso prima di incontrare il team di Uniglo Diamonds. Il brief puo includere:",
     "items": [
-      "Le categorie di diamanti che desideri approvvigionare",
-      "Forme preferite e gamme di peso in carati",
-      "Misure richieste",
-      "Combinazioni di colore e purezza accettabili",
-      "Cliente e mercato target",
-      "Posizione di prezzo al dettaglio o all'ingrosso prevista",
+      "Categorie di diamanti richieste",
+      "Forme e fasce di carati preferite",
+      "Misure esatte o accettabili",
+      "Combinazioni di colore e purezza",
+      "Applicazioni di gioielleria previste",
+      "Specifiche delle montature esistenti",
       "Quantita approssimative",
-      "Requisiti di certificazione",
-      "Requisiti di corrispondenza o calibratura",
-      "Applicazioni gioiellerie previste",
-      "Aspettative di consegna",
-      "Domande sulla fornitura ripetuta e la disponibilita futura"
+      "Requisiti di abbinamento o calibrazione",
+      "Requisiti dei certificati",
+      "Cliente target e mercato di vendita",
+      "Destinazione di consegna",
+      "Scadenze di produzione o collezione",
+      "Immagini di gioielleria attuale o pianificata",
+      "Domande sulla disponibilita di ordini ripetuti"
     ],
-    "note": "Un briefing dettagliato non impedisce agli acquirenti di scoprire nuove possibilita. Crea un punto di partenza utile e consente alla discussione di concentrarsi su diamanti commercialmente rilevanti.",
-    "cta": "Prenota un incontro professionale Vicenzaoro"
+    "note": "I compratori non devono arrivare con un ordine definitivo. Un incontro iniziale puo stabilire se le capacita di approvvigionamento di Uniglo Diamonds corrispondono ai requisiti immediati o futuri dell'azienda.",
+    "cta": "Prenota un incontro Vicenzaoro allo Stand 136"
   },
   "communities": {
     "eyebrow": "Community della fiera",
-    "title": "Le nove community di gioielleria di Vicenzaoro",
-    "intro": "Le nove community della fiera organizzano gli espositori in base ai loro prodotti principali e aree di competenza.",
+    "title": "Le community orafe di Vicenzaoro e T.Gold",
+    "intro": "Vicenzaoro utilizza community specializzate per organizzare diverse parti della filiera della gioielleria. Le aree piu rilevanti per molti acquirenti di diamanti e produttori includono:",
     "items": [
-      { "title": "ICON", "body": "Gioielleria di marca di fascia alta." },
-      { "title": "CREATION", "body": "Produzione orafa ed esperienza manifatturiera." },
-      { "title": "CREATION Mountings & Semi-Finished", "body": "Componenti utilizzati per costruire gioielli finiti." },
+      { "title": "ESSENCE Gems, Diamonds, Corals & Pearls", "body": "Diamanti, pietre preziose, perle e altri materiali preziosi." },
+      { "title": "CREATION", "body": "Produzione orafa italiana e internazionale." },
+      { "title": "CREATION Montature e Semilavorati", "body": "Montature, componenti ed elementi utilizzati per costruire gioielleria finita." },
+      { "title": "ICON", "body": "Gioielleria di marca di alta gamma." },
       { "title": "LOOK", "body": "Gioielleria contemporanea." },
-      { "title": "TIME", "body": "Orologi contemporanei." },
-      { "title": "ESSENCE Gems, Diamonds, Corals & Pearls", "body": "Fornitori di diamanti e altri materiali preziosi. Una delle community piu rilevanti per gli acquirenti di diamanti." },
-      { "title": "EXPRESSION", "body": "Soluzioni di imballaggio e visual merchandising." },
-      { "title": "EVOLUTION T.Gold", "body": "Macchinari e tecnologia per la gioielleria." },
-      { "title": "Delivery at Palakiss", "body": "Ambiente cash-and-carry per gioielli e componenti disponibili per acquisti piu immediati." }
+      { "title": "EXPRESSION", "body": "Imballaggio e visual merchandising." },
+      { "title": "EVOLUTION T.Gold", "body": "Macchinari e tecnologia per la produzione di gioielleria." },
+      { "title": "Delivery at Palakiss", "body": "Gioielleria e componenti pronti all'acquisto." }
     ],
-    "note": "Gli acquirenti di diamanti dovrebbero consultare il catalogo ufficiale degli espositori e la mappa delle sale prima di arrivare poiche i fornitori rilevanti possono trovarsi in diverse aree espositive."
+    "note": "A partire dall'edizione di settembre 2026, T.Gold e integrata nei padiglioni della fiera Vicenzaoro nel Padiglione 4. Questo da ai produttori l'opportunita di esaminare macchinari e tecnologie di produzione insieme a gioielleria, materiali e componenti. I visitatori devono verificare il catalogo ufficiale degli espositori e la planimetria prima di viaggiare."
   },
-  "registration": {
-    "eyebrow": "Registrazione e ammissione",
-    "title": "Registrazione e ammissione",
-    "para1": "Vicenzaoro Settembre e riservato agli operatori del settore gioielliero. La registrazione e obbligatoria e l'ammissione e gratuita per i professionisti qualificati.",
-    "para2": "Rivenditori, grossisti, fornitori, aziende di private label, agenzie, giornalisti e altri professionisti riconosciuti del settore gioielliero possono registrarsi tramite la piattaforma ufficiale Vicenzaoro.",
-    "para3": "L'organizzatore puo richiedere informazioni professionali o aziendali durante il processo di registrazione. I visitatori devono portare un documento d'identita valido e i documenti associati ai loro badge.",
-    "para4": "I minori possono entrare solo se accompagnati da un adulto e soggetti alle normative per i visitatori dell'organizzatore."
-  },
-  "concurrent": {
-    "eyebrow": "Eventi concomitanti",
-    "title": "T.Gold e VO Vintage",
-    "tgoldTitle": "T.Gold (4–8 settembre 2026)",
-    "tgoldPara": "T.Gold si concentra su macchinari e tecnologia per le industrie della gioielleria e dell'oreficeria. E rilevante per produttori e aziende interessate ad attrezzature di produzione, lavorazione, innovazione ed efficienza manifatturiera.",
-    "vintageTitle": "VO Vintage (4–7 settembre 2026)",
-    "vintagePara": "VO Vintage e dedicato a orologi e gioielli vintage. A differenza della fiera B2B principale, VO Vintage e anche aperto a collezionisti e al pubblico secondo le sue disposizioni di ammissione separate."
-  },
-  "getting": {
-    "eyebrow": "Come arrivare",
-    "title": "Come arrivare alla Fiera di Vicenza",
-    "para1": "La Fiera di Vicenza e situata in Via dell'Oreficeria 16, 36100 Vicenza, Italia. La sede e vicina all'uscita Vicenza Ovest dell'autostrada A4 e puo essere raggiunta dalla stazione ferroviaria di Vicenza utilizzando i trasporti locali o le navette dell'evento.",
-    "para2": "Vicenza si trova sulla linea ferroviaria Milano–Venezia. Verona e Venezia sono tra i principali aeroporti utilizzati dai visitatori internazionali.",
-    "para3": "L'organizzatore pubblica informazioni su viaggi, parcheggi e navette per la fiera. I viaggiatori dovrebbero verificare gli ultimi orari prima della partenza."
+  "planVisit": {
+    "eyebrow": "Pianificazione della visita",
+    "title": "Pianificazione della visita a Vicenzaoro",
+    "registrationEyebrow": "Registrazione e ammissione",
+    "registrationTitle": "Registrazione e ammissione",
+    "registrationPara1": "La principale fiera Vicenzaoro e riservata ai professionisti del settore orafo. L'ammissione e gratuita, ma la registrazione online e obbligatoria.",
+    "registrationPara2": "I visitatori devono completare la registrazione e ottenere il proprio badge prima di arrivare. L'organizzatore puo richiedere informazioni professionali o aziendali durante la registrazione. I partecipanti devono portare il proprio badge e un documento di identita valido.",
+    "hoursEyebrow": "Orari di apertura",
+    "hoursTitle": "Orari di apertura",
+    "hoursItems": [
+      "Venerdi 4 settembre: 10:00–18:30",
+      "Sabato 5 settembre: 10:00–18:30",
+      "Domenica 6 settembre: 10:00–18:30",
+      "Lunedi 7 settembre: 10:00–18:30",
+      "Martedi 8 settembre: 10:00–17:00"
+    ],
+    "hoursPara": "I compratori devono riservare tempo per l'ingresso, gli spostamenti tra i padiglioni e le conversazioni di approvvigionamento impreviste.",
+    "tgoldEyebrow": "T.Gold",
+    "tgoldPara": "T.Gold si svolge dal 4 all'8 settembre e si concentra su macchinari e tecnologia per la produzione di gioielleria e metalli preziosi.",
+    "vintageEyebrow": "VO Vintage",
+    "vintagePara": "VO Vintage si svolge dal 4 al 7 settembre ed e dedicata a orologi e gioielleria vintage. A differenza della principale fiera commerciale, VO Vintage e aperta a collezionisti e pubblico in base a propri accordi di ammissione.",
+    "gettingEyebrow": "Come raggiungere la Fiera di Vicenza",
+    "gettingPara1": "La Fiera di Vicenza si trova in Via dell'Oreficeria 16, 36100 Vicenza, Italia.",
+    "gettingPara2": "La sede e vicina all'uscita Vicenza Ovest dell'autostrada A4. Vicenza si trova sulla linea ferroviaria Milano–Venezia, e i visitatori internazionali viaggiano spesso attraverso gli aeroporti di Verona, Venezia e la regione circostante.",
+    "gettingPara3": "L'organizzatore pubblica informazioni aggiornate su parcheggio, navette e trasporti. I visitatori devono verificare questi dettagli prima della partenza poiche i servizi e i percorsi possono cambiare durante la fiera."
   },
   "partnerships": {
     "eyebrow": "Oltre la fiera",
     "title": "Costruire partnership oltre la fiera",
-    "para1": "Il valore di una fiera non si limita ai diamanti esaminati durante un singolo incontro. I risultati piu utili iniziano spesso con una comprensione accurata dell'azienda dell'acquirente.",
-    "para2": "Uniglo Diamonds si avvicina a Vicenzaoro come un'opportunita per riconnettersi con partner consolidati, capire come stanno cambiando i diversi mercati e presentare le sue capacita di approvvigionamento di diamanti a nuove aziende.",
-    "nextStepsLabel": "Dopo l'incontro, gli acquirenti possono desiderare di:",
+    "para1": "Il valore commerciale di un incontro fieristico non si limita ai diamanti esaminati il giorno stesso.",
+    "para2": "Dopo aver incontrato Uniglo Diamonds, un compratore puo scegliere di:",
+    "nextStepsLabel": "Dopo l'incontro, i compratori possono:",
     "nextSteps": [
       "Richiedere una selezione di diamanti piu mirata",
-      "Esaminare rapporti di gradazione specifici",
-      "Affinare i requisiti di misura o qualita",
-      "Preparare una coppia abbinata o un layout con piu pietre",
-      "Discutere le quantita di produzione",
-      "Confermare le aspettative di fornitura ripetuta",
-      "Organizzare un'ulteriore visualizzazione",
+      "Esaminare certificati specifici",
+      "Perfezionare i requisiti di misura o qualita",
+      "Preparare una coppia abbinata o una composizione calibrata",
+      "Confermare quantita e calendari di produzione",
+      "Discutere i requisiti di ordini ripetuti",
+      "Organizzare un'altra visione",
       "Pianificare una conversazione di approvvigionamento post-evento"
     ],
-    "imageAlt": "Acquirente di diamanti che incontra Uniglo Diamonds a Vicenzaoro 2026"
+    "para3": "L'obiettivo e stabilire una chiara comprensione del mercato del compratore, della gioielleria prevista, delle aspettative di qualita e dei requisiti futuri.",
+    "imageAlt": "Compratore di diamanti che incontra Uniglo Diamonds a Vicenzaoro 2026"
+  },
+  "guides": {
+    "eyebrow": "Guide Vicenzaoro Settembre 2026",
+    "title": "Guide Vicenzaoro Settembre 2026",
+    "items": [
+      {
+        "title": "Guida per visitatori Vicenzaoro Settembre 2026",
+        "body": "Informazioni dettagliate su registrazione, badge, orari di apertura, trasporti, accesso alla sede e preparazione alla fiera."
+      },
+      {
+        "title": "Guida agli espositori e all'approvvigionamento di gioielleria Vicenzaoro Settembre 2026",
+        "body": "Comprendi le community della fiera, le categorie di fornitori e come i compratori professionali possono ricercare espositori rilevanti prima di arrivare."
+      },
+      {
+        "title": "Cosa dovrebbero approvvigionare i compratori di diamanti a Vicenzaoro Settembre 2026",
+        "body": "Costruisci un piano di approvvigionamento mirato che copra pietre centrali, diamanti nuziali, coppie abbinate, selezioni calibrate e diamanti per la produzione orafa europea."
+      }
+    ]
   },
   "faq": {
     "title": "Domande frequenti",
     "items": [
-      { "question": "Quando si tiene Vicenzaoro Settembre 2026?", "answer": "Vicenzaoro Settembre 2026 si svolgera da venerdi 4 settembre a martedi 8 settembre 2026." },
-      { "question": "Dove si tiene Vicenzaoro Settembre 2026?", "answer": "La fiera si terra alla Fiera di Vicenza, Via dell'Oreficeria 16, 36100 Vicenza, Italia." },
-      { "question": "Quali sono gli orari di Vicenzaoro Settembre 2026?", "answer": "La fiera e aperta dalle 10:00 alle 18:30 dal venerdi al lunedi. Chiude alle 17:00 il martedi 8 settembre." },
-      { "question": "Vicenzaoro e aperta al pubblico?", "answer": "La fiera principale Vicenzaoro e riservata ai professionisti del settore gioielliero. VO Vintage ha disposizioni separate ed e aperta a collezionisti e al pubblico." },
-      { "question": "L'ammissione a Vicenzaoro e gratuita?", "answer": "L'ammissione e gratuita per i professionisti qualificati del settore gioielliero, ma la registrazione e obbligatoria." },
-      { "question": "Come ci si registra per Vicenzaoro Settembre 2026?", "answer": "I visitatori devono registrarsi tramite la piattaforma di registrazione ufficiale di Vicenzaoro e ottenere i loro badge prima di entrare." },
-      { "question": "Uniglo Diamonds sara a Vicenzaoro Settembre 2026?", "answer": "Uniglo Diamonds si sta preparando per incontrare gli acquirenti a Vicenzaoro Settembre 2026. I visitatori devono confermare la posizione finale dello stand prima di viaggiare." },
-      { "question": "Qual e il numero dello stand di Uniglo Diamonds a Vicenzaoro Settembre 2026?", "answer": "Il numero dello stand per settembre 2026 non e ancora stato confermato per la pubblicazione. Questa pagina verra aggiornata non appena la posizione ufficiale sara disponibile." },
-      { "question": "Gli acquirenti possono discutere di diamanti abbinati e calibrati?", "answer": "Si. Gli acquirenti possono discutere di coppie abbinate, diamanti calibrati, pietre laterali coordinate, layout per fasce infinite e altri requisiti con piu pietre." },
-      { "question": "Cos'e T.Gold?", "answer": "T.Gold e la fiera concomitante dedicata a macchinari e tecnologia per le industrie della gioielleria e dell'oreficeria. Si svolge dal 4 all'8 settembre 2026." },
-      { "question": "Cos'e VO Vintage?", "answer": "VO Vintage e un evento dedicato a orologi e gioielli vintage. Si svolgera dal 4 al 7 settembre 2026 e ha disposizioni separate per l'accesso del pubblico." }
+      { "question": "Quando si tiene Vicenzaoro Settembre 2026?", "answer": "Vicenzaoro Settembre 2026 si tiene da venerdi 4 settembre a martedi 8 settembre 2026." },
+      { "question": "Dove si tiene Vicenzaoro Settembre 2026?", "answer": "La fiera si tiene presso la Fiera di Vicenza, Via dell'Oreficeria 16, 36100 Vicenza, Italia." },
+      { "question": "Quali sono gli orari di apertura?", "answer": "Vicenzaoro e aperta dalle 10:00 alle 18:30 da venerdi a lunedi. E aperta dalle 10:00 alle 17:00 il martedi." },
+      { "question": "Vicenzaoro e aperta al pubblico?", "answer": "La principale fiera Vicenzaoro e riservata ai professionisti del settore orafo. VO Vintage ha accordi separati ed e aperta a collezionisti e pubblico." },
+      { "question": "L'ammissione e gratuita?", "answer": "Si. L'ammissione e gratuita per i professionisti del settore orafo registrati, ma la registrazione e obbligatoria." },
+      { "question": "Come si registrano i visitatori?", "answer": "I visitatori devono registrarsi tramite la piattaforma di registrazione ufficiale Vicenzaoro e ottenere un badge dell'evento prima di entrare." },
+      { "question": "Dove possono trovare Uniglo Diamonds i compratori?", "answer": "Uniglo Diamonds sara al Padiglione 3, Stand 136 a Vicenzaoro Settembre 2026." },
+      { "question": "Di cosa possono discutere i compratori con Uniglo Diamonds?", "answer": "I compratori possono discutere di diamanti naturali in base a forma, carati, misure, colore, purezza, documentazione, abbinamento, quantita e applicazioni di gioielleria previste." },
+      { "question": "I compratori possono discutere di diamanti abbinati o calibrati?", "answer": "Si. I compratori possono discutere di coppie abbinate, pietre laterali coordinate, diamanti calibrati, composizioni per fedi dell'eternita, composizioni per gioielleria tennis e specifiche di produzione ripetibili." },
+      { "question": "Uniglo Diamonds puo supportare i produttori di gioielleria europei?", "answer": "I produttori europei possono discutere di diamanti per montature esistenti, tolleranze di produzione, design abbinati, collezioni ripetute e calendari di produzione pianificati." },
+      { "question": "I compratori possono discutere di diamanti nuziali?", "answer": "Si. I requisiti possono includere pietre centrali per anelli di fidanzamento, pietre laterali abbinate, diamanti per fedi nuziali e dell'eternita e pietre per gioielleria nuziale su misura." },
+      { "question": "Cos'e T.Gold?", "answer": "T.Gold e la fiera dedicata a macchinari e tecnologia per le industrie della gioielleria e dell'oreficeria. Si svolge dal 4 all'8 settembre 2026 ed e integrata nel Padiglione 4." },
+      { "question": "Cos'e VO Vintage?", "answer": "VO Vintage e un evento dedicato a orologi e gioielleria vintage. Si svolge dal 4 al 7 settembre 2026 e ha accordi di accesso pubblico separati." },
+      { "question": "I compratori possono prenotare un incontro prima di Vicenzaoro?", "answer": "Si. I compratori dovrebbero prenotare in anticipo e fornire i propri requisiti di approvvigionamento in modo che Uniglo Diamonds possa preparare una discussione piu pertinente." }
     ]
   },
   "finalCta": {
-    "title": "Incontra Uniglo Diamonds a Vicenza",
-    "para": "Incontra Uniglo Diamonds a Vicenzaoro Settembre 2026 per esplorare diamanti naturali e possibilita di approvvigionamento basate ad Anversa sviluppate intorno alle esigenze della tua azienda. Che tu stia preparando una nuova gamma da sposa, rinnovando un inventario di diamanti, approvvigionando pietre per la produzione di gioielli o cercando un fornitore affidabile a lungo termine, il team di Uniglo Diamonds non vede l'ora di discutere i tuoi requisiti a Vicenza.",
+    "title": "Prenota un incontro con Uniglo Diamonds a Vicenzaoro",
+    "para": "Incontra Uniglo Diamonds al Padiglione 3, Stand 136 durante Vicenzaoro Settembre 2026. Prepara le forme preferite, le misure, le fasce di carati, le combinazioni di colore e purezza, i requisiti di documentazione, le quantita e le applicazioni di gioielleria previste prima di richiedere un appuntamento.",
     "factEvent": "Evento",
     "factEventValue": "Vicenzaoro Settembre 2026",
     "factDates": "Date",
     "factDatesValue": "4–8 settembre 2026",
     "factVenue": "Sede",
     "factVenueValue": "Fiera di Vicenza",
-    "factStand": "Stand Uniglo",
-    "factStandValue": "Da confermare",
-    "primaryCta": "Prenota un incontro professionale Vicenzaoro con Uniglo Diamonds",
+    "factStand": "Posizione Uniglo Diamonds",
+    "factStandValue": "Padiglione 3, Stand 136",
+    "primaryCta": "Prenota un incontro Vicenzaoro allo Stand 136",
     "secondaryCta": "Esplora l'inventario di diamanti naturali di Uniglo",
-    "note": "Conferma la posizione finale dello stand prima di viaggiare. I dettagli dello stand saranno pubblicati una volta confermati."
+    "note": "Padiglione 3, Stand 136. Conferma il tuo badge e i piani di viaggio con l'organizzatore prima di partire."
   }
 }

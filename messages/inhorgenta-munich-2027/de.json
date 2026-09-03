@@ -1,270 +1,284 @@
 {
   "metadata": {
-    "title": "INHORGENTA München 2027 | Uniglo",
-    "description": "Treffen Sie Uniglo Diamonds auf der INHORGENTA München 2027, 19.–22. Februar. Veranstaltungsdetails, Tickets und Informationen zum Naturdiamant-Sourcing."
+    "title": "INHORGENTA München 2027 | Uniglo Diamonds",
+    "description": "Treffen Sie Uniglo Diamonds auf der INHORGENTA München 2027, 19.–22. Februar in der Messe München. Entdecken Sie Naturdiamanten und buchen Sie ein Fachgespräch."
   },
   "announcement": "INHORGENTA München 2027 · 19.–22. Februar · Trade Fair Center Messe München · Treffen Sie Uniglo Diamonds",
   "breadcrumbHome": "Startseite",
   "breadcrumbCurrent": "INHORGENTA München 2027",
   "hero": {
     "eyebrow": "Fachmesse · 19.–22. Februar 2027 · München, Deutschland",
-    "title": "Uniglo Diamonds auf der INHORGENTA München 2027",
-    "lead": "Die INHORGENTA München 2027 findet vom 19. bis 22. Februar 2027 im Trade Fair Center Messe München in München, Deutschland, statt.",
-    "para1": "Die internationale Fachmesse bringt Schmuck-Einzelhändler, Diamantkäufer, Hersteller, Designer, Edelsteinspezialisten, Uhrenprofis und Branchendienstleister aus Märkten rund um die Welt zusammen. Uniglo Diamonds bereitet sich darauf vor, zur INHORGENTA München 2027 mit einer sorgfältig ausgewählten Präsentation von Naturdiamanten zurückzukehren.",
-    "para2": "Besucher können Diamantoptionen erkunden, Spezifikationen vergleichen und einzelne Steine, passende Paare, kalibrierte Diamanten und Dauerlieferanforderungen direkt mit dem Uniglo Diamonds Team besprechen. Halle und Standnummer werden hinzugefügt, sobald sie offiziell bestätigt sind.",
+    "title": "INHORGENTA München 2027 – Treffen Sie Uniglo Diamonds",
+    "lead": "INHORGENTA München 2027 – Treffen Sie Uniglo Diamonds",
+    "para1": "Die INHORGENTA München 2027 findet vom 19. bis 22. Februar im Trade Fair Center Messe München in Deutschland statt. Die internationale Fachmesse bringt Schmuckhändler, Hersteller, Designer, Diamantenkäufer, Edelsteinfachleute, Uhrenprofis und Branchendienstleister zusammen.",
+    "para2": "Uniglo Diamonds bereitet sich darauf vor, europäische und internationale Schmuckfachleute in München mit einer ausgewählten Naturdiamantenpräsentation zu treffen. Käufer können einzeln bewertete Mittelsteine, Fancy-Formen, abgestimmte Paare, kalibrierte Selektionen und Wiederholungslieferungsanforderungen besprechen.",
+    "para3": "Die Halle und Standnummer von Uniglo Diamonds wurden für die Ausstellung 2027 noch nicht bestätigt. Der Standort wird auf dieser Seite hinzugefügt, sobald er offiziell verfügbar ist.",
     "primaryCta": "INHORGENTA-Fachgespräch buchen",
     "secondaryCta": "Naturdiamant-Inventar erkunden",
     "imageAlt": "Uniglo Diamonds auf der INHORGENTA München 2027"
   },
   "eventDetails": {
-    "eyebrow": "Veranstaltungsinformationen",
-    "title": "INHORGENTA München 2027 – Veranstaltungsdetails",
+    "eyebrow": "Kurzübersicht Veranstaltung",
+    "title": "INHORGENTA München 2027 Veranstaltungsdetails",
     "colLabel": "Detail",
     "colValue": "Information",
     "rows": [
       { "label": "Veranstaltung", "value": "INHORGENTA München 2027" },
       { "label": "Termine", "value": "19.–22. Februar 2027" },
-      { "label": "Veranstaltungsort", "value": "Trade Fair Center Messe München" },
+      { "label": "Messehalle", "value": "Trade Fair Center Messe München" },
       { "label": "Adresse", "value": "Am Messesee 2, 81829 München, Deutschland" },
-      { "label": "Öffnungszeiten, 19.–21. Februar", "value": "09:30–18:30" },
-      { "label": "Öffnungszeiten, 22. Februar", "value": "09:30–17:00" },
-      { "label": "Zulassung", "value": "Zugelassene Fachbesucher aus Schmuck, Uhren, Edelsteine, Design und Technologie" },
-      { "label": "Ticketshop öffnet", "value": "5. Dezember 2026" },
-      { "label": "Uniglo Diamonds Stand", "value": "Noch offiziell zu bestätigen" }
+      { "label": "Öffnungszeiten, 19.–21. Februar", "value": "09:30–18:30 Uhr" },
+      { "label": "Öffnungszeiten, 22. Februar", "value": "09:30–17:00 Uhr" },
+      { "label": "Zulassung", "value": "Zugelassene Fachleute aus Schmuck, Uhren, Edelsteinen, Design und Technologie" },
+      { "label": "Ticket-Shop öffnet", "value": "5. Dezember 2026" },
+      { "label": "Uniglo Diamonds Stand", "value": "Wird noch offiziell bestätigt" },
+      { "label": "Treffen", "value": "Vorabbuchen empfohlen" }
     ],
-    "note": "Besucher sollten die aktuellen Veranstaltungs-, Ticket- und Zulassungsinformationen vor der Reiseplanung überprüfen."
+    "note": "Besucher sollten die neuesten Veranstaltungs-, Ticket- und Zulassungsinformationen vor der Reiseplanung überprüfen."
   },
-  "industry": {
-    "eyebrow": "Februar – Planungsperiode",
-    "title": "Wo die internationale Schmuckbranche vorausblickt",
-    "para1": "Februar ist eine wichtige Planungsphase für Schmuckunternehmen. Einzelhändler überprüfen das Vorjahr, passen ihre Bestände an und identifizieren Produkte, die den Braut-, Geschenk- und Alltagsschmuckmarkt in den kommenden Monaten prägen werden.",
-    "para2": "Hersteller bereiten neue Produktionspläne vor, während Designer und Schmuckmarken Kollektionen für zukünftige Launches entwickeln. Diamant-Großhändler und Sourcing-Teams überprüfen möglicherweise auch Lieferanten, Qualitätskombinationen und Wiederholbarkeitsbedarf.",
-    "para3": "Die INHORGENTA bietet die Möglichkeit, diese Recherche in einem professionellen Umfeld durchzuführen. Käufer können Diamanten, Edelsteine und Schmuck genau prüfen, Lieferanten vergleichen und Sourcing-Anforderungen besprechen.",
-    "para4": "Die Messe repräsentiert verschiedene Teile der Schmuck-, Uhren- und Edelstein-Wertschöpfungskette in sechs Hallen, darunter Feinschmuck, Uhren, Edelsteine, Hochzeits- und Designkollektionen, Lifestyleschmuck, Technologie und Verpackung.",
-    "para5": "Die neuesten Erfolgszahlen der INHORGENTA berichten von 1.334 Marken aus 38 Ländern und rund 25.000 Fachbesuchern aus etwa 100 Ländern.",
-    "imageAlt": "INHORGENTA München internationale Schmuck-Fachmesse"
+  "datesVenue": {
+    "eyebrow": "Termine und Messehalle",
+    "title": "INHORGENTA München 2027 – Termine & Messehalle",
+    "para1": "Die Ausstellung öffnet am Freitag, 19. Februar und läuft bis Montag, 22. Februar 2027. Sie findet im Trade Fair Center Messe München statt, einem der wichtigsten internationalen Ausstellungsgelände Deutschlands.",
+    "para2": "Die Besucherzeiten sind von Freitag bis Sonntag 09:30–18:30 Uhr und am Montag 09:30–17:00 Uhr geplant. Da Veranstaltungsinformationen aktualisiert werden können, sollten Besucher den aktuellen Zeitplan, die Zulassungsbedingungen und den Hallenplan vor der Reiseplanung bestätigen.",
+    "imageAlt": "Fachbesucher beim Betreten der Messe München für die INHORGENTA"
   },
-  "discover": {
-    "eyebrow": "Uniglo Diamonds entdecken",
-    "title": "Entdecken Sie Uniglo Diamonds auf der INHORGENTA München 2027",
-    "para1": "Jeder Diamantkäufer hat ein anderes Publikum und andere kommerzielle Anforderungen. Einige Einzelhändler benötigen zuverlässige Mittelsteine für Brautschmuck. Andere suchen nach markanten Fancy-Diamanten, passenden Steinen für Ohrringe oder kalibrierten Diamanten für wiederholbare Schmuckkollektionen.",
-    "para2": "Hersteller benötigen möglicherweise eng kontrollierte Maße über eine Produktionsserie, während Maßschneider einen individuellen Diamanten benötigen, der auf die spezifische Anfrage eines Kunden ausgewählt wird.",
-    "para3": "Auf der INHORGENTA München 2027 plant Uniglo Diamonds, Naturdiamanten zu präsentieren, die diesen verschiedenen Anforderungen entsprechen. Die endgültige Ausstellungsauswahl wird näher an der Veranstaltung bestätigt.",
-    "para4": "Das Ziel ist nicht einfach, ein großes Diamantinventar zu zeigen. Es geht darum zu verstehen, was der Käufer herstellen, lagern oder verkaufen möchte, und Diamanten zu identifizieren, die diesen kommerziellen Anforderungen entsprechen.",
-    "cta": "INHORGENTA-Fachgespräch buchen",
-    "imageAlt": "Naturdiamant-Käufer trifft Uniglo Diamonds auf der INHORGENTA"
+  "whatIs": {
+    "eyebrow": "Über die Ausstellung",
+    "title": "Was ist die INHORGENTA München?",
+    "para1": "Die INHORGENTA ist eine internationale Business-Plattform für Schmuck, Uhren und Edelsteine. Ihre Ausstellungsbereiche umfassen Feinschmuck, Zeitmesser, Edelsteine, Hochzeits- und Designkollektionen, Lifestyle-Schmuck, Technologie, Verpackung und andere Fachdienstleistungen.",
+    "para2": "Der Veranstalter berichtet derzeit von rund 1.200 Marken aus 38 Ländern, rund 25.000 Fachbesuchern aus etwa 100 Ländern und sechs Hallen mit mehr als 64.000 Quadratmetern.",
+    "para3": "Für Schmuckunternehmen bietet diese Bandbreite die Möglichkeit, Produkte zu vergleichen, sich entwickelnde Trends zu erkunden, Lieferanten zu treffen und Einkaufsentscheidungen in einem professionellen Umfeld zu treffen. Begleitprogramme wie TRENDFACTORY MUNICH und der INHORGENTA AWARD stellen kommerzielle Kaufentscheidungen auch in den breiteren Kontext von Design, Handwerk, Einzelhandel und Innovation."
   },
-  "precision": {
-    "eyebrow": "Mit Präzision ausgewählte Naturdiamanten",
-    "title": "Mit Präzision ausgewählte Naturdiamanten",
-    "para1": "Jede erfolgreiche Diamantschmuckkollektion beginnt mit einer fundierten Steinauswahl. Bei Uniglo Diamonds werden Naturdiamanten über ihre vollständige Kombination aus Form, Farbe, Reinheit, Karatgewicht, Schliffqualität, Maßen, Proportionen und Dokumentation berücksichtigt.",
-    "para2": "Diese Faktoren müssen gemeinsam bewertet werden, da zwei Diamanten mit demselben Karatgewicht in Face-up-Größe, visuellem Erscheinungsbild und Eignung für ein bestimmtes Design merklich unterschiedlich sein können.",
-    "shapesLabel": "Die geplante Auswahl für die INHORGENTA München 2027 kann umfassen:",
-    "shapes": [
-      "Runder Brillant", "Oval", "Smaragd", "Birne", "Kissen",
-      "Prinzessin", "Radiant", "Marquise", "Herz", "Asscher"
-    ],
-    "shapesNote": "Die endgültige Diamantauswahl hängt von der Verfügbarkeit zum Zeitpunkt der Messe ab.",
-    "discussLabel": "Das Treffen mit dem Uniglo Diamonds Team gibt Käufern die Möglichkeit, folgendes zu besprechen:",
-    "discussItems": [
-      "Diamantspezifikationen für verschiedene Einzelhandelspreispunkte",
-      "Formen für Braut- und Alltagsschmuck",
-      "Zertifizierungs- und Gradierungsberichtsinformationen",
-      "Maße und Längen-Breiten-Präferenzen",
-      "Diamant-Matching für Ohrringe und Mehrstein-Designs",
-      "Qualitätskonsistenz für Wiederholungsanforderungen",
-      "Steine für bestehende Fassungen",
-      "Diamanten für geplante Schmuckkollektionen"
+  "exhibitors": {
+    "eyebrow": "Aussteller & Sourcing",
+    "title": "INHORGENTA München 2027 Aussteller & Sourcing-Möglichkeiten",
+    "para1": "Aussteller repräsentieren verschiedene Teile der Wertschöpfungskette für Schmuck, Edelsteine und Uhren. Besucher können fertigen Schmuck, lose Edelsteine, Naturdiamanten, Brautkollektionen, zeitgenössisches Design, Werkzeuge, Verpackungen und Einzelhandelstechnologie erkunden.",
+    "para2": "Diamantenkäufer sollten die Ausstellung mit einem definierten kommerziellen Ziel angehen. Ein Händler überprüft möglicherweise Lücken in seinem Brautsortiment, während ein Hersteller möglicherweise wiederholbare Maße für eine bevorstehende Kollektion benötigt. Maßschneider suchen möglicherweise nach einem einzelnen Mittelstein, und Großhändler möchten möglicherweise eine konsistente Versorgung über mehrere Spezifikationen hinweg bewerten.",
+    "para3": "Die Vorbereitung von Anforderungen im Voraus erleichtert den Vergleich geeigneter Lieferanten, ohne dass die Größe der Ausstellung den Zweck des Besuchs verwässert.",
+    "prepLabel": "Nützliche Informationen zur Vorbereitung umfassen:",
+    "prepItems": [
+      "Erforderliche Diamantformen und Karatbereiche",
+      "Bevorzugte Farb- und Reinheitskombinationen",
+      "Mindest- und Höchstmaße",
+      "Angestrebte Längen-zu-Breiten-Verhältnisse",
+      "Zertifizierungs- oder Dokumentationsanforderungen",
+      "Erforderliche Mengen und Lieferpläne",
+      "Beabsichtigte Schmuckanwendungen",
+      "Kommerzielle Preisparameter"
     ]
   },
-  "shapes": {
-    "eyebrow": "Diamantformen",
-    "title": "Diamantformen für verschiedene Schmuckmärkte",
-    "para1": "Diamantformpräferenzen unterscheiden sich je nach Märkten, Kundengruppen und Schmuckkategorien. Runde Brillanten bleiben wichtig für Verlobungsringe, Solitärschmuck, Ohrringe, Tennisdesigns und andere klassische Diamantstücke.",
-    "para2": "Ovale, birnen- und marquise-förmige Diamanten bieten längliche Proportionen und können eine größere visuelle Abdeckung schaffen. Smaragd- und Asscher-Schliff-Diamanten haben ein architektonischeres Erscheinungsbild.",
-    "para3": "Kissen- und Radiant-Diamanten kombinieren markante Umrisse mit lebendigem Glanz, während Prinzessschliff-Diamanten für quadratische und geometrische Designs relevant bleiben.",
-    "para4": "Anstatt jede Diamantform als gleichermaßen geeignet für jedes Unternehmen zu betrachten, berücksichtigt Uniglo Diamonds, wie der Stein positioniert, gefasst und verkauft wird."
+  "meet": {
+    "eyebrow": "Treffen Sie Uniglo Diamonds",
+    "title": "Treffen Sie Uniglo Diamonds auf der INHORGENTA München",
+    "para1": "Uniglo Diamonds plant, Naturdiamanten für den Einzel- und Großhandel, die Herstellung und Maßschmuckanforderungen zu präsentieren. Die endgültige Ausstellungsselektion hängt von der Verfügbarkeit zum Zeitpunkt der Veranstaltung ab.",
+    "para2": "Anstatt jede Anfrage als Wunsch nach demselben Inventar zu behandeln, beginnt das Uniglo-Team mit der beabsichtigten Schmuckanwendung, dem Kundenprofil und dem kommerziellen Ziel. Dies hilft, die Diskussion auf Diamanten einzugrenzen, die für den Käufer relevanter sind.",
+    "meetingLabel": "Besucher können ein Meeting vereinbaren, um Folgendes zu besprechen:",
+    "meetingItems": [
+      "Einzeln bewertete Naturdiamanten",
+      "Brillantschliff und Fancy-Formen",
+      "Mittelsteine für Verlobungsschmuck",
+      "Abgestimmte Naturdiamantpaare",
+      "Koordinierte Mittel- und Seitensteine",
+      "Kalibrierte Selektionen für die Produktion",
+      "Ersatzdiamanten für vorhandenen Schmuck",
+      "Wiederholungslieferungsanforderungen",
+      "Gutachten und unterstützende Dokumentation"
+    ],
+    "para3": "Käufer mit detaillierten Anforderungen sollten im Voraus buchen und ihre bevorzugten Spezifikationen angeben. Dies ermöglicht dem Team, eine fokussiertere Selektion vorzubereiten, sofern die Verfügbarkeit es erlaubt.",
+    "cta": "INHORGENTA-Fachgespräch buchen",
+    "imageAlt": "Naturdiamantenkäufer trifft Uniglo Diamonds auf der INHORGENTA"
+  },
+  "european": {
+    "eyebrow": "Naturdiamanten für europäische Unternehmen",
+    "title": "Naturdiamanten für europäische Schmuckunternehmen",
+    "para1": "Europäische Schmuckunternehmen bedienen verschiedene Märkte, von unabhängigen Brautmodehändlern und Maßgoldschmieden bis hin zu internationalen Herstellern und Großhändlern. Ihre Diamantenanforderungen können sich erheblich in Größe, Dokumentation, Preisposition und Wiederholbarkeit unterscheiden.",
+    "para2": "Händler benötigen möglicherweise Mittelsteine, die zu vorhandenen Verlobungsringfassungen passen oder klare Lücken in ihrem aktuellen Sortiment füllen. Maßschneider priorisieren möglicherweise den Umriss und das Aufsichtsbild eines einzelnen Diamanten, während Hersteller oft eine striktere Kontrolle über Maße und Konsistenz benötigen.",
+    "para3": "Zwei Diamanten mit derselben Form und demselben Karatgewicht können deutlich unterschiedliche Maße und visuelle Eigenschaften aufweisen. Die gemeinsame Überprüfung dieser Faktoren hilft Käufern, Entscheidungen auf Basis des fertigen Schmucks statt einer bloßen Bewertungsbeschreibung zu treffen.",
+    "considerLabel": "Uniglo Diamonds kann Käufern helfen, Naturdiamanten nach der Kombination von Eigenschaften zu bewerten, die für das fertige Stück relevant ist:",
+    "considerItems": [
+      "Form und Schliffstil",
+      "Karatgewicht",
+      "Farbe und Reinheit",
+      "Schliffqualität",
+      "Aufsichtsmaße",
+      "Proportionen und Umriss",
+      "Längen-zu-Breiten-Verhältnis",
+      "Gutachtendokumentation",
+      "Abstimmung und Kalibrierung",
+      "Beabsichtigte Fassung und Schmuckkategorie"
+    ]
   },
   "bridal": {
-    "eyebrow": "Braut- und Verlobungsschmuck",
-    "title": "Diamanten für Braut- und Verlobungsschmuck",
-    "para1": "Brautschmuck bleibt eine der kommerziell wichtigsten Anwendungen für polierte Diamanten. Einzelhändler benötigen möglicherweise dokumentierte Mittelsteine in verschiedenen beliebten Formen, Karatgewichten und Qualitätskombinationen.",
-    "para2": "Maßschneider benötigen möglicherweise stattdessen einen individuellen Naturdiamanten, der auf die Fassung, das Budget und die visuellen Präferenzen eines Kunden ausgewählt wird.",
-    "discussLabel": "Auf der INHORGENTA München 2027 können Käufer Diamanten für folgende Anwendungen besprechen:",
+    "eyebrow": "Brautschmuck",
+    "title": "Naturdiamanten für Brautschmuck",
+    "para1": "Brautschmuck bleibt eine wichtige Sourcing-Kategorie für viele europäische Händler und Hersteller. Je nach Unternehmen können die Anforderungen dokumentierte Solitärsteine, Fancy-Mitteldiamanten, koordinierte Seitensteine oder kalibrierte Diamanten für wiederholbare Ringdesigns umfassen.",
+    "para2": "Vor dem Besuch sollten Händler identifizieren, welche Formen, Größen und kommerziellen Preispositionen in ihrem Brautsortiment fehlen. Hersteller sollten auch Fassungsmaße angeben, wenn Diamanten zu einem vorhandenen Design passen müssen.",
+    "discussLabel": "Käufer können Naturdiamanten für folgende Anwendungen besprechen:",
     "discussItems": [
       "Solitär-Verlobungsringe",
-      "Halo-Verlobungsringe",
-      "Drei-Stein-Ringe",
-      "Seitenstein-Verlobungsringe",
-      "Diamant-Hochzeitsbänder",
-      "Eternity- und Jubiläumsbänder",
-      "Braut-Ohrringe und -Halsketten",
-      "Maßgefertigte Verlobungsringe"
-    ],
-    "para3": "Ein kommerziell nützliches Brautinventar erfordert oft ein Gleichgewicht zwischen bekannten Mittelstein-Optionen und markanten Diamanten für Kunden, die etwas Individuelles suchen."
-  },
-  "matching": {
-    "eyebrow": "Matching und Kalibrierung",
-    "title": "Matching und Kalibrierung für die Schmuckproduktion",
-    "para1": "Matching ist besonders wichtig, wenn mehrere Diamanten gemeinsam innerhalb desselben Schmuckdesigns verwendet werden. Diamantohrringe, Drei-Stein-Ringe, Eternity-Bänder, Tennisarmbänder und andere Mehrstein-Stücke erfordern Konsistenz.",
-    "para2": "Für Schmuckhersteller kann eine präzise Kalibrierung auch die Setteffizienz und Produktionswiederholbarkeit unterstützen. Diamanten, die erheblich in Größe oder Proportion variieren, können Anpassungen beim Setzen erfordern.",
-    "discussLabel": "Käufer können folgende Anforderungen besprechen:",
-    "discussItems": [
-      "Passende Diamantpaare",
-      "Koordinierte Seitensteine",
-      "Kalibrierte Diamantauswahlen",
-      "Eternity-Band-Layouts",
-      "Tennisarmband-Layouts",
-      "Tennishalsketten-Layouts",
-      "Mehrstein-Schmuck",
-      "Ersatzdiamanten",
-      "Wiederholte Fertigungsspezifikationen"
-    ],
-    "para3": "Diese Anforderungen sollten zu Beginn des Sourcing-Prozesses erläutert werden, damit die vorgeschlagene Diamantauswahl die endgültige Schmuckanwendung widerspiegelt.",
-    "imageAlt": "Passende und kalibrierte Naturdiamanten von Uniglo Diamonds"
-  },
-  "measurements": {
-    "eyebrow": "Maße und Proportionen",
-    "title": "Maße und Proportionen verstehen",
-    "para1": "Das Karatgewicht ist eine wesentliche Diamantmessung, bietet aber kein vollständiges Bild davon, wie ein polierter Diamant erscheinen wird. Zwei Diamanten mit demselben Karatgewicht können unterschiedliche Dimensionen, Proportionen und Face-up-Erscheinungen haben.",
-    "para2": "Ein Hersteller benötigt möglicherweise genaue Dimensionen für eine vorhandene Fassung. Ein Einzelhändler bevorzugt möglicherweise einen ovalen oder smaragdgeschliffenen Diamanten mit einem bestimmten Längen-Breiten-Verhältnis.",
-    "considerLabel": "Bevor Käufer Uniglo Diamonds treffen, sollten sie prüfen, ob sie Folgendes benötigen:",
-    "considerItems": [
-      "Mindest- und Höchstmaße",
-      "Bevorzugte Längen-Breiten-Verhältnisse",
-      "Besondere Umrisseigenschaften",
-      "Mindest-Face-up-Dimensionen",
-      "Bestehende Fassungen, die berücksichtigt werden müssen",
-      "Spezifische Schliff- oder Proportionserwartungen",
-      "Matching über mehrere Diamanten hinweg",
-      "Visuelle Qualitäten, die nicht vollständig durch einen Gradierungsbericht beschrieben werden"
+      "Halo- und Seitenstein-Ringe",
+      "Drei-Stein-Designs",
+      "Diamant-Trauringe",
+      "Ewigkeits- und Jubiläumsringe",
+      "Braut-Ohrringe und -Ketten",
+      "Maßgefertigte Verlobungsringaufträge"
     ]
   },
-  "certification": {
-    "eyebrow": "Zertifizierung und Dokumentation",
-    "title": "Diamantzertifizierung und Dokumentation",
-    "para1": "Zertifizierungs- und Dokumentationsanforderungen können je nach Größe, Wert, Zielmarkt und Kundenerwartungen eines Diamanten variieren. Einige Käufer benötigen individuelle Gradierungsberichte für Mittelsteine.",
-    "considerLabel": "Vor dem Treffen mit dem Uniglo Diamonds Team sollten Käufer Folgendes identifizieren:",
-    "considerItems": [
-      "Ob individuelle Gradierungsberichte erforderlich sind",
-      "Bevorzugte oder akzeptierte Gradierungslabore",
-      "Für Inventarsysteme benötigte Informationen",
-      "Länderspezifische Offenlegungspflichten im Einzelhandel",
-      "Import- oder Exportdokumentationsanforderungen",
-      "Erwartungen an Sourcing- oder Rückverfolgbarkeitsinformationen",
-      "Ob Dokumente jeden Stein begleiten müssen",
-      "Anforderungen für passende Paare oder kalibrierte Layouts"
-    ],
-    "para2": "Dokumentation sollte zu Beginn des Sourcing-Prozesses besprochen werden, bevor eine Auswahl bereits vorbereitet wurde."
+  "whatCanSource": {
+    "eyebrow": "Was Käufer beschaffen sollten",
+    "title": "Was Käufer auf der INHORGENTA beschaffen sollten",
+    "para1": "Ein produktiver Sourcing-Termin sollte sich auf einen definierten Inventar- oder Fertigungsbedarf konzentrieren. Der Versuch, jede verfügbare Form und jeden Grad zu prüfen, kann Vergleiche weniger nützlich machen.",
+    "items": [
+      {
+        "title": "Einzeln bewertete Mittelsteine",
+        "body": "Händler und Maßschneider können dokumentierte Naturdiamanten für Verlobungsringe, Jubiläumsschmuck und individuelle Kundenaufträge besprechen. Relevante Anforderungen können ein bevorzugtes Labor, Maße, Budgetbereich und Fassungsstil umfassen."
+      },
+      {
+        "title": "Fancy-Naturdiamanten",
+        "body": "Oval-, Birnen-, Smaragd-, Kissen-, Radiant-, Marquise-, Prinzess-, Asscher- und herzförmige Diamanten können verschiedene Design- und Einzelhandelsziele unterstützen. Umriss, Symmetrie und Längen-zu-Breiten-Verhältnis sollten neben konventionellen Bewertungsinformationen bewertet werden."
+      },
+      {
+        "title": "Diamanten für vorhandene Fassungen",
+        "body": "Wenn ein Diamant in eine vorhandene Ringfassung oder Schmuckkomponente passen muss, sind genaue Mindest- und Höchstmaße unerlässlich. Käufer sollten die Fassungsmaße oder eine detaillierte technische Spezifikation mitbringen."
+      },
+      {
+        "title": "Wiederholbare Diamantselektionen",
+        "body": "Hersteller benötigen möglicherweise Diamanten, die innerhalb kontrollierter Maß- und Qualitätsbereiche geliefert werden können. Erforderliche Toleranzen, Mengen, Produktionsphasen und Liefererwartungen sollten zu Beginn der Diskussion erklärt werden."
+      },
+      {
+        "title": "Abstimmung und Kalibrierung für die Schmuckproduktion",
+        "body": "Abgestimmte Ohrringe, Drei-Stein-Ringe, Ewigkeitsbänder, Tennisarmbänder und andere Mehrstein-Stücke erfordern visuelle Konsistenz. Form, Maße, Farbe, Reinheit und das Gesamterscheinungsbild müssen möglicherweise alle koordiniert werden."
+      }
+    ]
   },
-  "meetingPlace": {
-    "eyebrow": "Sourcing, Wissen und Innovation",
-    "title": "Ein Treffpunkt für Sourcing, Wissen und Innovation",
-    "para1": "INHORGENTA ist mehr als eine Ausstellung fertiger Produkte. Die verschiedenen Hallen und Begleitprogramme helfen Fachleuten zu verstehen, wie sich die breitere Branche verändert.",
-    "para2": "Für Käufer hilft diese Kombination dabei, individuelle Sourcing-Entscheidungen in einem breiteren kommerziellen Kontext zu verorten. Ein Diamant kann für sich attraktiv sein, aber Einzelhändler müssen auch berücksichtigen, wie er zu aktuellen Kundenpräferenzen, bestehenden Beständen und Preisbereichen passt.",
-    "para3": "Für Uniglo Diamonds bietet die Teilnahme an diesem Umfeld die Möglichkeit, zuzuhören und zu präsentieren. Gespräche mit Einzelhändlern, Großhändlern, Designern und Herstellern helfen dem Team zu verstehen, wie sich Diamantpräferenzen auf europäischen und internationalen Märkten entwickeln."
+  "matching": {
+    "eyebrow": "Abstimmung und Kalibrierung",
+    "title": "Abstimmung und Kalibrierung für die Schmuckproduktion",
+    "para1": "Abstimmung ist besonders wichtig, wenn mehrere Diamanten zusammen in demselben Schmuckdesign verwendet werden.",
+    "para2": "Diamantohrringe, Drei-Stein-Ringe, Ewigkeitsbänder, Tennisarmbänder, Tennisketten und andere Mehrstein-Stücke erfordern Konsistenz bei relevanten Eigenschaften.",
+    "para3": "Bei Schmuckherstellern kann eine genaue Kalibrierung auch die Fassungseffizienz und Produktionswiederholbarkeit unterstützen. Diamanten, die sich in Größe oder Proportionen erheblich unterscheiden, können beim Fassen Anpassungen erfordern und ein ungleichmäßiges fertiges Erscheinungsbild erzeugen.",
+    "discussLabel": "Käufer können folgendes besprechen:",
+    "discussItems": [
+      "Abgestimmte Naturdiamantpaare",
+      "Koordinierte Mittel- und Seitensteine",
+      "Kalibrierte Diamantselektionen",
+      "Ewigkeitsband-Layouts",
+      "Tennisarmband- und -ketten-Layouts",
+      "Mehrstein-Schmuckdesigns",
+      "Ersatzdiamanten",
+      "Wiederholungsfertigungsspezifikationen"
+    ],
+    "para4": "Die Angabe präziser Maße und akzeptabler Toleranzen hilft dabei, dass die vorgeschlagene Selektion die fertige Schmuckanwendung widerspiegelt.",
+    "imageAlt": "Abgestimmte Paare und kalibrierte Naturdiamanten für die Schmuckproduktion"
   },
   "whyMeet": {
     "eyebrow": "Warum Uniglo Diamonds treffen",
-    "title": "Warum Uniglo Diamonds auf der Messe treffen?",
-    "para1": "Digitale Inventare und virtuelle Meetings machen das anfängliche Diamant-Sourcing effizienter, aber Diamanten profitieren oft von einer persönlichen Bewertung. Das direkte Betrachten eines Diamanten kann Aspekte seines Umrisses, seiner Proportionen, seiner Face-up-Größe und seines visuellen Charakters offenbaren.",
-    "benefitsLabel": "Ein Treffen mit Uniglo Diamonds auf der INHORGENTA München 2027 kann Besuchern helfen:",
+    "title": "Warum Uniglo Diamonds auf der Ausstellung treffen?",
+    "para1": "Digitale Inventare und Gutachten sind bei der Erstrecherche nützlich, aber eine persönliche Besichtigung kann Eigenschaften offenbaren, die Standarddaten und Fotografie nicht vollständig übermitteln.",
+    "para2": "Käufer können Umriss, Aufsichtsmaße, Proportionen und das gesamte visuelle Erscheinungsbild vergleichen und dabei besprechen, wie jeder Diamant positioniert, gefasst und verkauft wird.",
+    "para3": "Der Antwerpener Standort von Uniglo Diamonds bietet auch eine Verbindung zu einem der weltweit etablierten Diamantenhandelszentren. Der Wert dieses Hintergrunds wird durch klare Kommunikation, richtig verstandene Spezifikationen und konsequentes Follow-up vor und nach der Ausstellung unterstützt.",
+    "benefitsLabel": "Ein Termin mit Uniglo Diamonds kann Besuchern helfen:",
     "benefits": [
-      "Naturdiamanten persönlich prüfen",
-      "Verschiedene Formen und Qualitätskombinationen vergleichen",
-      "Zielkunden und Preispositionen besprechen",
-      "Maße und Proportionen bewerten",
-      "Zertifizierungs- und Dokumentationsanforderungen prüfen",
-      "Passende und kalibrierte Auswahlen besprechen",
-      "Braut- oder Kerninventare planen",
-      "Wiederholungs-Sourcing besprechen",
-      "Eine direkte Beziehung zum Uniglo Diamonds Team aufbauen"
+      "Verfügbare Naturdiamanten persönlich zu prüfen",
+      "Formen und Qualitätskombinationen zu vergleichen",
+      "Maße und Proportionen zu überprüfen",
+      "Gutachten und Dokumentation zu besprechen",
+      "Abgestimmte oder kalibrierte Selektionen zu bewerten",
+      "Braut- und Kern-Diamanteninventar zu planen",
+      "Fertigungsanforderungen zu besprechen",
+      "Möglichkeiten der Wiederholungslieferung zu erkunden",
+      "Eine direkte Sourcing-Beziehung aufzubauen"
     ],
-    "note": "Käufer mit spezifischen Anforderungen sollten ihre bevorzugten Formen, Karatbereiche, Maße, Farben, Reinheiten, Mengen und ungefähren Zielpreise vor dem Treffen vorbereiten.",
-    "imageAlt": "Diamant-Sourcing-Gespräch mit Uniglo Diamonds auf der INHORGENTA München"
+    "imageAlt": "Naturdiamanten-Sourcing-Gespräch mit Uniglo Diamonds auf der INHORGENTA"
   },
-  "antwerp": {
-    "eyebrow": "Antwerpener Diamantexpertise",
-    "title": "Antwerpener Diamant-Sourcing-Expertise",
-    "para1": "Antwerpen hat seit Generationen eine wichtige Rolle im internationalen Diamanthandel gespielt. Der Antwerpener Hintergrund von Uniglo Diamonds verbindet das Unternehmen mit einem der etabliertesten Diamanthandelszentren der Welt.",
-    "para2": "Allein der Standort schafft jedoch keine erfolgreiche Sourcing-Beziehung. Käufer benötigen auch klare Kommunikation, korrekt verstandene Spezifikationen, realistische Liefererwartungen und konsequentes Follow-up.",
-    "para3": "Uniglo Diamonds nähert sich dem Sourcing, indem es zunächst das beabsichtigte Produkt, den Markt und den Kunden des Käufers versteht. Dies ermöglicht dem Team zu beurteilen, welche Formen, Maße, Qualitätskombinationen und Liefervereinbarungen am geeignetsten sein könnten.",
-    "para4": "Dieser Ansatz kann einen Einzelhändler unterstützen, der einzelne Mittelsteine sourcet, einen Hersteller, der eine Wiederholkollektion vorbereitet, einen Großhändler, der mehrere Märkte bedient, oder einen Designer, der eine spezialisierte Linie entwickelt."
+  "planning": {
+    "eyebrow": "Ihren Besuch planen",
+    "title": "Ihren Besuch in der Messe München planen",
+    "para1": "Die INHORGENTA richtet sich ausschließlich an zugelassene Fachbesucher. Besucher werden möglicherweise gebeten, einen Fachnachweis, Nachweise über berufliche Qualifikationen oder relevante Studierendendokumentation vorzulegen. Eine Visitenkarte allein wird möglicherweise nicht als Berechtigungsnachweis akzeptiert.",
+    "para2": "Der Ticket-Shop soll am 5. Dezember 2026 öffnen. Die Ticketpreise wurden noch nicht veröffentlicht. Tickets sollten nach Möglichkeit online gekauft werden, da der Veranstalter darauf hinweist, dass der Einlass vor Ort teurer sein und längere Wartezeiten mit sich bringen kann.",
+    "confirmLabel": "Vor der Reise bitte bestätigen:",
+    "confirmItems": [
+      "Berechtigung als Fachbesucher und erforderliche Nachweise",
+      "Aktuelle Ticketpreise",
+      "Endgültige Öffnungszeiten",
+      "Neuestes Ausstellerverzeichnis und Hallenplan",
+      "Bestätigte Hallen- und Standnummer von Uniglo Diamonds",
+      "Reise- und Unterkunftsarrangements",
+      "Ihre Meeting-Zeit",
+      "Die Diamantspezifikationen, die Sie besprechen möchten"
+    ],
+    "transport": "Anreise zum Ausstellungsgelände",
+    "transportPara1": "Die Messe München ist über die U2-Linie mit der Münchner Innenstadt verbunden. Die Stationen Messestadt West und Messestadt Ost bedienen das Messegelände, wobei der geeignetste Eingang vom endgültigen Hallenplan abhängt.",
+    "transportPara2": "Die Fahrt vom Münchner Hauptbahnhof dauert ohne Umsteigen etwa 20 Minuten. Ein INHORGENTA-Eintrittsbillet beinhaltet keine Fahrt mit MVG, MVV oder Deutschen Bahn-Diensten, sodass Besucher ein separates ÖPNV-Ticket kaufen müssen.",
+    "note": "INHORGENTA-Tickets beinhalten keinen lokalen öffentlichen Nahverkehr, daher sollten Besucher ihre Anreise zur Messe München separat planen."
+  },
+  "guides": {
+    "eyebrow": "INHORGENTA München 2027 Leitfäden",
+    "title": "INHORGENTA München 2027 Leitfäden",
+    "intro": "Die folgenden unterstützenden Ressourcen helfen Besuchern, verschiedene Teile ihrer Reise zu planen, ohne den Zweck dieser Veranstaltungsseite zu duplizieren:",
+    "items": [
+      {
+        "title": "INHORGENTA München 2027 Besucherleitfaden",
+        "body": "Praktische Informationen zu Registrierung, Fachakkreditierung, Öffnungszeiten, Transport, Unterkunft und täglicher Besuchsplanung."
+      },
+      {
+        "title": "INHORGENTA München 2027 Aussteller & Schmuck-Sourcing-Leitfaden",
+        "body": "Ein Leitfaden zu den Ausstellungsbereichen, Hallen, Ausstellerrecherche und dem Aufbau einer effizienten Lieferantenliste."
+      },
+      {
+        "title": "Diamanten-Sourcing auf der INHORGENTA München 2027: Ein Käuferleitfaden",
+        "body": "Ein Vorbereitungsleitfaden für professionelle Diamantenkäufer, der Spezifikationen, Maße, Abstimmung, Dokumentation und Meeting-Planung abdeckt."
+      }
+    ]
   },
   "partnerships": {
-    "eyebrow": "Partnerschaften über München hinaus",
-    "title": "Partnerschaften, die über München hinaus fortbestehen",
-    "para1": "Die wertvollsten Messegespräche führen nicht immer unmittelbar zu einem Auftrag. Einige beginnen mit einer spezifischen Diamantanforderung, andere mit einer breiteren Diskussion über eine zukünftige Kollektion oder eine Marktchance.",
-    "para2": "INHORGENTA gibt Uniglo Diamonds die Möglichkeit, etablierte Partner wiederzusehen und gleichzeitig Käufer zu treffen, die das Unternehmen zum ersten Mal entdecken.",
-    "nextStepsLabel": "Nach der Messe können Käufer Folgendes wünschen:",
+    "eyebrow": "Über München hinaus",
+    "title": "Partnerschaften, die über München hinausgehen",
+    "para1": "Die wertvollsten Ausstellungsgespräche führen nicht immer zu einem sofortigen Auftrag. Manche beginnen mit einer spezifischen Diamantenanforderung, andere mit einer breiteren Diskussion über eine zukünftige Kollektion, eine Sortimentslücke oder eine Marktchance.",
+    "para2": "Nach der Ausstellung können Käufer eine fokussiertere Selektion anfragen, Gutachten prüfen, Maßanforderungen verfeinern oder Mengen und Produktionspläne bestätigen.",
+    "para3": "Langfristige Diamanten-Sourcing-Beziehungen hängen von mehr als der ersten Präsentation ab. Sie werden durch transparente Kommunikation, konsistente Qualität, zuverlässigen Service und ein Verständnis der kommerziellen Ziele des Käufers aufgebaut.",
+    "nextStepsLabel": "Nach der Ausstellung können Käufer:",
     "nextSteps": [
-      "Eine fokussiertere Diamantauswahl anfordern",
-      "Bestimmte Gradierungsberichte prüfen",
+      "Eine fokussiertere Diamantselektion anfragen",
+      "Bestimmte Gutachten prüfen",
       "Maß- oder Qualitätsanforderungen verfeinern",
-      "Ein passendes Paar vorbereiten",
+      "Ein abgestimmtes Paar vorbereiten",
       "Ein kalibriertes Mehrstein-Layout arrangieren",
       "Mengen oder Produktionspläne bestätigen",
       "Wiederholungsverfügbarkeit besprechen",
       "Eine weitere Besichtigung oder ein Sourcing-Gespräch planen"
     ],
-    "para3": "Langfristige Diamant-Sourcing-Beziehungen hängen von mehr als der anfänglichen Präsentation ab. Sie werden durch transparente Kommunikation, konsistente Qualität, zuverlässigen Service und ein Verständnis der kommerziellen Ziele des Käufers aufgebaut."
-  },
-  "planning": {
-    "eyebrow": "Besuchsplanung",
-    "title": "Besuchsplanung",
-    "para1": "Die INHORGENTA München 2027 ist ausschließlich für zugelassene Fachbesucher bestimmt. Neue Besucher müssen möglicherweise einen Nachweis ihrer beruflichen Beteiligung, Qualifikationen oder relevanter Studien vorlegen, bevor sie ein Ticket kaufen.",
-    "para2": "Der Ticketshop 2027 soll am 5. Dezember 2026 öffnen. Besucher können sich möglicherweise auch vor Ort registrieren, aber der Veranstalter empfiehlt eine Vorabregistrierung, da diese Zeit sparen und günstiger sein kann.",
-    "confirmLabel": "Vor der Teilnahme sollten Besucher Folgendes bestätigen:",
-    "confirmItems": [
-      "Ihre Berechtigung als Fachbesucher",
-      "Erforderliche Dokumente für die Akkreditierung",
-      "Aktuelle Ticketpreise",
-      "Tägliche Öffnungszeiten",
-      "Den aktuellen Hallen- und Messeplan",
-      "Uniglo Diamonds' bestätigte Halle und Standnummer",
-      "Reise- und Unterkunftsarrangements",
-      "Die Diamantspezifikationen, die sie besprechen möchten"
-    ],
-    "note": "INHORGENTA-Tickets umfassen keine lokalen öffentlichen Verkehrsmittel, daher sollten Besucher ihre Anreise zur Messe München separat planen."
-  },
-  "lookingAhead": {
-    "eyebrow": "Ausblick",
-    "title": "Ausblick auf die INHORGENTA München 2027",
-    "para1": "Vom 19. bis 22. Februar 2027 bringt die INHORGENTA die internationale Schmuck-, Uhren-, Diamant- und Edelsteingemeinschaft an der Messe München zusammen.",
-    "para2": "Uniglo Diamonds freut sich darauf, ein ausgewähltes Naturdiamant-Portfolio zu präsentieren und Einzelhändler, Großhändler, Hersteller, Designer und andere Branchenprofis zu treffen.",
-    "para3": "Ob Sie nach einem individuell dokumentierten Mittelstein, passenden Naturdiamanten, kalibrierten Steinen für die Schmuckproduktion oder einer zuverlässigen Langzeit-Sourcing-Beziehung suchen – wir laden Sie ein, das Uniglo Diamonds Team in München zu treffen.",
-    "note": "Die bestätigte Hallen- und Standnummer von Uniglo Diamonds wird auf dieser Seite veröffentlicht, sobald sie verfügbar ist."
+    "imageAlt": "Diamanten-Sourcing-Meeting mit Uniglo Diamonds auf der INHORGENTA München"
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
     "items": [
-      { "question": "Wann findet die INHORGENTA München 2027 statt?", "answer": "Die INHORGENTA München 2027 findet von Freitag, 19. Februar bis Montag, 22. Februar 2027 statt." },
-      { "question": "Wo findet die INHORGENTA München 2027 statt?", "answer": "Die Ausstellung findet im Trade Fair Center Messe München, Am Messesee 2, 81829 München, Deutschland, statt." },
-      { "question": "Was sind die Öffnungszeiten?", "answer": "Öffnungszeiten für Besucher sind 09:30–18:30 von Freitag, 19. Februar bis Sonntag, 21. Februar. Am Montag, 22. Februar ist die Messe von 09:30–17:00 Uhr geöffnet." },
-      { "question": "Wer kann die INHORGENTA besuchen?", "answer": "Die INHORGENTA ist ausschließlich für zugelassene Fachleute aus den Bereichen Schmuck, Uhren, Edelsteine, Perlen, Design und verwandte Technologien bestimmt. Handelsberechtigungen oder Studiennachweise können erforderlich sein." },
-      { "question": "Ab wann können Besucher Tickets kaufen?", "answer": "Der INHORGENTA 2027 Ticketshop soll am 5. Dezember 2026 öffnen. Ticketpreise werden näher zur Ticketshop-Eröffnung veröffentlicht." },
-      { "question": "Können Tickets vor Ort gekauft werden?", "answer": "Der Veranstalter gibt an, dass Tickets auf der Messe gekauft werden können. Tickets vor Ort können jedoch teurer sein. Erstbesucher sollten entsprechende Handelsakkreditierungen mitbringen." },
-      { "question": "Ist der öffentliche Nahverkehr im INHORGENTA-Ticket enthalten?", "answer": "Nein. Das Eintrittticket umfasst keine Fahrten mit dem lokalen öffentlichen Verkehrsnetz von München." },
-      { "question": "Was ist die Standnummer von Uniglo Diamonds auf der INHORGENTA München 2027?", "answer": "Die Hallen- und Standnummer von Uniglo Diamonds wurde noch nicht öffentlich bestätigt. Die Information wird zu dieser Seite hinzugefügt, sobald sie verfügbar ist." },
-      { "question": "Was wird Uniglo Diamonds auf der INHORGENTA München 2027 präsentieren?", "answer": "Uniglo Diamonds plant, Naturdiamanten in verschiedenen Formen, Karatgewichten, Maßen, Farben und Reinheiten zu präsentieren." },
-      { "question": "Können Käufer passende oder kalibrierte Diamanten besprechen?", "answer": "Ja. Käufer können passende Paare, kalibrierte Diamantauswahlen, koordinierte Seitensteine und Layouts für Mehrstein-Schmuck besprechen." },
-      { "question": "Können Hersteller Dauerlieferanforderungen besprechen?", "answer": "Ja. Hersteller sollten ihre erforderlichen Formen, Maße, Qualitätsbereiche, Mengen und Produktionspläne angeben." },
-      { "question": "Sollten Käufer im Voraus ein Treffen vereinbaren?", "answer": "Die Vereinbarung eines Treffens wird für Käufer mit detaillierten Diamantanforderungen empfohlen. Informationen zur Terminbuchung werden hinzugefügt, sobald Uniglo Diamonds' Stand bestätigt ist." }
+      { "question": "Wann findet die INHORGENTA München 2027 statt?", "answer": "Die Ausstellung findet von Freitag, 19. Februar bis Montag, 22. Februar 2027 statt." },
+      { "question": "Wo findet die Ausstellung statt?", "answer": "Sie findet im Trade Fair Center Messe München, Am Messesee 2, 81829 München, Deutschland statt." },
+      { "question": "Wie sind die Besucheröffnungszeiten?", "answer": "Die Besucherzeiten sind vom 19. bis 21. Februar 09:30–18:30 Uhr und am 22. Februar 09:30–17:00 Uhr geplant. Besucher sollten die Website des Veranstalters auf Änderungen prüfen, bevor sie reisen." },
+      { "question": "Wer kann die INHORGENTA besuchen?", "answer": "Die Ausstellung richtet sich an zugelassene Fachleute und anspruchsberechtigte Studierende aus der Schmuck-, Uhren-, Edelstein-, Perlen-, Design- und Technologiebranche. Ein Berechtigungsnachweis kann erforderlich sein." },
+      { "question": "Wann öffnet der Ticket-Shop?", "answer": "Der INHORGENTA 2027 Ticket-Shop soll am 5. Dezember 2026 öffnen. Die Ticketpreise werden vom Veranstalter veröffentlicht." },
+      { "question": "Können Besucher Tickets vor Ort kaufen?", "answer": "Der Veranstalter gibt an, dass Tickets auch auf der Ausstellung gekauft werden können. Vor-Ort-Tickets können jedoch teurer sein und längere Wartezeiten mit sich bringen. Erstbesucher sollten geeignete Fachakkreditierung mitbringen." },
+      { "question": "Beinhaltet der Einlass den Münchner Nahverkehr?", "answer": "Nein. Ein INHORGENTA-Ticket beinhaltet keine Fahrten mit MVG, MVV oder Deutschen Bahn-Diensten." },
+      { "question": "Wie lautet die Standnummer von Uniglo Diamonds?", "answer": "Die Halle und Standnummer von Uniglo Diamonds für die Ausstellung 2027 wurden noch nicht offiziell bestätigt. Die Informationen werden auf dieser Seite hinzugefügt, wenn sie verfügbar sind." },
+      { "question": "Was können Käufer mit Uniglo Diamonds besprechen?", "answer": "Käufer können Naturdiamanten für einzelne Mittelsteine, Brautschmuck, abgestimmte Paare, kalibrierte Layouts, vorhandene Fassungen, Fertigungsprogramme und Wiederholungslieferungsanforderungen besprechen." },
+      { "question": "Sollten Käufer im Voraus ein Meeting vereinbaren?", "answer": "Eine Vorabbuchen wird Käufern mit spezifischen Diamantenanforderungen empfohlen. Die Angabe von Formen, Karatbereichen, Maßen, Qualitätspräferenzen, Mengen und Dokumentationsanforderungen hilft dem Team, sich auf den Termin vorzubereiten." }
     ]
   },
   "finalCta": {
-    "title": "Treffen Sie Uniglo Diamonds in München",
-    "para": "Treffen Sie Uniglo Diamonds auf der INHORGENTA München 2027, um Naturdiamanten und Antwerpener Sourcing-Möglichkeiten zu erkunden, die auf die Anforderungen Ihres Unternehmens ausgerichtet sind. Bereiten Sie Ihre bevorzugten Formen, Maße, Qualitätsbereiche, Dokumentationsanforderungen und geplante Schmuckanwendungen vor.",
+    "title": "Buchen Sie ein Meeting mit Uniglo Diamonds",
+    "para": "Treffen Sie Uniglo Diamonds in München, um Naturdiamanten zu besprechen, die auf Ihre Einzel- und Großhandels-, Fertigungs- oder Maßschmuckanforderungen zugeschnitten sind. Bitte geben Sie bei der Terminanfrage Ihre bevorzugten Formen, Karatbereiche, Maße, Farben, Reinheitsstufen, Mengen, Gutachtenanforderungen und beabsichtigten Schmuckanwendungen an.",
     "factEvent": "Veranstaltung",
     "factEventValue": "INHORGENTA München 2027",
     "factDates": "Termine",
     "factDatesValue": "19.–22. Februar 2027",
-    "factVenue": "Veranstaltungsort",
+    "factVenue": "Messehalle",
     "factVenueValue": "Messe München",
     "factStand": "Uniglo Stand",
-    "factStandValue": "Noch zu bestätigen",
-    "primaryCta": "INHORGENTA-Fachgespräch mit Uniglo Diamonds buchen",
+    "factStandValue": "Wird noch bestätigt",
+    "primaryCta": "INHORGENTA-Fachgespräch buchen",
     "secondaryCta": "Uniglos Naturdiamant-Inventar erkunden",
-    "note": "Die bestätigte Hallen- und Standnummer wird veröffentlicht, sobald sie verfügbar ist. Ticketshop öffnet am 5. Dezember 2026."
+    "note": "Die bestätigte Halle und Standnummer wird veröffentlicht, sobald sie offiziell verfügbar ist. Ticket-Shop öffnet am 5. Dezember 2026."
   }
 }
