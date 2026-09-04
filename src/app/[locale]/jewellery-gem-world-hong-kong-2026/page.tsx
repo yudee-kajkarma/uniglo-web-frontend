@@ -27,7 +27,7 @@ const INVENTORY_HREF = "/inventory";
 
 const IMAGES = {
     banner: "/jewellery-show-london/stand-b41-diamond-tray.webp",
-    hero: "/event-page-images/jewellery-gem-world-hong-kong-2026/1.png",
+    hero: "/event-page-images/jewellery-gem-world-hong-kong-2026/new-hero.png",
     venues: "/event-page-images/jewellery-gem-world-hong-kong-2026/2.png",
     trade: "/event-page-images/jewellery-gem-world-hong-kong-2026/3.png",
     diamonds: "/event-page-images/jewellery-gem-world-hong-kong-2026/2.png",
