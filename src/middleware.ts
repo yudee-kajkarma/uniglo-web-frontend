@@ -15,17 +15,19 @@ export default createMiddleware({
   localeDetection: false, 
 });
 
-// Match only public-facing paths that need locale routing
-// Exclude admin, auth, superadmin, profile, and _next/static etc.
+// Match only public-facing paths that need locale routing.
+// The (admin)/(superadmin) route groups don't appear in URLs, so each admin
+// route must be excluded by its real path — otherwise next-intl rewrites it
+// to /en/<path>, which doesn't exist under [locale], and it 404s.
 export const config = {
   // Match all pathnames except:
   // - api routes
   // - _next (Next.js internals)
   // - static files (.*)
   // - sitemap.xml, robots.txt
-  // - admin, auth, superadmin route groups
+  // - admin/superadmin pages (English-only, live outside [locale])
   // - profile (account management)
   matcher: [
-    "/((?!api|_next|.*\\..*|sitemap.xml|robots.txt|admin|auth|superadmin|profile).*)",
+    "/((?!api|_next|.*\\..*|sitemap.xml|robots.txt|admin-management|members-management|create-customer|enquiry-management|sell-diamonds-form-requests|approve-user|profile).*)",
   ],
 };

@@ -1,5 +1,4 @@
 import { getRequestConfig } from "next-intl/server";
-import { notFound } from "next/navigation";
 
 export const locales = ["en", "de", "nl", "fr", "it", "es"] as const;
 export type Locale = (typeof locales)[number];
@@ -17,9 +16,27 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = "en";
   }
 
+  const [baseMessages, diamondDetailMessages, vicenzaoroMessages, jgtdDubaiMessages, inhorgentaMessages, jckLasVegasMessages, hkDiamondGemPearlMessages] = await Promise.all([
+    import(`../messages/${locale}.json`),
+    import(`../messages/diamond-details/${locale}.json`),
+    import(`../messages/vicenzaoro-september-2026/${locale}.json`),
+    import(`../messages/jgtd-dubai-2026/${locale}.json`),
+    import(`../messages/inhorgenta-munich-2027/${locale}.json`),
+    import(`../messages/jck-las-vegas-2027/${locale}.json`),
+    import(`../messages/hong-kong-diamond-gem-pearl-show-2027/${locale}.json`),
+  ]);
+
   return {
     locale,
-    messages: (await import(`../messages/${locale}.json`)).default,
+    messages: {
+      ...baseMessages.default,
+      diamondDetail: diamondDetailMessages.default,
+      vicenzaoroSeptemberPage: vicenzaoroMessages.default,
+      jgtdDubaiPage: jgtdDubaiMessages.default,
+      inhorgentaMunichPage: inhorgentaMessages.default,
+      jckLasVegasPage: jckLasVegasMessages.default,
+      hkDiamondGemPearlPage: hkDiamondGemPearlMessages.default,
+    },
 
     onError(error) {
       if (error.code === "MISSING_MESSAGE") {

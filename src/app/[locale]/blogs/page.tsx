@@ -431,6 +431,76 @@ const blogs = [
         id: 13,
         image: "/special-blogs-images/valentines-day-diamond-gifts-for-every-heart-1.png",
         slug: "valentines-day-diamond-gifts-for-every-heart",
+    },
+    {
+        id: 86,
+        image: "/mothers-day/blogs/why-antwerp-celebrates-mothers-day-15-august.webp",
+        slug: "why-antwerp-celebrates-mothers-day-15-august",
+    },
+    {
+        id: 87,
+        image: "/mothers-day/blogs/antwerp-mothers-day-15-august-practical-guide.webp",
+        slug: "antwerp-mothers-day-15-august-practical-guide",
+    },
+    {
+        id: 88,
+        image: "/mothers-day/blogs/last-minute-mothers-day-gift-antwerp.webp",
+        slug: "last-minute-mothers-day-gift-antwerp",
+    },
+    {
+        id: 89,
+        image: "/mothers-day/blogs/how-to-choose-jewellery-gift-for-mum.webp",
+        slug: "how-to-choose-jewellery-gift-for-mum",
+    },
+    {
+        id: 90,
+        image: "/mothers-day/blogs/jewellery-gift-without-knowing-ring-size.webp",
+        slug: "jewellery-gift-without-knowing-ring-size",
+    },
+    {
+        id: 91,
+        image: "/mothers-day/blogs/mothers-day-natural-vs-lab-grown-diamond-gift.webp",
+        slug: "mothers-day-natural-vs-lab-grown-diamond-gift",
+    },
+    {
+        id: 92,
+        image: "/mothers-day/blogs/should-jewellery-be-a-surprise-gift-mothers-day.webp",
+        slug: "should-jewellery-be-a-surprise-gift-mothers-day",
+    },
+    {
+        id: 93,
+        image: "/jewellery-show-london/blogs/jewellery-show-london-2026-visitor-guide.webp",
+        slug: "jewellery-show-london-2026-visitor-guide",
+    },
+    {
+        id: 94,
+        image: "/jewellery-show-london/blogs/jewellery-show-london-2026-exhibitors.webp",
+        slug: "jewellery-show-london-2026-exhibitors",
+    },
+    {
+        id: 95,
+        image: "/jewellery-show-london/blogs/jewellery-show-london-2026-programme.webp",
+        slug: "jewellery-show-london-2026-programme",
+    },
+    {
+        id: 96,
+        image: "/jewellery-show-london/blogs/jewellery-trade-show-buyer-checklist.webp",
+        slug: "jewellery-trade-show-buyer-checklist",
+    },
+    {
+        id: 97,
+        image: "/jewellery-show-london/blogs/uk-jewellery-trends-2026.webp",
+        slug: "uk-jewellery-trends-2026",
+    },
+    {
+        id: 98,
+        image: "/jewellery-show-london/blogs/jewellery-assortment-planning.webp",
+        slug: "jewellery-assortment-planning",
+    },
+    {
+        id: 99,
+        image: "/jewellery-show-london/blogs/how-to-choose-natural-diamond-supplier.webp",
+        slug: "how-to-choose-natural-diamond-supplier",
     }
 ];
 const BlogPage = async ({ params }: Props) => {
@@ -447,7 +517,7 @@ const BlogPage = async ({ params }: Props) => {
                         {t("title")}
                     </h2>
                     {/* Blogs Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         {[...blogs].reverse().map((blog) => {
                             return (
                                 <div
@@ -455,11 +525,12 @@ const BlogPage = async ({ params }: Props) => {
                                     className="flex flex-col h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group"
                                 >
                                     {/* Blog Image */}
-                                    <div className="relative w-full h-64 md:h-72 overflow-hidden rounded-sm mb-6 ">
+                                    <div className="relative w-full aspect-square overflow-hidden rounded-sm mb-6 ">
                                         <Image
                                             src={blog.image}
                                             alt={t(`posts.${blog.id}.title`)}
                                             fill
+                                            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                                             className="object-cover hover:scale-105 transition-transform duration-300"
                                             unoptimized={typeof blog.image === "string"}
                                         />

@@ -31,6 +31,12 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "**.diamondservices.co.uk",
             },
+            // Uniglo Jewels product imagery (Cloudflare R2), used by the
+            // Mother's Day gift edit.
+            {
+                protocol: "https",
+                hostname: "**.r2.dev",
+            },
         ],
     },
 };

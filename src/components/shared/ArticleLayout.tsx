@@ -8,7 +8,7 @@ interface ArticleLayoutProps {
     subtitle: string;
     paragraphs: string[];
     bulletPoints?: string[];
-    image: {
+    image?: {
         src: string;
         alt?: string; // Optional, can fallback to title
     };
@@ -17,6 +17,9 @@ interface ArticleLayoutProps {
     onButtonClick?: () => void; // Optional handler for the button
     /* --- NEW PROP --- */
     floatImages?: boolean; // Default: true. If false, uses Flexbox split layout.
+    /* Arbitrary trailing content (links, CTA rows, notes). Lets a server
+       component supply <Link> buttons without the client-only onButtonClick. */
+    actions?: React.ReactNode;
 }
 
 const ArticleLayout: React.FC<ArticleLayoutProps> = ({
@@ -29,6 +32,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
     buttonText,
     onButtonClick,
     floatImages = true, // Default to your original float behavior
+    actions,
 }) => {
     return (
         <div
@@ -41,6 +45,7 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
             }`}
         >
             {/* 1. IMAGE SECTION */}
+            {image && (
             <div
                 className={`relative h-auto ${
                     floatImages
@@ -60,11 +65,12 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
                     className="w-full h-auto object-cover shadow-sm transition-transform duration-700 group-hover:scale-[1.02]"
                 />
             </div>
+            )}
 
             {/* 2. TEXT CONTENT */}
             <div
                 className={`text-content ${
-                    floatImages ? "" : "w-full md:w-1/2" // In flex mode, take up remaining half
+                    floatImages ? "" : image ? "w-full md:w-1/2" : "w-full" // In flex mode, full width if no image
                 }`}
             >
                 {/* Subtitle with separator line */}
@@ -111,6 +117,8 @@ const ArticleLayout: React.FC<ArticleLayoutProps> = ({
                         </Button>
                     </div>
                 )}
+
+                {actions && <div className="mt-8">{actions}</div>}
             </div>
         </div>
     );
