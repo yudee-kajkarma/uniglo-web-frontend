@@ -24,9 +24,9 @@ const APPOINTMENT_HREF = "/contact-us";
 const INVENTORY_HREF = "/inventory";
 
 const IMAGES = {
-    hero:         "/event-page-images/hong-kong/1.png",
-    meet:         "/event-page-images/hong-kong/2.png",
-    matching:     "/event-page-images/hong-kong/3.png",
+    hero: "/event-page-images/hong-kong/1.png",
+    meet: "/event-page-images/hong-kong/2.png",
+    matching: "/event-page-images/hong-kong/3.png",
     partnerships: "/event-page-images/hong-kong/4.png",
 };
 
@@ -78,27 +78,27 @@ const HkDiamondGemPearlPage = async ({ params }: Props) => {
     const { locale } = await params;
     const t = await getTranslations({ locale, namespace: NAMESPACE });
 
-    const eventRows      = t.raw("eventDetails.rows")         as { label: string; value: string }[];
-    const eventHours     = t.raw("eventDetails.hours")         as { date: string; time: string }[];
-    const whatIsAreas    = t.raw("whatIs.areas")               as string[];
-    const sourceItems    = t.raw("whatCanSource.sourceItems")  as string[];
-    const prepItems      = t.raw("whatCanSource.prepItems")    as string[];
-    const twinTableRows  = t.raw("twinShows.tableRows")        as string[][];
-    const twinTips       = t.raw("twinShows.tips")             as string[];
-    const meetShapes     = t.raw("meet.shapes")                as string[];
-    const meetDiscuss    = t.raw("meet.discussItems")          as string[];
-    const bridalItems    = t.raw("bridal.discussItems")        as string[];
-    const matchingItems  = t.raw("matching.discussItems")      as string[];
-    const measureItems   = t.raw("measurements.considerItems") as string[];
-    const certItems      = t.raw("certification.considerItems")as string[];
-    const assessItems    = t.raw("inPerson.assessItems")       as string[];
-    const hybridRows     = t.raw("hybrid.tableRows")           as string[][];
-    const hybridBenefits = t.raw("hybrid.benefits")            as string[];
-    const planItems      = t.raw("planning.planItems")         as string[];
-    const briefItems     = t.raw("planning.briefItems")        as string[];
-    const guidesItems    = t.raw("guides.items")               as { title: string; body: string }[];
-    const nextSteps      = t.raw("partnerships.nextSteps")     as string[];
-    const faqItems       = t.raw("faq.items")                  as { question: string; answer: string }[];
+    const eventRows = t.raw("eventDetails.rows") as { label: string; value: string }[];
+    const eventHours = t.raw("eventDetails.hours") as { date: string; time: string }[];
+    const whatIsAreas = t.raw("whatIs.areas") as string[];
+    const sourceItems = t.raw("whatCanSource.sourceItems") as string[];
+    const prepItems = t.raw("whatCanSource.prepItems") as string[];
+    const twinTableRows = t.raw("twinShows.tableRows") as string[][];
+    const twinTips = t.raw("twinShows.tips") as string[];
+    const meetShapes = t.raw("meet.shapes") as string[];
+    const meetDiscuss = t.raw("meet.discussItems") as string[];
+    const bridalItems = t.raw("bridal.discussItems") as string[];
+    const matchingItems = t.raw("matching.discussItems") as string[];
+    const measureItems = t.raw("measurements.considerItems") as string[];
+    const certItems = t.raw("certification.considerItems") as string[];
+    const assessItems = t.raw("inPerson.assessItems") as string[];
+    const hybridRows = t.raw("hybrid.tableRows") as string[][];
+    const hybridBenefits = t.raw("hybrid.benefits") as string[];
+    const planItems = t.raw("planning.planItems") as string[];
+    const briefItems = t.raw("planning.briefItems") as string[];
+    const guidesItems = t.raw("guides.items") as { title: string; body: string }[];
+    const nextSteps = t.raw("partnerships.nextSteps") as string[];
+    const faqItems = t.raw("faq.items") as { question: string; answer: string }[];
 
     const pageUrl = localizedUrl(locale, PATH);
 
@@ -374,7 +374,7 @@ const HkDiamondGemPearlPage = async ({ params }: Props) => {
                     {/* Image + heading row */}
                     <div className="flex flex-col md:flex-row md:items-start gap-12 mb-10">
                         <div className="w-full md:w-1/2">
-                            <Image src={IMAGES.matching} alt={t("meet.imageAlt")} width={700} height={700}
+                            <Image src={IMAGES.meet} alt={t("meet.imageAlt")} width={700} height={700}
                                 sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
                         </div>
                         <div className="w-full md:w-1/2">
@@ -431,7 +431,7 @@ const HkDiamondGemPearlPage = async ({ params }: Props) => {
                         </div>
                     </div>
                     <div className="w-full md:w-1/2">
-                        <Image src={IMAGES.partnerships} alt={t("meet.imageAlt")} width={700} height={700}
+                        <Image src={IMAGES.matching} alt={t("meet.imageAlt")} width={700} height={700}
                             sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
                     </div>
                 </div>
@@ -494,22 +494,26 @@ const HkDiamondGemPearlPage = async ({ params }: Props) => {
 
             {/* ── Section 9: In-Person Assessment ──────────────────────────── */}
             <section className="max-w-7xl mx-auto px-4 py-20">
-                <div className="flex flex-col gap-12 md:flex-row md:items-start">
-                    <div className="w-full md:w-1/2">
-                        <Eyebrow text={t("inPerson.eyebrow")} />
-                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
-                            {t("inPerson.title")}
-                        </h2>
-                        <div className="space-y-4 font-lora text-slate-600 leading-relaxed mb-4">
-                            <p>{t("inPerson.para1")}</p>
-                            <p>{t("inPerson.para2")}</p>
-                        </div>
-                        <p className="font-lora text-slate-600 mb-4">{t("inPerson.assessLabel")}</p>
-                        <BulletList items={assessItems} small />
+                <div className="w-full">
+                    <Eyebrow text={t("inPerson.eyebrow")} />
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                        {t("inPerson.title")}
+                    </h2>
+                    <div className="space-y-4 font-lora text-slate-600 leading-relaxed mb-8">
+                        <p>{t("inPerson.para1")}</p>
+                        <p>{t("inPerson.para2")}</p>
                     </div>
-                    <div className="w-full md:w-1/2">
-                        <Image src={IMAGES.hero} alt={t("inPerson.imageAlt")} width={700} height={700}
-                            sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
+
+                    <div className="border-t border-[#e8ddd0] pt-8">
+                        <p className="font-lora text-[#1f2732] font-semibold mb-6">{t("inPerson.assessLabel")}</p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                            {assessItems.map((item, i) => (
+                                <div key={i} className="flex items-center gap-3.5 bg-[#faf7f2] border border-[#e8ddd0] p-4 transition-all duration-300 hover:border-[#bb923a] hover:bg-white shadow-sm">
+                                    <span className="w-2 h-2 bg-[#bb923a] rotate-45 shrink-0" />
+                                    <span className="font-lora text-sm md:text-base text-[#1f2732] leading-snug">{item}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
@@ -620,7 +624,7 @@ const HkDiamondGemPearlPage = async ({ params }: Props) => {
             <section className="max-w-7xl mx-auto px-4 py-20">
                 <div className="flex flex-col gap-12 md:flex-row md:items-center">
                     <div className="w-full md:w-1/2">
-                        <Image src={IMAGES.meet} alt={t("partnerships.imageAlt")} width={700} height={700}
+                        <Image src={IMAGES.partnerships} alt={t("partnerships.imageAlt")} width={700} height={700}
                             sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
                     </div>
                     <div className="w-full md:w-1/2">

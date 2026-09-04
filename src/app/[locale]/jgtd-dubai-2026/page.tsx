@@ -375,7 +375,7 @@ const JGTDDubaiPage = async ({ params }: Props) => {
                                 <p className="font-lora text-slate-600 leading-relaxed">{t("naturalDiamondSourcing.para3")}</p>
                             </div>
                             <div className="w-full md:w-1/2">
-                                <Image src={IMAGES.diamonds} alt={t("naturalDiamondSourcing.imageAlt")} width={700} height={700} sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
+                                <Image src={IMAGES.matching} alt={t("naturalDiamondSourcing.imageAlt")} width={700} height={700} sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
                             </div>
                         </div>
                     </div>
@@ -460,7 +460,7 @@ const JGTDDubaiPage = async ({ params }: Props) => {
             <section className="max-w-7xl mx-auto px-4 py-20">
                 <div className="flex flex-col md:flex-row-reverse md:items-start gap-12">
                     <div className="w-full md:w-1/2">
-                        <Image src={IMAGES.matching} alt={t("matching.imageAlt")} width={700} height={700} sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
+                        <Image src={IMAGES.partnerships} alt={t("matching.imageAlt")} width={700} height={700} sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
                     </div>
                     <div className="w-full md:w-1/2">
                         <Eyebrow text={t("bridal.eyebrow")} />
@@ -636,20 +636,15 @@ const JGTDDubaiPage = async ({ params }: Props) => {
 
             {/* ── Section 15: Partnerships ──────────────────────────────────── */}
             <section className="max-w-7xl mx-auto px-4 py-20">
-                <div className="flex flex-col gap-12 md:flex-row md:items-start">
-                    <div className="w-full md:w-1/2">
-                        <Image src={IMAGES.partnerships} alt={t("partnerships.imageAlt")} width={700} height={700} sizes="(min-width: 768px) 50vw, 100vw" className="w-full h-auto object-cover shadow-sm" />
-                    </div>
-                    <div className="w-full md:w-1/2">
-                        <Eyebrow text={t("partnerships.eyebrow")} />
-                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
-                            {t("partnerships.title")}
-                        </h2>
-                        <p className="font-lora text-slate-600 leading-relaxed mb-4">{t("partnerships.para1")}</p>
-                        <p className="font-lora text-slate-600 leading-relaxed mb-6">{t("partnerships.para2")}</p>
-                        <BulletList items={nextSteps} small />
-                        <p className="mt-6 font-lora text-slate-600 leading-relaxed">{t("partnerships.para3")}</p>
-                    </div>
+                <div className="w-full">
+                    <Eyebrow text={t("partnerships.eyebrow")} />
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                        {t("partnerships.title")}
+                    </h2>
+                    <p className="font-lora text-slate-600 leading-relaxed mb-4">{t("partnerships.para1")}</p>
+                    <p className="font-lora text-slate-600 leading-relaxed mb-6">{t("partnerships.para2")}</p>
+                    <BulletList items={nextSteps} small />
+                    <p className="mt-6 font-lora text-slate-600 leading-relaxed">{t("partnerships.para3")}</p>
                 </div>
             </section>
 

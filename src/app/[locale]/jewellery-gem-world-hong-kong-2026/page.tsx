@@ -27,8 +27,8 @@ const INVENTORY_HREF = "/inventory";
 
 const IMAGES = {
     banner: "/jewellery-show-london/stand-b41-diamond-tray.webp",
-    hero: "/event-page-images/jewellery-gem-world-hong-kong-2026/1.png",
-    venues: "/event-page-images/jewellery-gem-world-hong-kong-2026/1.png",
+    hero: "/event-page-images/jewellery-gem-world-hong-kong-2026/new-hero.png",
+    venues: "/event-page-images/jewellery-gem-world-hong-kong-2026/2.png",
     trade: "/event-page-images/jewellery-gem-world-hong-kong-2026/3.png",
     diamonds: "/event-page-images/jewellery-gem-world-hong-kong-2026/2.png",
     bridal: "/event-page-images/jewellery-gem-world-hong-kong-2026/4.png",
@@ -477,33 +477,21 @@ const JGWHongKongPage = async ({ params }: Props) => {
 
             {/* ── Section 5: Natural Diamond Sourcing ──────────────────────── */}
             <section className="max-w-7xl mx-auto px-4 py-20">
-                <div className="flex flex-col gap-10 md:flex-row md:items-start">
-                    <div className="w-full md:w-1/2">
-                        <div className="flex items-center gap-3 mb-4">
-                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
-                                {t("naturalDiamondSourcing.eyebrow")}
-                            </h4>
-                            <span className="w-12 h-px bg-primary" />
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
-                            {t("naturalDiamondSourcing.title")}
-                        </h2>
-                        <div className="space-y-4 font-lora text-slate-600 leading-relaxed">
-                            <p>{t("naturalDiamondSourcing.para1")}</p>
-                            <p>{t("naturalDiamondSourcing.para2")}</p>
-                            <p>{t("naturalDiamondSourcing.para3")}</p>
-                            <p>{t("naturalDiamondSourcing.para4")}</p>
-                        </div>
+                <div className="w-full">
+                    <div className="flex items-center gap-3 mb-4">
+                        <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                            {t("naturalDiamondSourcing.eyebrow")}
+                        </h4>
+                        <span className="w-12 h-px bg-primary" />
                     </div>
-                    <div className="w-full md:w-1/2">
-                        <Image
-                            src={IMAGES.diamonds}
-                            alt={t("naturalDiamondSourcing.imageAlt")}
-                            width={1100}
-                            height={1100}
-                            sizes="(min-width: 768px) 50vw, 100vw"
-                            className="w-full h-auto object-cover shadow-sm"
-                        />
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                        {t("naturalDiamondSourcing.title")}
+                    </h2>
+                    <div className="space-y-4 font-lora text-slate-600 leading-relaxed">
+                        <p>{t("naturalDiamondSourcing.para1")}</p>
+                        <p>{t("naturalDiamondSourcing.para2")}</p>
+                        <p>{t("naturalDiamondSourcing.para3")}</p>
+                        <p>{t("naturalDiamondSourcing.para4")}</p>
                     </div>
                 </div>
             </section>
@@ -548,40 +536,28 @@ const JGWHongKongPage = async ({ params }: Props) => {
 
             {/* ── Section 6b: Bridal & fine-jewellery manufacturing ─────────── */}
             <section className="max-w-7xl mx-auto px-4 py-20">
-                <div className="flex flex-col gap-10 md:flex-row-reverse md:items-start mb-8">
-                    <div className="w-full md:w-1/2">
-                        <div className="flex items-center gap-3 mb-4">
-                            <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
-                                {t("bridal.eyebrow")}
-                            </h4>
-                            <span className="w-12 h-px bg-primary" />
-                        </div>
-                        <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
-                            {t("bridal.title")}
-                        </h2>
-                        <div className="space-y-4 font-lora text-slate-600 leading-relaxed mb-6">
-                            <p>{t("bridal.para1")}</p>
-                            <p>{t("bridal.para2")}</p>
-                        </div>
-                        <ul className="space-y-2 font-lora text-slate-600">
-                            {bridalItems.map((item, i) => (
-                                <li key={i} className="flex items-start gap-3">
-                                    <span className="mt-2.5 w-1.5 h-1.5 bg-[#bb923a] shrink-0 rotate-45" />
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
+                <div className="w-full">
+                    <div className="flex items-center gap-3 mb-4">
+                        <h4 className="text-primary font-bold font-lora uppercase tracking-[0.2em] text-xs md:text-sm">
+                            {t("bridal.eyebrow")}
+                        </h4>
+                        <span className="w-12 h-px bg-primary" />
                     </div>
-                    <div className="w-full md:w-1/2">
-                        <Image
-                            src={IMAGES.bridal}
-                            alt={t("bridal.imageAlt")}
-                            width={1100}
-                            height={1100}
-                            sizes="(min-width: 768px) 50vw, 100vw"
-                            className="w-full h-auto object-cover shadow-sm"
-                        />
+                    <h2 className="text-4xl md:text-5xl font-cormorantGaramond text-[#1f2732] mb-6 leading-[1.1]">
+                        {t("bridal.title")}
+                    </h2>
+                    <div className="space-y-4 font-lora text-slate-600 leading-relaxed mb-6">
+                        <p>{t("bridal.para1")}</p>
+                        <p>{t("bridal.para2")}</p>
                     </div>
+                    <ul className="space-y-2 font-lora text-slate-600 mb-6">
+                        {bridalItems.map((item, i) => (
+                            <li key={i} className="flex items-start gap-3">
+                                <span className="mt-2.5 w-1.5 h-1.5 bg-[#bb923a] shrink-0 rotate-45" />
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
                 <p className="w-full font-lora text-slate-600 leading-relaxed">
                     {t("bridal.para3")}

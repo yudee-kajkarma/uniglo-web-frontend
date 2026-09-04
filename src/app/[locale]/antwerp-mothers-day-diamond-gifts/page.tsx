@@ -510,18 +510,55 @@ const AntwerpMothersDayPage = async ({ params }: Props) => {
                         {t("purchaseInfo.title")}
                     </h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        {purchaseItems.map((item) => (
-                            <div key={item.title}>
-                                <h3 className="font-cormorantGaramond text-2xl text-[#1f2732] mb-3">
-                                    {item.title}
-                                </h3>
-                                <p className="font-lora text-slate-600 leading-relaxed">
-                                    {item.body}
-                                </p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {purchaseItems.slice(0, 3).map((item, index) => (
+                            <div
+                                key={item.title}
+                                className="bg-white border border-[#e8ddd0] border-t-2 border-t-[#bb923a] p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between mb-4">
+                                        <span className="font-lato text-xs uppercase tracking-[0.2em] text-[#bb923a] font-bold">
+                                            0{index + 1}
+                                        </span>
+                                        <span className="w-1.5 h-1.5 bg-[#bb923a] rotate-45" />
+                                    </div>
+                                    <h3 className="font-cormorantGaramond text-2xl text-[#1f2732] mb-3 leading-snug">
+                                        {item.title}
+                                    </h3>
+                                    <p className="font-lora text-slate-600 leading-relaxed text-sm md:text-base">
+                                        {item.body}
+                                    </p>
+                                </div>
                             </div>
                         ))}
                     </div>
+
+                    {purchaseItems.length > 3 && (
+                        <div className="mt-8 flex flex-col md:flex-row justify-center gap-8">
+                            {purchaseItems.slice(3).map((item, index) => (
+                                <div
+                                    key={item.title}
+                                    className="w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.333rem)] bg-white border border-[#e8ddd0] border-t-2 border-t-[#bb923a] p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300"
+                                >
+                                    <div>
+                                        <div className="flex items-center justify-between mb-4">
+                                            <span className="font-lato text-xs uppercase tracking-[0.2em] text-[#bb923a] font-bold">
+                                                0{index + 4}
+                                            </span>
+                                            <span className="w-1.5 h-1.5 bg-[#bb923a] rotate-45" />
+                                        </div>
+                                        <h3 className="font-cormorantGaramond text-2xl text-[#1f2732] mb-3 leading-snug">
+                                            {item.title}
+                                        </h3>
+                                        <p className="font-lora text-slate-600 leading-relaxed text-sm md:text-base">
+                                            {item.body}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
 
